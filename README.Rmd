@@ -1,58 +1,54 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+title: "CTFS"
+output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "README-"
-)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/forestgeo/ctfs.svg?branch=master)](https://travis-ci.org/forestgeo/ctfs)
+This repository provides a shortcut to the original `CTFS` R Package, hosted at: http://ctfs.si.edu/Public/CTFSRPackage/ (Richard Condit). On that website you can learn more.
 
+### Installation
 
-# ctfs
+From [this project's GitHub](https://github.com/forestgeo/CTFS) page:
 
-The goal of `ctfs` is to provide tools for the analysis of forest dynamics. The target audience is the [ForestGEO](http://www.forestgeo.si.edu/) community.
+- download ZIP file, 
+- unzip, and
+- place the resulting folder wherever you want.
 
-## Installation
+![image](https://cloud.githubusercontent.com/assets/5856545/23595931/d620e45a-01f3-11e7-9072-4a5fd7178066.png)
 
-The original package is available [here](http://ctfs.si.edu/Public/CTFSRPackage/). Or install `ctfs` from GitHub with:
+Assuming you have R Studio installed, open the file CTFS.Rproj
 
-```R
-# insltall.packages("devtools")
-devtools::install_github("forestgeo/ctfs")
-```
+![image](https://cloud.githubusercontent.com/assets/5856545/23595092/295c4a94-01ed-11e7-89da-3121848d54ca.png)
 
-To install from a private GitHub repository follow instructions in `?install_github`.
+This will:
 
-```r
-# To install from a private repo, use auth_token with a token
-# from https://github.com/settings/tokens. You only need the
-# repo scope. Best practice is to save your PAT in env var called
-# GITHUB_PAT.
-install_github("hadley/private", auth_token = "abc")
-```
+- open the CTFS project in R Studio,
+- set the working directory where CTFS.Rproj lives,
+- load all functions in the `CTFS` R Package.
 
-## References
+![image](https://cloud.githubusercontent.com/assets/5856545/23595404/96d75882-01ef-11e7-8703-c8e2791850a8.png)
 
-For an in depth description of CTFS-ForestGEO, read:
+This will also load these example datasets:
 
 ```
-@article{anderson2015ctfs,
-  title={CTFS-ForestGEO: a worldwide network monitoring forests in an era of global change},
-  author={Anderson-Teixeira, Kristina J and Davies, Stuart J and Bennett, Amy C and Gonzalez-Akre, Erika B and Muller-Landau, Helene C and Joseph Wright, S and Abu Salim, Kamariah and Almeyda Zambrano, Ang{\'e}lica M and Alonso, Alfonso and Baltzer, Jennifer L and others},
-  journal={Global Change Biology},
-  volume={21},
-  number={2},
-  pages={528--549},
-  year={2015},
-  publisher={Wiley Online Library}
-}
+[1] "bci.spptable.rda"  
+[2] "bci.stem1.rda"     
+[3] "bci.stem8.rda"     
+[4] "bci.tree1.rda"     
+[5] "bci.tree8.rda"     
 ```
+
+### Learn more about
+
+- [R Studio](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/)
+
+- R Studio projects
+
+    - [introduction](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+    - [webinar](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-change-part-1/)
+
+Contact maurolepore@gmail.com
+
