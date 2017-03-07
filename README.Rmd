@@ -27,7 +27,8 @@ The original package is available [here](http://ctfs.si.edu/Public/CTFSRPackage/
 
 ```R
 # insltall.packages("devtools")
-devtools::install_github("forestgeo/ctfs")
+# Install branch dev
+devtools::install_github("forestgeo/ctfs", ref = "dev")
 ```
 
 To install from a private GitHub repository follow instructions in `?install_github`.
