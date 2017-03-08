@@ -17,7 +17,7 @@ From [this project's GitHub](https://github.com/forestgeo/ctfs) page:
 - unzip, and
 - place the resulting folder wherever you want.
 
-![image](https://cloud.githubusercontent.com/assets/5856545/23595931/d620e45a-01f3-11e7-9072-4a5fd7178066.png)
+![image](https://cloud.githubusercontent.com/assets/5856545/23711748/bf594652-03ee-11e7-9c21-97c870da99af.png)
 
 Assuming you have R Studio installed, open the file ctfs.Rproj
 
