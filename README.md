@@ -1,11 +1,11 @@
-CTFS
+ctfs
 ================
 
-This repository provides a shortcut to the original `CTFS` R Package, hosted at: <http://ctfs.si.edu/Public/CTFSRPackage/> (Richard Condit). On that website you can learn more.
+This repository provides a shortcut to the original `ctfs` R Package, hosted at: <http://ctfs.si.edu/Public/CTFSRPackage/> (Richard Condit). On that website you can learn more.
 
 ### Installation
 
-From [this project's GitHub](https://github.com/forestgeo/CTFS) page:
+From [this project's GitHub](https://github.com/forestgeo/ctfs) page:
 
 -   download ZIP file,
 -   unzip, and
@@ -13,15 +13,15 @@ From [this project's GitHub](https://github.com/forestgeo/CTFS) page:
 
 ![image](https://cloud.githubusercontent.com/assets/5856545/23595931/d620e45a-01f3-11e7-9072-4a5fd7178066.png)
 
-Assuming you have R Studio installed, open the file CTFS.Rproj
+Assuming you have R Studio installed, open the file ctfs.Rproj
 
 ![image](https://cloud.githubusercontent.com/assets/5856545/23595092/295c4a94-01ed-11e7-89da-3121848d54ca.png)
 
 This will:
 
--   open the CTFS project in R Studio,
--   set the working directory where CTFS.Rproj lives,
--   load all functions in the `CTFS` R Package.
+-   open the ctfs project in R Studio,
+-   set the working directory where ctfs.Rproj lives,
+-   load all functions in the `ctfs` R Package.
 
 ![image](https://cloud.githubusercontent.com/assets/5856545/23595404/96d75882-01ef-11e7-8703-c8e2791850a8.png)
 
