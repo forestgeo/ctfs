@@ -21,7 +21,7 @@ From [this project's GitHub](https://github.com/forestgeo/ctfs) page:
 
 Assuming you have R Studio installed, open the file ctfs.Rproj
 
-![image](https://cloud.githubusercontent.com/assets/5856545/23595092/295c4a94-01ed-11e7-89da-3121848d54ca.png)
+![image](https://cloud.githubusercontent.com/assets/5856545/23711876/2045631a-03ef-11e7-988e-a6d3a77faa92.png)
 
 This will:
 
