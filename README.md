@@ -3,7 +3,7 @@ ctfs
 [Richard Condit](conditr@gmail.com)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-A mimimal package containing the original CTFS R Package (Richard Condit) in `data/`. Its main purpose is to be programatically imported by other packages developed by ForestGEO\](<http://www.forestgeo.si.edu/>). If you need the original CTFS R Package (Richard Condit) visit <http://ctfs.si.edu/Public/CTFSRPackage/>, were not only functions but also documentation is available.
+A mimimal package containing the original CTFS R Package (Richard Condit) in `data/`. Its main purpose is to be programatically installed from R to facilitate the workflow with other packages developed by [ForestGEO](http://www.forestgeo.si.edu/). If you need the original CTFS R Package (Richard Condit) visit <http://ctfs.si.edu/Public/CTFSRPackage/>, were not only functions but also documentation is available.
 
 Installation
 ------------
