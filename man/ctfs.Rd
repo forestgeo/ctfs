@@ -6,12 +6,11 @@
 \alias{ctfs-package}
 \title{A Mimimal Package Containing the Original CTFS R Package (Richard Condit)}
 \description{
-ctfs is to be programatically imported by other packages developed by
-\href{http://www.forestgeo.si.edu/}{ForestGEO}. If you need the original CTFS R
-Package (\href{conditr@gmail.com}{Richard Condit}) visit
-\link{http://ctfs.si.edu/Public/CTFSRPackage/}
-(http://ctfs.si.edu/Public/CTFSRPackage/), were not only functions but also
-documentation is available.
+ctfs is to be programatically imported by other packages
+developed by \href{http://www.forestgeo.si.edu/}{ForestGEO}. If you need the
+original CTFS R Package \href{conditr@gmail.com}{Richard Condit}) visit
+\url{http://ctfs.si.edu/Public/CTFSRPackage/}, were not only functions but
+also documentation is available.
 
 \strong{Acknowledgement}
 

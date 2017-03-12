@@ -1,12 +1,10 @@
 #' A Mimimal Package Containing the Original CTFS R Package (Richard Condit)
 #'
-#' @description
-#' ctfs is to be programatically imported by other packages developed by
-#' [ForestGEO](http://www.forestgeo.si.edu/). If you need the original CTFS R
-#' Package ([Richard Condit](conditr@gmail.com)) visit
-#' [http://ctfs.si.edu/Public/CTFSRPackage/]
-#' (http://ctfs.si.edu/Public/CTFSRPackage/), were not only functions but also
-#' documentation is available.
+#' @description ctfs is to be programatically imported by other packages
+#' developed by [ForestGEO](http://www.forestgeo.si.edu/). If you need the
+#' original CTFS R Package [Richard Condit](conditr@gmail.com)) visit
+#' \url{http://ctfs.si.edu/Public/CTFSRPackage/}, were not only functions but
+#' also documentation is available.
 #'
 #' **Acknowledgement**
 #'
