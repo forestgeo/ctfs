@@ -11,3 +11,5 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 Imports: date
 RoxygenNote: 6.0.1
+URL: https://github.com/forestgeo/ctfs
+BugReports: https://github.com/forestgeo/ctfs/issues
