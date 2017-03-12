@@ -3,7 +3,7 @@ ctfs
 [Richard Condit](conditr@gmail.com)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-A mimimal package containing the source code of the original CTFS R Package (Richard Condit) in `R/`. Files were extracted from their original folders and renamed to preserve their folder source with the format `<FOLDERNAME>_<FILENAME>.R`.
+A branch in development with mimimal package containing the source code of the original CTFS R Package (Richard Condit) in `R/`. Files were extracted from their original folders and renamed to preserve their folder source with the format `<FOLDERNAME>_<FILENAME>.R`.
 
 If you need the original CTFS R Package (Richard Condit) visit <http://ctfs.si.edu/Public/CTFSRPackage/>.
 
