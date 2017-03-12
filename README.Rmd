@@ -22,12 +22,10 @@ If you are authorized (via [Stuart Davies](daviess@si.edu)), you can install ctf
 
 ```R
 # install.packages("devtools")
-devtools::install_github("forestgeo/ctfs", auth_token = "<YOUR_TOKEN>")
+GUEST_PAT <- "d60277dad4177c278455e885366a7170e22ae092"
+devtools::install_github("forestgeo/ctfs", auth_token = GUEST_PAT)
+library(ctfs)
 ```
-
-> To install from a private repo, generate a personal access token (PAT) in https://github.com/settings/tokens and supply to this argument. This is safer than using a password because you can easily delete a PAT without affecting any others. Defaults to the GITHUB_PAT environment variable.
-
-`?devtools::install_github`
 
 ### Reference
 
