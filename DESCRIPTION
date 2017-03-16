@@ -4,7 +4,8 @@ Version: 0.0.0.9000
 Authors@R: person("Richard", "Condit", email = "conditr@gmail.com", 
     role = c("aut", "cre"))
 Description: Tools to analyse forest dynamics.
-Depends: R (>= 3.3.3)
+Depends: 
+    R (>= 3.1.2)
 License: Only authorized users. If in doubt don't use it and ask the author.
 Encoding: UTF-8
 LazyData: true
