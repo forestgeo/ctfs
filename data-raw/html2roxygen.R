@@ -10,8 +10,8 @@ walk(pkgs, library, character.only = TRUE)
 
 # Directories -------------------------------------------------------------
 
-directory_from <- "./R/"
-directory_to   <- "./data-raw/done/"
+directory_from   <- "./data-raw/R_from/"
+directory_to   <- "./data-raw/R_to/"
 
 from <- map2_chr(directory_from, dir(directory_from), paste0)
 to   <- map2_chr(directory_to,   dir(directory_from), paste0)
@@ -27,7 +27,7 @@ extract_tag <- function(path) {
     unique
 }
 
-base <- "./R/"
+base <- directory_from
 paths <- paste0(base, dir(base))
 tags2rm <- map(paths, read_file) %>% 
   map(extract_tag) %>%
