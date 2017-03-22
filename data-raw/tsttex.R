@@ -1,4 +1,4 @@
-#' Title: ' abundance
+#' Title: abundance
 #'
 #'
 #' @description
@@ -36,10 +36,10 @@
 #' head(BAperSpecies$ba)
 #' head(BAperSpecies$meandate)
 #'
-#' <source>
-#' xxxxx
 #' 
-#' Title: ' abundanceperquad
+#' }
+#' 
+#' Title: abundanceperquad
 #'
 #'
 #' @description
@@ -59,10 +59,10 @@
 #' apply(Nperquad$abund,2,countspp)
 #' plot(colSums(Nperquad$abund),apply(Nperquad$abund,2,countspp))
 #'
-#' <source>
-#' xxxxx
 #' 
-#' Title: ' abundance.spp
+#' }
+#' 
+#' Title: abundance.spp
 #'
 #'
 #' @description
@@ -75,10 +75,10 @@
 #' @examples
 #' \dontrun{
 #'
-#' <source>
-#' xxxxx
 #' 
-#' Title: ' pop.change
+#' }
+#' 
+#' Title: pop.change
 #'
 #'
 #' @description
@@ -112,12 +112,12 @@
 #' change.table=assemble.demography(bcichange,type='a')
 #' head(change.table)
 #'
-#' <source>
-#' xxxxx
+#' 
+#' }
 #' 
 #'
 #'  
-#' Title: ' pop.change.dbh
+#' Title: pop.change.dbh
 #'
 #'
 #' @description
@@ -138,10 +138,10 @@
 #' BAchangePerSpp=pop.change.dbh(bci.full5,bci.full6,classbreak=c(10,100),split=bci.full5$sp)
 #' head(BAchangePerSpp$ba)
 #'
-#' <source>
-#' xxxxx
 #' 
-#' Title: ' ba
+#' }
+#' 
+#' Title: ba
 #'
 #'
 #' @description
@@ -152,10 +152,10 @@
 #' @examples
 #' \dontrun{
 #'
-#' <source>
-#' xxxxx
 #' 
-#' Title: ' basum
+#' }
+#' 
+#' Title: basum
 #'
 #'
 #' @description
@@ -165,10 +165,10 @@
 #' @examples
 #' \dontrun{
 #'
-#' <source>
-#' xxxxx
 #' 
-#' Title: ' abund.manycensus
+#' }
+#' 
+#' Title: abund.manycensus
 #'
 #'
 #' @description
@@ -187,6 +187,6 @@
 #' apply(N,2,countspp)
 #' N=abund.manycensus(allcns=list(bci.full5,bci.full6),mindbh=10,type='abund',excludespp=c('uniden','tremxx'),excludestatus=NULL)
 #'
-#' <source>
-#' xxxxx
+#' 
+#' }
 #' 

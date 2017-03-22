@@ -1,4 +1,9 @@
-#' Title: ' model.littleR.Gibbs
+
+#' #' 
+'#' '
+
+
+#' model.littleR.Gibbs
 #'#'
 #' @description
 #' The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
@@ -35,10 +40,14 @@
 #' Alternate distributions for little r:
 #' power67=model.littleR.Gibbs(cns1=bci.full6,cns2=bci.full7,modeltype='asympower',mindbh=10,start.param=c(-3,.8,.01,-.5),  bad.modelparam=bad.asympower.param,showstep=25)
 #' gauss67=model.littleR.Gibbs(cns1=bci.full6,cns2=bci.full7,modeltype='asymnorm',mindbh=10,start.param=c(-3,.8,.01,100),  bad.modelparam=bad.asymexp.param,showstep=25)
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' full.abundmodel.llike
+#' 
+'model.littleR.Gibbs'
+
+
+#' full.abundmodel.llike
 #'#'
 #' @description
 #' With the table of abundances, hyper-parameter estimates, and estimated mortality rate and population growth for each species, calculates full model likelihood.
@@ -47,10 +56,14 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' prob.N1
+#' 
+'full.abundmodel.llike'
+
+
+#' prob.N1
 #'#'
 #' @description
 #' Calculates the probability of observing N2 given N1, assuming a community-wide
@@ -61,10 +74,14 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' spmean.mort.abundGibbs
+#' 
+'prob.N1'
+
+
+#' spmean.mort.abundGibbs
 #'#'
 #' @description
 #' Likelihood function for a species mean (a scalar, one species at a time), given logMu and logSD and the data, N and S 
@@ -75,10 +92,14 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' hyper.abundGibbs
+#' 
+'spmean.mort.abundGibbs'
+
+
+#' hyper.abundGibbs
 #'#'
 #' @description
 #' Likelihood function for hyperparameters of abundance model, given the species values of little.r (latter a vector). Simply calculates
@@ -87,10 +108,14 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' hyper.mortGibbs
+#' 
+'hyper.abundGibbs'
+
+
+#' hyper.mortGibbs
 #'#'
 #' @description
 #' Likelihood function for logMu and logSD, given the species means (latter a vector). Simply calculates
@@ -99,10 +124,14 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' bad.asympower.param
+#' 
+'hyper.mortGibbs'
+
+
+#' bad.asympower.param
 #'#'
 #' @description
 #' The 3 parameters submitted to hyper.abundGibbs have to be checked, in case dasympower is used. The second and third, the
@@ -111,20 +140,28 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' bad.asymexp.param
+#' 
+'bad.asympower.param'
+
+
+#' bad.asymexp.param
 #'#'
 #' @description
 #' For either the Gaussian, or asymexp, the SD parameters must be > 0. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' fitSeveralAbundModel
+#' 
+'bad.asymexp.param'
+
+
+#' fitSeveralAbundModel
 #'#'
 #' @description
 #' Run model.littleR.Gibbs for a series of census databases, for every successive pair, then the first to the last. Then repeat for 10 times the initial
@@ -132,10 +169,14 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' graph.abundmodel
+#' 
+'fitSeveralAbundModel'
+
+
+#' graph.abundmodel
 #'#'
 #' @description
 #' Output histograms of little.r across species, observed and fitted, using the result of
@@ -164,26 +205,35 @@
 #'#' 
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' find.xaxis.hist
+#' 
+'graph.abundmodel'
+
+
+#' find.xaxis.hist
 #'#'
 #' @description
 #' Given an abundance fit and x axis range and divisions, return a sequence of x values for drawing the histogram. Used as a subroutine inside graph.abundmodel.
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#' Title: ' abundmodel.fit
+#' 
+'find.xaxis.hist'
+
+
+#' abundmodel.fit
 #'#'
 #' @description
 #' Simply return the modeled histogram for any set of parameters. Used as a subroutine inside graph.abundmodel.
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#'
+#'
+'abundmodel.fit'

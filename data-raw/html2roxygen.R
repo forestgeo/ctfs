@@ -38,28 +38,31 @@ tags2rm <- map(paths, read_file) %>%
 
 tags2rm <- str_c(tags2rm[[1]], collapse = "|")
 
-
-
-
-
-
-# replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
-#   text <- readr::read_file(path_from)
-#   text <- stringr::str_replace_all(text, pattern, replacement)
-#   readr::write_file(text, path_to, append = TRUE)
-# }
-
 # replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
 replace_stuff <- function(path_from, pattern, replacement) {
   text <- readr::read_file(path_from)
   stringr::str_replace_all(text, pattern, replacement)
 }
 
+# Add function name to the end, to document names -------------------------
+
+name_function <- function(string) {
+  fun_names <- str_split(string, "Title: ") %>% 
+    # unlist %>% 
+    map(str_extract, pattern = ".*") %>% 
+    unlist
+  fun_body <- str_split(string, "Title: ") %>% 
+    unlist
+  
+  tibble(body = fun_body, names = fun_names) %>% 
+    transmute(edited = paste0("\n#\' ", body, "\n\'", names, "\'\r\n")) %>% 
+    map_chr(paste0, collapse = "\r\n")
+  }
 
 # Wrangle -----------------------------------------------------------------
 
 # Remove end tags
-lst <- map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
+map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
   # Remove @export
   map(replace_stuff, pattern = "' @export", replacement = "") %>% 
   # Remove function tag
@@ -96,32 +99,13 @@ lst <- map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "<source>\r?([^#' Title:]*)", replacement = "<source>\r") %>%
   # Replace } by xxxxx
   map(replace_stuff, pattern = "\n#\' \\}\n", replacement = "\n#\'\r") %>% 
-
-    # Remove <source>
+  # Remove <source>
   map(replace_stuff, pattern = "<source>", replacement = "") %>% 
-
+  # Remove  ' in Title
+  map(replace_stuff, pattern = "Title: \' ", replacement = "Title: ") %>% 
   
+  # Let devtools document function names by adding functions name to the end
+  map(name_function) %>% 
   
-  # Removes source
-  map(replace_stuff, pattern = "\\}", replacement = "xxxxx")
-
-    
-    
-    # Save
-walk2(lst, to, write_file, append = TRUE)
-
-
-
-
-
-name_fun <- function(path_from, extpatt, pattern, replacement) {
-  text <- readr::read_file(path_from)
-  stringr::str_extract(text, extpatt)
-  stringr::str_replace_all(text, pattern, replacement)
-}
-
-
-
-
-
-
+  # Save
+  walk2(to, write_file, append = TRUE)

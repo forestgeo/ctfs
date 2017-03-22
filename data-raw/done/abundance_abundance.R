@@ -1,4 +1,9 @@
-#' Title: ' abundance
+
+#' #' 
+'#' '
+
+
+#' abundance
 #'#'
 #' @description
 #' Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables. 
@@ -32,9 +37,13 @@
 #' BAperSpecies=abundance(bci.stem5,type='ba',mindbh=10,split1=bci.stem5$sp)
 #' head(BAperSpecies$ba)
 #' head(BAperSpecies$meandate)
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' abundanceperquad
+#' 
+'abundance'
+
+
+#' abundanceperquad
 #'#'
 #' @description
 #' Finds abundance, basal area, or agb of every species per square quadrat of any size; plotdim is the x dimension then y dimension of the plot and
@@ -51,9 +60,13 @@
 #' colSums(Nperquad$abund)
 #' apply(Nperquad$abund,2,countspp)
 #' plot(colSums(Nperquad$abund),apply(Nperquad$abund,2,countspp))
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' abundance.spp
+#' 
+'abundanceperquad'
+
+
+#' abundance.spp
 #'#'
 #' @description
 #' A wrapper to calculate total abundance (or ba or agb) for each species in given dbh categories. The dbh categories
@@ -62,9 +75,13 @@
 #'#' 
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' pop.change
+#' 
+'abundance.spp'
+
+
+#' pop.change
 #'#'
 #' @description
 #' Finds abundance, basal area, or agb in two censuses and the rate of change between them. 
@@ -93,10 +110,14 @@
 #' head(bcichange$N.1)
 #' change.table=assemble.demography(bcichange,type='a')
 #' head(change.table)
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'  
-#' Title: ' pop.change.dbh
+#' 
+'pop.change'
+
+
+#' pop.change.dbh
 #'#'
 #' @description
 #' Finds abundance or basal area in two censuses and the rate of change between them, in several dbh categories. 
@@ -113,9 +134,13 @@
 #' Nchange$abund
 #' BAchangePerSpp=pop.change.dbh(bci.full5,bci.full6,classbreak=c(10,100),split=bci.full5$sp)
 #' head(BAchangePerSpp$ba)
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' ba
+#' 
+'pop.change.dbh'
+
+
+#' ba
 #'#'
 #' @description
 #' Calculates the individual basal areas (in square meters) for all submitted dbhs. The dbh units must be submitted, either
@@ -123,18 +148,26 @@
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' basum
+#' 
+'ba'
+
+
+#' basum
 #'#'
 #' @description
 #' Returns the basal area summed over all submitted dbhs. NAs can be included, as sum will be completed with na.rm=TRUE.
 #'#'
 #' @examples
 #' \dontrun{
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' abund.manycensus
+#' 
+'basum'
+
+
+#' abund.manycensus
 #'#'
 #' @description
 #' Collect abundances of all species across several censuses. The full R census tables are submitted as a list, as many as desired. The
@@ -150,5 +183,7 @@
 #' colSums(N)
 #' apply(N,2,countspp)
 #' N=abund.manycensus(allcns=list(bci.full5,bci.full6),mindbh=10,type='abund',excludespp=c('uniden','tremxx'),excludestatus=NULL)
-#'#' #' xxxxx
+#'#' #' }
 #' 
+
+'abund.manycensus'

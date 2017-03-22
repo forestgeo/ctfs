@@ -1,4 +1,9 @@
-#' Title: ' biomass.CTFSdb
+
+#' #' 
+'#' '
+
+
+#' biomass.CTFSdb
 #'#'
 #' @description
 #' Calculate biomass from existing R-formatted tables for trees and stems using dbh allometry. By default, it uses the Chave (2005) equations.
@@ -23,9 +28,13 @@
 #' CTFSplot("bci","stem",census=1) 
 #' attach("biomass/wsg.ctfs.Rdata") 
 #' newtable=biomass.CTFSdb(RStemTable=bci.stem1,RTreeTable=bci.full1)
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' density.ind
+#' 
+'biomass.CTFSdb'
+
+
+#' density.ind
 #'#'
 #' @description
 #' Create a vector of wood density for each individual tree based on the species name and plot. The table of individuals, called df,
@@ -43,9 +52,13 @@
 #' wooddens=density.ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2) #'
 #' mean(wooddens,na.rm=TRUE) #'
 #' length(which(is.na(wooddens)))
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' AGB.ind
+#' 
+'density.ind'
+
+
+#' AGB.ind
 #'#'
 #' @description
 #' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types. 
@@ -62,9 +75,13 @@
 #' biomass=AGB.ind(df=bci.full1) #'
 #' hist(log(biomass),breaks=100) #'
 #' sum(biomass,na.rm=TRUE)/50
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' AGB.tree
+#' 
+'AGB.ind'
+
+
+#' AGB.tree
 #'#'
 #' @description
 #' Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs. 
@@ -79,9 +96,13 @@
 #'#' @examples
 #' \dontrun{
 #'#' 
-#' #' xxxxx
+#' #' }
 #' 
-#' Title: ' Chave.AGB
+#' 
+'AGB.tree'
+
+
+#' Chave.AGB
 #'#'
 #' @description
 #' The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All dbhs are submitted as a vector, and a vector of wood density
@@ -102,9 +123,13 @@
 #' AGBwet=Chave.AGB(dbh=testdbh,forest="wet") #'
 #' plot(testdbh,AGBmoist,col="green",type="l") #'
 #' lines(testdbh,AGBwet,col="blue")
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' agb.model
+#' 
+'Chave.AGB'
+
+
+#' agb.model
 #'#'
 #' @description
 #' Calculates biomass from density, height, and dbh. Requires just two parameters, following Chave (2005). The parameters can be
@@ -115,9 +140,13 @@
 #' @examples
 #' \dontrun{
 #' agb.model(dbh=c(1,1,2),density=c(.6,.6,.5),height=c(2,3,4),param=c(.0501,1))
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' agb.dbhmodel
+#' 
+'agb.model'
+
+
+#' agb.dbhmodel
 #'#'
 #' @description
 #' Calculates biomass from density and diameter, without height. Requires four parameters, following Chave (2005). 
@@ -128,9 +157,13 @@
 #' @examples
 #' \dontrun{
 #' agb.dbhmodel(dbh=c(1,1,2),density=c(.6,.6,.5),param=c(-1.499,2.148,0.207,-0.0281)) 
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' predht.asym
+#' 
+'agb.dbhmodel'
+
+
+#' predht.asym
 #'#'
 #' @description
 #' An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh. 
@@ -144,9 +177,13 @@
 #' htparam=c(41.7,.057,.748) #'
 #' d=c(1,2,5,10,20,50) #'
 #' ht=predht.asym(dbh=d,param=htparam)
-#'#' #' xxxxx
+#'#' #' }
 #' 
-#' Title: ' biomass.change
+#' 
+'predht.asym'
+
+
+#' biomass.change
 #'#'
 #' @description
 #' Finds biomass in two censuses and change between them. The submitted dataframes are exactly the standard CTFS R Analytical tables,
@@ -181,10 +218,14 @@
 #' hist(rate,breaks=50) #'
 #' summary(rate[is.finite(rate)]) #'
 #' subset(deltaAGB.table,is.infinite(rate)) #'
-#'#' #' xxxxx
+#'#' #' }
 #' 
 #'#'
-#'#' Title: ' AGB.dbtable
+#'#' 
+'biomass.change'
+
+
+#' AGB.dbtable
 #'#'
 #' @description
 #' This function looks up the database named AGB in the MySQL server to get a table of biomass per stem. The MySQL table must have treeID, stemID, censusID,
@@ -195,5 +236,7 @@
 #'#' @examples
 #' \dontrun{
 #'#' 
-#' #' xxxxx
+#' #' }
 #' 
+
+'AGB.dbtable'
