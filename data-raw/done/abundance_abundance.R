@@ -1,6 +1,5 @@
 #' Title: ' abundance
-#' }
-#'
+#'#'
 #' @description
 #' Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables. 
 #' The categorical variables must be submitted as vectors whose length
@@ -14,16 +13,14 @@
 #' The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of 
 #' one or two dimensions, depending on how many split variables were submitted:
 #' each of the dimensions of the array handles one of the categorical variables.  
-#' }
-#' @param censdata an R Analytical Table for a full plot census, either full or stem
+#'#' @param censdata an R Analytical Table for a full plot census, either full or stem
 #' @param type must be either 'abund', 'ba', or 'agb'
 #' @param alivecode all codes defining alive; the default 'A' is the standard CTFS designation for living trees or stems
 #' @param mindbh the minimum diameter above which the counts are done; if NULL, all (living) are included
 #' @param dbhunit 'cm' or 'mm', only used for basal area
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual
-#' }
-#' 
+#'#' 
 #' @examples
 #' \dontrun{
 #' CTFSplot('bci',5:6,'full')
@@ -35,12 +32,10 @@
 #' BAperSpecies=abundance(bci.stem5,type='ba',mindbh=10,split1=bci.stem5$sp)
 #' head(BAperSpecies$ba)
 #' head(BAperSpecies$meandate)
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 
 #' Title: ' abundanceperquad
-#' }
-#'
+#'#'
 #' @description
 #' Finds abundance, basal area, or agb of every species per square quadrat of any size; plotdim is the x dimension then y dimension of the plot and
 #' must be set correctly; gridsize is the quadrat dimension. The plot is divided into a checkerboard of non-overlapping, space-filling squares.
@@ -49,35 +44,28 @@
 #' omitted from the calculations. 
 #' See abundance() for description of the other arguments and return value. The array of abundances per quadrat is useful for similarity, counting
 #' species and stems per quadrat, etc.
-#' }
-#'
+#'#'
 #' @examples
 #' \dontrun{
 #' Nperquad=abundanceperquad(bci.full6,plotdim=c(1000,500),gridsize=100,type='abund')
 #' colSums(Nperquad$abund)
 #' apply(Nperquad$abund,2,countspp)
 #' plot(colSums(Nperquad$abund),apply(Nperquad$abund,2,countspp))
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 
 #' Title: ' abundance.spp
-#' }
-#'
+#'#'
 #' @description
 #' A wrapper to calculate total abundance (or ba or agb) for each species in given dbh categories. The dbh categories
 #' are set with dbhbreaks. See abundance() for description of the other arguments and return value.
-#' }
-#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last category will be >= the final division
-#' }
-#' 
+#'#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last category will be >= the final division
+#'#' 
 #' @examples
 #' \dontrun{
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 
 #' Title: ' pop.change
-#' }
-#'
+#'#'
 #' @description
 #' Finds abundance, basal area, or agb in two censuses and the rate of change between them. 
 #' Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
@@ -96,26 +84,20 @@
 #' @param date2 mean date of second census in a matching array
 #' @param interval the time interval in years in a matching array
 #' @param little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
-#' }
-#' This list can be submitted to <i>assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
-#' }
-#' See abundance()
-#' }
-#' @examples
+#'#' This list can be submitted to <i>assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
+#'#' See abundance()
+#'#' @examples
 #' \dontrun{
 #' bcichange=pop.change(bci.full5,bci.full6,type='abund',split1=bci.full5$sp,mindbh=10)
 #' str(bcichange)
 #' head(bcichange$N.1)
 #' change.table=assemble.demography(bcichange,type='a')
 #' head(change.table)
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 
-#' }
-#'  
+#'#'  
 #' Title: ' pop.change.dbh
-#' }
-#'
+#'#'
 #' @description
 #' Finds abundance or basal area in two censuses and the rate of change between them, in several dbh categories. 
 #' Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
@@ -124,54 +106,43 @@
 #' Each is a table having
 #' one pair of columns for every dbh category: the first for census 1, the second for census 2. So if
 #' there are 3 dbh categories, the table has 6 columns. The rows of the table are the splitting variable (eg, species). 
-#' }
-#' See abundance()
-#' }
-#' @examples
+#'#' See abundance()
+#'#' @examples
 #' \dontrun{
 #' Nchange=pop.change.dbh(bci.full5,bci.full6,classbreak=c(10,100,300))
 #' Nchange$abund
 #' BAchangePerSpp=pop.change.dbh(bci.full5,bci.full6,classbreak=c(10,100),split=bci.full5$sp)
 #' head(BAchangePerSpp$ba)
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 
 #' Title: ' ba
-#' }
-#'
+#'#'
 #' @description
 #' Calculates the individual basal areas (in square meters) for all submitted dbhs. The dbh units must be submitted, either
 #' 'cm' or 'millimeters'. The return value is a vector of basal area values of same length as the submitted vector of dbhs.
-#' }
-#'
+#'#'
 #' @examples
 #' \dontrun{
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 
 #' Title: ' basum
-#' }
-#'
+#'#'
 #' @description
 #' Returns the basal area summed over all submitted dbhs. NAs can be included, as sum will be completed with na.rm=TRUE.
-#' }
-#'
+#'#'
 #' @examples
 #' \dontrun{
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 
 #' Title: ' abund.manycensus
-#' }
-#'
+#'#'
 #' @description
 #' Collect abundances of all species across several censuses. The full R census tables are submitted as a list, as many as desired. The
 #' argument type can be used to choose basal area or agb, or the default for number of individuals. The mindbh to include must be given
 #' as an argument, but it can be NULL. If the latter, trees are counted if they have no dbh, as long as status=A. By default, any tree
 #' ever given code M is not counted in any census, but set excludestatus=NULL to include them.
 #' A character vector of species codes can be submitted as excludespp, for instance those for unidentified trees. 
-#' }
-#'
+#'#'
 #' @examples
 #' \dontrun{
 #' N=abund.manycensus(allcns=list(bci.full1,bci.full2,bci.full3,bci.full4),mindbh=10,type='abund',excludespp='uniden',excludestatus='M')
@@ -179,6 +150,5 @@
 #' colSums(N)
 #' apply(N,2,countspp)
 #' N=abund.manycensus(allcns=list(bci.full5,bci.full6),mindbh=10,type='abund',excludespp=c('uniden','tremxx'),excludestatus=NULL)
-#' }
-#' <source>#' }
+#'#' #' xxxxx
 #' 

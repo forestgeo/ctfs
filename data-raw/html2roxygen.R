@@ -93,9 +93,21 @@ lst <- map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   # Remove lines commented without roxygen
   map(replace_stuff, pattern = "\n#[^'] ?(.*)", replacement = "") %>% 
   # Removes source
-  map(replace_stuff, pattern = "<source>\r?([^#' Title:]*)", replacement = "<source>\r")
+  map(replace_stuff, pattern = "<source>\r?([^#' Title:]*)", replacement = "<source>\r") %>%
+  # Replace } by xxxxx
+  map(replace_stuff, pattern = "\n#\' \\}\n", replacement = "\n#\'\r") %>% 
 
-# Save
+    # Remove <source>
+  map(replace_stuff, pattern = "<source>", replacement = "") %>% 
+
+  
+  
+  # Removes source
+  map(replace_stuff, pattern = "\\}", replacement = "xxxxx")
+
+    
+    
+    # Save
 walk2(lst, to, write_file, append = TRUE)
 
 
