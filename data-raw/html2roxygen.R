@@ -38,26 +38,23 @@ tags2rm <- map(paths, read_file) %>%
 
 tags2rm <- str_c(tags2rm[[1]], collapse = "|")
 
-remove_tag_end <- function(path_from, path_to, pattern = tags2rm, replacement = "") {
+replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
   text <- readr::read_file(path_from)
   text <- stringr::str_replace_all(text, pattern, replacement)
   readr::write_file(text, path_to, append = TRUE)
-  }
+}
 
 # Apply -------------------------------------------------------------------
 
-purrr::walk2(from, to, remove_tag_end)
+# Remove end tags
+purrr::walk2(from, to, replace_stuff, pattern = tags2rm, replacement = "")
 
+# Remove export
+# purrr::walk2(xxx, xxx, replace_stuff, pattern = "' @export", replacement = "")
 
-
-
-
-
-
-
-
-
-
+# # Remove <function>
+# to2 <- purrr::map2_chr("./data-raw/done2/", dir(directory_from), paste0)
+# purrr::walk2(to1, to2, replace_stuff, pattern = "<function>", replacement = "")
 
 
 
