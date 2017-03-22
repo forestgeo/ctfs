@@ -55,12 +55,16 @@ replace_stuff <- function(path_from, pattern, replacement) {
   stringr::str_replace_all(text, pattern, replacement)
 }
 
+
+# Wrangle -----------------------------------------------------------------
+
 # Remove end tags
-purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
+lst <- purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
   # Remove @export
   purrr::map(replace_stuff, pattern = "' @export", replacement = "") %>% 
   # Remove function tag
-  purrr::map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
+  purrr::map(replace_stuff, pattern = "# <function>\\r\\n", 
+    replacement = "") %>% 
   # Remove <br>
   purrr::map(replace_stuff, pattern = "<br>", replacement = "") %>% 
   # Remove white space after #
@@ -84,10 +88,31 @@ purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   # Replace sample by example
   purrr::map(replace_stuff, pattern = "# <sample>", 
     replacement = "# @examples") %>% 
+  # Replace # by #'
+  purrr::map(replace_stuff, pattern = "#", replacement = "#'") %>% 
+  # Comment uncommented to dissable from roxygen
+  purrr::map(replace_stuff, pattern = "\n[^#]", replacement = "\n# ") %>% 
+  # add title and name to document
+  purrr::map(replace_stuff, pattern = "#' <name>\\r\\n[#' ](.*)", 
+    replacement = "#' Title: \\1")
 
-  # Save
-  walk2(to, write_file, append = TRUE)
+  #   # add title and name to document
+  # purrr::map(replace_stuff, pattern = "[#' Title: ](.*)", 
+  #   replacement = "#' Title: \\1") %>% 
 
+
+# Save
+walk2(lst, to, write_file, append = TRUE)
+
+
+
+
+
+name_fun <- function(path_from, extpatt, pattern, replacement) {
+  text <- readr::read_file(path_from)
+  stringr::str_extract(text, extpatt)
+  stringr::str_replace_all(text, pattern, replacement)
+}
 
 
 
