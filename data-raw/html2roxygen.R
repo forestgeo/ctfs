@@ -10,7 +10,7 @@ walk(pkgs, library, character.only = TRUE)
 
 # Directories -------------------------------------------------------------
 
-directory_from <- "./R/"
+directory_from <- "./data-raw/todo/"
 directory_to   <- "./data-raw/done/"
 
 from <- map2_chr(directory_from, dir(directory_from), paste0)
@@ -82,18 +82,18 @@ lst <- map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "^[^#].*", replacement = "") %>% 
   # Replace sample by example
   map(replace_stuff, pattern = "# <sample>", replacement = "# @examples\n# \\\\dontrun\\{") %>% 
-  # map(replace_stuff, pattern = "# <sample>", replacement = "# @examples\n# \\\\\\dontrun\\{") %>% 
   # Replace # by #'
   map(replace_stuff, pattern = "#", replacement = "#'") %>% 
   # Comment uncommented to dissable from roxygen
   map(replace_stuff, pattern = "\n[^#]", replacement = "\n# ") %>% 
   # add title and name to document
-  map(replace_stuff, pattern = "#' <name>\\r\\n[#' ](.*)", replacement = "#' Title: \\1")
-
-  #   # add title and name to document
-  # map(replace_stuff, pattern = "[#' Title: ](.*)", 
-  #   replacement = "#' Title: \\1") %>% 
-
+  map(replace_stuff, pattern = "#' <name>\\r\\n[#' ](.*)", replacement = "#' Title: \\1") %>% 
+  # Add end } of dontrun
+  map(replace_stuff, pattern = "(run\\{)?(.*)(\n#'\r\n)", replacement = "\\1\\2\n#' \\}\n") %>% 
+  # Remove lines commented without roxygen
+  map(replace_stuff, pattern = "\n#[^'] ?(.*)", replacement = "") %>% 
+  # Removes source
+  map(replace_stuff, pattern = "<source>\r?([^#' Title:]*)", replacement = "<source>\r")
 
 # Save
 walk2(lst, to, write_file, append = TRUE)
