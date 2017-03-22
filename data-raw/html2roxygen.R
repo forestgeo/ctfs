@@ -10,7 +10,7 @@ walk(pkgs, library, character.only = TRUE)
 
 # Directories -------------------------------------------------------------
 
-directory_from <- "./data-raw/todo/"
+directory_from <- "./R/"
 directory_to   <- "./data-raw/done/"
 
 from <- map2_chr(directory_from, dir(directory_from), paste0)
