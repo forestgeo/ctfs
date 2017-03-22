@@ -55,32 +55,16 @@ replace_stuff <- function(path_from, pattern, replacement) {
   stringr::str_replace_all(text, pattern, replacement)
 }
 
-
-
-
-
-purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
-  readr::write_file(path_to, append = TRUE)
-
-
-
-
-
-
-
-
-
-# Apply -------------------------------------------------------------------
-
 # Remove end tags
-purrr::walk2(from, to, replace_stuff, pattern = tags2rm, replacement = "")
+purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
+  # Remove @export
+  purrr::map(replace_stuff, pattern = "' @export", replacement = "") %>% 
+  # Remove function tag
+  purrr::map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
+  
+  # Save
+  walk2(to, write_file, append = TRUE)
 
-# Remove export
-# purrr::walk2(xxx, xxx, replace_stuff, pattern = "' @export", replacement = "")
-
-# # Remove <function>
-# to2 <- purrr::map2_chr("./data-raw/done2/", dir(directory_from), paste0)
-# purrr::walk2(to1, to2, replace_stuff, pattern = "<function>", replacement = "")
 
 
 
