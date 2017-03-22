@@ -38,11 +38,37 @@ tags2rm <- map(paths, read_file) %>%
 
 tags2rm <- str_c(tags2rm[[1]], collapse = "|")
 
-replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
+
+
+
+
+
+# replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
+#   text <- readr::read_file(path_from)
+#   text <- stringr::str_replace_all(text, pattern, replacement)
+#   readr::write_file(text, path_to, append = TRUE)
+# }
+
+# replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
+replace_stuff <- function(path_from, pattern, replacement) {
   text <- readr::read_file(path_from)
-  text <- stringr::str_replace_all(text, pattern, replacement)
-  readr::write_file(text, path_to, append = TRUE)
+  stringr::str_replace_all(text, pattern, replacement)
 }
+
+
+
+
+
+purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
+  readr::write_file(path_to, append = TRUE)
+
+
+
+
+
+
+
+
 
 # Apply -------------------------------------------------------------------
 
