@@ -104,7 +104,7 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   # Remove  ' in Title
   map(replace_stuff, pattern = "Title: \' ", replacement = "Title: ") %>% 
 
-    # Let devtools document function names by adding functions name to the end
+  # Let devtools document function names by adding functions name to the end
   map(name_function) %>% 
   
   
@@ -115,6 +115,21 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "\'#\'", replacement = "\'") %>%
   map(replace_stuff, pattern = "\' ", replacement = "\'") %>%
   map(replace_stuff, pattern = "(#\')([a-zA-Z])", replacement = "\\1 \\2") %>%
+  map(replace_stuff, pattern = "\'\'", replacement = "#\'") %>%
+  
+  # # Give space after @param
+  # map(replace_stuff, pattern = "(@param)([^ ])", replacement = "\\1 \\2") %>%
+  # 
+  # # Fix a specific issue #' MINIMUM_SD=0.00
+  # map(replace_stuff, pattern = " MINIMUM_SD=0.00", replacement = "") %>%
+  # 
+  # 
+  # # Close brackets if examples are empty
+  # # Remove empty examples        (run\{)?([\r\n#\']+)(#\'\\})
+  # map(replace_stuff, pattern = "(run\\{)?([\r\n#\']+)(#\')(\\})", replacement = "\\1\\4") %>%
+  # 
+  # 
+  
   
   # Save
   walk2(to, write_file, append = TRUE)
