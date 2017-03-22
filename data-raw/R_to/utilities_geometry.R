@@ -1,6 +1,6 @@
 
-#' #' 
-'#' '
+#' 
+#'
 
 
 #' xydist
@@ -138,7 +138,7 @@
 #'#' 
 #' #' }
 #'
-#'#' #' 
+#'#' 
 #' 
 'intersection.line.curve'
 
@@ -260,7 +260,7 @@
 'insideRectangle'
 
 
-#' '#' are.ptsinside
+#' are.ptsinside
 #'#'
 #' @description
 #' Checks many points (dataframe pt with x and y) against a single quadrat whose corners are given by as xlo, ylo, xhi, yhi.
@@ -274,7 +274,7 @@
 #' #' }
 #' 
 #' 
-''#' are.ptsinside'
+'#' are.ptsinside'
 
 
 #' ispt.inside
@@ -407,7 +407,7 @@
 #' polar.to.cartesian(2,pi/3)
 #'#' #' }
 #' 
-#'#'#' Should be deleted ... 
+###' Should be deleted ... 
 #'#' 
 'polar.to.cartesian'
 

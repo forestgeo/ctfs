@@ -25,9 +25,9 @@
 #' > load("bci.full7.rdata")
 #' > attach("CTFSRPackage.rdata")
 #' > library(splancs)
-#' #'#' sum consp and hetsp neighbors for all stems in the plot  
+#' ##' sum consp and hetsp neighbors for all stems in the plot  
 #' > neighbor.counts <- NeighborDensities(bci.full7, r=20, type='count') 
-#' #'#' sum consp and hetsp neighbors for only one species: 
+#' ##' sum consp and hetsp neighbors for only one species: 
 #' > one.sp = subset(bci.full7, sp=="quaras") 
 #' > neighbor.counts <- NeighborDensities(bci.full7, one.sp, type='count') 
 #'#' #' }
@@ -49,7 +49,7 @@
 #'#' 
 #' @examples
 #' \dontrun{
-#' #'#' count all the consp neighbors of one species 
+#' ##' count all the consp neighbors of one species 
 #' > one.sp = subset(bci.full7, sp=="ingasa" & status=="A")
 #' > neighbor.counts <- NDcount(one.sp)
 #'#' #' }

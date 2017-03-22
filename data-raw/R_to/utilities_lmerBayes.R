@@ -1,6 +1,6 @@
 
-#' #' 
-'#' '
+#' 
+#'
 
 
 #' lmerBayes
@@ -135,7 +135,7 @@
 #' full.likelihood.lmerBayes
 #'#'
 #' @description
-#' Calculate full likelihood for any complete set of parameters, including every set for each random effect and hypermeans and covariances #'#'#'#'
+#' Calculate full likelihood for any complete set of parameters, including every set for each random effect and hypermeans and covariances ####'
 #' Further thought: the call to lmerBayes.hyperllike.sigma doesn't make sense, since llike.model.lmer already does this; the probability of 
 #' each set of parameters given the hyperparameters is already calculated. 
 #'#'
@@ -166,7 +166,7 @@
 #' \dontrun{
 #'#' #' else if(errormodel=='GaussMultResid') 
 #'  {
-#'   if(length(which(modeled<=0))>0) return(-Inf)       #'#' With this option, model must always be > 0
+#'   if(length(which(modeled<=0))>0) return(-Inf)       ##' With this option, model must always be > 0
 #'   llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)
 #'  }
 #' else if(errormodel=='Flat') llike=rep(0,length(modeled))

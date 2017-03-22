@@ -103,9 +103,15 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "<source>", replacement = "") %>% 
   # Remove  ' in Title
   map(replace_stuff, pattern = "Title: \' ", replacement = "Title: ") %>% 
-  
-  # Let devtools document function names by adding functions name to the end
+
+    # Let devtools document function names by adding functions name to the end
   map(name_function) %>% 
+  
+  
+  # Remove  #' #' 
+  map(replace_stuff, pattern = "\'#", replacement = "#") %>%
+  map(replace_stuff, pattern = "#\' #\'", replacement = "#\'") %>%
+  map(replace_stuff, pattern = "#\' \'", replacement = "#\'") %>%
   
   # Save
   walk2(to, write_file, append = TRUE)

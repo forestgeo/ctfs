@@ -1,7 +1,7 @@
 
-#' #' Topographic calculation based on stake and the height difference between them.
+#' Topographic calculation based on stake and the height difference between them.
 #' 
-'#' Topographic calculation based on stake and the height difference between them.'
+#' Topographic calculation based on stake and the height difference between them.'
 
 
 #' solve.topo

@@ -1,6 +1,6 @@
 
-#' #' 
-'#' '
+#' 
+#'
 
 
 #' model.littleR.Gibbs

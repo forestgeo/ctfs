@@ -1,6 +1,6 @@
 
-#' #' 
-'#' '
+#' 
+#'
 
 
 #' abundance
@@ -144,7 +144,7 @@
 #'#'
 #' @description
 #' Calculates the individual basal areas (in square meters) for all submitted dbhs. The dbh units must be submitted, either
-#' 'cm' or 'millimeters'. The return value is a vector of basal area values of same length as the submitted vector of dbhs.
+#'cm' or 'millimeters'. The return value is a vector of basal area values of same length as the submitted vector of dbhs.
 #'#'
 #' @examples
 #' \dontrun{

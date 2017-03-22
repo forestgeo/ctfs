@@ -1,9 +1,9 @@
 
-#' #' 
-'#' '
+#' 
+#'
 
 
-#' '#' spparea.sq
+#' spparea.sq
 #'#'
 #' @description
 #' Function for calculating the number of species in replicated, randomly-placed
@@ -38,10 +38,10 @@
 #'#' #' }
 #' 
 #' 
-''#' spparea.sq'
+'#' spparea.sq'
 
 
-#' '#' selectrandomquad
+#' selectrandomquad
 #'#'
 #' @description
 #' Draws rectangular quadrats in a plot at random. Returns a dataframe of coordinates defining the corners of all the quadrats. 
@@ -63,7 +63,7 @@
 #' #' }
 #' 
 #' 
-''#' selectrandomquad'
+'#' selectrandomquad'
 
 
 #' selectrandomquad3
@@ -83,7 +83,7 @@
 'selectrandomquad3'
 
 
-#' '#' selectrandomquad2
+#' selectrandomquad2
 #'#'
 #' @description
 #' Creates randomly drawn quadrats, using same arguments and producing same return value as selectrandomquad, but using a different algorithm 
@@ -101,10 +101,10 @@
 #' #' }
 #' 
 #' 
-''#' selectrandomquad2'
+'#' selectrandomquad2'
 
 
-#' '#' graph.quadrats
+#' graph.quadrats
 #'#'
 #' @description
 #' Make a graph of a series of quadrats whose corners are given by the rows of coord: xlo, ylo, xhi, yhi. This is used in illustrating
@@ -116,10 +116,10 @@
 #'#' #' }
 #' 
 #' 
-''#' graph.quadrats'
+'#' graph.quadrats'
 
 
-#' '#' coverage.diag
+#' coverage.diag
 #'#'
 #' @description
 #' Draws a diagonal across a plot, from lower left to upper right (if slope==1), upper left to lower right (if slope==-1),
@@ -135,4 +135,4 @@
 #' #' }
 #' 
 
-''#' coverage.diag'
+'#' coverage.diag'

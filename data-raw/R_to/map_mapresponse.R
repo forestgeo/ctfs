@@ -1,6 +1,6 @@
 
-#' #' 
-'#' '
+#' 
+#'
 
 
 #' coldata.to.imagemat
@@ -19,7 +19,7 @@
 #' NULL and it will be calculated from plotmax=c(1000,500) and plotmin=c(0,0). The simplest application of this function for CTFS plots is to
 #' set x and y NULL, and plotmax to the correct plot dimensions. Then make sure z is the right size for the number of quadrats. 
 #'#' The common error with image and contour maps is getting the proper dimensions for z and the proper sizes for plotmax, x, and y. If you get an error
-#' 'data length is not a sub-multiple or multiple of the number of rows' then one of those inputs is wrong. 
+#'data length is not a sub-multiple or multiple of the number of rows' then one of those inputs is wrong. 
 #' Return value is a list designed to match exactly the format of the RGDAL raster object. It has components
 #' @param x same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
 #' @param y likewise for y;

@@ -1,6 +1,6 @@
 
-#' #' 
-'#' '
+#' 
+#'
 
 
 #' skewness
@@ -498,7 +498,7 @@
 #' @examples
 #' \dontrun{
 #'#' 
-#' #'#' It's possible with shifting parameters to get trapped where start.param is invalid.
+#' ##' It's possible with shifting parameters to get trapped where start.param is invalid.
 #' This test allows an escape  
 #'#' 
 #'#' 

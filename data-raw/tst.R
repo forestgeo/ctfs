@@ -5,6 +5,13 @@ to <- "./data-raw/tsttex_done.R"
 
 string <- read_file(from)
 
+str_replace_all(string, "\'#", "#xxx")
+
+
+
+
+
+
 name_function <- function(string) {
   fun_names <- str_split(string, "Title: ") %>% 
     # unlist %>% 
