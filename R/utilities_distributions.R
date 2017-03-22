@@ -6,7 +6,7 @@
 
 #' doublenormal
 #'#'
-#'@description
+#' @description
 #' Simulate draws from a double normal
 #'#'
 #'
@@ -19,7 +19,7 @@
 
 #' dnormprod0
 #'#'
-#'@description
+#' @description
 #' Probability density of product of two normal variates, both with mean 0, SD sx and sy
 #'#'
 #'
@@ -32,7 +32,7 @@
 
 #' dgammadexp
 #'#'
-#'@description
+#' @description
 #' PDF of a function formed by adding a gamma distribution to a symmetrical exponential 
 #' distribution. This means simply adding a PDF for a gamma minus an exponential to the
 #' PDF for a gamma plus an exponential.
@@ -47,15 +47,15 @@
 
 #' dgammaMinusdexp
 #'#'
-#'@description
+#' @description
 #' The PDF of the difference between a gamma and a negative exponential distribution. The shape and rate of the gamma 
 #' are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
 #' This comes from the convolution of the two distributions, which is also a gamma, and the integral 
 #' of the new gamma evaluated with pgamma. Note that lambda is the rate of the exponential.
 #'#'
 #'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #'#'
 #'#' browser() 
 #'#'
@@ -66,7 +66,7 @@
 
 #' dgammaPlusdexp
 #'#'
-#'@description
+#' @description
 #' The PDF of the sum of gamma and negative exponential distribution. The shape and rate of the gamma 
 #' are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
 #' This is only an appoximation based on the observation that the resulting distribution is very
@@ -89,7 +89,7 @@
 
 #' dgamma.meansd
 #'#'
-#'@description
+#' @description
 #' Probability distribution of gamma, parameterized with mean and sd instead of shape and scale.
 #'#'
 #'
@@ -102,7 +102,7 @@
 
 #' rgamma.meansd
 #'#'
-#'@description
+#' @description
 #' Random draws of gamma, parameterized with mean and sd instead of shape and scale.
 #'#'
 #'
@@ -115,7 +115,7 @@
 
 #' dgamma.mean
 #'#'
-#'@description
+#' @description
 #' A version of dgamma where the parameters are ordered so that the mean (mu = shape x scale) is the first argument.
 #' The second argument is x, the value at which dgammma is evaluated, and the third is scale. This is needed
 #' for use with mcmc1step, to do a metropolis step on the mean. Only mu can be a vector.
@@ -130,7 +130,7 @@
 
 #' dgamma.scale
 #'#'
-#'@description
+#' @description
 #' Like above, but with scale as the first parameter.
 #'#'
 #'
@@ -143,7 +143,7 @@
 
 #' dpower
 #'#'
-#'@description
+#' @description
 #' A probability distribution defined by a power function. There is a dpareto in R, but quite different, with
 #' two parameters. In this, the exponent is the only parameter, and it must be < (-1); x must be >= 0.
 #'#'
@@ -157,7 +157,7 @@
 
 #' rpower
 #'#'
-#'@description
+#' @description
 #' Random draws based on the integral.
 #'#'
 #'
@@ -170,7 +170,7 @@
 
 #' dasympower
 #'#'
-#'@description
+#' @description
 #' A bilateral power distribution, centered at center, decaying with exponent rate1 for positive x and rate2 for negative x. Both rate1 and rate2
 #' must be < (-1). See dpower, this is analogous to dasymexp for dpower. By R. Chisholm. 
 #'#'
@@ -184,7 +184,7 @@
 
 #' rasympower
 #'#'
-#'@description
+#' @description
 #' Random draws from the bilateral power distribution, dasympower. By R. Chisholm. 
 #'#'
 #'
@@ -196,7 +196,7 @@
 
 #' qasympower
 #'#'
-#'@description
+#' @description
 #' Quantiles from the bilateral power distribution, dasympower. By R. Chisholm. 
 #'#'
 #'
@@ -208,7 +208,7 @@
 
 #' dsymexp
 #'#'
-#'@description
+#' @description
 #' Probability distribution for a folded, symmetrical exponential. When x>=center, 
 #' it's just a standard exponential. When x<center, it's the mirror image of same one.
 #' Each must be divided by two, though, in order to integrate to one.
@@ -223,7 +223,7 @@
 
 #' psymexp
 #'#'
-#'@description
+#' @description
 #' The CDF for the symmetric exponential.
 #'#'
 #'
@@ -236,7 +236,7 @@
 
 #' rsymexp
 #'#'
-#'@description
+#' @description
 #' Drawing a random variate on the symmetric exponential, based on the cumulative 
 #' probability, as given in psymexp. A random uniform number on (0,1) is plugged in 
 #' the inverse of the cumulative distribution.
@@ -251,7 +251,7 @@
 
 #' dasymexp
 #'#'
-#'@description
+#' @description
 #' Probability distributions for a folded but asymmetrical exponential. 
 #' When x>=center, it's a standard exponential. When x<center, it's the mirror image 
 #' of a different exponential; rate1 refers to the right half, rate2 to the
@@ -267,7 +267,7 @@
 
 #' qasymexp
 #'#'
-#'@description
+#' @description
 #' Quantiles of dasymexp 
 #'#' y is the vector of desired quantiles; c is the center parameter; rate1 is the rate for the right half, and rate2 the left.
 #'#'
@@ -278,7 +278,7 @@
 
 #' dasymexp
 #'#'
-#'@description
+#' @description
 #' Probability distributions for an asymmetrical Gaussian, that is with different standard deviations
 #' above and below the mode, or center. The mode is not the mean, though. The SD on the right is sigma1,
 #' and on the left, sigma2. 
@@ -292,7 +292,7 @@
 
 #' minum.normal
 #'#'
-#'@description
+#' @description
 #' The likelihood function for use by fitnorm.
 #'#'
 #'
@@ -305,13 +305,13 @@
 
 #' fitnorm
 #'#'
-#'@description
+#' @description
 #' Fitting a normal distribution to data
 #' Parameters are a mean and sd of the normal being fitted, a scaling parameter k
 #' and the last SD is for the likelihood of the deviations.
 #'#' y is vector data to be fitted, at points x
 #'#'@examples
-#'\dontrun{
+#' \dontrun{
 #'#'
 #'#' y=y/sum(y)
 #'#'
@@ -322,7 +322,7 @@
 
 #' fit.pdf
 #'#'
-#'@description
+#' @description
 #' Fit a random variable x to any submitted probability distribution. The number of start parameters
 #' must match what the pdf needs.
 #'#'
@@ -336,7 +336,7 @@
 
 #' default.badpar
 #'#'
-#'@description
+#' @description
 #' None given.
 #'#'
 #'
@@ -349,7 +349,7 @@
 
 #' bad.paretopar
 #'#'
-#'@description
+#' @description
 #' Test whether parameters for the Pareto distribution are acceptable. 
 #'#'
 #'
@@ -362,7 +362,7 @@
 
 #' normalproduct
 #'#'
-#'@description
+#' @description
 #' A function which returns the product of 2 normal distributions, the first
 #' at x (a vector), the second at lag-x (lag is a scalar). The mean and SD 
 #' of the second normal are linear functions of x, with meanint being the
@@ -379,7 +379,7 @@
 
 #' dbeta.reparam
 #'#'
-#'@description
+#' @description
 #' This reparameterizes the beta distribution as a function of its mean and
 #' standard deviation. The mean must be between 0 and 1, and sd>0.
 #'#'
@@ -393,7 +393,7 @@
 
 #' betaproduct
 #'#'
-#'@description
+#' @description
 #' This is equivalent to the normal product above.
 #'#'
 #'
@@ -406,7 +406,7 @@
 
 #' beta.normalized
 #'#'
-#'@description
+#' @description
 #' Normalzing beta.total. No longer used. 
 #'#'
 #'
@@ -419,7 +419,7 @@
 
 #' beta.total
 #'#'
-#'@description
+#' @description
 #' A beta distribution on the interval xmin to xmax, instead of 0 to 1. No longer used. 
 #'#'
 #'
@@ -432,7 +432,7 @@
 
 #' fit.beta.normal
 #'#'
-#'@description
+#' @description
 #' Finding a normal distribution which most closely fits a given beta distribution.
 #' Parameters for a beta function are submitted, and the best fit mean and SD of a
 #' normal distribution returned.
@@ -447,7 +447,7 @@
 
 #' minum.beta.normal
 #'#'
-#'@description
+#' @description
 #' Function to be minimized for fitting normal to beta.
 #'#'
 #'
@@ -460,7 +460,7 @@
 
 #' dbinomrev
 #'#'
-#'@description
+#' @description
 #' A version of dbinom in which parameters are submitted in a different order. 
 #'#'
 #'
@@ -473,7 +473,7 @@
 
 #' dnormrev
 #'#'
-#'@description
+#' @description
 #' This reverses the order of parameters to dnorm, so that outer can be used
 #' with a vector of x, and two vectors for mean and sd (the latter two equal in
 #' length). 
@@ -488,7 +488,7 @@
 
 #' dpois.rearrange
 #'#'
-#'@description
+#' @description
 #' This rearranges dpois so that it works on a single vector, with the first
 #' element being x and the remaining all being used as lambdas.
 #'#'
@@ -502,7 +502,7 @@
 
 #' logit
 #'#'
-#'@description
+#' @description
 #' Logit transformation for a probability >0 and < 1
 #'#'
 #'
@@ -515,7 +515,7 @@
 
 #' invlogit
 #'#'
-#'@description
+#' @description
 #' Inverse logit transformation, turns a logit back into a probability.
 #'#'
 #'
@@ -528,7 +528,7 @@
 
 #' pweibull.3param
 #'#'
-#'@description
+#' @description
 #' CDF of three-parameter Weibull
 #'(http://www.itl.nist.gov/div898/handbook/apr/section1/apr162.htm)
 #'#'
@@ -542,7 +542,7 @@
 
 #' dweibull.3param
 #'#'
-#'@description
+#' @description
 #' PDF of three-parameter Weibull
 #'#'
 #'
@@ -555,7 +555,7 @@
 
 #' weibull.median.3param
 #'#'
-#'@description
+#' @description
 #' Median of three-parameter Weibull
 #'#'
 #'
@@ -568,7 +568,7 @@
 
 #' weibull.mean.3param
 #'#'
-#'@description
+#' @description
 #' Mean of three-parameter Weibull
 #'#'
 #'
@@ -581,7 +581,7 @@
 
 #' weibull.sd.3param
 #'#'
-#'@description
+#' @description
 #' SD of three-parameter Weibull
 #'#'
 #'
@@ -594,7 +594,7 @@
 
 #' dexp.sin
 #'#'
-#'@description
+#' @description
 #' Four-parameter exponential sin, as a probability distribution
 #'#'
 #'
@@ -607,7 +607,7 @@
 
 #' exponential.sin
 #'#'
-#'@description
+#' @description
 #' Five-parameter exponential sin
 #'#'
 #'
@@ -620,7 +620,7 @@
 
 #' pexp.sin
 #'#'
-#'@description
+#' @description
 #' CDF of four-parameter exponential sin
 #'#'
 #'
@@ -634,7 +634,7 @@
 
 #' mvrnormRC
 #'#'
-#'@description
+#' @description
 #' Function that takes a variance-covariance matrix and produces normal variates
 #' following it, but with means 0. The R function mvrnorm does this too; this was a 
 #' test of the algorithm from Tommaso Zillio. Sigma must be square. N is the number
@@ -650,7 +650,7 @@
 
 #' dmixnorm
 #'#'
-#'@description
+#' @description
 #' Mixed normal distribution. The parameter f is the probability 
 #' of following the first, with mean1 and sd1; 1-f is the probability
 #' for the second normal
@@ -665,7 +665,7 @@
 
 #' rmixnorm
 #'#'
-#'@description
+#' @description
 #' Random draw on the mixed normal distribution.
 #'#'
 #'
@@ -678,7 +678,7 @@
 
 #' minum.mixnorm
 #'#'
-#'@description
+#' @description
 #' Fit a mixture of 2 normals.
 #'#'
 #'
@@ -691,7 +691,7 @@
 
 #' logistic.inter
 #'#'
-#'@description
+#' @description
 #' Logistic function with intercept parameterization (ie, first parameter is y when all x=0). The input x are all independent variables, in a matrix
 #' with each column one of the variables. The number of rows is the number of datapoints. Just one inter, which is the value
 #' at all x=0, and passed as param[1]. Slope parameters follow, one per column of x. 
@@ -707,7 +707,7 @@
 
 #' logistic.standard
 #'#'
-#'@description
+#' @description
 #' This is standard logistic function, but with asymptote and basement allowed. The latter are only implemented
 #' if extra parameters are passed. Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic. 
 #'#'
@@ -720,7 +720,7 @@
 
 #' logistic.power
 #'#'
-#'@description
+#' @description
 #' This is the Gaussian logistic function, where logit is a second-order polynomial of x; with asymptote and basement allowed. 
 #' There must be 1+2*nopredictors parameters; the asympotote and basement are only implemented
 #' if extra parameters are passed.  
@@ -734,7 +734,7 @@
 
 #' logistic.power.mode
 #'#'
-#'@description
+#' @description
 #' This is the Gaussian logistic function, where logit is a second-order polynomial of x, but with third parameter the position
 #' of the critical point (peak or trough). Given 3 parameters for standard logistic.power, the mode is at -param[2]/2*param[3]).
 #' Asymptote and basement are allowed. There must be 1+2*nopredictors parameters; the asympotote and basement are only implemented
@@ -749,7 +749,7 @@
 
 #' logistic.power_simple
 #'#'
-#'@description
+#' @description
 #' This is a mixture of logistic and logistic-standard models. The predictors n get a power model, the remaining a simple
 #' model. So if nopredictors==8, and n=c(1,7), then the first and seventh predictors use a power model, while the rest a simple model.
 #' There must be 1+length(n)+nopredictors parameters, plus additional 1 or 2 for asymptote and basement.  
@@ -763,7 +763,7 @@
 
 #' logistic.ctr
 #'#'
-#'@description
+#' @description
 #' This is logistic function with intercept parameterization (see logistic above), but with centering on x allowed. 
 #' If center==NA, then the x values are centered on their median.
 #' Or center can be a number. If NULL, no centering is done. 
@@ -779,7 +779,7 @@
 
 #' logistic.multiplicative
 #'#'
-#'@description
+#' @description
 #' Logistic with a pair of parameters for each x; y=product of all the logistics. First set of parameters are intercepts, then
 #' an equal number of slopes. If there are additional parameters, they are asymptote and basement.
 #'#'
@@ -793,7 +793,7 @@
 
 #' constant
 #'#'
-#'@description
+#' @description
 #' A function to return a constant at all predictors x. The predictors are a numeric vector, or a matrix of
 #' many predictors (each column a single predictor). This function is useful in modeling, where the name of a function
 #' is passed; this allows modeling where a response is a constant across all values of x. 
@@ -808,14 +808,14 @@
 
 #' center.predictors
 #'#'
-#'@description
+#' @description
 #' Transform all data by subtracting a constant, either the mean, median value, or a submitted constant. 
 #' The input may be a vector or a matrix. If a matrix, each column is centered on its mean (median), or by passing a
 #' vector of constants. Note that setting by=0 amounts to no change. 
 #'#'
 #'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #' center.predictors(x=c(1,4,7,0),by='median')
 #' center.predictors(x=c(1,4,7,0),by=2)}
 #'
@@ -826,7 +826,7 @@
 
 #' fit.logistic
 #'#'
-#'@description
+#' @description
 #' A function to fit a set of data y, observed at the vector x, to a generalized
 #' logistic function, using least squares.
 #'#'
@@ -840,7 +840,7 @@
 
 #' logistic.sum.squares
 #'#'
-#'@description
+#' @description
 #' Sets a prediction based on a generalized logistic, then returns the sum
 #' of squared deviations
 #'#'
@@ -854,7 +854,7 @@
 
 #' asymp.ht
 #'#'
-#'@description
+#' @description
 #' The function from Sean Thomas which produces an asymptote for y as a function of x. 
 #' Original version: y=ymax*(1-exp(-a*x^b))
 #' This is the centered version, with x normalized by dividing by parameter k, which is the x value at which
@@ -871,7 +871,7 @@
 
 #' asymp.ht.fixmax
 #'#'
-#'@description
+#' @description
 #' Same formulation, but the asymptote is fixed, so only two parameters fitted.
 #'#'
 #'
@@ -884,7 +884,7 @@
 
 #' exp.2par
 #'#'
-#'@description
+#' @description
 #' An exponential distribution with an asymptote.
 #'#'
 #'
@@ -897,7 +897,7 @@
 
 #' linear.model
 #'#'
-#'@description
+#' @description
 #' A simple linear model, where the first parameter is intercept, remaining parameters are slopes
 #'#'
 #'
@@ -910,7 +910,7 @@
 
 #' simple.model
 #'#'
-#'@description
+#' @description
 #' A trivial model to return a different value at every x. If param is atomic, then that value is returned for every x. Otherwise, param must be a vector of same size as x, and param is returned. 
 #'#'
 #'
@@ -922,7 +922,7 @@
 
 #' simple
 #'#'
-#'@description
+#' @description
 #' An even more trivial model to return x unchanged. The argument param is passed but not used. 
 #'#'
 #'
@@ -934,7 +934,7 @@
 
 #' linear.model.ctr
 #'#'
-#'@description
+#' @description
 #' A simple linear model, where the first parameter is intercept, second the slope, and x can be centered on their median. 
 #'#'
 #'
@@ -947,7 +947,7 @@
 
 #' expon.model
 #'#'
-#'@description
+#' @description
 #' Exponential model, y = a exp(b1*x1 + b2*x2) for any number of predictors x. Compare to linear.model. 
 #'#'
 #'
@@ -959,7 +959,7 @@
 
 #' log.model
 #'#'
-#'@description
+#' @description
 #' Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number of predictors x. Compare to linear.model. All x should be positive.
 #'#'
 #'
@@ -971,7 +971,7 @@
 
 #' constant.linear
 #'#'
-#'@description
+#' @description
 #' A model which is constant for x<lim, and linear for x>lim. The first parameter is the slope, 
 #' second the x value of break point, third the lower limit.
 #'#'
@@ -985,7 +985,7 @@
 
 #' linearmodel.bin
 #'#'
-#'@description
+#' @description
 #' Multiple bin model predicting y as a function of x in several bins. Within each bin, y is a linear function of x. 
 #' A model with B bins has B-1 parameters for breaks points (initial B-1 parameters), B parameters as slopes (next B parameters), and one intercept (last parameter).
 #' Intercept is assigned at x=0 by default, but argument LINEARBINMEDIAN can be used to change. 
@@ -1002,7 +1002,7 @@
 
 #' linearmodel.bin.set
 #'#'
-#'@description
+#' @description
 #' This does the work of calculating predicted values at each independent variable, given bin and line parameters separately, 
 #' the latter being slope and intercept parameters in one vector. 
 #' Completely revised June 2011 to use geometry.r functions for lines.
@@ -1019,7 +1019,7 @@
 
 #' addBinParam
 #'#'
-#'@description
+#' @description
 #' Given parameters for a model with N linear bins, creates parameters for N+1 bins which produce the same model. 
 #'#'
 #'
@@ -1032,7 +1032,7 @@
 
 #' logisticmodel.bin
 #'#'
-#'@description
+#' @description
 #' Multiple bin model predicting y as a function of x, where each segment is modeled as a standard logistic.
 #' A model with B bins has B-1 parameters for breaks points, B parameters as slopes, and one intercept (y at x=0).
 #' Within each bin, y is a linear function of x. 
@@ -1048,7 +1048,7 @@
 
 #' constant.bin
 #'#'
-#'@description
+#' @description
 #' A model like piecewise regression (linearmodel.bin), but y is a constant within each bin.
 #' With B bins, 2B-1 parameters are needed. First B-1 parameters are bin breaks. The remaining B
 #' parameters are the constant value of y in each bin. 
@@ -1063,14 +1063,14 @@
 
 #' dpois.max
 #'#'
-#'@description
+#' @description
 #' A probability distribution which is simply a curtailed poisson: all probability above a maximum integer,
 #' maxx, is given to that maximum. For all x<maxx, the probability is just poission. No normalization is needed, due
 #' to this definition. 
 #'#'
 #'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #'#'
 #'#'
 'dpois.max'
@@ -1078,7 +1078,7 @@
 
 #' dpois.trunc
 #'#'
-#'@description
+#' @description
 #' A zero-truncated Poisson distribution. 
 #'#'
 #'
@@ -1090,7 +1090,7 @@
 
 #' dpois.maxtrunc
 #'#'
-#'@description
+#' @description
 #' A zero-truncated Poisson distribution with a ceiling (combining dpois.max and dpois.trunc). 
 #'#'
 #'
@@ -1103,7 +1103,7 @@
 
 #' rpois.max
 #'#'
-#'@description
+#' @description
 #' Random draws on dpois.max
 #'#'
 #'
@@ -1116,7 +1116,7 @@
 
 #' rpois.trunc
 #'#'
-#'@description
+#' @description
 #' Random draws on dpois.trunc. This is taken unchanged from an answer Peter Dalgaard posted to a list serve in 2005. I checked
 #' by comparing to dpois.trunc and it was spot on. 
 #'#'
@@ -1130,7 +1130,7 @@
 
 #' asymptote.exp
 #'#'
-#'@description
+#' @description
 #' A 3-parameter function which asymptotes as x->infinity. The 3rd param must be >=0 and x>=0. The asymptote is a, the intercept a-b.
 #'#'
 #'
@@ -1143,7 +1143,7 @@
 
 #' graph.mvnorm
 #'#'
-#'@description
+#' @description
 #' Graphs contours for an mvnorm, with parameters submitted as a
 #' vector, as described above, for a single 2D Gaussian.
 #' The probability has to be calculated on a grid so contours can be drawn.
@@ -1159,12 +1159,12 @@
 
 #' pospower
 #'#'
-#'@description
+#' @description
 #' Raise to any power, but with negative numbers converted to positive first, then reverted afterward. It thus follows what is normal behavior when
 #' the exponent were a negative integer, but works also for even integers or any real exponent. For example, pospower(-4,0.5)=-2.
 #'#'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #' pospower(-4,0.5)}
 #'
 #'#'
@@ -1174,7 +1174,7 @@
 
 #' linear.mortmodel
 #'#'
-#'@description
+#' @description
 #' A model for mortality as a function of one or more predictors, with the time interval for each individual incorporated (as a last predictor).
 #' The log(mortality parameter) is modeled as a linear function of x[,-nopred].  The return value is a survival probability. Nothing prevents the output from
 #' being outside (0,1); that must be handled in the likelihood function.
@@ -1189,7 +1189,7 @@
 
 #' discrete.mortmodel
 #'#'
-#'@description
+#' @description
 #' A model for mortality as a function of a single discrete predictor, with the time interval for each individual incorporated (as a second predictor).
 #' The predictor must be a factor, so the total number of levels is known. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor. 
 #' The return value is a survival probability. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
@@ -1204,7 +1204,7 @@
 
 #' discrete.model
 #'#'
-#'@description
+#' @description
 #' A model for a numeric response to a single discrete predictor. The predictor must be a factor, so the total number of levels is known. The response is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor. 
 #'#'
 #'

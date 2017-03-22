@@ -129,10 +129,37 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   # Remove empty examples    "(#\'\r\)(\n#\'@examples?(.*)xxxxx"
   map(replace_stuff, pattern = "@examples\r?(\nxxxxx)", replacement = "") %>%
 
+# Specific issues following checks ----------------------------------------
+
+  # Fix a specific issue #' MINIMUM_SD=0.00
+  map(replace_stuff, pattern = " MINIMUM_SD=0.00", replacement = "") %>%
+  map(replace_stuff, pattern = "(maxgrow = 75\\))\\}", replacement = "\\1\r\n#\' \\}") %>%
+  
+  map(replace_stuff, pattern = "@param( full=extract\\.growthdata)", replacement = "\\1") %>%
+  map(replace_stuff, pattern = "@param( trimmed=extract\\.growthdata)", replacement = "\\1") %>%
+  map(replace_stuff, pattern = "(distances of rseq)", replacement = "\\1\r\n#\' \\}\r") %>%
+
+  
+  # Let tags breath  
+  map(replace_stuff, pattern = "\n#\'@param", replacement = "\n#\' @param") %>%
+  map(replace_stuff, pattern = "\n#\'@description", replacement = "\n#\' @description") %>%
+  map(replace_stuff, pattern = "\n#\'@examples", replacement = "\n#\' @examples") %>%
+  map(replace_stuff, pattern = "\n#\'\\\\dontrun", replacement = "\n#\' \\\\dontrun") %>%
+  # map(replace_stuff, pattern = "<supplement>", replacement = "\n#\' @examples") %>%
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    # # Remove @param from examples
+  # map(replace_stuff, pattern = "(run\\{)?([^\\}]*)[@param]+([^\\}]*)(\\})", 
+  #   replacement = "\\1\\2\\3\\4") %>%
 
     
-    # # Fix a specific issue #' MINIMUM_SD=0.00
-  # map(replace_stuff, pattern = " MINIMUM_SD=0.00", replacement = "") %>%
   # 
   # 
   # 

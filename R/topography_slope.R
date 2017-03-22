@@ -5,7 +5,7 @@
 
 #' readelevdata
 #'#'
-#'@description
+#' @description
 #' A function to read a table of elevation data into a matrix appropriate for
 #' mapping. It can read a text table (if text==TRUE) or a dataframe. 
 #' In either case, there must be x then y coordinates, followed by elevation, 
@@ -21,7 +21,7 @@
 
 #' elev.to.list
 #'#'
-#'@description
+#' @description
 #' A function which reads a dataframe with x,y,elevation for a given grid
 #' size and converts to a list
 #' note the names of the columns in the dataframe must be:
@@ -38,7 +38,7 @@
 
 #' allquadratslopes
 #'#'
-#'@description
+#' @description
 #' Calculating slope of all quadrats in a plot
 #' calcslope takes 3 elevations and finds the slope of the plane through them
 #' quadslope divides the 4 corners of a quadrat into 4 different groups of 3 stakes,
@@ -52,8 +52,8 @@
 #' Helene Muller-Landau added a section to correct convexity in edge quadrats
 #'#'
 #'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #'#'
 #'#' Mean elevation of four corners
 #' Convexity
@@ -69,7 +69,7 @@
 
 #' quadslope
 #'#'
-#'@description
+#' @description
 #' Given the elevation at four corners of a square of side=gridsize, this estimates the slope in degrees of the terrain over that square. The slope is calculated for each of the 4 planes defined by omitting one of the points. 
 #' The 4 slopes are averaged. Returns both the mean slope and the sqrt of the variance of the 4 different slopes. 
 #'#' cornerelev: vector of 4 elevations 
@@ -83,7 +83,7 @@
 
 #' calcslope
 #'#'
-#'@description
+#' @description
 #' Given the z-coordinate of 3 points in 3D space whose x-y coordinates are corners of a right, isoceles triangle whose short side = gridsize, this calculates the slope in degrees of the plane through the points. 
 #' The second point is the one between the two short sides. 
 #'#' z: numeric vector of length 3 
@@ -97,7 +97,7 @@
 
 #' calc.gradient
 #'#'
-#'@description
+#' @description
 #' Calculate flow using Seibert & McGlynn algorithm.
 #' Takes a 3x3 matrix of elevations and works on central point; also requires grid size (usually 20 m)
 #' z=matrix(c(c(268.7,275.9,283.2),c(275.9,282.8,290.0),c(283.2,290.0,297)),nrow=3,byrow=TRUE)
@@ -105,8 +105,8 @@
 #' The output is a data.frame of direction and slope for the 8 facets, starting with the lower left and moving clockwise
 #'#'
 #'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #'#'
 #'#' browser()
 #'#'
@@ -117,12 +117,12 @@
 
 #' calc.directionslope
 #'#'
-#'@description
+#' @description
 #' This runs equations 1-3 of Seibert & McGlynn
 #'#'
 #'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #'#'
 #'#' browser()
 #'#'

@@ -5,7 +5,7 @@
 
 #' wavelet.allsp
 #'#'
-#'@description
+#' @description
 #' Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.
 #'#' Author: Matteo Detto and Tania Brenes  
 #'#' Output is a matrix with:   
@@ -21,7 +21,7 @@
 #'  gridsize (2.5): gives the size of the quadrats for the rasterization
 #'  mindbh (NULL): if analysis is to be done at different size  classes
 #'#'@examples
-#'\dontrun{
+#' \dontrun{
 #' load("bci.full1.rdata") 
 #' wavelet.variances = wavelet.allsp(censdata, plotdim=c(1000,500))}
 #'
@@ -31,7 +31,7 @@
 
 #' plot.wavelet
 #'#'
-#'@description
+#' @description
 #' Function to plot the wavelet variance from the output of the wavelet.allsp. 
 #' Author: Tania Brenes  
 #'#'  x (): output for wavelet.allsp; 
@@ -43,7 +43,7 @@
 
 #' rasterize
 #'#'
-#'@description
+#' @description
 #' Function to calculate the count (type='point'), basal area or agb (type='marked') per quadrat 
 #' by selecting quadrats of variable sizes.  
 #' Author: Matteo Detto and Tania Brenes  
@@ -56,7 +56,7 @@
 #'  FUN (sum): function to apply to the point pattern when z is provided. By defult it sums the values of z per quadrat; 
 #'  graph (FALSE): logical, plot the heat map of raster data?; 
 #'#'@examples
-#'\dontrun{
+#' \dontrun{
 #' load("bci.full1.rdata") 
 #' attach("/home/brenest/Documents/Windocs/WorkFiles/R/Functions/CTFSRPackage.rdata")   
 #' onesp = subset(bci.full1, sp=="rinosy")  
@@ -71,7 +71,7 @@
 
 #' wavelet.univariate
 #'#'
-#'@description
+#' @description
 #' Function to calculate the univariate wavelet variance using furier transforms. 
 #' It accepts a raster data or a point pattern, which is the default if raster is not provided.  
 #' The wavelet variance describes the spatial autocorrelation or aggregation of tree distribution.
@@ -94,7 +94,7 @@
 #' dj  (0.15):  numeric. discretization of the scale axis; 
 #' graph (FALSE): logical. If TRUE, plots the wavelet variace as a function of scale 
 #'#'@examples
-#'\dontrun{
+#' \dontrun{
 #' load("bci.full1.rdata") 
 #' rast1 = rasterize(, gridsize=5, plotdim=c(100,500), graph=TRUE)
 #' wv = wavelet.var(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
@@ -106,7 +106,7 @@
 
 #' wavelet.bivariate
 #'#'
-#'@description
+#' @description
 #' Function to calculate the wavelet variance to evaluate the association between two point patterns using furier transforms. 
 #' It accepts a raster data or a point pattern, but the type of data entered has to be specified in the argument type.  
 #' The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.
@@ -131,7 +131,7 @@
 #' dj  (0.15):  numeric. discretization of the scale axis; 
 #' graph (TRUE): logical. plot the wavelet variace ? 
 #'#'@examples
-#'\dontrun{
+#' \dontrun{
 #' load("bci.full1.rdata") 
 #' sp.one = subset(bci.full7, sp=="quaras")[,c("gx","gy")] 
 #' sp.two = subset(bci.full7, sp=="cordal")[,c("gx","gy")]

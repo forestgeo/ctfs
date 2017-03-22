@@ -6,7 +6,7 @@
 
 #' NeighborDensities
 #'#'
-#'@description
+#' @description
 #' Calculates the total number or basal area of conspecific and heterospecific neighbors at a radius r 
 #' with edge effect correction. Most arguments aim to describe the type of neighbors to count  
 #' Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs package. 
@@ -20,8 +20,8 @@
 #'  @param  type (count) calculates count of stems ('count') or sum of basal areas ('basal'). Note that for the sum of basal areas is better to use the plot stem table, otherwise only one stem per tree will be included .
 #'  @param  include (c("A")) a vector of status to include in the neighbors, by default it counts only alive individuals, for all status use c("A","P","D","M").
 #'#'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #'> load("bci.full7.rdata")
 #'> attach("CTFSRPackage.rdata")
 #'> library(splancs)
@@ -37,7 +37,7 @@
 
 #' NDcount
 #'#'
-#'@description
+#' @description
 #' Calculates the count of neighbors within radius r with edge effect correction. Is a quick version of NeighborDensities with limited capabilities. 
 #' Dependencies: CalcRingArea from the CTFS package and splancs. 
 #' Output: a single vector with neighbor counts within radius r for each individual in censdata. 
@@ -46,8 +46,8 @@
 #' @param r (20) radius 
 #'  @param plotdim  (c(1000,500))  vector with two numbers indicating the xy-plot size;
 #'#'
-#'@examples
-#'\dontrun{
+#' @examples
+#' \dontrun{
 #'##' count all the consp neighbors of one species 
 #'> one.sp = subset(bci.full7, sp=="ingasa" & status=="A")
 #'> neighbor.counts <- NDcount(one.sp)}
