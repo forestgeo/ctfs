@@ -1,7 +1,4 @@
+#'
 #'@examples
-#'\dontrun{
-#'
-#'
-#'
-#'}
+xxxxx
 #'

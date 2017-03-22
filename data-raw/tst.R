@@ -4,7 +4,7 @@ from <- "./data-raw/tsttex.R"
 to <- "./data-raw/tsttex_done.R"
 
 string <- read_file(from)
-
+string
 str_replace_all(string, "\'#", "#xxx")
 
 

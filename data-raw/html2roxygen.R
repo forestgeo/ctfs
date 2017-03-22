@@ -117,16 +117,24 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "(#\')([a-zA-Z])", replacement = "\\1 \\2") %>%
   map(replace_stuff, pattern = "\'\'", replacement = "#\'") %>%
   
-  # # Give space after @param
-  # map(replace_stuff, pattern = "(@param)([^ ])", replacement = "\\1 \\2") %>%
-  # 
-  # # Fix a specific issue #' MINIMUM_SD=0.00
+  # Give space after @param
+  map(replace_stuff, pattern = "(@param)([^ ])", replacement = "\\1 \\2") %>%
+
+
+  
+  # Close brackets if examples are empty
+  map(replace_stuff, pattern = "(run\\{)?([\r\n#\']+)(#\')(\\})", replacement = "\\1\\4") %>%
+  # Remove empty examples
+  map(replace_stuff, pattern = "(@examples)?(.*)run\\{\\}", replacement = "xxxxx") %>%
+  # Remove empty examples    "(#\'\r\)(\n#\'@examples?(.*)xxxxx"
+  map(replace_stuff, pattern = "@examples\r?(\nxxxxx)", replacement = "") %>%
+
+
+    
+    # # Fix a specific issue #' MINIMUM_SD=0.00
   # map(replace_stuff, pattern = " MINIMUM_SD=0.00", replacement = "") %>%
   # 
   # 
-  # # Close brackets if examples are empty
-  # # Remove empty examples        (run\{)?([\r\n#\']+)(#\'\\})
-  # map(replace_stuff, pattern = "(run\\{)?([\r\n#\']+)(#\')(\\})", replacement = "\\1\\4") %>%
   # 
   # 
   
