@@ -1,20 +1,20 @@
 
 #' Topographic calculation based on stake and the height difference between them.
-#' 
+#'
 #' Topographic calculation based on stake and the height difference between them.'
 
 
 #' solve.topo
 #'#'
-#' @description
+#'@description
 #' This is based on the problem and solution outlined in my book on plot methods (1998):
 #' Each of N stakes i has an estimated height E[i] and a true height e[i]. 
 #' Pairs of stakes have a height difference d[i,j], where e[i]+d[i,j]=e[j],
 #' but only estimated height differences D[i,j] are known.
 #' The least-squares estimate E[i] of e[i] can be written as the mean of the n[i]
 #' points j for which D[i,j] was measured:
-#' @param E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
-#' @param n[i]*E[i]-sum(E[j]) = -sum(D[i,j])
+#'@param E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
+#'@param n[i]*E[i]-sum(E[j]) = -sum(D[i,j])
 #'#' The latter produces N equations in N unknowns, but they are exactly singular.
 #' One of the points must be assigned a value, and it's easiest to set e[1] = 0.
 #' The effect is to exclude the equation for i=0, but all j for which D[0,j] was
@@ -32,50 +32,50 @@
 #' difference at pt2 minus pt1 (column header diff). The point labelled basept is assigned elevation baseelev. 
 #' The last 5 arguments allow those column headers to be reassigned.
 #'#'
-#' 
-#' @examples
-#' \dontrun{
+#'
+#'@examples
+#'\dontrun{
 #' See topography tutorial
-#'#' #' }
-#' 
-#'#' 
-#'#' 
+#'#'#'}
+#'
+#'#'
+#'#'
 'solve.topo'
 
 
 #' getTopoLinks
 #'#'
-#' @description
+#'@description
 #' This is solely for use by solve.topo. It finds all points linked via a sighting to a given point. 
 #'#'
-#' 
-#' @examples
-#' \dontrun{
-#'#' 
-#' #' if(length(which(linkCount>1))>0) browser()
+#'
+#'@examples
+#'\dontrun{
+#'#'
+#'#' if(length(which(linkCount>1))>0) browser()
 #' browser()
-#'#' 
-#'#' 
-#' 
+#'#'
+#'#'
+#'
 'getTopoLinks'
 
 
 #' rearrangeSurveyData
 #'#'
-#' @description
+#'@description
 #' Takes a table of survey sightings with columns of x and y locations of two points, and converts it to the format
 #' required by solve.topo. The input table must have columns x1, y1, x2, and y2. The return value is a list consisting of two dataframes: 
-#' @param all points found in the input table, with an integer designation assigned to each. The designation is called pt. 
-#' @param the second table matches the input table, 
+#'@param all points found in the input table, with an integer designation assigned to each. The designation is called pt. 
+#'@param the second table matches the input table, 
 #' but instead of x-y coordinates for the two points, only columns pt1 and pt2 are included to 
 #' indicate the two points between which a sighting was taken. 
-#'#' 
-#'#' 
-#' @examples
-#' \dontrun{
-#'#' 
-#' #' }
-#' 
-#'#' 
+#'#'
+#'#'
+#'@examples
+#'\dontrun{
+#'#'
+#'#'}
+#'
+#'#'
 
 'rearrangeSurveyData'

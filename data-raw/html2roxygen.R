@@ -11,7 +11,7 @@ walk(pkgs, library, character.only = TRUE)
 # Directories -------------------------------------------------------------
 
 directory_from   <- "./data-raw/R_from/"
-directory_to   <- "./data-raw/R_to/"
+directory_to   <- "./R/"
 
 from <- map2_chr(directory_from, dir(directory_from), paste0)
 to   <- map2_chr(directory_to,   dir(directory_from), paste0)
@@ -108,11 +108,13 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(name_function) %>% 
   
   
-  # Remove  #' #' 
+  # Details of function titles and names
   map(replace_stuff, pattern = "\'#", replacement = "#") %>%
   map(replace_stuff, pattern = "#\' #\'", replacement = "#\'") %>%
   map(replace_stuff, pattern = "#\' \'", replacement = "#\'") %>%
   map(replace_stuff, pattern = "\'#\'", replacement = "\'") %>%
+  map(replace_stuff, pattern = "\' ", replacement = "\'") %>%
+  map(replace_stuff, pattern = "(#\')([a-zA-Z])", replacement = "\\1 \\2") %>%
   
   # Save
   walk2(to, write_file, append = TRUE)

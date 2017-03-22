@@ -1,11 +1,11 @@
 
-#' 
+#'
 #'
 
 
 #' recruitment
 #'#'
-#' @description
+#'@description
 #' Functions for calculating recruitment rates.
 #' Recruitment is the main function, and is constructed like 
 #' growth and mortality. It requires two complete datasets, one per census,
@@ -22,26 +22,26 @@
 #' from all calculations.
 #' Requires fill.dimension and climit function in utilities.r.  
 #'#'
-#' 
-#' @examples
-#' \dontrun{
-#'#' 
-#' #' }
-#' 
-#' 
+#'
+#'@examples
+#'\dontrun{
+#'#'
+#'#'}
+#'
+#'
 'recruitment'
 
 
 #' recruitment.eachspp
 #'#'
-#' @description
+#'@description
 #' A wrapper to calculate recruitment for each species.
 #'#'
-#' 
-#' @examples
-#' \dontrun{
-#'#' 
-#' #' }
-#' 
+#'
+#'@examples
+#'\dontrun{
+#'#'
+#'#'}
+#'
 
 'recruitment.eachspp'
