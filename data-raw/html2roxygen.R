@@ -13,8 +13,8 @@ walk(pkgs, library, character.only = TRUE)
 directory_from <- "./R/"
 directory_to   <- "./data-raw/done/"
 
-from <- purrr::map2_chr(directory_from, dir(directory_from), paste0)
-to   <- purrr::map2_chr(directory_to,   dir(directory_from), paste0)
+from <- map2_chr(directory_from, dir(directory_from), paste0)
+to   <- map2_chr(directory_to,   dir(directory_from), paste0)
 
 
 # Remove end tags ---------------------------------------------------------
@@ -59,45 +59,39 @@ replace_stuff <- function(path_from, pattern, replacement) {
 # Wrangle -----------------------------------------------------------------
 
 # Remove end tags
-lst <- purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
+lst <- map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
   # Remove @export
-  purrr::map(replace_stuff, pattern = "' @export", replacement = "") %>% 
+  map(replace_stuff, pattern = "' @export", replacement = "") %>% 
   # Remove function tag
-  purrr::map(replace_stuff, pattern = "# <function>\\r\\n", 
-    replacement = "") %>% 
+  map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
   # Remove <br>
-  purrr::map(replace_stuff, pattern = "<br>", replacement = "") %>% 
+  map(replace_stuff, pattern = "<br>", replacement = "") %>% 
   # Remove white space after #
-  purrr::map(replace_stuff, pattern = "(\\r\\n#)[ ]*(\\r\\n)",
-    replacement = "\\1\\2") %>%
+  map(replace_stuff, pattern = "(\\r\\n#)[ ]*(\\r\\n)", replacement = "\\1\\2") %>%
   # Remove double spaces and nothing else
-  purrr::map(replace_stuff, pattern = "^#[ ]*$",replacement = "#") %>% 
+  map(replace_stuff, pattern = "^#[ ]*$",replacement = "#") %>% 
   # Tag @description
-  purrr::map(replace_stuff, pattern = "<description>", 
-    replacement = "@description") %>% 
+  map(replace_stuff, pattern = "<description>", replacement = "@description") %>% 
   # Tag @param
-  purrr::map(replace_stuff, pattern = "<li>", replacement = "@param") %>% 
+  map(replace_stuff, pattern = "<li>", replacement = "@param") %>% 
   # Remove <arguments> and <ul>
-  purrr::map(replace_stuff, pattern = "# <arguments>\\r\\n|# <ul>\\r\\n", 
-    replacement = "") %>% 
+  map(replace_stuff, pattern = "# <arguments>\\r\\n|# <ul>\\r\\n", replacement = "") %>% 
   # Remove : after params name
-  purrr::map(replace_stuff, pattern = "(@param [^:]*):", 
-    replacement = "\\1") %>% 
+  map(replace_stuff, pattern = "(@param [^:]*):", replacement = "\\1") %>% 
   # Remove source code and tag <source>
-  purrr::map(replace_stuff, pattern = "^[^#].*", replacement = "") %>% 
+  map(replace_stuff, pattern = "^[^#].*", replacement = "") %>% 
   # Replace sample by example
-  purrr::map(replace_stuff, pattern = "# <sample>", 
-    replacement = "# @examples") %>% 
+  map(replace_stuff, pattern = "# <sample>", replacement = "# @examples\n# \\\\dontrun\\{") %>% 
+  # map(replace_stuff, pattern = "# <sample>", replacement = "# @examples\n# \\\\\\dontrun\\{") %>% 
   # Replace # by #'
-  purrr::map(replace_stuff, pattern = "#", replacement = "#'") %>% 
+  map(replace_stuff, pattern = "#", replacement = "#'") %>% 
   # Comment uncommented to dissable from roxygen
-  purrr::map(replace_stuff, pattern = "\n[^#]", replacement = "\n# ") %>% 
+  map(replace_stuff, pattern = "\n[^#]", replacement = "\n# ") %>% 
   # add title and name to document
-  purrr::map(replace_stuff, pattern = "#' <name>\\r\\n[#' ](.*)", 
-    replacement = "#' Title: \\1")
+  map(replace_stuff, pattern = "#' <name>\\r\\n[#' ](.*)", replacement = "#' Title: \\1")
 
   #   # add title and name to document
-  # purrr::map(replace_stuff, pattern = "[#' Title: ](.*)", 
+  # map(replace_stuff, pattern = "[#' Title: ](.*)", 
   #   replacement = "#' Title: \\1") %>% 
 
 
