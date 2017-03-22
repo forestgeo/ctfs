@@ -1,28 +1,26 @@
 # <name>
 # CTFSplot
-# 
 #
-# <description>
+#
+# @description
 # A convenience for attaching the R Analytical Tables, including the species table. One or more censuses can be requested, and either the
 # 'full' or the 'stem' tables. The path in which R Tables are stored is submitted; if in a folder called CTFSRPackage, then the default works.
 # Within that folder, there must be subfolders named full, stem, and species for the three types of tables. The function 'attach_if_needed'
 # is used, so there is no penalty to requesting a table that is already attached.
+#
+# @param plot Name of plot as it appears in the names of the R Analytical Tables, in quote marks
+# @param census census numbers as they appear in the names of the R Analytical Tables; can be a vector
+# @param type either full or stem, in quote marks
+# @param path the name of the folder in which the tables are stored, defaults to CTFSRPackage
+# @param remove if TRUE, the tables are detached, otherwise they are attached
+# @param includespp can be set to FALSE if the species table is not available
+#
 # 
-# <arguments>
-# <ul>
-# <li> plot: Name of plot as it appears in the names of the R Analytical Tables, in quote marks
-# <li> census: census numbers as they appear in the names of the R Analytical Tables; can be a vector
-# <li> type: either full or stem, in quote marks
-# <li> path: the name of the folder in which the tables are stored, defaults to CTFSRPackage
-# <li> remove: if TRUE, the tables are detached, otherwise they are attached
-# <li> includespp: can be set to FALSE if the species table is not available
-# 
-# 
-# <sample>
+# @examples
 # CTFSplot(plot='bci',census=1:2)
 # CTFSplot(plot='bci',census=2:3)
 # CTFSplot(plot='sinharaja,census=3,type='stem',path='C:/SinharajaRDataTables')
-# 
+#
 # <source>
 CTFSplot=function(plot,census=1,type='full',path='CTFSRPackage',remove=FALSE,includespp=TRUE)
 {
@@ -40,27 +38,26 @@ CTFSplot=function(plot,census=1,type='full',path='CTFSRPackage',remove=FALSE,inc
 }
 
 
+#
 # 
-# 
-# 
+#
 # 
 
 
 # <name>
 # load.species
-# 
 #
-# <description>
+#
+# @description
 #  A function for extracting a single species' dataframe from the large spp dataset
 # (list of dataframes, one per species). The split data file must come
 # as a name, that is in quote marks.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 load.species=function(spname,sppdatafile)
@@ -69,69 +66,66 @@ load.species=function(spname,sppdatafile)
  return(sppdatafile[[index]])
 }
 
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # rndown5
-# 
 #
-# <description>
+#
+# @description
 #  Rounds a numeric value to the next lowest multiple of 5.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 rndown5=function(s) 
  return(5*floor(s/5))
 
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # countspp
-# 
 #
-# <description>
+#
+# @description
 #  Returns the number of elements in a numeric vector > 0. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 countspp=function(x) 
  return(length(subset(x,x>0)))
 
-# 
+#
 # 
 
-# 
+#
 # <name>
 # assemble.demography
-# 
 #
-# <description>
+#
+# @description
 # Takes output of a demographic analysis (produced by functions growth, mortality, or pop.change)
 # and converts into one dataframe. Only indicated dbh categories are included; be sure that whichdbhcat does 
 # not exceed the number of columns in the data submitted. Type is 'g' for growth, 'm'
 # for mortality, 'ba' for basal area, 'agb' for biomass, 'r' for recruitment, and 'a' for abundance.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # data=pop.change(bci.full5,bci.full6,split1=bci.full5$sp);
 # result=assemble.demography(data,type='a',whichdbhcat=1)
 # data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
@@ -139,7 +133,7 @@ countspp=function(x)
 # data=mortality.eachspp(bci.full5,bci.full6,classbreak=c(10,100))
 # result1=assemble.demography(data,type='m',whichdbhcat=1)
 # result2=assemble.demography(data,type='m',whichdbhcat=2)
-# 
+#
 # <source>
 assemble.demography=function(output,type='g',whichdbhcat=1,date1='1960-1-1')
 {
@@ -229,16 +223,16 @@ assemble.demography=function(output,type='g',whichdbhcat=1,date1='1960-1-1')
  return(result)
 }
 
-# 
-# 
-# 
-
-# 
-# <name>
-# clean.demography
+#
 # 
 #
-# <description>
+
+#
+# <name>
+# clean.demography
+#
+#
+# @description
 #  This takes a CTFS demography table, output by functions mortality, growth, or recruitment,
 # and removes rows where N==0, or key data are NA. The rownames are assumed to refer to species names, and
 # some codes can be excluded using the argument excludespp. The four columns
@@ -246,16 +240,15 @@ assemble.demography=function(output,type='g',whichdbhcat=1,date1='1960-1-1')
 # setting type to 'mort' or 'abund'.
 # It returns a logical vector indicating with TRUE which rows to keep, not the cleaned table itself.
 # This was formerly in utilities.r.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # rows.include=clean.demography(demogtable,type='growth',Ncol='N',ratecol='ratecol');
 # result=demogtable[rows.include,]
 
-# 
+#
 # <source>
 clean.demography=function(demogdata,type='mort',Ncol=NULL,Scol=NULL,timecol=NULL,ratecol=NULL,excludespp=NULL)
 {
@@ -281,28 +274,27 @@ clean.demography=function(demogdata,type='mort',Ncol=NULL,Scol=NULL,timecol=NULL
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# unidentified.species
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# unidentified.species
+#
+#
+# @description
 # Takes a string of species names or codes and returns a logical vector indicating
 # with TRUE those that should be excluded. Any species name (code) matching precisely the names in exactstr
 # are excluded, as well as any which has characters matching partialstr. Either or both exactstr and partialstr
 # can be NULL. The typical use if for excluding species whose codes or names
 # indicate they are not fully identified. It returns a logical vector which is TRUE for those to be excluded.
 # This was formerly in utilities.r.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 unidentified.species=function(spnames,exactstr=c('UNIDEN','UNID','uniden','unid'),partialstr=c('XX','**'))
@@ -325,25 +317,24 @@ unidentified.species=function(spnames,exactstr=c('UNIDEN','UNID','uniden','unid'
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# exclude.unidentified
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# exclude.unidentified
+#
+#
+# @description
 # A more specialized version of unidentified species. It excludes species codes matching any listed in speciesnames
 # but only for one specific plot. This way a code can be eliminated from one plot's results, but not any other plot.
 # It returns a logical vector, TRUE for species to be excluded. This was formerly in utilities.r.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 exclude.unidentified=function(speciesnames,plotname)
@@ -354,8 +345,8 @@ exclude.unidentified=function(speciesnames,plotname)
    
  return(unidentified.species(speciesnames,partialstr=c('XX',excludespp)))
 }   
+#
 # 
+#
 # 
-# 
-# 
-# 
+#

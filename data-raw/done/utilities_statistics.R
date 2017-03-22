@@ -1,16 +1,15 @@
 # <name>
 # skewness
-# 
 #
-# <description>
+#
+# @description
 # Sample skewness. The biased portion is the population skewness; correction is for finite sample.  
 # D. N. Joanes and C. A. Gill. “Comparing Measures of Sample Skewness and Kurtosis”. The Statistician 47(1):183–189
-# 
-# <arguments>
+#
 #
 # 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 skewness=function(x)
@@ -27,23 +26,22 @@ skewness=function(x)
 
  return(biased*correction)
 }
+#
 # 
-# 
-# 
+#
 #
 #
 # <name>
 # skewness
-# 
 #
-# <description>
+#
+# @description
 # Standard error of skewness. Depends only on sample size. 
-# 
-# <arguments>
+#
 #
 # 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 se.skewness=function(x)
@@ -57,23 +55,22 @@ se.skewness=function(x)
  part3=(n-1)/(n+3)
  return(sqrt(part1*part2*part3))
 }
+#
 # 
+#
 # 
-# 
-# 
-# 
+#
 # <name>
 # skewness
-# 
 #
-# <description>
+#
+# @description
 # Sample kurtosis. The biased portion is the population kurtosis; corrected is for finite sample.  
-# 
-# <arguments>
+#
 #
 # 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 kurtosis=function(x)
@@ -92,22 +89,21 @@ kurtosis=function(x)
 
  return(part1*part2)
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # skewness
-# 
 #
-# <description>
+#
+# @description
 # Standard error of kurtosis. Depends only on sample size. 
-# 
-# <arguments>
+#
 #
 # 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 se.kurtosis=function(x)
@@ -123,22 +119,21 @@ se.kurtosis=function(x)
  
  return(2*SES*sqrt(part1/part2))
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # regslope
-# 
 #
-# <description>
+#
+# @description
 # Returns slope of regression as single scalar (for use with apply).
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 regslope=function(y,x)
@@ -152,24 +147,23 @@ regslope=function(y,x)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# regslope.noint
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# regslope.noint
+#
+#
+# @description
 #  Returns slope of regression with no intercept as single scalar (for use with apply).
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 regslope.noint=function(y,x)
@@ -180,25 +174,24 @@ regslope.noint=function(y,x)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# regress.plot
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# regress.plot
+#
+#
+# @description
 #  Performs regression in convenient way and returns coefficients and
 # probabilities in a single vector, and plots a graph.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 regress.plot=function(x,y,title="",graphit=T,add=F,pts=T,clr="blue",ptnames=NULL,xrange=NULL,yrange=NULL,xtitle=NULL,ytitle=NULL)
@@ -226,28 +219,27 @@ regress.plot=function(x,y,title="",graphit=T,add=F,pts=T,clr="blue",ptnames=NULL
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# regress.loglog
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# regress.loglog
+#
+#
+# @description
 #  Performs regression and graphs in a convenient way: with or without log-transforming x and y variables (the option addone
 # can be included to handle zeros for log-transformation), with or
 # without manual point labelling, without or without the best-fit line added, and with many options for colors and points. 
 # add can be a vector of length 2, a constant to be added to every value
 # of x, y to remove zeroes.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 regress.loglog=function(x,y,xlog=TRUE,ylog=TRUE,addone=NULL,graphit=TRUE,xrange=NULL,yrange=NULL,add=FALSE,pts=16,lwidth=1,
@@ -316,26 +308,25 @@ regress.loglog=function(x,y,xlog=TRUE,ylog=TRUE,addone=NULL,graphit=TRUE,xrange=
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# majoraxisreg
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# majoraxisreg
+#
+#
+# @description
 #  A major axis regression with parameters fitted by optim. The regression
 # is the line which minimizes perpendicular distance summed over all points
 # (and squared).
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 majoraxisreg=function(x,y,title="",graphit=F,add=F,pts=T,clr="blue",xtitle="x",ytitle="y",ptsize=1,labsize=1)
@@ -357,24 +348,23 @@ majoraxisreg=function(x,y,title="",graphit=F,add=F,pts=T,clr="blue",xtitle="x",y
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# minum.perpdist
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# minum.perpdist
+#
+#
+# @description
 #  The sum of squares used by majoraxisreg.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 minum.perpdist=function(param,x,y)
@@ -382,25 +372,24 @@ minum.perpdist=function(param,x,y)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# majoraxisreg.no.int
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# majoraxisreg.no.int
+#
+#
+# @description
 #  Major axis regression with no intercept. Only a slope
 # is returned. Below is the same for standard regression.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 majoraxisreg.no.int=function(x,y)
@@ -418,23 +407,22 @@ majoraxisreg.no.int=function(x,y)
  answer[2]=(-b-sqrt(b^2-4*a*c))/(2*a)
  return(max(answer,na.rm=T))
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # standardreg.no.int
-# 
 #
-# <description>
+#
+# @description
 #  Standard regression with no intercept.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 standardreg.no.int=function(x,y)
@@ -445,23 +433,22 @@ standardreg.no.int=function(x,y)
 
  return(sum(x*y)/sum(x^2))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# autoregression
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# autoregression
+#
+#
+# @description
 # Autocorrelation with a given lag of a vector y.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 autoregression=function(y,lag,xlog=FALSE,ylog=FALSE,graphit=TRUE)
@@ -476,22 +463,21 @@ autoregression=function(y,lag,xlog=FALSE,ylog=FALSE,graphit=TRUE)
 
  return(regress.loglog(ynon,ylag,xlog=xlog,ylog=ylog,graphit=graphit))
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # regression.Bayes
-# 
 #
-# <description>
+#
+# @description
 # Regression using the Gibbs sampler, with just one x variable. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 regression.Bayes=function(x,y,start.param=NULL,steps=1100,whichuse=101:1100,showstep=50)
@@ -530,23 +516,22 @@ regression.Bayes=function(x,y,start.param=NULL,steps=1100,whichuse=101:1100,show
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# Gibbs.regslope
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# Gibbs.regslope
+#
+#
+# @description
 # Updates the regression slope (used in regression.Bayes).
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 Gibbs.regslope=function(X,y,var)
@@ -559,23 +544,22 @@ Gibbs.regslope=function(X,y,var)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# Gibbs.regsigma
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# Gibbs.regsigma
+#
+#
+# @description
 # Updates the regression standard deviation (used in regression.Bayes).
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 Gibbs.regsigma=function(X,y,beta)
@@ -592,24 +576,23 @@ Gibbs.regsigma=function(X,y,beta)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# Gibbs.normalmean
+#
 # 
 #
-# <description>
-# The standard Gibbs sampler for a normal distribution with unknown mean and variance. 
 # 
-# <arguments>
+#
+# <name>
+# Gibbs.normalmean
+#
+#
+# @description
+# The standard Gibbs sampler for a normal distribution with unknown mean and variance. 
+#
 # y is the vector of observations
 # sigma is the latest draw of the SD, using sqrt(Gibbs.normalvar)
-# 
-# <sample>
-# 
+#
+# @examples
+#
 # 
 # <source>
 Gibbs.normalmean=function(y,sigma)
@@ -624,24 +607,23 @@ Gibbs.normalmean=function(y,sigma)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# Gibbs.normalvar
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# Gibbs.normalvar
+#
+#
+# @description
 # Gibbs draw for the variance of a normal distribution (http://www.biostat.jhsph.edu/~fdominic/teaching/BM/3-4.pdf). If all y are
 # identical, it returns a small positive number. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 Gibbs.normalvar=function(y)
@@ -654,16 +636,16 @@ Gibbs.normalvar=function(y)
  
  return(rinvgamma(1,shape=(n-1)/2,scale=(n-1)*vr/2))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# model.xy
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# model.xy
+#
+#
+# @description
 # Generic Bayesian routine for fitting a model to y given 1 predictor variable x. The function
 # of y~x must be supplied, as well as the function for the SD~y. Any functions with any numbers
 # of parameters can be used: predfunc is the function of y~x, and sdfunc is the function sd~y.
@@ -675,15 +657,14 @@ Gibbs.normalvar=function(y)
 # The sd function can be omitted if the likelihood does not require it. 
 # This works only if one likelihood function defines the likelihood of the model, given data and parameters only.
 # If the likelihood of some parameters is conditional on other parameters, as in hierarchical model, this can't be used.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 #  testx=1:10; testy=1+2*testx+rnorm(10,0,1)
 #   model.xy(x=testx,y=testy,predfunc=linear.model,llikefunc=llike.GaussModel,badpredpar=BadParam,start.predpar=c(1,1),
 #            sdfunc=constant,start.sdpar=1,llikefuncSD=llike.GaussModelSD)
-# 
+#
 # <source>
 model.xy=function(x,y,predfunc,llikefunc,badpredpar,badsdpar=NULL,start.predpar,sdfunc=NULL,start.sdpar=NULL,llikefuncSD,
                   logx=FALSE,logy=FALSE,add=c(0,0),steps=100,showstep=20,burnin=50,...)
@@ -782,24 +763,23 @@ model.xy=function(x,y,predfunc,llikefunc,badpredpar,badsdpar=NULL,start.predpar,
  return(list(best=best,bestmean=bestmean,CI=conf,bestSD=bestSD,bestSDmean=bestSDmean,confSD=confSD,
              model=modelresult,fullparam=predpar,sdpar=sdpar,llike=llike,burn=burnin,keep=keep))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# arrangeParam.llike
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# arrangeParam.llike
+#
+#
+# @description
 # Used in likelihood function of a Gibbs sampler. Allows any of a set of parameters to be submitted to metrop1step; 
 # whichtest is the index of the parameter to test. If NULL, zero, or NA, it simply returns allparam.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 arrangeParam.llike=function(testparam,allparam,whichtest)
@@ -813,18 +793,17 @@ arrangeParam.llike=function(testparam,allparam,whichtest)
 
 # <name>
 # arrangeParam.Gibbs
-# 
 #
-# <description>
+#
+# @description
 # Used in the loop of a Gibbs sampler, setting parameters not yet tested (j and above) to previous value (i-1), 
 # and other parameters (<j) to new value (i). 
 # This has unfortunate need for the entire matrix allparam, when only row i-1 and row i are needed. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 arrangeParam.Gibbs=function(i,j,allparam)
@@ -836,27 +815,26 @@ arrangeParam.Gibbs=function(i,j,allparam)
  
  return(param)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# llike.GaussModel
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# llike.GaussModel
+#
+#
+# @description
 # This is for model.xy. It takes the model function, its parameters, x values, observed values of the dependent variable obs, and sd values,
 # to generate a likelihood. One of the parameters is passed as testparam, for use with metrop1step.
 # This requires a badparam function for testing parameters. The standdard deviation is passed as an argument,
 # not calculated from sdmodel.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 llike.GaussModel=function(testparam,allparam,whichtest,x,obs,model,badpred,SD,...)
@@ -881,16 +859,16 @@ llike.GaussModel=function(testparam,allparam,whichtest,x,obs,model,badpred,SD,..
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# llike.GaussModelSD
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# llike.GaussModelSD
+#
+#
+# @description
 # This is for model.xy. Take the function for the SD, its parameters, and both predicted and observed values of the 
 # dependent variable (pred,obs)
 # to generate a likelihood. One of the parameters is passed as testparam, for use with metrop1step. The predicted value
@@ -899,12 +877,11 @@ llike.GaussModel=function(testparam,allparam,whichtest,x,obs,model,badpred,SD,..
 # MINIMUM_SD should be set in the program calling model.xy, to adjust it appropriately. If MINSD==0, then the sd can
 # collapse to a miniscule number and drive the likelihood very high, preventing parameter searches from ever escaping the sd.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 llike.GaussModelSD=function(testparam,allparam,whichtest,x,pred,obs,model,badsd,...)
@@ -925,47 +902,45 @@ llike.GaussModelSD=function(testparam,allparam,whichtest,x,pred,obs,model,badsd,
  
  return(total)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# BadParam
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# BadParam
+#
+#
+# @description
 # This is a default for model.xy, never returning TRUE. To use model.xy, another function must be created to
 # return TRUE for any illegal parameter combination (any that would, for instance, produce a predicted y out-of-range, or a would
 # create an error in the likelihood function.)
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 BadParam=function(x,param,pred) return(FALSE)
-# 
-# 
-# 
-# 
-# 
-# <name>
-# graph.modeldiag
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# graph.modeldiag
+#
+#
+# @description
 #  Graph diagnostics of model.xy
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 graph.modeldiag=function(fit,burn=500,llikelim=50,graphpar=1:3)
@@ -999,24 +974,23 @@ graph.modeldiag=function(fit,burn=500,llikelim=50,graphpar=1:3)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# bootstrap.corr
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# bootstrap.corr
+#
+#
+# @description
 #  Running bootstrap on a correlation. Any columsn can be chosen from the submitted dataset, by number or name.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 bootstrap.corr=function(dataset,xcol=(-1),ycol=(-1),xcolname="no",ycolname="no",boot=100)
@@ -1068,24 +1042,23 @@ bootstrap.corr=function(dataset,xcol=(-1),ycol=(-1),xcolname="no",ycolname="no",
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# bootconf
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# bootconf
+#
+#
+# @description
 #  A simple calculation of confidence limits based on the SD of a vector.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 bootconf=function(x)
@@ -1097,16 +1070,16 @@ bootconf=function(x)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# metrop1step
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# metrop1step
+#
+#
+# @description
 #  Takes a single metropolis step on a single parameter for any given likelihood function.
 # The arguments start.param and scale.param are atomic (single values), as are adjust and target. 
 # The ellipses handle all other arguments to the function. The function func must accept the test 
@@ -1134,12 +1107,11 @@ bootconf=function(x)
 # 5) the likelihood of original parameter (if accepted) or new parameter (if rejected)
 # 6) the new parameter tested (whether accepted or not)
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 metrop1step=function(func,start.param,scale.param,adjust,target,...)
@@ -1175,26 +1147,25 @@ metrop1step=function(func,start.param,scale.param,adjust,target,...)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# metrop1step.discrete
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# metrop1step.discrete
+#
+#
+# @description
 #  A version for metrop1step where the alternative values are character states with no numeric meaning.
 # A random draw must be taken from all possible states, each with equal probability. There
 # is no step-size thus no adjustment.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 metrop1step.discrete=function(func,start.param,alter.param,...)
@@ -1225,24 +1196,23 @@ metrop1step.discrete=function(func,start.param,alter.param,...)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# testmcmcfunc
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# testmcmcfunc
+#
+#
+# @description
 #  For testing mcmc1step. No longer used. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 testmcmcfunc=function(x,mn,s)
@@ -1255,24 +1225,23 @@ testmcmcfunc=function(x,mn,s)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# CI
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# CI
+#
+#
+# @description
 # Confidence limits (quantiles) from a vector at specified probabilities. Default is 95% confidence interval. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 CI=function(x,prob=c(.025,.975),na.rm=FALSE) 
@@ -1280,23 +1249,22 @@ CI=function(x,prob=c(.025,.975),na.rm=FALSE)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# hist.compare
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# hist.compare
+#
+#
+# @description
 # Compares two histograms with a Kolmogorov approach.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 hist.compare=function(x,y,div,breaks=NULL)
@@ -1326,24 +1294,23 @@ hist.compare=function(x,y,div,breaks=NULL)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# harmonic.mean
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# harmonic.mean
+#
+#
+# @description
 #  Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a constant can be added to every x.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 harmonic.mean=function(x,add=0,na.rm=TRUE)
@@ -1363,26 +1330,25 @@ harmonic.mean=function(x,add=0,na.rm=TRUE)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# cumul.above
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# cumul.above
+#
+#
+# @description
 #  Given y values as a function of x, this seeks the x at which the curve passes through a given y. It sets
 # a variable whichabove to 0 for all cases where y>cutoff, otherwise 0, then fits a logistic regression.
 # The midpoint of the logistic regression is a good estimate. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 cumul.above=function(x,y,cutoff,logaxs="",graphit=TRUE,returnfull=FALSE)
@@ -1410,24 +1376,23 @@ cumul.above=function(x,y,cutoff,logaxs="",graphit=TRUE,returnfull=FALSE)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# sumsq
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# sumsq
+#
+#
+# @description
 #  A trivial function used in minimizing sums of squares.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 sumsq=function(x) 
@@ -1435,24 +1400,23 @@ sumsq=function(x)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# is.odd
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# is.odd
+#
+#
+# @description
 #  A trivial function to test whether numbers (scalar or vector) are odd. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 is.odd=function(x)
@@ -1464,26 +1428,25 @@ is.odd=function(x)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# border.distance
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# border.distance
+#
+#
+# @description
 #  Returns distance from a point to the nearest boundary of a rectangle (plot). Accepts either separate
 # x-y coordinates, or an object where x is first column, y is second. The lower left corner of the plot is
 # assumed to be 0,0. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 border.distance=function(x,y,plotdim=c(1000,500),pt=NULL)
@@ -1518,26 +1481,25 @@ border.distance=function(x,y,plotdim=c(1000,500),pt=NULL)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# regsum
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# regsum
+#
+#
+# @description
 #  This carries out either first or second order polynomial regression,
 # finds the x- and y-values at y's peak if its second order,
 # otherwise the x-intercept.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 regsum=function(x,y,poly=1,graphit=F,yrange=c(-1,-1),yaxslab="multiplier",
@@ -1593,50 +1555,48 @@ regsum=function(x,y,poly=1,graphit=F,yrange=c(-1,-1),yaxslab="multiplier",
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# colMedians
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# colMedians
+#
+#
+# @description
 #  For convenient medians, like colMeans.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 colMedians=function(mat,na.rm=TRUE)
   return(apply(mat,2,median,na.rm=na.rm))
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # midPoint
-# 
 #
-# <description>
+#
+# @description
 #  Midpoint of any vector.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 midPoint=function(x,na.rm=TRUE)
   return(min(x)+0.5*diff(range(x,na.rm=na.rm)))
+#
 # 
-# 
-# 
+#
 # 

@@ -1,19 +1,18 @@
 # <name>
 # individual_grow.table
-# 
 #
-# <description>
+#
+# @description
 # Create a table of individual trees and their growth over two censuses, with many species included. 
 # The option rnd is used to rounddown dbhs for certain intervals. The flag ctr is used to center the time variable,
 # which is the number of years since 1960 of the interval midpoint. There is a logarithmic transformation, for which all growth<=0
 # is converted to mingrow. There is also a power transformation, where each growth rate is raised to the power given by powertransformation.
 # In the latter, negative growths are transformed to negative, so do not need to be corrected. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 individual_grow.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.full4,bci.full5,bci.full6,bci.full7),powertransformation=0.45,
@@ -49,23 +48,22 @@ individual_grow.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.fu
      
  return(final)
 }
+#
 # 
-# 
-# 
+#
 # 
 
 # <name>
 # individual_mort.table
-# 
 #
-# <description>
+#
+# @description
 # Create a table of individual trees and their survival status over two censuses, with many species included. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 individual_mort.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.full4,bci.full5,bci.full6,bci.full7),
@@ -100,25 +98,24 @@ individual_mort.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.fu
  
  return(final)
 }
-# 
-# 
-# 
-# 
-
-# 
-# <name>
-# calcMortIndivTable
+#
 # 
 #
-# <description>
+# 
+
+#
+# <name>
+# calcMortIndivTable
+#
+#
+# @description
 # Calculate mortality rate per species per census interval using the output of individual_mort.table. 
 # Formerly named calcMortlmerTable.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calcMortIndivTable=function(mtable,by='species')
@@ -135,23 +132,22 @@ calcMortIndivTable=function(mtable,by='species')
  mortality=mortality.calculation(N,S,time)$rate
  return(mortality)
 }
-# 
-# 
-# 
-# <name>
-# lmerMortLinear
+#
 # 
 #
-# <description>
+# <name>
+# lmerMortLinear
+#
+#
+# @description
 # A linear model of an annual mortality parameter [which is -log(annual survival)] as a function of N predictors x, which must be the first N columns of x. 
 # The parameters are standard slope and intercept for a linear model. There must be one additional column in x for the time interval t. The linear model predicts annual log(survival).
 # Return value is predicted survival rate (probability) over an interval of t years. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 lmerMortLinear=function(x,param,...)
@@ -167,23 +163,22 @@ lmerMortLinear=function(x,param,...)
  
  return(surv)
 }
-# 
+#
 # 
 
 # <name>
 # lmerMortFixedTime
-# 
 #
-# <description>
+#
+# @description
 # A model for mortality as a function of a single predictor variable, with the time interval for each individual incorporated (as a secondpredictor).
 # The predictor must be an integer. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor. 
 # The return value is a survival probability. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 lmerMortFixedTime=function(x,param)
@@ -206,6 +201,6 @@ lmerMortFixedTime=function(x,param)
  survprob=exp(pred*interval)
  return(survprob)
 }
+#
 # 
-# 
-# 
+#

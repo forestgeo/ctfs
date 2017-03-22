@@ -1,20 +1,19 @@
 # <name>
 # readelevdata
-# 
 #
-# <description>
+#
+# @description
 #  A function to read a table of elevation data into a matrix appropriate for
 # mapping. It can read a text table (if text==TRUE) or a dataframe. 
 # In either case, there must be x then y coordinates, followed by elevation, 
 # at every corner across the plot, using grid of gridsize. The output is
 # a matrix, as needed for R's contour function.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 readelevdata=function(elevfile,gridsize=5,text=FALSE)
@@ -29,29 +28,28 @@ readelevdata=function(elevfile,gridsize=5,text=FALSE)
 
  return(elevmat)
 }
-# 
+#
 # 
 
 # <name>
 # elev.to.list
-# 
 #
-# <description>
+#
+# @description
 #  A function which reads a dataframe with x,y,elevation for a given grid
 # size and converts to a list
 
 # note the names of the columns in the dataframe must be:
 # x y elev
 
-# 
-# <arguments>
-# 
+#
+#
 # object 1 in list is: the input dataframe
 # object 2 in list is: matrix of elevation value sin the orientation of the plot
 
-# 
-# <sample>
-# 
+#
+# @examples
+#
 # 
 # <source>
 elev.to.list=function(elevfile,gridsize=5)
@@ -66,16 +64,16 @@ elev.to.list=function(elevfile,gridsize=5)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# allquadratslopes
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# allquadratslopes
+#
+#
+# @description
 # Calculating slope of all quadrats in a plot
 # calcslope takes 3 elevations and finds the slope of the plane through them
 # quadslope divides the 4 corners of a quadrat into 4 different groups of 3 stakes,
@@ -89,12 +87,11 @@ elev.to.list=function(elevfile,gridsize=5)
 
 # Helene Muller-Landau added a section to correct convexity in edge quadrats
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
@@ -168,25 +165,24 @@ allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# quadslope
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# quadslope
+#
+#
+# @description
 # Given the elevation at four corners of a square of side=gridsize, this estimates the slope in degrees of the terrain over that square. The slope is calculated for each of the 4 planes defined by omitting one of the points. 
 # The 4 slopes are averaged. Returns both the mean slope and the sqrt of the variance of the 4 different slopes. 
-# 
-# <arguments>
+#
 # cornerelev: vector of 4 elevations 
 # gridsize: the side of the square
-# 
-# <sample>
-# 
+#
+# @examples
+#
 # 
 # <source>
 quadslope=function(cornerelev,gridsize=20)
@@ -213,25 +209,24 @@ quadslope=function(cornerelev,gridsize=20)
  return( c(mean(slope),sqrt(var(slope))) )
 }
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# calcslope
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# calcslope
+#
+#
+# @description
 # Given the z-coordinate of 3 points in 3D space whose x-y coordinates are corners of a right, isoceles triangle whose short side = gridsize, this calculates the slope in degrees of the plane through the points. 
 # The second point is the one between the two short sides. 
-# 
-# <arguments>
+#
 # z: numeric vector of length 3 
 # gridsize: numeric scalar
-# 
-# <sample>
-# 
+#
+# @examples
+#
 # 
 # <source>
 calcslope=function(z, gridsize=20)
@@ -262,16 +257,16 @@ calcslope=function(z, gridsize=20)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# calc.gradient
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# calc.gradient
+#
+#
+# @description
 #  Calculate flow using Seibert & McGlynn algorithm.
 # Takes a 3x3 matrix of elevations and works on central point; also requires grid size (usually 20 m)
 # z=matrix(c(c(268.7,275.9,283.2),c(275.9,282.8,290.0),c(283.2,290.0,297)),nrow=3,byrow=TRUE)
@@ -279,12 +274,11 @@ calcslope=function(z, gridsize=20)
 # This calculates the gradient for the 8 triangular facets around the center point, following Seibert & McGlynn
 # The output is a data.frame of direction and slope for the 8 facets, starting with the lower left and moving clockwise
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calc.gradient=function(elev,grid=20)
@@ -340,24 +334,23 @@ calc.gradient=function(elev,grid=20)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# calc.directionslope
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# calc.directionslope
+#
+#
+# @description
 #  This runs equations 1-3 of Seibert & McGlynn
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calc.directionslope=function(z1,z2,x1,x2,y1,y2)
@@ -379,7 +372,7 @@ calc.directionslope=function(z1,z2,x1,x2,y1,y2)
 }
 
 
+#
 # 
-# 
-# 
+#
 # 

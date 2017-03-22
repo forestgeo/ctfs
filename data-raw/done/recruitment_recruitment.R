@@ -1,8 +1,8 @@
 # <name>
 # recruitment
-# 
 #
-# <description>
+#
+# @description
 # Functions for calculating recruitment rates.
 
 # Recruitment is the main function, and is constructed like 
@@ -22,12 +22,11 @@
 # from all calculations.
 
 # Requires fill.dimension and climit function in utilities.r.  
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 recruitment=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"),split1=NULL,split2=NULL)
@@ -96,7 +95,7 @@ recruitment=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"),split1
 
  return(result)
 }
-# 
+#
 # 
 
 
@@ -104,16 +103,15 @@ recruitment=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"),split1
 
 # <name>
 # recruitment.eachspp
-# 
 #
-# <description>
+#
+# @description
 # A wrapper to calculate recruitment for each species.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 recruitment.eachspp=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"))
@@ -121,6 +119,6 @@ recruitment.eachspp=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"
  result=recruitment(census1,census2,mindbh=mindbh,alivecode=alivecode,split1=census1$sp)
  return(result)
 }
-# 
+#
 # 
 

@@ -1,17 +1,16 @@
 # 
 # <name>
 # calcalpha
-# 
 #
-# <description>
+#
+# @description
 #  Calculates alpha from a stem and species count submitted using Newton's method.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calcalpha=function(n, s)
@@ -37,48 +36,46 @@ calcalpha=function(n, s)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# d.calcS.alpha
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# d.calcS.alpha
+#
+#
+# @description
 #  The derivative for use in Newton's method
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 d.calcS.alpha=function(a, n, s)
   return(log(1+n/a)-n/(a+n))
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# calcS.alpha
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# calcS.alpha
+#
+#
+# @description
 #  Estimated number of species in a sample of N individuals, given Fisher's alpha
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calcS.alpha=function(n, a) 
@@ -86,27 +83,26 @@ calcS.alpha=function(n, a)
  
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# rarefy.diversity
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# rarefy.diversity
+#
+#
+# @description
 #  takes a full plot dataframe and calculates species number in a
 # random subsample of s individuals. All it requires is a column
 # called sp which has species designation for each individual. 
 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 rarefy.diversity=function(fulldata,s)
@@ -120,7 +116,7 @@ rarefy.diversity=function(fulldata,s)
  
  
 
+#
 # 
-# 
-# 
+#
 # 

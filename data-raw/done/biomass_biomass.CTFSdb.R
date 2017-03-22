@@ -1,8 +1,8 @@
 # <name>
 # biomass.CTFSdb
-# 
 #
-# <description>
+#
+# @description
 # Calculate biomass from existing R-formatted tables for trees and stems using dbh allometry. By default, it uses the Chave (2005) equations.
 # Note that the standard downloads of R Analytical Tables, already has the agb column filled, calculated with this routine using the default parameters for moist forest. 
 # This program can be used to repeat or redo the calculation. It can also be used for other tables, always requiring two tables:  one with trees and one with all stems. 
@@ -10,8 +10,7 @@
 # Calculations are done by AGB.ind and the subroutines it call.
 # An alternative option is to have AGB calculations already stored in the server's AGB database, setting useChave=FALSE. This function then looks up the AGB for 
 # each stem from the table named for the plot. 
-# 
-# <arguments>
+#
 # RStemTable: Name of table with one row per stem; must have dbh, species (column sp), treeID
 # RTreeTable: Name of table with one row per tree; must have dbh, species (column sp), treeID
 # whichtable: Set to "tree" to return the entire tree table with agb, or to "stem" to return stem table
@@ -21,13 +20,13 @@
 # forest: Set to "moist", "dry", or "wet" to use the equations publshed in Chave (2005) for the 3 forest types
 # ht.param: A vector of parameters for a formula relating tree height to dbh; if NULL, the biomass formula does not use height
 # htmodel: Name of an R function that returns tree height giving a dbh and any number of parameters; if ht.param is NULL, htmodel is ignored 
-# 
-# <sample>
+#
+# @examples
 # CTFSplot("bci","full",census=1) 
 # CTFSplot("bci","stem",census=1) 
 # attach("biomass/wsg.ctfs.Rdata") 
 # newtable=biomass.CTFSdb(RStemTable=bci.stem1,RTreeTable=bci.full1)
-# 
+#
 # <source>
 biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',
                         ht.param=NULL,htmodel=predht.asym,useChave=TRUE,cnsno=NULL,dbname=NULL,fullname=NULL,plotcode=NULL)
@@ -56,15 +55,15 @@ biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plo
 
  return(RTreeTable)   
 }
-# 
+#
 # 
 
 
 # <name>
 # density.ind
-# 
 #
-# <description>
+#
+# @description
 # Create a vector of wood density for each individual tree based on the species name and plot. The table of individuals, called df,
 # must include a dbh and a species name, the latter named sp. There must be a table of wood density submitted (wsgdata), and this
 # table must have a column sp with species names, a column plot, plus the wood density in a column called wsg (though the
@@ -73,15 +72,14 @@ biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plo
 # If a species is not found in the correct plot, then the mean wood density of all species in the same plot is taken. The function
 # fails (returns only NAs) if there are no entries for the selected plot in the wood-density table.  
 # Returns a vector of wood density of the same size as the df table submitted. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # wooddens=density.ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2) #
 # mean(wooddens,na.rm=TRUE) #
 # length(which(is.na(wooddens)))
-# 
+#
 # <source>
 density.ind=function(df,plot,wsgdata,denscol='wsg')
 {
@@ -99,15 +97,15 @@ density.ind=function(df,plot,wsgdata,denscol='wsg')
  
  return(result)
 }
-# 
+#
 # 
 
 
 # <name>
 # AGB.ind
-# 
 #
-# <description>
+#
+# @description
 # Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types. 
 # Requires a table (df) with dbh and species names, a wood-density table (described under density.ind), a plot name, 
 # dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
@@ -115,15 +113,14 @@ density.ind=function(df,plot,wsgdata,denscol='wsg')
 # and a height function can be supplied, the latter to calculate height from diameter for every tree, in which case the
 # Chave model with height is used. Returns a vector of biomass in kg for every individual in the submitted table df. 
 # This is called by AGB.tree in the standard calculation of biomass for CTFS R tables. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # biomass=AGB.ind(df=bci.full1) #
 # hist(log(biomass),breaks=100) #
 # sum(biomass,na.rm=TRUE)/50
-# 
+#
 # <source>
 AGB.ind=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht.param=NULL,htmodel=predht.asym)
 {
@@ -135,29 +132,28 @@ AGB.ind=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht.
  
  return(Chave.AGB(dbh=dbh,density=wsg,forest=forest,htparam=ht.param,heightmodel=htmodel)/1000)
 }
-# 
+#
 # 
 
 
 # <name>
 # AGB.tree
-# 
 #
-# <description>
+#
+# @description
 # Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs. 
 # The submitted table, df, must have dbh, species name (sp),
 # and a treeID to identify which tree every stem belong to. There must be just one dbh for each stem.  Returns
 # a dataframe with one row per tree, including the treeID and total agb per tree. Note that it will have fewer rows
 # than the table submitted. This is called by biomass.CTFSdb in the standard calculation of biomass for CTFS R tables. 
-# 
-# <arguments>
+#
 # biomasstbl=AGB.tree(df=bci.stem1)
 # dim(bci.stem1)
 # dim(biomasstbl)
 # head(biomasstbl)
-# 
-# <sample>
-# 
+#
+# @examples
+#
 # 
 # <source>
 AGB.tree=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht.param=NULL,htmodel=predht.asym)
@@ -169,15 +165,15 @@ AGB.tree=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht
  result=data.frame(treeID=as.numeric(names(AGB.tree)),agb=AGB.tree)
  return(result)
 }
-# 
+#
 # 
 
 
 # <name>
 # Chave.AGB
-# 
 #
-# <description>
+#
+# @description
 # The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All dbhs are submitted as a vector, and a vector of wood density
 # of the same length must also be submitted (or a single wood density can be passed, to be used for every tree). 
 # Parameter values for the 3 forest types according to Chave 2005 are hard-coded in the function.
@@ -187,17 +183,16 @@ AGB.tree=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht
 # substituted, providing the function name is passed and the necessary number of parameters included as htparam. 
 # Returns a vector of biomass of same length as vector of dbh submitted. 
 # This is called by AGB.tree in the standard calculation of biomass for CTFS R tables.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # testdbh=c(1,2,5,10,20,30,50,100,200) #
 # AGBmoist=Chave.AGB(dbh=testdbh,forest="moist") #
 # AGBwet=Chave.AGB(dbh=testdbh,forest="wet") #
 # plot(testdbh,AGBmoist,col="green",type="l") #
 # lines(testdbh,AGBwet,col="blue")
-# 
+#
 # <source>
 Chave.AGB=function(dbh,density=0.62,htparam=c(41.7,.057,.748),heightmodel=predht.asym,forest='moist')
 {
@@ -221,72 +216,69 @@ Chave.AGB=function(dbh,density=0.62,htparam=c(41.7,.057,.748),heightmodel=predht
   
  return(AGB)
 }
-# 
+#
 # 
 
 
 # <name>
 # agb.model
-# 
 #
-# <description>
+#
+# @description
 # Calculates biomass from density, height, and dbh. Requires just two parameters, following Chave (2005). The parameters can be
 # changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
 # This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # agb.model(dbh=c(1,1,2),density=c(.6,.6,.5),height=c(2,3,4),param=c(.0501,1))
-# 
+#
 # <source>
 agb.model=function(dbh,density,height,param)
  return(param[1]*(density*dbh^2*height)^param[2])
-# 
+#
 # 
 
 
 # <name>
 # agb.dbhmodel
-# 
 #
-# <description>
+#
+# @description
 # Calculates biomass from density and diameter, without height. Requires four parameters, following Chave (2005). 
 # The parameters can be changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
 # This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # agb.dbhmodel(dbh=c(1,1,2),density=c(.6,.6,.5),param=c(-1.499,2.148,0.207,-0.0281)) 
-# 
+#
 # <source>
 agb.dbhmodel=function(dbh,density,param)
  return(density*exp(param[1]+param[2]*log(dbh)+param[3]*log(dbh)^2+param[4]*log(dbh)^3))
-# 
+#
 # 
 
 # <name>
 # predht.asym
-# 
 #
-# <description>
+#
+# @description
 # An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh. 
 # The model uses 3 parameters, submitted as argument param. The matrix form of param allows a different set of parameters to
 # be submitted for every species. The default parameters given in the function Chave.AGB assume dbh is in cm, as do all the biomass
 # allometry functions. 
-# 
-# <arguments>
+#
 # dbh: Vector of dbh
 # param: Either a vector of length 3, or a matrix of 3 columns; if the latter, there must be one row for each dbh
-# 
-# <sample>
+#
+# @examples
 # htparam=c(41.7,.057,.748) #
 # d=c(1,2,5,10,20,50) #
 # ht=predht.asym(dbh=d,param=htparam)
-# 
+#
 # <source>
 predht.asym=function(dbh,param)
 {
@@ -305,15 +297,15 @@ predht.asym=function(dbh,param)
 
  return(ymax*(1-exp(-a*dbh^b)))
 }
-# 
+#
 # 
 
 
 # <name>
 # biomass.change
-# 
 #
-# <description>
+#
+# @description
 # Finds biomass in two censuses and change between them. The submitted dataframes are exactly the standard CTFS R Analytical tables,
 # with a column for biomass (agb) already calculated. Each dataframe has a record for every tree in a single census (or a stem
 # table can be passed, with one record for each stem). Biomass for all living trees is summed over whatever grouping variables are 
@@ -329,8 +321,7 @@ predht.asym=function(dbh,param)
 # If split1 is submitted but not split2, each component is a vector, one value for each category of split. If both splits are 
 # submitted, each component of the list is a matrix. 
 # Based closely on the function pop.change in abundance.r, and differs only in taking sum of agb instead of counting individuals.
-# 
-# <arguments>
+#
 # census1: The R Analytical Table for a single census, either tree or stem
 # census2: The matching R Analytical Table for a later census
 # alivecode: A vector of status codes that indicate a tree is alive (usually just "A" in most CTFS R tables)
@@ -338,8 +329,8 @@ predht.asym=function(dbh,param)
 # split1: A vector of exactly the same length as the number of rows in census1 and census2, with a grouping variable for each tree;
 # a common use is the species name
 # split2: Another split vector of the same length, for example a dbh category
-# 
-# <sample>
+#
+# @examples
 # CTFSplot("bci","full",census=c(3,7)) #
 # deltaAGB=biomass.change(bci.full3,bci.full7) #
 # deltaAGB.spp=biomass.change(bci.full3,bci.full7,split1=bci.full3$sp) #
@@ -348,7 +339,7 @@ predht.asym=function(dbh,param)
 # hist(rate,breaks=50) #
 # summary(rate[is.finite(rate)]) #
 # subset(deltaAGB.table,is.infinite(rate)) #
-# 
+#
 # <source>
 biomass.change=function(census1,census2,alivecode=c("A"),mindbh=NULL,split1=NULL,split2=NULL)
 {
@@ -396,25 +387,24 @@ biomass.change=function(census1,census2,alivecode=c("A"),mindbh=NULL,split1=NULL
 
  return(list(N.1=ab1,N.2=ab2,date1=startdate,date2=enddate,interval=interval,little.r=little.r))
 }
-# 
+#
 # 
 #
 #
 #
 # <name>
 # AGB.dbtable
-# 
 #
-# <description>
+#
+# @description
 # This function looks up the database named AGB in the MySQL server to get a table of biomass per stem. The MySQL table must have treeID, stemID, censusID,
 # and a column agb with biomass in tons. This is used in cases where biomass for a plot has been calculated separately, using a method other than one of
 # the Chave allometric equations. The alternative AGB calculation is stored for each plot in this database. The name of the table matches the plot name. 
-# 
-# <arguments>
+#
 # df: A table of individual stems.
 # plot: The plot name
-# 
-# <sample>
+#
+# @examples
 #
 # 
 # <source>
@@ -436,5 +426,5 @@ AGB.dbtable=function(df,dbname,plot,code,censusno)
  
  return(merged.agb[,keepcol])
 }
-# 
+#
 # 

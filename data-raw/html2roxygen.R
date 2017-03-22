@@ -61,7 +61,30 @@ purrr::map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   purrr::map(replace_stuff, pattern = "' @export", replacement = "") %>% 
   # Remove function tag
   purrr::map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
-  
+  # Remove <br>
+  purrr::map(replace_stuff, pattern = "<br>", replacement = "") %>% 
+  # Remove white space after #
+  purrr::map(replace_stuff, pattern = "(\\r\\n#)[ ]*(\\r\\n)",
+    replacement = "\\1\\2") %>%
+  # Remove double spaces and nothing else
+  purrr::map(replace_stuff, pattern = "^#[ ]*$",replacement = "#") %>% 
+  # Tag @description
+  purrr::map(replace_stuff, pattern = "<description>", 
+    replacement = "@description") %>% 
+  # Tag @param
+  purrr::map(replace_stuff, pattern = "<li>", replacement = "@param") %>% 
+  # Remove <arguments> and <ul>
+  purrr::map(replace_stuff, pattern = "# <arguments>\\r\\n|# <ul>\\r\\n", 
+    replacement = "") %>% 
+  # Remove : after params name
+  purrr::map(replace_stuff, pattern = "(@param [^:]*):", 
+    replacement = "\\1") %>% 
+  # Remove source code and tag <source>
+  purrr::map(replace_stuff, pattern = "^[^#].*", replacement = "") %>% 
+  # Replace sample by example
+  purrr::map(replace_stuff, pattern = "# <sample>", 
+    replacement = "# @examples") %>% 
+
   # Save
   walk2(to, write_file, append = TRUE)
 

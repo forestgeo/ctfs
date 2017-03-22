@@ -3,25 +3,24 @@
 MONTHNAMES=c('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
 
 # # 
-# 
+#
 # <name>
 # tojulian
-# 
 #
-# <description>
+#
+# @description
 # Accepts any character representation of a date and a description of the format. The submitted dates can
 # be a vector or a matrix. See strptime for details about the format. 
 # Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such, 
 # though it displays as a date.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # tojulian(c('23Oct2010','29Mar1956'),'%d%b%Y')
 
-# 
+#
 # <source>
 tojulian=function(x,dateform='%m/%d/%Y')
 {
@@ -36,28 +35,27 @@ tojulian=function(x,dateform='%m/%d/%Y')
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# fromjulian
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# fromjulian
+#
+#
+# @description
 #  Accepts a julian date and returns a character representation of date. See tojulian(). The input
 # can be vector or array. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # fromjulian(1000,'%d%B%Y')
 
-# 
+#
 # <source>
 fromjulian=function(j,dateform='%m/%d/%Y')
 {
@@ -86,28 +84,27 @@ fromjulian=function(j,dateform='%m/%d/%Y')
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# create.fulldate
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# create.fulldate
+#
+#
+# @description
 #  Converts a vector of date character strings in any format to a dataframe with year, month, day, yday (day of the year) and julian.
 # Submitted datestr cannot be an array. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # create.fulldate(c('23Oct2010','29Mar1956'),'%d%b%Y')
 
-# 
+#
 # <source>
 create.fulldate=function(datestr,format='%Y-%m-%d') 
 {
@@ -119,31 +116,30 @@ create.fulldate=function(datestr,format='%Y-%m-%d')
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# create.fulldate.split
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# create.fulldate.split
+#
+#
+# @description
 # Converts the MySQL date format by splitting on the hyphen (or other characters by using sep). 
 # Date must be year-month-day, and month must be numeric (create.fulldate takes any format).
 # In most cases, create.fulldate
 # is preferable, but Mysql allows dates with zeroes (1995-00-00 or 2002-2-00), and create.fulldate cannot handle those;
 # this allows the 0 to be read.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # create.fulldate.split(c('23-10-2010','29-0-1956'),sep='-')
 
-# 
+#
 # <source>
 create.fulldate.split=function(datestr,sep='-')
 {
@@ -163,25 +159,24 @@ create.fulldate.split=function(datestr,sep='-')
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# order.by.rowcol
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# order.by.rowcol
+#
+#
+# @description
 #  Reorder rows and columns of a matrix so they are sorted as if column and row names are numeric. This allows labels from cut to
 # be ordered numerically. Otherwise, sort order is 1, 10, 11, 12, ... 18, 19, 2, 20, 21, etc. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 order.by.rowcol=function(x)
@@ -193,24 +188,23 @@ order.by.rowcol=function(x)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# order.bynumber
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# order.bynumber
+#
+#
+# @description
 #  Returns ordering of a character vector with any numbers coming first, in numeric order.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 order.bynumber=function(x)
@@ -224,26 +218,25 @@ order.bynumber=function(x)
  options(warn=0)
  return(match(c(numpart,charpart),x))
 }
+#
 # 
-# 
-# 
+#
 #  
 # <name>
 # fill.dimension
-# 
 #
-# <description>
+#
+# @description
 #  This function fills out an array of 2 dimensions, adding zeroes (or other values) for extra columns
 # and rows as named in class1 and class2. If a column (or row) is
 # missing, it will be filled with the value given by fill. It is useful for results of table
 # or tapply when some elements had no records. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 fill.dimension=function(dataarray,class1,class2,fill=0)
@@ -260,24 +253,23 @@ fill.dimension=function(dataarray,class1,class2,fill=0)
   
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# fill.1dimension
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# fill.1dimension
+#
+#
+# @description
 #  Filling a 1D array resulting from tapply. Same as fill.dimension, but for a vector. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 fill.1dimension=function(dataarray,class1,fill=0)
@@ -296,24 +288,23 @@ fill.1dimension=function(dataarray,class1,fill=0)
   
 
 
+#
 # 
+#
 # 
-# 
-# 
-# 
+#
 # 
 # <name>
 # convert.factor
-# 
 #
-# <description>
+#
+# @description
 # Converts any character fields in a dataframe from factors to character fields. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 convert.factor=function(r)
@@ -324,17 +315,17 @@ convert.factor=function(r)
  return(result)
 }
 
+#
 # 
+#
 # 
-# 
-# 
-# 
+#
 # 
 # <name>
 # split.data
-# 
 #
-# <description>
+#
+# @description
 #  Converts a big dataframe into a list of smaller dataframes, grouped using any
 # column in the database, or any external vector. The variable allsplit can be set to a vector
 # of data sections to be included; if allsplit includes values not in the data, empty elements
@@ -344,12 +335,11 @@ convert.factor=function(r)
 # in order to retain in the new dataframes the column on which the data are grouped; otherwise, that
 # column is removed. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 split.data=function(censdata,splitcol='sp',keepsplitcol=FALSE,allsplit=NULL,showOutput=NULL)
@@ -375,25 +365,24 @@ split.data=function(censdata,splitcol='sp',keepsplitcol=FALSE,allsplit=NULL,show
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# merge.data
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# merge.data
+#
+#
+# @description
 #  Combine many dataframes as elements of a list into a single large dataframe. Each individual dataframe must
 # have exactly the same columns. This is exactly the opposite operation as split.data. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 merge.data=function(listdata,showOutput=NULL)
@@ -425,23 +414,22 @@ merge.data=function(listdata,showOutput=NULL)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# pst
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# pst
+#
+#
+# @description
 # A version of paste with sep=''.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 pst=function(...)
@@ -461,24 +449,23 @@ pst=function(...)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# detachfiles
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# detachfiles
+#
+#
+# @description
 #  detachs from the searchpath files matching a submitted vector of names.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 detachfiles=function(filename)
@@ -500,26 +487,25 @@ detachfiles=function(filename)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# save.searchpath
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# save.searchpath
+#
+#
+# @description
 #  Saves all functions in position n to the file already 
 # attached at that position; n can be a vector. Allows changes in attached data to be saved easily, but
 # please use with care, as it will over-write the existing file. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 save.searchpath=function(n)
@@ -539,25 +525,24 @@ save.searchpath=function(n)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# gsp
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# gsp
+#
+#
+# @description
 #  Returns one of the objects at a given search position. This provides a way to write programs to
 # check multiple sets of data attached at different positions. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 gsp=function(searchpos,whichobj=1) 
@@ -565,25 +550,24 @@ gsp=function(searchpos,whichobj=1)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# match.dataframe
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# match.dataframe
+#
+#
+# @description
 #  Matches two dataframes using two or more columns. R's function match() works only on vectors 
 # (and thus single columns only). The return is a vector of indices, exactly as match() does. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 match.dataframe=function(x,y)
@@ -598,25 +582,24 @@ match.dataframe=function(x,y)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# trim
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# trim
+#
+#
+# @description
 #  Trims leading and trailing blanks from a vector of character variables. Multibyte character strings are returned intact.
 # (extended ascii in R appears as hex values).
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 trim=function(s)
@@ -649,23 +632,22 @@ trim=function(s)
 }
 
 
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # StringToVect
-# 
 #
-# <description>
+#
+# @description
 # Converts a character string into a vector of individual characters.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # StringToVect('anystring')
-# 
+#
 # <source>
 StringToVect=function(s)
 {
@@ -674,24 +656,23 @@ StringToVect=function(s)
  for(i in 1:len) result[i]=substr(s,i,i)
  return(result)
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # charlocate
-# 
 #
-# <description>
+#
+# @description
 # Finds position of a substring needle inside a longer string haystack. Can return more than one position if the needle appears more
 # than once.  Returns 0 if no matches. The input are atomic: this is not vectorized.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # charlocate("19","x190019xxx")
-# 
+#
 # <source>
 charlocate=function(needle,haystack)
 {
@@ -711,23 +692,22 @@ charlocate=function(needle,haystack)
  if(length(result)==0) return(0)
  return(result)
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # left
-# 
 #
-# <description>
+#
+# @description
 # A standard left function. Returns the leftmost n characters of a string. If n<0, returns all except the rightmost n. If n==0, returns an
 # empty string. Arguments can be vectors, but both must be the same length, or n can be a scalar.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 left=function(s,n) 
@@ -750,24 +730,23 @@ left=function(s,n)
 	  
   return(result)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# leftbut
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# leftbut
+#
+#
+# @description
 #  Returns the leftmost characters of a string, excluding the last n.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 leftbut=function(s,n,bytetype='bytes')
@@ -777,24 +756,23 @@ leftbut=function(s,n,bytetype='bytes')
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# right
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# right
+#
+#
+# @description
 #  Returns the rightmost n characters of a string
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 right=function(s,n,bytetype='bytes')
@@ -804,24 +782,23 @@ right=function(s,n,bytetype='bytes')
 }
  
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# rightbut
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# rightbut
+#
+#
+# @description
 #  Returns the rightmost characters of a string, excluding the initial n.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 rightbut=function(s,n,bytetype='bytes')
@@ -829,21 +806,20 @@ rightbut=function(s,n,bytetype='bytes')
  strlen=nchar(s,type=bytetype)
  return(substr(s,n+1,strlen))
 }
-# 
-# 
-# 
-# <name>
-# explode
+#
 # 
 #
-# <description>
+# <name>
+# explode
+#
+#
+# @description
 # Split a single (atomic) character variable into sections, separated on sep. With the default, sep='', it divides the string into it's individual letters.  
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 explode=function(str,sep='')
@@ -852,22 +828,21 @@ explode=function(str,sep='')
  strlist=strsplit(str,split=sep)
  return(strlist[[1]])
 }
-# 
-# 
-# 
-# <name>
-# ditch
+#
 # 
 #
-# <description>
+# <name>
+# ditch
+#
+#
+# @description
 #  Detaches all files at one or more search positions; v can be a vector. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 ditch=function(v)
@@ -880,24 +855,23 @@ ditch=function(v)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# is.leap
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# is.leap
+#
+#
+# @description
 #  Return a logical indicating which elements of a vector are leap years.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 is.leap=function(yr,start=1904,end=2096)
@@ -918,26 +892,25 @@ is.leap=function(yr,start=1904,end=2096)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# mergeParam
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# mergeParam
+#
+#
+# @description
 #  Merges a list of parameter matrices into one
 # large matrix. Used for the parameter output from MCMCmetrop1R, stored
 # as a list. No longer used; superseded by merge.data. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 mergeParam=function(p)
@@ -953,144 +926,138 @@ mergeParam=function(p)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# countzero
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# countzero
+#
+#
+# @description
 #  Counts vector elements exactly zero.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 countzero=function(x) 
  return(length(x[x==0 & !is.na(x)]))
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# countone
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# countone
+#
+#
+# @description
 #  Counts vector elements exactly one.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 countone=function(x) 
  return(length(x[x==1 & !is.na(x)]))
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# countNA
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# countNA
+#
+#
+# @description
 #  Counts vector elements that are NA.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 countNA=function(x) 
  return(length(x[is.na(x)]))
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# countEmpty
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# countEmpty
+#
+#
+# @description
 #  Counts vector elements that are NA or a string of no length.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 countEmpty=function(x) 
  return(length(x[is.na(x) | x=='']))
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# countpresent
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# countpresent
+#
+#
+# @description
 #  Counts vector elements > 0. See countspp as well.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 countpresent=function(x) 
  return(length(x[x>0 & !is.na(x)]))
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# find.nonNA
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# find.nonNA
+#
+#
+# @description
 #  Returns the first value of a vector x which is not NA
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 find.nonNA=function(x)
@@ -1101,24 +1068,23 @@ find.nonNA=function(x)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# which.nonNA
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# which.nonNA
+#
+#
+# @description
 #  Returns the first index at which a vector x is not NA
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 which.nonNA=function(x)
@@ -1129,25 +1095,24 @@ which.nonNA=function(x)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# which.allnonNA
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# which.allnonNA
+#
+#
+# @description
 #  Finds all values of a vector which are not NA. Fills out a vector to
 # length 6 with NAs if there are fewer than 6.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 which.allnonNA=function(x)
@@ -1163,24 +1128,23 @@ which.allnonNA=function(x)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# which.vmatch
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# which.vmatch
+#
+#
+# @description
 #  Finds which subsequent element of a vector matches the first element.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 which.vmatch=function(v)
@@ -1192,24 +1156,23 @@ which.vmatch=function(v)
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# logical.grep
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# logical.grep
+#
+#
+# @description
 #  A form of grep returning logical instead of indices (numbers).
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 logical.grep=function(needle,haystack)
@@ -1218,49 +1181,47 @@ logical.grep=function(needle,haystack)
  result[grep(needle,haystack,fixed=TRUE)]=TRUE
  return(result)
 }
-# 
-# 
-# 
-
-
-# 
-# <name>
-# nhd
+#
 # 
 #
-# <description>
+
+
+#
+# <name>
+# nhd
+#
+#
+# @description
 #  A version of head with only 6 columns shown.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 nhd=function(d,w=1:6,h=8) 
   print(head(d,h)[,w])
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# TextToRdata
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# TextToRdata
+#
+#
+# @description
 #  Reads a tab-delimited text file and save as rdata.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 TextToRdata=function(infile,outfile,object,NAs='NA')
@@ -1272,25 +1233,24 @@ TextToRdata=function(infile,outfile,object,NAs='NA')
 
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# CountByGroup
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# CountByGroup
+#
+#
+# @description
 #  Groups a dataframe by one or more columns (named by groupcol). This does exactly what
 # COUNT(*) GROUP BY does in SQL.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 CountByGroup=function(data,groupcol,count_to_data=FALSE,countname='count',groupname='groupID')
@@ -1319,24 +1279,23 @@ CountByGroup=function(data,groupcol,count_to_data=FALSE,countname='count',groupn
  
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# which.maxNAs
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# which.maxNAs
+#
+#
+# @description
 # An unfortunate bug in which.max: if all elements are NA, it doesn't return anything. This means that for any vector, which.max returns
 # a vector of length 1 unless all are NAs. This is a silly error, since a program expecting an element of length 1 falls apart otherwise.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 which.maxNAs=function(v)
@@ -1344,27 +1303,26 @@ which.maxNAs=function(v)
   if(length(which(!is.na(v)))==0) return(NA)
   return(which.max(v))
 }
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# attach_if_needed
+#
 # 
 #
-# <description>
+# 
+#
+# 
+#
+# <name>
+# attach_if_needed
+#
+#
+# @description
 # Attach one or more datafiles,checking first whether the file is already attached. If it is attached,
 # it is not reattached, and the search position where attached is returned. 
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 attach_if_needed=function(datafiles)
@@ -1391,23 +1349,22 @@ attach_if_needed=function(datafiles)
 }
 
 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# IfElse
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# IfElse
+#
+#
+# @description
 # A more convenient version of the R function ifelse in cases where test, a, and b are atomic.  
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 IfElse=function(test,a,b)
@@ -1416,21 +1373,20 @@ IfElse=function(test,a,b)
  else return(b)
 }
 
-# 
+#
 # <name>
 # AssignDiag
-# 
 #
-# <description>
+#
+# @description
 # A way to assign the diagonals of a matrix that can handle input having no dimensions. Ordinarily, x is square matrix and newdiag is a vector equal in length to x's diagonal.
 # A new x is returned having the newdiag on its diagonal. In that usage, it matches the assign option for R's function diag. 
 # This improves diag by handling x with no dimensions, ie a scalar, or just one dimension. Then newdiag is simply returned. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 AssignDiag=function(x,newdiag)
@@ -1440,22 +1396,21 @@ AssignDiag=function(x,newdiag)
  diag(x)=newdiag
  return(x)
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # vectToCommas
-# 
 #
-# <description>
+#
+# @description
 # Given a vector of character variables, collapse into a single string with quotes, separated by commas
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 vectToCommas=function(v)
@@ -1464,25 +1419,24 @@ vectToCommas=function(v)
     return(paste(withquotes,collapse=","))
 }
 
+#
 # 
-# 
-# 
+#
 # 
 
 
 # <name>
 # drp
-# 
 #
-# <description>
+#
+# @description
 # A version of drop which includes as.matrix. Without it, drop does not serve its purpose. This is necessary in many many situations
 # where a single row is taken out of a dataframe, but must be passed as a vector.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 drp=function(x)
@@ -1490,23 +1444,22 @@ drp=function(x)
 	return(drop(as.matrix(x)))
 }
 
+#
 # 
-# 
-# 
+#
 # 
 
 # <name>
 # randomRow
-# 
 #
-# <description>
+#
+# @description
 # Return a random row from a dataframe
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 randomRow=function(data)
@@ -1517,21 +1470,20 @@ randomRow=function(data)
  r=sample.int(size,1)
  return(data[r,])
 }
-# 
+#
 # 
 
 # <name>
 # randomRow
-# 
 #
-# <description>
+#
+# @description
 # Return a random element from a vector
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 randomElement=function(data)
@@ -1542,54 +1494,51 @@ randomElement=function(data)
  r=sample.int(size,1)
  return(data[r])
 }
-# 
+#
 # 
 
 
 # <name>
 # countUnique
-# 
 #
-# <description>
+#
+# @description
 # Count the number of unique elements in a vector
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 countUnique=function(x) 
   return(length(unique(x)))
-# 
+#
 # 
 
 
 # <name>
 # graphFilledBand
-# 
 #
-# <description>
+#
+# @description
 # Fill the area between two curves on a graph. Useful for confidence limits, for example. 
 # Typical use is to draw a graph first with some central y values, then add a confidence band by filling the area between upper and lower confidence limits
 # (designated by variables lower.y and upper.y in the example below). The central line should then be redrawn over the filled area.
-# 
-# <arguments>
-# <ul>
-#  <li> x = The x axis values, as in any R graph
-#  <li> y1, y2 = Two sets of y axis values, each of exactly the same length as x
-#  <li> fillcol = The color filling the area between the two curves
-#  <li> add = TRUE or FALSE, as in other R graphs; if TRUE, there must be an appropriate existing graph, otherwise, a new graph is drawn
-#  <li> linecol = If add==FALSE, lines drawn at y1 and y2 are this color; ignored if add==TRUE
-#  <li> ltype = If add==FALSE, lines drawn at y1 and y2 are this type ('solid','dashed',etc);  ignored if add==TRUE
-#  <li> lwidth = If add==FALSE, lines drawn at y1 and y2 are this thickness (a number);  ignored if add==TRUE
-# 
-# <sample>
+#
+#  @param x = The x axis values, as in any R graph
+#  @param y1, y2 = Two sets of y axis values, each of exactly the same length as x
+#  @param fillcol = The color filling the area between the two curves
+#  @param add = TRUE or FALSE, as in other R graphs; if TRUE, there must be an appropriate existing graph, otherwise, a new graph is drawn
+#  @param linecol = If add==FALSE, lines drawn at y1 and y2 are this color; ignored if add==TRUE
+#  @param ltype = If add==FALSE, lines drawn at y1 and y2 are this type ('solid','dashed',etc);  ignored if add==TRUE
+#  @param lwidth = If add==FALSE, lines drawn at y1 and y2 are this thickness (a number);  ignored if add==TRUE
+#
+# @examples
 # plot(x,y,type='l')
 # graphFilledBand(x,lower.y,upper.y)
 # lines(x,y)
-# 
+#
 # <source>
 graphFilledBand=function(x,y1,y2,fillcol='gray',add=TRUE,linecol='black',ltype='solid',lwidth=1)
 {
@@ -1605,29 +1554,27 @@ graphFilledBand=function(x,y1,y2,fillcol='gray',add=TRUE,linecol='black',ltype='
  if(!add) plot(x,y1,type='l',lty=ltype,lwd=lwidth,col=linecol)
  if(!add) lines(x,y2,lty=ltype,lwd=lwidth,col=linecol)
  
- poly.x=c(x,x[nopt:1])
+ poly.x=c(x,x[nopt1])
  poly.y=c(y1,y2[nopt:1])
  polygon(poly.x,poly.y,col=fillcol,border=NA)
 }
-# 
+#
 # 
 
 
 # <name>
 # make.CredIntervalVect
-# 
 #
-# <description>
+#
+# @description
 # Take a vector y having mean then lower and upper credible limits and convert to character string with parentheses. Result is a single (atomic) character vector with mean followed by parentheses enclosing lower and upper limits. This is not vectorized: it will work only with a single vector of length 3. Use apply to repeat for rows of a matrix. 
-# 
-# <arguments>
-# <ul>
-#  <li> y must be a vector of length 3, not a matrix. 
-#  <li> digits: number of decimal places in result, first for the mean, then the two credible limits
-# 
-# <sample>
+#
+#  @param y must be a vector of length 3, not a matrix. 
+#  @param digits number of decimal places in result, first for the mean, then the two credible limits
+#
+# @examples
 # make.CredIntervalVect(c(3.124,2.76,5.01),digits=c(2,1))
-# 
+#
 # <source>
 make.CredIntervalVect=function(y,digits=c(3,3),CIonly=FALSE)
 {
@@ -1638,5 +1585,5 @@ make.CredIntervalVect=function(y,digits=c(3,3),CIonly=FALSE)
  if(CIonly) return(CI)
  return(result)
 }
-# 
+#
 # 

@@ -2,9 +2,9 @@
 
 # <name>
 # solve.topo
-# 
 #
-# <description>
+#
+# @description
 # This is based on the problem and solution outlined in my book on plot methods (1998):
 # Each of N stakes i has an estimated height E[i] and a true height e[i]. 
 # Pairs of stakes have a height difference d[i,j], where e[i]+d[i,j]=e[j],
@@ -12,10 +12,9 @@
 
 # The least-squares estimate E[i] of e[i] can be written as the mean of the n[i]
 # points j for which D[i,j] was measured:
-# <ul>
-# <li> E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
-# <li> n[i]*E[i]-sum(E[j]) = -sum(D[i,j])
-# 
+# @param E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
+# @param n[i]*E[i]-sum(E[j]) = -sum(D[i,j])
+#
 # The latter produces N equations in N unknowns, but they are exactly singular.
 # One of the points must be assigned a value, and it's easiest to set e[1] = 0.
 # The effect is to exclude the equation for i=0, but all j for which D[0,j] was
@@ -35,13 +34,12 @@
 # has the label of the second stake (column header pt2), and the final column has the height
 # difference at pt2 minus pt1 (column header diff). The point labelled basept is assigned elevation baseelev. 
 # The last 5 arguments allow those column headers to be reassigned.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # See topography tutorial
-# 
+#
 # <source>
 solve.topo=function(coldata,column1="pt1",column2="pt2",diffcolumn="htdiff",basept="1",baseelev=0,debug=NULL)
 {
@@ -63,7 +61,7 @@ solve.topo=function(coldata,column1="pt1",column2="pt2",diffcolumn="htdiff",base
  V=numeric(nopts)
  names(V)=ptLabels
 
- for(i in 1:nopts)
+ for(i in 1nopts)
   {
    links2=getTopoLinks(index=i,labels=ptLabels,data=coldata,from=fromcol,to=tocol,backward=FALSE)
    links1=getTopoLinks(index=i,labels=ptLabels,data=coldata,from=tocol,to=fromcol,backward=TRUE)
@@ -93,23 +91,22 @@ solve.topo=function(coldata,column1="pt1",column2="pt2",diffcolumn="htdiff",base
  
  return(result)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# getTopoLinks
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# getTopoLinks
+#
+#
+# @description
 # This is solely for use by solve.topo. It finds all points linked via a sighting to a given point. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 getTopoLinks=function(index,labels,data,from,to,backward=FALSE)
@@ -136,30 +133,28 @@ getTopoLinks=function(index,labels,data,from,to,backward=FALSE)
 # browser()
  return(list(indices=uniqueLinkIndices,labels=allLinkLabels,count=linkCount,diff=distsum,error=FALSE))
 }
+#
 # 
-# 
-# 
+#
 # 
 
 # <name>
 # rearrangeSurveyData
-# 
 #
-# <description>
+#
+# @description
 # Takes a table of survey sightings with columns of x and y locations of two points, and converts it to the format
 # required by solve.topo. The input table must have columns x1, y1, x2, and y2. The return value is a list consisting of two dataframes: 
-# <ul>
-# <li> all points found in the input table, with an integer designation assigned to each. The designation is called pt. 
-# <li> the second table matches the input table, 
+# @param all points found in the input table, with an integer designation assigned to each. The designation is called pt. 
+# @param the second table matches the input table, 
 # but instead of x-y coordinates for the two points, only columns pt1 and pt2 are included to 
 # indicate the two points between which a sighting was taken. 
+#
 # 
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 rearrangeSurveyData=function(inputtable)
@@ -168,7 +163,7 @@ rearrangeSurveyData=function(inputtable)
  endpts=inputtable[,c('x2','y2')]
  colnames(startpts)=colnames(endpts)=c('x','y')
  allpt=unique(rbind(startpts,endpts))
- allpt$pt=1:dim(allpt)[1]
+ allpt$pt=1dim(allpt)[1]
  
  m=match.dataframe(inputtable[,c('x1','y1')],allpt[,c('x','y')])
  inputtable$pt1=allpt$pt[m]
@@ -182,7 +177,7 @@ rearrangeSurveyData=function(inputtable)
  result=subset(inputtable,select=outputcol[!remove])
  return(list(allpt=allpt,IDtable=result))
 }
+#
 # 
-# 
-# 
+#
 # 

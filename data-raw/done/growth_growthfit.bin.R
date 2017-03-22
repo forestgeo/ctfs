@@ -1,17 +1,16 @@
 # <name>
 # extract.growthdata
-# 
 #
-# <description>
+#
+# @description
 # Extract data for growth rates from plot databases and 2 censuses in CTFS R format. Returns a table with 
 # growth, size (ie dbh), and species name. Default is to return log-transformed growth, with negative and zero
 # growth set to a mingrow, but with logit=TRUE, growth and dbh are not log-transformed.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 extract.growthdata=function(census1,census2,growcol="incgr",mingrow=0.1,logit="x",growthfunc=growth.biomass.indiv,pomcut=10000,
@@ -46,24 +45,23 @@ extract.growthdata=function(census1,census2,growcol="incgr",mingrow=0.1,logit="x
  if(returnfull) return(full)
  
 }
-# 
+#
 # 
 
 
 # <name>
 # run.growthbin.manyspp
-# 
 #
-# <description>
+#
+# @description
 # Run the model to fit growth rate in bins for many species, 1-4 bins. It takes a list of species, extracts
 # growth rates for each, one at a time, from the table of growth rates, then calls run.growthfit.bin to fit the model for
 # the 4 bin options. 
 # Sample species vector from BCI: 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # spp20=c('tri2tu','alsebl','tet2pa','tachve','beilpe','pri2co','quaras','ocotwh','hirttr','gar2in','protpa','protte',
 #         'eugeoe','virose','guargu','maquco','jac1co','cecrin','cordbi','micoar') 
 # Creating the complete table of biomass growth for all individuals in a plot: 
@@ -74,7 +72,7 @@ extract.growthdata=function(census1,census2,growcol="incgr",mingrow=0.1,logit="x
 # Fitting the model for all species, 1-4 bins: 
 # fit=run.growthbin.manyspp(growthdata=agb.growth,size='agb',spp=allspecies,minabund300=15,minTotal=40,startpar=c(.03,.005),startsdpar=c(.04,0))
 
-# 
+#
 # <source>
 run.growthbin.manyspp=function(growthdata,size='dbh',spp=spp20,minabund300=15, minTotal=40, dbhunit='mm', sdmodel=linear.model.ctr,
                                startpar=c(.03,.005), startsdpar=c(.04,0), badsdfunc=NULL, binoption=1:4, noreps=5000,noburn=2500,noshow=500,
@@ -110,24 +108,23 @@ run.growthbin.manyspp=function(growthdata,size='dbh',spp=spp20,minabund300=15, m
 
  return(result)
 }
-# 
+#
 # 
 
 
 # <name>
 # run.growthfit.bin
-# 
 #
-# <description>
+#
+# @description
 # Find best fits for linearmodel.bin, with one set of data and a series of bins. This starts fit for a bin
 # based on the best fit for the prior bin, thus always assuring an improved fit. This works best if the first bin=1,
 # which is just a linear model and easily fit by optim and the Gibbs sampler.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 run.growthfit.bin=function(growthdata,size="dbh",startpar=c(.03,.005),startsdpar=c(.04,0),sdmodel=linear.model.ctr,badsdfunc=NULL,binoption=1:4,
@@ -152,25 +149,24 @@ run.growthfit.bin=function(growthdata,size="dbh",startpar=c(.03,.005),startsdpar
   
  return(result)
 }
-# 
+#
 # 
 
                    
 # <name>
 # growth.flexbin
-# 
 #
-# <description>
+#
+# @description
 # Fitting a regression line through log growth against log dbh, binning on dbh. Growth table has 2 columns,
 # one named size (ie, dbh), other growth. The function now calls optim first to find a set of parameters, then, if Gibbs
 # is selected, runs the Gibbs sampler starting with those parameters. Since optim fails if the initial likelihood is -Inf,
 # it became necessary to check the parameters with bad.binparam before running. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 growth.flexbin=function(growthtable,sizecol="dbh",nobin=2,start=NULL,startsd=NULL,sdmodel=linear.model.ctr,badsdfunc=NULL,
@@ -218,7 +214,7 @@ growth.flexbin=function(growthtable,sizecol="dbh",nobin=2,start=NULL,startsd=NUL
  
  return(fit)
 }
-# 
+#
 # 
 
 
@@ -226,16 +222,15 @@ growth.flexbin=function(growthtable,sizecol="dbh",nobin=2,start=NULL,startsd=NUL
 
 # <name>
 # llike.linearbin.optim
-# 
 #
-# <description>
+#
+# @description
 # This is for optim, a single function taking all parameters at once, including sd, to get single likelihood. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 llike.linearbin.optim=function(param,x,y,predfunc,nomainpar,badpredpar,llikefunc,sdfunc,badsdpar,...)
@@ -260,24 +255,23 @@ llike.linearbin.optim=function(param,x,y,predfunc,nomainpar,badpredpar,llikefunc
 
  return(total)
 }
-# 
+#
 # 
 
 
 # <name>
 # defineBinBreaks
-# 
 #
-# <description>
+#
+# @description
 # This finds divisions of over the vector size which produce equal number of elements per division. In case
 # any of those divisions are too short, it tries equal sized divisions. A default to use for
 # start parameters when none are supplied. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 defineBinBreaks=function(size,nobin,...)
@@ -315,21 +309,20 @@ defineBinBreaks=function(size,nobin,...)
   
  return(internal)
 }
-# 
+#
 # 
 
 # <name>
 # defineSDpar
-# 
 #
-# <description>
+#
+# @description
 # For default SD parameters, if nothing else works. Choose the midpoint of x for the middle of 3 parameters.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 defineSDpar=function(x,nopar)
@@ -338,22 +331,21 @@ defineSDpar=function(x,nopar)
  midpoint=0.5*(min(x)+max(x))
  return(c(0,midpoint,0.001))
 }
-# 
+#
 # 
 
 # <name>
 # enoughSamplePerBin
-# 
 #
-# <description>
+#
+# @description
 # Test whether the number of elements in a vector x between successive breaks exceeds a minimum. If any
 # bins have too few, it returns FALSE. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 enoughSamplePerBin=function(x,b,...)
@@ -367,21 +359,20 @@ enoughSamplePerBin=function(x,b,...)
  if(length(which(Npercat<minsample))>0) return(FALSE) 
  else return(TRUE)
 }
-# 
+#
 # 
 
 # <name>
 # wideEnoughBins
-# 
 #
-# <description>
+#
+# @description
 # Test whether all the bin widths exceed a minimum. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 wideEnoughBins=function(x,b,...)
@@ -394,7 +385,7 @@ wideEnoughBins=function(x,b,...)
  if(length(which(delta<minwidth*diff(range(x))))>0) return(FALSE)
  else return(TRUE)
 }
-# 
+#
 # 
 
 # MINBIN=0.1
@@ -402,18 +393,17 @@ wideEnoughBins=function(x,b,...)
 
 # <name>
 # bad.binparam
-# 
 #
-# <description>
+#
+# @description
 # This prevents the bin parameters from moving outside the x range, and keeps the minimum bin width wider than MINBIN of the
 # xrange. It also requires at least MINSAMPLE individuals per bin. The ellipsis handles the submission of MINBIN and MINBINSAMPLE, if
 # they are not submitted, default values are assigned.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 bad.binparam=function(x,param,...)
@@ -438,21 +428,20 @@ bad.binparam=function(x,param,...)
  
  return(FALSE)
 }
-# 
+#
 # 
 
 # <name>
 # bad.binsdpar
+#
+#
+# @description
+#
 # 
 #
-# <description>
 # 
-# 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 bad.binsdpar=function(x,param,...)
@@ -465,22 +454,21 @@ bad.binsdpar=function(x,param,...)
  
  return(FALSE)
 }
-# 
+#
 # 
 
 
 # <name>
 # calculateBinModel.BIC
-# 
 #
-# <description>
+#
+# @description
 # Calculate Bayes Information Criteria using Wikipedia formula
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calculateBinModel.BIC=function(fit)
@@ -491,7 +479,7 @@ calculateBinModel.BIC=function(fit)
  
  return(N*log(error.var)+noparam*log(N))
 }
-# 
+#
 # 
 
 # Description: Calculate Deviance Information Criteria, using Wikipedia formula
@@ -500,20 +488,19 @@ calculateBinModel.DIC=function(fit)
   
 # <name>
 # calculateBinModel.AIC
-# 
 #
-# <description>
+#
+# @description
 # Calculate AIC of the model, using various log(likelihood) estimators: 
 # with optim, the highest likelihood found by optim
 # with mean, the mean llikelihood from the Gibbs sampler
 # with gibbs, the maximum llikelihood from the Gibbs sampler
 # with none, just return the mean Gibbs likelihood
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calculateBinModel.AIC=function(fit,type='optim')
@@ -526,23 +513,22 @@ calculateBinModel.AIC=function(fit,type='optim')
 
  return(NA)
 }
-# 
+#
 # 
 
 
 # <name>
 # calculateBinModel.bestpred
-# 
 #
-# <description>
+#
+# @description
 # Calculate mean predicted value at every x using every one of the Gibbs sampler parameter combinations
 # (excluding burn in)
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 calculateBinModel.bestpred=function(fit)
@@ -560,28 +546,27 @@ calculateBinModel.bestpred=function(fit)
 	
 	return(meanpred/norep)
 }   
-# 
+#
 # 
  
 
 # <name>
 # assembleBinOutput
-# 
 #
-# <description>
+#
+# @description
 # Use the list output from piecewise regression (growthfit.bin) and converts to a flat table. The single argument 
 # inputdata is the output compare.growthbinmodel.
 # Written by Adrian Das.
 # (excluding burn in)
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 # bciresult=compare.growthbinmodel(linearbin.fit.trim3,export=NULL,makegraph=FALSE)
 # bcitable=assembleBinOutput(bciresult,sitename='bci_12_spreadSD')
 # write.table(bcitable,file='growth/BCIpiecewise.txt',quote=FALSE,sep='\t',row.names=FALSE) 
-# 
+#
 # <source>
 assembleBinOutput=function(inputtable,fulldata,sitename)
 {
@@ -624,5 +609,5 @@ assembleBinOutput=function(inputtable,fulldata,sitename)
 	
 	return(holdcomb)
 }
-# 
+#
 # 

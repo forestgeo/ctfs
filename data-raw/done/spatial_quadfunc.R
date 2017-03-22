@@ -1,16 +1,15 @@
 # <name>
 # quad.to.gxgy
-# 
 #
-# <description>
+#
+# @description
 # Convert quadrat names into x-y coordinates, assuming the first 2 digits are the column and the second two the row. Quad is a character. 
 # If the first row and column are 00, set start=0, etc. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 quad.to.gxgy=function(quad,gridsize=20,start=0)
@@ -22,23 +21,22 @@ quad.to.gxgy=function(quad,gridsize=20,start=0)
  
  return(data.frame(gx=colno*gridsize,gy=rowno*gridsize))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# rowcol.to.index
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# rowcol.to.index
+#
+#
+# @description
 # None given.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 rowcol.to.index=function(rowno,colno,gridsize=20,plotdim=c(1000,500))
@@ -52,23 +50,22 @@ rowcol.to.index=function(rowno,colno,gridsize=20,plotdim=c(1000,500))
  if(length(badrc[badrc>0])) index[badrc]=NA
  return(index)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# gxgy.to.quad
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# gxgy.to.quad
+#
+#
+# @description
 # Calculate a quadrat name (column number then row number, as a 4-digit character string) from gy-gy. If start is set to zero, quadrats start with 0000, otherwise, 0101.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 gxgy.to.quad=function(gx,gy,gridsize=20,plotdim=c(1000,500),digits=2,start='zero')
@@ -88,23 +85,22 @@ gxgy.to.quad=function(gx,gy,gridsize=20,plotdim=c(1000,500),digits=2,start='zero
 
  return(pst(colstr,rowstr))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# getquadratname
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# getquadratname
+#
+#
+# @description
 # Convert x, y coordinates and plot dimensions into 4-character quadrat names. If x or y are missing, the quadrat=9999.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 getquadratname=function(x,y,plotdim)
@@ -119,24 +115,23 @@ getquadratname=function(x,y,plotdim)
 
  return(result)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# convert.rowcol
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# convert.rowcol
+#
+#
+# @description
 # Convert an integer to a character, with a single leading zero if the integer is < 10. Does
 # not handle integers >99
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 convert.rowcol=function(num)
@@ -148,23 +143,22 @@ convert.rowcol=function(num)
 
  return(name)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# gxgy.to.index
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# gxgy.to.index
+#
+#
+# @description
 # Assign any location(s) a single index identifying the quadrat. The index runs from 1 to the number of quadrats. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 gxgy.to.index=function(gx,gy,gridsize=20,plotdim=c(1000,500))
@@ -177,23 +171,22 @@ gxgy.to.index=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 
  return(rowcol.to.index(rowno,colno,gridsize,plotdim))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# index.to.rowcol
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# index.to.rowcol
+#
+#
+# @description
 # Calculate the row and column given the quadrat index, as calculated in gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 index.to.rowcol=function(index,gridsize=20,plotdim=c(1000,500))
@@ -212,23 +205,22 @@ index.to.rowcol=function(index,gridsize=20,plotdim=c(1000,500))
 
  return(data.frame(row=row,col=col))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# index.to.gxgy
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# index.to.gxgy
+#
+#
+# @description
 # Calculate the x and y coordinates given the quadrat index, as calculated in gygy.to.index.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 index.to.gxgy=function(index,gridsize=20,plotdim=c(1000,500))
@@ -243,23 +235,22 @@ index.to.gxgy=function(index,gridsize=20,plotdim=c(1000,500))
 
  return(data.frame(gx=gx,gy=gy))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# gxgy.to.rowcol
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# gxgy.to.rowcol
+#
+#
+# @description
 # Returns row and column for any set of coordinates. Rows and columns both start at 1, not 0. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 gxgy.to.rowcol=function(gx,gy,gridsize=20,plotdim=c(1000,500))
@@ -267,22 +258,21 @@ gxgy.to.rowcol=function(gx,gy,gridsize=20,plotdim=c(1000,500))
  index=gxgy.to.index(gx,gy,gridsize,plotdim)
  return(index.to.rowcol(index,gridsize,plotdim))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# gxgy.to.hectindex
+#
 # 
 #
-# <description>
 # 
-# <arguments>
+#
+# <name>
+# gxgy.to.hectindex
+#
+#
+# @description
+#
+#
 # 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 gxgy.to.hectindex=function(gx,gy,plotdim=c(1000,500))
@@ -296,23 +286,22 @@ gxgy.to.hectindex=function(gx,gy,plotdim=c(1000,500))
    return(ha.colno*max.ha.row+ha.rowno+1)
   }
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# gxgy.to.lxly
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# gxgy.to.lxly
+#
+#
+# @description
 # Given global coordinates and quadrat and plot dimensions, calculate local x and y, the within-quadrat coordinates
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 gxgy.to.lxly=function(gx,gy,gridsize=20,plotdim=c(1000,500))
@@ -324,22 +313,21 @@ gxgy.to.lxly=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 
  return(data.frame(lx,ly))
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # lxly.to.p5
-# 
 #
-# <description>
+#
+# @description
 # Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the p5x5; lx and ly must be vectors of equal length. Any values outside [0,20) are returned p5=NA.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 lxly.to.p5=function(lx,ly,gridsize=20)
@@ -353,22 +341,21 @@ lxly.to.p5=function(lx,ly,gridsize=20)
 
  return(p5)
 }
-# 
+#
 # 
 #
 # 
 # <name>
 # findborderquads
-# 
 #
-# <description>
+#
+# @description
 # Calculate indices of neighboring quadrats, for a given quadrat index.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 findborderquads=function(index,dist=20,gridsize=20,plotdim=c(1000,500))
@@ -394,25 +381,24 @@ findborderquads=function(index,dist=20,gridsize=20,plotdim=c(1000,500))
 
  return( bound.index[bound.index>0] )
 } 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# create.neighbordata
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# create.neighbordata
+#
+#
+# @description
 # Calculates the mean density in neighboring quadrats for every quadrat, given
 # a vector of abundances per quadrat. The vector of abundances must be ordered
 # by quadrat index.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 create.neighbordata=function(abundperquad)
@@ -427,24 +413,23 @@ create.neighbordata=function(abundperquad)
 
  return(neighborabund)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# findneighborabund
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# findneighborabund
+#
+#
+# @description
 # For every quadrat, finds neighboring quadrats and then returns a vector of abundances in those
 # neighbors, as well as the number of neighboring quadrats. A subroutine used by create.neighbordata.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 findneighborabund=function(abundvect,gridsize=20,plotdim=c(1000,500))
@@ -461,26 +446,25 @@ findneighborabund=function(abundvect,gridsize=20,plotdim=c(1000,500))
 
  return(data.frame(abund=abundvect,neighbor=neighborabund,quadcount=quadcount))
 }
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# neighbors
+#
 # 
 #
-# <description>
+# 
+#
+# 
+#
+# <name>
+# neighbors
+#
+#
+# @description
 # Finds proportion of neighboring quadrats in which a species is present. The input vector
 # is presence-absence for every quadrat. It returns a vector of the same length.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 neighbors=function(pres,plotdim=c(1000,500))
@@ -498,27 +482,26 @@ neighbors=function(pres,plotdim=c(1000,500))
 
  return(neigh)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# torus.shift
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# torus.shift
+#
+#
+# @description
 # Creates a torus-shifted quadrat topographic dataset. It accepts a quadrat dataset
 # with elevation, convexity, and slope for each 20x20 m quadrat in a plot. It returns a parallel
 # dataset that is torus shifted, slip.horiz quadrats left-right and slip.vert quadrats up-down. 
 # That is, in the new dataset, the topographic information of each quadrat comes from a quadrat
 # displaced by slip.horiz and slip.vert units away in the original dataset.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 torus.shift=function(quaddata,slip.horiz,slip.vert,invert=F,reverse=F,plotdim=c(1000,500),gridsize=20)
@@ -549,28 +532,27 @@ torus.shift=function(quaddata,slip.horiz,slip.vert,invert=F,reverse=F,plotdim=c(
  rownames(newquaddata)=1:totalquad
  return(newquaddata)
 }
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# <name>
-# getsmallerquads
+#
 # 
 #
-# <description>
+# 
+#
+# 
+#
+# <name>
+# getsmallerquads
+#
+#
+# @description
 # Takes a vector of indices for a larger quadrat dimension, as created by gxgy.to.index, and for
 # each returns a vector of indices of smaller quadrats that would fit completely
 # within. Both larger and smaller quadrats must be square. Returns a matrix, each row being a 
 # vector of smaller quadrats inside a single larger quadrat.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 getsmallerquads=function(index,gridlarge,gridsmall,plotdim)
@@ -597,24 +579,23 @@ getsmallerquads=function(index,gridlarge,gridsmall,plotdim)
  
  return(smallquad)  
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# full.xygrid
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# full.xygrid
+#
+#
+# @description
 # Create a complete of points x-y, given the sequence of unique x and the sequence of unique y. So if x=y=0:2,
 # it creates all pairs: 0,0; 0,1; 0,2; 1,0; 1,1; 1,2; etc.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 full.xygrid=function(x,y)
@@ -624,24 +605,23 @@ full.xygrid=function(x,y)
 
  return(data.frame(x=fullx,y=fully))
 }
+#
 # 
-# 
-# 
+#
 
 # <name>
 # distance
-# 
 #
-# <description>
+#
+# @description
 # Calculates the distance from one quadrat to a second quadrat, where quadrats are designated by their indices, as
 # created by gxgy.to.index. The two quadrats can be vectors, but must be of the same length (or one of the two can be atomic). 
 # Returns a vector of distances same length as input vectors. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 distance=function(quad1,quad2,gridsize=20,plotdim=c(1000,500))
@@ -667,6 +647,6 @@ distance=function(quad1,quad2,gridsize=20,plotdim=c(1000,500))
 
 # return(dist)
 }
+#
 # 
-# 
-# 
+#

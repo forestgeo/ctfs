@@ -1,9 +1,9 @@
 # <name>
 # wavelet.allsp
-# 
+#
 #
 
-# <description>
+# @description
 # Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.
 #
 # Author: Matteo Detto and Tania Brenes  
@@ -16,21 +16,20 @@
 # gridsize: grid size parameter used; 
 # UCL: vector with the upper confidence limit for the null hypothesis; 
 # LCL: vector with the lower confidence limit for the null hypothesis. 
-# 
+#
 
-# 
+#
 
-# <arguments>
 #   censdata (): census data for the plot containing the variables gx, gy, dbh, status, and sp code; 
 #   plotdim c(1000,500):  vector with two numbers indicating the plot size; 
 #   gridsize (2.5): gives the size of the quadrats for the rasterization
 #   mindbh (NULL): if analysis is to be done at different size  classes
-# 
+#
 
-# <sample>
+# @examples
 # load("bci.full1.rdata") 
 # wavelet.variances = wavelet.allsp(censdata, plotdim=c(1000,500))
-# 
+#
 
 # <source>
 wavelet.allsp = function(censdata, plotdim=c(1000,500), gridsize=2.5, mindbh=NULL)
@@ -69,25 +68,24 @@ dimnames(variance) <- list(names(splitdata), paste("scale",1:ncol(variance)))
 cat( "Total elapsed time = ", (proc.time()-ptm)[3]/60, "minutes" , "\n")
 
 return(list(scale = x$scale, variance = variance, density= sp.density, plotdim=plotdim, gridsize=gridsize, UCL=x$UCL, LCL=x$LCL)) }
-# 
+#
 # 
 
 
 # <name>
 # plot.wavelet
-# 
+#
 #
 
-# <description>
+# @description
 # Function to plot the wavelet variance from the output of the wavelet.allsp. 
 # Author: Tania Brenes  
-# 
-# <arguments>
+#
 #   x (): output for wavelet.allsp; 
-# 
+#
 
-# <sample>
-# 
+# @examples
+#
 
 # <source>
 plot.wavelet = function(x) {
@@ -96,23 +94,22 @@ plot(c(2*x$gridsize, min(x$plotdim)), c(0.3,100), log='xy', type='n')
 		lines(x$scale, x$variance[i,])
 		}
 }
-# 
+#
 # 
 
 
 # <name>
 # rasterize
-# 
+#
 #
 
-# <description>
+# @description
 # Function to calculate the count (type='point'), basal area or agb (type='marked') per quadrat 
 # by selecting quadrats of variable sizes.  
 # Author: Matteo Detto and Tania Brenes  
 # Output is a list containing a matrix with the raster data.
-# 
+#
 
-# <arguments>
 #   x , y : x and y coordinates for the point pattern;  
 #   z : marks for the marked point process, can be basal area, agb, etc. Needed only for type='marked';  
 #   gridsize  (20 m): size of the quadrats for the rasterization, ;
@@ -120,15 +117,15 @@ plot(c(2*x$gridsize, min(x$plotdim)), c(0.3,100), log='xy', type='n')
 #   type ('point'): type of rasterization: 'point' runs a simple point pattern counting the number of individuals per quadrat; 'marked' does a marked point pattern, where a function (FUN) is applied to the variable z in each quadrat, for example a sum of basal areas;
 #   FUN (sum): function to apply to the point pattern when z is provided. By defult it sums the values of z per quadrat; 
 #   graph (FALSE): logical, plot the heat map of raster data?; 
-# 
+#
 
-# <sample>
+# @examples
 # load("bci.full1.rdata") 
 # attach("/home/brenest/Documents/Windocs/WorkFiles/R/Functions/CTFSRPackage.rdata")   
 # onesp = subset(bci.full1, sp=="rinosy")  
 # ## plots the density of the sp in the plot  
 # rast1 = rasterize(x= onesp$gx, y=onesp$gy, gridsize=5, plotdim=c(1000,500), type='point', graph=TRUE)  
-# 
+#
 
 # <source>
 rasterize = function(x, y, z=NULL, gridsize=20, plotdim=c(1000,500), FUN=sum, graph=FALSE)
@@ -160,16 +157,16 @@ if (graph==TRUE) image(XI[1:K]+gridsize/2, YI[1:J]+gridsize/2, t(f))
 
 return(f)
 }
-# 
+#
 # 
 
 
 # <name>
 # wavelet.univariate
-# 
+#
 #
 
-# <description>
+# @description
 # Function to calculate the univariate wavelet variance using furier transforms. 
 # It accepts a raster data or a point pattern, which is the default if raster is not provided.  
 # The wavelet variance describes the spatial autocorrelation or aggregation of tree distribution.
@@ -186,9 +183,8 @@ return(f)
 # Authors: Matteo Detto and Tania Brenes  
 #
 # Output: a list containing vectors for the wavelet variance, the scale of the wavelet variance, the normalized variance, and the confidence intervals. 
-# 
+#
 
-# <arguments>
 #  raster (NULL): used if data is entered already as a raster matrix
 #  coords  (): an alternate to a raster table, a table with two (or three) columns giving coordinates x, y (and an optional mark) in that order. This is used to calculate a raster;  
 #  gridsize : is the quadrat size of the rasterization;
@@ -197,14 +193,14 @@ return(f)
 #  k0 (8): numeric. smoothing parameter of the wavelet filter (k0 between 5.5-15), lower values of k0 produce a smoother wavelet variance; 
 #  dj  (0.15):  numeric. discretization of the scale axis; 
 #  graph (FALSE): logical. If TRUE, plots the wavelet variace as a function of scale 
-# 
+#
 
-# <sample>
+# @examples
 # load("bci.full1.rdata") 
 # rast1 = rasterize(, gridsize=5, plotdim=c(100,500), graph=TRUE)
 # wv = wavelet.var(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
 # plots the scale of aggregation
-# 
+#
 
 # <source>
 wavelet.univariate=function(raster=NULL, coords, gridsize=2, plotdim=c(1000,500), FUN=NULL, k0=8, dj=0.15, graph=FALSE) {
@@ -272,16 +268,16 @@ output=list(variance=E_norm, scale=sc, UCL=UCL, LCL=LCL)
 		}
 
 return(output)	}
-# 
+#
 # 
 
 
 # <name>
 # wavelet.bivariate
-# 
+#
 #
 
-# <description>
+# @description
 # Function to calculate the wavelet variance to evaluate the association between two point patterns using furier transforms. 
 # It accepts a raster data or a point pattern, but the type of data entered has to be specified in the argument type.  
 # The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.
@@ -295,9 +291,8 @@ return(output)	}
 # Dependencies: needs the package 'spatstat' and the CTFSRpackage 
 # Authors: Matteo Detto and Tania Brenes  
 # Output: a list containing vectors for the wavelet variance, the scale of the wavelet variance, and the normalized variance. 
-# 
+#
 
-# <arguments>
 #  coords1  (): a matrix with raster data OR a table with two or three columns that can be used to calculate a raster, the first two columns are the coordinates and the third is the mark. Type must be specified ;  
 #  coords2 (): 2nd dataset for the bivariate analyisis; 
 #  type ('raster'): the type of data entered, 'raster' if a raster matrix, 'point' for a point pattern, or 'marked' for a marked point pattern;
@@ -308,15 +303,15 @@ return(output)	}
 # lower values of k0 produce a smoother wavelet variance; 
 #  dj  (0.15):  numeric. discretization of the scale axis; 
 #  graph (TRUE): logical. plot the wavelet variace ? 
-# 
+#
 
-# <sample>
+# @examples
 # load("bci.full1.rdata") 
 # sp.one = subset(bci.full7, sp=="quaras")[,c("gx","gy")] 
 # sp.two = subset(bci.full7, sp=="cordal")[,c("gx","gy")]
 # wv = wavelet.bivariate(coords=sp.one, coords2=sp.two, type='point', rk0=8, dj=0.15, graph=TRUE)
 # plots the scale of aggregation
-# 
+#
 
 # <source>
 wavelet.bivariate = function(raster1=NULL, raster2=NULL, coords1, coords2, gridsize=1, plotdim=c(1000,500), FUN=NULL, k0=8, dj=0.15, graph=TRUE) 
@@ -395,6 +390,6 @@ if (graph == TRUE)
 output=list(E_norm=coh, UCL=UCL, LCL=LCL, var11= as.real(E11), var12=as.real(E12), var22=as.real(E22), norm=norm, scale=sc)
 
 return(output)	}
-# 
+#
 # 
 

@@ -1,86 +1,82 @@
 # <name>
 # xydist
-# 
 #
-# <description>
+#
+# @description
 # Distance between two pairs of x-y coordinates. Input can be atomic or vector. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 xydist=function(x1,y1,x2,y2) 
   return( sqrt( (x1-x2)^2 + (y1-y2)^2 ) )
-# 
-# 
-# 
-# 
-# 
-# <name>
-# xydistvect
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# xydistvect
+#
+#
+# @description
 # Distance between two x-y coordinates, but accepts each set of coordinates as a vector of length 2,
 # with the first element the x coordinates, the second y. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 xydistvect=function(pt1,pt2)
   return( xydist(pt1[,1],pt1[,2],pt2[,1],pt2[,2]) )
-# 
-# 
-# 
-# 
-# 
-# <name>
-# xydistmat
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# xydistmat
+#
+#
+# @description
 # Distance between two x-y coordinates, but accepts two sets of coordinates in a single matrix (4 columns ordered x1, y1, x2, y2). 
 # For use with apply.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 xydistmat=function(pts)
   return( xydist(pts[,1],pts[,2],pts[,3],pts[,4]) )
-# 
-# 
-# 
-# 
-# 
-# <name>
-# perpendicular.distance
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# perpendicular.distance
+#
+#
+# @description
 # Distance from a point to a line (so it's the perpendicular distance);
 # m and b are slope and intercept; x and y are coordinates. If both b,m and x,y are vectors, they must all be same length.
 # Note check for infinite slope, meaning that the intercept b is the x-intercept.
 
-# 
+#
 # <display>true
 # <update>true
-# <arguments>
 # b: y-intercept
 # m: line slope
-# 
-# <sample>
-# 
+#
+# @examples
+#
 # 
 # <source>
 perpendicular.distance=function(b,m,x,y) 
@@ -94,9 +90,9 @@ perpendicular.distance=function(b,m,x,y)
   
   return(result)
  }
+#
 # 
-# 
-# 
+#
 
 # Find distance from a pt (x then y coords) to a line segment given as start and end points. Either x, y or end points can be vectors, but not both.
 # It first finds perpendicular distance, then distance to each end point, and returns the minimum. 
@@ -128,21 +124,20 @@ pt.to.segment=function(x,y,x1,y1,x2,y2)
  return(c(x=closex,y=closey,index=closeind,distance=mindist))
  # return(data.frame(mindist,perpcheck)) 
 }
-# 
+#
 # 
 # <name>
 # perpendicular.line
-# 
 #
-# <description>
+#
+# @description
 # Finds the slope and intercept of the line perpendicular to a line whose slope and intercept are given, 
 # through the points x,y. Either x and y can be vectors, or b and m can be vectors, or if all are vectors, must be same length. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 perpendicular.line=function(b,m,x,y)
@@ -154,24 +149,23 @@ perpendicular.line=function(b,m,x,y)
  
  return(result)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# parallel.line
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# parallel.line
+#
+#
+# @description
 # Finds the slope and intercept of the line parallel to a line whose slope and intercept are given, 
 # through the points x,y. Note that the intercept is not needed. For any m that are infinite, the intercept is x.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 parallel.line=function(b,m,x,y)
@@ -190,25 +184,24 @@ parallel.line=function(b,m,x,y)
  
  return(result)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# intersection.of.lines
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# intersection.of.lines
+#
+#
+# @description
 # Finds the point where 2 lines intersect, given lines as 2 parameters each (intercept b then slope m). 
 # If the two lines are identical, it returns NAs. Note the check for both slopes being infinite (vertical lines).
 # This is vectorized: either pair can be vector if other pair is atomic, or both can be same length vectors.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 intersection.of.lines=function(b1,m1,b2,m2)
@@ -235,21 +228,20 @@ intersection.of.lines=function(b1,m1,b2,m2)
  
  return(data.frame(x,y))
 }
-# 
+#
 # 
 # <name>
 # intersection.line.curve
-# 
 #
-# <description>
+#
+# @description
 # Finds the points where a straight line, given lines as intercept b then slope m, intersects with a curve defined by a sequence of segments. Intersections must be found for the line with every segment, then every one checked with is.between. The intersections are returned as a dataframe of x, y coordinates. The b and m must be atomic. The curve must be a dataframe with columns x, y (or capital X, Y). 
 # having any number of segments.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 intersection.line.curve=function(b,m,curve)
@@ -268,21 +260,20 @@ intersection.line.curve=function(b,m,curve)
 }
 #
 #
-# 
+#
 # # 
 # <name>
 # is.between
-# 
 #
-# <description>
+#
+# @description
 # Check whether a point x,y falls between two other points. The typical use is where the first point falls on the segment connecting the next two points. 
 # All arguments can be vector, but must be identical in length. An x falls between when it lies in [x1,x2). 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 is.between=function(x,y,x1,y1,x2,y2)
@@ -304,22 +295,21 @@ is.between=function(x,y,x1,y1,x2,y2)
  
  return(result)
 }
+#
 # 
-# 
-# 
+#
 # 
 # <name>
 # line.intersection.pts
-# 
 #
-# <description>
+#
+# @description
 # Finds the point where 2 lines intersect, given each line as 2 pairs of points on the line
-# 
-# <arguments>
+#
 # Both arguments must have columns x, y, with two rows, one row per point. 
-# 
-# <sample>
-# 
+#
+# @examples
+#
 # 
 # <source>
 line.intersection.pts=function(pts1,pts2)
@@ -329,24 +319,23 @@ line.intersection.pts=function(pts1,pts2)
 
  return(line.intersection(m1=line1[1],b1=line1[2],m2=line2[1],b2=line2[2]))
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# pts.to.interceptslope
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# pts.to.interceptslope
+#
+#
+# @description
 # Returns intercept and slope of a line given two pairs of coordinates on the line. Arguments can be vectors; if both are vectors, must be same size. 
 # If the x's are exactly equal, so slope is infinite, it returns the x as the first argument. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 pts.to.interceptslope=function(pt1,pt2)
@@ -367,23 +356,22 @@ pts.to.interceptslope=function(pt1,pt2)
 
  result=data.frame(b=inter,m=slope)
 }
-# 
-# 
-# 
-
-# 
-# <name>
-# segmentPt
+#
 # 
 #
-# <description>
+
+#
+# <name>
+# segmentPt
+#
+#
+# @description
 # Draw a line segment between two points, where each point is a vector of x then y coordinates
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 segmentPt=function(pt1,pt2,clr='black',lwidth=1) 
@@ -396,23 +384,22 @@ segmentPt=function(pt1,pt2,clr='black',lwidth=1)
 
  segments(x0=x1,x1=x2,y0=y1,y1=y2,col=clr,lwd=lwidth)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# drawrectangle
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# drawrectangle
+#
+#
+# @description
 # Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The columns must have x first then y coordinates. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 drawrectangle=function(corners,add=TRUE,clr='black',lwidth=1)
@@ -429,28 +416,27 @@ drawrectangle=function(corners,add=TRUE,clr='black',lwidth=1)
  segmentPt(corners[3,],corners[4,],clr=clr,lwidth=lwidth)
  segmentPt(corners[1,],corners[4,],clr=clr,lwidth=lwidth)
 }
-# 
+#
 # 
 #
 #
-# 
+#
 # <name>
 # angleBisector
-# 
 #
-# <description>
+#
+# @description
 # Given 3 sets of coordinates defining two line segments (middle point is intersection), find line bisecting the angle through middle point. This is not vectorized. It only works with 3 sets of coordinates. Note that it is necessary to correctly find the compass direction theta, which the slope alone does not establish:
 # 1) If slope is negative and x2>=x1 (travel is toward Quadrant IV), then theta=atan(slope)
 # 2) If slope is negative with x2<x1 (travel is toward Quadrant II), then theta=atan(slope)+pi
 # 3) If slope is positive with x2>=x1 (travel is toward Quadrant I), then theta=atan(slope)
 # 4) If slope is positive with x2<x1 (travel is toward Quadrant III), then theta=atan(slope)-pi
 # This returns theta in (-pi,pi). Then the turn is calculated, ie the change in direction between the two segments as the difference in theta, but it is reset to be on (-pi,pi) as well in order to correctly estimate the mean direction of travel (half the turn added to theta[1]).
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 angleBisector=function(corners)
@@ -485,22 +471,21 @@ angleBisector=function(corners)
  
  return(drp(as.matrix(result)))
 }
-# 
+#
 # 
 
 # <name>
 # insideRectangle
-# 
 #
-# <description>
+#
+# @description
 # Checks a vector of coordinates x, y to return which are inside a rectangle. For a much more general function for checking whether
 # points are inside polygons, use the function inout() in the package splancs.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 insideRectangle=function(x,y,xrange,yrange)
@@ -509,25 +494,24 @@ insideRectangle=function(x,y,xrange,yrange)
  inY=y>=yrange[1] & y<yrange[2] & !is.na(y)
  return(inX&inY)
 }
+#
 # 
-# 
-# 
+#
 
 
 # <name>
 ## are.ptsinside
-# 
 #
-# <description>
+#
+# @description
 # Checks many points (dataframe pt with x and y) against a single quadrat whose corners are given by as xlo, ylo, xhi, yhi.
 # It returns a logical vector, TRUE for the points inside. This is same as insideRectange, but accepting input as a matrix pts
 # and a single vector of the four corners of the rectange. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 are.ptsinside=function(pts,coord)
@@ -535,23 +519,22 @@ are.ptsinside=function(pts,coord)
  return(insideRectange(x=pts[,1],y=pts[,2],xrange=coord[,c(1,3)],yrange=coord[,c(2,4)]))
 }
 
-# 
+#
 # 
 
 # <name>
 # ispt.inside
-# 
 #
-# <description>
+#
+# @description
 # Check a single pt (x and y) against a large number of quadrats whose corners are given by the rows of coord, xlo, ylo, xhi, yhi.
 # It returns the fraction of quadrats which the point falls inside. This is exactly like are.ptsinside() but allows there to be many
 # rectangles, defined by a dataframe coord.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 ispt.inside=function(pt,coord)
@@ -563,24 +546,23 @@ ispt.inside=function(pt,coord)
  
  return(inside)
 }
-# 
+#
 # 
 
 
-# 
+#
 # <name>
 # inside.rect
-# 
 #
-# <description>
+#
+# @description
 # Determines whether any of the 4 corners of one rectangle are within a second rectangle. Both rectangles are submitted as c(x0,x1,y0,y1). If just one
 # of the corners is inside, it returns true. See insideRectange(), which has a similar name but does something different.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 inside.rect=function(rect1,rect2)
@@ -592,23 +574,22 @@ inside.rect=function(rect1,rect2)
 
  return(TRUE)
 }
-# 
-# 
-# 
-
-# 
-# <name>
-# circle
+#
 # 
 #
-# <description>
+
+#
+# <name>
+# circle
+#
+#
+# @description
 # Calculates points on a 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 circle=function(x,center=c(0,0),radius=5,half="top")
@@ -624,25 +605,24 @@ circle=function(x,center=c(0,0),radius=5,half="top")
   y=yprime+center[2]
   return(y)
  }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# fullcircle
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# fullcircle
+#
+#
+# @description
 # Create a dataframe for a full circle, with x values repeated to get top then bottom. NA is inserted
 # so this can be passed directly to graphing functions.
 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 fullcircle=function(x,center=c(0,0),radius=5)
@@ -653,23 +633,22 @@ fullcircle=function(x,center=c(0,0),radius=5)
  result=data.frame(x=c(x,NA,x[len:1]),y=c(tophalf,NA,bottomhalf[len:1]))
  return(result)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# ellipse
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# ellipse
+#
+#
+# @description
 # Equation for (half) a canonical 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 ellipse=function(x,center=c(0,0),radius=c(7,5),half='top')
@@ -686,26 +665,24 @@ ellipse=function(x,center=c(0,0),radius=c(7,5),half='top')
   y=yprime+center[2]
   return(y)
  }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# fullellipse
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# fullellipse
+#
+#
+# @description
 # Creates a dataframe for a full ellipse. 
+#
+# @param x = input x coordinates
+# @param center = x-y coordinates of ellipse center (vector of 2)
+#
 # 
-# <arguments>
-# <ul>
-# <li> x = input x coordinates
-# <li> center = x-y coordinates of ellipse center (vector of 2)
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 fullellipse=function(x,center=c(0,0),radius=c(7,5))
@@ -718,29 +695,27 @@ fullellipse=function(x,center=c(0,0),radius=c(7,5))
 }
    
 
+#
 # 
-# 
-# 
+#
 # 
 
 # <name>
 # cartesian.to.polar
-# 
 #
-# <description>
+#
+# @description
 # Convert Cartesian coordinates to polar. Returns a dataframe of two columns named r and theta. This always
 # returns a theta between -pi/2 and pi/2. Note that polar.to.cartesian may not return the starting x, y submitted
 # to cartesian.to.polar due to problems with signs. It will work if theta is kept positive (ie, quadrant 1).
+#
+# @param x = input vector of x coordinates
+# @param y = input vector of y coordinates (same length as x)
+#
 # 
-# <arguments>
-# <ul>
-# <li> x = input vector of x coordinates
-# <li> y = input vector of y coordinates (same length as x)
-# 
-# 
-# <sample>
+# @examples
 # cartesian.to.polar(2,4)
-# 
+#
 # <source>
 cartesian.to.polar=function(x,y)
 {
@@ -753,27 +728,25 @@ cartesian.to.polar=function(x,y)
  
  return(data.frame(r,theta))
 }
+#
 # 
-# 
-# 
+#
 
 
 # <name>
 # polar.to.cartesian
-# 
 #
-# <description>
+#
+# @description
 # Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
+#
+# @param r = input vector of radii (distance from origin)
+# @param theta = input vector of angle from horizontal (radians), same length as r
+#
 # 
-# <arguments>
-# <ul>
-# <li> r = input vector of radii (distance from origin)
-# <li> theta = input vector of angle from horizontal (radians), same length as r
-# 
-# 
-# <sample>
+# @examples
 # polar.to.cartesian(2,pi/3)
-# 
+#
 # <source>
 polar.to.cartesian=function(r,theta)
 {
@@ -781,35 +754,34 @@ polar.to.cartesian=function(r,theta)
  y=r*sin(theta)
  return(data.frame(x,y))
 }
-# 
+#
 # 
 
 
 
 ### Should be deleted ... 
-# 
+#
 # <name>
 # slope.intercept.frompts
-# 
 #
-# <description>
+#
+# @description
 # This is an old version of pts.to.interceptslope, returns slope than intercept of a line given two points. The alternate function, pts.to.interceptslope, 
 # returns intercept then slope, which is more standard. This is kept for compatibility with old functions. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 #slope.intercept.frompts=function(pt1,pt2)
 #{
 # line=pts.to.interceptslope(pt1,pt2)
  
-# return(c(line[2:1]))
+# return(c(line[21]))
 #}
+#
 # 
-# 
-# 
+#
 # 

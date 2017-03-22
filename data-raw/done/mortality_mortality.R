@@ -1,8 +1,8 @@
 # <name>
 # mortality
-# 
 #
-# <description>
+#
+# @description
 # Mortality is the main function, and is constructed like 
 # growth and recruitment. It requires two complete datasets, one per census,
 # with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format). 
@@ -14,35 +14,32 @@
 
 # It requires fill.dimension and climits in utilities.r.
 # Output of the mortality function is a list with components:
-# <ul>
-# <li>N, the number of individuals alive in the census 1 per category selected
-# <li>D, the number of individuals no longer alive in census 2
-# <li>rate, the mean annualized mortality rate constant per category selected, calculated as (log(N)-log(S))/time 
-# <li>upper, upper confidence limit of mean rate
-# <li>lower, lower confidence limit of mean rate
-# <li>time, mean time interval in years
-# <li>date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
-# <li>date2, mean date in census 2 
-# <li>dbhmean, mean dbh in census 1 of individuals included
-# 
+# @paramN, the number of individuals alive in the census 1 per category selected
+# @paramD, the number of individuals no longer alive in census 2
+# @paramrate, the mean annualized mortality rate constant per category selected, calculated as (log(N)-log(S))/time 
+# @paramupper, upper confidence limit of mean rate
+# @paramlower, lower confidence limit of mean rate
+# @paramtime, mean time interval in years
+# @paramdate1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
+# @paramdate2, mean date in census 2 
+# @paramdbhmean, mean dbh in census 1 of individuals included
+#
 
 # Pass the list to assemble.demography (in utilities.r) with type="m" to convert the list a data.frame.
-# 
-# <arguments>
-# <ul>
-# <li> Generally, alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now
-# <li> split1 and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
+#
+# @param Generally, alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now
+# @param split1 and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
 # (or both can be NULL), for instance, species names, dbh categories, or quadrat numbers
+#
 # 
-# 
-# <sample>
-# CTFSplot("bci",5:6)
+# @examples
+# CTFSplot("bci",56)
 # mort.data=mortality(bci.full5,bci.full6)
 # mort.data$rate
 # mort.data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
 # mort.data$rate
 # assemble.demography(mort.data,type='m')
-# 
+#
 # <source>
 mortality=function(census1,census2,alivecode=c("A","AB","AS"),split1=NULL,split2=NULL)
 {
@@ -97,29 +94,28 @@ mortality=function(census1,census2,alivecode=c("A","AB","AS"),split1=NULL,split2
 
  return(result)
 }
-# 
-# 
-# 
-# 
-# 
-# <name>
-# mortality.eachspp
+#
 # 
 #
-# <description>
+# 
+#
+# <name>
+# mortality.eachspp
+#
+#
+# @description
 # Calculate mortality for each species in given dbh categories. It sets the split variables using the species name and
 # submitted dbh classbreaks and then uses mortality to do the calculation. See argument descriptions for mortality. Return object
 # is the list from mortality and can be passed to assemble.demography for a convenient format. 
-# 
-# <arguments>
-# 
-# <sample>
+#
+#
+# @examples
 # CTFSplot("bci",5:6)
 # mort.data=mortality.eachspp(bci.full5,bci.full6)
 # mort.table1=assemble.demography(mort.data,type="m",whichdbhcat=1)
 # mort.table2=assemble.demography(mort.data,type="m",whichdbhcat=2)
 # mort.table3=assemble.demography(mort.data,type="m",whichdbhcat=3)
-# 
+#
 # <source>
 mortality.eachspp=function(census1,census2,classbreak=c(10,100,300),alivecode=c("A","AB","AS"))
 {
@@ -130,20 +126,19 @@ mortality.eachspp=function(census1,census2,classbreak=c(10,100,300),alivecode=c(
  result=mortality(census1,census2,alivecode=alivecode,split1=sp,split2=dbhclass)
  return(result)
 }
-# 
+#
 # 
 
 # <name>
 # mortality.dbh
-# 
 #
-# <description>
+#
+# @description
 # Calculate forest-wide mortality in given dbh categories. See mortality and mortality.eachspp, which have same arguments and same output format.
-# 
-# <arguments>
-# 
-# <sample>
-# 
+#
+#
+# @examples
+#
 # <source>
 mortality.dbh=function(census1,census2,classbreak=c(10,100,300),alivecode=c("A","AB","AS"))
 {
@@ -156,25 +151,24 @@ mortality.dbh=function(census1,census2,classbreak=c(10,100,300),alivecode=c("A",
  
  return(result)
 }
-# 
+#
 # 
 
 
 # <name>
 # mortality.calculation
-# 
 #
-# <description>
+#
+# @description
 # This is the calculation of mortality rate and confidence limits, given N 
 # (number alive at the outset), S (number of survivors), and time (time interval).
 # All three can be arrays, vectors, or scalars, but all three must be identical size. 
 # It relies on find.climits. Used by mortality function, but can be used alone.
-# 
-# <arguments>
-# 
-# <sample>
+#
+#
+# @examples
 # mortality.calculation(N=c(100,1000),S=c(75,750),meantime=c(5.1,5.1))
-# 
+#
 # <source>
 mortality.calculation=function(N,S,meantime)
 {
@@ -197,29 +191,27 @@ mortality.calculation=function(N,S,meantime)
    return(list(N=N,S=S,D=N-S,rate=mort.rate,lowerCI=lower.rate,upperCI=upper.rate,
                time=meantime))
 }
-# 
+#
 # 
 
-# 
+#
 # <name>
 # find.climits
-# 
 #
-# <description>
+#
+# @description
 # Calculates confidence limits around a number of deaths, D, out of N individuals.
 # It uses the beta distribution as the conjugate of the binomial, so the beta is the posterior of the number
 # dying. N and D can be vectors or matrices, but must have matching dimensions.
-# 
-# <arguments>
-# <ul>
-# <li> N, number of individuals alive at the outset
-# <li> D, number of deaths by the end
-# <li> alpha, the critical probability (default alpha=0.05 gives 95% confidence limits)
-# <li> kind, either "upper" or "lower"
-# 
-# <sample>
+#
+# @param N, number of individuals alive at the outset
+# @param D, number of deaths by the end
+# @param alpha, the critical probability (default alpha=0.05 gives 95% confidence limits)
+# @param kind, either "upper" or "lower"
+#
+# @examples
 # find.climits(10,5,kind='lower')
-# 
+#
 # <source>
 find.climits=function(N,D,alpha=.05,kind='upper')
 {
@@ -237,7 +229,7 @@ find.climits=function(N,D,alpha=.05,kind='upper')
  return(result)
  
 }
-# 
+#
 # 
 
 

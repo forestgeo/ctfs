@@ -1,8 +1,8 @@
 # <name>
 ## spparea.sq
-# 
 #
-# <description>
+#
+# @description
 # Function for calculating the number of species in replicated, randomly-placed
 # quadrats of various areas. The variable size refers to the dimension (side)
 # of the square, and can be a vector; replicates is the
@@ -17,24 +17,22 @@
 # Note: randomly-placed quadrats produce statistically preferable species-area curves than checkerboards of non-overlapping quadrats. If
 # required, though, the function abundanceperquad() in abundance.r offers a fast way to count the number of species in checkerboard-type
 # quadrats of different sizes.
-# <arguments>
-# <ul>
-# <li> censdata: one R Analytical Table, either full or stem
-# <li> spcolumn: name of the column in the table having the species; defaults to 'sp', but can be set to 'genus' for 'family' if desired
-# <li> size: a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
-# <li> rectdim: the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares
-# <li> mindbh: the minimum dbh included
-# <li> plotdim: the x and y dimensions of the entire plot
-# <li> replicates: the number of random quadrats to create, of each size
-# <li> unidennames: a vector of species names that should not be included in species counts (see the function unidentified.species()
+# @param censdata one R Analytical Table, either full or stem
+# @param spcolumn name of the column in the table having the species; defaults to 'sp', but can be set to 'genus' for 'family' if desired
+# @param size a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
+# @param rectdim the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares
+# @param mindbh the minimum dbh included
+# @param plotdim the x and y dimensions of the entire plot
+# @param replicates the number of random quadrats to create, of each size
+# @param unidennames a vector of species names that should not be included in species counts (see the function unidentified.species()
+#
 # 
-# 
-# <sample>
+# @examples
 # speciesPerArea=spparea.sq(bci.full6,size=c(10,20,50),mindbh=10,plotdim=c(1000,500),replicates=5,unidennames=c('unid'))
 # rowmatch=match(bci.full6$sp,bci.spptable$sp)
 # bci.full6$Genus=bci.spptable$Genus[rowmatch]
 # genusPerArea=spparea.sq(bci.full6,spcolumn='Genus',size=c(10,20,50),mindbh=10,plotdim=c(1000,500),replicates=5,unidennames=c('unid'))
-# 
+#
 # <source>
 spparea.sq=function(censdata,spcolumn='sp',size,rectdim=1,mindbh=NULL,plotdim=c(1000,500),replicates=10,unidennames=c("**","UNID","uniden","UNIDEN"))
 {
@@ -85,16 +83,16 @@ spparea.sq=function(censdata,spcolumn='sp',size,rectdim=1,mindbh=NULL,plotdim=c(
  
  return(list(spparea=data.frame(xdim,ydim,area,indiv,SDindiv,taxa,SDtaxa),full=full))
 }
-# 
+#
 # 
 
 
 
 # <name>
 ## selectrandomquad
-# 
 #
-# <description>
+#
+# @description
 # Draws rectangular quadrats in a plot at random. Returns a dataframe of coordinates defining the corners of all the quadrats. 
 # The variable size is a vector of dimensions; shape allows a rectangle to be drawn; rep is the
 # number of replicated random quadrats per dimension submitted. 
@@ -104,18 +102,16 @@ spparea.sq=function(censdata,spcolumn='sp',size,rectdim=1,mindbh=NULL,plotdim=c(
 
 # All 3 algorithms for creating random quadrats under sample the plot corners. See selectrandomquad2() and selectrandomquad3(), alternative
 # intended to overcome the bias (but neither does). 
-# 
-# <arguments>
-# <ul>
-# <li> censdata: one R Analytical Table, either full or stem
-# <li> size: a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
-# <li> shape: the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares
-# <li> plotdim: the x and y dimensions of the entire plot
-# <li> rep: the number of random quadrats to create, of each size
-# <li> graphit: whether to graph the locations of the chosen quadrats on a plot map
-# 
-# <sample>
-# 
+#
+# @param censdata one R Analytical Table, either full or stem
+# @param size a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
+# @param shape the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares
+# @param plotdim the x and y dimensions of the entire plot
+# @param rep the number of random quadrats to create, of each size
+# @param graphit whether to graph the locations of the chosen quadrats on a plot map
+#
+# @examples
+#
 # 
 # <source>
 selectrandomquad=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
@@ -135,25 +131,24 @@ selectrandomquad=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 
  return(data.frame(xlo,ylo,xhi,yhi,area=(allsize.x*allsize.y)/1e4))
 }
-# 
+#
 # 
 
 
 
 # <name>
 # selectrandomquad3
-# 
 #
-# <description>
+#
+# @description
 # Creates randomly drawn quadrats, using same arguments and producing same return value as selectrandomquad, but using a different algorithm.
 # The lower left x, y coordinates are drawn at random from a range extending outside the plot dimensions, then quadrats are used only if
 # all 4 corners fall inside the plot.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 selectrandomquad3=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
@@ -183,7 +178,7 @@ selectrandomquad3=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 
  return(data.frame(xlo,ylo,xhi,yhi,area=(allsize.x*allsize.y)/1e4)[good,])
 }
-# 
+#
 # 
 
 
@@ -191,9 +186,9 @@ selectrandomquad3=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 
 # <name>
 ## selectrandomquad2
-# 
 #
-# <description>
+#
+# @description
 # Creates randomly drawn quadrats, using same arguments and producing same return value as selectrandomquad, but using a different algorithm 
 # aimed at capturing corners. The result, however, is not to capture corners any better than selectrandomquad() does.
 
@@ -203,12 +198,11 @@ selectrandomquad3=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 # Draw a random number on that line, and place the lower left corner of random square at that point. 
 
 # A position x on the line is converted to plot coordinates gx, gy using function index.to.gxgy with grid=1
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 selectrandomquad2=function(size,rep,plotdim=c(1000,500),graphit=FALSE)
@@ -228,25 +222,24 @@ selectrandomquad2=function(size,rep,plotdim=c(1000,500),graphit=FALSE)
 
  return(data.frame(xlo,ylo,xhi,yhi,area=(size*size)/1e4))
 }
-# 
+#
 # 
 
 
 
 # <name>
 ## graph.quadrats
-# 
 #
-# <description>
+#
+# @description
 # Make a graph of a series of quadrats whose corners are given by the rows of coord: xlo, ylo, xhi, yhi. This is used in illustrating
 # randomly selected quadrats. 
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
+# @examples
 
-# 
+#
 # <source>
 graph.quadrats=function(coord,plotdim=c(1000,500),clr="black",add=FALSE)
 {
@@ -266,26 +259,25 @@ graph.quadrats=function(coord,plotdim=c(1000,500),clr="black",add=FALSE)
 
  par(oldpar)
 }
-# 
+#
 # 
 
 
 # <name>
 ## coverage.diag
-# 
 #
-# <description>
+#
+# @description
 # Draws a diagonal across a plot, from lower left to upper right (if slope==1), upper left to lower right (if slope==-1),
 # or straight across the middle (if slope==0).
 # and determines for every point along the diagonal what fraction of a series of quadrats it is inside.
 # The quadrats are defined by their four corners in randomquads: xlo, ylo, xhi, yhi.
 # This is only used in testing how well random quadrat draws include corners and edges of a plot.
+#
+#
 # 
-# <arguments>
-# 
-# 
-# <sample>
-# 
+# @examples
+#
 # 
 # <source>
 coverage.diag=function(randomquads,slope=1,plotdim=c(1000,500),graphit=FALSE)
@@ -303,7 +295,7 @@ coverage.diag=function(randomquads,slope=1,plotdim=c(1000,500),graphit=FALSE)
 
  return(covered)
 }
-# 
+#
 # 
 
 
