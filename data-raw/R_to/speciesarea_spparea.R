@@ -38,7 +38,7 @@
 #'#' #' }
 #' 
 #' 
-'#' spparea.sq'
+' spparea.sq'
 
 
 #' selectrandomquad
@@ -63,7 +63,7 @@
 #' #' }
 #' 
 #' 
-'#' selectrandomquad'
+' selectrandomquad'
 
 
 #' selectrandomquad3
@@ -101,7 +101,7 @@
 #' #' }
 #' 
 #' 
-'#' selectrandomquad2'
+' selectrandomquad2'
 
 
 #' graph.quadrats
@@ -116,7 +116,7 @@
 #'#' #' }
 #' 
 #' 
-'#' graph.quadrats'
+' graph.quadrats'
 
 
 #' coverage.diag
@@ -135,4 +135,4 @@
 #' #' }
 #' 
 
-'#' coverage.diag'
+' coverage.diag'

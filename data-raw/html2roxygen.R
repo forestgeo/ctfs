@@ -112,6 +112,7 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "\'#", replacement = "#") %>%
   map(replace_stuff, pattern = "#\' #\'", replacement = "#\'") %>%
   map(replace_stuff, pattern = "#\' \'", replacement = "#\'") %>%
+  map(replace_stuff, pattern = "\'#\'", replacement = "\'") %>%
   
   # Save
   walk2(to, write_file, append = TRUE)
