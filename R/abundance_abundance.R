@@ -18,7 +18,7 @@
 #' The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of 
 #' one or two dimensions, depending on how many split variables were submitted:
 #' each of the dimensions of the array handles one of the categorical variables.  
-#'#'@param censdata an R Analytical Table for a full plot census, either full or stem
+#'#' @param censdata an R Analytical Table for a full plot census, either full or stem
 #' @param type must be either 'abund', 'ba', or 'agb'
 #' @param alivecode all codes defining alive; the default 'A'is the standard CTFS designation for living trees or stems
 #' @param mindbh the minimum diameter above which the counts are done; if NULL, all (living) are included
@@ -69,7 +69,7 @@
 #' @description
 #' A wrapper to calculate total abundance (or ba or agb) for each species in given dbh categories. The dbh categories
 #' are set with dbhbreaks. See abundance() for description of the other arguments and return value.
-#'#'@param dbhbreaks a vector of dbhs to define divisions of categories; the last category will be >= the final division
+#'#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last category will be >= the final division
 #'#'
 #'
 #'
@@ -97,7 +97,7 @@
 #' @param date2 mean date of second census in a matching array
 #' @param interval the time interval in years in a matching array
 #' @param little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
-#'#' This list can be submitted to <i>assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
+#'#' This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
 #'#' See abundance()
 #'#'@examples
 #' \dontrun{

@@ -1,9 +1,9 @@
 
-#'<supplemental>
+#'@section Supplemental
 #' This is supplemental code necessary for the functinos to run.
 #'
 #'#'
-#'<supplemental>'
+#'@section Supplemental'
 
 
 #' tojulian

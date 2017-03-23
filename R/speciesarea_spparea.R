@@ -50,7 +50,7 @@
 #' The x is chosen from a uniform distribution between 0 and plotdim[1]-size; y is chosen similarly. 
 #' All 3 algorithms for creating random quadrats under sample the plot corners. See selectrandomquad2() and selectrandomquad3(), alternative
 #' intended to overcome the bias (but neither does). 
-#'#'@param censdata one R Analytical Table, either full or stem
+#'#' @param censdata one R Analytical Table, either full or stem
 #' @param size a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
 #' @param shape the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares
 #' @param plotdim the x and y dimensions of the entire plot

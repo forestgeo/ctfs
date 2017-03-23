@@ -27,7 +27,7 @@
 #' @param columns number of columns in the grid, same as length(x);
 #' @param rows Number of rows in the grid, same as length(y);
 #' @param mat The matrix needed for graphing, exactly as needed for instance by imageGraph().
-#'#'@param z A numeric vector of responses, which means an attribute which has map coordinates.
+#'#' @param z A numeric vector of responses, which means an attribute which has map coordinates.
 #' @param x The map coordinates of each column in the matrix, and the values with which the x-axis of the map will be numbered.
 #' The number of columns of z, dim(z)[2], must be exactly length(x). If x is NULL, then it is calculated using plotmax.
 #' @param y The map coordinates of each row in the matrix, and the values with which the y-axis of the map will be numbered; 
@@ -57,7 +57,7 @@
 #' Maps a response variable with R's contour or image functions, or both, using the output of coldata.to.imagemat.
 #' Also can return contours as vector data, using R's contourLines. The graph can be sent to the screen or exported.
 #' There are many options for tweaking the graph, explained with the arguments.
-#'#'@param matrixdata a list having components x, y, and mat, exactly the output of coldata.to.imagemat
+#'#' @param matrixdata a list having components x, y, and mat, exactly the output of coldata.to.imagemat
 #' @param levels if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable; 
 #' can be NULL to let breaks control
 #' @param breaks if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks
@@ -109,7 +109,7 @@
 #' of responses, over a complete grid, is not available. Data are submitted as a table with x and y coordinates, and a response z at each.
 #' The points are mapped on an x-y plot, then colored according to the value of z. One typical use would be where soil data are available
 #' at many locations, coloring points by the concentration of one nutrient. Another, illustrated below, would be to color tree locations according to dbh. 
-#'#'@param data A data frame with at least 3 columns, 2 of which are coordinates and one a numerical response at those coordinates
+#'#' @param data A data frame with at least 3 columns, 2 of which are coordinates and one a numerical response at those coordinates
 #' @param xcol, ycol, zcol These allow the columns of data to carry non-standard names
 #' @param ptsize Size of points to be drawn
 #'#' Other arguments are the same as imageGraph().

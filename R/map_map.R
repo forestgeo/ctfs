@@ -14,7 +14,7 @@
 #' A common problem is graph size, leading to an error message "Plot region too large". This happens if the export="no" option
 #' is used with the option plotside too large for the default graph size (usually 7 inches). If you use the option export="Windows", 
 #'"Mac", or "Unix", then height and width can be set with arguments ht, wd, and plotside can be as large as you please. 
-#'#'@param splitdatafile A full plot dataset in list format.
+#'#' @param splitdatafile A full plot dataset in list format.
 #' @param species One or more species codes to be mapped.
 #' @param spplist A table with species codes and Latin names can be submitted as well, so that the full genus-species is added to plot. This must have species codes as row names. It should be the CTFS R format species table (eg, bci.spptable).
 #' @param It can be set to NULL if not available, then only the species code (as submitted) appears on the map.
@@ -91,7 +91,7 @@
 #' This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.
 #' On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
 #' are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp. 
-#'#'@param cns: a full census dataset (all species)
+#'#' @param cns: a full census dataset (all species)
 #' @param spnames: names of species to map, using the mnemonic in the R tables
 #' @param mindbh: smallest dbh to include
 #' @param export: set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)

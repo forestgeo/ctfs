@@ -129,9 +129,7 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   # Remove empty examples    "(#\'\r\)(\n#\'@examples?(.*)xxxxx"
   map(replace_stuff, pattern = "@examples\r?(\nxxxxx)", replacement = "") %>%
 
-# Specific issues following checks ----------------------------------------
-
-  # Fix a specific issue #' MINIMUM_SD=0.00
+  # Specific issues following checks
   map(replace_stuff, pattern = " MINIMUM_SD=0.00", replacement = "") %>%
   map(replace_stuff, pattern = "(maxgrow = 75\\))\\}", replacement = "\\1\r\n#\' \\}") %>%
   
@@ -139,32 +137,34 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "@param( trimmed=extract\\.growthdata)", replacement = "\\1") %>%
   map(replace_stuff, pattern = "(distances of rseq)", replacement = "\\1\r\n#\' \\}\r") %>%
 
-  
-  # Let tags breath  
+  # Let tags breath
   map(replace_stuff, pattern = "\n#\'@param", replacement = "\n#\' @param") %>%
   map(replace_stuff, pattern = "\n#\'@description", replacement = "\n#\' @description") %>%
   map(replace_stuff, pattern = "\n#\'@examples", replacement = "\n#\' @examples") %>%
   map(replace_stuff, pattern = "\n#\'\\\\dontrun", replacement = "\n#\' \\\\dontrun") %>%
-  # map(replace_stuff, pattern = "<supplement>", replacement = "\n#\' @examples") %>%
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    # # Remove @param from examples
-  # map(replace_stuff, pattern = "(run\\{)?([^\\}]*)[@param]+([^\\}]*)(\\})", 
-  #   replacement = "\\1\\2\\3\\4") %>%
+  map(replace_stuff, pattern = "<supplemental>", replacement = "@section Supplemental") %>%
+  map(replace_stuff, pattern = "</supplemental>", replacement = "") %>%
+  map(replace_stuff, pattern = "<i>", replacement = "") %>%
 
-    
-  # 
-  # 
-  # 
-  # 
+  # Coment a bunch of uncommented example lines
+  map(replace_stuff, pattern = "(#\' )(If a split)", replacement = "\\1# \\2") %>%
+  map(replace_stuff, pattern = "(#\' )(Otherwise start)", replacement = "\\1# \\2") %>%
+  map(replace_stuff, pattern = "(#\' )(A quick test)", replacement = "\\1# \\2") %>%
+  map(replace_stuff, pattern = "(#\' )(All the species)", replacement = "\\1# \\2") %>%
+  map(replace_stuff, pattern = "(#\' )(calculate K and the)", replacement = "\\1# \\2") %>%
+  map(replace_stuff, pattern = "(#\' )(distances of rseq)", replacement = "\\1# \\2") %>%
+  
+  map(replace_stuff, pattern = "(#\')(@param)", replacement = "\\1 \\2") %>%
+  map(replace_stuff, pattern = "(\n#\')\\}\r", replacement = "\\1\r") %>%
+  
+  map(replace_stuff, pattern = "#\' Author: ", replacement = "#\' @author ") %>%
   
   
+  
+  
+  
+  # Add end } of dontrun
+  # map(replace_stuff, pattern = "(run\\{)?(.*)(\n#'\r\n)", replacement = "\\1\\2\n#' \\}\n") %>% 
+
   # Save
   walk2(to, write_file, append = TRUE)

@@ -52,7 +52,7 @@
 #'#' Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
 #'(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
 #' offers a worked example.
-#'#'@param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
+#'#' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
 #' @param ycol The name of the column holding the y variable, with quote marks; this variable must be numeric.
 #' @param ycol The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
 #' @param randcol The name of one column holding the random variable; must be a character variable.
@@ -68,7 +68,7 @@
 #' @param 'GaussMultResid'uses Gaussian error for residuals, with standard deviation a constant fraction of the model's prediction
 #'        (and thus only appropriate if predictions are strictly positive)
 #' @param 'Flat'is a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior. 
-#'#'@param includeCovar TRUE or FALSE, whether to fit the full covariance matrix, vs. variances alone.
+#'#' @param includeCovar TRUE or FALSE, whether to fit the full covariance matrix, vs. variances alone.
 #' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
 #' @param badparam The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.
 #' @param sdfunc The name of a function (unquoted) that models the residual standard deviation as a function of the x's, just like the model function. The default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function are.

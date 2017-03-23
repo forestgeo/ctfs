@@ -34,19 +34,19 @@
 #'#'
 #' @examples
 #' \dontrun{
-#' If a split database has been created by split.data and stored, CTFSplot will load it.
+#' # If a split database has been created by split.data and stored, CTFSplot will load it.
 #' CTFSplot("bci",6,type="split")
-#' Otherwise start with a standard R Analytical Table (could be stem also):
+#' # Otherwise start with a standard R Analytical Table (could be stem also):
 #' CTFSplot("bci",6,type="full")
 #' bci.split6=split.data(bci.full6)
-#' A quick test, run on only the first 10 species:
+#' # A quick test, run on only the first 10 species:
 #' rip=RipUvK(splitdata=bci.split6[1:10],plotdim=c(1000,500),rseq=c(10,20,30,40,50,60),mindbh=10,xcol="gx",ycol="gy")
-#' All the species (takes several minutes):
+#' # All the species (takes several minutes):
 #' rip=RipUvK(splitdata=bci.split6,plotdim=c(1000,500),rseq=c(10,20,30,40,50,60),mindbh=10,xcol="gx",ycol="gy")
 #' str(rip$K[[1]])
 #' plot(rip$midpts,rip$omega[2,],ylim=c(0,10))
-#'#'#' calculate K and the (number of conspecific) individuals for each tree within 
-#' distances of rseq
+#'#'#' # calculate K and the (number of conspecific) individuals for each tree within 
+#' # distances of rseq
 #' }
 #'#'
 #'
@@ -60,7 +60,7 @@
 #' submitted dataset. Calls CalcRingArea to do the calculations for the area within
 #' a distance r of every individual, then subtracts successive areas to get 
 #' the area within annuli. This is ordinarily only used as a subroutine of RipUvK.
-#'#'@param spdata A single dataframe with x-y coordinates of individuals. 
+#'#' @param spdata A single dataframe with x-y coordinates of individuals. 
 #' @param r A vector of distances defining the successive annuli.
 #' @param plotdim The x and y dimensions of the plot in which the individuals are mapped. 
 #'#'
@@ -79,7 +79,7 @@
 #' number of points. But this uses the function partialcirclearea to do the edge
 #' correction. This is ordinarily only used as a subroutine for RipUvK.
 #'#'
-#'}
+#'
 #'
 'CalcRingArea'
 

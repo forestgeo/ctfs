@@ -808,33 +808,3 @@ polar.to.cartesian=function(r,theta)
 # </source>
 # </function>
 
-
-
-### Should be deleted ... 
-# 
-# <function>
-# <name>
-# slope.intercept.frompts
-# </name>
-#' @export
-# <description>
-# This is an old version of pts.to.interceptslope, returns slope than intercept of a line given two points. The alternate function, pts.to.interceptslope, 
-# returns intercept then slope, which is more standard. This is kept for compatibility with old functions. 
-# </description>
-# <arguments>
-# 
-# </arguments>
-# <sample>
-# 
-# </sample>
-# <source>
-#slope.intercept.frompts=function(pt1,pt2)
-#{
-# line=pts.to.interceptslope(pt1,pt2)
- 
-# return(c(line[2:1]))
-#}
-# </source>
-# </function>
-# 
-# 

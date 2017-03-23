@@ -7,7 +7,7 @@
 #'#'
 #' @description
 #' Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.
-#'#' Author: Matteo Detto and Tania Brenes  
+#'#' @author Matteo Detto and Tania Brenes  
 #'#' Output is a matrix with:   
 #' scale: vector with scale of the analysis in meters; 
 #' variance: matrix with the normalized variance at each scale (columns) for each species (rows); 
@@ -33,7 +33,7 @@
 #'#'
 #' @description
 #' Function to plot the wavelet variance from the output of the wavelet.allsp. 
-#' Author: Tania Brenes  
+#' @author Tania Brenes  
 #'#'  x (): output for wavelet.allsp; 
 #'#'
 #'
@@ -46,7 +46,7 @@
 #' @description
 #' Function to calculate the count (type='point'), basal area or agb (type='marked') per quadrat 
 #' by selecting quadrats of variable sizes.  
-#' Author: Matteo Detto and Tania Brenes  
+#' @author Matteo Detto and Tania Brenes  
 #' Output is a list containing a matrix with the raster data.
 #'#'  x , y : x and y coordinates for the point pattern;  
 #'  z : marks for the marked point process, can be basal area, agb, etc. Needed only for type='marked';  

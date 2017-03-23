@@ -1,4 +1,7 @@
 #'
-#'@examples
-xxxxx
+'circle'
+
+
+#' fullcircle
+#'
 #'

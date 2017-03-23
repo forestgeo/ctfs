@@ -19,7 +19,7 @@
 #' Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this has to be included for asymexp; before, the
 #' check for negative SD parameters was hard-coded. 
 #' Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.
-#'#'@param cns1 and cns2 the two census R Analytical Tables, with earlier census first
+#'#' @param cns1 and cns2 the two census R Analytical Tables, with earlier census first
 #' @param mindbh minimum dbh to be included; all trees smaller than mindbh are excluded
 #' @param demog optional, must match exactly the table created within the function
 #' @param abundrange the default includes every species, but this can be set to a minimum and maximum abundance (first census); species with abundances outside the range are excluded
@@ -166,7 +166,7 @@
 #' model.littleR.Gibbs. The histogram of black points is all species, blue points only those starting with N >= minabund. If the argument mortcorr=TRUE,
 #' a graph of mortality rate vs. population change for every species is also produced. Otherwise, a table of the species with biggest increases and biggest
 #' decreases in abundance is printed to the screen. 
-#'#'@param fit result of model.littleR.Gibbs
+#'#' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
 #' @param div width of bins for histogram of observed rate of population change
 #' @param tinydiv width of bins used to draw the fitted distribution

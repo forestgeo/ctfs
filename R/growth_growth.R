@@ -27,7 +27,7 @@
 #' @param date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
 #' @param date2, mean date in census 2 
 #'#' Pass the list to assemble.demography (in utilities.r) with type="g" to convert the list to a data.frame.
-#'#'@param Usually use rounddown=FALSE; if TRUE, all dbh<55 are rounded down to the nearest multiple of 5
+#'#' @param Usually use rounddown=FALSE; if TRUE, all dbh<55 are rounded down to the nearest multiple of 5
 #' @param With method='I', annual dbh increment is calculated, (dbh2-dbh1)/time; with method='E', relative growth rate, (log(dbh2)-log(dbh1))/time
 #' @param With stdev=FALSE, confidence limits are returned, otherwise the SD in growth rate per group 
 #' @param dbhunit must be 'mm'or 'cm'

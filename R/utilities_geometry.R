@@ -297,7 +297,7 @@
 #'#'
 #' @description
 #' Creates a dataframe for a full ellipse. 
-#'#'@param x = input x coordinates
+#'#' @param x = input x coordinates
 #' @param center = x-y coordinates of ellipse center (vector of 2)
 #'#'
 #'
@@ -313,7 +313,7 @@
 #' Convert Cartesian coordinates to polar. Returns a dataframe of two columns named r and theta. This always
 #' returns a theta between -pi/2 and pi/2. Note that polar.to.cartesian may not return the starting x, y submitted
 #' to cartesian.to.polar due to problems with signs. It will work if theta is kept positive (ie, quadrant 1).
-#'#'@param x = input vector of x coordinates
+#'#' @param x = input vector of x coordinates
 #' @param y = input vector of y coordinates (same length as x)
 #'#'
 #' @examples
@@ -328,33 +328,12 @@
 #'#'
 #' @description
 #' Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
-#'#'@param r = input vector of radii (distance from origin)
+#'#' @param r = input vector of radii (distance from origin)
 #' @param theta = input vector of angle from horizontal (radians), same length as r
 #'#'
 #' @examples
 #' \dontrun{
 #' polar.to.cartesian(2,pi/3)}
 #'
-###' Should be deleted ... 
-#'#'
+
 'polar.to.cartesian'
-
-
-#' slope.intercept.frompts
-#'#'
-#' @description
-#' This is an old version of pts.to.interceptslope, returns slope than intercept of a line given two points. The alternate function, pts.to.interceptslope, 
-#' returns intercept then slope, which is more standard. This is kept for compatibility with old functions. 
-#'#'
-#'
-#' @examples
-#' \dontrun{
-#'#'
-#'#' slope.intercept.frompts=function(pt1,pt2)
-#'{
-#' line=pts.to.interceptslope(pt1,pt2)
-#' return(c(line[21]))}
-#'#'
-#'#'
-
-'slope.intercept.frompts'
