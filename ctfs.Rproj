@@ -18,4 +18,9 @@ StripTrailingWhitespace: Yes
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
+<<<<<<< HEAD
 PackageRoxygenize: rd,collate,namespace
+||||||| merged common ancestors
+=======
+PackageRoxygenize: rd,collate,namespace,vignette
+>>>>>>> source_collection
