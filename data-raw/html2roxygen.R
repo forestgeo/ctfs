@@ -61,6 +61,9 @@ name_function <- function(string) {
 
 # Wrangle -----------------------------------------------------------------
 
+# First manually remove function slope.intercept.frompts because it is not
+# included in CTFSRPackage
+
 # Remove end tags
 map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
   # Remove @export
@@ -159,12 +162,5 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   
   map(replace_stuff, pattern = "#\' Author: ", replacement = "#\' @author ") %>%
   
-  
-  
-  
-  
-  # Add end } of dontrun
-  # map(replace_stuff, pattern = "(run\\{)?(.*)(\n#'\r\n)", replacement = "\\1\\2\n#' \\}\n") %>% 
-
   # Save
   walk2(to, write_file, append = TRUE)
