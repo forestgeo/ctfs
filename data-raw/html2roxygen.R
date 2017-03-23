@@ -162,5 +162,15 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   
   map(replace_stuff, pattern = "#\' Author: ", replacement = "#\' @author ") %>%
   
-  # Save
-  walk2(to, write_file, append = TRUE)
+# Save wrangled files
+walk2(to, write_file, append = TRUE)
+
+
+
+# Add files to .R/ that do not need wrangling
+path_notwrangle <- "./data-raw/R_from_notwrangle/"
+from_notwrangle <- map2(path_notwrangle, dir(path_notwrangle), paste0)
+to_notwrangle <- map2("./R/", dir(path_notwrangle), paste0)
+
+map(from_notwrangle, read_file) %>% 
+  walk2(to_notwrangle, write_file, append = TRUE)

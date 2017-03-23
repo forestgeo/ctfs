@@ -1,7 +1,7 @@
 Version: 1.0
 
-RestoreWorkspace: No
-SaveWorkspace: No
+RestoreWorkspace: Default
+SaveWorkspace: Default
 AlwaysSaveHistory: Default
 
 EnableCodeIndexing: Yes
@@ -13,14 +13,8 @@ RnwWeave: knitr
 LaTeX: pdfLaTeX
 
 AutoAppendNewline: Yes
-StripTrailingWhitespace: Yes
 
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
-<<<<<<< HEAD
-PackageRoxygenize: rd,collate,namespace
-||||||| merged common ancestors
-=======
 PackageRoxygenize: rd,collate,namespace,vignette
->>>>>>> source_collection
