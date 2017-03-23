@@ -31,6 +31,9 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="news/index.html">News</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
 </div>
@@ -49,8 +52,15 @@
     
 <div class="contents">
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<p>A files collectoin in <code>R/</code> (not an R package <em>sensu stricto</em>), that is the source code of the original CTFS R Package (Richard Condit). The files were extracted from their original folders and renamed to preserve their folder source with the format <code>&lt;FOLDERNAME&gt;_&lt;FILENAME&gt;.R</code>.</p>
-<p>If you need the original CTFS R Package (Richard Condit) visit <a href="http://ctfs.si.edu/Public/CTFSRPackage/" class="uri">http://ctfs.si.edu/Public/CTFSRPackage/</a>.</p>
+<p>ctfs provides the original CTFS R Package (Richard Condit) with the structure of an R package <em>sensu stricto</em> (with some hacks). After you install it, functions will be available with <code>&lt;FUNCTION_NAME&gt;</code>; and documentation with <code>?&lt;FUNCTION_NAME&gt;</code>, <code>help(&lt;FUNCTION_NAME&gt;)</code> or online at <a href="https://forestgeo.github.io/ctfs/" class="uri">https://forestgeo.github.io/ctfs/</a> or <a href="http://ctfs.si.edu/Public/CTFSRPackage/" class="uri">http://ctfs.si.edu/Public/CTFSRPackage/</a>.</p>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"> </a>Installation</h2>
+<p>If you are authorized (via <a href="daviess@si.edu">Stuart Davies</a>), you can install ctfs from a private GitHub repo with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
+GUEST_PAT &lt;-<span class="st"> "d60277dad4177c278455e885366a7170e22ae092"</span>
+devtools::<span class="kw">install_github</span>(<span class="st">"forestgeo/ctfs"</span>, <span class="dt">auth_token =</span> GUEST_PAT)
+<span class="kw">library</span>(ctfs)</code></pre></div>
 <div id="reference" class="section level3">
 <h3 class="hasAnchor">
 <a href="#reference" class="anchor"> </a>Reference</h3>
@@ -65,6 +75,7 @@
   publisher={Wiley Online Library}
 }</code></pre>
 <p>Package maintainer: <a href="maurolepore@gmail.com">Mauro Lepore</a></p>
+</div>
 </div>
 </div>
   </div>

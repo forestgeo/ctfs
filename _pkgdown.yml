@@ -1,4 +1,0 @@
-reference:
-  - title: "Package documentation"
-    contents:
-      - matches("^ctfs$")
