@@ -3,7 +3,7 @@ ctfs
 [Richard Condit](conditr@gmail.com)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-A mimimal package containing the original CTFS R Package (Richard Condit) in `data/`. Its main purpose is to be programatically installed from R to facilitate the workflow with other packages developed by [ForestGEO](http://www.forestgeo.si.edu/). If you need the original CTFS R Package (Richard Condit) visit <http://ctfs.si.edu/Public/CTFSRPackage/>, were not only functions but also documentation is available.
+ctfs provides the original CTFS R Package (Richard Condit) with the structure of an R package *sensu stricto* (with some hacks). After you install it, functions will be available with `<FUNCTION_NAME>`; and documentation with `?<FUNCTION_NAME>`, `help(<FUNCTION_NAME>)` or online at <https://forestgeo.github.io/ctfs/> or <http://ctfs.si.edu/Public/CTFSRPackage/>.
 
 Installation
 ------------
