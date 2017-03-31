@@ -30,7 +30,9 @@ paths <- tibble(
   transmute(
     from = paste0(from, "/", file),
     to = paste0(to, "/", file)
-  )
+  ) %>% 
+  mutate(to = str_replace(to, "\\.r", "\\.R"))
+  
 
 
 
@@ -83,10 +85,17 @@ name_function <- function(string) {
 # included in CTFSRPackage
 
 # Remove end tags
-map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
-  # Remove @export
-  map(replace_stuff, pattern = "' @export", replacement = "") %>% 
+map(paths$from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
+
+  
+  
+  # This is no longer necessary because source code does not have @export tags
+  # # Remove @export
+  # map(replace_stuff, pattern = "' @export", replacement = "") %>% 
   # Remove function tag
+
+
+
   map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
   # Remove <br>
   map(replace_stuff, pattern = "<br>", replacement = "") %>% 
@@ -181,7 +190,7 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "#\' Author: ", replacement = "#\' @author ") %>%
   
 # Save wrangled files
-walk2(to, write_file, append = TRUE)
+walk2(paths$to, write_file, append = TRUE)
 
 
 
