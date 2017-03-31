@@ -17,24 +17,24 @@ walk(pkgs, library, character.only = TRUE)
 
 # Directories -------------------------------------------------------------
 
-# List path to all files inside CTFSRPackage
-
-folder_from <- "./data-raw/CTFSRPackage/"
-subfolder_from <- map2_chr(folder, dir(folder_from), paste0)
-folder_to <- "./R/"
+from_folder <- "./data-raw/CTFSRPackage/"
+from_subfolder <- map2_chr(from_folder, dir(from_folder), paste0)
+to_folder <- "./R"
 
 paths <- tibble(
-    from = subfolder_from,
-    to = folder_to,
-    file = map(subfolder_from, dir)
+    from = from_subfolder,
+    to = to_folder,
+    file = map(from_subfolder, dir)
   ) %>% 
   unnest() %>% 
   transmute(
-    from = paste0(subfolder_from, "/", file),
-    to = paste0(folder_to, file)
+    from = paste0(from, "/", file),
+    to = paste0(to, "/", file)
   )
 
-# Remove end tags ---------------------------------------------------------
+
+
+# Remove end tags (</SOME_END_TAG>) ---------------------------------------
 
 extract_tag <- function(path) {
   path %>% 
@@ -44,9 +44,7 @@ extract_tag <- function(path) {
     unique
 }
 
-base <- directory_from
-paths <- paste0(base, dir(base))
-tags2rm <- map(paths, read_file) %>% 
+tags2rm <- map(paths$from, read_file) %>% 
   map(extract_tag) %>%
   unlist %>%
   unique %>% 
@@ -55,7 +53,10 @@ tags2rm <- map(paths, read_file) %>%
 
 tags2rm <- str_c(tags2rm[[1]], collapse = "|")
 
-# replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
+
+
+# Function to replace stuff -----------------------------------------------
+
 replace_stuff <- function(path_from, pattern, replacement) {
   text <- readr::read_file(path_from)
   stringr::str_replace_all(text, pattern, replacement)
