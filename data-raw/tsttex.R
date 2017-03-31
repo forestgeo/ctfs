@@ -1,7 +1,0 @@
-#'
-'circle'
-
-
-#' fullcircle
-#'
-#'
