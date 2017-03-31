@@ -2,6 +2,13 @@
 
 # tag_read: read all tags in all files
 
+
+# Setting -----------------------------------------------------------------
+
+# 1. Download source of CTFSRPackage from
+# http://ctfs.si.edu/Public/CTFSRPackage/index.php/web/topics and unzip
+# 2. Place CTFSRPackage folder in //data-raw/
+
 # Packages ----------------------------------------------------------------
 
 library("purrr")
@@ -10,12 +17,22 @@ walk(pkgs, library, character.only = TRUE)
 
 # Directories -------------------------------------------------------------
 
-directory_from   <- "./data-raw/R_from/"
-directory_to   <- "./R/"
+# List path to all files inside CTFSRPackage
 
-from <- map2_chr(directory_from, dir(directory_from), paste0)
-to   <- map2_chr(directory_to,   dir(directory_from), paste0)
+folder_from <- "./data-raw/CTFSRPackage/"
+subfolder_from <- map2_chr(folder, dir(folder_from), paste0)
+folder_to <- "./R/"
 
+paths <- tibble(
+    from = subfolder_from,
+    to = folder_to,
+    file = map(subfolder_from, dir)
+  ) %>% 
+  unnest() %>% 
+  transmute(
+    from = paste0(subfolder_from, "/", file),
+    to = paste0(folder_to, file)
+  )
 
 # Remove end tags ---------------------------------------------------------
 
