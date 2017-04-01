@@ -88,14 +88,12 @@ name_function <- function(string) {
 map(paths$from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
 
   
-  
+  # Documentation missed some functions. See if restorin this solves the problem
   # This is no longer necessary because source code does not have @export tags
-  # # Remove @export
-  # map(replace_stuff, pattern = "' @export", replacement = "") %>% 
+  # Remove @export
+  map(replace_stuff, pattern = "' @export", replacement = "") %>%
+
   # Remove function tag
-
-
-
   map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
   # Remove <br>
   map(replace_stuff, pattern = "<br>", replacement = "") %>% 
