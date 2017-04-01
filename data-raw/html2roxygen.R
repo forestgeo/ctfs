@@ -3,17 +3,22 @@
 # tag_read: read all tags in all files
 
 
-# Setting -----------------------------------------------------------------
+
+# Prepare -----------------------------------------------------------------
 
 # 1. Download source of CTFSRPackage from
 # http://ctfs.si.edu/Public/CTFSRPackage/index.php/web/topics and unzip
 # 2. Place CTFSRPackage folder in //data-raw/
+
+
 
 # Packages ----------------------------------------------------------------
 
 library("purrr")
 pkgs <- c("dplyr", "readr", "tidyr", "stringr", "tibble")
 walk(pkgs, library, character.only = TRUE)
+
+
 
 # Directories -------------------------------------------------------------
 
@@ -81,17 +86,14 @@ name_function <- function(string) {
 
 # Wrangle -----------------------------------------------------------------
 
-# First manually remove function slope.intercept.frompts because it is not
-# included in CTFSRPackage
-
 # Remove end tags
 map(paths$from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
 
-  
-  # Documentation missed some functions. See if restorin this solves the problem
-  # This is no longer necessary because source code does not have @export tags
-  # Remove @export
-  map(replace_stuff, pattern = "' @export", replacement = "") %>%
+  # 
+  # # Documentation missed some functions. See if restorin this solves the problem
+  # # This is no longer necessary because source code does not have @export tags
+  # # Remove @export
+  # map(replace_stuff, pattern = "' @export", replacement = "") %>%
 
   # Remove function tag
   map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
@@ -187,8 +189,19 @@ map(paths$from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   
   map(replace_stuff, pattern = "#\' Author: ", replacement = "#\' @author ") %>%
   
-# Save wrangled files
-walk2(paths$to, write_file, append = TRUE)
+  # Remove function slope.intercept.frompts because it is not included in
+  # CTFSRPackage
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "slope\\.intercept\\.frompts.*\'slope\\.intercept\\.frompts\'",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "") %>%
+  
+  # Save wrangled files
+  walk2(paths$to, write_file, append = TRUE)
 
 
 
