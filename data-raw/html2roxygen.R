@@ -86,8 +86,38 @@ name_function <- function(string) {
 
 # Wrangle -----------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+  # see if this works
+  # Tag @param
+    map(paths$from
+    str_replace,
+    pattern = stringr::regex(
+      "<arguments>.*(<li>).*</arguments>",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "@param") %>%
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
 # Remove end tags
-map(paths$from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
+map(replace_stuff, pattern = tags2rm, replacement = "") %>% 
 
   # 
   # # Documentation missed some functions. See if restorin this solves the problem
@@ -105,8 +135,6 @@ map(paths$from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "^#[ ]*$",replacement = "#") %>% 
   # Tag @description
   map(replace_stuff, pattern = "<description>", replacement = "@description") %>% 
-  # Tag @param
-  map(replace_stuff, pattern = "<li>", replacement = "@param") %>% 
   # Remove <arguments> and <ul>
   map(replace_stuff, pattern = "# <arguments>\\r\\n|# <ul>\\r\\n", replacement = "") %>% 
   # Remove : after params name

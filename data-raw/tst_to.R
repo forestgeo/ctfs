@@ -16,8 +16,8 @@
 # </description>
 # <arguments>
 # <ul>
-# <li> Generally, alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now
-# <li> split1 and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
+# @param Generally, alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now
+# @param split1 and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
 # (or both can be NULL), for instance, species names, dbh categories, or quadrat numbers<br>
 # </ul>
 # </arguments>
