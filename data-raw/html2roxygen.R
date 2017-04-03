@@ -2,22 +2,71 @@
 
 # tag_read: read all tags in all files
 
+
+
+# Prepare -----------------------------------------------------------------
+
+# 1. Download source of CTFSRPackage from
+# http://ctfs.si.edu/Public/CTFSRPackage/index.php/web/topics and unzip
+# 2. Place CTFSRPackage folder in //data-raw/
+
+
+
 # Packages ----------------------------------------------------------------
 
 library("purrr")
 pkgs <- c("dplyr", "readr", "tidyr", "stringr", "tibble")
 walk(pkgs, library, character.only = TRUE)
 
+
+
 # Directories -------------------------------------------------------------
 
-directory_from   <- "./data-raw/R_from/"
-directory_to   <- "./R/"
+from_folder <- "./data-raw/CTFSRPackage/"
+from_subfolder <- map2_chr(from_folder, dir(from_folder), paste0)
+to_folder <- "./R"
 
-from <- map2_chr(directory_from, dir(directory_from), paste0)
-to   <- map2_chr(directory_to,   dir(directory_from), paste0)
+paths <- tibble(
+    from = from_subfolder,
+    to = to_folder,
+    file = map(from_subfolder, dir)
+  ) %>% 
+  unnest() %>% 
+  transmute(
+    from = paste0(from, "/", file),
+    to = paste0(to, "/", file)
+  ) %>% 
+  mutate(to = str_replace(to, "\\.r", "\\.R"))
 
 
-# Remove end tags ---------------------------------------------------------
+
+
+
+
+# FUNCTIONS ===============================================================
+
+# Replace <li> by @param, but only within <arguments> ... </arguments> tags
+replace_params <- function(string) {
+  args_asis <- string %>% 
+    str_extract_all(
+      pattern = regex(
+        "<arguments>.*</arguments>",
+        multiline = TRUE,
+        dotall = TRUE
+        )
+      ) %>% unlist
+  args_edited <- args_asis %>% 
+    str_replace_all(
+      pattern = regex("<li>", multiline = TRUE, dotall = TRUE),
+      replacement = "@param"
+      )
+  string %>% 
+    str_replace_all(pattern = fixed(args_asis), replacement = args_edited)
+}
+
+
+
+# Remove end tags (</SOME_END_TAG>)
 
 extract_tag <- function(path) {
   path %>% 
@@ -27,9 +76,7 @@ extract_tag <- function(path) {
     unique
 }
 
-base <- directory_from
-paths <- paste0(base, dir(base))
-tags2rm <- map(paths, read_file) %>% 
+tags2rm <- map(paths$from, read_file) %>% 
   map(extract_tag) %>%
   unlist %>%
   unique %>% 
@@ -38,13 +85,18 @@ tags2rm <- map(paths, read_file) %>%
 
 tags2rm <- str_c(tags2rm[[1]], collapse = "|")
 
-# replace_stuff <- function(path_from, path_to, pattern, replacement, ...) {
+
+
+# General purpose replace stuff function
+
 replace_stuff <- function(path_from, pattern, replacement) {
   text <- readr::read_file(path_from)
   stringr::str_replace_all(text, pattern, replacement)
 }
 
-# Add function name to the end, to document names -------------------------
+
+
+# Add function name to the end, to document names
 
 name_function <- function(string) {
   fun_names <- str_split(string, "Title: ") %>% 
@@ -59,15 +111,16 @@ name_function <- function(string) {
     map_chr(paste0, collapse = "\r\n")
   }
 
+
+
 # Wrangle -----------------------------------------------------------------
 
-# First manually remove function slope.intercept.frompts because it is not
-# included in CTFSRPackage
-
-# Remove end tags
-map(from, replace_stuff, pattern = tags2rm, replacement = "") %>% 
-  # Remove @export
-  map(replace_stuff, pattern = "' @export", replacement = "") %>% 
+# Read each file
+map(paths$from, read_file) %>% 
+  # Replace <li> by @param tags within <arguments>...</arguments> tags
+  map(replace_params) %>% 
+  # Remove end tags
+  map(replace_stuff, pattern = tags2rm, replacement = "") %>% 
   # Remove function tag
   map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
   # Remove <br>
@@ -78,8 +131,6 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   map(replace_stuff, pattern = "^#[ ]*$",replacement = "#") %>% 
   # Tag @description
   map(replace_stuff, pattern = "<description>", replacement = "@description") %>% 
-  # Tag @param
-  map(replace_stuff, pattern = "<li>", replacement = "@param") %>% 
   # Remove <arguments> and <ul>
   map(replace_stuff, pattern = "# <arguments>\\r\\n|# <ul>\\r\\n", replacement = "") %>% 
   # Remove : after params name
@@ -162,8 +213,19 @@ map(from, replace_stuff, pattern = tags2rm, replacement = "") %>%
   
   map(replace_stuff, pattern = "#\' Author: ", replacement = "#\' @author ") %>%
   
-# Save wrangled files
-walk2(to, write_file, append = TRUE)
+  # Remove function slope.intercept.frompts because it is not included in
+  # CTFSRPackage
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "slope\\.intercept\\.frompts.*\'slope\\.intercept\\.frompts\'",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "") %>%
+  
+  # Save wrangled files
+  walk2(paths$to, write_file, append = TRUE)
 
 
 
