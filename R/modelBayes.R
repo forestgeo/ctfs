@@ -16,22 +16,22 @@
 #' parameters required by the model. 
 #'#'
 #' The return value is a list with several components:
-#' @param resid A 2D array with the entire chain of the error parameters, from Gibbs sampler
-#' @param fullparam A 2D array with the entire chain of model parameters from the Gibbs sampler
-#' @param burn Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
-#' @param steps Atomic, the number of steps run in Gibbs sampler
-#' @param llike Full log-likelihood of the model at each step of the Gibbs'sampler
-#' @param obs The original y (dependent) variable, just as submitted
-#' @param data The original x (independent) variables, just as submitted
-#' @param parnames The names of the model parameters
-#' @param start The start parameters submitted
-#' @param best Best estimate of the model parameters for the entire data 
-#' @param CI Credible intervals for the model parameters
-#' @param bestresid The best estimate of parameters for the error model
-#' @param CIresid Credible intervals for the parameters of the error model
-#' @param pred A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
-#' @param many A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
-#' @param keep The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+#'<li> resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
+#'<li> fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
+#'<li> burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+#'<li> steps: Atomic, the number of steps run in Gibbs sampler
+#'<li> llike: Full log-likelihood of the model at each step of the Gibbs'sampler
+#'<li> obs: The original y (dependent) variable, just as submitted
+#'<li> data: The original x (independent) variables, just as submitted
+#'<li> parnames: The names of the model parameters
+#'<li> start: The start parameters submitted
+#'<li> best: Best estimate of the model parameters for the entire data 
+#'<li> CI: Credible intervals for the model parameters
+#'<li> bestresid: The best estimate of parameters for the error model
+#'<li> CIresid: Credible intervals for the parameters of the error model
+#'<li> pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
+#'<li> many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
+#'<li> keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
 #'<\ul>
 #'#'
 #' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.

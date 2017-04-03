@@ -11,19 +11,19 @@ lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
   burnin = 100, debug = FALSE, ...)
 }
 \arguments{
-\item{data}{The original x (independent) variables, just as submitted}
+\item{data}{The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.}
 
 \item{ycol}{The name of the column holding the y variable, with quote marks; this variable must be numeric.}
 
 \item{randcol}{The name of one column holding the random variable; must be a character variable.}
 
-\item{start}{The start parameters submitted}
+\item{start}{Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect}
 
 \item{startSD}{A single starting value for the residual standard deviation, only used with Gaussian and Negative Binomial error models.}
 
 \item{startCov}{Starting values of the diagonal of the covariance matrix; ignored if a full matrix of start parameters is submitted. Required even if covariance matrix is not fitted, because needed as starting hyperSD.}
 
-\item{model}{The model's predictions, as a list with one element per random effect}
+\item{model}{The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x.}
 
 \item{error}{A character variable with 6 possible values, Binom, NegBinom, Pois, Gauss, GaussMultResid, or Flat, with quote marks.}
 
@@ -51,58 +51,7 @@ lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
 
 \item{...}{The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).}
 
-\item{mu}{A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler}
-
-\item{sigma}{A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero}
-
-\item{bestmu}{Best estimate of the model parameters for the entire data (ie, fixed effect)}
-
-\item{bestsigma}{Best estimate of the covariance (ie, group-level variance or error)}
-
-\item{resid}{The entire chain parameters for the model of residuals}
-
-\item{bestresid}{The best estimate of parameters for the model of residuals}
-
-\item{CIresid}{Credible intervals for the parameters for the model of residuals}
-
-\item{best}{The best estimates of model parameters for each random effect}
-
-\item{lower}{Lower credible intervals of model parameters for each random effect}
-
-\item{upper}{Uower credible intervals of model parameters for each random effect}
-
-\item{burn}{The burn-in}
-
-\item{llike}{Full log-likelihood of the model at each step of the Gibbs'sampler}
-
-\item{bestlike}{The log-likelihood of the optimal parameter combination (means of the posterior distribution)}
-
-\item{DIC}{Deviance information criterion of the model}
-
-\item{obs}{The original y (dependent) variable, just as submitted}
-
-\item{randlike}{The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)}
-
-\item{keep}{The steps of the Gibbs sampler after burn-in, as a vector of negative numbers}
-
-\item{randeffects}{The names of all the random effects}
-
-\item{parnames}{The names of the model parameters}
-
-\item{fullparam}{A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
-<\ul>
-
-Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
-(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
-offers a worked example.}
-
-\item{data}{The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.}
-
 \item{ycol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
-
-\item{start}{Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect}
-
-\item{model}{The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x.}
 
 \item{'Binom'uses}{binomial error for residuals}
 
@@ -142,6 +91,34 @@ There is a further complication included whose purpose is reducing memory demand
 This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array. 
 
 The return value is a list with several components:
+<li> mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
+<li> sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
+<li> bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
+<li> bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+<li> resid: The entire chain parameters for the model of residuals
+<li> bestresid: The best estimate of parameters for the model of residuals
+<li> CIresid: Credible intervals for the parameters for the model of residuals
+<li> best: The best estimates of model parameters for each random effect
+<li> lower: Lower credible intervals of model parameters for each random effect
+<li> upper: Uower credible intervals of model parameters for each random effect      
+<li> burn: The burn-in
+<li> llike: Full log-likelihood of the model at each step of the Gibbs'sampler
+<li> bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+<li> DIC: Deviance information criterion of the model
+<li> obs: The original y (dependent) variable, just as submitted
+<li> data: The original x (independent) variables, just as submitted
+<li> model: The model's predictions, as a list with one element per random effect
+<li> randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
+<li> keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+<li> start: The start parameters submitted
+<li> randeffects: The names of all the random effects
+<li> parnames: The names of the model parameters
+<li> fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
+<\ul>
+
+Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
+(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
+offers a worked example.
 }
 \examples{
 \dontrun{

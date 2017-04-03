@@ -79,7 +79,19 @@
 
     
     <p>The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
-Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:</p>
+Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
+&lt;li&gt; Gaussian [modeltype=&quot;norm&quot;, with the quotes]
+&lt;li&gt; Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype=&quot;asymnorm&quot;, with the quotes]
+&lt;li&gt; Laplace (exponential distribution, with mirror image for negative values) [modeltype=&quot;symexp&quot;, with the quotes]
+&lt;li&gt; Asymmetric Laplace (different rate constant for left and right of the center) [modeltype=&quot;asymexp&quot;, with the quotes]
+&lt;li&gt; Asymmetric power distribution (different rate constant for left and right of the center) [modeltype=&quot;asympower&quot;, with the quotes]</p>
+
+    <p>A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species&#39;mortality rates (mu) and
+species&#39;rates of population change (r). 
+and be sure to set mindbh. Other parameters can be left at defaults. 
+Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this has to be included for asymexp; before, the
+check for negative SD parameters was hard-coded. 
+Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.</p>
     
 
     <pre><span class='fu'>model.littleR.Gibbs</span>(<span class='no'>cns1</span>, <span class='no'>cns2</span>, <span class='no'>mindbh</span>, <span class='kw'>demog</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>sptable</span>,
@@ -112,23 +124,6 @@ Five different functional forms to the distribution can be fitted, as chosen wit
       <dd>print hyperparameters and likelihood to the screen every showstep steps</dd>
       <dt>debug</dt>
       <dd>set to TRUE to call browser within the function</dd>
-      <dt>Gaussian</dt>
-      <dd>[modeltype=&quot;norm&quot;, with the quotes]</dd>
-      <dt>Asymmetric</dt>
-      <dd>Gaussian (a different standard deviation on left and right of the mode) [modeltype=&quot;asymnorm&quot;, with the quotes]</dd>
-      <dt>Laplace</dt>
-      <dd>(exponential distribution, with mirror image for negative values) [modeltype=&quot;symexp&quot;, with the quotes]</dd>
-      <dt>Asymmetric</dt>
-      <dd>Laplace (different rate constant for left and right of the center) [modeltype=&quot;asymexp&quot;, with the quotes]</dd>
-      <dt>Asymmetric</dt>
-      <dd>power distribution (different rate constant for left and right of the center) [modeltype=&quot;asympower&quot;, with the quotes]
-
-A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species&#39;mortality rates (mu) and
-species&#39;rates of population change (r). 
-and be sure to set mindbh. Other parameters can be left at defaults. 
-Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this has to be included for asymexp; before, the
-check for negative SD parameters was hard-coded. 
-Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.</dd>
     </dl>
     
 

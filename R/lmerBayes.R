@@ -24,29 +24,29 @@
 #'#' There is a further complication included whose purpose is reducing memory demand in big models with many MCMC steps. option paramfile allows the full parameter matrix to be written into a text file every savestep steps, then erased from memory. 
 #' This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array. 
 #'#' The return value is a list with several components:
-#' @param mu A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
-#' @param sigma A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
-#' @param bestmu Best estimate of the model parameters for the entire data (ie, fixed effect) 
-#' @param bestsigma Best estimate of the covariance (ie, group-level variance or error)
-#' @param resid The entire chain parameters for the model of residuals
-#' @param bestresid The best estimate of parameters for the model of residuals
-#' @param CIresid Credible intervals for the parameters for the model of residuals
-#' @param best The best estimates of model parameters for each random effect
-#' @param lower Lower credible intervals of model parameters for each random effect
-#' @param upper Uower credible intervals of model parameters for each random effect      
-#' @param burn The burn-in
-#' @param llike Full log-likelihood of the model at each step of the Gibbs'sampler
-#' @param bestlike The log-likelihood of the optimal parameter combination (means of the posterior distribution)
-#' @param DIC Deviance information criterion of the model
-#' @param obs The original y (dependent) variable, just as submitted
-#' @param data The original x (independent) variables, just as submitted
-#' @param model The model's predictions, as a list with one element per random effect
-#' @param randlike The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
-#' @param keep The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-#' @param start The start parameters submitted
-#' @param randeffects The names of all the random effects
-#' @param parnames The names of the model parameters
-#' @param fullparam A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
+#'<li> mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
+#'<li> sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
+#'<li> bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
+#'<li> bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+#'<li> resid: The entire chain parameters for the model of residuals
+#'<li> bestresid: The best estimate of parameters for the model of residuals
+#'<li> CIresid: Credible intervals for the parameters for the model of residuals
+#'<li> best: The best estimates of model parameters for each random effect
+#'<li> lower: Lower credible intervals of model parameters for each random effect
+#'<li> upper: Uower credible intervals of model parameters for each random effect      
+#'<li> burn: The burn-in
+#'<li> llike: Full log-likelihood of the model at each step of the Gibbs'sampler
+#'<li> bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+#'<li> DIC: Deviance information criterion of the model
+#'<li> obs: The original y (dependent) variable, just as submitted
+#'<li> data: The original x (independent) variables, just as submitted
+#'<li> model: The model's predictions, as a list with one element per random effect
+#'<li> randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
+#'<li> keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+#'<li> start: The start parameters submitted
+#'<li> randeffects: The names of all the random effects
+#'<li> parnames: The names of the model parameters
+#'<li> fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
 #'<\ul>
 #'#' Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
 #'(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 

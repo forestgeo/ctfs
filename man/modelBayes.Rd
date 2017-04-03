@@ -10,13 +10,13 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
   burnin = 100, debug = FALSE, ...)
 }
 \arguments{
-\item{data}{The original x (independent) variables, just as submitted}
+\item{data}{The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.}
 
 \item{ycol}{The name of the column holding the y variable, with quote marks; this variable must be numeric.}
 
 \item{xcol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
 
-\item{start}{The start parameters submitted}
+\item{start}{Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect}
 
 \item{startSD}{A starting value for the error model; there must be as many startSD as parameters needed by sdfunc}
 
@@ -32,7 +32,7 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 
 \item{badSDparam}{The name of a function which tests for invalid parameters for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple version is provided, called badSD, which rejects a single parameter if it is < 0.}
 
-\item{steps}{Atomic, the number of steps run in Gibbs sampler}
+\item{steps}{The number of steps to run the Gibbs sampler.}
 
 \item{showstep}{Information is printed to the screen every showstep steps.}
 
@@ -41,37 +41,6 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 \item{debug}{TRUE or FALSE, whether to pause and debug; for advanced users and developers.}
 
 \item{...}{The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).}
-
-\item{resid}{A 2D array with the entire chain of the error parameters, from Gibbs sampler}
-
-\item{fullparam}{A 2D array with the entire chain of model parameters from the Gibbs sampler}
-
-\item{burn}{Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler}
-
-\item{llike}{Full log-likelihood of the model at each step of the Gibbs'sampler}
-
-\item{obs}{The original y (dependent) variable, just as submitted}
-
-\item{parnames}{The names of the model parameters}
-
-\item{best}{Best estimate of the model parameters for the entire data}
-
-\item{CI}{Credible intervals for the model parameters}
-
-\item{bestresid}{The best estimate of parameters for the error model}
-
-\item{CIresid}{Credible intervals for the parameters of the error model}
-
-\item{pred}{A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point}
-
-\item{many}{A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater}
-
-\item{keep}{The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-<\ul>}
-
-\item{data}{The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.}
-
-\item{start}{Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect}
 
 \item{'Binom'uses}{binomial error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters}
 
@@ -85,8 +54,6 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 (aappropriate only if predictions are strictly positive)}
 
 \item{'Flat'is}{a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior.}
-
-\item{steps}{The number of steps to run the Gibbs sampler.}
 }
 \description{
 A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions
@@ -103,4 +70,21 @@ parameters required by the model.
 
 
 The return value is a list with several components:
+<li> resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
+<li> fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
+<li> burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+<li> steps: Atomic, the number of steps run in Gibbs sampler
+<li> llike: Full log-likelihood of the model at each step of the Gibbs'sampler
+<li> obs: The original y (dependent) variable, just as submitted
+<li> data: The original x (independent) variables, just as submitted
+<li> parnames: The names of the model parameters
+<li> start: The start parameters submitted
+<li> best: Best estimate of the model parameters for the entire data 
+<li> CI: Credible intervals for the model parameters
+<li> bestresid: The best estimate of parameters for the error model
+<li> CIresid: Credible intervals for the parameters of the error model
+<li> pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
+<li> many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
+<li> keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+<\ul>
 }

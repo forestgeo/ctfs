@@ -1,6 +1,8 @@
+# Source: "http://ctfs.si.edu/CTFSAdmin/temp/CTFSRFunctions.txt"
+
 library(readr)
+
 path <- "./data-raw/CTFSRFunctions.txt"
-download.file("http://ctfs.si.edu/CTFSAdmin/temp/CTFSRFunctions.txt", path)
 funs_ctfs_rc <- read_tsv(path)$Function
 funs_ctfs_fg <- stringr::str_replace(dir("./man"), "\\.Rd", "")
 

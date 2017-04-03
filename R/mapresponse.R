@@ -20,12 +20,12 @@
 #'#' The common error with image and contour maps is getting the proper dimensions for z and the proper sizes for plotmax, x, and y. If you get an error
 #' data length is not a sub-multiple or multiple of the number of rows'then one of those inputs is wrong. 
 #' Return value is a list designed to match exactly the format of the RGDAL raster object. It has components
-#' @param x same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
-#' @param y likewise for y;
-#' @param z exactly as submitted;
-#' @param columns number of columns in the grid, same as length(x);
-#' @param rows Number of rows in the grid, same as length(y);
-#' @param mat The matrix needed for graphing, exactly as needed for instance by imageGraph().
+#'<li> x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
+#'<li> y: likewise for y;
+#'<li> z: exactly as submitted;
+#'<li> columns: number of columns in the grid, same as length(x);
+#'<li> rows: Number of rows in the grid, same as length(y);
+#'<li> mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().
 #'#' @param z A numeric vector of responses, which means an attribute which has map coordinates.
 #' @param x The map coordinates of each column in the matrix, and the values with which the x-axis of the map will be numbered.
 #' The number of columns of z, dim(z)[2], must be exactly length(x). If x is NULL, then it is calculated using plotmax.

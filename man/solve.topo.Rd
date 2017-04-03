@@ -7,10 +7,15 @@
 \method{solve}{topo}(coldata, column1 = "pt1", column2 = "pt2",
   diffcolumn = "htdiff", basept = "1", baseelev = 0, debug = NULL)
 }
-\arguments{
-\item{E[i]=mean(E[j]-D[i, j])}{= (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])}
-
-\item{n[i]*E[i]-sum(E[j])}{= -sum(D[i,j])
+\description{
+This is based on the problem and solution outlined in my book on plot methods (1998):
+Each of N stakes i has an estimated height E[i] and a true height e[i]. 
+Pairs of stakes have a height difference d[i,j], where e[i]+d[i,j]=e[j],
+but only estimated height differences D[i,j] are known.
+The least-squares estimate E[i] of e[i] can be written as the mean of the n[i]
+points j for which D[i,j] was measured:
+<li> E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
+<li> n[i]*E[i]-sum(E[j]) = -sum(D[i,j])
 
 The latter produces N equations in N unknowns, but they are exactly singular.
 One of the points must be assigned a value, and it's easiest to set e[1] = 0.
@@ -27,15 +32,7 @@ There would be -2 or -3 etc off the diagonal.
 The data are in columns. One column has the label of one stake (column header pt1), the second
 has the label of the second stake (column header pt2), and the final column has the height
 difference at pt2 minus pt1 (column header diff). The point labelled basept is assigned elevation baseelev. 
-The last 5 arguments allow those column headers to be reassigned.}
-}
-\description{
-This is based on the problem and solution outlined in my book on plot methods (1998):
-Each of N stakes i has an estimated height E[i] and a true height e[i]. 
-Pairs of stakes have a height difference d[i,j], where e[i]+d[i,j]=e[j],
-but only estimated height differences D[i,j] are known.
-The least-squares estimate E[i] of e[i] can be written as the mean of the n[i]
-points j for which D[i,j] was measured:
+The last 5 arguments allow those column headers to be reassigned.
 }
 \details{
 Topographic calculation based on stake and the height difference between them.'

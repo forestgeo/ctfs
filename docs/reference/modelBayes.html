@@ -89,7 +89,24 @@ Rather, the names of x, y columns, are given. The model describing y&#39;s funct
     <p>A starting set of parameters for the model must be submitted. It is a vector as long as the number of
 parameters required by the model.</p>
 
-    <p>The return value is a list with several components:</p>
+    <p>The return value is a list with several components:
+&lt;li&gt; resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
+&lt;li&gt; fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
+&lt;li&gt; burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+&lt;li&gt; steps: Atomic, the number of steps run in Gibbs sampler
+&lt;li&gt; llike: Full log-likelihood of the model at each step of the Gibbs&#39;sampler
+&lt;li&gt; obs: The original y (dependent) variable, just as submitted
+&lt;li&gt; data: The original x (independent) variables, just as submitted
+&lt;li&gt; parnames: The names of the model parameters
+&lt;li&gt; start: The start parameters submitted
+&lt;li&gt; best: Best estimate of the model parameters for the entire data 
+&lt;li&gt; CI: Credible intervals for the model parameters
+&lt;li&gt; bestresid: The best estimate of parameters for the error model
+&lt;li&gt; CIresid: Credible intervals for the parameters of the error model
+&lt;li&gt; pred: A dataframe with all observations, predictors, and the model&#39;s best prediction, mean prediction, and credible intervals at each point
+&lt;li&gt; many: A 2D array holding N draws of the model&#39;s prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
+&lt;li&gt; keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+&lt;&gt;</p>
     
 
     <pre><span class='fu'>modelBayes</span>(<span class='no'>data</span>, <span class='no'>ycol</span>, <span class='no'>xcol</span>, <span class='no'>start</span>, <span class='no'>startSD</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='no'>logistic.standard</span>,
@@ -100,13 +117,13 @@ parameters required by the model.</p>
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>data</dt>
-      <dd>The original x (independent) variables, just as submitted</dd>
+      <dd>The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.</dd>
       <dt>ycol</dt>
       <dd>The name of the column holding the y variable, with quote marks; this variable must be numeric.</dd>
       <dt>xcol</dt>
       <dd>The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.</dd>
       <dt>start</dt>
-      <dd>The start parameters submitted</dd>
+      <dd>Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect</dd>
       <dt>startSD</dt>
       <dd>A starting value for the error model; there must be as many startSD as parameters needed by sdfunc</dd>
       <dt>model</dt>
@@ -122,7 +139,7 @@ parameters required by the model.</p>
       <dt>badSDparam</dt>
       <dd>The name of a function which tests for invalid parameters for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple version is provided, called badSD, which rejects a single parameter if it is &lt; 0.</dd>
       <dt>steps</dt>
-      <dd>Atomic, the number of steps run in Gibbs sampler</dd>
+      <dd>The number of steps to run the Gibbs sampler.</dd>
       <dt>showstep</dt>
       <dd>Information is printed to the screen every showstep steps.</dd>
       <dt>burnin</dt>
@@ -131,37 +148,6 @@ parameters required by the model.</p>
       <dd>TRUE or FALSE, whether to pause and debug; for advanced users and developers.</dd>
       <dt>...</dt>
       <dd>The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).</dd>
-      <dt>resid</dt>
-      <dd>A 2D array with the entire chain of the error parameters, from Gibbs sampler</dd>
-      <dt>fullparam</dt>
-      <dd>A 2D array with the entire chain of model parameters from the Gibbs sampler</dd>
-      <dt>burn</dt>
-      <dd>Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler</dd>
-      <dt>llike</dt>
-      <dd>Full log-likelihood of the model at each step of the Gibbs&#39;sampler</dd>
-      <dt>obs</dt>
-      <dd>The original y (dependent) variable, just as submitted</dd>
-      <dt>parnames</dt>
-      <dd>The names of the model parameters</dd>
-      <dt>best</dt>
-      <dd>Best estimate of the model parameters for the entire data</dd>
-      <dt>CI</dt>
-      <dd>Credible intervals for the model parameters</dd>
-      <dt>bestresid</dt>
-      <dd>The best estimate of parameters for the error model</dd>
-      <dt>CIresid</dt>
-      <dd>Credible intervals for the parameters of the error model</dd>
-      <dt>pred</dt>
-      <dd>A dataframe with all observations, predictors, and the model&#39;s best prediction, mean prediction, and credible intervals at each point</dd>
-      <dt>many</dt>
-      <dd>A 2D array holding N draws of the model&#39;s prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater</dd>
-      <dt>keep</dt>
-      <dd>The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-&lt;&gt;</dd>
-      <dt>data</dt>
-      <dd>The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.</dd>
-      <dt>start</dt>
-      <dd>Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect</dd>
       <dt>&#39;Binom&#39;uses</dt>
       <dd>binomial error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters</dd>
       <dt>&#39;Poisson&#39;uses</dt>
@@ -175,8 +161,6 @@ parameters required by the model.</p>
 (aappropriate only if predictions are strictly positive)</dd>
       <dt>&#39;Flat&#39;is</dt>
       <dd>a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior.</dd>
-      <dt>steps</dt>
-      <dd>The number of steps to run the Gibbs sampler.</dd>
     </dl>
     
 

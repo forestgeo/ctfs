@@ -37,11 +37,36 @@ paths <- tibble(
     to = paste0(to, "/", file)
   ) %>% 
   mutate(to = str_replace(to, "\\.r", "\\.R"))
-  
 
 
 
-# Remove end tags (</SOME_END_TAG>) ---------------------------------------
+
+
+
+# FUNCTIONS ===============================================================
+
+# Replace <li> by @param, but only within <arguments> ... </arguments> tags
+replace_params <- function(string) {
+  args_asis <- string %>% 
+    str_extract_all(
+      pattern = regex(
+        "<arguments>.*</arguments>",
+        multiline = TRUE,
+        dotall = TRUE
+        )
+      ) %>% unlist
+  args_edited <- args_asis %>% 
+    str_replace_all(
+      pattern = regex("<li>", multiline = TRUE, dotall = TRUE),
+      replacement = "@param"
+      )
+  string %>% 
+    str_replace_all(pattern = fixed(args_asis), replacement = args_edited)
+}
+
+
+
+# Remove end tags (</SOME_END_TAG>)
 
 extract_tag <- function(path) {
   path %>% 
@@ -62,14 +87,16 @@ tags2rm <- str_c(tags2rm[[1]], collapse = "|")
 
 
 
-# Function to replace stuff -----------------------------------------------
+# General purpose replace stuff function
 
 replace_stuff <- function(path_from, pattern, replacement) {
   text <- readr::read_file(path_from)
   stringr::str_replace_all(text, pattern, replacement)
 }
 
-# Add function name to the end, to document names -------------------------
+
+
+# Add function name to the end, to document names
 
 name_function <- function(string) {
   fun_names <- str_split(string, "Title: ") %>% 
@@ -84,47 +111,16 @@ name_function <- function(string) {
     map_chr(paste0, collapse = "\r\n")
   }
 
+
+
 # Wrangle -----------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-  # see if this works
-  # Tag @param
-    map(paths$from
-    str_replace,
-    pattern = stringr::regex(
-      "<arguments>.*(<li>).*</arguments>",
-      multiline = TRUE,
-      dotall = TRUE
-      ),
-    replacement = "@param") %>%
-
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-# Remove end tags
-map(replace_stuff, pattern = tags2rm, replacement = "") %>% 
-
-  # 
-  # # Documentation missed some functions. See if restorin this solves the problem
-  # # This is no longer necessary because source code does not have @export tags
-  # # Remove @export
-  # map(replace_stuff, pattern = "' @export", replacement = "") %>%
-
+# Read each file
+map(paths$from, read_file) %>% 
+  # Replace <li> by @param tags within <arguments>...</arguments> tags
+  map(replace_params) %>% 
+  # Remove end tags
+  map(replace_stuff, pattern = tags2rm, replacement = "") %>% 
   # Remove function tag
   map(replace_stuff, pattern = "# <function>\\r\\n", replacement = "") %>% 
   # Remove <br>

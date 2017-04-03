@@ -8,24 +8,6 @@ coldata.to.imagemat(z, x = NULL, y = NULL, gridsize = 20, plotmin = c(0,
   0), plotmax = c(1000, 500))
 }
 \arguments{
-\item{z}{exactly as submitted;}
-
-\item{x}{same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;}
-
-\item{y}{likewise for y;}
-
-\item{gridsize}{Size of quadrats into which the map is divided; must be square quadrats. This cannot be NULL.}
-
-\item{plotmin}{The minimum plot x and y coordinates; in CTFS plots, these are always 0,0. Ignored if x and y are submitted.}
-
-\item{plotmax}{Maximum plot x and y coordinates. The default, 1000,500, is typical CTFS 50-ha plot. Ignored if x and y are submitted.}
-
-\item{columns}{number of columns in the grid, same as length(x);}
-
-\item{rows}{Number of rows in the grid, same as length(y);}
-
-\item{mat}{The matrix needed for graphing, exactly as needed for instance by imageGraph().}
-
 \item{z}{A numeric vector of responses, which means an attribute which has map coordinates.}
 
 \item{x}{The map coordinates of each column in the matrix, and the values with which the x-axis of the map will be numbered.
@@ -33,6 +15,12 @@ The number of columns of z, dim(z)[2], must be exactly length(x). If x is NULL, 
 
 \item{y}{The map coordinates of each row in the matrix, and the values with which the y-axis of the map will be numbered; 
 dim(z)[1] must be exactly length(y). If y is NULL, then it is calculated using plotmax.}
+
+\item{gridsize}{Size of quadrats into which the map is divided; must be square quadrats. This cannot be NULL.}
+
+\item{plotmin}{The minimum plot x and y coordinates; in CTFS plots, these are always 0,0. Ignored if x and y are submitted.}
+
+\item{plotmax}{Maximum plot x and y coordinates. The default, 1000,500, is typical CTFS 50-ha plot. Ignored if x and y are submitted.}
 }
 \description{
 These functions create maps of response variables using the R functions contour, image, and filled.contour. Those functions are
@@ -53,6 +41,12 @@ set x and y NULL, and plotmax to the correct plot dimensions. Then make sure z i
 The common error with image and contour maps is getting the proper dimensions for z and the proper sizes for plotmax, x, and y. If you get an error
 data length is not a sub-multiple or multiple of the number of rows'then one of those inputs is wrong. 
 Return value is a list designed to match exactly the format of the RGDAL raster object. It has components
+<li> x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
+<li> y: likewise for y;
+<li> z: exactly as submitted;
+<li> columns: number of columns in the grid, same as length(x);
+<li> rows: Number of rows in the grid, same as length(y);
+<li> mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().
 }
 \examples{
 \dontrun{

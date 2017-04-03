@@ -21,29 +21,6 @@ RipUvK(splitdata, plotdim = c(1000, 500), rseq = c(5, 10, 20, 30, 40, 50),
 \item{debug}{TRUE or FALSE, calls browser during execution to pause program; only set TRUE to debug.}
 
 \item{show}{creates a graph to show one omega value for each species, as a way to track progress.}
-
-\item{K}{is the Ripley's K object produced by the khat function in the splancs package; please see help for that package for details.}
-
-\item{O}{is the mean density of neighbors in each successive distance interval; it is a list of vectors, one per species, each vector of length matching length of rseq.}
-
-\item{omega}{is the omega-statistic, or O in each successive distance interval divided the plot-wide density; density is expressed per 10,000 square distance units, which means per hectare if units are meters.}
-
-\item{abund}{is a vector of species abundances, including individuals used in the calculation.}
-}
-\description{
-Ripley's K using splancs. Computes the univariate Ripley's K for a list of species (all species at a site 
-is the default). Also calculates the O-ring statistic, or density (per area) of
-conspecifics in a series of annuli defined by rseq, and the omega statistic,
-which is O-ring divided by overall density.
-Works through all the elements of a split datafile, each of which must have gx, gy
-coordinates, a status code, and dbh. This would usually be species, but could
-be any other division of the data. RipUvK always performs calculations on each element of the
-splitdata list submitted.
-If the data have no status field, all records are included. If there is a status field, only "A"
-values are included. If mindbh is set to 0, all records are
-included and no dbh field is consulted. But if mindbh is set, there must be a dbh field, and records
-are excluded if smaller.
-The output is a list of 5 components.
 }
 \examples{
 \dontrun{

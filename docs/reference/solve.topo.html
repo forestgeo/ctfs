@@ -83,21 +83,11 @@ Each of N stakes i has an estimated height E[i] and a true height e[i].
 Pairs of stakes have a height difference d[i,j], where e[i]+d[i,j]=e[j],
 but only estimated height differences D[i,j] are known.
 The least-squares estimate E[i] of e[i] can be written as the mean of the n[i]
-points j for which D[i,j] was measured:</p>
-    
+points j for which D[i,j] was measured:
+&lt;li&gt; E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
+&lt;li&gt; n[i]*E[i]-sum(E[j]) = -sum(D[i,j])</p>
 
-    <pre><span class='co'># S3 method for topo</span>
-<span class='fu'>solve</span>(<span class='no'>coldata</span>, <span class='kw'>column1</span> <span class='kw'>=</span> <span class='st'>"pt1"</span>, <span class='kw'>column2</span> <span class='kw'>=</span> <span class='st'>"pt2"</span>,
-  <span class='kw'>diffcolumn</span> <span class='kw'>=</span> <span class='st'>"htdiff"</span>, <span class='kw'>basept</span> <span class='kw'>=</span> <span class='st'>"1"</span>, <span class='kw'>baseelev</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>debug</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>E[i]=mean(E[j]-D[i, j])</dt>
-      <dd>= (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])</dd>
-      <dt>n[i]*E[i]-sum(E[j])</dt>
-      <dd>= -sum(D[i,j])
-
-The latter produces N equations in N unknowns, but they are exactly singular.
+    <p>The latter produces N equations in N unknowns, but they are exactly singular.
 One of the points must be assigned a value, and it&#39;s easiest to set e[1] = 0.
 The effect is to exclude the equation for i=0, but all j for which D[0,j] was
 measured have unchanged equations (D[0,j] are included).
@@ -112,9 +102,13 @@ There would be -2 or -3 etc off the diagonal.
 The data are in columns. One column has the label of one stake (column header pt1), the second
 has the label of the second stake (column header pt2), and the final column has the height
 difference at pt2 minus pt1 (column header diff). The point labelled basept is assigned elevation baseelev. 
-The last 5 arguments allow those column headers to be reassigned.</dd>
-    </dl>
+The last 5 arguments allow those column headers to be reassigned.</p>
     
+
+    <pre><span class='co'># S3 method for topo</span>
+<span class='fu'>solve</span>(<span class='no'>coldata</span>, <span class='kw'>column1</span> <span class='kw'>=</span> <span class='st'>"pt1"</span>, <span class='kw'>column2</span> <span class='kw'>=</span> <span class='st'>"pt2"</span>,
+  <span class='kw'>diffcolumn</span> <span class='kw'>=</span> <span class='st'>"htdiff"</span>, <span class='kw'>basept</span> <span class='kw'>=</span> <span class='st'>"1"</span>, <span class='kw'>baseelev</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>debug</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+        
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Topographic calculation based on stake and the height difference between them.&#39;
@@ -129,7 +123,6 @@ solve.topo</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
       

@@ -32,27 +32,22 @@ model.littleR.Gibbs(cns1, cns2, mindbh, demog = NULL, sptable,
 \item{showstep}{print hyperparameters and likelihood to the screen every showstep steps}
 
 \item{debug}{set to TRUE to call browser within the function}
-
-\item{Gaussian}{[modeltype="norm", with the quotes]}
-
-\item{Asymmetric}{Gaussian (a different standard deviation on left and right of the mode) [modeltype="asymnorm", with the quotes]}
-
-\item{Laplace}{(exponential distribution, with mirror image for negative values) [modeltype="symexp", with the quotes]}
-
-\item{Asymmetric}{Laplace (different rate constant for left and right of the center) [modeltype="asymexp", with the quotes]}
-
-\item{Asymmetric}{power distribution (different rate constant for left and right of the center) [modeltype="asympower", with the quotes]
+}
+\description{
+The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
+Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
+<li> Gaussian [modeltype="norm", with the quotes]
+<li> Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype="asymnorm", with the quotes]
+<li> Laplace (exponential distribution, with mirror image for negative values) [modeltype="symexp", with the quotes]
+<li> Asymmetric Laplace (different rate constant for left and right of the center) [modeltype="asymexp", with the quotes]
+<li> Asymmetric power distribution (different rate constant for left and right of the center) [modeltype="asympower", with the quotes]
 
 A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species'mortality rates (mu) and
 species'rates of population change (r). 
 and be sure to set mindbh. Other parameters can be left at defaults. 
 Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this has to be included for asymexp; before, the
 check for negative SD parameters was hard-coded. 
-Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.}
-}
-\description{
-The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
-Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
+Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.
 }
 \examples{
 \dontrun{

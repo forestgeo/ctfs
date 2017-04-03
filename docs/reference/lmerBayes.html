@@ -101,7 +101,35 @@ effects. The latter requires knowing in advance the names of all the random effe
     <p>There is a further complication included whose purpose is reducing memory demand in big models with many MCMC steps. option paramfile allows the full parameter matrix to be written into a text file every savestep steps, then erased from memory. 
 This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array.</p>
 
-    <p>The return value is a list with several components:</p>
+    <p>The return value is a list with several components:
+&lt;li&gt; mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
+&lt;li&gt; sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
+&lt;li&gt; bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
+&lt;li&gt; bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+&lt;li&gt; resid: The entire chain parameters for the model of residuals
+&lt;li&gt; bestresid: The best estimate of parameters for the model of residuals
+&lt;li&gt; CIresid: Credible intervals for the parameters for the model of residuals
+&lt;li&gt; best: The best estimates of model parameters for each random effect
+&lt;li&gt; lower: Lower credible intervals of model parameters for each random effect
+&lt;li&gt; upper: Uower credible intervals of model parameters for each random effect      
+&lt;li&gt; burn: The burn-in
+&lt;li&gt; llike: Full log-likelihood of the model at each step of the Gibbs&#39;sampler
+&lt;li&gt; bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+&lt;li&gt; DIC: Deviance information criterion of the model
+&lt;li&gt; obs: The original y (dependent) variable, just as submitted
+&lt;li&gt; data: The original x (independent) variables, just as submitted
+&lt;li&gt; model: The model&#39;s predictions, as a list with one element per random effect
+&lt;li&gt; randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
+&lt;li&gt; keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+&lt;li&gt; start: The start parameters submitted
+&lt;li&gt; randeffects: The names of all the random effects
+&lt;li&gt; parnames: The names of the model parameters
+&lt;li&gt; fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs&#39;s sampler
+&lt;&gt;</p>
+
+    <p>Further details are given in the description of all the arguments and the sample here, plus a tutorial on &#39;Mortality changes&#39;
+(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
+offers a worked example.</p>
     
 
     <pre><span class='fu'>lmerBayes</span>(<span class='no'>data</span>, <span class='no'>ycol</span>, <span class='no'>randcol</span>, <span class='no'>xcol</span>, <span class='no'>start</span>, <span class='kw'>fixef</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>startSD</span>, <span class='no'>startCov</span>,
@@ -113,19 +141,19 @@ This is to reduce memory needs. The function summaryMCMC restores the parameters
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>data</dt>
-      <dd>The original x (independent) variables, just as submitted</dd>
+      <dd>The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.</dd>
       <dt>ycol</dt>
       <dd>The name of the column holding the y variable, with quote marks; this variable must be numeric.</dd>
       <dt>randcol</dt>
       <dd>The name of one column holding the random variable; must be a character variable.</dd>
       <dt>start</dt>
-      <dd>The start parameters submitted</dd>
+      <dd>Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect</dd>
       <dt>startSD</dt>
       <dd>A single starting value for the residual standard deviation, only used with Gaussian and Negative Binomial error models.</dd>
       <dt>startCov</dt>
       <dd>Starting values of the diagonal of the covariance matrix; ignored if a full matrix of start parameters is submitted. Required even if covariance matrix is not fitted, because needed as starting hyperSD.</dd>
       <dt>model</dt>
-      <dd>The model&#39;s predictions, as a list with one element per random effect</dd>
+      <dd>The function name holding the model describing y&#39;s relationship to all the x&#39;s, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x.</dd>
       <dt>error</dt>
       <dd>A character variable with 6 possible values, Binom, NegBinom, Pois, Gauss, GaussMultResid, or Flat, with quote marks.</dd>
       <dt>includeCovar</dt>
@@ -152,59 +180,8 @@ This is to reduce memory needs. The function summaryMCMC restores the parameters
       <dd>TRUE or FALSE, whether to pause and debug; for advanced users and developers.</dd>
       <dt>...</dt>
       <dd>The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).</dd>
-      <dt>mu</dt>
-      <dd>A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler</dd>
-      <dt>sigma</dt>
-      <dd>A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero</dd>
-      <dt>bestmu</dt>
-      <dd>Best estimate of the model parameters for the entire data (ie, fixed effect)</dd>
-      <dt>bestsigma</dt>
-      <dd>Best estimate of the covariance (ie, group-level variance or error)</dd>
-      <dt>resid</dt>
-      <dd>The entire chain parameters for the model of residuals</dd>
-      <dt>bestresid</dt>
-      <dd>The best estimate of parameters for the model of residuals</dd>
-      <dt>CIresid</dt>
-      <dd>Credible intervals for the parameters for the model of residuals</dd>
-      <dt>best</dt>
-      <dd>The best estimates of model parameters for each random effect</dd>
-      <dt>lower</dt>
-      <dd>Lower credible intervals of model parameters for each random effect</dd>
-      <dt>upper</dt>
-      <dd>Uower credible intervals of model parameters for each random effect</dd>
-      <dt>burn</dt>
-      <dd>The burn-in</dd>
-      <dt>llike</dt>
-      <dd>Full log-likelihood of the model at each step of the Gibbs&#39;sampler</dd>
-      <dt>bestlike</dt>
-      <dd>The log-likelihood of the optimal parameter combination (means of the posterior distribution)</dd>
-      <dt>DIC</dt>
-      <dd>Deviance information criterion of the model</dd>
-      <dt>obs</dt>
-      <dd>The original y (dependent) variable, just as submitted</dd>
-      <dt>randlike</dt>
-      <dd>The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)</dd>
-      <dt>keep</dt>
-      <dd>The steps of the Gibbs sampler after burn-in, as a vector of negative numbers</dd>
-      <dt>randeffects</dt>
-      <dd>The names of all the random effects</dd>
-      <dt>parnames</dt>
-      <dd>The names of the model parameters</dd>
-      <dt>fullparam</dt>
-      <dd>A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs&#39;s sampler
-&lt;&gt;
-
-Further details are given in the description of all the arguments and the sample here, plus a tutorial on &#39;Mortality changes&#39;
-(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
-offers a worked example.</dd>
-      <dt>data</dt>
-      <dd>The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.</dd>
       <dt>ycol</dt>
       <dd>The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.</dd>
-      <dt>start</dt>
-      <dd>Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect</dd>
-      <dt>model</dt>
-      <dd>The function name holding the model describing y&#39;s relationship to all the x&#39;s, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x.</dd>
       <dt>&#39;Binom&#39;uses</dt>
       <dd>binomial error for residuals</dd>
       <dt>&#39;NegBinom&#39;uses</dt>
