@@ -14,7 +14,7 @@
 #' plotdim: plot dimentions parameter used; 
 #' gridsize: grid size parameter used; 
 #' UCL: vector with the upper confidence limit for the null hypothesis; 
-#' LCL: vector with the lower confidence limit for the null hypothesis. }
+#' LCL: vector with the lower confidence limit for the null hypothesis.
 #'  censdata (): census data for the plot containing the variables gx, gy, dbh, status, and sp code; 
 #'  plotdim c(1000,500):  vector with two numbers indicating the plot size; 
 #'  gridsize (2.5): gives the size of the quadrats for the rasterization
@@ -59,7 +59,7 @@
 #' onesp = subset(bci.full1, sp=="rinosy")  
 #'##' plots the density of the sp in the plot  
 #' rast1 = rasterize(x= onesp$gx, y=onesp$gy, gridsize=5, plotdim=c(1000,500), type='point', graph=TRUE)  
-#'#'##' count of individuals in each block
+#'#'#' }
 #' marked point process
 #'#'
 #'

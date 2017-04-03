@@ -18,11 +18,11 @@
 #' included and no dbh field is consulted. But if mindbh is set, there must be a dbh field, and records
 #' are excluded if smaller.
 #' The output is a list of 5 components.
-#'<li> K is the Ripley's K object produced by the khat function in the splancs package; please see help for that package for details.
-#'<li> O is the mean density of neighbors in each successive distance interval; it is a list of vectors, one per species, each vector of length matching length of rseq.
-#'<li> omega is the omega-statistic, or O in each successive distance interval divided the plot-wide density; density is expressed per 10,000 square distance units, which means per hectare if units are meters.
-#'<li> abund is a vector of species abundances, including individuals used in the calculation.
-#'<li> midpts is a vector of the same length as rseq, giving the midpoint of each distance interval, for graphing purposes.}
+#' *  K is the Ripley's K object produced by the khat function in the splancs package; please see help for that package for details.
+#' *  O is the mean density of neighbors in each successive distance interval; it is a list of vectors, one per species, each vector of length matching length of rseq.
+#' *  omega is the omega-statistic, or O in each successive distance interval divided the plot-wide density; density is expressed per 10,000 square distance units, which means per hectare if units are meters.
+#' *  abund is a vector of species abundances, including individuals used in the calculation.
+#' *  midpts is a vector of the same length as rseq, giving the midpoint of each distance interval, for graphing purposes.
 #' @param splitdata A complete CTFS plot dataset comprised of a list, each element having a dataframe for one species. There must be columns for x and y coordinates; the names of those two columns are passed as arguments (default is the CTFS standard gx, gy). 
 #' @param plotdim The x and y dimensions of the plot. 
 #' @param rseq The distances defining intervals in which Ripley's statistic is calculated.

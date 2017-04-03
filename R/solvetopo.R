@@ -12,8 +12,8 @@
 #' but only estimated height differences D[i,j] are known.
 #' The least-squares estimate E[i] of e[i] can be written as the mean of the n[i]
 #' points j for which D[i,j] was measured:
-#'<li> E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
-#'<li> n[i]*E[i]-sum(E[j]) = -sum(D[i,j])
+#' *  E[i]=mean(E[j]-D[i,j]) = (1/n[i])*sum(E[j]) - (1/n[i])*sum(D[i,j])
+#' *  n[i]*E[i]-sum(E[j]) = -sum(D[i,j])
 #'#' The latter produces N equations in N unknowns, but they are exactly singular.
 #' One of the points must be assigned a value, and it's easiest to set e[1] = 0.
 #' The effect is to exclude the equation for i=0, but all j for which D[0,j] was

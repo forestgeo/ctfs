@@ -61,7 +61,10 @@ replace_params <- function(string) {
       replacement = "@param"
       )
   string %>% 
-    str_replace_all(pattern = fixed(args_asis), replacement = args_edited)
+    # In string, replace the edited chunk
+    str_replace_all(pattern = fixed(args_asis), replacement = args_edited) %>% 
+    # Make an Rmarkdown list with the remaining <li>
+    str_replace_all("<li>", " * ")
 }
 
 
@@ -190,6 +193,35 @@ map(paths$from, read_file) %>%
   map(replace_stuff, pattern = "@param( full=extract\\.growthdata)", replacement = "\\1") %>%
   map(replace_stuff, pattern = "@param( trimmed=extract\\.growthdata)", replacement = "\\1") %>%
   map(replace_stuff, pattern = "(distances of rseq)", replacement = "\\1\r\n#\' \\}\r") %>%
+
+  
+# Solve missmatched braces ------------------------------------------------
+  map(
+    replace_stuff, 
+    pattern = "each distance interval, for graphing purposes.\\}", 
+    replacement = "each distance interval, for graphing purposes\\."
+  ) %>% 
+  map(
+    replace_stuff, 
+    pattern = "##\' count of individuals in each block", 
+    replacement = "#\' \\}"
+  ) %>% 
+  map(
+    replace_stuff, 
+    pattern = "the lower confidence limit for the null hypothesis\\. \\}", 
+    replacement = "the lower confidence limit for the null hypothesis\\."
+    ) %>% 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 
   # Let tags breath
   map(replace_stuff, pattern = "\n#\'@param", replacement = "\n#\' @param") %>%
