@@ -32,7 +32,7 @@
 #' *  pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
 #' *  many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
 #' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-#'<\ul>
+#'
 #'#'
 #' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
 #' @param ycol The name of the column holding the y variable, with quote marks; this variable must be numeric.

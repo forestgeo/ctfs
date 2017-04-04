@@ -437,9 +437,41 @@ map(paths$from, read_file) %>%
       ),
     replacement = "") %>%
   
+
+  
+# Some tweaks to solve warnings at checks ---------------------------------
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "@param alpha, the critical probability \\(default alpha=0.05 gives 95% confidence limits",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "@param alpha, the critical probability \\(default alpha=0.05 gives 95\\\\% confidence limits"
+    ) %>%
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "(parameters for every step.*)<\\\\ul>",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>%
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "(in, as a vector of negative numbers.*)<\\\\ul>",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>%
+  
+  
+  
   # Save wrangled files
   walk2(paths$to, write_file, append = TRUE)
-
 
 
 # Add files to .R/ that do not need wrangling

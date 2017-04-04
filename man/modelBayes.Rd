@@ -85,6 +85,5 @@ The return value is a list with several components:
 *  CIresid: Credible intervals for the parameters of the error model
 *  pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
 *  many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
-*  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-<\ul>
+*  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers
 }

@@ -92,7 +92,7 @@
 #' dying. N and D can be vectors or matrices, but must have matching dimensions.
 #'#' @param N, number of individuals alive at the outset
 #' @param D, number of deaths by the end
-#' @param alpha, the critical probability (default alpha=0.05 gives 95% confidence limits)
+#' @param alpha, the critical probability (default alpha=0.05 gives 95\% confidence limits)
 #' @param kind, either "upper" or "lower"
 #'#'@examples
 #' \dontrun{

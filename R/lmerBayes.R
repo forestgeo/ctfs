@@ -47,7 +47,7 @@
 #' *  randeffects: The names of all the random effects
 #' *  parnames: The names of the model parameters
 #' *  fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
-#'<\ul>
+#'
 #'#' Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
 #'(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
 #' offers a worked example.
