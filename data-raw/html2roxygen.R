@@ -301,6 +301,78 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\\1\r\n\\2"
     ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(This is solely for use by solve\\.topo\\. It finds all points linked via a sighting to a given point\\.).*(\'getTopoLinks\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(whichtest is the index of the parameter to test\\. If NULL, zero, or NA, it simply returns allparam\\.).*(\'arrangeParam\\.llike\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(Updates the regression slope \\(used in regression.Bayes\\)\\.).*(\'Gibbs\\.regslope\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(6\\) the new parameter tested \\(whether accepted or not\\)).*(\'metrop1step\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(is no step-size thus no adjustment\\.).*(\'metrop1step\\.discrete\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(For testing mcmc1step. No longer used\\.).*(\'testmcmcfunc\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(A form of grep returning logical instead of indices \\(numbers\\)\\.).*(\'logical\\.grep\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "CTFSplot\\(plot=\'sinharaja,census=3",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "CTFSplot\\(plot=\'sinharaja', census=3"
+    ) %>% 
 
   
 
