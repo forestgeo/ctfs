@@ -5,7 +5,7 @@
 
 
 #' growth
-#'#'@description
+#'#' @description
 #' The principle growth function, constructed like
 #' recruitment and mortality. It requires two complete datasets, one per census,
 #' with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format). 
@@ -51,7 +51,7 @@
 
 
 #' biomass.growth
-#'#'@description
+#'#' @description
 #' Like growth(), but calculates change in biomass (agb) instead of dbh. The census tables must have a column
 #' called agb. There is no trimming done at all -- every tree is included, and its entire biomass (the agb column in the
 #' standard CTFS data object has total agb, all stems included.)
@@ -65,7 +65,7 @@
 
 
 #' growth.eachspp
-#'#'@description
+#'#' @description
 #' This calculates growth for each species in given dbh categories. It creates the split
 #' variables then uses growth(). Other arguments are as in growth().
 #'#'
@@ -80,7 +80,7 @@
 
 
 #' growth.dbh
-#'#'@description
+#'#' @description
 #' This calculates forest-wide growth in given dbh categories. Arguments as for growth().
 #'#'
 #' @examples
@@ -93,7 +93,7 @@
 
 
 #' growth.indiv
-#'#'@description
+#'#' @description
 #' This returns a complete table with growth rate of every individual, both relative and dbh-increment. The table
 #' also includes most other key pieces of information for every individual: species, dbh, coordinates. Growth is trimmed with trim.growth,
 #' and growth is returned as NA if the individual is excluded; note, though, that every individual tree is always included in the table, even
@@ -110,7 +110,7 @@
 
 
 #' trim.growth
-#'#'@description
+#'#' @description
 #' This is where growth rates are excluded. It is based on 
 #' a linear model estimating the standard deviation of dbh measures (due to error, that
 #' is); the parameters slope and intercept define the linear relationship between
@@ -139,7 +139,7 @@
 
 
 #' growth.biomass.indiv
-#'#'@description
+#'#' @description
 #' Like growth.indiv but based on agb growth, not dbh growth. Extreme growth rates (based on dbh growth) are
 #' excluded, but cases where the stemID changed are not excluded. 
 #' Here pomcut is used in a very specific way probably only relevant at BCI. If the second pom is higher than the first by more than
@@ -158,7 +158,7 @@
 
 
 #' DBHtransition
-#'#'@description
+#'#' @description
 #' Calculates a transition matrix of individuals by diameter categories from two censuses.
 #' The missing code (M) is checked in codes field if misscode is set; otherwise, status=M is assumed to mean missing
 #' and status=AB is assumed to mean the stem was lost, so there is no dbh.

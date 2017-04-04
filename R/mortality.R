@@ -4,7 +4,7 @@
 
 
 #' mortality
-#'#'@description
+#'#' @description
 #' Mortality is the main function, and is constructed like 
 #' growth and recruitment. It requires two complete datasets, one per census,
 #' with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format). 
@@ -43,7 +43,7 @@
 
 
 #' mortality.eachspp
-#'#'@description
+#'#' @description
 #' Calculate mortality for each species in given dbh categories. It sets the split variables using the species name and
 #' submitted dbh classbreaks and then uses mortality to do the calculation. See argument descriptions for mortality. Return object
 #' is the list from mortality and can be passed to assemble.demography for a convenient format. 
@@ -61,7 +61,7 @@
 
 
 #' mortality.dbh
-#'#'@description
+#'#' @description
 #' Calculate forest-wide mortality in given dbh categories. See mortality and mortality.eachspp, which have same arguments and same output format.
 #'#'
 #'
@@ -71,7 +71,7 @@
 
 
 #' mortality.calculation
-#'#'@description
+#'#' @description
 #' This is the calculation of mortality rate and confidence limits, given N 
 #'(number alive at the outset), S (number of survivors), and time (time interval).
 #' All three can be arrays, vectors, or scalars, but all three must be identical size. 
@@ -86,7 +86,7 @@
 
 
 #' find.climits
-#'#'@description
+#'#' @description
 #' Calculates confidence limits around a number of deaths, D, out of N individuals.
 #' It uses the beta distribution as the conjugate of the binomial, so the beta is the posterior of the number
 #' dying. N and D can be vectors or matrices, but must have matching dimensions.

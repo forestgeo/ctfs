@@ -4,7 +4,7 @@
 
 
 #' coldata.to.imagemat
-#'#'@description
+#'#' @description
 #' These functions create maps of response variables using the R functions contour, image, and filled.contour. Those functions are
 #' powerful and do the difficult work, but they are a bit tricky to learn and have many options. If you are expert with those 3 R functions,
 #' the functions below will not be especially useful. They simply rearrange various types of data into the correct format. 
@@ -51,7 +51,7 @@
 
 
 #' imageGraph
-#'#'@description
+#'#' @description
 #' Maps a response variable with R's contour or image functions, or both, using the output of coldata.to.imagemat.
 #' Also can return contours as vector data, using R's contourLines. The graph can be sent to the screen or exported.
 #' There are many options for tweaking the graph, explained with the arguments.
@@ -89,7 +89,7 @@
 
 
 #' draw.axes
-#'#'@description
+#'#' @description
 #' Add axes to a graph, with ticks spaced by the vector div. This is a subroutine used in imageGraph().
 #'#'
 #'
@@ -100,7 +100,7 @@
 
 
 #' image.dataframe
-#'#'@description
+#'#' @description
 #' Creates a color response map based on columnar data, not a matrix as used by R's image function. It is used in cases where a full matrix
 #' of responses, over a complete grid, is not available. Data are submitted as a table with x and y coordinates, and a response z at each.
 #' The points are mapped on an x-y plot, then colored according to the value of z. One typical use would be where soil data are available

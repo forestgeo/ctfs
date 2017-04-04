@@ -1,13 +1,3 @@
-
-#'@section Supplemental
-#' This is supplemental code necessary for the functinos to run.
-
-#'
-#'
-#'
-#'@section Supplemental'
-
-
 #' tojulian
 #'
 #' @description

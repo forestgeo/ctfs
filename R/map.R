@@ -4,7 +4,7 @@
 
 
 #' map
-#'#'@description
+#'#' @description
 #' Function to draw map of one or more species from one plot. Must give the complete
 #' plot dataset, in split format (list of one dataframe per species), and one or more
 #' species code. Other arguments are optional, however, many defaults can be adjusted
@@ -56,7 +56,7 @@
 
 
 #' pdf.allplot
-#'#'@description
+#'#' @description
 #' Export a pdf with one or more species maps. If singlefile=TRUE, 
 #' all maps will be in one big pdf, otherwise, a pdf for every species is created. The file exported will be named with Map.pdf
 #' in the path name given.  
@@ -72,7 +72,7 @@
 
 
 #' png.allplot
-#'#'@description
+#'#' @description
 #' Export species maps as png. There will be one for every species chosen. See pdf.allplot. 
 #'#'
 #'
@@ -83,7 +83,7 @@
 
 
 #' complete.plotmap
-#'#'@description
+#'#' @description
 #' This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.
 #' On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
 #' are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp. 
@@ -112,7 +112,7 @@
 
 
 #' define.graphwindow
-#'#'@description
+#'#' @description
 #' This defines an export device for a graph, based on the argument export. The default, export='no', does nothing, so
 #' the next graph uses the default R device. With this option, the size of the graph cannot have been set larger than
 #' the default size, which is usually 7 inches. If export="unix", a new graphics window in unix, size h and width w, will be opened
@@ -127,7 +127,7 @@
 
 
 #' get.filename
-#'#'@description
+#'#' @description
 #' This sets a name for outputting a map (or any graph) to a file. The argument file may be NULL, then the argument species is used
 #' to name the file, or if there are more than one species, the word multispp is used. The argument exp is the export type and becomes
 #' the extension (ie, .pdf). By default, type assumes a Map, but it can be set otherwise. 
@@ -141,7 +141,7 @@
 
 
 #' maptopo
-#'#'@description
+#'#' @description
 #' Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
 #' dimensions are not needed, instead it calculates them from elevmat and the
 #' gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new screen window is created.
@@ -157,7 +157,7 @@
 
 
 #' map1species
-#'#'@description
+#'#' @description
 #' This does the mapping for a single species, called from map() but also useful on its own.
 #' With add=TRUE, points are added to an existing map. All other parameters are described with map(). 
 #'#'
@@ -170,7 +170,7 @@
 
 
 #' setsize
-#'#'@description
+#'#' @description
 #' An internal function, called by map() to choose size of plotting points. It uses the number of dbh categories (n) and abundance of the species (s) 
 #' to help determine the size. Note that the user can override these defaults by submitting sizes.
 #'#'
@@ -183,7 +183,7 @@
 
 
 #' map2species
-#'#'@description
+#'#' @description
 #' Map 2 species to a 2-panel pdf. Two species names are passed to spp as a vector. The data
 #' must be a list of two split plot data objects, spplist is a list of two different species tables, and elev
 #' a list of two different elevation matrices. To make 2 maps from the same plot, each of the lists should

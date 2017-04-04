@@ -4,7 +4,7 @@
 
 
 #' modelBayes
-#'#'@description
+#'#' @description
 #' A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions
 #' excluded. A single independent variable, y, can be fit against any number of predictors, x, 
 #' The model error can be binomial, Poisson, negative binomial, or Gaussian, with two alternatives for the Gaussian (described below). 
@@ -66,7 +66,7 @@
 
 
 #' residual.llike.modelBayes
-#'#'@description
+#'#' @description
 #' Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
 #' This likelihood does not depend on the hyperparameters. It does require data and prediction.
 #'#'
@@ -79,7 +79,7 @@
 
 
 #' summaryModelMCMC
-#'#'@description
+#'#' @description
 #' Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
 #' and likelihood. Estimates of confidence limits of all parameters are returned. Full likelihood at the best parameters is calculated and likelihood 
 #' at each step in sampler are used to calculate DIC.

@@ -4,7 +4,7 @@
 
 
 #' RipUvK
-#'#'@description
+#'#' @description
 #' Ripley's K using splancs. Computes the univariate Ripley's K for a list of species (all species at a site 
 #' is the default). Also calculates the O-ring statistic, or density (per area) of
 #' conspecifics in a series of annuli defined by rseq, and the omega statistic,
@@ -53,7 +53,7 @@
 
 
 #' Annuli
-#'#'@description
+#'#' @description
 #' Calculates the total area in a series of annuli, summed over all individuals in the
 #' submitted dataset. Calls CalcRingArea to do the calculations for the area within
 #' a distance r of every individual, then subtracts successive areas to get 
@@ -69,7 +69,7 @@
 
 
 #' CalcRingArea
-#'#'@description
+#'#' @description
 #' Given a dataframe that includes gx, gy coordinates, and a single value radius,
 #' finds the area within radius from all points (summed). In the 
 #' absence of edge corrections, this would be simply N*pi*radius^2, where N is the
@@ -82,7 +82,7 @@
 
 
 #' circlearea
-#'#'@description
+#'#' @description
 #' Simply returns area of a circle of radius r.
 #'#'
 #'
@@ -92,7 +92,7 @@
 
 
 #' partialcirclearea
-#'#'@description
+#'#' @description
 #' Calculates the area of a circle of radius r that is inside a rectangular plot.  
 #' The distance from the circle center to plot edges are c2, cy1, cy2, where cy1 is the shortest
 #' distance to a y-boundary and cy3 the longest, while c2 is the shortest x distance.

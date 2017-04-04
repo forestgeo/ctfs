@@ -4,7 +4,7 @@
 
 
 #' lmerBayes
-#'#'@description
+#'#' @description
 #' A Metropolis MCMC version of lmer. A single independent variable, y, can be fit against any number of predictors, x, 
 #' with one random effect. Like lmer, the model error can be binomial or Gaussian, 
 #' but there are two alternatives for the Gaussian (described below). Relative to lmer, the key advantage offered is that 
@@ -98,7 +98,7 @@
 
 
 #' lmerBayes.hyperllike.sigma
-#'#'@description
+#'#' @description
 #' This is the hyper-likelihood for updating the covariances. It is always based on dmvnorm. The par is a matrix of parameters, one row per random effect,
 #' one column the set of parameters. It allows the Gibbs sampler to work by passing a single scalar parameter as the first
 #' argument.
@@ -112,7 +112,7 @@
 
 
 #' lmerBayes.hyperllike.mean
-#'#'@description
+#'#' @description
 #' This is the hyper-likelihood for updating the hypermeans, based on dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest, 
 #' is to be tested; covarSD is the covariance matrix. The modelpar is a matrix of parameters, one row per random effect, one column for each parameter. 
 #'#'
@@ -125,7 +125,7 @@
 
 
 #' full.likelihood.lmerBayes
-#'#'@description
+#'#' @description
 #' Calculate full likelihood for any complete set of parameters, including every set for each random effect and hypermeans and covariances ####'
 #' Further thought: the call to lmerBayes.hyperllike.sigma doesn't make sense, since llike.model.lmer already does this; the probability of 
 #' each set of parameters given the hyperparameters is already calculated. 
@@ -143,7 +143,7 @@
 
 
 #' llike.model.lmer
-#'#'@description
+#'#' @description
 #' A llikelihood function for one set of parameters, for a single random effect. The error is specified by errormodel, typically dbinom or dnorm.  
 #' It includes the likelihood of observing data given a response model (model) and its parameters (allparam), plus the hyper-likelihood of observing allparam
 #' given the hyperparameters, including hypermeans and covariance matrix. This is based off llike.model.occur.hierarch in fitLogisticMap.r, 
@@ -165,7 +165,7 @@
 
 
 #' residual.llike.lmerBayes
-#'#'@description
+#'#' @description
 #' Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
 #' This likelihood does not depend on the hyperparameters. It does require data and prediction for every single random effect. 
 #'#'
@@ -179,7 +179,7 @@
 
 
 #' badSD
-#'#'@description
+#'#' @description
 #'#'
 #'
 #'
@@ -190,7 +190,7 @@
 
 
 #' arrangeParam.llike.2D
-#'#'@description
+#'#' @description
 #' Used in likelihood function of a Gibbs sampler for lmerBayes, but for parameters submitted as a matrix, not a vector. 
 #' Allows any of a set of parameters to be submitted to metrop1step; whichrow, whichcol are the indices of the single parameter to test. 
 #' The argument forcesymmetry is needed for a covariance matrix: if one column is updated, the transposed column must also be.
@@ -204,7 +204,7 @@
 
 
 #' arrangeParam.Gibbs.2D
-#'#'@description
+#'#' @description
 #' Used in the loop of a Gibbs sampler, setting parameters not yet tested (j and above) to previous value (i-1), and other parameters (<j) to new value (i). 
 #' But unlike arrangeParam.Gibbs, on which this is based, this is for a matrix, not a vector. Also unlike arrangeParam.Gibbs, this accepts only two versions
 #' of the parameter matrix, the previous and the next. This is crucial for memory: otherwise, allparam would be a 3D array of large size.
@@ -220,7 +220,7 @@
 
 
 #' saveParamFile
-#'#'@description
+#'#' @description
 #' This saves a run of the full parameters into a text file, reducing the amount of memory needed.
 #'#'
 #'
@@ -232,7 +232,7 @@
 
 
 #' restoreParamFile
-#'#'@description
+#'#' @description
 #' Reverses the steps of saveParamFile, back to a 3D array. This requires the entire parameter set to be moved into memory, but it only happens
 #' once at the very end of the run. Since paramfile is gigantic, this is slow. 
 #'#'
@@ -245,7 +245,7 @@
 
 
 #' resetParam
-#'#'@description
+#'#' @description
 #' This starts a new 3D parameter array whose first element is the last element of the current one. The rest of the new one is empty, to hold
 #' the next set of savestep steps from the Gibbs sampler. This only happens after the current one has been saved to a text file. 
 #'#'
@@ -258,7 +258,7 @@
 
 
 #' summaryMCMC
-#'#'@description
+#'#' @description
 #' Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
 #' and likelihood. However, if parameters were saved along the way to a text file, then the argument paramfile is used to name the file and restore them
 #' into a 3D array. Estimates of confidence limits of all parameters are returned. If returnfull is set TRUE, then the entire 3D array of parameters is
@@ -273,7 +273,7 @@
 
 
 #' recalculate.lmerBayesllike
-#'#'@description
+#'#' @description
 #' Walk through entire chain of parameters to calculate full likelihood at each step, as was done during the model run. The argument keep
 #' defines the elements to be used, or if NULL, fit$keep is used. 
 #'#'
@@ -286,7 +286,7 @@
 
 
 #' covTocorr
-#'#'@description
+#'#' @description
 #' Convert covariance matrix to correlation matrix. Each element is divided by the square root of the product of the corresponding diagonal terms.
 #'#'
 #'

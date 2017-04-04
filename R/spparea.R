@@ -4,7 +4,7 @@
 
 
 #' spparea.sq
-#'#'@description
+#'#' @description
 #' Function for calculating the number of species in replicated, randomly-placed
 #' quadrats of various areas. The variable size refers to the dimension (side)
 #' of the square, and can be a vector; replicates is the
@@ -40,7 +40,7 @@
 
 
 #' selectrandomquad
-#'#'@description
+#'#' @description
 #' Draws rectangular quadrats in a plot at random. Returns a dataframe of coordinates defining the corners of all the quadrats. 
 #' The variable size is a vector of dimensions; shape allows a rectangle to be drawn; rep is the
 #' number of replicated random quadrats per dimension submitted. 
@@ -61,7 +61,7 @@
 
 
 #' selectrandomquad3
-#'#'@description
+#'#' @description
 #' Creates randomly drawn quadrats, using same arguments and producing same return value as selectrandomquad, but using a different algorithm.
 #' The lower left x, y coordinates are drawn at random from a range extending outside the plot dimensions, then quadrats are used only if
 #' all 4 corners fall inside the plot.
@@ -74,7 +74,7 @@
 
 
 #' selectrandomquad2
-#'#'@description
+#'#' @description
 #' Creates randomly drawn quadrats, using same arguments and producing same return value as selectrandomquad, but using a different algorithm 
 #' aimed at capturing corners. The result, however, is not to capture corners any better than selectrandomquad() does.
 #' Imagine a line running vertically at x=0 from y=0 to y=plotdim[2]-size, then continues at x=1 from 0 to plotdim[2]-size,
@@ -91,7 +91,7 @@
 
 
 #' graph.quadrats
-#'#'@description
+#'#' @description
 #' Make a graph of a series of quadrats whose corners are given by the rows of coord: xlo, ylo, xhi, yhi. This is used in illustrating
 #' randomly selected quadrats. 
 #'#'
@@ -103,7 +103,7 @@
 
 
 #' coverage.diag
-#'#'@description
+#'#' @description
 #' Draws a diagonal across a plot, from lower left to upper right (if slope==1), upper left to lower right (if slope==-1),
 #' or straight across the middle (if slope==0).
 #' and determines for every point along the diagonal what fraction of a series of quadrats it is inside.

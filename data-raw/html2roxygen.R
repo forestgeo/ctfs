@@ -115,6 +115,24 @@ name_function <- function(string) {
   }
 
 
+# Remove supplemental code
+rm_supplemental <- function(string) {
+  supplemental <- string %>% 
+    str_extract_all(
+      pattern = regex(
+        "@section Supplemental.*@section Supplemental",
+        multiline = TRUE,
+        dotall = TRUE
+        )
+      ) %>% unlist
+  string %>% 
+    str_replace_all(
+      pattern = regex(supplemental, multiline = TRUE, dotall = TRUE),
+      replacement = ""
+    )
+}
+
+
 
 # Wrangle -----------------------------------------------------------------
 
@@ -383,17 +401,9 @@ map(paths$from, read_file) %>%
     replacement = "\\1\r\n\\2"
     ) %>% 
 
-  
-
-
-
-    
+  map(replace_stuff, "#\'\\@description", "#\' \\@description") %>% 
   
   
-  
-  
-
-
   # Let tags breath
   map(replace_stuff, pattern = "\n#\'@param", replacement = "\n#\' @param") %>%
   map(replace_stuff, pattern = "\n#\'@description", replacement = "\n#\' @description") %>%
@@ -439,3 +449,14 @@ to_notwrangle <- map2("./R/", dir(path_notwrangle), paste0)
 
 map(from_notwrangle, read_file) %>% 
   walk2(to_notwrangle, write_file, append = TRUE)
+
+
+
+# Shorcut to remove first lines of utilities (supplement)
+paste0(read_lines("./R/utilities.R", skip = 10), collapse = "\r\n") %>% 
+  write_file("./R/utilities.R")
+
+
+
+
+

@@ -5,7 +5,7 @@
 
 
 #' solve.topo
-#'#'@description
+#'#' @description
 #' This is based on the problem and solution outlined in my book on plot methods (1998):
 #' Each of N stakes i has an estimated height E[i] and a true height e[i]. 
 #' Pairs of stakes have a height difference d[i,j], where e[i]+d[i,j]=e[j],
@@ -42,13 +42,13 @@
 
 
 #' getTopoLinks
-#'#'@description
+#'#' @description
 #' This is solely for use by solve.topo. It finds all points linked via a sighting to a given point.
 'getTopoLinks'
 
 
 #' rearrangeSurveyData
-#'#'@description
+#'#' @description
 #' Takes a table of survey sightings with columns of x and y locations of two points, and converts it to the format
 #' required by solve.topo. The input table must have columns x1, y1, x2, and y2. The return value is a list consisting of two dataframes: 
 #' @param all points found in the input table, with an integer designation assigned to each. The designation is called pt. 

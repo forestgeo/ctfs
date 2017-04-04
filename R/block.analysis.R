@@ -4,7 +4,7 @@
 
 
 #' wavelet.allsp
-#'#'@description
+#'#' @description
 #' Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.
 #'#' @author Matteo Detto and Tania Brenes  
 #'#' Output is a matrix with:   
@@ -29,7 +29,7 @@
 
 
 #' plot.wavelet
-#'#'@description
+#'#' @description
 #' Function to plot the wavelet variance from the output of the wavelet.allsp. 
 #' @author Tania Brenes  
 #'#'  x (): output for wavelet.allsp; 
@@ -40,7 +40,7 @@
 
 
 #' rasterize
-#'#'@description
+#'#' @description
 #' Function to calculate the count (type='point'), basal area or agb (type='marked') per quadrat 
 #' by selecting quadrats of variable sizes.  
 #' @author Matteo Detto and Tania Brenes  
@@ -67,7 +67,7 @@
 
 
 #' wavelet.univariate
-#'#'@description
+#'#' @description
 #' Function to calculate the univariate wavelet variance using furier transforms. 
 #' It accepts a raster data or a point pattern, which is the default if raster is not provided.  
 #' The wavelet variance describes the spatial autocorrelation or aggregation of tree distribution.
@@ -101,7 +101,7 @@
 
 
 #' wavelet.bivariate
-#'#'@description
+#'#' @description
 #' Function to calculate the wavelet variance to evaluate the association between two point patterns using furier transforms. 
 #' It accepts a raster data or a point pattern, but the type of data entered has to be specified in the argument type.  
 #' The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.
