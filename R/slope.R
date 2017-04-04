@@ -83,28 +83,10 @@
 #' z=matrix(c(c(268.7,275.9,283.2),c(275.9,282.8,290.0),c(283.2,290.0,297)),nrow=3,byrow=TRUE)
 #' This calculates the gradient for the 8 triangular facets around the center point, following Seibert & McGlynn
 #' The output is a data.frame of direction and slope for the 8 facets, starting with the lower left and moving clockwise
-#'#'
-#'
-#' @examples
-#' \dontrun{
-#'#'
-#'#' browser()
-#'#'
-#'#'
-#'#'
 'calc.gradient'
 
 
 #' calc.directionslope
 #'#'@description
 #' This runs equations 1-3 of Seibert & McGlynn
-#'#'
-#'
-#' @examples
-#' \dontrun{
-#'#'
-#'#' browser()
-#'#'
-#'#'
-
 'calc.directionslope'

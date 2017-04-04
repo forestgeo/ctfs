@@ -7,13 +7,12 @@ library(stringr)
 read_file("./data-raw/tst.R") %>% 
   str_replace_all(
     pattern = regex(
-      "(Landau added a section to correct convexity in edge quadrats).*(\'allquadratslopes\')", 
+      "(The output is a data\\.frame of direction and slope for the 8 facets, starting with the lower left and moving clockwise).*(\'calc\\.gradient\')", 
       multiline = TRUE, 
       dotall = TRUE
       ),
     replacement = "\\1\r\n\\2"
     )
-
 
 
 

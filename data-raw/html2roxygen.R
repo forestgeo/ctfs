@@ -283,6 +283,24 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\\1\r\n\\2"
     ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(This runs equations 1-3 of Seibert & McGlynn).*(\'calc\\.directionslope\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(The output is a data\\.frame of direction and slope for the 8 facets, starting with the lower left and moving clockwise).*(\'calc\\.gradient\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
 
   
 
