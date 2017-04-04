@@ -4,26 +4,28 @@ library(purrr)
 library(stringr)
 
 
+read_file("./data-raw/tst.R") %>% 
+  str_replace_all(
+    pattern = regex(
+      "@examples.*(\'dgammaMinusdexp\')",
+      multiline = TRUE,
+      dotall = TRUE
+      ), 
+    replacement = "\\1"
+    )
+    
+    
+    
+    
+    
+    pattern = fixed("#'\r\n#'\r\n#'\r\n#' @examples\r\n#' \\dontrun{\r\n#'\r\n#'\r\n#'\r\n#' browser() \r\n\r\n\r\n#'\r\n#'\r\n#'\r\n#'\r\n#'\r\n#'\r\n'dgammaMinusdexp'\r\n"),
+    replacement = "#\'\r\n\'dgammaMinusdexp\'\r\n"
+    ) %>% 
+  write_file("./data-raw/tst_to.R")
+  
 
-replace_params <- function(string) {
-  args_asis <- string %>% 
-    str_extract_all(
-      pattern = regex(
-        "<arguments>.*</arguments>",
-        multiline = TRUE,
-        dotall = TRUE
-        )
-      ) %>% unlist
-  args_edited <- args_asis %>% 
-    str_replace_all(
-      pattern = regex("<li>", multiline = TRUE, dotall = TRUE),
-      replacement = "@param"
-      )
-  string %>% 
-    str_replace_all(pattern = fixed(args_asis), replacement = args_edited)
-}
 
-map("./data-raw/tst.R", read_file) %>% 
-  map(replace_params) %>% 
-  walk2("./data-raw/tst_to.R", write_file, append = TRUE)
+  map(
+
+  
 

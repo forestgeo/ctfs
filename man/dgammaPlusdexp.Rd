@@ -2,12 +2,22 @@
 % Please edit documentation in R/distributions.R
 \name{dgammaPlusdexp}
 \alias{dgammaPlusdexp}
-\title{dgammaPlusdexp}
+\title{dgammaMinusdexp}
 \usage{
 dgammaPlusdexp(z, mean, sd, lambda, draws = 10000, div = 0.01,
   xrange = c(0, 25), xmax = 4, graphit = FALSE)
 }
 \description{
+The PDF of the difference between a gamma and a negative exponential distribution. The shape and rate of the gamma 
+are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
+This comes from the convolution of the two distributions, which is also a gamma, and the integral 
+of the new gamma evaluated with pgamma. Note that lambda is the rate of the exponential.
+
+
+
+'dgammaMinusdexp'
+dgammaPlusdexp
+
 The PDF of the sum of gamma and negative exponential distribution. The shape and rate of the gamma 
 are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
 This is only an appoximation based on the observation that the resulting distribution is very

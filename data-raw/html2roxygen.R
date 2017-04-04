@@ -216,7 +216,21 @@ map(paths$from, read_file) %>%
   
   
   
-  
+
+  map(
+    replace_stuff,
+    pattern = regex(
+      "@examples.*(\'dgammaMinusdexp\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>% 
+
+
+
+
+    
   
   
   
