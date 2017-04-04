@@ -7,11 +7,11 @@ library(stringr)
 read_file("./data-raw/tst.R") %>% 
   str_replace_all(
     pattern = regex(
-      "(\n\'distance\')", 
+      "(Landau added a section to correct convexity in edge quadrats).*(\'allquadratslopes\')", 
       multiline = TRUE, 
       dotall = TRUE
       ),
-    replacement = "\n#\' \\}\r\\1"
+    replacement = "\\1\r\n\\2"
     )
 
 

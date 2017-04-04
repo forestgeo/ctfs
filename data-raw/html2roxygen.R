@@ -274,6 +274,15 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\n#\' \\}\r\\1"
     ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(Landau added a section to correct convexity in edge quadrats).*(\'allquadratslopes\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
 
   
 
