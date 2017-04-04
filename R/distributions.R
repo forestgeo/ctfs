@@ -50,7 +50,8 @@
 #' of the new gamma evaluated with pgamma. Note that lambda is the rate of the exponential.
 #'#'
 #'
-#''dgammaMinusdexp'
+#'
+'dgammaMinusdexp'
 
 
 #' dgammaPlusdexp
@@ -986,10 +987,7 @@
 #' to this definition. 
 #'#'
 #'
-#' @examples
-#' \dontrun{
-#'#'
-#'#'
+#'
 'dpois.max'
 
 

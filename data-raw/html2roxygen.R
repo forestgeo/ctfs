@@ -214,7 +214,7 @@ map(paths$from, read_file) %>%
   map(
     replace_stuff,
     pattern = regex(
-      "@examples.*(\'dgammaMinusdexp\')", 
+      "@examples.*(\\\n\'dgammaMinusdexp\')", 
       multiline = TRUE, 
       dotall = TRUE
       ),
@@ -229,10 +229,15 @@ map(paths$from, read_file) %>%
       ), 
     replacement = "\\1\\2\\}"
     ) %>% 
-  
-
-  
-  
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(#\' dpois.max.*)@examples.*(\'dpois.max\')",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "\\1\\\r\\\n\\2"
+    ) %>%
   
   
   
