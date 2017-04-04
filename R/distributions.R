@@ -284,7 +284,7 @@
 #'#'@examples
 #' \dontrun{
 #'#'
-#'#' y=y/sum(y)
+#'#' y=y/sum(y)}
 #'#'
 #'#'
 #'#'

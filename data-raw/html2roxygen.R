@@ -211,12 +211,6 @@ map(paths$from, read_file) %>%
     pattern = "the lower confidence limit for the null hypothesis\\. \\}", 
     replacement = "the lower confidence limit for the null hypothesis\\."
     ) %>% 
-
-  
-  
-  
-  
-
   map(
     replace_stuff,
     pattern = regex(
@@ -226,6 +220,29 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\\1"
     ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(dontrun.*)( y=y/sum\\(y\\))",
+      multiline = TRUE,
+      dotall = TRUE
+      ), 
+    replacement = "\\1\\2\\}"
+    ) %>% 
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
 
 
 

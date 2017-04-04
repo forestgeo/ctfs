@@ -1,18 +1,6 @@
-#'
-#'
-#'
-#' @examples
+#'@examples
 #' \dontrun{
 #'
 #'
 #'
-#' browser() 
-
-
-#'
-#'
-#'
-#'
-#'
-#'
-'dgammaMinusdexp'
+#' y=y/sum(y)
