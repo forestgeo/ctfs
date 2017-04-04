@@ -6,3 +6,6 @@
 \usage{
 logical.grep(needle, haystack)
 }
+\description{
+A form of grep returning logical instead of indices (numbers).
+}

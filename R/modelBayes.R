@@ -4,7 +4,7 @@
 
 
 #' modelBayes
-#'#'@description
+#'#' @description
 #' A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions
 #' excluded. A single independent variable, y, can be fit against any number of predictors, x, 
 #' The model error can be binomial, Poisson, negative binomial, or Gaussian, with two alternatives for the Gaussian (described below). 
@@ -16,23 +16,23 @@
 #' parameters required by the model. 
 #'#'
 #' The return value is a list with several components:
-#'<li> resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
-#'<li> fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
-#'<li> burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
-#'<li> steps: Atomic, the number of steps run in Gibbs sampler
-#'<li> llike: Full log-likelihood of the model at each step of the Gibbs'sampler
-#'<li> obs: The original y (dependent) variable, just as submitted
-#'<li> data: The original x (independent) variables, just as submitted
-#'<li> parnames: The names of the model parameters
-#'<li> start: The start parameters submitted
-#'<li> best: Best estimate of the model parameters for the entire data 
-#'<li> CI: Credible intervals for the model parameters
-#'<li> bestresid: The best estimate of parameters for the error model
-#'<li> CIresid: Credible intervals for the parameters of the error model
-#'<li> pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
-#'<li> many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
-#'<li> keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-#'<\ul>
+#' *  resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
+#' *  fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
+#' *  burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+#' *  steps: Atomic, the number of steps run in Gibbs sampler
+#' *  llike: Full log-likelihood of the model at each step of the Gibbs'sampler
+#' *  obs: The original y (dependent) variable, just as submitted
+#' *  data: The original x (independent) variables, just as submitted
+#' *  parnames: The names of the model parameters
+#' *  start: The start parameters submitted
+#' *  best: Best estimate of the model parameters for the entire data 
+#' *  CI: Credible intervals for the model parameters
+#' *  bestresid: The best estimate of parameters for the error model
+#' *  CIresid: Credible intervals for the parameters of the error model
+#' *  pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
+#' *  many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
+#' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+#'
 #'#'
 #' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
 #' @param ycol The name of the column holding the y variable, with quote marks; this variable must be numeric.
@@ -66,7 +66,7 @@
 
 
 #' residual.llike.modelBayes
-#'#'@description
+#'#' @description
 #' Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
 #' This likelihood does not depend on the hyperparameters. It does require data and prediction.
 #'#'
@@ -79,7 +79,7 @@
 
 
 #' summaryModelMCMC
-#'#'@description
+#'#' @description
 #' Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
 #' and likelihood. Estimates of confidence limits of all parameters are returned. Full likelihood at the best parameters is calculated and likelihood 
 #' at each step in sampler are used to calculate DIC.

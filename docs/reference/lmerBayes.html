@@ -102,30 +102,29 @@ effects. The latter requires knowing in advance the names of all the random effe
 This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array.</p>
 
     <p>The return value is a list with several components:
-&lt;li&gt; mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
-&lt;li&gt; sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
-&lt;li&gt; bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
-&lt;li&gt; bestsigma: Best estimate of the covariance (ie, group-level variance or error)
-&lt;li&gt; resid: The entire chain parameters for the model of residuals
-&lt;li&gt; bestresid: The best estimate of parameters for the model of residuals
-&lt;li&gt; CIresid: Credible intervals for the parameters for the model of residuals
-&lt;li&gt; best: The best estimates of model parameters for each random effect
-&lt;li&gt; lower: Lower credible intervals of model parameters for each random effect
-&lt;li&gt; upper: Uower credible intervals of model parameters for each random effect      
-&lt;li&gt; burn: The burn-in
-&lt;li&gt; llike: Full log-likelihood of the model at each step of the Gibbs&#39;sampler
-&lt;li&gt; bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
-&lt;li&gt; DIC: Deviance information criterion of the model
-&lt;li&gt; obs: The original y (dependent) variable, just as submitted
-&lt;li&gt; data: The original x (independent) variables, just as submitted
-&lt;li&gt; model: The model&#39;s predictions, as a list with one element per random effect
-&lt;li&gt; randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
-&lt;li&gt; keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-&lt;li&gt; start: The start parameters submitted
-&lt;li&gt; randeffects: The names of all the random effects
-&lt;li&gt; parnames: The names of the model parameters
-&lt;li&gt; fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs&#39;s sampler
-&lt;&gt;</p>
+*  mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
+*  sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
+*  bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
+*  bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+*  resid: The entire chain parameters for the model of residuals
+*  bestresid: The best estimate of parameters for the model of residuals
+*  CIresid: Credible intervals for the parameters for the model of residuals
+*  best: The best estimates of model parameters for each random effect
+*  lower: Lower credible intervals of model parameters for each random effect
+*  upper: Uower credible intervals of model parameters for each random effect      
+*  burn: The burn-in
+*  llike: Full log-likelihood of the model at each step of the Gibbs&#39;sampler
+*  bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+*  DIC: Deviance information criterion of the model
+*  obs: The original y (dependent) variable, just as submitted
+*  data: The original x (independent) variables, just as submitted
+*  model: The model&#39;s predictions, as a list with one element per random effect
+*  randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
+*  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+*  start: The start parameters submitted
+*  randeffects: The names of all the random effects
+*  parnames: The names of the model parameters
+*  fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs&#39;s sampler</p>
 
     <p>Further details are given in the description of all the arguments and the sample here, plus a tutorial on &#39;Mortality changes&#39;
 (http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 

@@ -39,13 +39,13 @@ based on err.limit and maxgrow, and trees below a minimum dbh in the
 first census. See the description of trim.growth for more information.
 Growth requires fill.dimension in utilities.r. 
 Output of the growth function is a list with components:
-<li>rate, the mean annualized growth rate per category selected, either dbh increment, or relative growth  
-<li>N, the number of individuals included in the mean (not counting any excluded)
-<li>clim, width of confidence interval; add this number to the mean rate to get upper confidence limit, substract to get lower
-<li>dbhmean, mean dbh in census 1 of individuals included
-<li>time, mean time interval in years
-<li>date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
-<li>date2, mean date in census 2 
+* rate, the mean annualized growth rate per category selected, either dbh increment, or relative growth  
+* N, the number of individuals included in the mean (not counting any excluded)
+* clim, width of confidence interval; add this number to the mean rate to get upper confidence limit, substract to get lower
+* dbhmean, mean dbh in census 1 of individuals included
+* time, mean time interval in years
+* date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
+* date2, mean date in census 2 
 
 Pass the list to assemble.demography (in utilities.r) with type="g" to convert the list to a data.frame.
 }

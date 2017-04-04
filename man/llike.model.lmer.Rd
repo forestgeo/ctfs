@@ -14,3 +14,19 @@ It includes the likelihood of observing data given a response model (model) and 
 given the hyperparameters, including hypermeans and covariance matrix. This is based off llike.model.occur.hierarch in fitLogisticMap.r, 
 but differs in including the covariance in the hyper-model. If the argument mu, for hypermeans, is set NULL, the likelihood without the hyper-likelihood is returned.
 }
+\examples{
+\dontrun{
+
+
+else if(errormodel=='GaussMultResid') 
+{
+ if(length(which(modeled<=0))>0) return(-Inf)       ##' With this option, model must always be > 0
+ llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)
+}
+else if(errormodel=='Flat') llike=rep(0,length(modeled))}
+
+
+
+
+
+}

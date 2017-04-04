@@ -11,7 +11,7 @@ find.climits(N, D, alpha = 0.05, kind = "upper")
 
 \item{D, }{number of deaths by the end}
 
-\item{alpha, }{the critical probability (default alpha=0.05 gives 95% confidence limits)}
+\item{alpha, }{the critical probability (default alpha=0.05 gives 95\% confidence limits)}
 
 \item{kind, }{either "upper" or "lower"}
 }

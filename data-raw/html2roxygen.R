@@ -61,7 +61,10 @@ replace_params <- function(string) {
       replacement = "@param"
       )
   string %>% 
-    str_replace_all(pattern = fixed(args_asis), replacement = args_edited)
+    # In string, replace the edited chunk
+    str_replace_all(pattern = fixed(args_asis), replacement = args_edited) %>% 
+    # Make an Rmarkdown list with the remaining <li>
+    str_replace_all("<li>", " * ")
 }
 
 
@@ -110,6 +113,24 @@ name_function <- function(string) {
     transmute(edited = paste0("\n#\' ", body, "\n\'", names, "\'\r\n")) %>% 
     map_chr(paste0, collapse = "\r\n")
   }
+
+
+# Remove supplemental code
+rm_supplemental <- function(string) {
+  supplemental <- string %>% 
+    str_extract_all(
+      pattern = regex(
+        "@section Supplemental.*@section Supplemental",
+        multiline = TRUE,
+        dotall = TRUE
+        )
+      ) %>% unlist
+  string %>% 
+    str_replace_all(
+      pattern = regex(supplemental, multiline = TRUE, dotall = TRUE),
+      replacement = ""
+    )
+}
 
 
 
@@ -191,6 +212,198 @@ map(paths$from, read_file) %>%
   map(replace_stuff, pattern = "@param( trimmed=extract\\.growthdata)", replacement = "\\1") %>%
   map(replace_stuff, pattern = "(distances of rseq)", replacement = "\\1\r\n#\' \\}\r") %>%
 
+  
+# Solve missmatched braces ------------------------------------------------
+  map(
+    replace_stuff, 
+    pattern = "each distance interval, for graphing purposes.\\}", 
+    replacement = "each distance interval, for graphing purposes\\."
+  ) %>% 
+  map(
+    replace_stuff, 
+    pattern = "##\' count of individuals in each block", 
+    replacement = "#\' \\}"
+  ) %>% 
+  map(
+    replace_stuff, 
+    pattern = "the lower confidence limit for the null hypothesis\\. \\}", 
+    replacement = "the lower confidence limit for the null hypothesis\\."
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "@examples.*(\\\n\'dgammaMinusdexp\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(dontrun.*)( y=y/sum\\(y\\))",
+      multiline = TRUE,
+      dotall = TRUE
+      ), 
+    replacement = "\\1\\2\\}"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(#\' dpois.max.*)@examples.*(\'dpois.max\')",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "\\1\\\r\\\n\\2"
+    ) %>%
+  map(
+    replace_stuff,
+    pattern = regex(
+      "\\}.*(\\\n\'pts\\.to\\.interceptslope\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "\\}.*\'inside\\.rect\\'", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\r\n'inside.rect'"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(llike=rep\\(0,length\\(modeled\\)\\))", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\\}"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(\n\'distance\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\n#\' \\}\r\\1"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(Landau added a section to correct convexity in edge quadrats).*(\'allquadratslopes\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(This runs equations 1-3 of Seibert & McGlynn).*(\'calc\\.directionslope\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(The output is a data\\.frame of direction and slope for the 8 facets, starting with the lower left and moving clockwise).*(\'calc\\.gradient\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(This is solely for use by solve\\.topo\\. It finds all points linked via a sighting to a given point\\.).*(\'getTopoLinks\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(whichtest is the index of the parameter to test\\. If NULL, zero, or NA, it simply returns allparam\\.).*(\'arrangeParam\\.llike\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(Updates the regression slope \\(used in regression.Bayes\\)\\.).*(\'Gibbs\\.regslope\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(6\\) the new parameter tested \\(whether accepted or not\\)).*(\'metrop1step\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(is no step-size thus no adjustment\\.).*(\'metrop1step\\.discrete\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(For testing mcmc1step. No longer used\\.).*(\'testmcmcfunc\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(A form of grep returning logical instead of indices \\(numbers\\)\\.).*(\'logical\\.grep\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "CTFSplot\\(plot=\'sinharaja,census=3",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "CTFSplot\\(plot=\'sinharaja', census=3"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(\\})\\}.*(\'assemble\\.demography\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
+
+  map(replace_stuff, "#\'\\@description", "#\' \\@description") %>% 
+  
+  
   # Let tags breath
   map(replace_stuff, pattern = "\n#\'@param", replacement = "\n#\' @param") %>%
   map(replace_stuff, pattern = "\n#\'@description", replacement = "\n#\' @description") %>%
@@ -224,9 +437,41 @@ map(paths$from, read_file) %>%
       ),
     replacement = "") %>%
   
+
+  
+# Some tweaks to solve warnings at checks ---------------------------------
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "@param alpha, the critical probability \\(default alpha=0.05 gives 95% confidence limits",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "@param alpha, the critical probability \\(default alpha=0.05 gives 95\\\\% confidence limits"
+    ) %>%
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "(parameters for every step.*)<\\\\ul>",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>%
+  map(
+    str_replace,
+    pattern = stringr::regex(
+      "(in, as a vector of negative numbers.*)<\\\\ul>",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>%
+  
+  
+  
   # Save wrangled files
   walk2(paths$to, write_file, append = TRUE)
-
 
 
 # Add files to .R/ that do not need wrangling
@@ -236,3 +481,14 @@ to_notwrangle <- map2("./R/", dir(path_notwrangle), paste0)
 
 map(from_notwrangle, read_file) %>% 
   walk2(to_notwrangle, write_file, append = TRUE)
+
+
+
+# Shorcut to remove first lines of utilities (supplement)
+paste0(read_lines("./R/utilities.R", skip = 10), collapse = "\r\n") %>% 
+  write_file("./R/utilities.R")
+
+
+
+
+

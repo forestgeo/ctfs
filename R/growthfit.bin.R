@@ -4,7 +4,7 @@
 
 
 #' extract.growthdata
-#'#'@description
+#'#' @description
 #' Extract data for growth rates from plot databases and 2 censuses in CTFS R format. Returns a table with 
 #' growth, size (ie dbh), and species name. Default is to return log-transformed growth, with negative and zero
 #' growth set to a mingrow, but with logit=TRUE, growth and dbh are not log-transformed.
@@ -17,7 +17,7 @@
 
 
 #' run.growthbin.manyspp
-#'#'@description
+#'#' @description
 #' Run the model to fit growth rate in bins for many species, 1-4 bins. It takes a list of species, extracts
 #' growth rates for each, one at a time, from the table of growth rates, then calls run.growthfit.bin to fit the model for
 #' the 4 bin options. 
@@ -41,7 +41,7 @@
 
 
 #' run.growthfit.bin
-#'#'@description
+#'#' @description
 #' Find best fits for linearmodel.bin, with one set of data and a series of bins. This starts fit for a bin
 #' based on the best fit for the prior bin, thus always assuring an improved fit. This works best if the first bin=1,
 #' which is just a linear model and easily fit by optim and the Gibbs sampler.
@@ -54,7 +54,7 @@
 
 
 #' growth.flexbin
-#'#'@description
+#'#' @description
 #' Fitting a regression line through log growth against log dbh, binning on dbh. Growth table has 2 columns,
 #' one named size (ie, dbh), other growth. The function now calls optim first to find a set of parameters, then, if Gibbs
 #' is selected, runs the Gibbs sampler starting with those parameters. Since optim fails if the initial likelihood is -Inf,
@@ -69,7 +69,7 @@
 
 
 #' llike.linearbin.optim
-#'#'@description
+#'#' @description
 #' This is for optim, a single function taking all parameters at once, including sd, to get single likelihood. 
 #'#'
 #'
@@ -80,7 +80,7 @@
 
 
 #' defineBinBreaks
-#'#'@description
+#'#' @description
 #' This finds divisions of over the vector size which produce equal number of elements per division. In case
 #' any of those divisions are too short, it tries equal sized divisions. A default to use for
 #' start parameters when none are supplied. 
@@ -93,7 +93,7 @@
 
 
 #' defineSDpar
-#'#'@description
+#'#' @description
 #' For default SD parameters, if nothing else works. Choose the midpoint of x for the middle of 3 parameters.
 #'#'
 #'
@@ -104,7 +104,7 @@
 
 
 #' enoughSamplePerBin
-#'#'@description
+#'#' @description
 #' Test whether the number of elements in a vector x between successive breaks exceeds a minimum. If any
 #' bins have too few, it returns FALSE. 
 #'#'
@@ -116,7 +116,7 @@
 
 
 #' wideEnoughBins
-#'#'@description
+#'#' @description
 #' Test whether all the bin widths exceed a minimum. 
 #'#'
 #'
@@ -129,7 +129,7 @@
 
 
 #' bad.binparam
-#'#'@description
+#'#' @description
 #' This prevents the bin parameters from moving outside the x range, and keeps the minimum bin width wider than MINBIN of the
 #' xrange. It also requires at least MINSAMPLE individuals per bin. The ellipsis handles the submission of MINBIN and MINBINSAMPLE, if
 #' they are not submitted, default values are assigned.
@@ -142,7 +142,7 @@
 
 
 #' bad.binsdpar
-#'#'@description
+#'#' @description
 #'#'
 #'#'
 #'
@@ -152,7 +152,7 @@
 
 
 #' calculateBinModel.BIC
-#'#'@description
+#'#' @description
 #' Calculate Bayes Information Criteria using Wikipedia formula
 #'#'
 #'
@@ -164,7 +164,7 @@
 
 
 #' calculateBinModel.AIC
-#'#'@description
+#'#' @description
 #' Calculate AIC of the model, using various log(likelihood) estimators: 
 #' with optim, the highest likelihood found by optim
 #' with mean, the mean llikelihood from the Gibbs sampler
@@ -179,7 +179,7 @@
 
 
 #' calculateBinModel.bestpred
-#'#'@description
+#'#' @description
 #' Calculate mean predicted value at every x using every one of the Gibbs sampler parameter combinations
 #'(excluding burn in)
 #'#'
@@ -191,7 +191,7 @@
 
 
 #' assembleBinOutput
-#'#'@description
+#'#' @description
 #' Use the list output from piecewise regression (growthfit.bin) and converts to a flat table. The single argument 
 #' inputdata is the output compare.growthbinmodel.
 #' Written by Adrian Das.

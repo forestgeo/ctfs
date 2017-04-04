@@ -4,7 +4,7 @@
 
 
 #' wavelet.allsp
-#'#'@description
+#'#' @description
 #' Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.
 #'#' @author Matteo Detto and Tania Brenes  
 #'#' Output is a matrix with:   
@@ -14,7 +14,7 @@
 #' plotdim: plot dimentions parameter used; 
 #' gridsize: grid size parameter used; 
 #' UCL: vector with the upper confidence limit for the null hypothesis; 
-#' LCL: vector with the lower confidence limit for the null hypothesis. }
+#' LCL: vector with the lower confidence limit for the null hypothesis.
 #'  censdata (): census data for the plot containing the variables gx, gy, dbh, status, and sp code; 
 #'  plotdim c(1000,500):  vector with two numbers indicating the plot size; 
 #'  gridsize (2.5): gives the size of the quadrats for the rasterization
@@ -29,7 +29,7 @@
 
 
 #' plot.wavelet
-#'#'@description
+#'#' @description
 #' Function to plot the wavelet variance from the output of the wavelet.allsp. 
 #' @author Tania Brenes  
 #'#'  x (): output for wavelet.allsp; 
@@ -40,7 +40,7 @@
 
 
 #' rasterize
-#'#'@description
+#'#' @description
 #' Function to calculate the count (type='point'), basal area or agb (type='marked') per quadrat 
 #' by selecting quadrats of variable sizes.  
 #' @author Matteo Detto and Tania Brenes  
@@ -59,7 +59,7 @@
 #' onesp = subset(bci.full1, sp=="rinosy")  
 #'##' plots the density of the sp in the plot  
 #' rast1 = rasterize(x= onesp$gx, y=onesp$gy, gridsize=5, plotdim=c(1000,500), type='point', graph=TRUE)  
-#'#'##' count of individuals in each block
+#'#'#' }
 #' marked point process
 #'#'
 #'
@@ -67,7 +67,7 @@
 
 
 #' wavelet.univariate
-#'#'@description
+#'#' @description
 #' Function to calculate the univariate wavelet variance using furier transforms. 
 #' It accepts a raster data or a point pattern, which is the default if raster is not provided.  
 #' The wavelet variance describes the spatial autocorrelation or aggregation of tree distribution.
@@ -101,7 +101,7 @@
 
 
 #' wavelet.bivariate
-#'#'@description
+#'#' @description
 #' Function to calculate the wavelet variance to evaluate the association between two point patterns using furier transforms. 
 #' It accepts a raster data or a point pattern, but the type of data entered has to be specified in the argument type.  
 #' The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.

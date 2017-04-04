@@ -4,7 +4,7 @@
 
 
 #' coldata.to.imagemat
-#'#'@description
+#'#' @description
 #' These functions create maps of response variables using the R functions contour, image, and filled.contour. Those functions are
 #' powerful and do the difficult work, but they are a bit tricky to learn and have many options. If you are expert with those 3 R functions,
 #' the functions below will not be especially useful. They simply rearrange various types of data into the correct format. 
@@ -20,12 +20,12 @@
 #'#' The common error with image and contour maps is getting the proper dimensions for z and the proper sizes for plotmax, x, and y. If you get an error
 #' data length is not a sub-multiple or multiple of the number of rows'then one of those inputs is wrong. 
 #' Return value is a list designed to match exactly the format of the RGDAL raster object. It has components
-#'<li> x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
-#'<li> y: likewise for y;
-#'<li> z: exactly as submitted;
-#'<li> columns: number of columns in the grid, same as length(x);
-#'<li> rows: Number of rows in the grid, same as length(y);
-#'<li> mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().
+#' *  x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
+#' *  y: likewise for y;
+#' *  z: exactly as submitted;
+#' *  columns: number of columns in the grid, same as length(x);
+#' *  rows: Number of rows in the grid, same as length(y);
+#' *  mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().
 #'#' @param z A numeric vector of responses, which means an attribute which has map coordinates.
 #' @param x The map coordinates of each column in the matrix, and the values with which the x-axis of the map will be numbered.
 #' The number of columns of z, dim(z)[2], must be exactly length(x). If x is NULL, then it is calculated using plotmax.
@@ -51,7 +51,7 @@
 
 
 #' imageGraph
-#'#'@description
+#'#' @description
 #' Maps a response variable with R's contour or image functions, or both, using the output of coldata.to.imagemat.
 #' Also can return contours as vector data, using R's contourLines. The graph can be sent to the screen or exported.
 #' There are many options for tweaking the graph, explained with the arguments.
@@ -89,7 +89,7 @@
 
 
 #' draw.axes
-#'#'@description
+#'#' @description
 #' Add axes to a graph, with ticks spaced by the vector div. This is a subroutine used in imageGraph().
 #'#'
 #'
@@ -100,7 +100,7 @@
 
 
 #' image.dataframe
-#'#'@description
+#'#' @description
 #' Creates a color response map based on columnar data, not a matrix as used by R's image function. It is used in cases where a full matrix
 #' of responses, over a complete grid, is not available. Data are submitted as a table with x and y coordinates, and a response z at each.
 #' The points are mapped on an x-y plot, then colored according to the value of z. One typical use would be where soil data are available

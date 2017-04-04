@@ -4,14 +4,14 @@
 
 
 #' model.littleR.Gibbs
-#'#'@description
+#'#' @description
 #' The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
 #' Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
-#'<li> Gaussian [modeltype="norm", with the quotes]
-#'<li> Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype="asymnorm", with the quotes]
-#'<li> Laplace (exponential distribution, with mirror image for negative values) [modeltype="symexp", with the quotes]
-#'<li> Asymmetric Laplace (different rate constant for left and right of the center) [modeltype="asymexp", with the quotes]
-#'<li> Asymmetric power distribution (different rate constant for left and right of the center) [modeltype="asympower", with the quotes]
+#' *  Gaussian [modeltype="norm", with the quotes]
+#' *  Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype="asymnorm", with the quotes]
+#' *  Laplace (exponential distribution, with mirror image for negative values) [modeltype="symexp", with the quotes]
+#' *  Asymmetric Laplace (different rate constant for left and right of the center) [modeltype="asymexp", with the quotes]
+#' *  Asymmetric power distribution (different rate constant for left and right of the center) [modeltype="asympower", with the quotes]
 #'#' A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species'mortality rates (mu) and
 #' species'rates of population change (r). 
 #' and be sure to set mindbh. Other parameters can be left at defaults. 
@@ -46,7 +46,7 @@
 
 
 #' full.abundmodel.llike
-#'#'@description
+#'#' @description
 #' With the table of abundances, hyper-parameter estimates, and estimated mortality rate and population growth for each species, calculates full model likelihood.
 #' Note use of spmean.mort.abundGibbs, not sppmean.mort.Gibbs; in the latter, the one originally used in mortality model, the likelihood of observing a 
 #' mortality parameter does not depend on the population growth. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
@@ -59,7 +59,7 @@
 
 
 #' prob.N1
-#'#'@description
+#'#' @description
 #' Calculates the probability of observing N2 given N1, assuming a community-wide
 #' distribution of little.r, log(N2/N1). It uses the normal approximation to the 
 #' binomial-poisson model (see dpopchange and testdpopchange in abundsim.r) as the
@@ -74,7 +74,7 @@
 
 
 #' spmean.mort.abundGibbs
-#'#'@description
+#'#' @description
 #' Likelihood function for a species mean (a scalar, one species at a time), given logMu and logSD and the data, N and S 
 #'(just one species here, so all parameters are scalars). In the abundance model, the mortality
 #' parameter is involved in the likelihood for population change, and it must thus depend on the
@@ -89,7 +89,7 @@
 
 
 #' hyper.abundGibbs
-#'#'@description
+#'#' @description
 #' Likelihood function for hyperparameters of abundance model, given the species values of little.r (latter a vector). Simply calculates
 #' the pdf of whatever modelfunc is requested. For symmetric models, norm and symexp, the third parameter (second hyperSD) is not used.
 #' Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
@@ -102,7 +102,7 @@
 
 
 #' hyper.mortGibbs
-#'#'@description
+#'#' @description
 #' Likelihood function for logMu and logSD, given the species means (latter a vector). Simply calculates
 #' log-normal probability of observing the species means given logMu and logSD. This is modernized to use arrangeParam.llike,
 #' and replaces the older mu.mortGibbs and sd.mortGibbs.
@@ -115,7 +115,7 @@
 
 
 #' bad.asympower.param
-#'#'@description
+#'#' @description
 #' The 3 parameters submitted to hyper.abundGibbs have to be checked, in case dasympower is used. The second and third, the
 #' two rate parameters, have to be < (-1). Since the parameters are inverted, they must be in (-1,0). 
 #' Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
@@ -128,7 +128,7 @@
 
 
 #' bad.asymexp.param
-#'#'@description
+#'#' @description
 #' For either the Gaussian, or asymexp, the SD parameters must be > 0. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
 #'#'
 #'
@@ -139,7 +139,7 @@
 
 
 #' fitSeveralAbundModel
-#'#'@description
+#'#' @description
 #' Run model.littleR.Gibbs for a series of census databases, for every successive pair, then the first to the last. Then repeat for 10 times the initial
 #' mindbh. All arguments except allcns are the same as those in model.littleR.Gibbs; allcns is a list of two more more census dataframes. 
 #'#'
@@ -151,7 +151,7 @@
 
 
 #' graph.abundmodel
-#'#'@description
+#'#' @description
 #' Output histograms of little.r across species, observed and fitted, using the result of
 #' model.littleR.Gibbs. The histogram of black points is all species, blue points only those starting with N >= minabund. If the argument mortcorr=TRUE,
 #' a graph of mortality rate vs. population change for every species is also produced. Otherwise, a table of the species with biggest increases and biggest
@@ -184,7 +184,7 @@
 
 
 #' find.xaxis.hist
-#'#'@description
+#'#' @description
 #' Given an abundance fit and x axis range and divisions, return a sequence of x values for drawing the histogram. Used as a subroutine inside graph.abundmodel.
 #'#'
 #'
@@ -195,7 +195,7 @@
 
 
 #' abundmodel.fit
-#'#'@description
+#'#' @description
 #' Simply return the modeled histogram for any set of parameters. Used as a subroutine inside graph.abundmodel.
 #'#'
 #'
