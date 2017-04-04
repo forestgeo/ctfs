@@ -267,4 +267,5 @@
 #' return(dist)
 #'#'
 #'
+#' }
 'distance'

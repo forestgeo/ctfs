@@ -7,11 +7,11 @@ library(stringr)
 read_file("./data-raw/tst.R") %>% 
   str_replace_all(
     pattern = regex(
-      "(llike=rep\\(0,length\\(modeled\\)\\))", 
+      "(\n\'distance\')", 
       multiline = TRUE, 
       dotall = TRUE
       ),
-    replacement = "\\1\\}"
+    replacement = "\n#\' \\}\r\\1"
     )
 
 

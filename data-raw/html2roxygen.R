@@ -265,6 +265,15 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\\1\\}"
     ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(\n\'distance\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\n#\' \\}\r\\1"
+    ) %>% 
 
   
 
