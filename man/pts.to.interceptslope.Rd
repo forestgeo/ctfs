@@ -6,3 +6,7 @@
 \usage{
 pts.to.interceptslope(pt1, pt2)
 }
+\description{
+Returns intercept and slope of a line given two pairs of coordinates on the line. Arguments can be vectors; if both are vectors, must be same size. 
+If the x's are exactly equal, so slope is infinite, it returns the x as the first argument.
+}

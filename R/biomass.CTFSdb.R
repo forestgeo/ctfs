@@ -4,7 +4,7 @@
 
 
 #' biomass.CTFSdb
-#'#'@description
+#'#' @description
 #' Calculate biomass from existing R-formatted tables for trees and stems using dbh allometry. By default, it uses the Chave (2005) equations.
 #' Note that the standard downloads of R Analytical Tables, already has the agb column filled, calculated with this routine using the default parameters for moist forest. 
 #' This program can be used to repeat or redo the calculation. It can also be used for other tables, always requiring two tables:  one with trees and one with all stems. 
@@ -33,7 +33,7 @@
 
 
 #' density.ind
-#'#'@description
+#'#' @description
 #' Create a vector of wood density for each individual tree based on the species name and plot. The table of individuals, called df,
 #' must include a dbh and a species name, the latter named sp. There must be a table of wood density submitted (wsgdata), and this
 #' table must have a column sp with species names, a column plot, plus the wood density in a column called wsg (though the
@@ -55,7 +55,7 @@
 
 
 #' AGB.ind
-#'#'@description
+#'#' @description
 #' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types. 
 #' Requires a table (df) with dbh and species names, a wood-density table (described under density.ind), a plot name, 
 #' dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
@@ -76,7 +76,7 @@
 
 
 #' AGB.tree
-#'#'@description
+#'#' @description
 #' Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs. 
 #' The submitted table, df, must have dbh, species name (sp),
 #' and a treeID to identify which tree every stem belong to. There must be just one dbh for each stem.  Returns
@@ -93,7 +93,7 @@
 
 
 #' Chave.AGB
-#'#'@description
+#'#' @description
 #' The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All dbhs are submitted as a vector, and a vector of wood density
 #' of the same length must also be submitted (or a single wood density can be passed, to be used for every tree). 
 #' Parameter values for the 3 forest types according to Chave 2005 are hard-coded in the function.
@@ -118,7 +118,7 @@
 
 
 #' agb.model
-#'#'@description
+#'#' @description
 #' Calculates biomass from density, height, and dbh. Requires just two parameters, following Chave (2005). The parameters can be
 #' changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
 #' This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
@@ -133,7 +133,7 @@
 
 
 #' agb.dbhmodel
-#'#'@description
+#'#' @description
 #' Calculates biomass from density and diameter, without height. Requires four parameters, following Chave (2005). 
 #' The parameters can be changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
 #' This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
@@ -148,7 +148,7 @@
 
 
 #' predht.asym
-#'#'@description
+#'#' @description
 #' An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh. 
 #' The model uses 3 parameters, submitted as argument param. The matrix form of param allows a different set of parameters to
 #' be submitted for every species. The default parameters given in the function Chave.AGB assume dbh is in cm, as do all the biomass
@@ -166,7 +166,7 @@
 
 
 #' biomass.change
-#'#'@description
+#'#' @description
 #' Finds biomass in two censuses and change between them. The submitted dataframes are exactly the standard CTFS R Analytical tables,
 #' with a column for biomass (agb) already calculated. Each dataframe has a record for every tree in a single census (or a stem
 #' table can be passed, with one record for each stem). Biomass for all living trees is summed over whatever grouping variables are 
@@ -206,7 +206,7 @@
 
 
 #' AGB.dbtable
-#'#'@description
+#'#' @description
 #' This function looks up the database named AGB in the MySQL server to get a table of biomass per stem. The MySQL table must have treeID, stemID, censusID,
 #' and a column agb with biomass in tons. This is used in cases where biomass for a plot has been calculated separately, using a method other than one of
 #' the Chave allometric equations. The alternative AGB calculation is stored for each plot in this database. The name of the table matches the plot name. 

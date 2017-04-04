@@ -5,7 +5,7 @@
 
 
 #' NeighborDensities
-#'#'@description
+#'#' @description
 #' Calculates the total number or basal area of conspecific and heterospecific neighbors at a radius r 
 #' with edge effect correction. Most arguments aim to describe the type of neighbors to count  
 #' Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs package. 
@@ -35,7 +35,7 @@
 
 
 #' NDcount
-#'#'@description
+#'#' @description
 #' Calculates the count of neighbors within radius r with edge effect correction. Is a quick version of NeighborDensities with limited capabilities. 
 #' Dependencies: CalcRingArea from the CTFS package and splancs. 
 #' Output: a single vector with neighbor counts within radius r for each individual in censdata. 

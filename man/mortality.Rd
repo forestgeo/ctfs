@@ -23,15 +23,15 @@ Individuals whose status is NA in either census are deleted from all counts,
 since it's impossible to count them either as survivors or dead.
 It requires fill.dimension and climits in utilities.r.
 Output of the mortality function is a list with components:
-<li>N, the number of individuals alive in the census 1 per category selected
-<li>D, the number of individuals no longer alive in census 2
-<li>rate, the mean annualized mortality rate constant per category selected, calculated as (log(N)-log(S))/time 
-<li>upper, upper confidence limit of mean rate
-<li>lower, lower confidence limit of mean rate
-<li>time, mean time interval in years
-<li>date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
-<li>date2, mean date in census 2 
-<li>dbhmean, mean dbh in census 1 of individuals included
+* N, the number of individuals alive in the census 1 per category selected
+* D, the number of individuals no longer alive in census 2
+* rate, the mean annualized mortality rate constant per category selected, calculated as (log(N)-log(S))/time 
+* upper, upper confidence limit of mean rate
+* lower, lower confidence limit of mean rate
+* time, mean time interval in years
+* date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
+* date2, mean date in census 2 
+* dbhmean, mean dbh in census 1 of individuals included
 
 Pass the list to assemble.demography (in utilities.r) with type="m" to convert the list a data.frame.
 }

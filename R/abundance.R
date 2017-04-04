@@ -4,7 +4,7 @@
 
 
 #' abundance
-#'#'@description
+#'#' @description
 #' Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables. 
 #' The categorical variables must be submitted as vectors whose length
 #' matches exactly as the number of rows in the plot data submitted (so one per tree or stem). 
@@ -42,7 +42,7 @@
 
 
 #' abundanceperquad
-#'#'@description
+#'#' @description
 #' Finds abundance, basal area, or agb of every species per square quadrat of any size; plotdim is the x dimension then y dimension of the plot and
 #' must be set correctly; gridsize is the quadrat dimension. The plot is divided into a checkerboard of non-overlapping, space-filling squares.
 #' If the plot dimensions is not an exact multiple of the quadrat size, then a strip at the upper edge of the plot (north and east if plot
@@ -63,7 +63,7 @@
 
 
 #' abundance.spp
-#'#'@description
+#'#' @description
 #' A wrapper to calculate total abundance (or ba or agb) for each species in given dbh categories. The dbh categories
 #' are set with dbhbreaks. See abundance() for description of the other arguments and return value.
 #'#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last category will be >= the final division
@@ -75,7 +75,7 @@
 
 
 #' pop.change
-#'#'@description
+#'#' @description
 #' Finds abundance, basal area, or agb in two censuses and the rate of change between them. 
 #' Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
 #' Do not use this function with diameter categories as a split variable! The results won't make sense. 
@@ -109,7 +109,7 @@
 
 
 #' pop.change.dbh
-#'#'@description
+#'#' @description
 #' Finds abundance or basal area in two censuses and the rate of change between them, in several dbh categories. 
 #' Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
 #' Only one additional splitting variable (other than dbh category) is allowed. Typically, this is species, but genus or quadrat are other examples.
@@ -130,7 +130,7 @@
 
 
 #' ba
-#'#'@description
+#'#' @description
 #' Calculates the individual basal areas (in square meters) for all submitted dbhs. The dbh units must be submitted, either
 #' cm'or 'millimeters'. The return value is a vector of basal area values of same length as the submitted vector of dbhs.
 #'#'
@@ -141,7 +141,7 @@
 
 
 #' basum
-#'#'@description
+#'#' @description
 #' Returns the basal area summed over all submitted dbhs. NAs can be included, as sum will be completed with na.rm=TRUE.
 #'#'
 #'
@@ -151,7 +151,7 @@
 
 
 #' abund.manycensus
-#'#'@description
+#'#' @description
 #' Collect abundances of all species across several censuses. The full R census tables are submitted as a list, as many as desired. The
 #' argument type can be used to choose basal area or agb, or the default for number of individuals. The mindbh to include must be given
 #' as an argument, but it can be NULL. If the latter, trees are counted if they have no dbh, as long as status=A. By default, any tree

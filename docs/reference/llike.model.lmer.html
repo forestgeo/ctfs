@@ -89,11 +89,24 @@ but differs in including the covariance in the hyper-model. If the argument mu, 
   <span class='kw'>returnmodel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>mu</span>, <span class='no'>covar</span>, <span class='kw'>fixed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>debug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
         
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
+<span class='co'># </span>
+<span class='co'># </span>
+<span class='co'># else if(errormodel=='GaussMultResid') </span>
+<span class='co'># {</span>
+<span class='co'>#  if(length(which(modeled&lt;=0))&gt;0) return(-Inf)       ##' With this option, model must always be &gt; 0</span>
+<span class='co'>#  llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)</span>
+<span class='co'># }</span>
+<span class='co'># else if(errormodel=='Flat') llike=rep(0,length(modeled))</span>
+<span class='co'>## ---------------------------------------------</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

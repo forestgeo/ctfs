@@ -1,3 +1,16 @@
+# ctfs 0.0.0.9002
+
+* Solve warnings listed in ctfs 0.0.0.9001. Some warnings remain, but to solve those, we need to improve the documentation (not simply reformat available documentation), for example:
+
+```
+Warning: found non-ASCII strings
+
+Undocumented arguments in documentation object 'AGB.dbtable'
+  'df' 'dbname' 'plot' 'code' 'censusno'
+
+checkRd: (5) bad.binsdpar.Rd:0-12: Must have a \description
+```
+
 # ctfs 0.0.0.9001
 
 * Document function names. (Source code was removed to bypass checks that fail and block the package from building). Help files are now available with `?<FUNCTION_NAME>`, `help(<FUNCTION_NAME>)` or online at https://forestgeo.github.io/ctfs/.

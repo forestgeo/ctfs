@@ -90,23 +90,22 @@ Rather, the names of x, y columns, are given. The model describing y&#39;s funct
 parameters required by the model.</p>
 
     <p>The return value is a list with several components:
-&lt;li&gt; resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
-&lt;li&gt; fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
-&lt;li&gt; burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
-&lt;li&gt; steps: Atomic, the number of steps run in Gibbs sampler
-&lt;li&gt; llike: Full log-likelihood of the model at each step of the Gibbs&#39;sampler
-&lt;li&gt; obs: The original y (dependent) variable, just as submitted
-&lt;li&gt; data: The original x (independent) variables, just as submitted
-&lt;li&gt; parnames: The names of the model parameters
-&lt;li&gt; start: The start parameters submitted
-&lt;li&gt; best: Best estimate of the model parameters for the entire data 
-&lt;li&gt; CI: Credible intervals for the model parameters
-&lt;li&gt; bestresid: The best estimate of parameters for the error model
-&lt;li&gt; CIresid: Credible intervals for the parameters of the error model
-&lt;li&gt; pred: A dataframe with all observations, predictors, and the model&#39;s best prediction, mean prediction, and credible intervals at each point
-&lt;li&gt; many: A 2D array holding N draws of the model&#39;s prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
-&lt;li&gt; keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-&lt;&gt;</p>
+*  resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
+*  fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
+*  burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+*  steps: Atomic, the number of steps run in Gibbs sampler
+*  llike: Full log-likelihood of the model at each step of the Gibbs&#39;sampler
+*  obs: The original y (dependent) variable, just as submitted
+*  data: The original x (independent) variables, just as submitted
+*  parnames: The names of the model parameters
+*  start: The start parameters submitted
+*  best: Best estimate of the model parameters for the entire data 
+*  CI: Credible intervals for the model parameters
+*  bestresid: The best estimate of parameters for the error model
+*  CIresid: Credible intervals for the parameters of the error model
+*  pred: A dataframe with all observations, predictors, and the model&#39;s best prediction, mean prediction, and credible intervals at each point
+*  many: A 2D array holding N draws of the model&#39;s prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
+*  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers</p>
     
 
     <pre><span class='fu'>modelBayes</span>(<span class='no'>data</span>, <span class='no'>ycol</span>, <span class='no'>xcol</span>, <span class='no'>start</span>, <span class='no'>startSD</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='no'>logistic.standard</span>,

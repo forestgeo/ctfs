@@ -77,7 +77,11 @@
     <h1>find.climits</h1>
     </div>
 
-
+    
+    <p>Calculates confidence limits around a number of deaths, D, out of N individuals.
+It uses the beta distribution as the conjugate of the binomial, so the beta is the posterior of the number
+dying. N and D can be vectors or matrices, but must have matching dimensions.</p>
+    
 
     <pre><span class='fu'>find.climits</span>(<span class='no'>N</span>, <span class='no'>D</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='kw'>kind</span> <span class='kw'>=</span> <span class='st'>"upper"</span>)</pre>
     
@@ -88,19 +92,24 @@
       <dt>D, </dt>
       <dd>number of deaths by the end</dd>
       <dt>alpha, </dt>
-      <dd>the critical probability (default alpha=0.05 gives 95<!-- % confidence limits)} -->
-
-kind, either &quot;upper&quot; or &quot;lower&quot;
-</dd>
+      <dd>the critical probability (default alpha=0.05 gives 95% confidence limits)</dd>
+      <dt>kind, </dt>
+      <dd>either &quot;upper&quot; or &quot;lower&quot;</dd>
     </dl>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
+<span class='co'># find.climits(10,5,kind='lower')</span>
+<span class='co'>## ---------------------------------------------</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

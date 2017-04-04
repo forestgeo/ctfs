@@ -13,3 +13,14 @@ and converts into one dataframe. Only indicated dbh categories are included; be 
 not exceed the number of columns in the data submitted. Type is 'g'for growth, 'm'
 for mortality, 'ba'for basal area, 'agb'for biomass, 'r'for recruitment, and 'a'for abundance.
 }
+\examples{
+\dontrun{
+
+data=pop.change(bci.full5,bci.full6,split1=bci.full5$sp);
+result=assemble.demography(data,type='a',whichdbhcat=1)
+data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
+result=assemble.demography(data,type='g',whichdbhcat=1)
+data=mortality.eachspp(bci.full5,bci.full6,classbreak=c(10,100))
+result1=assemble.demography(data,type='m',whichdbhcat=1)
+result2=assemble.demography(data,type='m',whichdbhcat=2)}
+}

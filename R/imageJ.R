@@ -4,7 +4,7 @@
 
 
 #' fullplot.imageJ
-#'#'@description
+#'#' @description
 #' Reads quadrat maps created by imageJ, converting the digitized pixel to coordinates within a quadrat (local coordinates).<br />
 #' The input imageJ files must be named in a very specific way: all should have the same prefix and the quadrat names should
 #' have 4 digits. If there are subquadrats, the names should end with the same consistent suffixes. Only those files with this 
@@ -38,7 +38,7 @@
 
 
 #' SectionCorrection
-#'#'@description
+#'#' @description
 #' This function is called by fullplot.imageJ in the case that the maps are subquadrats to correct the coordinates and make them from 0 to 20 depending on
 #' what section of the map the subquadrat belongs to.
 #'#' @param pts the coordinates to be corrected
@@ -53,7 +53,7 @@
 
 
 #' imageJ.to.lxly
-#'#'@description
+#'#' @description
 #' Convert map pixels from digitzing program to plot coordinates. Uses 2 functions from geometry.r:
 #' pts.to.interceptslope=function(pt1,pt2)
 #' perpendicular.distance=function(b,m,x,y) return(sqrt((y-m*x-b)^2/(1+m^2)))
@@ -70,7 +70,7 @@
 
 
 #' distance.to.side
-#'#'@description
+#'#' @description
 #' Called from imageJ.to.lxly where for each point, distance to each side is calculated in 3 different ways: perpendicular, parallel to one adjacent side, 
 #' and parallel to other adjacent. These 3 distances are averaged, and the discrepancy used as a measure of error, taken as the CV of the three measures.
 #'#'

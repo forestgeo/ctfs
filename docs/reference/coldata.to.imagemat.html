@@ -96,12 +96,12 @@ set x and y NULL, and plotmax to the correct plot dimensions. Then make sure z i
     <p>The common error with image and contour maps is getting the proper dimensions for z and the proper sizes for plotmax, x, and y. If you get an error
 data length is not a sub-multiple or multiple of the number of rows&#39;then one of those inputs is wrong. 
 Return value is a list designed to match exactly the format of the RGDAL raster object. It has components
-&lt;li&gt; x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
-&lt;li&gt; y: likewise for y;
-&lt;li&gt; z: exactly as submitted;
-&lt;li&gt; columns: number of columns in the grid, same as length(x);
-&lt;li&gt; rows: Number of rows in the grid, same as length(y);
-&lt;li&gt; mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().</p>
+*  x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
+*  y: likewise for y;
+*  z: exactly as submitted;
+*  columns: number of columns in the grid, same as length(x);
+*  rows: Number of rows in the grid, same as length(y);
+*  mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().</p>
     
 
     <pre><span class='fu'>coldata.to.imagemat</span>(<span class='no'>z</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotmin</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>,

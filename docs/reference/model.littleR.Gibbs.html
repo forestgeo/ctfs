@@ -80,11 +80,11 @@
     
     <p>The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
 Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
-&lt;li&gt; Gaussian [modeltype=&quot;norm&quot;, with the quotes]
-&lt;li&gt; Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype=&quot;asymnorm&quot;, with the quotes]
-&lt;li&gt; Laplace (exponential distribution, with mirror image for negative values) [modeltype=&quot;symexp&quot;, with the quotes]
-&lt;li&gt; Asymmetric Laplace (different rate constant for left and right of the center) [modeltype=&quot;asymexp&quot;, with the quotes]
-&lt;li&gt; Asymmetric power distribution (different rate constant for left and right of the center) [modeltype=&quot;asympower&quot;, with the quotes]</p>
+*  Gaussian [modeltype=&quot;norm&quot;, with the quotes]
+*  Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype=&quot;asymnorm&quot;, with the quotes]
+*  Laplace (exponential distribution, with mirror image for negative values) [modeltype=&quot;symexp&quot;, with the quotes]
+*  Asymmetric Laplace (different rate constant for left and right of the center) [modeltype=&quot;asymexp&quot;, with the quotes]
+*  Asymmetric power distribution (different rate constant for left and right of the center) [modeltype=&quot;asympower&quot;, with the quotes]</p>
 
     <p>A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species&#39;mortality rates (mu) and
 species&#39;rates of population change (r). 

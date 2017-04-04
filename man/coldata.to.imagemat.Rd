@@ -41,12 +41,12 @@ set x and y NULL, and plotmax to the correct plot dimensions. Then make sure z i
 The common error with image and contour maps is getting the proper dimensions for z and the proper sizes for plotmax, x, and y. If you get an error
 data length is not a sub-multiple or multiple of the number of rows'then one of those inputs is wrong. 
 Return value is a list designed to match exactly the format of the RGDAL raster object. It has components
-<li> x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
-<li> y: likewise for y;
-<li> z: exactly as submitted;
-<li> columns: number of columns in the grid, same as length(x);
-<li> rows: Number of rows in the grid, same as length(y);
-<li> mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().
+*  x: same as the argument x; if x is submitted as NULL, this is the vector calculated by using plotmax;
+*  y: likewise for y;
+*  z: exactly as submitted;
+*  columns: number of columns in the grid, same as length(x);
+*  rows: Number of rows in the grid, same as length(y);
+*  mat: The matrix needed for graphing, exactly as needed for instance by imageGraph().
 }
 \examples{
 \dontrun{

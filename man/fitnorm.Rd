@@ -13,3 +13,16 @@ and the last SD is for the likelihood of the deviations.
 
 y is vector data to be fitted, at points x
 }
+\examples{
+\dontrun{
+
+
+
+y=y/sum(y)}
+
+
+
+
+
+
+}
