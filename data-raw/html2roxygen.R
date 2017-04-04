@@ -373,6 +373,15 @@ map(paths$from, read_file) %>%
       ),
     replacement = "CTFSplot\\(plot=\'sinharaja', census=3"
     ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(\\})\\}.*(\'assemble\\.demography\')",
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\r\n\\2"
+    ) %>% 
 
   
 

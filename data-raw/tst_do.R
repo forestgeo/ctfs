@@ -7,11 +7,11 @@ library(stringr)
 read_file("./data-raw/tst.R") %>% 
   str_replace_all(
     pattern = regex(
-      "CTFSplot\\(plot=\'sinharaja,census=3",
+      "(\\})\\}.*(\'assemble\\.demography\')",
       multiline = TRUE, 
       dotall = TRUE
       ),
-    replacement = "CTFSplot\\(plot=\'sinharaja', census=3"
+    replacement = "\\1\r\n\\2"
     )
 
 
