@@ -6,3 +6,7 @@
 \usage{
 inside.rect(rect1, rect2)
 }
+\description{
+Determines whether any of the 4 corners of one rectangle are within a second rectangle. Both rectangles are submitted as c(x0,x1,y0,y1). If just one
+of the corners is inside, it returns true. See insideRectange(), which has a similar name but does something different.
+}

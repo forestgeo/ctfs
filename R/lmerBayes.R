@@ -157,7 +157,7 @@
 #'  if(length(which(modeled<=0))>0) return(-Inf)       ##' With this option, model must always be > 0
 #'  llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)
 #' }
-#' else if(errormodel=='Flat') llike=rep(0,length(modeled))
+#' else if(errormodel=='Flat') llike=rep(0,length(modeled))}
 #'#'
 #'#'
 #'

@@ -141,7 +141,6 @@
 #' If the x's are exactly equal, so slope is infinite, it returns the x as the first argument. 
 #'#'
 #'
-#'}
 #'
 'pts.to.interceptslope'
 
@@ -230,7 +229,6 @@
 #' of the corners is inside, it returns true. See insideRectange(), which has a similar name but does something different.
 #'#'
 #'
-#'}
 #'
 'inside.rect'
 

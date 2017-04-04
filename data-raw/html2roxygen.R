@@ -238,17 +238,35 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\\1\\\r\\\n\\2"
     ) %>%
-  
-  
-  
-  
-  
-  
-  
+  map(
+    replace_stuff,
+    pattern = regex(
+      "\\}.*(\\\n\'pts\\.to\\.interceptslope\')", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "\\}.*\'inside\\.rect\\'", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\r\n'inside.rect'"
+    ) %>% 
+  map(
+    replace_stuff,
+    pattern = regex(
+      "(llike=rep\\(0,length\\(modeled\\)\\))", 
+      multiline = TRUE, 
+      dotall = TRUE
+      ),
+    replacement = "\\1\\}"
+    ) %>% 
 
-
-
-
+  
 
 
 
