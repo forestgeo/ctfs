@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{calculateBinModel.BIC}
 \alias{calculateBinModel.BIC}
-\title{calculateBinModel.BIC}
+\title{extract.growthdata}
 \usage{
 calculateBinModel.BIC(fit)
 }
@@ -10,4 +10,8 @@ calculateBinModel.BIC(fit)
 Calculate Bayes Information Criteria using Wikipedia formula
 
 Description: Calculate Deviance Information Criteria, using Wikipedia formula
+}
+\details{
+bad.binsdpar'
+calculateBinModel.BIC
 }

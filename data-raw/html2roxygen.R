@@ -467,6 +467,7 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\\1"
     ) %>%
+  
   # Clean roxygen files, and brake line to make paragraphs
   map(str_replace_all, "\r", "") %>%
   map(str_replace_all, "[^\n](#\')", "\n\\1") %>%
@@ -476,7 +477,15 @@ map(paths$from, read_file) %>%
   map(str_replace_all, "(\n#\'){3,}", "\\1\\1") %>%
   map(str_replace_all, "(\n){3,}", "\\1\\1") %>%
   map(str_replace_all, "(\n#\' [A-Z].*)", "\n#\'\\1") %>%
-
+  
+  map(str_replace_all,
+    pattern = regex(
+      "@description.*bad\\.binsdpar",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    replacement = "bad\\.binsdpar"
+    ) %>% 
   
   
   
