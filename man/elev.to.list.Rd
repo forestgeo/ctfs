@@ -12,7 +12,6 @@ size and converts to a list
 note the names of the columns in the dataframe must be:
 x y elev
 
-
 object 1 in list is: the input dataframe
 object 2 in list is: matrix of elevation value sin the orientation of the plot
 }

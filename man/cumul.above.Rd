@@ -9,5 +9,6 @@ cumul.above(x, y, cutoff, logaxs = "", graphit = TRUE, returnfull = FALSE)
 \description{
 Given y values as a function of x, this seeks the x at which the curve passes through a given y. It sets
 a variable whichabove to 0 for all cases where y>cutoff, otherwise 0, then fits a logistic regression.
+
 The midpoint of the logistic regression is a good estimate.
 }

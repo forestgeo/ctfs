@@ -12,7 +12,9 @@ This is for model.xy. Take the function for the SD, its parameters, and both pre
 dependent variable (pred,obs)
 to generate a likelihood. One of the parameters is passed as testparam, for use with metrop1step. The predicted value
 for each observation is included, and not calculated from the predicting function. 
+
 MINIMUM_SD=.0001
+
 MINIMUM_SD should be set in the program calling model.xy, to adjust it appropriately. If MINSD==0, then the sd can
 collapse to a miniscule number and drive the likelihood very high, preventing parameter searches from ever escaping the sd.
 }

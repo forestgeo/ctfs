@@ -9,5 +9,6 @@ graph.outliers(full, trimmed, fit = NULL, allspp = NULL, size = "agb",
 }
 \description{
 Graph the outliers overlaid on the model and full data for all species in a model fit result.
+
 The argument export can be set to a window device (X11, win.graph, quartz) or a graphics option (png, pdf).
 }

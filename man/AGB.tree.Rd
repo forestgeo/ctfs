@@ -9,6 +9,7 @@ AGB.tree(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
 }
 \description{
 Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs. 
+
 The submitted table, df, must have dbh, species name (sp),
 and a treeID to identify which tree every stem belong to. There must be just one dbh for each stem.  Returns
 a dataframe with one row per tree, including the treeID and total agb per tree. Note that it will have fewer rows

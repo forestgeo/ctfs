@@ -21,10 +21,14 @@ selectrandomquad(size, shape, rep, plotdim = c(1000, 500), graphit = FALSE)
 }
 \description{
 Draws rectangular quadrats in a plot at random. Returns a dataframe of coordinates defining the corners of all the quadrats. 
+
 The variable size is a vector of dimensions; shape allows a rectangle to be drawn; rep is the
 number of replicated random quadrats per dimension submitted. 
+
 Quadrats are chosen simply: a point is chosen by randomly drawing one x and one y coordinates to serve as the lower-left corner.
+
 The x is chosen from a uniform distribution between 0 and plotdim[1]-size; y is chosen similarly. 
+
 All 3 algorithms for creating random quadrats under sample the plot corners. See selectrandomquad2() and selectrandomquad3(), alternative
 intended to overcome the bias (but neither does).
 }

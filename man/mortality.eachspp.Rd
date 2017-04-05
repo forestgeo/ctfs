@@ -14,6 +14,7 @@ is the list from mortality and can be passed to assemble.demography for a conven
 }
 \examples{
 \dontrun{
+
 CTFSplot("bci",5:6)
 mort.data=mortality.eachspp(bci.full5,bci.full6)
 mort.table1=assemble.demography(mort.data,type="m",whichdbhcat=1)

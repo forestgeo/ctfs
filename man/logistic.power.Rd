@@ -8,6 +8,7 @@ logistic.power(x, param, log = FALSE, ...)
 }
 \description{
 This is the Gaussian logistic function, where logit is a second-order polynomial of x; with asymptote and basement allowed. 
+
 There must be 1+2*nopredictors parameters; the asympotote and basement are only implemented
 if extra parameters are passed.
 }

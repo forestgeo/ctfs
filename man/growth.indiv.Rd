@@ -18,7 +18,4 @@ if growth=NA. Arguments are the same as in growth().
 growth.table=growth.indiv(bci.full5,bci.full6)}
 
 
-
-
-
 }

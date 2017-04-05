@@ -10,6 +10,8 @@ graph.mvnorm(param, x, y, div = 10, add = FALSE, clr = "gray", lw = 0.5,
 \description{
 Graphs contours for an mvnorm, with parameters submitted as a
 vector, as described above, for a single 2D Gaussian.
+
 The probability has to be calculated on a grid so contours can be drawn.
+
 The argument exclude allows parts to be set to zero.
 }

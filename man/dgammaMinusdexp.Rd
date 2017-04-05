@@ -10,6 +10,7 @@ dgammaMinusdexp(z, mean, sd, lambda, draws = 10000, div = 0.01,
 \description{
 The PDF of the difference between a gamma and a negative exponential distribution. The shape and rate of the gamma 
 are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
+
 This comes from the convolution of the two distributions, which is also a gamma, and the integral 
 of the new gamma evaluated with pgamma. Note that lambda is the rate of the exponential.
 }

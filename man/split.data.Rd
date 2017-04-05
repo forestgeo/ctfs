@@ -13,6 +13,7 @@ column in the database, or any external vector. The variable allsplit can be set
 of data sections to be included; if allsplit includes values not in the data, empty elements
 are included in the list, but if allsplit includes fewer values than found in the data, then
 missing elements are omitted. 
+
 The option keepsplitcol can be set to TRUE
 in order to retain in the new dataframes the column on which the data are grouped; otherwise, that
 column is removed.

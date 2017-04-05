@@ -10,5 +10,6 @@ hyper.abundGibbs(test, Rsd, spmean, whichtest, type, badparam = NULL,
 \description{
 Likelihood function for hyperparameters of abundance model, given the species values of little.r (latter a vector). Simply calculates
 the pdf of whatever modelfunc is requested. For symmetric models, norm and symexp, the third parameter (second hyperSD) is not used.
+
 Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
 }

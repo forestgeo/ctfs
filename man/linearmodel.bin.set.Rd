@@ -9,7 +9,10 @@ linearmodel.bin.set(v, param, binparam)
 \description{
 This does the work of calculating predicted values at each independent variable, given bin and line parameters separately, 
 the latter being slope and intercept parameters in one vector. 
+
 Completely revised June 2011 to use geometry.r functions for lines.
+
 Create a list of lines, one for each bin, and an intersection (intercept), one for each bin:
+
 This function cannot handle one bin, and linearmodel.bin escapes with linear.model if only one bin is sought
 }

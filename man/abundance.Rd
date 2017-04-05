@@ -24,26 +24,35 @@ abundance(censdata, type = "abund", alivecode = c("A"), mindbh = NULL,
 }
 \description{
 Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables. 
+
 The categorical variables must be submitted as vectors whose length
 matches exactly as the number of rows in the plot data submitted (so one per tree or stem). 
+
 The first vector should be the one with the most categories
 (for instances, split1=species, split2=dbhcategory). 
+
 The mean measurement date for all individuals in each category is
 also calculated. 
+
 For abundance, set type='abund'(the default), for basal area, set type='ba'. Be sure to use the R Analytical
+
 Stem Table for basal area. For abundance, either the stem table or full table can be used, the former to count stems, the latter trees. 
+
 The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of 
 one or two dimensions, depending on how many split variables were submitted:
 each of the dimensions of the array handles one of the categorical variables.
 }
 \examples{
 \dontrun{
+
 CTFSplot('bci',5:6,'full')
+
 CTFSplot('bci',5:6,'stem')
 total=abundance(bci.full5,mindbh=10)
 total$abund
 total$meandate
 totalstem=abundance(bci.stem5,mindbh=10)
+
 BAperSpecies=abundance(bci.stem5,type='ba',mindbh=10,split1=bci.stem5$sp)
 head(BAperSpecies$ba)
 head(BAperSpecies$meandate)}

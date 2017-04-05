@@ -8,6 +8,7 @@ constant.bin(x, param)
 }
 \description{
 A model like piecewise regression (linearmodel.bin), but y is a constant within each bin.
+
 With B bins, 2B-1 parameters are needed. First B-1 parameters are bin breaks. The remaining B
 parameters are the constant value of y in each bin.
 }

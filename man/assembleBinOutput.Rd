@@ -9,6 +9,7 @@ assembleBinOutput(inputtable, fulldata, sitename)
 \description{
 Use the list output from piecewise regression (growthfit.bin) and converts to a flat table. The single argument 
 inputdata is the output compare.growthbinmodel.
+
 Written by Adrian Das.
 (excluding burn in)
 }

@@ -9,13 +9,14 @@ mortality.calculation(N, S, meantime)
 \description{
 This is the calculation of mortality rate and confidence limits, given N 
 (number alive at the outset), S (number of survivors), and time (time interval).
+
 All three can be arrays, vectors, or scalars, but all three must be identical size. 
+
 It relies on find.climits. Used by mortality function, but can be used alone.
 }
 \examples{
 \dontrun{
 mortality.calculation(N=c(100,1000),S=c(75,750),meantime=c(5.1,5.1))}
-
 
 
 }

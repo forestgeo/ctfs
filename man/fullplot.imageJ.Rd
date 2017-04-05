@@ -19,6 +19,7 @@ the results will not be written to a file.}
 \item{include.subdir}{whether the subfolders are to be searched for map files also}
 
 \item{corners}{specify the tags used for the map corners used for calibration. They must be named in a clockwise direction starting with the lower left corner. 
+
 These tags must be the same in each and every map file.}
 
 \item{colrange}{specifies the range of the columns, found as the first two digits of the quadrat name}
@@ -35,6 +36,7 @@ These tags must be the same in each and every map file.}
 }
 \description{
 Reads quadrat maps created by imageJ, converting the digitized pixel to coordinates within a quadrat (local coordinates).<br />
+
 The input imageJ files must be named in a very specific way: all should have the same prefix and the quadrat names should
 have 4 digits. If there are subquadrats, the names should end with the same consistent suffixes. Only those files with this 
 specific naming convention are read and converted. Updated Aug 2014 to handle files with no trees (just 4 corner labels).

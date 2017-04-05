@@ -9,12 +9,11 @@ distance(quad1, quad2, gridsize = 20, plotdim = c(1000, 500))
 \description{
 Calculates the distance from one quadrat to a second quadrat, where quadrats are designated by their indices, as
 created by gxgy.to.index. The two quadrats can be vectors, but must be of the same length (or one of the two can be atomic). 
+
 Returns a vector of distances same length as input vectors.
 }
 \examples{
 \dontrun{
-
-
 
 bad1=pt1$gx<0 | pt1$gy<0 
 bad2=pt2$gx<0 | pt2$gy<0
@@ -26,8 +25,6 @@ else if(length(pt2)==1 & bad2==T) dist=rep(-1,length(pt1))
 dist[bad1]=(-1)
 dist[bad2]=(-1)
 return(dist)
-
-
 
 }
 }

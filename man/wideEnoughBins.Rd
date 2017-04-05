@@ -10,9 +10,7 @@ wideEnoughBins(x, b, ...)
 Test whether all the bin widths exceed a minimum. 
 
 
-
-
-
 MINBIN=0.1
+
 MINBINSAMPLE=5
 }

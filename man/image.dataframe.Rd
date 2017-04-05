@@ -16,19 +16,21 @@
 
 \item{ptsize}{Size of points to be drawn
 
+
 Other arguments are the same as imageGraph().}
 }
 \description{
 Creates a color response map based on columnar data, not a matrix as used by R's image function. It is used in cases where a full matrix
 of responses, over a complete grid, is not available. Data are submitted as a table with x and y coordinates, and a response z at each.
+
 The points are mapped on an x-y plot, then colored according to the value of z. One typical use would be where soil data are available
 at many locations, coloring points by the concentration of one nutrient. Another, illustrated below, would be to color tree locations according to dbh.
 }
 \examples{
 \dontrun{
+
 CTFSplot('bci',6,'full')
 image.dataframe(data=subset(bci.full6,status=='A'),xcol='gx',ycol='gy',zcol='dbh',breaks=c(10,20,50,100,500,10000),xrange=c(0,100),yrange=c(0,100), colors=c('orange','yellow','lightgreen','green','blue'),newgraph=TRUE,h=9,w=12,plotsize=7)}
-
 
 
 }

@@ -8,6 +8,7 @@ dgamma.mean(mu, x, k)
 }
 \description{
 A version of dgamma where the parameters are ordered so that the mean (mu = shape x scale) is the first argument.
+
 The second argument is x, the value at which dgammma is evaluated, and the third is scale. This is needed
 for use with mcmc1step, to do a metropolis step on the mean. Only mu can be a vector.
 }

@@ -9,5 +9,6 @@ residual.llike.modelBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
 }
 \description{
 Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
+
 This likelihood does not depend on the hyperparameters. It does require data and prediction.
 }

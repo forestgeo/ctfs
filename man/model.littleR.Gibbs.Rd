@@ -35,6 +35,7 @@ model.littleR.Gibbs(cns1, cns2, mindbh, demog = NULL, sptable,
 }
 \description{
 The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
+
 Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
 *  Gaussian [modeltype="norm", with the quotes]
 *  Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype="asymnorm", with the quotes]
@@ -42,24 +43,27 @@ Five different functional forms to the distribution can be fitted, as chosen wit
 *  Asymmetric Laplace (different rate constant for left and right of the center) [modeltype="asymexp", with the quotes]
 *  Asymmetric power distribution (different rate constant for left and right of the center) [modeltype="asympower", with the quotes]
 
+
 A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species'mortality rates (mu) and
 species'rates of population change (r). 
 and be sure to set mindbh. Other parameters can be left at defaults. 
+
 Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this has to be included for asymexp; before, the
 check for negative SD parameters was hard-coded. 
+
 Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.
 }
 \examples{
 \dontrun{
 lambir.modelR=model.littleR.Gibbs(cns1=lambir.full3,cns2=lambir.full4,mindbh=1,bad.modelparam=bad.asymexp.param))
 palanan.modelR=model.littleR.Gibbs(cns1=palanan.full3,palanan.full4,mindbh=1,bad.modelparam=bad.asymexp.param)
+
 For graphic output, just pass the result to graph.abundmodel. There are many options, but the defaults will show the key results. 
 graph.abundmodel(fit=lambir.modelR)
+
 Alternate distributions for little r:
 power67=model.littleR.Gibbs(cns1=bci.full6,cns2=bci.full7,modeltype='asympower',mindbh=10,start.param=c(-3,.8,.01,-.5),  bad.modelparam=bad.asympower.param,showstep=25)
 gauss67=model.littleR.Gibbs(cns1=bci.full6,cns2=bci.full7,modeltype='asymnorm',mindbh=10,start.param=c(-3,.8,.01,100),  bad.modelparam=bad.asymexp.param,showstep=25)}
-
-
 
 
 }

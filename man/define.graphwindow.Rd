@@ -11,5 +11,6 @@ This defines an export device for a graph, based on the argument export. The def
 the next graph uses the default R device. With this option, the size of the graph cannot have been set larger than
 the default size, which is usually 7 inches. If export="unix", a new graphics window in unix, size h and width w, will be opened
 allowing you to alter the size of the output. To do the same in Windows, set export="windows", or for Mac, export="mac". 
+
 To export the graph to a file, export can be "pdf", "png", "jpg", "bmp", "emf". In all cases, it is quoted.
 }

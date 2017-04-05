@@ -10,6 +10,7 @@ llike.GaussModel(testparam, allparam, whichtest, x, obs, model, badpred, SD,
 \description{
 This is for model.xy. It takes the model function, its parameters, x values, observed values of the dependent variable obs, and sd values,
 to generate a likelihood. One of the parameters is passed as testparam, for use with metrop1step.
+
 This requires a badparam function for testing parameters. The standdard deviation is passed as an argument,
 not calculated from sdmodel.
 }

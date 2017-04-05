@@ -11,6 +11,8 @@ coverage.diag(randomquads, slope = 1, plotdim = c(1000, 500),
 Draws a diagonal across a plot, from lower left to upper right (if slope==1), upper left to lower right (if slope==-1),
 or straight across the middle (if slope==0).
 and determines for every point along the diagonal what fraction of a series of quadrats it is inside.
+
 The quadrats are defined by their four corners in randomquads: xlo, ylo, xhi, yhi.
+
 This is only used in testing how well random quadrat draws include corners and edges of a plot.
 }

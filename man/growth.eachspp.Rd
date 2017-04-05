@@ -17,7 +17,4 @@ variables then uses growth(). Other arguments are as in growth().
 growth.result=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))}
 
 
-
-
-
 }

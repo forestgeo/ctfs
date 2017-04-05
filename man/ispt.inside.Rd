@@ -8,6 +8,7 @@ ispt.inside(pt, coord)
 }
 \description{
 Check a single pt (x and y) against a large number of quadrats whose corners are given by the rows of coord, xlo, ylo, xhi, yhi.
+
 It returns the fraction of quadrats which the point falls inside. This is exactly like are.ptsinside() but allows there to be many
 rectangles, defined by a dataframe coord.
 }

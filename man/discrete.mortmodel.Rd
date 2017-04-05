@@ -8,6 +8,8 @@ discrete.mortmodel(x, param)
 }
 \description{
 A model for mortality as a function of a single discrete predictor, with the time interval for each individual incorporated (as a second predictor).
+
 The predictor must be a factor, so the total number of levels is known. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor. 
+
 The return value is a survival probability. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
 }

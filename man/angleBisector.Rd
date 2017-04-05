@@ -12,5 +12,6 @@ Given 3 sets of coordinates defining two line segments (middle point is intersec
 2) If slope is negative with x2<x1 (travel is toward Quadrant II), then theta=atan(slope)+pi
 3) If slope is positive with x2>=x1 (travel is toward Quadrant I), then theta=atan(slope)
 4) If slope is positive with x2<x1 (travel is toward Quadrant III), then theta=atan(slope)-pi
+
 This returns theta in (-pi,pi). Then the turn is calculated, ie the change in direction between the two segments as the difference in theta, but it is reset to be on (-pi,pi) as well in order to correctly estimate the mean direction of travel (half the turn added to theta[1]).
 }

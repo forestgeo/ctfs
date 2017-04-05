@@ -10,17 +10,25 @@ wavelet.bivariate(raster1 = NULL, raster2 = NULL, coords1, coords2,
 }
 \description{
 Function to calculate the wavelet variance to evaluate the association between two point patterns using furier transforms. 
+
 It accepts a raster data or a point pattern, but the type of data entered has to be specified in the argument type.  
+
 The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.
+
 A wavelet variance greater than 1 indicates scales at which individuals 
 are aggregated. A wavelet variance less than 1, indicates scales at which 
 individuals are dis-aggregated. A wavelet variance equal to 1, indicates scales 
 at which individuals are randomply distribuited (as Poisson process).  
+
 A graphical test is implemented on the null hypothesis of comple randomness. 
+
 If the wavelet variance is out of the conf bounds the point distribution 
 is significantly different from a random process.  
+
 Dependencies: needs the package 'spatstat'and the CTFSRpackage 
+
 Authors: Matteo Detto and Tania Brenes  
+
 Output: a list containing vectors for the wavelet variance, the scale of the wavelet variance, and the normalized variance. 
 
 coords1  (): a matrix with raster data OR a table with two or three columns that can be used to calculate a raster, the first two columns are the coordinates and the third is the mark. Type must be specified ;  
@@ -28,6 +36,7 @@ coords2 (): 2nd dataset for the bivariate analyisis;
 type ('raster'): the type of data entered, 'raster'if a raster matrix, 'point'for a point pattern, or 'marked'for a marked point pattern;
 gridsize : is the quadrat size of the rasterization;
 plotdim (c(1000,500)): the dimensions of the plot;
+
 FUN ('sum'): function to apply to the marked point pattern, by default it sums the values as would be used for sum of basal areas or sum of above graound biomass
 k0 (8): numeric. smoothing parameter of the wavelet filter (k0 between 5.5-15), 
 lower values of k0 produce a smoother wavelet variance; 

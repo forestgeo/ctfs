@@ -8,5 +8,6 @@ calcMortIndivTable(mtable, by = "species")
 }
 \description{
 Calculate mortality rate per species per census interval using the output of individual_mort.table. 
+
 Formerly named calcMortlmerTable.
 }

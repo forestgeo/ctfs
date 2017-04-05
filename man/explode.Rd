@@ -7,5 +7,6 @@
 explode(str, sep = "")
 }
 \description{
-Split a single (atomic) character variable into sections, separated on sep. With the default, sep=#', it divides the string into it's individual letters.
+Split a single (atomic) character variable into sections, separated on sep. With the default, sep
+, it divides the string into it's individual letters.
 }

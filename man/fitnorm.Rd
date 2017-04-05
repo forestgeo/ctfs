@@ -8,6 +8,7 @@ fitnorm(start.param = c(-1, -1, 1), x, y)
 }
 \description{
 Fitting a normal distribution to data
+
 Parameters are a mean and sd of the normal being fitted, a scaling parameter k
 and the last SD is for the likelihood of the deviations.
 
@@ -16,13 +17,7 @@ y is vector data to be fitted, at points x
 \examples{
 \dontrun{
 
-
-
 y=y/sum(y)}
-
-
-
-
 
 
 }

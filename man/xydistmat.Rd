@@ -8,5 +8,6 @@ xydistmat(pts)
 }
 \description{
 Distance between two x-y coordinates, but accepts two sets of coordinates in a single matrix (4 columns ordered x1, y1, x2, y2). 
+
 For use with apply.
 }

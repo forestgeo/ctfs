@@ -12,14 +12,18 @@ must include a dbh and a species name, the latter named sp. There must be a tabl
 table must have a column sp with species names, a column plot, plus the wood density in a column called wsg (though the
 name of that column can be changed using the argument denscol). The CTFS wood-density table has this structure, but any table with those
 columns will work. If a species in the df table has a matching species name in the correct plot, its wood density is taken.
+
 If a species is not found in the correct plot, then the mean wood density of all species in the same plot is taken. The function
 fails (returns only NAs) if there are no entries for the selected plot in the wood-density table.  
+
 Returns a vector of wood density of the same size as the df table submitted.
 }
 \examples{
 \dontrun{
-wooddens=density.ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2) #'
-mean(wooddens,na.rm=TRUE) #'
+wooddens=density.ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2)
+
+mean(wooddens,na.rm=TRUE)
+
 length(which(is.na(wooddens)))}
 
 

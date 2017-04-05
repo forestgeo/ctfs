@@ -9,7 +9,10 @@ arrangeParam.llike.2D(testparam, allparam, whichrow, whichcol,
 }
 \description{
 Used in likelihood function of a Gibbs sampler for lmerBayes, but for parameters submitted as a matrix, not a vector. 
+
 Allows any of a set of parameters to be submitted to metrop1step; whichrow, whichcol are the indices of the single parameter to test. 
+
 The argument forcesymmetry is needed for a covariance matrix: if one column is updated, the transposed column must also be.
+
 If NULL, zero, or NA, it simply returns allparam. This is based on arrangeParam.llike.
 }

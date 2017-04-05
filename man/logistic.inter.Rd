@@ -10,5 +10,6 @@ logistic.inter(x, param, log = FALSE, ...)
 Logistic function with intercept parameterization (ie, first parameter is y when all x=0). The input x are all independent variables, in a matrix
 with each column one of the variables. The number of rows is the number of datapoints. Just one inter, which is the value
 at all x=0, and passed as param[1]. Slope parameters follow, one per column of x. 
+
 This is identical to standard
 }

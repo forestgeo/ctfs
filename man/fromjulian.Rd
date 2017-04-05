@@ -16,7 +16,4 @@ can be vector or array.
 fromjulian(1000,'\%d\%B\%Y')}
 
 
-
-
-
 }

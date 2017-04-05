@@ -10,7 +10,9 @@ NeighborDensities(censdata, censdata2 = NULL, r = 20, plotdim = c(1000,
 \description{
 Calculates the total number or basal area of conspecific and heterospecific neighbors at a radius r 
 with edge effect correction. Most arguments aim to describe the type of neighbors to count  
+
 Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs package. 
+
 Output: a data.frame with two columns listing the density of consp and hetsp, and rows equal to the size of censdata if censdata2 is absent, or censdata2 if it is present.
 }
 \examples{
@@ -18,9 +20,11 @@ Output: a data.frame with two columns listing the density of consp and hetsp, an
 > load("bci.full7.rdata")
 > attach("CTFSRPackage.rdata")
 > library(splancs)
-##' sum consp and hetsp neighbors for all stems in the plot  
+
+sum consp and hetsp neighbors for all stems in the plot  
 > neighbor.counts <- NeighborDensities(bci.full7, r=20, type='count') 
-##' sum consp and hetsp neighbors for only one species: 
+
+sum consp and hetsp neighbors for only one species: 
 > one.sp = subset(bci.full7, sp=="quaras") 
 > neighbor.counts <- NeighborDensities(bci.full7, one.sp, type='count') }
 

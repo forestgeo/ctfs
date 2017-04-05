@@ -11,9 +11,8 @@ Converts a character string into a vector of individual characters.
 }
 \examples{
 \dontrun{
+
 StringToVect('anystring')}
-
-
 
 
 }

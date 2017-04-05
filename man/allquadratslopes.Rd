@@ -18,5 +18,6 @@ allquadratslopes goes through all 20x20 m quadrats in a plot and finds
 the slope, mean elevation, and convexity of each
 convexity is the mean elevation of one 20x20 m quadrat relative (minus) the mean of its
 immediate neighbors
+
 Helene Muller-Landau added a section to correct convexity in edge quadrats
 }

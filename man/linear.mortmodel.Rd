@@ -8,6 +8,7 @@ linear.mortmodel(x, param)
 }
 \description{
 A model for mortality as a function of one or more predictors, with the time interval for each individual incorporated (as a last predictor).
+
 The log(mortality parameter) is modeled as a linear function of x[,-nopred].  The return value is a survival probability. Nothing prevents the output from
 being outside (0,1); that must be handled in the likelihood function.
 }

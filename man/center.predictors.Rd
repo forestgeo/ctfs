@@ -8,6 +8,7 @@ center.predictors(x, by = "mean")
 }
 \description{
 Transform all data by subtracting a constant, either the mean, median value, or a submitted constant. 
+
 The input may be a vector or a matrix. If a matrix, each column is centered on its mean (median), or by passing a
 vector of constants. Note that setting by=0 amounts to no change.
 }
@@ -15,9 +16,6 @@ vector of constants. Note that setting by=0 amounts to no change.
 \dontrun{
 center.predictors(x=c(1,4,7,0),by='median')
 center.predictors(x=c(1,4,7,0),by=2)}
-
-
-
 
 
 }

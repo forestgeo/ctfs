@@ -8,7 +8,10 @@ logistic.ctr(x, param, log = FALSE, center = NA)
 }
 \description{
 This is logistic function with intercept parameterization (see logistic above), but with centering on x allowed. 
+
 If center==NA, then the x values are centered on their median.
+
 Or center can be a number. If NULL, no centering is done. 
+
 Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic.
 }

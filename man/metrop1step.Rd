@@ -8,20 +8,29 @@ metrop1step(func, start.param, scale.param, adjust, target, ...)
 }
 \description{
 Takes a single metropolis step on a single parameter for any given likelihood function.
+
 The arguments start.param and scale.param are atomic (single values), as are adjust and target. 
+
 The ellipses handle all other arguments to the function. The function func must accept the test 
 parameter as the first argument, plus any additional arguments which come in the ellipses.
+
 Note the metropolis rule: if rejected, the old value is returned to be re-used. The return value
 includes a one if accepted, zero if rejected.
+
 The step size, refered to as scale.param, is adjusted following Helene's rule. 
+
 For every acceptance, scale.param is multiplied
 by adjust, which is a small number > 1 (1.01, 1.02, 1.1 all seem to work). For every rejection, scale.param
 is multiplied by (1/adjust); for every acceptance, by adjust^AdjExp, the latter based on the target acceptance rate.
+
 When the target acceptance rate is 0.25, which is recommended for any model with > 4 parameters,
+
 AdjExp=3. It's easy to see how this system arrives at an equilibrium acceptance rate=target.
+
 The program calling metrop1step has to keep track of the scaling parameter: submitting it each time
 metrop1step is called, and saving the adjusted value for the next call. Given many parameters, a
 scale must be stored separately for every one.
+
 Note the return value is a vector of 6:
 1) the new parameter value;
 2) the new scale (step size);

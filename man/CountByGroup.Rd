@@ -9,5 +9,6 @@ CountByGroup(data, groupcol, count_to_data = FALSE, countname = "count",
 }
 \description{
 Groups a dataframe by one or more columns (named by groupcol). This does exactly what
+
 COUNT(*) GROUP BY does in SQL.
 }

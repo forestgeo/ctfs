@@ -58,9 +58,12 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 \description{
 A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions
 excluded. A single independent variable, y, can be fit against any number of predictors, x, 
+
 The model error can be binomial, Poisson, negative binomial, or Gaussian, with two alternatives for the Gaussian (described below). 
 
+
 Data are submitted the way lm or lmer require, with one single table, one row per observation. The formula, however, is not submitted using the R-style 'squiggle'~. 
+
 Rather, the names of x, y columns, are given. The model describing y's function of the x's is passed, and must be provided by the user 
 (several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
 

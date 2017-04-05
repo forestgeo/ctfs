@@ -74,21 +74,27 @@ y can be any function of the x. A second advantage is that the MCMC produces
 posterior distributions on every parameter, so full confidence limits are available. The principal limitation relative to lmer is 
 that only one random effect is allowed. In addition, the Bayesian MCMC approach is quite a bit slower.
 
+
 Data are submitted the way lm or lmer require, with one single table, one row per observation; the random effects 
 are in one column. The formula, however, is not submitted using the R-style 'squiggle'~. Rather, the names of x, y, and 
 random columns, are given. The model describing y's function of the x's is passed, and must be provided by the user 
 (several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
 
+
 As in lmer, all parameters of the model follow a Gaussian hyperdistribution across the random effects. There is an 
 option to include a full covariance matrix as the hyperdistribution, otherwise, only the variances are fit (ie, the
 covariance matrix has only zeroes off-diagonal). There is also an option to use the conjugate inverse-gamma or inverse-wishart for the variances and covariances; otherwise, Metropolis steps are used.
+
 
 A starting set of parameters for the model must be submitted. It can be a vector as long as the number of
 parameters required by the model, or it can be a full matrix, with one row of parameters for each of the random
 effects. The latter requires knowing in advance the names of all the random effects. 
 
+
 There is a further complication included whose purpose is reducing memory demand in big models with many MCMC steps. option paramfile allows the full parameter matrix to be written into a text file every savestep steps, then erased from memory. 
+
 This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array. 
+
 
 The return value is a list with several components:
 *  mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
@@ -122,6 +128,7 @@ offers a worked example.
 }
 \examples{
 \dontrun{
+
 Assume two plot datasets from BCI are attached, bci.full6 and bci.full7. Subset to trees above 10 cm dbh and just 10 species for illustration (the model will run much faster). The fixed effect, species-level variation (or error), and the model parameters for each species are shown below. Check the names of the result to see what else lmerBayes returns.
 gtable=growth.indiv(bci.full6,bci.full7,mindbh=100) 
 a_few_species=c('termam','tachve','pri2co','gustsu','cecrin','tet2pa','guatdu', 'vochfe','virose','maquco') 
@@ -131,8 +138,6 @@ mod$bestmu
 diag(sqrt(mod$bestsigma)) 
 mod$best  
 names(mod)}
-
-
 
 
 }

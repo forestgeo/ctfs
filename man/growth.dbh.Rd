@@ -16,7 +16,4 @@ This calculates forest-wide growth in given dbh categories. Arguments as for gro
 growth.dbh=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))}
 
 
-
-
-
 }

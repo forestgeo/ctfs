@@ -8,6 +8,7 @@ fit.beta.normal(x, par1, xmin, par2, xmax)
 }
 \description{
 Finding a normal distribution which most closely fits a given beta distribution.
+
 Parameters for a beta function are submitted, and the best fit mean and SD of a
 normal distribution returned.
 }

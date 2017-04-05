@@ -44,6 +44,7 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
 }
 \description{
 This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.
+
 On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
 are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp.
 }

@@ -23,16 +23,18 @@ CTFSplot(plot, census = 1, type = "full", path = "CTFSRPackage",
 \description{
 A convenience for attaching the R Analytical Tables, including the species table. One or more censuses can be requested, and either the
 full'or the 'stem'tables. The path in which R Tables are stored is submitted; if in a folder called CTFSRPackage, then the default works.
+
 Within that folder, there must be subfolders named full, stem, and species for the three types of tables. The function 'attach_if_needed'
 is used, so there is no penalty to requesting a table that is already attached.
 }
 \examples{
 \dontrun{
+
 CTFSplot(plot='bci',census=1:2)
+
 CTFSplot(plot='bci',census=2:3)
+
 CTFSplot(plot='sinharaja', census=3,type='stem',path='C:/SinharajaRDataTables')}
-
-
 
 
 }

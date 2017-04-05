@@ -467,8 +467,32 @@ map(paths$from, read_file) %>%
       ),
     replacement = "\\1"
     ) %>%
+  # Clean roxygen files, and brake line to make paragraphs
+  map(str_replace_all, "\r", "") %>%
+  map(str_replace_all, "[^\n](#\')", "\n\\1") %>%
+  map(str_replace_all, "\n#[^\']", "\n#\'") %>%
+  map(str_replace_all, "\n#\'#", "\n#\'\n#") %>%
+  map(str_replace_all, "(\n#\')(@.*)", "\\1 \\2") %>%
+  map(str_replace_all, "(\n#\'){3,}", "\\1\\1") %>%
+  map(str_replace_all, "(\n){3,}", "\\1\\1") %>%
+  map(str_replace_all, "(\n#\' [A-Z].*)", "\n#\'\\1") %>%
+
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
   
   # Save wrangled files
   walk2(paths$to, write_file, append = TRUE)

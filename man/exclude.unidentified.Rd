@@ -9,5 +9,6 @@ exclude.unidentified(speciesnames, plotname)
 \description{
 A more specialized version of unidentified species. It excludes species codes matching any listed in speciesnames
 but only for one specific plot. This way a code can be eliminated from one plot's results, but not any other plot.
+
 It returns a logical vector, TRUE for species to be excluded. This was formerly in utilities.r.
 }

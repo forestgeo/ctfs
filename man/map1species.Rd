@@ -12,5 +12,6 @@ map1species(sppdata, plotdim = c(1000, 500), xrange = c(0, plotdim[1]),
 }
 \description{
 This does the mapping for a single species, called from map() but also useful on its own.
+
 With add=TRUE, points are added to an existing map. All other parameters are described with map().
 }

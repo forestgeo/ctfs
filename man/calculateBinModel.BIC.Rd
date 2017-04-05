@@ -10,8 +10,5 @@ calculateBinModel.BIC(fit)
 Calculate Bayes Information Criteria using Wikipedia formula
 
 
-
-
-
 Description: Calculate Deviance Information Criteria, using Wikipedia formula
 }

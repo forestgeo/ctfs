@@ -9,9 +9,13 @@ selectrandomquad2(size, rep, plotdim = c(1000, 500), graphit = FALSE)
 \description{
 Creates randomly drawn quadrats, using same arguments and producing same return value as selectrandomquad, but using a different algorithm 
 aimed at capturing corners. The result, however, is not to capture corners any better than selectrandomquad() does.
+
 Imagine a line running vertically at x=0 from y=0 to y=plotdim[2]-size, then continues at x=1 from 0 to plotdim[2]-size,
 etc. It's wrapping analogous to the way quadrat indices wrap (see gxgy.to.index in quadfunc.r). 
+
 This line has length (plotdim[1]-size)*(plotdim[2]-size).
+
 Draw a random number on that line, and place the lower left corner of random square at that point. 
+
 A position x on the line is converted to plot coordinates gx, gy using function index.to.gxgy with grid=1
 }

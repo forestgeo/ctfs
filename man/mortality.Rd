@@ -17,11 +17,16 @@ mortality(census1, census2, alivecode = c("A", "AB", "AS"), split1 = NULL,
 Mortality is the main function, and is constructed like 
 growth and recruitment. It requires two complete datasets, one per census,
 with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format). 
+
 It can then calculate mortality for the entire forest, or based on one or two user-submitted factors. 
+
 Mortality is based on only on the column status: any tree without an alivecode in census 2 is considered dead.  
+
 Individuals whose status is NA in either census are deleted from all counts,
 since it's impossible to count them either as survivors or dead.
+
 It requires fill.dimension and climits in utilities.r.
+
 Output of the mortality function is a list with components:
 * N, the number of individuals alive in the census 1 per category selected
 * D, the number of individuals no longer alive in census 2
@@ -33,19 +38,18 @@ Output of the mortality function is a list with components:
 * date2, mean date in census 2 
 * dbhmean, mean dbh in census 1 of individuals included
 
+
 Pass the list to assemble.demography (in utilities.r) with type="m" to convert the list a data.frame.
 }
 \examples{
 \dontrun{
+
 CTFSplot("bci",56)
 mort.data=mortality(bci.full5,bci.full6)
 mort.data$rate
 mort.data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
 mort.data$rate
 assemble.demography(mort.data,type='m')}
-
-
-
 
 
 }

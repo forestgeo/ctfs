@@ -9,6 +9,7 @@ perpendicular.distance(b, m, x, y)
 \description{
 Distance from a point to a line (so it's the perpendicular distance);
 m and b are slope and intercept; x and y are coordinates. If both b,m and x,y are vectors, they must all be same length.
+
 Note check for infinite slope, meaning that the intercept b is the x-intercept.
 
 <display>true
@@ -17,8 +18,7 @@ b: y-intercept
 m: line slope
 
 
-
-
 Find distance from a pt (x then y coords) to a line segment given as start and end points. Either x, y or end points can be vectors, but not both.
+
 It first finds perpendicular distance, then distance to each end point, and returns the minimum.
 }

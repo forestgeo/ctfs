@@ -13,7 +13,9 @@ and removes rows where N==0, or key data are NA. The rownames are assumed to ref
 some codes can be excluded using the argument excludespp. The four columns
 can be submitted by name or number using default column headers, or by
 setting type to 'mort'or 'abund'.
+
 It returns a logical vector indicating with TRUE which rows to keep, not the cleaned table itself.
+
 This was formerly in utilities.r.
 }
 \examples{
@@ -21,9 +23,6 @@ This was formerly in utilities.r.
 
 rows.include=clean.demography(demogtable,type='growth',Ncol='N',ratecol='ratecol');
 result=demogtable[rows.include,]}
-
-
-
 
 
 }

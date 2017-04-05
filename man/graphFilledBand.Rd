@@ -24,6 +24,7 @@ graphFilledBand(x, y1, y2, fillcol = "gray", add = TRUE,
 }
 \description{
 Fill the area between two curves on a graph. Useful for confidence limits, for example. 
+
 Typical use is to draw a graph first with some central y values, then add a confidence band by filling the area between upper and lower confidence limits
 (designated by variables lower.y and upper.y in the example below). The central line should then be redrawn over the filled area.
 }

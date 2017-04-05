@@ -13,6 +13,7 @@ graph.growthmodel.spp(fit, jiggle = 0.001, whichpred = "pred",
 \description{
 Use output of growth.flexbin to graph observed growth and predictions. With conf>0, random draws from posterior parameters
 are used to make predictions and overlay with gray lines, and mean predicted value at each x is calculated.
+
 The option whichpred determines whether to graph the fitted values based on the median parameters of the Gibbs sampler, or
 the mean fitted value of all the steps in the Gibbs sampler.
 }

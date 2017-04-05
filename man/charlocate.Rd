@@ -15,6 +15,4 @@ than once.  Returns 0 if no matches. The input are atomic: this is not vectorize
 charlocate("19","x190019xxx")}
 
 
-
-
 }

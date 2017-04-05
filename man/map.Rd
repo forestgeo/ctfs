@@ -74,14 +74,18 @@ plot dataset, in split format (list of one dataframe per species), and one or mo
 species code. Other arguments are optional, however, many defaults can be adjusted
 to get a good map on the screen or exported. This calls the functions maptopo() and map1species()
 for the actual mapping. 
+
 A common problem is graph size, leading to an error message "Plot region too large". This happens if the export="no" option
 is used with the option plotside too large for the default graph size (usually 7 inches). If you use the option export="Windows", 
 "Mac", or "Unix", then height and width can be set with arguments ht, wd, and plotside can be as large as you please.
 }
 \examples{
 \dontrun{
+
 If you have saved split formatted data:  CTFSplot(plot='bci',census=6,type='split')
+
 If you have not saved:  
+
 CTFSplot(plot='bci',census=6)
 
 bci.split6=split.data(censdata=bci.full6,splitcol='sp')
@@ -93,7 +97,6 @@ map(splitdatafile=bci.split6,species='poular')
 map(splitdatafile=bci.split6,species='poular',export='pdf',filepath='~/data/maps/',outfile='Poulsenia1995map',plotside=10,ht=8.5,wd=11)
 
 map(splitdatafile=bci.split6,species=c('guatdu','poular'))}
-
 
 
 }

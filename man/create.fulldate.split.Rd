@@ -8,7 +8,9 @@ create.fulldate.split(datestr, sep = "-")
 }
 \description{
 Converts the MySQL date format by splitting on the hyphen (or other characters by using sep). 
+
 Date must be year-month-day, and month must be numeric (create.fulldate takes any format).
+
 In most cases, create.fulldate
 is preferable, but Mysql allows dates with zeroes (1995-00-00 or 2002-2-00), and create.fulldate cannot handle those;
 this allows the 0 to be read.
@@ -17,9 +19,6 @@ this allows the 0 to be read.
 \dontrun{
 
 create.fulldate.split(c('23-10-2010','29-0-1956'),sep='-')}
-
-
-
 
 
 }

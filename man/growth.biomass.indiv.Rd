@@ -11,10 +11,12 @@ growth.biomass.indiv(census1, census2, mindbh = 10, steminfo = FALSE,
 \description{
 Like growth.indiv but based on agb growth, not dbh growth. Extreme growth rates (based on dbh growth) are
 excluded, but cases where the stemID changed are not excluded. 
+
 Here pomcut is used in a very specific way probably only relevant at BCI. If the second pom is higher than the first by more than
 the pomcut, the record is not used. The function trim.growth has already eliminated cases where the stemID is unchanged and pom
 changes, so this will only serve for cases where two different stemIDs have measurements. At BCI, in most cases where the second pom
 is lower than the first and the stem changed, it is a legitimate stem change. But where the second pom is higher, it is really the
 same stem measured at a different pom, and with a different stemID because BCI lacks stem tags. 
+
 For most plots, especially with stem tags, the default behavior means changes in stem allow changes in pom to be included in biomass growth.
 }

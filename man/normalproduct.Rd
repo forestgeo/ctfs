@@ -11,5 +11,6 @@ A function which returns the product of 2 normal distributions, the first
 at x (a vector), the second at lag-x (lag is a scalar). The mean and SD 
 of the second normal are linear functions of x, with meanint being the
 intercept, meanslope the slope, and CV the coefficient of variation.  
+
 A convolution!
 }

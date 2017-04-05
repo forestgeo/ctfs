@@ -17,6 +17,7 @@ find.climits(N, D, alpha = 0.05, kind = "upper")
 }
 \description{
 Calculates confidence limits around a number of deaths, D, out of N individuals.
+
 It uses the beta distribution as the conjugate of the binomial, so the beta is the posterior of the number
 dying. N and D can be vectors or matrices, but must have matching dimensions.
 }

@@ -15,6 +15,4 @@ the exponent were a negative integer, but works also for even integers or any re
 pospower(-4,0.5)}
 
 
-
-
 }

@@ -7,5 +7,6 @@
 pst(...)
 }
 \description{
-A version of paste with sep=#'.
+A version of paste with sep
+.
 }

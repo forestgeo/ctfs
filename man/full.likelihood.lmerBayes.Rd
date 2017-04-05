@@ -9,14 +9,11 @@ full.likelihood.lmerBayes(one.covar, one.param, one.hyper, fixpar = NULL,
   duphyper = FALSE, ...)
 }
 \description{
-Calculate full likelihood for any complete set of parameters, including every set for each random effect and hypermeans and covariances ####'
+Calculate full likelihood for any complete set of parameters, including every set for each random effect and hypermeans and covariances ##
+
+
 Further thought: the call to lmerBayes.hyperllike.sigma doesn't make sense, since llike.model.lmer already does this; the probability of 
 each set of parameters given the hyperparameters is already calculated. 
-
-
-
-
-
 
 
 To update fixed effects, can use full.llikelihood.lmerBayes. The fixed effects are used identically for every random effect.

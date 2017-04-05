@@ -20,13 +20,16 @@ wavelet.variances = wavelet.allsp(censdata, plotdim=c(1000,500))}
 \author{
 Matteo Detto and Tania Brenes  
 
+
 Output is a matrix with:   
 scale: vector with scale of the analysis in meters; 
 variance: matrix with the normalized variance at each scale (columns) for each species (rows); 
 density: matrix with the density per area and abundance for each species in the plot; 
 plotdim: plot dimentions parameter used; 
 gridsize: grid size parameter used; 
+
 UCL: vector with the upper confidence limit for the null hypothesis; 
+
 LCL: vector with the lower confidence limit for the null hypothesis.
  censdata (): census data for the plot containing the variables gx, gy, dbh, status, and sp code; 
  plotdim c(1000,500):  vector with two numbers indicating the plot size; 

@@ -8,6 +8,7 @@ metrop1step.discrete(func, start.param, alter.param, ...)
 }
 \description{
 A version for metrop1step where the alternative values are character states with no numeric meaning.
+
 A random draw must be taken from all possible states, each with equal probability. There
 is no step-size thus no adjustment.
 }

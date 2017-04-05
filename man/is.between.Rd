@@ -8,5 +8,6 @@ is.between(x, y, x1, y1, x2, y2)
 }
 \description{
 Check whether a point x,y falls between two other points. The typical use is where the first point falls on the segment connecting the next two points. 
+
 All arguments can be vector, but must be identical in length. An x falls between when it lies in [x1,x2).
 }
