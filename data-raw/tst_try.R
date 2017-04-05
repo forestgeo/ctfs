@@ -12,18 +12,8 @@ path_out <- map2(base_out, dir(base_in), paste0)
 path_in %>% 
   map(read_file) %>% 
 
-  map(str_replace_all,
-    regex(
-      "@description.*bad\\.binsdpar",
-      multiline = TRUE,
-      dotall = TRUE
-      ),
-    "bad\\.binsdpar"
-    )
-
-
-
-
-  walk2(path_out, write_file, append = TRUE)
+  map(str_replace_all, fixed("M*%*E=V"), "M*\\%*E=V") %>% 
+  map(str_replace_all, fixed("E=Minv*%*V"), "E=Minv*\\%*V") %>% 
+  walk2(path_out, write_file)
 
 # read_file("./data-raw/tst_out/mortality.R")

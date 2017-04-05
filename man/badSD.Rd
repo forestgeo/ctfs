@@ -6,3 +6,6 @@
 \usage{
 badSD(x, param, ...)
 }
+\description{
+badSD
+}

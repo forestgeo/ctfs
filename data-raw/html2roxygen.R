@@ -477,34 +477,46 @@ map(paths$from, read_file) %>%
   map(str_replace_all, "(\n#\'){3,}", "\\1\\1") %>%
   map(str_replace_all, "(\n){3,}", "\\1\\1") %>%
   map(str_replace_all, "(\n#\' [A-Z].*)", "\n#\'\\1") %>%
+
   
+  
+  
+  
+  
+  
+  
+  
+    
   map(str_replace_all,
-    pattern = regex(
-      "@description.*bad\\.binsdpar",
+    regex(
+      "(bad\\.binsdpar.*)@description(.*bad\\.binsdpar.*)",
       multiline = TRUE,
       dotall = TRUE
       ),
-    replacement = "bad\\.binsdpar"
-    ) %>% 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
+    "\\1\\2"
+    ) %>%
+  map(str_replace_all,
+    regex(
+      "(badSD.*)@description(.*badSD.*)",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    "\\1\\2"
+    ) %>%
+  map(str_replace_all,
+    regex(
+      "(gxgy\\.to\\.hectindex.*)@description(.*gxgy\\.to\\.hectindex.*)",
+      multiline = TRUE,
+      dotall = TRUE
+      ),
+    "\\1\\2"
+    ) %>%
+  map(str_replace_all, fixed("M*%*E=V"), "M*\\%*E=V") %>% 
+  map(str_replace_all, fixed("E=Minv*%*V"), "E=Minv*\\%*V") %>% 
   
   # Save wrangled files
-  walk2(paths$to, write_file, append = TRUE)
+  walk2(paths$to, write_file)
+
 
 
 # Add files to .R/ that do not need wrangling
@@ -513,15 +525,10 @@ from_notwrangle <- map2(path_notwrangle, dir(path_notwrangle), paste0)
 to_notwrangle <- map2("./R/", dir(path_notwrangle), paste0)
 
 map(from_notwrangle, read_file) %>% 
-  walk2(to_notwrangle, write_file, append = TRUE)
+  walk2(to_notwrangle, write_file)
 
 
 
 # Shorcut to remove first lines of utilities (supplement)
 paste0(read_lines("./R/utilities.R", skip = 10), collapse = "\r\n") %>% 
   write_file("./R/utilities.R")
-
-
-
-
-

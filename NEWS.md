@@ -1,3 +1,11 @@
+# ctfs 0.0.0.9003
+
+* Tidy up roxygen documentation. Now empty lines span 2 lines or less.
+
+* Accept Rmarkdown in roxygen documentation. This allows lists to display nicely.
+
+* Solve warnings that result from empty descriptions.
+
 # ctfs 0.0.0.9002
 
 * Solve warnings listed in ctfs 0.0.0.9001. Some warnings remain, but to solve those, we need to improve the documentation (not simply reformat available documentation), for example:

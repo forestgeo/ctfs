@@ -32,8 +32,8 @@
 #' The equations are written in matrix form. The coefficients are a matrix M whose
 #' diagonal elements are the n[i], so M[i,i] = n[i] for all i. All other entries are -1 
 #' where D[i,j] was measured otherwise zero. The estimated E[i] are a vector, and the
-#' vector V[i] = -sum(D[i,j]), where the summation is over j only. Then M*%*E=V, Minv
-#' is the inverse of M, and E=Minv*%*V.
+#' vector V[i] = -sum(D[i,j]), where the summation is over j only. Then M*\%*E=V, Minv
+#' is the inverse of M, and E=Minv*\%*V.
 #'
 #' In theory, the program will accept duplicate measures of the same pair of plots.
 #'

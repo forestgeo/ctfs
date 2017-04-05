@@ -88,7 +88,7 @@
 
 #' gxgy.to.hectindex
 #'
-#' @description
+#' 
 #'
 #'
 'gxgy.to.hectindex'

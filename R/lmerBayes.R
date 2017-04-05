@@ -188,7 +188,7 @@
 
 #' badSD
 #'
-#' @description
+#' 
 #'
 #'
 'badSD'
