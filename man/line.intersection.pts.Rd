@@ -9,6 +9,5 @@ line.intersection.pts(pts1, pts2)
 \description{
 Finds the point where 2 lines intersect, given each line as 2 pairs of points on the line
 
-
 Both arguments must have columns x, y, with two rows, one row per point.
 }

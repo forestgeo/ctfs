@@ -8,9 +8,9 @@ readelevdata(elevfile, gridsize = 5, text = FALSE)
 }
 \description{
 A function to read a table of elevation data into a matrix appropriate for
-mapping. It can read a text table (if text==TRUE) or a dataframe. 
+mapping. It can read a text table (if text==TRUE) or a dataframe.
 
-In either case, there must be x then y coordinates, followed by elevation, 
+In either case, there must be x then y coordinates, followed by elevation,
 at every corner across the plot, using grid of gridsize. The output is
 a matrix, as needed for R's contour function.
 }

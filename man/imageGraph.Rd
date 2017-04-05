@@ -14,7 +14,7 @@ imageGraph(matrixdata, levels = NULL, breaks = c(-33000, 0, 150, 250, 500,
 \arguments{
 \item{matrixdata}{a list having components x, y, and mat, exactly the output of coldata.to.imagemat}
 
-\item{levels}{if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable; 
+\item{levels}{if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable;
 can be NULL to let breaks control}
 
 \item{breaks}{if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks}
@@ -39,7 +39,7 @@ can be NULL to let breaks control}
 
 \item{plotsize}{size of graph's x-dimension in inches; ignored if newgraph=FALSE}
 
-\item{h, }{w height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches); 
+\item{h, }{w height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches);
 ignored if newgraph=FALSE}
 
 \item{export}{if newgraph=TRUE, this defines the graphics device; options include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not quoted!)}

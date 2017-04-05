@@ -17,7 +17,6 @@ Note check for infinite slope, meaning that the intercept b is the x-intercept.
 b: y-intercept
 m: line slope
 
-
 Find distance from a pt (x then y coords) to a line segment given as start and end points. Either x, y or end points can be vectors, but not both.
 
 It first finds perpendicular distance, then distance to each end point, and returns the minimum.

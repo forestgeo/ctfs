@@ -10,7 +10,7 @@
 Function to plot the wavelet variance from the output of the wavelet.allsp.
 }
 \author{
-Tania Brenes  
+Tania Brenes
 
- x (): output for wavelet.allsp;
+x (): output for wavelet.allsp;
 }

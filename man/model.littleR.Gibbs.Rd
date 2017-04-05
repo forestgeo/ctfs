@@ -37,19 +37,20 @@ model.littleR.Gibbs(cns1, cns2, mindbh, demog = NULL, sptable,
 The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
 
 Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
-*  Gaussian [modeltype="norm", with the quotes]
-*  Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype="asymnorm", with the quotes]
-*  Laplace (exponential distribution, with mirror image for negative values) [modeltype="symexp", with the quotes]
-*  Asymmetric Laplace (different rate constant for left and right of the center) [modeltype="asymexp", with the quotes]
-*  Asymmetric power distribution (different rate constant for left and right of the center) [modeltype="asympower", with the quotes]
-
+\itemize{
+\item Gaussian \link{modeltype="norm", with the quotes}
+\item Asymmetric Gaussian (a different standard deviation on left and right of the mode) \link{modeltype="asymnorm", with the quotes}
+\item Laplace (exponential distribution, with mirror image for negative values) \link{modeltype="symexp", with the quotes}
+\item Asymmetric Laplace (different rate constant for left and right of the center) \link{modeltype="asymexp", with the quotes}
+\item Asymmetric power distribution (different rate constant for left and right of the center) \link{modeltype="asympower", with the quotes}
+}
 
 A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species'mortality rates (mu) and
-species'rates of population change (r). 
-and be sure to set mindbh. Other parameters can be left at defaults. 
+species'rates of population change (r).
+and be sure to set mindbh. Other parameters can be left at defaults.
 
 Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this has to be included for asymexp; before, the
-check for negative SD parameters was hard-coded. 
+check for negative SD parameters was hard-coded.
 
 Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.
 }

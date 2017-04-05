@@ -7,5 +7,5 @@
 expon.model(x, param)
 }
 \description{
-Exponential model, y = a exp(b1*x1 + b2*x2) for any number of predictors x. Compare to linear.model.
+Exponential model, y = a exp(b1\emph{x1 + b2}x2) for any number of predictors x. Compare to linear.model.
 }

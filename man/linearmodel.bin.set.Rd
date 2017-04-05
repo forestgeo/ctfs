@@ -7,8 +7,8 @@
 linearmodel.bin.set(v, param, binparam)
 }
 \description{
-This does the work of calculating predicted values at each independent variable, given bin and line parameters separately, 
-the latter being slope and intercept parameters in one vector. 
+This does the work of calculating predicted values at each independent variable, given bin and line parameters separately,
+the latter being slope and intercept parameters in one vector.
 
 Completely revised June 2011 to use geometry.r functions for lines.
 

@@ -7,8 +7,8 @@
 arrangeParam.Gibbs(i, j, allparam)
 }
 \description{
-Used in the loop of a Gibbs sampler, setting parameters not yet tested (j and above) to previous value (i-1), 
-and other parameters (<j) to new value (i). 
+Used in the loop of a Gibbs sampler, setting parameters not yet tested (j and above) to previous value (i-1),
+and other parameters (<j) to new value (i).
 
 This has unfortunate need for the entire matrix allparam, when only row i-1 and row i are needed.
 }

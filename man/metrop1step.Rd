@@ -9,15 +9,15 @@ metrop1step(func, start.param, scale.param, adjust, target, ...)
 \description{
 Takes a single metropolis step on a single parameter for any given likelihood function.
 
-The arguments start.param and scale.param are atomic (single values), as are adjust and target. 
+The arguments start.param and scale.param are atomic (single values), as are adjust and target.
 
-The ellipses handle all other arguments to the function. The function func must accept the test 
+The ellipses handle all other arguments to the function. The function func must accept the test
 parameter as the first argument, plus any additional arguments which come in the ellipses.
 
 Note the metropolis rule: if rejected, the old value is returned to be re-used. The return value
 includes a one if accepted, zero if rejected.
 
-The step size, refered to as scale.param, is adjusted following Helene's rule. 
+The step size, refered to as scale.param, is adjusted following Helene's rule.
 
 For every acceptance, scale.param is multiplied
 by adjust, which is a small number > 1 (1.01, 1.02, 1.1 all seem to work). For every rejection, scale.param
@@ -32,10 +32,12 @@ metrop1step is called, and saving the adjusted value for the next call. Given ma
 scale must be stored separately for every one.
 
 Note the return value is a vector of 6:
-1) the new parameter value;
-2) the new scale (step size);
-3) a zero or a one to keep track of the acceptance rate;
-4) the likelihood of original parameter (if rejected) or new parameter (if accepted)
-5) the likelihood of original parameter (if accepted) or new parameter (if rejected)
-6) the new parameter tested (whether accepted or not)
+\enumerate{
+\item the new parameter value;
+\item the new scale (step size);
+\item a zero or a one to keep track of the acceptance rate;
+\item the likelihood of original parameter (if rejected) or new parameter (if accepted)
+\item the likelihood of original parameter (if accepted) or new parameter (if rejected)
+\item the new parameter tested (whether accepted or not)
+}
 }

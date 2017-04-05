@@ -14,7 +14,7 @@ name of that column can be changed using the argument denscol). The CTFS wood-de
 columns will work. If a species in the df table has a matching species name in the correct plot, its wood density is taken.
 
 If a species is not found in the correct plot, then the mean wood density of all species in the same plot is taken. The function
-fails (returns only NAs) if there are no entries for the selected plot in the wood-density table.  
+fails (returns only NAs) if there are no entries for the selected plot in the wood-density table.
 
 Returns a vector of wood density of the same size as the df table submitted.
 }

@@ -29,29 +29,30 @@ growth(census1, census2, rounddown = FALSE, method = "I", stdev = FALSE,
 \description{
 The principle growth function, constructed like
 recruitment and mortality. It requires two complete datasets, one per census,
-with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format). 
+with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format).
 
 It calculates the mean growth rate in one or more categories defined by the split variables, split1
-and split2. The column date is required for annualizing rates. 
+and split2. The column date is required for annualizing rates.
 
-The columns status and stemID are both required, in order to determine which stems should have dbh change calculated. 
+The columns status and stemID are both required, in order to determine which stems should have dbh change calculated.
 
 The function trim.growth handles all
 checks for trees to include; excluded are cases where the stemID changes, extreme values
 based on err.limit and maxgrow, and trees below a minimum dbh in the
 first census. See the description of trim.growth for more information.
 
-Growth requires fill.dimension in utilities.r. 
+Growth requires fill.dimension in utilities.r.
 
 Output of the growth function is a list with components:
-* rate, the mean annualized growth rate per category selected, either dbh increment, or relative growth  
-* N, the number of individuals included in the mean (not counting any excluded)
-* clim, width of confidence interval; add this number to the mean rate to get upper confidence limit, substract to get lower
-* dbhmean, mean dbh in census 1 of individuals included
-* time, mean time interval in years
-* date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
-* date2, mean date in census 2 
-
+\itemize{
+\item rate, the mean annualized growth rate per category selected, either dbh increment, or relative growth
+\item N, the number of individuals included in the mean (not counting any excluded)
+\item clim, width of confidence interval; add this number to the mean rate to get upper confidence limit, substract to get lower
+\item dbhmean, mean dbh in census 1 of individuals included
+\item time, mean time interval in years
+\item date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
+\item date2, mean date in census 2
+}
 
 Pass the list to assemble.demography (in utilities.r) with type="g" to convert the list to a data.frame.
 }

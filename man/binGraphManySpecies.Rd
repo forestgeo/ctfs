@@ -9,6 +9,6 @@ binGraphManySpecies(fulldataname, darken = 8, xrange = c(-3, 3),
   outfile = "growth/linearbin.multi.pdf", h = 8, w = 10)
 }
 \description{
-Make a graph of AGB growth and model fit of many species overlaid, predicted functions only. Must submit name of data objects 
+Make a graph of AGB growth and model fit of many species overlaid, predicted functions only. Must submit name of data objects
 (not the object, just the name in quote marks!).
 }

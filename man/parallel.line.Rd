@@ -7,6 +7,6 @@
 parallel.line(b, m, x, y)
 }
 \description{
-Finds the slope and intercept of the line parallel to a line whose slope and intercept are given, 
+Finds the slope and intercept of the line parallel to a line whose slope and intercept are given,
 through the points x,y. Note that the intercept is not needed. For any m that are infinite, the intercept is x.
 }

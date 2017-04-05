@@ -8,7 +8,7 @@ distance(quad1, quad2, gridsize = 20, plotdim = c(1000, 500))
 }
 \description{
 Calculates the distance from one quadrat to a second quadrat, where quadrats are designated by their indices, as
-created by gxgy.to.index. The two quadrats can be vectors, but must be of the same length (or one of the two can be atomic). 
+created by gxgy.to.index. The two quadrats can be vectors, but must be of the same length (or one of the two can be atomic).
 
 Returns a vector of distances same length as input vectors.
 }

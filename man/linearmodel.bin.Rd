@@ -7,11 +7,11 @@
 linearmodel.bin(x, param, ...)
 }
 \description{
-Multiple bin model predicting y as a function of x in several bins. Within each bin, y is a linear function of x. 
+Multiple bin model predicting y as a function of x in several bins. Within each bin, y is a linear function of x.
 
 A model with B bins has B-1 parameters for breaks points (initial B-1 parameters), B parameters as slopes (next B parameters), and one intercept (last parameter).
 
-Intercept is assigned at x=0 by default, but argument LINEARBINMEDIAN can be used to change. 
+Intercept is assigned at x=0 by default, but argument LINEARBINMEDIAN can be used to change.
 
 This function accepts one set of parameters, separates the bin, slope, and intercept, and submits to the
 general version of the function (linearmodel.bin.set).

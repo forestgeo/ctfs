@@ -7,11 +7,11 @@
 predht.asym(dbh, param)
 }
 \description{
-An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh. 
+An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh.
 
 The model uses 3 parameters, submitted as argument param. The matrix form of param allows a different set of parameters to
 be submitted for every species. The default parameters given in the function Chave.AGB assume dbh is in cm, as do all the biomass
-allometry functions. 
+allometry functions.
 
 dbh: Vector of dbh
 param: Either a vector of length 3, or a matrix of 3 columns; if the latter, there must be one row for each dbh

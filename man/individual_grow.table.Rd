@@ -11,7 +11,7 @@ individual_grow.table(cnsdata = list(bci.full1, bci.full2, bci.full3,
   debug = FALSE)
 }
 \description{
-Create a table of individual trees and their growth over two censuses, with many species included. 
+Create a table of individual trees and their growth over two censuses, with many species included.
 
 The option rnd is used to rounddown dbhs for certain intervals. The flag ctr is used to center the time variable,
 which is the number of years since 1960 of the interval midpoint. There is a logarithmic transformation, for which all growth<=0

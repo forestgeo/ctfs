@@ -10,7 +10,7 @@ biomass.change(census1, census2, alivecode = c("A"), mindbh = NULL,
 \description{
 Finds biomass in two censuses and change between them. The submitted dataframes are exactly the standard CTFS R Analytical tables,
 with a column for biomass (agb) already calculated. Each dataframe has a record for every tree in a single census (or a stem
-table can be passed, with one record for each stem). Biomass for all living trees is summed over whatever grouping variables are 
+table can be passed, with one record for each stem). Biomass for all living trees is summed over whatever grouping variables are
 submitted (split1 and
 split2) in both censuses, along with the annual rate of change in each category. Returns a list with 6 components:
 
@@ -22,10 +22,10 @@ date2: Mean date in second census
 interval: The mean census interval in years
 little.r: The rate of biomass change, or (log(N.2)-log(N.1))/interval
 
-If no split variables are submitted (split1=split2=NULL), each component of the list is a single number, for the entire plot. 
+If no split variables are submitted (split1=split2=NULL), each component of the list is a single number, for the entire plot.
 
-If split1 is submitted but not split2, each component is a vector, one value for each category of split. If both splits are 
-submitted, each component of the list is a matrix. 
+If split1 is submitted but not split2, each component is a vector, one value for each category of split. If both splits are
+submitted, each component of the list is a matrix.
 
 Based closely on the function pop.change in abundance.r, and differs only in taking sum of agb instead of counting individuals.
 

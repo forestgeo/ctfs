@@ -8,10 +8,10 @@ llike.GaussModelSD(testparam, allparam, whichtest, x, pred, obs, model, badsd,
   ...)
 }
 \description{
-This is for model.xy. Take the function for the SD, its parameters, and both predicted and observed values of the 
+This is for model.xy. Take the function for the SD, its parameters, and both predicted and observed values of the
 dependent variable (pred,obs)
 to generate a likelihood. One of the parameters is passed as testparam, for use with metrop1step. The predicted value
-for each observation is included, and not calculated from the predicting function. 
+for each observation is included, and not calculated from the predicting function.
 
 MINIMUM_SD=.0001
 

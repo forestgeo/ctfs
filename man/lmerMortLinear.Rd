@@ -7,7 +7,7 @@
 lmerMortLinear(x, param, ...)
 }
 \description{
-A linear model of an annual mortality parameter [which is -log(annual survival)] as a function of N predictors x, which must be the first N columns of x. 
+A linear model of an annual mortality parameter \link{which is -log(annual survival)} as a function of N predictors x, which must be the first N columns of x.
 
 The parameters are standard slope and intercept for a linear model. There must be one additional column in x for the time interval t. The linear model predicts annual log(survival).
 

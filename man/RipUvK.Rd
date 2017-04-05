@@ -23,7 +23,7 @@ RipUvK(splitdata, plotdim = c(1000, 500), rseq = c(5, 10, 20, 30, 40, 50),
 \item{show}{creates a graph to show one omega value for each species, as a way to track progress.}
 }
 \description{
-Ripley's K using splancs. Computes the univariate Ripley's K for a list of species (all species at a site 
+Ripley's K using splancs. Computes the univariate Ripley's K for a list of species (all species at a site
 is the default). Also calculates the O-ring statistic, or density (per area) of
 conspecifics in a series of annuli defined by rseq, and the omega statistic,
 which is O-ring divided by overall density.
@@ -39,11 +39,13 @@ included and no dbh field is consulted. But if mindbh is set, there must be a db
 are excluded if smaller.
 
 The output is a list of 5 components.
-*  K is the Ripley's K object produced by the khat function in the splancs package; please see help for that package for details.
-*  O is the mean density of neighbors in each successive distance interval; it is a list of vectors, one per species, each vector of length matching length of rseq.
-*  omega is the omega-statistic, or O in each successive distance interval divided the plot-wide density; density is expressed per 10,000 square distance units, which means per hectare if units are meters.
-*  abund is a vector of species abundances, including individuals used in the calculation.
-*  midpts is a vector of the same length as rseq, giving the midpoint of each distance interval, for graphing purposes.
+\itemize{
+\item K is the Ripley's K object produced by the khat function in the splancs package; please see help for that package for details.
+\item O is the mean density of neighbors in each successive distance interval; it is a list of vectors, one per species, each vector of length matching length of rseq.
+\item omega is the omega-statistic, or O in each successive distance interval divided the plot-wide density; density is expressed per 10,000 square distance units, which means per hectare if units are meters.
+\item abund is a vector of species abundances, including individuals used in the calculation.
+\item midpts is a vector of the same length as rseq, giving the midpoint of each distance interval, for graphing purposes.
+}
 }
 \examples{
 \dontrun{

@@ -8,7 +8,7 @@ mvrnormRC(N, Sigma)
 }
 \description{
 Function that takes a variance-covariance matrix and produces normal variates
-following it, but with means 0. The R function mvrnorm does this too; this was a 
+following it, but with means 0. The R function mvrnorm does this too; this was a
 test of the algorithm from Tommaso Zillio. Sigma must be square. N is the number
 to draw.
 }

@@ -9,7 +9,7 @@ lmerMortFixedTime(x, param)
 \description{
 A model for mortality as a function of a single predictor variable, with the time interval for each individual incorporated (as a secondpredictor).
 
-The predictor must be an integer. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor. 
+The predictor must be an integer. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor.
 
 The return value is a survival probability. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
 }

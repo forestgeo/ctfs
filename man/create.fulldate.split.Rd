@@ -7,7 +7,7 @@
 create.fulldate.split(datestr, sep = "-")
 }
 \description{
-Converts the MySQL date format by splitting on the hyphen (or other characters by using sep). 
+Converts the MySQL date format by splitting on the hyphen (or other characters by using sep).
 
 Date must be year-month-day, and month must be numeric (create.fulldate takes any format).
 

@@ -22,7 +22,7 @@ Badpredpar must accept two vectors of parameters, one for main and one for sd.
 The ellipses allow additional parameters to be passed to the model function, but there is no such option for the
 sd function. The additional parameters mean that some of the variables defining the model do not have to be fitted.
 
-The sd function can be omitted if the likelihood does not require it. 
+The sd function can be omitted if the likelihood does not require it.
 
 This works only if one likelihood function defines the likelihood of the model, given data and parameters only.
 

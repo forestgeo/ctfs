@@ -14,7 +14,7 @@ run.growthbin.manyspp(growthdata, size = "dbh", spp = spp20,
 \description{
 Run the model to fit growth rate in bins for many species, 1-4 bins. It takes a list of species, extracts
 growth rates for each, one at a time, from the table of growth rates, then calls run.growthfit.bin to fit the model for
-the 4 bin options. 
+the 4 bin options.
 
 Sample species vector from BCI:
 }

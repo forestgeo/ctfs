@@ -7,7 +7,7 @@
 dsymexp(x, center, rate, log = FALSE)
 }
 \description{
-Probability distribution for a folded, symmetrical exponential. When x>=center, 
+Probability distribution for a folded, symmetrical exponential. When x>=center,
 it's just a standard exponential. When x<center, it's the mirror image of same one.
 
 Each must be divided by two, though, in order to integrate to one.

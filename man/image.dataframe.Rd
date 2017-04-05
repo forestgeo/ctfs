@@ -16,7 +16,6 @@
 
 \item{ptsize}{Size of points to be drawn
 
-
 Other arguments are the same as imageGraph().}
 }
 \description{

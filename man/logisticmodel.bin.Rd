@@ -11,9 +11,9 @@ Multiple bin model predicting y as a function of x, where each segment is modele
 
 A model with B bins has B-1 parameters for breaks points, B parameters as slopes, and one intercept (y at x=0).
 
-Within each bin, y is a linear function of x. 
+Within each bin, y is a linear function of x.
 
-Predictor can centered at medv. 
+Predictor can centered at medv.
 
 This function accepts a set of parameters, submits to linearmodel.bin, then returns invlogit.
 }

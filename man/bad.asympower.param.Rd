@@ -8,7 +8,7 @@ bad.asympower.param(hyperparam)
 }
 \description{
 The 3 parameters submitted to hyper.abundGibbs have to be checked, in case dasympower is used. The second and third, the
-two rate parameters, have to be < (-1). Since the parameters are inverted, they must be in (-1,0). 
+two rate parameters, have to be < (-1). Since the parameters are inverted, they must be in (-1,0).
 
 Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
 }

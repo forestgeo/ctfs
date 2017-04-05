@@ -23,22 +23,22 @@ abundance(censdata, type = "abund", alivecode = c("A"), mindbh = NULL,
 \item{split2}{another vector of categories, one per individual}
 }
 \description{
-Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables. 
+Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables.
 
 The categorical variables must be submitted as vectors whose length
-matches exactly as the number of rows in the plot data submitted (so one per tree or stem). 
+matches exactly as the number of rows in the plot data submitted (so one per tree or stem).
 
 The first vector should be the one with the most categories
-(for instances, split1=species, split2=dbhcategory). 
+(for instances, split1=species, split2=dbhcategory).
 
 The mean measurement date for all individuals in each category is
-also calculated. 
+also calculated.
 
 For abundance, set type='abund'(the default), for basal area, set type='ba'. Be sure to use the R Analytical
 
-Stem Table for basal area. For abundance, either the stem table or full table can be used, the former to count stems, the latter trees. 
+Stem Table for basal area. For abundance, either the stem table or full table can be used, the former to count stems, the latter trees.
 
-The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of 
+The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of
 one or two dimensions, depending on how many split variables were submitted:
 each of the dimensions of the array handles one of the categorical variables.
 }

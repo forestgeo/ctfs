@@ -8,7 +8,7 @@ agb.model(dbh, density, height, param)
 }
 \description{
 Calculates biomass from density, height, and dbh. Requires just two parameters, following Chave (2005). The parameters can be
-changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
+changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted.
 
 This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
 }

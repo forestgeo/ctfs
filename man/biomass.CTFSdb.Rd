@@ -12,17 +12,16 @@ biomass.CTFSdb(RStemTable, RTreeTable, whichtable = "tree", dbhunit = "mm",
 \description{
 Calculate biomass from existing R-formatted tables for trees and stems using dbh allometry. By default, it uses the Chave (2005) equations.
 
-Note that the standard downloads of R Analytical Tables, already has the agb column filled, calculated with this routine using the default parameters for moist forest. 
+Note that the standard downloads of R Analytical Tables, already has the agb column filled, calculated with this routine using the default parameters for moist forest.
 
-This program can be used to repeat or redo the calculation. It can also be used for other tables, always requiring two tables:  one with trees and one with all stems. 
+This program can be used to repeat or redo the calculation. It can also be used for other tables, always requiring two tables:  one with trees and one with all stems.
 
-The function returns the same table as submitted (either tree or stem), with a column agb added; if the agb column was already present, it is replaced. 
+The function returns the same table as submitted (either tree or stem), with a column agb added; if the agb column was already present, it is replaced.
 
 Calculations are done by AGB.ind and the subroutines it call.
 
-An alternative option is to have AGB calculations already stored in the server's AGB database, setting useChave=FALSE. This function then looks up the AGB for 
-each stem from the table named for the plot. 
-
+An alternative option is to have AGB calculations already stored in the server's AGB database, setting useChave=FALSE. This function then looks up the AGB for
+each stem from the table named for the plot.
 
 RStemTable: Name of table with one row per stem; must have dbh, species (column sp), treeID
 

@@ -8,15 +8,15 @@ AGB.ind(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
   forest = "moist", ht.param = NULL, htmodel = predht.asym)
 }
 \description{
-Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types. 
+Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types.
 
-Requires a table (df) with dbh and species names, a wood-density table (described under density.ind), a plot name, 
+Requires a table (df) with dbh and species names, a wood-density table (described under density.ind), a plot name,
 dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
 
 The height parameters default to NULL, and the Chave equations without height are then used. Alternatively, height parameters
 and a height function can be supplied, the latter to calculate height from diameter for every tree, in which case the
 
-Chave model with height is used. Returns a vector of biomass in kg for every individual in the submitted table df. 
+Chave model with height is used. Returns a vector of biomass in kg for every individual in the submitted table df.
 
 This is called by AGB.tree in the standard calculation of biomass for CTFS R tables.
 }

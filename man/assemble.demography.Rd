@@ -9,7 +9,7 @@ assemble.demography(output, type = "g", whichdbhcat = 1,
 }
 \description{
 Takes output of a demographic analysis (produced by functions growth, mortality, or pop.change)
-and converts into one dataframe. Only indicated dbh categories are included; be sure that whichdbhcat does 
+and converts into one dataframe. Only indicated dbh categories are included; be sure that whichdbhcat does
 not exceed the number of columns in the data submitted. Type is 'g'for growth, 'm'
 for mortality, 'ba'for basal area, 'agb'for biomass, 'r'for recruitment, and 'a'for abundance.
 }

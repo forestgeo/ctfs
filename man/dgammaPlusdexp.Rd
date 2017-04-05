@@ -8,14 +8,14 @@ dgammaPlusdexp(z, mean, sd, lambda, draws = 10000, div = 0.01,
   xrange = c(0, 25), xmax = 4, graphit = FALSE)
 }
 \description{
-The PDF of the sum of gamma and negative exponential distribution. The shape and rate of the gamma 
-are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
+The PDF of the sum of gamma and negative exponential distribution. The shape and rate of the gamma
+are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential.
 
 This is only an appoximation based on the observation that the resulting distribution is very
 close to a gamma. So I simply work out a new gamma whose mean is the sum of the means of
-the initial gamma and exponential, and likewise for the new variance. 
+the initial gamma and exponential, and likewise for the new variance.
 
-As long as gamma\'s rate > the exponential lambda, the distribution
+As long as gamma's rate > the exponential lambda, the distribution
 can be specified (using pgamma) as in dgammaMinusdexp. But if rate < lambda, this fails.
 
 The gamma approximation fails if the sd is sufficiently higher than the mean, and the mean

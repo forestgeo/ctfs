@@ -7,7 +7,7 @@
 Gibbs.normalmean(y, sigma)
 }
 \description{
-The standard Gibbs sampler for a normal distribution with unknown mean and variance. 
+The standard Gibbs sampler for a normal distribution with unknown mean and variance.
 
 y is the vector of observations
 sigma is the latest draw of the SD, using sqrt(Gibbs.normalvar)

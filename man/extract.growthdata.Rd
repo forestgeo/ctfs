@@ -10,7 +10,7 @@ extract.growthdata(census1, census2, growcol = "incgr", mingrow = 0.1,
   maxgrow = 75, exclude.stem.change = TRUE, returnfull = FALSE)
 }
 \description{
-Extract data for growth rates from plot databases and 2 censuses in CTFS R format. Returns a table with 
+Extract data for growth rates from plot databases and 2 censuses in CTFS R format. Returns a table with
 growth, size (ie dbh), and species name. Default is to return log-transformed growth, with negative and zero
 growth set to a mingrow, but with logit=TRUE, growth and dbh are not log-transformed.
 }

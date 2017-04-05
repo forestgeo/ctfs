@@ -13,7 +13,7 @@ regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
 \description{
 Performs regression and graphs in a convenient way: with or without log-transforming x and y variables (the option addone
 can be included to handle zeros for log-transformation), with or
-without manual point labelling, without or without the best-fit line added, and with many options for colors and points. 
+without manual point labelling, without or without the best-fit line added, and with many options for colors and points.
 add can be a vector of length 2, a constant to be added to every value
 of x, y to remove zeroes.
 }

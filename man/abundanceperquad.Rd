@@ -13,7 +13,7 @@ must be set correctly; gridsize is the quadrat dimension. The plot is divided in
 
 If the plot dimensions is not an exact multiple of the quadrat size, then a strip at the upper edge of the plot (north and east if plot
 is on cardinal directions) is omitted. For example, if gridsize=40 and plotdim=500, then there are an extra 20 meters at the upper boundary
-omitted from the calculations. 
+omitted from the calculations.
 
 See abundance() for description of the other arguments and return value. The array of abundances per quadrat is useful for similarity, counting
 species and stems per quadrat, etc.

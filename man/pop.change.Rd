@@ -20,27 +20,25 @@ pop.change(census1, census2, type = "abund", dbhunit = "mm",
 
 \item{little.r}{the rate of population change in a matching array, (log(N2)-log(N1))/time
 
-
 This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
-
 
 See abundance()}
 }
 \description{
-Finds abundance, basal area, or agb in two censuses and the rate of change between them. 
+Finds abundance, basal area, or agb in two censuses and the rate of change between them.
 
-Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
+Accepts two dataframes, each an R Analytical Table for one census, the earlier census first.
 
-Do not use this function with diameter categories as a split variable! The results won't make sense. 
+Do not use this function with diameter categories as a split variable! The results won't make sense.
 
 The categories need to be permanent attributes, such as species, genus, quadrat. Use instead pop.change.dbh to
-find population change of dbh categories. 
+find population change of dbh categories.
 
-Mean census date for a species is not the mean 
-census date for all living individuals in that census, but the mean census 
+Mean census date for a species is not the mean
+census date for all living individuals in that census, but the mean census
 date for all individuals alive in either census. Plants recruited between the two censuses get a first census date equal to
 the date on which the quadrat they later appear in was censused in the first
-census. Plants dead in the second census get a census date equal to the date on which their quadrat was censused 
+census. Plants dead in the second census get a census date equal to the date on which their quadrat was censused
 
 The return value is a list of 6 components:
 }

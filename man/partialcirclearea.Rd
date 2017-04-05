@@ -7,12 +7,12 @@
 partialcirclearea(r, c2, cy1, cy2)
 }
 \description{
-Calculates the area of a circle of radius r that is inside a rectangular plot.  
+Calculates the area of a circle of radius r that is inside a rectangular plot.
 
 The distance from the circle center to plot edges are c2, cy1, cy2, where cy1 is the shortest
 distance to a y-boundary and cy3 the longest, while c2 is the shortest x distance.
 
-The longest x distance is not needed. 
+The longest x distance is not needed.
 
 This will not work if the longest x distance < radius of the
 circle.  The greatest radius allowed is thus half the x dimension of the plot, generally

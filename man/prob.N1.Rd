@@ -8,7 +8,7 @@ prob.N1(spmean.ann, Rsd, N1, N2, surv.ann, time, type = "norm")
 }
 \description{
 Calculates the probability of observing N2 given N1, assuming a community-wide
-distribution of little.r, log(N2/N1). It uses the normal approximation to the 
+distribution of little.r, log(N2/N1). It uses the normal approximation to the
 binomial-poisson model (see dpopchange and testdpopchange in abundsim.r) as the
 error distribution around N2. Works with one species at a time, so all submitted values except lambda.ann are
 scalars. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.

@@ -8,7 +8,7 @@ dgammadexp(z, mean, sd, lambda, draws = 10000, div = 0.1, xrange = c(-10,
   30), graphit = F)
 }
 \description{
-PDF of a function formed by adding a gamma distribution to a symmetrical exponential 
+PDF of a function formed by adding a gamma distribution to a symmetrical exponential
 distribution. This means simply adding a PDF for a gamma minus an exponential to the
 
 PDF for a gamma plus an exponential.

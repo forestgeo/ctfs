@@ -7,7 +7,7 @@
 arrangeParam.Gibbs.2D(j, k, allparam.prev, allparam.next)
 }
 \description{
-Used in the loop of a Gibbs sampler, setting parameters not yet tested (j and above) to previous value (i-1), and other parameters (<j) to new value (i). 
+Used in the loop of a Gibbs sampler, setting parameters not yet tested (j and above) to previous value (i-1), and other parameters (<j) to new value (i).
 
 But unlike arrangeParam.Gibbs, on which this is based, this is for a matrix, not a vector. Also unlike arrangeParam.Gibbs, this accepts only two versions
 of the parameter matrix, the previous and the next. This is crucial for memory: otherwise, allparam would be a 3D array of large size.

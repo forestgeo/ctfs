@@ -7,7 +7,7 @@
 save.searchpath(n)
 }
 \description{
-Saves all functions in position n to the file already 
+Saves all functions in position n to the file already
 attached at that position; n can be a vector. Allows changes in attached data to be saved easily, but
 please use with care, as it will over-write the existing file.
 }

@@ -7,6 +7,6 @@
 match.dataframe(x, y)
 }
 \description{
-Matches two dataframes using two or more columns. R's function match() works only on vectors 
+Matches two dataframes using two or more columns. R's function match() works only on vectors
 (and thus single columns only). The return is a vector of indices, exactly as match() does.
 }

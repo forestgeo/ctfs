@@ -9,8 +9,8 @@ rearrangeSurveyData(inputtable)
 \arguments{
 \item{all}{points found in the input table, with an integer designation assigned to each. The designation is called pt.}
 
-\item{the}{second table matches the input table, 
-but instead of x-y coordinates for the two points, only columns pt1 and pt2 are included to 
+\item{the}{second table matches the input table,
+but instead of x-y coordinates for the two points, only columns pt1 and pt2 are included to
 indicate the two points between which a sighting was taken.}
 }
 \description{

@@ -57,36 +57,35 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 }
 \description{
 A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions
-excluded. A single independent variable, y, can be fit against any number of predictors, x, 
+excluded. A single independent variable, y, can be fit against any number of predictors, x,
 
-The model error can be binomial, Poisson, negative binomial, or Gaussian, with two alternatives for the Gaussian (described below). 
+The model error can be binomial, Poisson, negative binomial, or Gaussian, with two alternatives for the Gaussian (described below).
 
+Data are submitted the way lm or lmer require, with one single table, one row per observation. The formula, however, is not submitted using the R-style 'squiggle'~.
 
-Data are submitted the way lm or lmer require, with one single table, one row per observation. The formula, however, is not submitted using the R-style 'squiggle'~. 
-
-Rather, the names of x, y columns, are given. The model describing y's function of the x's is passed, and must be provided by the user 
+Rather, the names of x, y columns, are given. The model describing y's function of the x's is passed, and must be provided by the user
 (several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
 
-
 A starting set of parameters for the model must be submitted. It is a vector as long as the number of
-parameters required by the model. 
-
+parameters required by the model.
 
 The return value is a list with several components:
-*  resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
-*  fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
-*  burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
-*  steps: Atomic, the number of steps run in Gibbs sampler
-*  llike: Full log-likelihood of the model at each step of the Gibbs'sampler
-*  obs: The original y (dependent) variable, just as submitted
-*  data: The original x (independent) variables, just as submitted
-*  parnames: The names of the model parameters
-*  start: The start parameters submitted
-*  best: Best estimate of the model parameters for the entire data 
-*  CI: Credible intervals for the model parameters
-*  bestresid: The best estimate of parameters for the error model
-*  CIresid: Credible intervals for the parameters of the error model
-*  pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
-*  many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
-*  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers
+\itemize{
+\item resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
+\item fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
+\item burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+\item steps: Atomic, the number of steps run in Gibbs sampler
+\item llike: Full log-likelihood of the model at each step of the Gibbs'sampler
+\item obs: The original y (dependent) variable, just as submitted
+\item data: The original x (independent) variables, just as submitted
+\item parnames: The names of the model parameters
+\item start: The start parameters submitted
+\item best: Best estimate of the model parameters for the entire data
+\item CI: Credible intervals for the model parameters
+\item bestresid: The best estimate of parameters for the error model
+\item CIresid: Credible intervals for the parameters of the error model
+\item pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
+\item many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
+\item keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers
+}
 }

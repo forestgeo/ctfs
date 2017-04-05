@@ -7,7 +7,7 @@
 asymp.ht(x, param, ...)
 }
 \description{
-The function from Sean Thomas which produces an asymptote for y as a function of x. 
+The function from Sean Thomas which produces an asymptote for y as a function of x.
 
 Original version: y=ymax*(1-exp(-a*x^b))
 

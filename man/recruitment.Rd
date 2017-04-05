@@ -10,12 +10,12 @@ recruitment(census1, census2, mindbh = 10, alivecode = c("A", "AB", "AS"),
 \description{
 Functions for calculating recruitment rates.
 
-Recruitment is the main function, and is constructed like 
+Recruitment is the main function, and is constructed like
 growth and mortality. It requires two complete datasets, one per census,
-with dbh, pom, and date for every individual of all species in at least 2 censuses. 
+with dbh, pom, and date for every individual of all species in at least 2 censuses.
 
 It can then calculate mortality based on up to user-submitted factors. The two
-datasets have exactly the same individuals, in exactly the same order, one 
+datasets have exactly the same individuals, in exactly the same order, one
 individual per row.
 
 Recruitment is based on status and dbh. Any status indicating a live tree can be submitted

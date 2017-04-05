@@ -7,6 +7,6 @@
 constant.linear(x, param, xcenter = NULL)
 }
 \description{
-A model which is constant for x<lim, and linear for x>lim. The first parameter is the slope, 
+A model which is constant for x<lim, and linear for x>lim. The first parameter is the slope,
 second the x value of break point, third the lower limit.
 }

@@ -7,6 +7,6 @@
 perpendicular.line(b, m, x, y)
 }
 \description{
-Finds the slope and intercept of the line perpendicular to a line whose slope and intercept are given, 
+Finds the slope and intercept of the line perpendicular to a line whose slope and intercept are given,
 through the points x,y. Either x and y can be vectors, or b and m can be vectors, or if all are vectors, must be same length.
 }

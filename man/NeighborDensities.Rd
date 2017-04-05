@@ -8,10 +8,10 @@ NeighborDensities(censdata, censdata2 = NULL, r = 20, plotdim = c(1000,
   500), mindbh = 10, type = "count", include = c("A"))
 }
 \description{
-Calculates the total number or basal area of conspecific and heterospecific neighbors at a radius r 
-with edge effect correction. Most arguments aim to describe the type of neighbors to count  
+Calculates the total number or basal area of conspecific and heterospecific neighbors at a radius r
+with edge effect correction. Most arguments aim to describe the type of neighbors to count
 
-Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs package. 
+Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs package.
 
 Output: a data.frame with two columns listing the density of consp and hetsp, and rows equal to the size of censdata if censdata2 is absent, or censdata2 if it is present.
 }
@@ -31,13 +31,13 @@ sum consp and hetsp neighbors for only one species:
 
 }
 \author{
-Tania Brenes 
+Tania Brenes
 
- @param  censdata should have the coordinates (gx, gy), species id (sp), status, tag and dbh. It counts neighbors for each of the individuals in censdata.
- @param  censdata2 (NULL) an optional dataset for focal individuals, for example a subset of only one species or a list of seedling coordinates that are not part of census data. It must contain coordinates (gx,gy), species id (sp) and tag. It will count the neighbors in censdata but only for these focal coordinates.
- @param  r (20) radius to count neighbors
- @param  plotdim  (c(1000,500))  vector with two numbers indicating the xy-plot size;
- @param  mindbh (10) minimum size of neighbors to be counted
- @param  type (count) calculates count of stems ('count') or sum of basal areas ('basal'). Note that for the sum of basal areas is better to use the plot stem table, otherwise only one stem per tree will be included .
- @param  include (c("A")) a vector of status to include in the neighbors, by default it counts only alive individuals, for all status use c("A","P","D","M").
+@param  censdata should have the coordinates (gx, gy), species id (sp), status, tag and dbh. It counts neighbors for each of the individuals in censdata.
+@param  censdata2 (NULL) an optional dataset for focal individuals, for example a subset of only one species or a list of seedling coordinates that are not part of census data. It must contain coordinates (gx,gy), species id (sp) and tag. It will count the neighbors in censdata but only for these focal coordinates.
+@param  r (20) radius to count neighbors
+@param  plotdim  (c(1000,500))  vector with two numbers indicating the xy-plot size;
+@param  mindbh (10) minimum size of neighbors to be counted
+@param  type (count) calculates count of stems ('count') or sum of basal areas ('basal'). Note that for the sum of basal areas is better to use the plot stem table, otherwise only one stem per tree will be included .
+@param  include (c("A")) a vector of status to include in the neighbors, by default it counts only alive individuals, for all status use c("A","P","D","M").
 }

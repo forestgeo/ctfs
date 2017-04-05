@@ -9,13 +9,13 @@ NDcount(censdata, r = 20, plotdim = c(1000, 500))
 \arguments{
 \item{censdata}{Is the coordinates dataset, should have the coordinates (gx, gy)}
 
-\item{r}{(20) radius 
+\item{r}{(20) radius
 @param plotdim  (c(1000,500))  vector with two numbers indicating the xy-plot size;}
 }
 \description{
-Calculates the count of neighbors within radius r with edge effect correction. Is a quick version of NeighborDensities with limited capabilities. 
+Calculates the count of neighbors within radius r with edge effect correction. Is a quick version of NeighborDensities with limited capabilities.
 
-Dependencies: CalcRingArea from the CTFS package and splancs. 
+Dependencies: CalcRingArea from the CTFS package and splancs.
 
 Output: a single vector with neighbor counts within radius r for each individual in censdata.
 }

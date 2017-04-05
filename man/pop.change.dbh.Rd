@@ -8,18 +8,17 @@ pop.change.dbh(census1, census2, type = "abund", dbhunit = "mm",
   alivecode = c("A"), classbreak = c(10, 100, 300), split = NULL)
 }
 \description{
-Finds abundance or basal area in two censuses and the rate of change between them, in several dbh categories. 
+Finds abundance or basal area in two censuses and the rate of change between them, in several dbh categories.
 
-Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
+Accepts two dataframes, each an R Analytical Table for one census, the earlier census first.
 
 Only one additional splitting variable (other than dbh category) is allowed. Typically, this is species, but genus or quadrat are other examples.
 
-The return value is a list of two elements, one name abund (or ba) and the other meandate, just as other abundance results. 
+The return value is a list of two elements, one name abund (or ba) and the other meandate, just as other abundance results.
 
 Each is a table having
 one pair of columns for every dbh category: the first for census 1, the second for census 2. So if
-there are 3 dbh categories, the table has 6 columns. The rows of the table are the splitting variable (eg, species). 
-
+there are 3 dbh categories, the table has 6 columns. The rows of the table are the splitting variable (eg, species).
 
 See abundance()
 }

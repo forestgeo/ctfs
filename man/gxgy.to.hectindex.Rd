@@ -6,6 +6,3 @@
 \usage{
 gxgy.to.hectindex(gx, gy, plotdim = c(1000, 500))
 }
-\description{
-
-}

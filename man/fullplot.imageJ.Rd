@@ -13,12 +13,12 @@ fullplot.imageJ(path = "", outfile = "plotLxLy.txt", delim = ",",
 \arguments{
 \item{path}{the complete path name where the map files to be converted are found}
 
-\item{outfile}{the name of the text file where the results will be saved. This file will be saved in the folder specified by the path. If outfile=NULL, 
+\item{outfile}{the name of the text file where the results will be saved. This file will be saved in the folder specified by the path. If outfile=NULL,
 the results will not be written to a file.}
 
 \item{include.subdir}{whether the subfolders are to be searched for map files also}
 
-\item{corners}{specify the tags used for the map corners used for calibration. They must be named in a clockwise direction starting with the lower left corner. 
+\item{corners}{specify the tags used for the map corners used for calibration. They must be named in a clockwise direction starting with the lower left corner.
 
 These tags must be the same in each and every map file.}
 
@@ -38,7 +38,7 @@ These tags must be the same in each and every map file.}
 Reads quadrat maps created by imageJ, converting the digitized pixel to coordinates within a quadrat (local coordinates).<br />
 
 The input imageJ files must be named in a very specific way: all should have the same prefix and the quadrat names should
-have 4 digits. If there are subquadrats, the names should end with the same consistent suffixes. Only those files with this 
+have 4 digits. If there are subquadrats, the names should end with the same consistent suffixes. Only those files with this
 specific naming convention are read and converted. Updated Aug 2014 to handle files with no trees (just 4 corner labels).
 }
 \examples{

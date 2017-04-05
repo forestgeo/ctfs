@@ -7,7 +7,7 @@
 rsymexp(n, center, rate)
 }
 \description{
-Drawing a random variate on the symmetric exponential, based on the cumulative 
-probability, as given in psymexp. A random uniform number on (0,1) is plugged in 
+Drawing a random variate on the symmetric exponential, based on the cumulative
+probability, as given in psymexp. A random uniform number on (0,1) is plugged in
 the inverse of the cumulative distribution.
 }

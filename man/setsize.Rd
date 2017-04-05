@@ -7,6 +7,6 @@
 setsize(n, s)
 }
 \description{
-An internal function, called by map() to choose size of plotting points. It uses the number of dbh categories (n) and abundance of the species (s) 
+An internal function, called by map() to choose size of plotting points. It uses the number of dbh categories (n) and abundance of the species (s)
 to help determine the size. Note that the user can override these defaults by submitting sizes.
 }

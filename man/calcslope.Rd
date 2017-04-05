@@ -7,10 +7,10 @@
 calcslope(z, gridsize = 20)
 }
 \description{
-Given the z-coordinate of 3 points in 3D space whose x-y coordinates are corners of a right, isoceles triangle whose short side = gridsize, this calculates the slope in degrees of the plane through the points. 
+Given the z-coordinate of 3 points in 3D space whose x-y coordinates are corners of a right, isoceles triangle whose short side = gridsize, this calculates the slope in degrees of the plane through the points.
 
-The second point is the one between the two short sides. 
+The second point is the one between the two short sides.
 
-z: numeric vector of length 3 
+z: numeric vector of length 3
 gridsize: numeric scalar
 }

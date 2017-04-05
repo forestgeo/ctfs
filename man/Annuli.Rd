@@ -16,6 +16,6 @@ Annuli(spdata, r, plotdim)
 \description{
 Calculates the total area in a series of annuli, summed over all individuals in the
 submitted dataset. Calls CalcRingArea to do the calculations for the area within
-a distance r of every individual, then subtracts successive areas to get 
+a distance r of every individual, then subtracts successive areas to get
 the area within annuli. This is ordinarily only used as a subroutine of RipUvK.
 }

@@ -7,6 +7,6 @@
 distance.to.side(pt, target, side1, side2)
 }
 \description{
-Called from imageJ.to.lxly where for each point, distance to each side is calculated in 3 different ways: perpendicular, parallel to one adjacent side, 
+Called from imageJ.to.lxly where for each point, distance to each side is calculated in 3 different ways: perpendicular, parallel to one adjacent side,
 and parallel to other adjacent. These 3 distances are averaged, and the discrepancy used as a measure of error, taken as the CV of the three measures.
 }

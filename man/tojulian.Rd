@@ -8,7 +8,7 @@ be a vector or a matrix. See strptime for details about the format.}
 tojulian(x, dateform = "\%m/\%d/\%Y")
 }
 \description{
-Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such, 
+Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such,
 though it displays as a date.
 }
 \examples{

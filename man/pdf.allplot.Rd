@@ -13,9 +13,9 @@ pdf.allplot(splitdata = bci.split6, spplist = bci.spptable,
   singlefile = TRUE, path = "/home/condit/data/maps/bci/")
 }
 \description{
-Export a pdf with one or more species maps. If singlefile=TRUE, 
+Export a pdf with one or more species maps. If singlefile=TRUE,
 all maps will be in one big pdf, otherwise, a pdf for every species is created. The file exported will be named with Map.pdf
-in the path name given.  
+in the path name given.
 
 This calls the map() function for all species
 in the splitdata list; it is designed for all species from a plot (default is all species from the BCI plot).

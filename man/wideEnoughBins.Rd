@@ -7,8 +7,7 @@
 wideEnoughBins(x, b, ...)
 }
 \description{
-Test whether all the bin widths exceed a minimum. 
-
+Test whether all the bin widths exceed a minimum.
 
 MINBIN=0.1
 

@@ -6,6 +6,3 @@
 \usage{
 bad.binsdpar(x, param, ...)
 }
-\description{
-
-}

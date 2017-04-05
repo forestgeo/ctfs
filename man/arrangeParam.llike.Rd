@@ -7,6 +7,6 @@
 arrangeParam.llike(testparam, allparam, whichtest)
 }
 \description{
-Used in likelihood function of a Gibbs sampler. Allows any of a set of parameters to be submitted to metrop1step; 
+Used in likelihood function of a Gibbs sampler. Allows any of a set of parameters to be submitted to metrop1step;
 whichtest is the index of the parameter to test. If NULL, zero, or NA, it simply returns allparam.
 }

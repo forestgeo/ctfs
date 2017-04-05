@@ -73,10 +73,10 @@ Function to draw map of one or more species from one plot. Must give the complet
 plot dataset, in split format (list of one dataframe per species), and one or more
 species code. Other arguments are optional, however, many defaults can be adjusted
 to get a good map on the screen or exported. This calls the functions maptopo() and map1species()
-for the actual mapping. 
+for the actual mapping.
 
 A common problem is graph size, leading to an error message "Plot region too large". This happens if the export="no" option
-is used with the option plotside too large for the default graph size (usually 7 inches). If you use the option export="Windows", 
+is used with the option plotside too large for the default graph size (usually 7 inches). If you use the option export="Windows",
 "Mac", or "Unix", then height and width can be set with arguments ht, wd, and plotside can be as large as you please.
 }
 \examples{

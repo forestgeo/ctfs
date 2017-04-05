@@ -8,7 +8,7 @@ graph.outliers.spp(full, trimmed, spname = "gustsu", fit = NULL,
   size = "agb", export = NULL, xtitle = "log(agb)", ytitle = "growth")
 }
 \description{
-Pass the output of extract.growth with every individual\'s growth (full), and another after outliers have been trimmed. This finds
+Pass the output of extract.growth with every individual's growth (full), and another after outliers have been trimmed. This finds
 the records trimmed and overlays them on the entire graph. If a model is submitted, then the curves are graphed too.
 }
 \examples{

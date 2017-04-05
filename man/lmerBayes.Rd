@@ -67,63 +67,59 @@ lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
 \item{'Flat'is}{a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior.}
 }
 \description{
-A Metropolis MCMC version of lmer. A single independent variable, y, can be fit against any number of predictors, x, 
-with one random effect. Like lmer, the model error can be binomial or Gaussian, 
-but there are two alternatives for the Gaussian (described below). Relative to lmer, the key advantage offered is that 
-y can be any function of the x. A second advantage is that the MCMC produces 
-posterior distributions on every parameter, so full confidence limits are available. The principal limitation relative to lmer is 
+A Metropolis MCMC version of lmer. A single independent variable, y, can be fit against any number of predictors, x,
+with one random effect. Like lmer, the model error can be binomial or Gaussian,
+but there are two alternatives for the Gaussian (described below). Relative to lmer, the key advantage offered is that
+y can be any function of the x. A second advantage is that the MCMC produces
+posterior distributions on every parameter, so full confidence limits are available. The principal limitation relative to lmer is
 that only one random effect is allowed. In addition, the Bayesian MCMC approach is quite a bit slower.
 
-
-Data are submitted the way lm or lmer require, with one single table, one row per observation; the random effects 
-are in one column. The formula, however, is not submitted using the R-style 'squiggle'~. Rather, the names of x, y, and 
-random columns, are given. The model describing y's function of the x's is passed, and must be provided by the user 
+Data are submitted the way lm or lmer require, with one single table, one row per observation; the random effects
+are in one column. The formula, however, is not submitted using the R-style 'squiggle'~. Rather, the names of x, y, and
+random columns, are given. The model describing y's function of the x's is passed, and must be provided by the user
 (several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
 
-
-As in lmer, all parameters of the model follow a Gaussian hyperdistribution across the random effects. There is an 
+As in lmer, all parameters of the model follow a Gaussian hyperdistribution across the random effects. There is an
 option to include a full covariance matrix as the hyperdistribution, otherwise, only the variances are fit (ie, the
 covariance matrix has only zeroes off-diagonal). There is also an option to use the conjugate inverse-gamma or inverse-wishart for the variances and covariances; otherwise, Metropolis steps are used.
 
-
 A starting set of parameters for the model must be submitted. It can be a vector as long as the number of
 parameters required by the model, or it can be a full matrix, with one row of parameters for each of the random
-effects. The latter requires knowing in advance the names of all the random effects. 
+effects. The latter requires knowing in advance the names of all the random effects.
 
+There is a further complication included whose purpose is reducing memory demand in big models with many MCMC steps. option paramfile allows the full parameter matrix to be written into a text file every savestep steps, then erased from memory.
 
-There is a further complication included whose purpose is reducing memory demand in big models with many MCMC steps. option paramfile allows the full parameter matrix to be written into a text file every savestep steps, then erased from memory. 
-
-This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array. 
-
+This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array.
 
 The return value is a list with several components:
-*  mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
-*  sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
-*  bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
-*  bestsigma: Best estimate of the covariance (ie, group-level variance or error)
-*  resid: The entire chain parameters for the model of residuals
-*  bestresid: The best estimate of parameters for the model of residuals
-*  CIresid: Credible intervals for the parameters for the model of residuals
-*  best: The best estimates of model parameters for each random effect
-*  lower: Lower credible intervals of model parameters for each random effect
-*  upper: Uower credible intervals of model parameters for each random effect      
-*  burn: The burn-in
-*  llike: Full log-likelihood of the model at each step of the Gibbs'sampler
-*  bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
-*  DIC: Deviance information criterion of the model
-*  obs: The original y (dependent) variable, just as submitted
-*  data: The original x (independent) variables, just as submitted
-*  model: The model's predictions, as a list with one element per random effect
-*  randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
-*  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
-*  start: The start parameters submitted
-*  randeffects: The names of all the random effects
-*  parnames: The names of the model parameters
-*  fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
-
+\itemize{
+\item mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
+\item sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
+\item bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect)
+\item bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+\item resid: The entire chain parameters for the model of residuals
+\item bestresid: The best estimate of parameters for the model of residuals
+\item CIresid: Credible intervals for the parameters for the model of residuals
+\item best: The best estimates of model parameters for each random effect
+\item lower: Lower credible intervals of model parameters for each random effect
+\item upper: Uower credible intervals of model parameters for each random effect
+\item burn: The burn-in
+\item llike: Full log-likelihood of the model at each step of the Gibbs'sampler
+\item bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+\item DIC: Deviance information criterion of the model
+\item obs: The original y (dependent) variable, just as submitted
+\item data: The original x (independent) variables, just as submitted
+\item model: The model's predictions, as a list with one element per random effect
+\item randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
+\item keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers
+\item start: The start parameters submitted
+\item randeffects: The names of all the random effects
+\item parnames: The names of the model parameters
+\item fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
+}
 
 Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
-(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
+(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html)
 offers a worked example.
 }
 \examples{

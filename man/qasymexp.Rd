@@ -7,7 +7,7 @@
 qasymexp(y, rate1, rate2, c)
 }
 \description{
-Quantiles of dasymexp 
+Quantiles of dasymexp
 
 y is the vector of desired quantiles; c is the center parameter; rate1 is the rate for the right half, and rate2 the left.
 }

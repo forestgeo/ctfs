@@ -7,7 +7,7 @@
 calculateBinModel.AIC(fit, type = "optim")
 }
 \description{
-Calculate AIC of the model, using various log(likelihood) estimators: 
+Calculate AIC of the model, using various log(likelihood) estimators:
 with optim, the highest likelihood found by optim
 with mean, the mean llikelihood from the Gibbs sampler
 with gibbs, the maximum llikelihood from the Gibbs sampler

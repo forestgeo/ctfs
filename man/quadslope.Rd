@@ -7,10 +7,10 @@
 quadslope(cornerelev, gridsize = 20)
 }
 \description{
-Given the elevation at four corners of a square of side=gridsize, this estimates the slope in degrees of the terrain over that square. The slope is calculated for each of the 4 planes defined by omitting one of the points. 
+Given the elevation at four corners of a square of side=gridsize, this estimates the slope in degrees of the terrain over that square. The slope is calculated for each of the 4 planes defined by omitting one of the points.
 
-The 4 slopes are averaged. Returns both the mean slope and the sqrt of the variance of the 4 different slopes. 
+The 4 slopes are averaged. Returns both the mean slope and the sqrt of the variance of the 4 different slopes.
 
-cornerelev: vector of 4 elevations 
+cornerelev: vector of 4 elevations
 gridsize: the side of the square
 }
