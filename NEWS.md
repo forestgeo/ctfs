@@ -1,5 +1,10 @@
 # ctfs 0.0.0.9003
 
+- Import package date, stated as a dependency on original CTFS documentation
+
+
+# ctfs 0.0.0.9003
+
 * Tidy up roxygen documentation. Now empty lines span 2 lines or less.
 
 * Accept Rmarkdown in roxygen documentation. This allows lists to display nicely.
