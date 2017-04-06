@@ -1,7 +1,10 @@
-# ctfs 0.0.0.9003
+# ctfs 0.0.0.9004
 
 - Import package date, stated as a dependency on original CTFS documentation
 
+## TODO
+
+- remove cleaning  of export and of removing source code via html2roxygen
 
 # ctfs 0.0.0.9003
 
