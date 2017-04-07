@@ -2,22 +2,11 @@
 
 # Start with code + html-tagged-docs and roxygen documentation in separate files
 
-# Code. Copy source files from a folder with subfolders to a single folder
-source("./data-raw/src2doc_src_to_dir.R")
+# Code: Copy source files from a folder with subfolders to a single folder
+# source("./data-raw/src2doc_src_to_dir.R")  # WARNING: DISSABLED ONCE RUN
 
-# Roxygen documentation. From sourse files, wrangle to roxygenize documentation
-source("./data-raw/src2doc_html2roxygen.R")
-
-
-
-
-# Preliminary ----
-
-# In data-raw place source and doc
-
-# Docs. Roxygenize into ./data-raw/ctfs_docs/ (instead of into ./R/)
-
-# Source. Copy source into ./data-raw/ctfs_source/ (instead of into ./R/)
+# Roxygen documentation: From sourse files, wrangle to roxygenize documentation
+# source("./data-raw/src2doc_html2roxygen.R")  # WARNING: DISSABLED ONCE RUN
 
 
 
@@ -31,11 +20,44 @@ source("./data-raw/src2doc_html2roxygen.R")
 
 
 
-# Work ----
+# Packages ----------------------------------------------------------------
 
-#   0. store the name of the file with many functions in a tibble's variable
+library(tibble)
+library(purrr)
+library(dplyr)
 
-# tibble paths to docs files and source files, and ensure filenames match
+
+
+
+# Work --------------------------------------------------------------------
+
+# 0. tibble file paths and names. Each file has multiple functions. ----
+
+# Check if file in one folder lack in the other. "ctfs-package.r" is ok.
+
+code_from <- "./data-raw/ctfs_src_html/"
+doc_from <- "./data-raw/ctfs_doc/"
+
+diff_code_doc <- setdiff(dir(code_from), dir(doc_from))
+if (!purrr::is_empty(diff_code_doc)) {
+  warning("File(s) in docs folder is not in code folder")
+  diff_code_doc
+  }
+
+diff_doc_code <- setdiff(dir(doc_from), dir(code_from))
+if (!purrr::is_empty(diff_doc_code)) {
+  warning("File(s) in docs folder is not in code folder")
+  diff_doc_code
+  }
+
+dirs <- tibble(file_nm = intersect(dir(doc_from), dir(code_from))) %>% 
+  mutate(
+    path_src = paste0(code_from, file_nm),
+    path_doc = paste0(doc_from, file_nm)
+    )
+
+
+
 
 
 
