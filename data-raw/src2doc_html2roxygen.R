@@ -1,6 +1,4 @@
-# Description -------------------------------------------------------------
-
-# tag_read: read all tags in all files
+# Roxygen documentation. From sourse files, wrangle to roxygenize documentation
 
 
 
@@ -24,7 +22,7 @@ walk(pkgs, library, character.only = TRUE)
 
 from_folder <- "./data-raw/CTFSRPackage/"
 from_subfolder <- map2_chr(from_folder, dir(from_folder), paste0)
-to_folder <- "./R"
+to_folder <- "./data-raw/ctfs_doc"
 
 paths <- tibble(
     from = from_subfolder,
@@ -519,10 +517,10 @@ map(paths$from, read_file) %>%
 
 
 
-# Add files to .R/ that do not need wrangling
+# Add files to ./data-raw/ctfs_doc that do not need wrangling
 path_notwrangle <- "./data-raw/R_from_notwrangle/"
 from_notwrangle <- map2(path_notwrangle, dir(path_notwrangle), paste0)
-to_notwrangle <- map2("./R/", dir(path_notwrangle), paste0)
+to_notwrangle <- map2("./data-raw/ctfs_doc/", dir(path_notwrangle), paste0)
 
 map(from_notwrangle, read_file) %>% 
   walk2(to_notwrangle, write_file)
@@ -530,5 +528,5 @@ map(from_notwrangle, read_file) %>%
 
 
 # Shorcut to remove first lines of utilities (supplement)
-paste0(read_lines("./R/utilities.R", skip = 10), collapse = "\r\n") %>% 
-  write_file("./R/utilities.R")
+paste0(read_lines("./data-raw/ctfs_doc/utilities.R", skip = 7), collapse = "\r\n") %>%
+  write_file("./data-raw/ctfs_doc/utilities.R")

@@ -1,13 +1,3 @@
-#'
-#' Accepts any character representation of a date and a description of the format. The submitted dates can
-#' be a vector or a matrix. See strptime for details about the format. 
-#'
-#' Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such, 
-#' though it displays as a date.
-#'
-#' @examples
-#' \dontrun{
-#'
 #' tojulian(c('23Oct2010','29Mar1956'),'%d%b%Y')}
 #'
 #'
