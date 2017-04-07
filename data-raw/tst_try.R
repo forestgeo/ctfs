@@ -43,14 +43,5 @@ tibble_src_nm <- function(file_dir) {
   dplyr::select(src_nm, 2, 1)
 }
 
-
-
 map(path_in, tibble_src_nm)
 
-
-  
-  map(read_file) %>%
-  # add cutting point
-  tibble()
-  # str_extract_all(regex("(\n\'[^ ]+\'\n)", multiline = F, dotall = F))
-  walk2(path_out, write_file)

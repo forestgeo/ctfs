@@ -42,15 +42,25 @@ doc_from <- "./data-raw/ctfs_doc/"
 
 diff_code_doc <- setdiff(dir(code_from), dir(doc_from))
 if (!purrr::is_empty(diff_code_doc)) {
-  warning("File(s) in docs folder is not in code folder")
-  diff_code_doc
-  }
+  warning(
+    paste(
+      "File(s) in docs folder is not in code folder.", 
+      "Difference is:", 
+      deparse(diff_code_doc)
+    )
+  )
+}
 
 diff_doc_code <- setdiff(dir(doc_from), dir(code_from))
 if (!purrr::is_empty(diff_doc_code)) {
-  warning("File(s) in docs folder is not in code folder")
-  diff_doc_code
-  }
+  warning(
+    paste(
+      "File(s) in docs folder is not in code folder.", 
+      "Difference is:", 
+      deparse(diff_doc_code)
+    )
+  )
+}
 
 dirs <- tibble(file_nm = intersect(dir(doc_from), dir(code_from))) %>% 
   mutate(
@@ -59,12 +69,48 @@ dirs <- tibble(file_nm = intersect(dir(doc_from), dir(code_from))) %>%
     )
 
 
+
+# 1. tibble function names, doc and source --------------------------------
+
+# Read each docs and source file, split by function name and tibble. tibble fun
+# name and doc.
+
+tibble_doc <- function(file_dir) {
+  file_dir %>% 
+    readr::read_file() %>% 
+    str_replace_all(
+      pattern = regex("(\n\')([^ ]+)(\'\n)", multiline = F, dotall = F),
+      replacement = "\\1\\2\\3\nxxxxx\n"
+      ) %>% 
+    str_split("xxxxx") %>% 
+    unlist() %>% 
+    tibble() %>% 
+    setNames("doc") %>% 
+    # Remove empty rows
+    filter(grepl(".*[a-zA-Z]+.*", doc))
+}
+
+tibble_src_nm <- function(file_dir) {
+  src_nm <- tibble_doc(file_dir) %>% 
+    mutate(
+      fun_nm = str_extract_all(
+        doc, 
+        pattern = regex(".*(\n\')([^ ]+)(\'\n).*", multiline = F, dotall = F)
+        ),
+      fun_nm = str_replace_all(fun_nm, fixed("#'\n'"), ""),
+      fun_nm = str_replace_all(fun_nm, fixed("\n'"), ""),
+      fun_nm = str_replace_all(fun_nm, fixed("'\n"), "")
+      )
+  dplyr::select(src_nm, 2, 1)
+}
+
+dirs$path_doc %>% map(tibble_src_nm)
+
+
+
+# tibble fun source code
+
 # xxxcont. ----
-
-# 1. store the roxygen docs of each function in a file in a tibble's variable ----
-
-# Read each docs and source file, split by function name and tibble. Now, tibble
-# should have a column with file name, function (fun) name, fun source, fun doc.
 
 
 
