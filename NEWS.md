@@ -2,6 +2,8 @@
 
 - Import package date, stated as a dependency on original CTFS documentation
 
+- In a vignette, report complexity of ctfs and compare with other complex and simple packages.
+
 ## TODO
 
 - remove cleaning  of export and of removing source code via html2roxygen

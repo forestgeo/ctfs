@@ -14,6 +14,7 @@ path_in %>%
   str_replace_all(
     regex("(.*'\r\n[^a-zA-Z]*)(\n#\' [a-zA-Z])", multiline = T, dotall = T),
     "\\1xxxxxxxxxxxxxxxxxx\\2"
-  )
+  ) %>% 
+  str_split("xxxxxxxxxxxxxxxxxx")
     
 
