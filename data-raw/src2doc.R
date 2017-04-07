@@ -75,36 +75,10 @@ dirs <- tibble(file_nm = intersect(dir(doc_from), dir(code_from))) %>%
 # Read each docs and source file, split by function name and tibble. tibble fun
 # name and doc.
 
-tibble_doc <- function(file_dir) {
-  file_dir %>% 
-    readr::read_file() %>% 
-    str_replace_all(
-      pattern = regex("(\n\')([^ ]+)(\'\n)", multiline = F, dotall = F),
-      replacement = "\\1\\2\\3\nxxxxx\n"
-      ) %>% 
-    str_split("xxxxx") %>% 
-    unlist() %>% 
-    tibble() %>% 
-    setNames("doc") %>% 
-    # Remove empty rows
-    filter(grepl(".*[a-zA-Z]+.*", doc))
-}
 
-tibble_src_nm <- function(file_dir) {
-  src_nm <- tibble_doc(file_dir) %>% 
-    mutate(
-      fun_nm = str_extract_all(
-        doc, 
-        pattern = regex(".*(\n\')([^ ]+)(\'\n).*", multiline = F, dotall = F)
-        ),
-      fun_nm = str_replace_all(fun_nm, fixed("#'\n'"), ""),
-      fun_nm = str_replace_all(fun_nm, fixed("\n'"), ""),
-      fun_nm = str_replace_all(fun_nm, fixed("'\n"), "")
-      )
-  dplyr::select(src_nm, 2, 1)
-}
 
-dirs$path_doc %>% map(tibble_src_nm)
+dirs$path_doc %>% 
+  map(tibble_fun_nm)
 
 
 
