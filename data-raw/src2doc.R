@@ -22,9 +22,11 @@
 
 # Packages ----------------------------------------------------------------
 
-library(tibble)
-library(purrr)
 library(dplyr)
+library(purrr)
+library(readr)
+library(stringr)
+library(tibble)
 
 
 
@@ -58,16 +60,16 @@ dirs <- tibble(file_nm = intersect(dir(doc_from), dir(code_from))) %>%
 
 
 
-
-
-
 #   1. store the roxygen docs of each function in a file in a tibble's variable
 
 # Read each docs and source file, split by function name and tibble. Now, tibble
 # should have a column with file name, function (fun) name, fun source, fun doc.
 
+map(dirs$path_doc, read_file) %>% 
+  str_split("^#\' \'.*'$")
 
-# xxxcont.
+
+# xxxcont. ----
 
 
 #   2. store the source of each function in a file in a tibble's variable
