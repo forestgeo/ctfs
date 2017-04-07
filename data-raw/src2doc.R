@@ -70,21 +70,32 @@ dirs <- tibble(file_nm = intersect(dir(doc_from), dir(code_from))) %>%
 
 
 
-# 1. tibble function names, doc and source --------------------------------
+# Tibble fun names, source code and roxygen docs
+
+# 1.1. tibble fun names and source code ----
+
+codify <- function(fun) {
+  without_name <- paste0(deparse(get(fun)), collapse = "\n")
+  paste(fun, "<-", without_name)
+  }
+
+fun_code <- tibble(fun_nm = ls(getNamespace("ctfs"), all.names=TRUE)) %>%
+  # Remove stuff that are not funtions (start with .)
+  filter(!grepl("^\\.", fun_nm)) %>% 
+  mutate(fun_code = codify(fun_nm))
+
+
+
+# xxxcont. ----
+
+
+# 1.2. tibble fun names and doc ----
 
 # Read each docs and source file, split by function name and tibble. tibble fun
 # name and doc.
 
 
 
-dirs$path_doc %>% 
-  map(tibble_fun_nm)
-
-
-
-# tibble fun source code
-
-# xxxcont. ----
 
 
 

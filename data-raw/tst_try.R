@@ -48,11 +48,24 @@ tibble_fun_nm <- function(file_dir) {
 
 
 
-file_dir <- "./data-raw/ctfs_src_html/abundance.R"
+file_dir <- "./data-raw/tst_in/biomass.CTFSdb.R"
 
 tibble_src <- function(file_dir) {
-  file_dir %>% 
+
+    file_dir %>% 
     readr::read_file() %>% 
+    str_extract_all(
+      stringr::regex(pattern = "<name>\r.*\n</name>", 
+        multiline = FALSE, 
+        dotall = TRUE
+        )
+    )
+
+        
+    map(write_file, "./tst.R")
+    
+  
+  
     str_replace_all(
       pattern = regex(
         "(<name>.*<\\\\/name>).*(<source>.*<\\\\/source>)", 
