@@ -19,9 +19,13 @@ tibble_doc <- function(file_dir) {
   file_dir %>% 
     readr::read_file() %>% 
     str_replace_all(
-      pattern = regex("(.*\n\')([a-zA-Z]+[a-zA-Z]|\\.]*)(\'.*)"),
+      pattern = regex(
+        "(.*\n\')([^ ]+)(\'.*)",
+        multiline = TRUE,
+        dotall = TRUE
+      ),
       replacement = "\\1\\2\nxxxxxxxxxxxxxxx\n\\3"
-      ) %>% 
+    ) %>% 
     str_split("xxxxxxxxxxxxxxx") %>% 
     unlist() %>% 
     tibble() %>% 
@@ -30,32 +34,28 @@ tibble_doc <- function(file_dir) {
     filter(grepl(".*[a-zA-Z]+.*", doc))
 }
 
-# cOPY OF THE ABOVE TO TRY STUFF
 
-
-
-
-
-
-
-
-
+# Make pattern [^ ]
 
 tibble_fun_nm <- function(file_dir) {
-  src_nm <- tibble_doc(file_dir) %>% 
+  tibble_doc(file_dir) %>% 
     mutate(
       fun_nm = str_extract_all(
-        doc, 
-        pattern = regex(".*(\n\')([^ ]+)(\'\n).*", multiline = F, dotall = F)
-        ),
-      fun_nm = str_replace_all(fun_nm, fixed("#'\n'"), ""),
-      fun_nm = str_replace_all(fun_nm, fixed("\n'"), ""),
-      fun_nm = str_replace_all(fun_nm, fixed("'\n"), ""),
-      fun_nm = str_replace_all(fun_nm, fixed("\n"), ""),
-      fun_nm = str_replace_all(fun_nm, fixed("#"), "")
-      )
-  dplyr::select(src_nm, 2, 1)
+        doc,
+        pattern = regex(
+          "\n\'[a-zA-Z]+[a-zA-Z]|\\.]*\'", 
+          multiline = TRUE,
+          dotall = TRUE
+        )
+      ),
+      fun_nm = str_replace(fun_nm, fixed("\n\'"), "")
+    ) %>% 
+    dplyr::select(2, 1)
 }
+
+
+tibble_doc("./data-raw/tst_in/utilitiesCTFS.R")
+tibble_fun_nm("./data-raw/tst_in/utilitiesCTFS.R") %>% View
 
 
 # code_from <- "./data-raw/ctfs_src_html/"
