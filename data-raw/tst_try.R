@@ -11,6 +11,7 @@ base_out <- "./data-raw/tst_out/"
 path_in <- map2(base_in, dir(base_in), paste0)
 path_out <- map2(base_out, dir(base_in), paste0)
 
+file_dir <- "./data-raw/tst_in/abundance.R"
 
 
 
@@ -18,16 +19,27 @@ tibble_doc <- function(file_dir) {
   file_dir %>% 
     readr::read_file() %>% 
     str_replace_all(
-      pattern = regex("(\n\')([^ ]+)(\'\n)", multiline = F, dotall = F),
-      replacement = "\\1\\2\\3\nxxxxx\n"
+      pattern = regex("(.*\n\')([a-zA-Z]+[a-zA-Z]|\\.]*)(\'.*)"),
+      replacement = "\\1\\2\nxxxxxxxxxxxxxxx\n\\3"
       ) %>% 
-    str_split("xxxxx") %>% 
+    str_split("xxxxxxxxxxxxxxx") %>% 
     unlist() %>% 
     tibble() %>% 
     setNames("doc") %>% 
     # Remove empty rows
     filter(grepl(".*[a-zA-Z]+.*", doc))
 }
+
+# cOPY OF THE ABOVE TO TRY STUFF
+
+
+
+
+
+
+
+
+
 
 tibble_fun_nm <- function(file_dir) {
   src_nm <- tibble_doc(file_dir) %>% 
@@ -38,60 +50,16 @@ tibble_fun_nm <- function(file_dir) {
         ),
       fun_nm = str_replace_all(fun_nm, fixed("#'\n'"), ""),
       fun_nm = str_replace_all(fun_nm, fixed("\n'"), ""),
-      fun_nm = str_replace_all(fun_nm, fixed("'\n"), "")
+      fun_nm = str_replace_all(fun_nm, fixed("'\n"), ""),
+      fun_nm = str_replace_all(fun_nm, fixed("\n"), ""),
+      fun_nm = str_replace_all(fun_nm, fixed("#"), "")
       )
   dplyr::select(src_nm, 2, 1)
 }
 
 
+# code_from <- "./data-raw/ctfs_src_html/"
+# doc_from <- "./data-raw/ctfs_doc/"
 
-
-
-
-file_dir <- "./data-raw/tst_in/biomass.CTFSdb.R"
-
-tibble_src <- function(file_dir) {
-
-    file_dir %>% 
-    readr::read_file() %>% 
-    str_extract_all(
-      stringr::regex(pattern = "<name>\r.*\n</name>", 
-        multiline = FALSE, 
-        dotall = TRUE
-        )
-    )
-
-        
-    map(write_file, "./tst.R")
-    
-  
-  
-    str_replace_all(
-      pattern = regex(
-        "(<name>.*<\\\\/name>).*(<source>.*<\\\\/source>)", 
-        multiline = T, 
-        dotall = T
-        ),
-      replacement = "\\1\nxxxxxx\n\\2"
-      ) %>% 
-    str_split("xxxxx") %>% 
-    unlist() %>% 
-    tibble() %>% 
-    setNames("doc") %>% 
-    # Remove empty rows
-    filter(grepl(".*[a-zA-Z]+.*", doc))
-}
-
-
-
-
-
-
-
-
-
-
-
-
-map(path_in, tibble_fun_nm)
-
+map_df(path_in, tibble_fun_nm)[[1]]
+map_df(path_in =  dirs$path_doc, tibble_fun_nm)[[1]]

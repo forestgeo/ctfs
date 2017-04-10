@@ -22,6 +22,7 @@
 
 # Packages ----------------------------------------------------------------
 
+library(ctfs)
 library(dplyr)
 library(purrr)
 library(readr)
@@ -33,7 +34,8 @@ library(tibble)
 
 # Work --------------------------------------------------------------------
 
-# 0. tibble file paths and names. Each file has multiple functions. ----
+# 0. tibble directories ----
+# (file paths and names. Each file has multiple functions.)
 
 # Check if file in one folder lack in the other. "ctfs-package.r" is ok.
 
