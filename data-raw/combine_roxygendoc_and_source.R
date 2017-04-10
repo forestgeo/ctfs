@@ -32,7 +32,7 @@ source("./data-raw/src2doc_extract_src_from_subfolders.R")
 
 code_from <- "./data-raw/ctfs_src_html/"
 doc_from <- "./data-raw/ctfs_doc/"
-to <- "./data-raw/ctfs_doc_src/"
+to <- "./R/"
 
 # Check if file in one folder lack in the other. "ctfs-package.r" is ok.
 
