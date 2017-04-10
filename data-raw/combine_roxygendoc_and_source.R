@@ -1,6 +1,10 @@
 # In a single file, combine the roxygen documentation generated programatically
 # with the original source code and html-tagged documentation.
 
+
+
+# Packages ----------------------------------------------------------------
+
 library(ctfs)
 library(dplyr)
 library(purrr)
@@ -10,15 +14,25 @@ library(tibble)
 
 
 
-# Work --------------------------------------------------------------------
+# Prepare files to be combined ----
 
-# 0. store directories convenietly ----
+# From original (html-tagged) documentation, produce rogygen docum
+
+# Reads from data-raw/CTFSRPackage/ and saves to data-raw/ctfs_doc
+source("./data-raw/src2doc_html2roxygen.R")
+
+# Reads from data-raw/CTFSRPackage/ and saves to data-raw/ctfs_src_html/. This
+# step basically extracts each file from subfolders out into a single folder
+
+source("./data-raw/src2doc_extract_src_from_subfolders.R")
+
+
+
+# Store directories convenietly ----
 
 code_from <- "./data-raw/ctfs_src_html/"
 doc_from <- "./data-raw/ctfs_doc/"
 to <- "./data-raw/ctfs_doc_src/"
-
-
 
 # Check if file in one folder lack in the other. "ctfs-package.r" is ok.
 
@@ -51,6 +65,9 @@ dirs <- tibble(file_nm = intersect(dir(doc_from), dir(code_from))) %>%
     path_doc_src = paste0(to, file_nm)
   )
 
+
+
+# Combine documentation and source ----
 
 # For each file with multiple functions, paste corresponding documentation and
 # source, and save to a single file
