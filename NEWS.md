@@ -8,6 +8,8 @@
 
 - In a vignette, report complexity of ctfs and compare with other complex and simple packages.
 
+- Create and document data object month names that is presumably crucial.
+
 ## TODO
 
 - remove cleaning  of export and of removing source code via html2roxygen

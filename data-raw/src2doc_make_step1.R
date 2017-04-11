@@ -110,10 +110,14 @@ pmap(list(dirs$path_doc, dirs$path_src, dirs$path_doc_src), combine_doc_src)
 
 
 # Remove temporary directories
-
 unlink("./data-raw/ctfs_doc", recursive = TRUE)
 unlink("./data-raw/ctfs_src_html", recursive = TRUE)
 
 # Copy documentation that needed no process.
-file.copy("./data-raw/src2doc_pkg_doc/ctfs-package.R", "./R/ctfs-package.R")
+base_from <- "./data-raw/src2doc_pkg_doc/"
+from <- paste0(base_from, dir(base_from))
+to <- paste0("./R/", dir(base_from))
+map2(from, to, file.copy)
+
+
 
