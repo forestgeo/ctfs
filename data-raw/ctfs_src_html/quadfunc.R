@@ -13,6 +13,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 quad.to.gxgy=function(quad,gridsize=20,start=0)
 {
  quad=as.numeric(quad)
@@ -41,6 +43,8 @@ quad.to.gxgy=function(quad,gridsize=20,start=0)
 # 
 # </sample>
 # <source>
+#' @export
+
 rowcol.to.index=function(rowno,colno,gridsize=20,plotdim=c(1000,500))
 {
  badrc=(rowno<=0 | colno<=0 | rowno>plotdim[2]/gridsize | colno>plotdim[1]/gridsize)
@@ -71,6 +75,8 @@ rowcol.to.index=function(rowno,colno,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 gxgy.to.quad=function(gx,gy,gridsize=20,plotdim=c(1000,500),digits=2,start='zero')
 {
  rc=gxgy.to.rowcol(gx,gy,gridsize,plotdim)
@@ -107,6 +113,8 @@ gxgy.to.quad=function(gx,gy,gridsize=20,plotdim=c(1000,500),digits=2,start='zero
 # 
 # </sample>
 # <source>
+#' @export
+
 getquadratname=function(x,y,plotdim)
 {
  rowcol=gxgy.to.rowcol(gx=x,gy=y,plotdim=plotdim)-1
@@ -139,6 +147,8 @@ getquadratname=function(x,y,plotdim)
 # 
 # </sample>
 # <source>
+#' @export
+
 convert.rowcol=function(num)
 {
  name=as.character(num)
@@ -167,6 +177,8 @@ convert.rowcol=function(num)
 # 
 # </sample>
 # <source>
+#' @export
+
 gxgy.to.index=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 {
  badgxgy=(gx<0 | gy<0 | gx>=plotdim[1] | gy>=plotdim[2] | is.na(gx) | is.na(gy))
@@ -196,6 +208,8 @@ gxgy.to.index=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 index.to.rowcol=function(index,gridsize=20,plotdim=c(1000,500))
 {
  index=index-1
@@ -231,6 +245,8 @@ index.to.rowcol=function(index,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 index.to.gxgy=function(index,gridsize=20,plotdim=c(1000,500))
 {
  badindex=(index<=0 | index>plotdim[1]*plotdim[2]/(gridsize^2))
@@ -262,6 +278,8 @@ index.to.gxgy=function(index,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 gxgy.to.rowcol=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 {
  index=gxgy.to.index(gx,gy,gridsize,plotdim)
@@ -285,6 +303,8 @@ gxgy.to.rowcol=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 gxgy.to.hectindex=function(gx,gy,plotdim=c(1000,500))
 {
  if(gx>=plotdim[1] || gy>=plotdim[2] || gx<0 || gy<0) return(rep(-1,length(index)))
@@ -315,6 +335,8 @@ gxgy.to.hectindex=function(gx,gy,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 gxgy.to.lxly=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 {
  rc=gxgy.to.rowcol(gx,gy,gridsize,plotdim)-1
@@ -342,6 +364,8 @@ gxgy.to.lxly=function(gx,gy,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 lxly.to.p5=function(lx,ly,gridsize=20)
 {
  x5=as.character(1+floor(lx/5))
@@ -371,6 +395,8 @@ lxly.to.p5=function(lx,ly,gridsize=20)
 # 
 # </sample>
 # <source>
+#' @export
+
 findborderquads=function(index,dist=20,gridsize=20,plotdim=c(1000,500))
 {
  bound.index=numeric(8)
@@ -415,6 +441,8 @@ findborderquads=function(index,dist=20,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 create.neighbordata=function(abundperquad)
 {
  neighborabund=abundperquad
@@ -447,6 +475,8 @@ create.neighbordata=function(abundperquad)
 # 
 # </sample>
 # <source>
+#' @export
+
 findneighborabund=function(abundvect,gridsize=20,plotdim=c(1000,500))
 {
  noquads=length(abundvect)
@@ -483,6 +513,8 @@ findneighborabund=function(abundvect,gridsize=20,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 neighbors=function(pres,plotdim=c(1000,500))
 {
  colno=plotdim[1]/20
@@ -521,6 +553,8 @@ neighbors=function(pres,plotdim=c(1000,500))
 # 
 # </sample>
 # <source>
+#' @export
+
 torus.shift=function(quaddata,slip.horiz,slip.vert,invert=F,reverse=F,plotdim=c(1000,500),gridsize=20)
 {
  rows=plotdim[2]/gridsize
@@ -573,6 +607,8 @@ torus.shift=function(quaddata,slip.horiz,slip.vert,invert=F,reverse=F,plotdim=c(
 # 
 # </sample>
 # <source>
+#' @export
+
 getsmallerquads=function(index,gridlarge,gridsmall,plotdim)
 {
  large=index.to.gxgy(index,gridsize=gridlarge,plotdim=plotdim)
@@ -617,6 +653,8 @@ getsmallerquads=function(index,gridlarge,gridsmall,plotdim)
 # 
 # </sample>
 # <source>
+#' @export
+
 full.xygrid=function(x,y)
 {
  fully=rep(y,length(x))
@@ -644,6 +682,8 @@ full.xygrid=function(x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 distance=function(quad1,quad2,gridsize=20,plotdim=c(1000,500))
 {
  pt1=index.to.gxgy(quad1,gridsize=gridsize,plotdim=plotdim) 

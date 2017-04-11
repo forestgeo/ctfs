@@ -41,6 +41,8 @@
 # head(BAperSpecies$meandate)
 # </sample>
 # <source>
+#' @export
+
 abundance=function(censdata,type='abund',alivecode=c("A"),mindbh=NULL,dbhunit='mm',split1=NULL,split2=NULL)
 {
  if(is.null(split1)) split1=rep("all",dim(censdata)[1])
@@ -99,6 +101,8 @@ abundance=function(censdata,type='abund',alivecode=c("A"),mindbh=NULL,dbhunit='m
 # plot(colSums(Nperquad$abund),apply(Nperquad$abund,2,countspp))
 # </sample>
 # <source>
+#' @export
+
 abundanceperquad=function(censdata,mindbh=10,plotdim=c(1000,500),gridsize=100,type='abund',dbhunit='mm')
 {
  sp=censdata$sp
@@ -134,6 +138,8 @@ abundanceperquad=function(censdata,mindbh=10,plotdim=c(1000,500),gridsize=100,ty
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 abundance.spp=function(censdata,type='abund',dbhunit='mm',alivecode=c("A"),dbhbreaks=c(10,100,300))
 {
  allbreaks=c(dbhbreaks,10000)
@@ -188,6 +194,8 @@ abundance.spp=function(censdata,type='abund',dbhunit='mm',alivecode=c("A"),dbhbr
 # head(change.table)
 # </sample>
 # <source>
+#' @export
+
 pop.change=function(census1,census2,type='abund',dbhunit='mm',alivecode=c("A"),mindbh=NULL,split1=NULL,split2=NULL)
 {
  if(is.null(split1)) split1=rep("all",dim(census1)[1])
@@ -279,6 +287,8 @@ pop.change=function(census1,census2,type='abund',dbhunit='mm',alivecode=c("A"),m
 # head(BAchangePerSpp$ba)
 # </sample>
 # <source>
+#' @export
+
 pop.change.dbh=function(census1,census2,type='abund',dbhunit='mm',alivecode=c("A"),classbreak=c(10,100,300),split=NULL)
 {
  if(is.null(split)) split=rep("all",dim(census1)[1])
@@ -339,6 +349,8 @@ pop.change.dbh=function(census1,census2,type='abund',dbhunit='mm',alivecode=c("A
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 ba=function(dbh,dbhunit='mm') 
  {
   if(dbhunit=='mm') return(pi*(dbh/2000)^2)
@@ -360,6 +372,8 @@ ba=function(dbh,dbhunit='mm')
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 basum=function(dbh,mindbh=10,dbhunit='mm')
 {
  if(!is.null(mindbh)) dbh=dbh[dbh>=mindbh]
@@ -391,6 +405,8 @@ basum=function(dbh,mindbh=10,dbhunit='mm')
 # N=abund.manycensus(allcns=list(bci.full5,bci.full6),mindbh=10,type='abund',excludespp=c('uniden','tremxx'),excludestatus=NULL)<br>
 # </sample>
 # <source>
+#' @export
+
 abund.manycensus=function(allcns=list(bci.full1,bci.full2,bci.full3),mindbh,dbhunit='mm',type='abund',excludespp=NULL,excludestatus=NULL)
 {
  nocns=length(allcns)

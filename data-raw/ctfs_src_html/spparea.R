@@ -36,6 +36,8 @@
 # genusPerArea=spparea.sq(bci.full6,spcolumn='Genus',size=c(10,20,50),mindbh=10,plotdim=c(1000,500),replicates=5,unidennames=c('unid'))
 # </sample>
 # <source>
+#' @export
+
 spparea.sq=function(censdata,spcolumn='sp',size,rectdim=1,mindbh=NULL,plotdim=c(1000,500),replicates=10,unidennames=c("**","UNID","uniden","UNIDEN"))
 {
  toolong=size[size>plotdim[1]]
@@ -118,6 +120,8 @@ spparea.sq=function(censdata,spcolumn='sp',size,rectdim=1,mindbh=NULL,plotdim=c(
 # 
 # </sample>
 # <source>
+#' @export
+
 selectrandomquad=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 {
  noquad=length(size)
@@ -156,6 +160,8 @@ selectrandomquad=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 selectrandomquad3=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 {
  noquad=length(size)
@@ -211,6 +217,8 @@ selectrandomquad3=function(size,shape,rep,plotdim=c(1000,500),graphit=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 selectrandomquad2=function(size,rep,plotdim=c(1000,500),graphit=FALSE)
 {
  linelen=(plotdim[1]-size)*(plotdim[2]-size)
@@ -248,6 +256,8 @@ selectrandomquad2=function(size,rep,plotdim=c(1000,500),graphit=FALSE)
 
 # </sample>
 # <source>
+#' @export
+
 graph.quadrats=function(coord,plotdim=c(1000,500),clr="black",add=FALSE)
 {
  aspect=plotdim[2]/plotdim[1]
@@ -288,6 +298,8 @@ graph.quadrats=function(coord,plotdim=c(1000,500),clr="black",add=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 coverage.diag=function(randomquads,slope=1,plotdim=c(1000,500),graphit=FALSE)
 {
  x=0:plotdim[1]

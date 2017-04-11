@@ -12,6 +12,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 xydist=function(x1,y1,x2,y2) 
   return( sqrt( (x1-x2)^2 + (y1-y2)^2 ) )
 # </source>
@@ -34,6 +36,8 @@ xydist=function(x1,y1,x2,y2)
 # 
 # </sample>
 # <source>
+#' @export
+
 xydistvect=function(pt1,pt2)
   return( xydist(pt1[,1],pt1[,2],pt2[,1],pt2[,2]) )
 # </source>
@@ -56,6 +60,8 @@ xydistvect=function(pt1,pt2)
 # 
 # </sample>
 # <source>
+#' @export
+
 xydistmat=function(pts)
   return( xydist(pts[,1],pts[,2],pts[,3],pts[,4]) )
 # </source>
@@ -83,6 +89,8 @@ xydistmat=function(pts)
 # 
 # </sample>
 # <source>
+#' @export
+
 perpendicular.distance=function(b,m,x,y) 
  {
   len=ifelse(length(b)>length(x),length(b),length(x))
@@ -145,6 +153,8 @@ pt.to.segment=function(x,y,x1,y1,x2,y2)
 # 
 # </sample>
 # <source>
+#' @export
+
 perpendicular.line=function(b,m,x,y)
 {
  perpm=tan(pi/2+atan(m))
@@ -174,6 +184,8 @@ perpendicular.line=function(b,m,x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 parallel.line=function(b,m,x,y)
 {
  minf=is.infinite(m)
@@ -211,6 +223,8 @@ parallel.line=function(b,m,x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 intersection.of.lines=function(b1,m1,b2,m2)
 {
  len=IfElse(length(b2)>length(b1),length(b2),length(b1))
@@ -252,6 +266,8 @@ intersection.of.lines=function(b1,m1,b2,m2)
 # 
 # </sample>
 # <source>
+#' @export
+
 intersection.line.curve=function(b,m,curve)
 {
  cname=colnames(curve)
@@ -285,6 +301,8 @@ intersection.line.curve=function(b,m,curve)
 # 
 # </sample>
 # <source>
+#' @export
+
 is.between=function(x,y,x1,y1,x2,y2)
 {
  xout=ifelse(x2>x1,x<x1|x>=x2,x<=x2|x>x1)
@@ -322,6 +340,8 @@ is.between=function(x,y,x1,y1,x2,y2)
 # 
 # </sample>
 # <source>
+#' @export
+
 line.intersection.pts=function(pts1,pts2)
 {
  line1=pts.to.interceptslope(pts1[1,],pts1[2,])
@@ -349,6 +369,8 @@ line.intersection.pts=function(pts1,pts2)
 # 
 # </sample>
 # <source>
+#' @export
+
 pts.to.interceptslope=function(pt1,pt2)
 {
  if(is.null(dim(pt1))) { x1=pt1[1]; y1=pt1[2] }
@@ -386,6 +408,8 @@ pts.to.interceptslope=function(pt1,pt2)
 # 
 # </sample>
 # <source>
+#' @export
+
 segmentPt=function(pt1,pt2,clr='black',lwidth=1) 
 {
  if(is.null(dim(pt1))) { x1=pt1[1]; y1=pt1[2] }
@@ -415,6 +439,8 @@ segmentPt=function(pt1,pt2,clr='black',lwidth=1)
 # 
 # </sample>
 # <source>
+#' @export
+
 drawrectangle=function(corners,add=TRUE,clr='black',lwidth=1)
 {
  if(!add)
@@ -453,6 +479,8 @@ drawrectangle=function(corners,add=TRUE,clr='black',lwidth=1)
 # 
 # </sample>
 # <source>
+#' @export
+
 angleBisector=function(corners)
 {
  bm=pts.to.interceptslope(pt1=corners[1:2,],pt2=corners[2:3,])
@@ -503,6 +531,8 @@ angleBisector=function(corners)
 # 
 # </sample>
 # <source>
+#' @export
+
 insideRectangle=function(x,y,xrange,yrange)
 {
  inX=x>=xrange[1] & x<xrange[2] & !is.na(x)
@@ -530,6 +560,8 @@ insideRectangle=function(x,y,xrange,yrange)
 # 
 # </sample>
 # <source>
+#' @export
+
 are.ptsinside=function(pts,coord)
 {
  return(insideRectange(x=pts[,1],y=pts[,2],xrange=coord[,c(1,3)],yrange=coord[,c(2,4)]))
@@ -554,6 +586,8 @@ are.ptsinside=function(pts,coord)
 # 
 # </sample>
 # <source>
+#' @export
+
 ispt.inside=function(pt,coord)
 {
  norect=dim(coord)[1]
@@ -583,6 +617,8 @@ ispt.inside=function(pt,coord)
 # 
 # </sample>
 # <source>
+#' @export
+
 inside.rect=function(rect1,rect2)
 {
  if(rect1[2]<rect2[1]) return(FALSE)
@@ -611,6 +647,8 @@ inside.rect=function(rect1,rect2)
 # 
 # </sample>
 # <source>
+#' @export
+
 circle=function(x,center=c(0,0),radius=5,half="top")
  {
   xprime=x-center[1]
@@ -645,6 +683,8 @@ circle=function(x,center=c(0,0),radius=5,half="top")
 # 
 # </sample>
 # <source>
+#' @export
+
 fullcircle=function(x,center=c(0,0),radius=5)
 {
  tophalf=circle(x,center,radius,half='top')
@@ -672,6 +712,8 @@ fullcircle=function(x,center=c(0,0),radius=5)
 # 
 # </sample>
 # <source>
+#' @export
+
 ellipse=function(x,center=c(0,0),radius=c(7,5),half='top')
 {
   xprime=x-center[1]
@@ -708,6 +750,8 @@ ellipse=function(x,center=c(0,0),radius=c(7,5),half='top')
 # 
 # </sample>
 # <source>
+#' @export
+
 fullellipse=function(x,center=c(0,0),radius=c(7,5))
 {
  tophalf=ellipse(x,center,radius,half='top')
@@ -742,6 +786,8 @@ fullellipse=function(x,center=c(0,0),radius=c(7,5))
 # cartesian.to.polar(2,4)
 # </sample>
 # <source>
+#' @export
+
 cartesian.to.polar=function(x,y)
 {
  r=sqrt(x^2+y^2)
@@ -775,6 +821,8 @@ cartesian.to.polar=function(x,y)
 # polar.to.cartesian(2,pi/3)
 # </sample>
 # <source>
+#' @export
+
 polar.to.cartesian=function(r,theta)
 {
  x=r*cos(theta)
@@ -803,6 +851,8 @@ polar.to.cartesian=function(r,theta)
 # 
 # </sample>
 # <source>
+#' @export
+
 #slope.intercept.frompts=function(pt1,pt2)
 #{
 # line=pts.to.interceptslope(pt1,pt2)

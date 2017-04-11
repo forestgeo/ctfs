@@ -14,6 +14,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 extract.growthdata=function(census1,census2,growcol="incgr",mingrow=0.1,logit="x",growthfunc=growth.biomass.indiv,pomcut=10000,
                             rounddown = FALSE, mindbh = 10, dbhunit = "mm", err.limit = 4, maxgrow = 75, exclude.stem.change=TRUE, returnfull=FALSE)
 {   
@@ -76,6 +78,8 @@ extract.growthdata=function(census1,census2,growcol="incgr",mingrow=0.1,logit="x
 
 # </sample>
 # <source>
+#' @export
+
 run.growthbin.manyspp=function(growthdata,size='dbh',spp=spp20,minabund300=15, minTotal=40, dbhunit='mm', sdmodel=linear.model.ctr,
                                startpar=c(.03,.005), startsdpar=c(.04,0), badsdfunc=NULL, binoption=1:4, noreps=5000,noburn=2500,noshow=500,
                                outputname='linear.fit',path='',...)
@@ -130,6 +134,8 @@ run.growthbin.manyspp=function(growthdata,size='dbh',spp=spp20,minabund300=15, m
 # 
 # </sample>
 # <source>
+#' @export
+
 run.growthfit.bin=function(growthdata,size="dbh",startpar=c(.03,.005),startsdpar=c(.04,0),sdmodel=linear.model.ctr,badsdfunc=NULL,binoption=1:4,
                            noreps=5000,noburn=2500,noshow=500,...)
 { 
@@ -173,6 +179,8 @@ run.growthfit.bin=function(growthdata,size="dbh",startpar=c(.03,.005),startsdpar
 # 
 # </sample>
 # <source>
+#' @export
+
 growth.flexbin=function(growthtable,sizecol="dbh",nobin=2,start=NULL,startsd=NULL,sdmodel=linear.model.ctr,badsdfunc=NULL,
                         method='Gibbs',rep=1200,show=100,burn=200,...) 
 {
@@ -238,6 +246,8 @@ growth.flexbin=function(growthtable,sizecol="dbh",nobin=2,start=NULL,startsd=NUL
 # 
 # </sample>
 # <source>
+#' @export
+
 llike.linearbin.optim=function(param,x,y,predfunc,nomainpar,badpredpar,llikefunc,sdfunc,badsdpar,...)
 {
  extra=list(...)
@@ -280,6 +290,8 @@ llike.linearbin.optim=function(param,x,y,predfunc,nomainpar,badpredpar,llikefunc
 # 
 # </sample>
 # <source>
+#' @export
+
 defineBinBreaks=function(size,nobin,...)
 {
  extra=list(...)
@@ -332,6 +344,8 @@ defineBinBreaks=function(size,nobin,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 defineSDpar=function(x,nopar)
 {
  if(nopar==2) return(c(0.02,0))
@@ -356,6 +370,8 @@ defineSDpar=function(x,nopar)
 # 
 # </sample>
 # <source>
+#' @export
+
 enoughSamplePerBin=function(x,b,...)
 {
  extra=list(...)
@@ -384,6 +400,8 @@ enoughSamplePerBin=function(x,b,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 wideEnoughBins=function(x,b,...)
 {
  extra=list(...)
@@ -416,6 +434,8 @@ wideEnoughBins=function(x,b,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 bad.binparam=function(x,param,...)
 {
  x=as.matrix(x)
@@ -455,6 +475,8 @@ bad.binparam=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 bad.binsdpar=function(x,param,...)
 {
  if(length(param)<=2) return(FALSE)
@@ -483,6 +505,8 @@ bad.binsdpar=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 calculateBinModel.BIC=function(fit)
 {
  N=dim(fit$model)[1]
@@ -516,6 +540,8 @@ calculateBinModel.DIC=function(fit)
 # 
 # </sample>
 # <source>
+#' @export
+
 calculateBinModel.AIC=function(fit,type='optim')
 {
  noparam=length(fit$best)+length(fit$bestSD)
@@ -545,6 +571,8 @@ calculateBinModel.AIC=function(fit,type='optim')
 # 
 # </sample>
 # <source>
+#' @export
+
 calculateBinModel.bestpred=function(fit)
 {
 	allparam=fit$fullparam[fit$keep,]
@@ -583,6 +611,8 @@ calculateBinModel.bestpred=function(fit)
 # write.table(bcitable,file='growth/BCIpiecewise.txt',quote=FALSE,sep='\t',row.names=FALSE) 
 # </sample>
 # <source>
+#' @export
+
 assembleBinOutput=function(inputtable,fulldata,sitename)
 {
 	holder<-inputtable

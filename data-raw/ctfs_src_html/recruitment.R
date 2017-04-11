@@ -30,6 +30,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 recruitment=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"),split1=NULL,split2=NULL)
 {
  if(is.null(split1)) split1=rep("all",dim(census1)[1])
@@ -116,6 +118,8 @@ recruitment=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"),split1
 # 
 # </sample>
 # <source>
+#' @export
+
 recruitment.eachspp=function(census1,census2,mindbh=10,alivecode=c("A","AB","AS"))
 {
  result=recruitment(census1,census2,mindbh=mindbh,alivecode=alivecode,split1=census1$sp)

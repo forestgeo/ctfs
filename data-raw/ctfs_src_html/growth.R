@@ -51,6 +51,8 @@
 # assemble.demography(grow.data,type='g')
 # </sample>
 # <source>
+#' @export
+
 growth=function(census1,census2,rounddown=FALSE,method='I',stdev=FALSE,dbhunit='mm',mindbh=10,growthcol="dbh",
                 err.limit=4,maxgrow=75,split1=NULL,split2=NULL)
 {
@@ -132,6 +134,8 @@ growth=function(census1,census2,rounddown=FALSE,method='I',stdev=FALSE,dbhunit='
 # 
 # </sample>
 # <source>
+#' @export
+
 biomass.growth=function(census1,census2,rounddown=FALSE,stdev=FALSE,mindbh=10,split1=NULL,split2=NULL)
 { 
  size1=census1[,"agb"]
@@ -198,6 +202,8 @@ biomass.growth=function(census1,census2,rounddown=FALSE,stdev=FALSE,mindbh=10,sp
 # growth.result=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))
 # </sample>
 # <source>
+#' @export
+
 growth.eachspp=function(census1,census2,classbreak=c(10,100,300),dbhunit='mm',mindbh=10,growthcol="dbh",
                         err.limit=4,maxgrow=75,rounddown=FALSE,method='I',stdev=FALSE)
 {
@@ -229,6 +235,8 @@ growth.eachspp=function(census1,census2,classbreak=c(10,100,300),dbhunit='mm',mi
 # growth.dbh=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))
 # </sample>
 # <source>
+#' @export
+
 growth.dbh=function(census1,census2,classbreak=c(10,100,300),dbhunit='mm',growthcol='dbh',
                     err.limit=4,maxgrow=75,rounddown=FALSE,method='I',stdev=FALSE,mindbh=10)
 {
@@ -265,6 +273,8 @@ growth.dbh=function(census1,census2,classbreak=c(10,100,300),dbhunit='mm',growth
 # growth.table=growth.indiv(bci.full5,bci.full6)
 # </sample>
 # <source>
+#' @export
+
 growth.indiv=function(census1,census2,rounddown=FALSE,mindbh=10,dbhunit='mm',err.limit=4,maxgrow=75)
 {
  if(is.null(census2$codes)) census2$codes=rep('.',length(census2$dbh))
@@ -325,6 +335,8 @@ growth.indiv=function(census1,census2,rounddown=FALSE,mindbh=10,dbhunit='mm',err
 # 
 # </sample>
 # <source>
+#' @export
+
 trim.growth=function(cens1,cens2,time,slope=0.006214,intercept=.9036,err.limit=4,maxgrow=75,pomcut=0.05,mindbh=10,dbhunit='mm',
                      exclude.stem.change=TRUE)
 {
@@ -380,6 +392,8 @@ trim.growth=function(cens1,cens2,time,slope=0.006214,intercept=.9036,err.limit=4
 # 
 # </sample>
 # <source>
+#' @export
+
 growth.biomass.indiv=function(census1,census2,mindbh=10,steminfo=FALSE,dbhunit="mm",err.limit=4,maxgrow=75,rounddown=NULL,
                               exclude.stem.change=TRUE,pomcut=10000)
 {
@@ -435,6 +449,8 @@ growth.biomass.indiv=function(census1,census2,mindbh=10,steminfo=FALSE,dbhunit="
 # 
 # </sample>
 # <source>
+#' @export
+
 DBHtransition=function(data1,data2,dbhbreaks=c(10,50,100,300,10000),maxgrow=45,misscode='M')
 {
  dbhcat1=as.character(cut(data1$dbh,breaks=dbhbreaks,labels=FALSE,right=FALSE))

@@ -17,6 +17,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 readelevdata=function(elevfile,gridsize=5,text=FALSE)
 {
  if(text) elevdata=read.table(elevfile,header=T,sep='\t')
@@ -54,6 +56,8 @@ readelevdata=function(elevfile,gridsize=5,text=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 elev.to.list=function(elevfile,gridsize=5)
 { 
  xdim=max(elevfile$x)
@@ -97,6 +101,8 @@ elev.to.list=function(elevfile,gridsize=5)
 # 
 # </sample>
 # <source>
+#' @export
+
 allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
 {
  rw=cl=0
@@ -189,6 +195,8 @@ allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
 # 
 # </sample>
 # <source>
+#' @export
+
 quadslope=function(cornerelev,gridsize=20)
 {
  slope=numeric(4)
@@ -234,6 +242,8 @@ quadslope=function(cornerelev,gridsize=20)
 # 
 # </sample>
 # <source>
+#' @export
+
 calcslope=function(z, gridsize=20)
 {
  z2=z[3]-z[2]
@@ -287,6 +297,8 @@ calcslope=function(z, gridsize=20)
 # 
 # </sample>
 # <source>
+#' @export
+
 calc.gradient=function(elev,grid=20)
 {
  elev.ctr=elev[2,2]
@@ -360,6 +372,8 @@ calc.gradient=function(elev,grid=20)
 # 
 # </sample>
 # <source>
+#' @export
+
 calc.directionslope=function(z1,z2,x1,x2,y1,y2)
 {
  normal=c(z1*y2-z2*y1,z1*x2-z2*x1,y1*x2-y2*x1)

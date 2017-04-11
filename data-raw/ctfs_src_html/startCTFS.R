@@ -13,6 +13,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 startCTFS=function(folder)
 {
 	source(paste(folder,'/abundance/abundance.r',sep=''))

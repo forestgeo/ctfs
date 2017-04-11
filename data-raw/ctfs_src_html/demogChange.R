@@ -16,6 +16,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 individual_grow.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.full4,bci.full5,bci.full6,bci.full7),powertransformation=0.45,
                                rnd=c(FALSE,TRUE,rep(FALSE,4)),mingrow=0.1,mindbh=10,maxdbh=10000,maxerrorSD=4,maxerrorGrow=75,center=1992,debug=FALSE)
 { 
@@ -68,6 +70,8 @@ individual_grow.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.fu
 # 
 # </sample>
 # <source>
+#' @export
+
 individual_mort.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.full4,bci.full5,bci.full6,bci.full7),
                                mindbh=10,maxdbh=10000,alivecode=c("A","AB","AS"),center=1992)
 { 
@@ -121,6 +125,8 @@ individual_mort.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.fu
 # 
 # </sample>
 # <source>
+#' @export
+
 calcMortIndivTable=function(mtable,by='species')
 {
  if(by=='species') splitby=list(mtable$sp,mtable$census)
@@ -154,6 +160,8 @@ calcMortIndivTable=function(mtable,by='species')
 # 
 # </sample>
 # <source>
+#' @export
+
 lmerMortLinear=function(x,param,...)
 {
  if(!is.array(x)) x=array(x,dim=c(1,length(x)))
@@ -186,6 +194,8 @@ lmerMortLinear=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 lmerMortFixedTime=function(x,param)
 {
  if(!is.array(x)) x=array(x,dim=c(1,length(x)))

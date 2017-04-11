@@ -35,7 +35,6 @@
 
 # Packages ----------------------------------------------------------------
 
-library(ctfs)
 library(dplyr)
 library(purrr)
 library(readr)

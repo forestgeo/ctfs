@@ -23,6 +23,8 @@ MONTHNAMES=c('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','
 
 # </sample>
 # <source>
+#' @export
+
 tojulian=function(x,dateform='%m/%d/%Y')
 {
  x=strptime(x,format=dateform)
@@ -59,6 +61,8 @@ tojulian=function(x,dateform='%m/%d/%Y')
 
 # </sample>
 # <source>
+#' @export
+
 fromjulian=function(j,dateform='%m/%d/%Y')
 {
  oneDim=FALSE
@@ -109,6 +113,8 @@ fromjulian=function(j,dateform='%m/%d/%Y')
 
 # </sample>
 # <source>
+#' @export
+
 create.fulldate=function(datestr,format='%Y-%m-%d') 
 {
  julian=tojulian(datestr,dateform=format)
@@ -145,6 +151,8 @@ create.fulldate=function(datestr,format='%Y-%m-%d')
 
 # </sample>
 # <source>
+#' @export
+
 create.fulldate.split=function(datestr,sep='-')
 {
  year=month=day=numeric()
@@ -184,6 +192,8 @@ create.fulldate.split=function(datestr,sep='-')
 # 
 # </sample>
 # <source>
+#' @export
+
 order.by.rowcol=function(x)
 {
  ord1=order.bynumber(dimnames(x)[[1]])
@@ -213,6 +223,8 @@ order.by.rowcol=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 order.bynumber=function(x)
 {
  options(warn=(-1))
@@ -246,6 +258,8 @@ order.bynumber=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 fill.dimension=function(dataarray,class1,class2,fill=0)
 {
  result=data.frame(matrix(fill,nrow=length(class1),ncol=length(class2)))
@@ -280,6 +294,8 @@ fill.dimension=function(dataarray,class1,class2,fill=0)
 # 
 # </sample>
 # <source>
+#' @export
+
 fill.1dimension=function(dataarray,class1,fill=0)
 {
  if(dim(dataarray)[1]<length(class1))
@@ -316,6 +332,8 @@ fill.1dimension=function(dataarray,class1,fill=0)
 # 
 # </sample>
 # <source>
+#' @export
+
 convert.factor=function(r)
 {
  result=r
@@ -352,6 +370,8 @@ convert.factor=function(r)
 # 
 # </sample>
 # <source>
+#' @export
+
 split.data=function(censdata,splitcol='sp',keepsplitcol=FALSE,allsplit=NULL,showOutput=NULL)
 {
  output=list()
@@ -396,6 +416,8 @@ split.data=function(censdata,splitcol='sp',keepsplitcol=FALSE,allsplit=NULL,show
 # 
 # </sample>
 # <source>
+#' @export
+
 merge.data=function(listdata,showOutput=NULL)
 {
  k=length(listdata)
@@ -444,6 +466,8 @@ merge.data=function(listdata,showOutput=NULL)
 # 
 # </sample>
 # <source>
+#' @export
+
 pst=function(...)
 {
  s=list(...)
@@ -481,6 +505,8 @@ pst=function(...)
 # 
 # </sample>
 # <source>
+#' @export
+
 detachfiles=function(filename)
 {
  error=character()
@@ -522,6 +548,8 @@ detachfiles=function(filename)
 # 
 # </sample>
 # <source>
+#' @export
+
 save.searchpath=function(n)
 {
  filename=character()
@@ -560,6 +588,8 @@ save.searchpath=function(n)
 # 
 # </sample>
 # <source>
+#' @export
+
 gsp=function(searchpos,whichobj=1) 
   return(get(ls(searchpos)[whichobj]))
 
@@ -586,6 +616,8 @@ gsp=function(searchpos,whichobj=1)
 # 
 # </sample>
 # <source>
+#' @export
+
 match.dataframe=function(x,y)
 {
  for(i in 1:dim(x)[2]) x[,i]=as.character(x[,i])
@@ -619,6 +651,8 @@ match.dataframe=function(x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 trim=function(s)
 {
  if(length(s)==0) return(s)
@@ -667,6 +701,8 @@ trim=function(s)
 # StringToVect('anystring')
 # </sample>
 # <source>
+#' @export
+
 StringToVect=function(s)
 {
  result=character()
@@ -693,6 +729,8 @@ StringToVect=function(s)
 # charlocate("19","x190019xxx")
 # </sample>
 # <source>
+#' @export
+
 charlocate=function(needle,haystack)
 {
  if(needle==haystack) return(1)
@@ -730,6 +768,8 @@ charlocate=function(needle,haystack)
 # 
 # </sample>
 # <source>
+#' @export
+
 left=function(s,n) 
  {
   if(length(s)==0) return(s)
@@ -770,6 +810,8 @@ left=function(s,n)
 # 
 # </sample>
 # <source>
+#' @export
+
 leftbut=function(s,n,bytetype='bytes')
 {
  strlen=nchar(s,type=bytetype)
@@ -797,6 +839,8 @@ leftbut=function(s,n,bytetype='bytes')
 # 
 # </sample>
 # <source>
+#' @export
+
 right=function(s,n,bytetype='bytes')
 {
  strlen=nchar(s,type=bytetype)
@@ -824,6 +868,8 @@ right=function(s,n,bytetype='bytes')
 # 
 # </sample>
 # <source>
+#' @export
+
 rightbut=function(s,n,bytetype='bytes')
 {
  strlen=nchar(s,type=bytetype)
@@ -846,6 +892,8 @@ rightbut=function(s,n,bytetype='bytes')
 # 
 # </sample>
 # <source>
+#' @export
+
 explode=function(str,sep='')
 {
  answer=character()
@@ -870,6 +918,8 @@ explode=function(str,sep='')
 # 
 # </sample>
 # <source>
+#' @export
+
 ditch=function(v)
 {
  invert=(-sort(-v))
@@ -900,6 +950,8 @@ ditch=function(v)
 # 
 # </sample>
 # <source>
+#' @export
+
 is.leap=function(yr,start=1904,end=2096)
 {
  leapyears=seq(start,end,by=4)
@@ -940,6 +992,8 @@ is.leap=function(yr,start=1904,end=2096)
 # 
 # </sample>
 # <source>
+#' @export
+
 mergeParam=function(p)
 {
  k=length(p)
@@ -973,6 +1027,8 @@ mergeParam=function(p)
 # 
 # </sample>
 # <source>
+#' @export
+
 countzero=function(x) 
  return(length(x[x==0 & !is.na(x)]))
 
@@ -997,6 +1053,8 @@ countzero=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 countone=function(x) 
  return(length(x[x==1 & !is.na(x)]))
 
@@ -1021,6 +1079,8 @@ countone=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 countNA=function(x) 
  return(length(x[is.na(x)]))
 
@@ -1045,6 +1105,8 @@ countNA=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 countEmpty=function(x) 
  return(length(x[is.na(x) | x=='']))
 
@@ -1069,6 +1131,8 @@ countEmpty=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 countpresent=function(x) 
  return(length(x[x>0 & !is.na(x)]))
 
@@ -1093,6 +1157,8 @@ countpresent=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 find.nonNA=function(x)
 {
  good=which(!is.na(x))[1]
@@ -1121,6 +1187,8 @@ find.nonNA=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 which.nonNA=function(x)
 {
  good=which(!is.na(x))[1]
@@ -1150,6 +1218,8 @@ which.nonNA=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 which.allnonNA=function(x)
 {
  good=which(!is.na(x))
@@ -1183,6 +1253,8 @@ which.allnonNA=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 which.vmatch=function(v)
 {
  v2=v[-1]
@@ -1212,6 +1284,8 @@ which.vmatch=function(v)
 # 
 # </sample>
 # <source>
+#' @export
+
 logical.grep=function(needle,haystack)
 {
  result=rep(FALSE,length(haystack))
@@ -1239,6 +1313,8 @@ logical.grep=function(needle,haystack)
 # 
 # </sample>
 # <source>
+#' @export
+
 nhd=function(d,w=1:6,h=8) 
   print(head(d,h)[,w])
 
@@ -1263,6 +1339,8 @@ nhd=function(d,w=1:6,h=8)
 # 
 # </sample>
 # <source>
+#' @export
+
 TextToRdata=function(infile,outfile,object,NAs='NA')
 {
  assign(object,read.delim(infile,as.is=TRUE,na.strings=NAs))
@@ -1293,6 +1371,8 @@ TextToRdata=function(infile,outfile,object,NAs='NA')
 # 
 # </sample>
 # <source>
+#' @export
+
 CountByGroup=function(data,groupcol,count_to_data=FALSE,countname='count',groupname='groupID')
 {
  uniq=unique(data[,groupcol])
@@ -1339,6 +1419,8 @@ CountByGroup=function(data,groupcol,count_to_data=FALSE,countname='count',groupn
 # 
 # </sample>
 # <source>
+#' @export
+
 which.maxNAs=function(v)
 {
   if(length(which(!is.na(v)))==0) return(NA)
@@ -1367,6 +1449,8 @@ which.maxNAs=function(v)
 # 
 # </sample>
 # <source>
+#' @export
+
 attach_if_needed=function(datafiles)
 {
  already=numeric()
@@ -1410,6 +1494,8 @@ attach_if_needed=function(datafiles)
 # 
 # </sample>
 # <source>
+#' @export
+
 IfElse=function(test,a,b)
 {
  if(test) return(a)
@@ -1433,6 +1519,8 @@ IfElse=function(test,a,b)
 # 
 # </sample>
 # <source>
+#' @export
+
 AssignDiag=function(x,newdiag)
 {
  if(is.null(dim(x))) return(newdiag)
@@ -1458,6 +1546,8 @@ AssignDiag=function(x,newdiag)
 # 
 # </sample>
 # <source>
+#' @export
+
 vectToCommas=function(v)
 {
 	withquotes = paste("'",v,"'",sep="")
@@ -1485,6 +1575,8 @@ vectToCommas=function(v)
 # 
 # </sample>
 # <source>
+#' @export
+
 drp=function(x)
 {
 	return(drop(as.matrix(x)))
@@ -1509,6 +1601,8 @@ drp=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 randomRow=function(data)
 {
  size=dim(data)[1]
@@ -1534,6 +1628,8 @@ randomRow=function(data)
 # 
 # </sample>
 # <source>
+#' @export
+
 randomElement=function(data)
 {
  size=length(data)
@@ -1560,6 +1656,8 @@ randomElement=function(data)
 # 
 # </sample>
 # <source>
+#' @export
+
 countUnique=function(x) 
   return(length(unique(x)))
 # </source>
@@ -1591,6 +1689,8 @@ countUnique=function(x)
 # lines(x,y)
 # </sample>
 # <source>
+#' @export
+
 graphFilledBand=function(x,y1,y2,fillcol='gray',add=TRUE,linecol='black',ltype='solid',lwidth=1)
 {
  nopt=length(x)
@@ -1629,6 +1729,8 @@ graphFilledBand=function(x,y1,y2,fillcol='gray',add=TRUE,linecol='black',ltype='
 # make.CredIntervalVect(c(3.124,2.76,5.01),digits=c(2,1))
 # </sample>
 # <source>
+#' @export
+
 make.CredIntervalVect=function(y,digits=c(3,3),CIonly=FALSE)
 {
  if(length(digits)==1) digits=rep(digits,2)

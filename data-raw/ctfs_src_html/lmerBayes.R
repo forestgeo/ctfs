@@ -103,6 +103,8 @@
 # names(mod)
 # </sample>
 # <source>
+#' @export
+
 lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,model=logistic.standard,error='Binom',includeCovar=TRUE,update='conjugate',badparam=NULL,
                    sdfunc=constant,badSDparam,paramfile=NULL,savestep=500,steps=1000,showstep=100,burnin=100,debug=FALSE,...)
 {
@@ -337,6 +339,8 @@ lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,mode
 # <sample>
 # 
 # <source>
+#' @export
+
 lmerBayes.hyperllike.sigma=function(testcov,fullcov,hypermean,modelpar,whichrow,whichcol)
 {
  covar=arrangeParam.llike.2D(testcov,fullcov,whichrow,whichcol,forcesymmetry=TRUE)
@@ -372,6 +376,8 @@ lmerBayes.hyperllike.sigma=function(testcov,fullcov,hypermean,modelpar,whichrow,
 # <sample>
 # 
 # <source>
+#' @export
+
 lmerBayes.hyperllike.mean=function(testmn,full.hypermean,whichtest,modelpar,covar)
 {
  hypermean=arrangeParam.llike(testmn,full.hypermean,whichtest)
@@ -400,6 +406,8 @@ lmerBayes.hyperllike.mean=function(testmn,full.hypermean,whichtest,modelpar,cova
 # <sample>
 # 
 # <source>
+#' @export
+
 full.likelihood.lmerBayes=function(one.covar,one.param,one.hyper,fixpar=NULL,errormodel,data,obs,model,sdmodel='constant',sdpar,bad=NULL,duphyper=FALSE,...)
 {
  norand=length(data)
@@ -454,6 +462,8 @@ llike.fixef.lmer=function(testpar,fixpar,whichtest,one.param,errormodel,data,obs
 # <sample>
 # 
 # <source>
+#' @export
+
 llike.model.lmer=function(test,allparam,whichtest,data,trueN,model,sdmodel=constant,sdpar,errormodel='Gauss',badparam=NULL,
                           returnmodel=FALSE,mu,covar,fixed=NULL,debug=FALSE,...)
 {
@@ -515,6 +525,8 @@ llike.model.lmer=function(test,allparam,whichtest,data,trueN,model,sdmodel=const
 # <sample>
 # 
 # <source>
+#' @export
+
 residual.llike.lmerBayes=function(test,whichtest,data,trueN,model,sdpar,fullpar,sdmodel,badparam,errormodel='Gauss',...)
 {
  param=arrangeParam.llike(test,sdpar,whichtest)
@@ -555,6 +567,8 @@ residual.llike.lmerBayes=function(test,whichtest,data,trueN,model,sdpar,fullpar,
 # <sample>
 # 
 # <source>
+#' @export
+
 badSD=function(x,param,...)
 {
  if(param<=0) return(TRUE)
@@ -581,6 +595,8 @@ badSD=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 arrangeParam.llike.2D=function(testparam,allparam,whichrow,whichcol,forcesymmetry=FALSE)
 {
  param=allparam
@@ -613,6 +629,8 @@ arrangeParam.llike.2D=function(testparam,allparam,whichrow,whichcol,forcesymmetr
 # 
 # </sample>
 # <source>
+#' @export
+
 arrangeParam.Gibbs.2D=function(j,k,allparam.prev,allparam.next)
 {
  if(is.null(dim(allparam.prev))) return(allparam.prev)
@@ -640,6 +658,8 @@ arrangeParam.Gibbs.2D=function(j,k,allparam.prev,allparam.next)
 # <sample>
 # 
 # <source>
+#' @export
+
 saveParamFile=function(param,paramfile,rand,firsttime=FALSE)
 {
  norand=length(rand)
@@ -674,6 +694,8 @@ saveParamFile=function(param,paramfile,rand,firsttime=FALSE)
 # <sample>
 # 
 # <source>
+#' @export
+
 restoreParamFile=function(paramfile)
 {
  par=read.delim(paramfile,as.is=TRUE)
@@ -703,6 +725,8 @@ restoreParamFile=function(paramfile)
 # <sample>
 # 
 # <source>
+#' @export
+
 resetParam=function(param,rand,savestep,pars)
 {
  norand=length(rand)
@@ -734,6 +758,8 @@ resetParam=function(param,rand,savestep,pars)
 # <sample>
 # 
 # <source>
+#' @export
+
 summaryMCMC=function(fit,model,error,sdmodel,badparam,paramfile=NULL,returnfull=TRUE,...)
 {
  if(!is.null(paramfile)) param=restoreParamFile(paramfile)
@@ -858,6 +884,8 @@ summaryMCMC=function(fit,model,error,sdmodel,badparam,paramfile=NULL,returnfull=
 # <sample>
 # 
 # <source>
+#' @export
+
 recalculate.lmerBayesllike=function(fit,model,error,bad=NULL,keep=NULL,dup=TRUE,...)
 {
  full.llike=numeric()
@@ -889,6 +917,8 @@ recalculate.lmerBayesllike=function(fit,model,error,bad=NULL,keep=NULL,dup=TRUE,
 # <sample>
 # 
 # <source>
+#' @export
+
 covTocorr=function(cov)
 {
  result=cov

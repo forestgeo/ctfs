@@ -43,6 +43,8 @@
 # See topography tutorial
 # </sample>
 # <source>
+#' @export
+
 solve.topo=function(coldata,column1="pt1",column2="pt2",diffcolumn="htdiff",basept="1",baseelev=0,debug=NULL)
 {
  fromcol=which(colnames(coldata)==column1)
@@ -112,6 +114,8 @@ solve.topo=function(coldata,column1="pt1",column2="pt2",diffcolumn="htdiff",base
 # 
 # </sample>
 # <source>
+#' @export
+
 getTopoLinks=function(index,labels,data,from,to,backward=FALSE)
 {
  focalLabel=labels[index]
@@ -162,6 +166,8 @@ getTopoLinks=function(index,labels,data,from,to,backward=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 rearrangeSurveyData=function(inputtable)
 {
  startpts=inputtable[,c('x1','y1')]

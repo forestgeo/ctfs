@@ -33,6 +33,8 @@
 # </sample>
 
 # <source>
+#' @export
+
 wavelet.allsp = function(censdata, plotdim=c(1000,500), gridsize=2.5, mindbh=NULL)
 {
 ptm <- proc.time()
@@ -90,6 +92,8 @@ return(list(scale = x$scale, variance = variance, density= sp.density, plotdim=p
 # </sample>
 
 # <source>
+#' @export
+
 plot.wavelet = function(x) {
 plot(c(2*x$gridsize, min(x$plotdim)), c(0.3,100), log='xy', type='n')
 		for (i in 1:nrow(x$variance)) {
@@ -131,6 +135,8 @@ plot(c(2*x$gridsize, min(x$plotdim)), c(0.3,100), log='xy', type='n')
 # </sample>
 
 # <source>
+#' @export
+
 rasterize = function(x, y, z=NULL, gridsize=20, plotdim=c(1000,500), FUN=sum, graph=FALSE)
 {
 
@@ -207,6 +213,8 @@ return(f)
 # </sample>
 
 # <source>
+#' @export
+
 wavelet.univariate=function(raster=NULL, coords, gridsize=2, plotdim=c(1000,500), FUN=NULL, k0=8, dj=0.15, graph=FALSE) {
 
 if ( is.null(raster) ) 
@@ -319,6 +327,8 @@ return(output)	}
 # </sample>
 
 # <source>
+#' @export
+
 wavelet.bivariate = function(raster1=NULL, raster2=NULL, coords1, coords2, gridsize=1, plotdim=c(1000,500), FUN=NULL, k0=8, dj=0.15, graph=TRUE) 
 {
 if ( is.null(raster1) ) 

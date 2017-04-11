@@ -44,6 +44,8 @@
 # assemble.demography(mort.data,type='m')
 # </sample>
 # <source>
+#' @export
+
 mortality=function(census1,census2,alivecode=c("A","AB","AS"),split1=NULL,split2=NULL)
 {
  if(is.null(split1)) split1=rep("all",dim(census1)[1])
@@ -121,6 +123,8 @@ mortality=function(census1,census2,alivecode=c("A","AB","AS"),split1=NULL,split2
 # mort.table3=assemble.demography(mort.data,type="m",whichdbhcat=3)<br>
 # </sample>
 # <source>
+#' @export
+
 mortality.eachspp=function(census1,census2,classbreak=c(10,100,300),alivecode=c("A","AB","AS"))
 {
  allbreak=c(classbreak,10000)
@@ -145,6 +149,8 @@ mortality.eachspp=function(census1,census2,classbreak=c(10,100,300),alivecode=c(
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 mortality.dbh=function(census1,census2,classbreak=c(10,100,300),alivecode=c("A","AB","AS"))
 {
  allbreak=c(classbreak,10000)
@@ -176,6 +182,8 @@ mortality.dbh=function(census1,census2,classbreak=c(10,100,300),alivecode=c("A",
 # mortality.calculation(N=c(100,1000),S=c(75,750),meantime=c(5.1,5.1))
 # </sample>
 # <source>
+#' @export
+
 mortality.calculation=function(N,S,meantime)
 {
  lower.ci=find.climits(N,(N-S),kind="lower")
@@ -221,6 +229,8 @@ mortality.calculation=function(N,S,meantime)
 # find.climits(10,5,kind='lower')
 # </sample>
 # <source>
+#' @export
+
 find.climits=function(N,D,alpha=.05,kind='upper')
 {
  if(kind=='lower')

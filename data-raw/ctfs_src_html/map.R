@@ -59,6 +59,8 @@
 # map(splitdatafile=bci.split6,species=c('guatdu','poular'))
 # </sample>
 # <source>
+#' @export
+
 map=function(splitdatafile,species,spplist=NULL,plotdim=c(1000,500),xrange=c(0,plotdim[1]),yrange=c(0,plotdim[2]),elevdata=NULL,
              cutoff=c(10,100,300,3000),size=NULL,deadtree=FALSE,maintitle='',titlepos=c(plotdim[1]/2,1.32*plotdim[2]),clrs=NULL,
              bw=FALSE,bgcolor='white',symbols=NULL,xaxis=TRUE,yaxis=TRUE,addlegend=TRUE,legpos=c(plotdim[1]/2,1.16*plotdim[2]),legsize=0.75,
@@ -148,6 +150,8 @@ map=function(splitdatafile,species,spplist=NULL,plotdim=c(1000,500),xrange=c(0,p
 # 
 # </sample>
 # <source>
+#' @export
+
 pdf.allplot=function(splitdata=bci.split6,spplist=bci.spptable,elev=ctfs.elev$bci$mat,plotdim=c(1000,500),cutoff=c(10,100,300,3000),topoint=2,bw=FALSE,
                      topoclr='gray80',bty='o',plotside=9,h=8,w=10,size=c(.3,.45,.65),deadtree=FALSE,symbols=NULL,legsize=0.75,legpos=c(plotdim[1]/2,1.16*plotdim[2]),
                      export=TRUE,singlefile=TRUE,path='/home/condit/data/maps/bci/')
@@ -182,6 +186,8 @@ pdf.allplot=function(splitdata=bci.split6,spplist=bci.spptable,elev=ctfs.elev$bc
 # 
 # </sample>
 # <source>
+#' @export
+
 png.allplot=function(splitdata=bci.split6,spplist=plotspp$bci,elev=ctfs.elev$bci$mat,plotdim=c(1000,500),topoint=2,plotside=9,h=850,w=1100,
                      ptsizes=c(.3,.45,.65),dbhcut=c(10,100,300,3000),dead=FALSE,export=TRUE,path='/home/condit/data/maps/bci/')
 {
@@ -227,6 +233,8 @@ png.allplot=function(splitdata=bci.split6,spplist=plotspp$bci,elev=ctfs.elev$bci
 # 
 # </sample>
 # <source>
+#' @export
+
 complete.plotmap=function(cns=bci.full6,spnames=NULL, mindbh=10,export='no',nospp=3,plotdim=c(1000,500),clrlist=c('blue','green','red','yellow','gray'),
                           ptsize=c(.45,0.3),xrange=c(0,100),yrange=c(0,100),wd=1100,ht=850,side=6,labsize=1.75,axisdiv=10,
                           filepath='/home/condit/data/maps/',outfile='fullplotmap')
@@ -275,6 +283,8 @@ complete.plotmap=function(cns=bci.full6,spnames=NULL, mindbh=10,export='no',nosp
 # 
 # </sample>
 # <source>
+#' @export
+
 define.graphwindow=function(export="no",w,h,file)
 {
  if(export=="unix") X11(width=w,height=h)
@@ -306,6 +316,8 @@ define.graphwindow=function(export="no",w,h,file)
 # 
 # </sample>
 # <source>
+#' @export
+
 get.filename=function(file,path,exp,species,type="Map.")
 {
  if(is.null(file))
@@ -341,6 +353,8 @@ get.filename=function(file,path,exp,species,type="Map.")
 # 
 # </sample>
 # <source>
+#' @export
+
 maptopo=function(elevmat,plotdim,add=FALSE,new=FALSE,export="no",interval=0,xrange=NULL,yrange=NULL,xaxis=TRUE,yaxis=TRUE,
                  axspos=0.5,labelsize=1.15,maintitle="",ht=6,wd=9,plotside=4.5,filepath="",clr='black',bgcolor="transparent")
  {    
@@ -413,6 +427,8 @@ maptopo=function(elevmat,plotdim,add=FALSE,new=FALSE,export="no",interval=0,xran
 # 
 # </sample>
 # <source>
+#' @export
+
 map1species=function(sppdata,plotdim=c(1000,500),xrange=c(0,plotdim[1]),yrange=c(0,plotdim[2]),color="black",bgcolor="white",axspos=.5,
                      xaxis=TRUE,yaxis=TRUE,symbol=16,size=rep(-1,3),cutoff=c(10,100,300,3000),axisdiv=100,labsize=1.75,plotside=4,add=FALSE)
  {
@@ -479,6 +495,8 @@ map1species=function(sppdata,plotdim=c(1000,500),xrange=c(0,plotdim[1]),yrange=c
 # 
 # </sample>
 # <source>
+#' @export
+
 setsize=function(n,s)
  {
   if(s>1000)     size=0.4+.3*(0:(n-1))
@@ -530,6 +548,8 @@ setsize=function(n,s)
 # 
 # </sample>
 # <source>
+#' @export
+
 map2species=function(spp,data=list(bci3.spp,korup.spp),spplist=list(plotspp$bci,plotspp$korup),
                      elev=list(ctfs.elev$bci,ctfs.elev$korup),path="spp",
                      export=pdf,file=pst(spp[1],spp[2],"map.pdf"),ptsize=c(0.6,0.6),topo=c(2,4),

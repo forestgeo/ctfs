@@ -13,6 +13,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 skewness=function(x)
 {
  x=x[!is.na(x)]
@@ -46,6 +48,8 @@ skewness=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 se.skewness=function(x)
 {
  x=x[!is.na(x)]
@@ -76,6 +80,8 @@ se.skewness=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 kurtosis=function(x)
 {
  x=x[!is.na(x)]
@@ -110,6 +116,8 @@ kurtosis=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 se.kurtosis=function(x)
 {
  x=x[!is.na(x)]
@@ -141,6 +149,8 @@ se.kurtosis=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 regslope=function(y,x)
 {
  if(length(y[is.infinite(y)])>0) return(NA)
@@ -172,6 +182,8 @@ regslope=function(y,x)
 # 
 # </sample>
 # <source>
+#' @export
+
 regslope.noint=function(y,x)
 {
  fit=lm(y~x+0)
@@ -201,6 +213,8 @@ regslope.noint=function(y,x)
 # 
 # </sample>
 # <source>
+#' @export
+
 regress.plot=function(x,y,title="",graphit=T,add=F,pts=T,clr="blue",ptnames=NULL,xrange=NULL,yrange=NULL,xtitle=NULL,ytitle=NULL)
 {
  fit=lm(y~x)
@@ -250,6 +264,8 @@ regress.plot=function(x,y,title="",graphit=T,add=F,pts=T,clr="blue",ptnames=NULL
 # 
 # </sample>
 # <source>
+#' @export
+
 regress.loglog=function(x,y,xlog=TRUE,ylog=TRUE,addone=NULL,graphit=TRUE,xrange=NULL,yrange=NULL,add=FALSE,pts=16,lwidth=1,
                         drawline="solid",title="",xtitle=NULL,ytitle=NULL,ptnames=NULL,ptsize=1,clr="blue",lineclr="red",includeaxis=TRUE)
 {
@@ -338,6 +354,8 @@ regress.loglog=function(x,y,xlog=TRUE,ylog=TRUE,addone=NULL,graphit=TRUE,xrange=
 # 
 # </sample>
 # <source>
+#' @export
+
 majoraxisreg=function(x,y,title="",graphit=F,add=F,pts=T,clr="blue",xtitle="x",ytitle="y",ptsize=1,labsize=1)
 {
  start.param=c(1,1)
@@ -377,6 +395,8 @@ majoraxisreg=function(x,y,title="",graphit=F,add=F,pts=T,clr="blue",xtitle="x",y
 # 
 # </sample>
 # <source>
+#' @export
+
 minum.perpdist=function(param,x,y)
     return(sumsq(perpendicular.distance(param[1],param[2],x,y)))
 
@@ -403,6 +423,8 @@ minum.perpdist=function(param,x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 majoraxisreg.no.int=function(x,y)
 {
  inc=(!is.na(x)&!is.na(y))
@@ -437,6 +459,8 @@ majoraxisreg.no.int=function(x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 standardreg.no.int=function(x,y)
 {
  inc=!is.na(x)&!is.na(y)
@@ -464,6 +488,8 @@ standardreg.no.int=function(x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 autoregression=function(y,lag,xlog=FALSE,ylog=FALSE,graphit=TRUE)
 {
  N=length(y)
@@ -494,6 +520,8 @@ autoregression=function(y,lag,xlog=FALSE,ylog=FALSE,graphit=TRUE)
 # 
 # </sample>
 # <source>
+#' @export
+
 regression.Bayes=function(x,y,start.param=NULL,steps=1100,whichuse=101:1100,showstep=50)
 {
  no.x=dim(x)[2]
@@ -549,6 +577,8 @@ regression.Bayes=function(x,y,start.param=NULL,steps=1100,whichuse=101:1100,show
 # 
 # </sample>
 # <source>
+#' @export
+
 Gibbs.regslope=function(X,y,var)
 {
  betahat=solve(t(X)%*%X)%*%t(X)%*%y
@@ -578,6 +608,8 @@ Gibbs.regslope=function(X,y,var)
 # 
 # </sample>
 # <source>
+#' @export
+
 Gibbs.regsigma=function(X,y,beta)
 {
  n=length(y)
@@ -612,6 +644,8 @@ Gibbs.regsigma=function(X,y,beta)
 # 
 # </sample>
 # <source>
+#' @export
+
 Gibbs.normalmean=function(y,sigma)
 {
  y=y[!is.na(y)]
@@ -644,6 +678,8 @@ Gibbs.normalmean=function(y,sigma)
 # 
 # </sample>
 # <source>
+#' @export
+
 Gibbs.normalvar=function(y)
 {
  y=y[!is.na(y)]
@@ -685,6 +721,8 @@ Gibbs.normalvar=function(y)
 #            sdfunc=constant,start.sdpar=1,llikefuncSD=llike.GaussModelSD)
 # </sample>
 # <source>
+#' @export
+
 model.xy=function(x,y,predfunc,llikefunc,badpredpar,badsdpar=NULL,start.predpar,sdfunc=NULL,start.sdpar=NULL,llikefuncSD,
                   logx=FALSE,logy=FALSE,add=c(0,0),steps=100,showstep=20,burnin=50,...)
 {
@@ -802,6 +840,8 @@ model.xy=function(x,y,predfunc,llikefunc,badpredpar,badsdpar=NULL,start.predpar,
 # 
 # </sample>
 # <source>
+#' @export
+
 arrangeParam.llike=function(testparam,allparam,whichtest)
 {
  param=allparam
@@ -827,6 +867,8 @@ arrangeParam.llike=function(testparam,allparam,whichtest)
 # 
 # </sample>
 # <source>
+#' @export
+
 arrangeParam.Gibbs=function(i,j,allparam)
 {
  if(is.null(dim(allparam))) return(allparam[i-1])
@@ -859,6 +901,8 @@ arrangeParam.Gibbs=function(i,j,allparam)
 # 
 # </sample>
 # <source>
+#' @export
+
 llike.GaussModel=function(testparam,allparam,whichtest,x,obs,model,badpred,SD,...)
 {
  param=arrangeParam.llike(testparam,allparam,whichtest)
@@ -907,6 +951,8 @@ llike.GaussModel=function(testparam,allparam,whichtest,x,obs,model,badpred,SD,..
 # 
 # </sample>
 # <source>
+#' @export
+
 llike.GaussModelSD=function(testparam,allparam,whichtest,x,pred,obs,model,badsd,...)
 {
  extra=list(...)
@@ -947,6 +993,8 @@ llike.GaussModelSD=function(testparam,allparam,whichtest,x,pred,obs,model,badsd,
 # 
 # </sample>
 # <source>
+#' @export
+
 BadParam=function(x,param,pred) return(FALSE)
 # </source>
 # </function>
@@ -968,6 +1016,8 @@ BadParam=function(x,param,pred) return(FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 graph.modeldiag=function(fit,burn=500,llikelim=50,graphpar=1:3)
 {
  dev=dev.set(2)
@@ -1019,6 +1069,8 @@ graph.modeldiag=function(fit,burn=500,llikelim=50,graphpar=1:3)
 # 
 # </sample>
 # <source>
+#' @export
+
 bootstrap.corr=function(dataset,xcol=(-1),ycol=(-1),xcolname="no",ycolname="no",boot=100)
 {
  norecords=dim(dataset)[1]
@@ -1088,6 +1140,8 @@ bootstrap.corr=function(dataset,xcol=(-1),ycol=(-1),xcolname="no",ycolname="no",
 # 
 # </sample>
 # <source>
+#' @export
+
 bootconf=function(x)
 {
  lower=mean(x)-1.96*sd(x)
@@ -1142,6 +1196,8 @@ bootconf=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 metrop1step=function(func,start.param,scale.param,adjust,target,...)
 {
  origlike=func(start.param,...)
@@ -1197,6 +1253,8 @@ metrop1step=function(func,start.param,scale.param,adjust,target,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 metrop1step.discrete=function(func,start.param,alter.param,...)
 {
  origlike=func(start.param,...)
@@ -1245,6 +1303,8 @@ metrop1step.discrete=function(func,start.param,alter.param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 testmcmcfunc=function(x,mn,s)
 {
  likel=dnorm(x,mean=mn,sd=s,log=TRUE)
@@ -1275,6 +1335,8 @@ testmcmcfunc=function(x,mn,s)
 # 
 # </sample>
 # <source>
+#' @export
+
 CI=function(x,prob=c(.025,.975),na.rm=FALSE) 
      return(quantile(x,prob=prob,na.rm=na.rm))
 
@@ -1299,6 +1361,8 @@ CI=function(x,prob=c(.025,.975),na.rm=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 hist.compare=function(x,y,div,breaks=NULL)
 {
  y=y[!is.na(y)]
@@ -1346,6 +1410,8 @@ hist.compare=function(x,y,div,breaks=NULL)
 # 
 # </sample>
 # <source>
+#' @export
+
 harmonic.mean=function(x,add=0,na.rm=TRUE)
 {
  x=x+add
@@ -1385,6 +1451,8 @@ harmonic.mean=function(x,add=0,na.rm=TRUE)
 # 
 # </sample>
 # <source>
+#' @export
+
 cumul.above=function(x,y,cutoff,logaxs="",graphit=TRUE,returnfull=FALSE)
 {
  whichabove=y>cutoff
@@ -1430,6 +1498,8 @@ cumul.above=function(x,y,cutoff,logaxs="",graphit=TRUE,returnfull=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 sumsq=function(x) 
   return(sum(x^2,na.rm=T))
 
@@ -1455,6 +1525,8 @@ sumsq=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 is.odd=function(x)
 {
  answer=rep(FALSE,length(x))
@@ -1486,6 +1558,8 @@ is.odd=function(x)
 # 
 # </sample>
 # <source>
+#' @export
+
 border.distance=function(x,y,plotdim=c(1000,500),pt=NULL)
 {
  if(!is.null(pt)) 
@@ -1540,6 +1614,8 @@ border.distance=function(x,y,plotdim=c(1000,500),pt=NULL)
 # 
 # </sample>
 # <source>
+#' @export
+
 regsum=function(x,y,poly=1,graphit=F,yrange=c(-1,-1),yaxslab="multiplier",
                 newgraph=F,add=F,pts=T,ptype=16,ltype="solid")
 {
@@ -1613,6 +1689,8 @@ regsum=function(x,y,poly=1,graphit=F,yrange=c(-1,-1),yaxslab="multiplier",
 # 
 # </sample>
 # <source>
+#' @export
+
 colMedians=function(mat,na.rm=TRUE)
   return(apply(mat,2,median,na.rm=na.rm))
 # </source>
@@ -1634,6 +1712,8 @@ colMedians=function(mat,na.rm=TRUE)
 # 
 # </sample>
 # <source>
+#' @export
+
 midPoint=function(x,na.rm=TRUE)
   return(min(x)+0.5*diff(range(x,na.rm=na.rm)))
 # </source>

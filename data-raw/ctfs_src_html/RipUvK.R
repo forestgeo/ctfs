@@ -53,6 +53,8 @@
 # plot(rip$midpts,rip$omega[2,],ylim=c(0,10))
 # </sample>
 # <source>
+#' @export
+
 RipUvK=function(splitdata,plotdim=c(1000,500),rseq=c(5,10,20,30,40,50),mindbh=10,xcol="gx",ycol="gy",debug=FALSE,show=FALSE)
 {
   spp.names <- names(splitdata)
@@ -139,6 +141,8 @@ RipUvK=function(splitdata,plotdim=c(1000,500),rseq=c(5,10,20,30,40,50),mindbh=10
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 Annuli=function(spdata,r,plotdim)
 {
  TotalAreaPerRing=numeric()
@@ -180,6 +184,8 @@ Annuli=function(spdata,r,plotdim)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 CalcRingArea=function(data,radius,plotdim)
 {
  nopts=dim(data)[1]
@@ -213,6 +219,8 @@ CalcRingArea=function(data,radius,plotdim)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 circlearea=function(r) { return(pi*r^2) }
 # </source>
 # </function>
@@ -239,6 +247,8 @@ circlearea=function(r) { return(pi*r^2) }
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 partialcirclearea=function(r, c2, cy1, cy2)
 {
  if(cy1<=cy2) { c1=cy1; c3=cy2 }

@@ -35,6 +35,8 @@
 # range(coords$ly)
 # </sample>
 # <source>
+#' @export
+
 fullplot.imageJ=function(path="",outfile='plotLxLy.txt',delim=',', include.subdir=T, corners=c('p1','p2','p3','p4'),
                          colrange=c(0,49), rowrange=c(0,24), prefix='Map_', suffix=".txt",
 						 subquadsuffix=c('_1','_2','_3','_4'),gridsize=c(10,10),debug=NULL)
@@ -145,6 +147,8 @@ fullplot.imageJ=function(path="",outfile='plotLxLy.txt',delim=',', include.subdi
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 SectionCorrection=function(pts,subquad,gridsize,subquadsuffix)
 {
  if(subquad==subquadsuffix[2] | subquad==subquadsuffix[3]) pts$ly=pts$ly+gridsize[2]
@@ -178,6 +182,8 @@ SectionCorrection=function(pts,subquad,gridsize,subquadsuffix)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 imageJ.to.lxly=function(textfile=samplemapfile,delim=",",lowerleft="P2",upperleft="P1",upperright="P4",lowerright="P3",gridsize=c(20,20))
 {
  data=read.table(textfile,sep=delim,as.is=TRUE,header=TRUE)
@@ -240,6 +246,8 @@ imageJ.to.lxly=function(textfile=samplemapfile,delim=",",lowerleft="P2",upperlef
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 distance.to.side=function(pt,target,side1,side2)
 {
  perp=perpendicular.distance(b=target[1],m=target[2],x=pt[1],y=pt[2])

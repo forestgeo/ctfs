@@ -15,6 +15,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 doublenormal=function(N=1e4,m=0,sd1=1,sd2=seq(0,2,by=.1))
 {
  n1=rnorm(N,m,sd1)
@@ -52,6 +54,8 @@ doublenormal=function(N=1e4,m=0,sd1=1,sd2=seq(0,2,by=.1))
 # 
 # </sample>
 # <source>
+#' @export
+
 dnormprod0=function(z,sx,sy)
 {
  K=besselK(abs(z)/(sx*sy),nu=0)
@@ -82,6 +86,8 @@ dnormprod0=function(z,sx,sy)
 # 
 # </sample>
 # <source>
+#' @export
+
 dgammadexp=function(z,mean,sd,lambda,draws=10000,div=.1,xrange=c(-10,30),graphit=F)
 {
  sumpart=dgammaPlusdexp(z,mean,sd,lambda)
@@ -127,6 +133,8 @@ dgammadexp=function(z,mean,sd,lambda,draws=10000,div=.1,xrange=c(-10,30),graphit
 # 
 # </sample>
 # <source>
+#' @export
+
 dgammaMinusdexp=function(z,mean,sd,lambda,draws=10000,div=.01,xrange=c(0,25),xmax=4,graphit=F)
 {
  r=mean/(sd^2)
@@ -193,6 +201,8 @@ dgammaMinusdexp=function(z,mean,sd,lambda,draws=10000,div=.01,xrange=c(0,25),xma
 # 
 # </sample>
 # <source>
+#' @export
+
 dgammaPlusdexp=function(z,mean,sd,lambda,draws=10000,div=.01,xrange=c(0,25),xmax=4,graphit=FALSE)
 {
  r=mean/(sd^2)
@@ -247,6 +257,8 @@ dgammaPlusdexp=function(z,mean,sd,lambda,draws=10000,div=.01,xrange=c(0,25),xmax
 # 
 # </sample>
 # <source>
+#' @export
+
 dgamma.meansd=function(x,mean,sd,log=FALSE)
 {
  k=(sd^2)/mean
@@ -272,6 +284,8 @@ dgamma.meansd=function(x,mean,sd,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 rgamma.meansd=function(n,mean,sd)
 {
  k=(sd^2)/mean
@@ -299,6 +313,8 @@ rgamma.meansd=function(n,mean,sd)
 # 
 # </sample>
 # <source>
+#' @export
+
 dgamma.mean=function(mu,x,k)
 {
  s=mu/k
@@ -330,6 +346,8 @@ dgamma.mean=function(mu,x,k)
 # 
 # </sample>
 # <source>
+#' @export
+
 dgamma.scale=function(k,x,mu)
 {
  s=mu/k
@@ -355,6 +373,8 @@ dgamma.scale=function(k,x,mu)
 # 
 # </sample>
 # <source>
+#' @export
+
 dpower=function(x,beta,log=FALSE)
 {
  if(beta>=(-1)) return(rep(NA,length(x)))
@@ -386,6 +406,8 @@ dpower=function(x,beta,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 rpower=function(n,beta)
 {
  r=runif(n)
@@ -412,6 +434,8 @@ rpower=function(n,beta)
 # 
 # </sample>
 # <source>
+#' @export
+
 dasympower=function(x,center,rate1,rate2,log=FALSE)
 {
  logy=numeric()
@@ -443,6 +467,8 @@ dasympower=function(x,center,rate1,rate2,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 rasympower <- function( n, rate1, rate2, c )
    return (qasympower(runif(n),rate1,rate2,c))
 # </source>
@@ -462,6 +488,8 @@ rasympower <- function( n, rate1, rate2, c )
 # 
 # </sample>
 # <source>
+#' @export
+
 qasympower <- function(y, rate1, rate2, c)
 {
  y=1-y
@@ -489,6 +517,8 @@ qasympower <- function(y, rate1, rate2, c)
 # 
 # </sample>
 # <source>
+#' @export
+
 dsymexp=function(x,center,rate,log=FALSE)
 {
  logy=numeric()
@@ -524,6 +554,8 @@ dsymexp=function(x,center,rate,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 psymexp=function(x,center,rate)
 {
  y=numeric()
@@ -556,6 +588,8 @@ psymexp=function(x,center,rate)
 # 
 # </sample>
 # <source>
+#' @export
+
 rsymexp=function(n,center,rate)
 {
  y=numeric()
@@ -592,6 +626,8 @@ rsymexp=function(n,center,rate)
 # 
 # </sample>
 # <source>
+#' @export
+
 dasymexp=function(x,center,rate1,rate2,log=FALSE)
 {
  logy=numeric()
@@ -622,6 +658,8 @@ dasymexp=function(x,center,rate1,rate2,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 qasymexp=function(y,rate1,rate2,c)
 {
  lower=y<rate1/(rate1+rate2)
@@ -652,6 +690,8 @@ qasymexp=function(y,rate1,rate2,c)
 # 
 # </sample>
 # <source>
+#' @export
+
 dasymnorm=function(x,center,sigma1,sigma2,log=FALSE)
 {
  y=numeric()
@@ -691,6 +731,8 @@ dasymnorm=function(x,center,sigma1,sigma2,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 minum.normal=function(param,x,y)
 {
  m=param[1]
@@ -732,6 +774,8 @@ minum.normal=function(param,x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 fitnorm=function(start.param=c(-1,-1,1),x,y)
 {
 # y=y/sum(y)
@@ -772,6 +816,8 @@ fitnorm=function(start.param=c(-1,-1,1),x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 fit.pdf=function(start.param=c(1,1),data,pdf=dnorm,xrange=c(0,1),badpar=default.badpar)
 {
  if(length(start.param)==1) 
@@ -819,6 +865,8 @@ fit.pdf=function(start.param=c(1,1),data,pdf=dnorm,xrange=c(0,1),badpar=default.
 # 
 # </sample>
 # <source>
+#' @export
+
 default.badpar=function(param)
   return(FALSE)
 
@@ -842,6 +890,8 @@ default.badpar=function(param)
 # 
 # </sample>
 # <source>
+#' @export
+
 bad.paretopar=function(param)
  {
   if(param[2]<=1) return(TRUE)
@@ -875,6 +925,8 @@ bad.paretopar=function(param)
 # 
 # </sample>
 # <source>
+#' @export
+
 normalproduct=function(x,lag,mean1,sd1,meanint,meanslope,CV)
 {
  mean2=meanint+meanslope*x
@@ -908,6 +960,8 @@ normalproduct=function(x,lag,mean1,sd1,meanint,meanslope,CV)
 # 
 # </sample>
 # <source>
+#' @export
+
 dbeta.reparam=function(x,mu,sd)
 {
  a=(1-mu)*mu^2/(sd^2)
@@ -937,6 +991,8 @@ dbeta.reparam=function(x,mu,sd)
 # 
 # </sample>
 # <source>
+#' @export
+
 betaproduct=function(x,lag,mean1,sd1,meanint,meanslope,CV)
 {
  mean2=meanint+meanslope*x
@@ -969,6 +1025,8 @@ betaproduct=function(x,lag,mean1,sd1,meanint,meanslope,CV)
 # 
 # </sample>
 # <source>
+#' @export
+
 beta.normalized=function(x,par1,xmin,par2,xmax)
 {
  intvalue=try(integrate(beta.total,lower=xmin,upper=xmax,
@@ -1008,6 +1066,8 @@ beta.normalized=function(x,par1,xmin,par2,xmax)
 # 
 # </sample>
 # <source>
+#' @export
+
 beta.total=function(x,par1,xmin,par2,xmax)
 {
  y=(x-xmin)^par1*(xmax-x)^par2
@@ -1041,6 +1101,8 @@ beta.total=function(x,par1,xmin,par2,xmax)
 # 
 # </sample>
 # <source>
+#' @export
+
 fit.beta.normal=function(x,par1,xmin,par2,xmax)
 {
  y=beta.normalized(x,par1,xmin,par2,xmax)
@@ -1077,6 +1139,8 @@ fit.beta.normal=function(x,par1,xmin,par2,xmax)
 # 
 # </sample>
 # <source>
+#' @export
+
 minum.beta.normal=function(param,x,y)
 {
  pred=dnorm(x,mean=param[1],sd=param[2])
@@ -1107,6 +1171,8 @@ minum.beta.normal=function(param,x,y)
 # 
 # </sample>
 # <source>
+#' @export
+
 dbinomrev=function(trial,p,success) 
   return(dbinom(x=success,size=trial,prob=p))
 # </source>
@@ -1131,6 +1197,8 @@ dbinomrev=function(trial,p,success)
 # 
 # </sample>
 # <source>
+#' @export
+
 dnormrev=function(m,x,s,log=F) return(dnorm(x,mean=m,sd=s,log=log))
 
 
@@ -1154,6 +1222,8 @@ dnormrev=function(m,x,s,log=F) return(dnorm(x,mean=m,sd=s,log=log))
 # 
 # </sample>
 # <source>
+#' @export
+
 dpois.rearrange=function(v,log=F) 
   return(dpois(v[1],lambda=v[-1],log=log))
 # </source>
@@ -1176,6 +1246,8 @@ dpois.rearrange=function(v,log=F)
 # 
 # </sample>
 # <source>
+#' @export
+
 logit=function(p)
 {
  result=p
@@ -1206,6 +1278,8 @@ logit=function(p)
 # 
 # </sample>
 # <source>
+#' @export
+
 invlogit=function(x) return(exp(x)/(1+exp(x)))
 # </source>
 # </function>
@@ -1228,6 +1302,8 @@ invlogit=function(x) return(exp(x)/(1+exp(x)))
 # 
 # </sample>
 # <source>
+#' @export
+
 pweibull.3param=function(x,x0,shape,scale)
 {
  z=(x-x0)/scale
@@ -1255,6 +1331,8 @@ pweibull.3param=function(x,x0,shape,scale)
 # 
 # </sample>
 # <source>
+#' @export
+
 dweibull.3param=function(x,x0,shape,scale)
 {
  z=(x-x0)/scale
@@ -1284,6 +1362,8 @@ dweibull.3param=function(x,x0,shape,scale)
 # 
 # </sample>
 # <source>
+#' @export
+
 weibull.median.3param=function(x0,shape,scale)
 {
  return(scale*(log(2))^(1/shape)+x0)
@@ -1307,6 +1387,8 @@ weibull.median.3param=function(x0,shape,scale)
 # 
 # </sample>
 # <source>
+#' @export
+
 weibull.mean.3param=function(x0,shape,scale)
 {
  return(scale*gamma(1+1/shape)+x0)
@@ -1330,6 +1412,8 @@ weibull.mean.3param=function(x0,shape,scale)
 # 
 # </sample>
 # <source>
+#' @export
+
 weibull.sd.3param=function(x0,shape,scale)
 {
  return(sqrt(scale*scale*gamma(1+2/shape)-(scale*gamma(1+1/shape))^2))
@@ -1353,6 +1437,8 @@ weibull.sd.3param=function(x0,shape,scale)
 # 
 # </sample>
 # <source>
+#' @export
+
 dexp.sin=function(x,lo,hi,skew,tail)
 {
  integral=integrate(exponential.sin,lower=lo,upper=lo+hi,asymp=1,b=lo,c=hi,d=skew,e=tail)$val
@@ -1378,6 +1464,8 @@ dexp.sin=function(x,lo,hi,skew,tail)
 # 
 # </sample>
 # <source>
+#' @export
+
 exponential.sin=function(x,asymp,b,c,d,e)
 {
  z=pi*((x-b)/c)^d
@@ -1410,6 +1498,8 @@ exponential.sin=function(x,asymp,b,c,d,e)
 # 
 # </sample>
 # <source>
+#' @export
+
 pexp.sin=function(x,b,c,d,e)
 {
  return(cumsum(dexp.sin(x,b,c,d,e))/sum(dexp.sin(x,b,c,d,e)))
@@ -1437,6 +1527,8 @@ pexp.sin=function(x,b,c,d,e)
 # 
 # </sample>
 # <source>
+#' @export
+
 mvrnormRC=function(N,Sigma)
 {
  dimension=dim(Sigma)[1]
@@ -1471,6 +1563,8 @@ mvrnormRC=function(N,Sigma)
 # 
 # </sample>
 # <source>
+#' @export
+
 dmixnorm=function(x,mean1,mean2,sd1,sd2,f,log=FALSE)
 {
  y1=dnorm(x,mean=mean1,sd=sd1)
@@ -1501,6 +1595,8 @@ dmixnorm=function(x,mean1,mean2,sd1,sd2,f,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 rmixnorm=function(n,mean1,mean2,sd1,sd2,f)
 {
  r=runif(n)
@@ -1535,6 +1631,8 @@ rmixnorm=function(n,mean1,mean2,sd1,sd2,f)
 # 
 # </sample>
 # <source>
+#' @export
+
 minum.mixnorm=function(param,data)
 {
  mean1=param[1]
@@ -1568,6 +1666,8 @@ minum.mixnorm=function(param,data)
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.inter=function(x,param,log=FALSE,...)
 {
  x=as.matrix(x)
@@ -1613,6 +1713,8 @@ logistic.inter=function(x,param,log=FALSE,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.standard=function(x,param,log=FALSE,...)
 {
  x=as.matrix(x)
@@ -1655,6 +1757,8 @@ logistic.standard=function(x,param,log=FALSE,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.power=function(x,param,log=FALSE,...)
 {
  x=as.matrix(x)
@@ -1700,6 +1804,8 @@ logistic.power=function(x,param,log=FALSE,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.power.mode=function(x,param,log=FALSE,...)
 {
  x=as.matrix(x)
@@ -1734,6 +1840,8 @@ logistic.power.mode=function(x,param,log=FALSE,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.power_simple=function(x,param,log=FALSE,N=1,...)
 {
  x=as.matrix(x)
@@ -1807,6 +1915,8 @@ logistic.power_simple=function(x,param,log=FALSE,N=1,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.ctr=function(x,param,log=FALSE,center=NA)
 {
  x=as.matrix(x)
@@ -1854,6 +1964,8 @@ logistic.ctr=function(x,param,log=FALSE,center=NA)
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.multiplicative=function(x,param,log=FALSE)
 {
  x=as.matrix(x)
@@ -1902,6 +2014,8 @@ logistic.multiplicative=function(x,param,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 constant=function(x,param,...) 
 {
  if(is.null(dim(x))) return(rep(param,length(x)))
@@ -1930,6 +2044,8 @@ constant=function(x,param,...)
 # center.predictors(x=c(1,4,7,0),by=2)
 # </sample>
 # <source>
+#' @export
+
 center.predictors=function(x,by='mean')
 {
  error='Type must be mean, median, or numbers to be subtracted\n'
@@ -1974,6 +2090,8 @@ center.predictors=function(x,by='mean')
 # 
 # </sample>
 # <source>
+#' @export
+
 fit.logistic=function(x,y,start.param,tech="Nelder-Mead")
 { 
  fit=optim(start.param,logistic.sum.squares,x=x,obs=y,method=tech,control=list(maxit=50000)) 
@@ -2000,6 +2118,8 @@ fit.logistic=function(x,y,start.param,tech="Nelder-Mead")
 # 
 # </sample>
 # <source>
+#' @export
+
 logistic.sum.squares=function(param,x,obs)
 {
  pred=gen.logistic(x,param)
@@ -2029,6 +2149,8 @@ logistic.sum.squares=function(param,x,obs)
 # 
 # </sample>
 # <source>
+#' @export
+
 asymp.ht=function(x,param,...)
 {
  ymax=param[1]
@@ -2057,6 +2179,8 @@ asymp.ht=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 asymp.ht.fixmax=function(x,param,asymp)
 {
  ymax=asymp
@@ -2085,6 +2209,8 @@ asymp.ht.fixmax=function(x,param,asymp)
 # 
 # </sample>
 # <source>
+#' @export
+
 exp.2par=function(x,param,asymp)
 {
  ymax=asymp
@@ -2112,6 +2238,8 @@ exp.2par=function(x,param,asymp)
 # 
 # </sample>
 # <source>
+#' @export
+
 linear.model=function(x,param)
 {
  x=as.matrix(x)
@@ -2139,6 +2267,8 @@ linear.model=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 simple.model=function(x,param)
 {
  N=length(x)
@@ -2163,6 +2293,8 @@ simple.model=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 simple=function(x,param)
 {
  return(x)
@@ -2185,6 +2317,8 @@ simple=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 linear.model.ctr=function(x,param,xcenter=NULL)
 {
  if(is.null(xcenter)) x=x-median(x)
@@ -2209,6 +2343,8 @@ linear.model.ctr=function(x,param,xcenter=NULL)
 # 
 # </sample>
 # <source>
+#' @export
+
 expon.model=function(x,param)
 {
  x=as.matrix(x)
@@ -2237,6 +2373,8 @@ expon.model=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 log.model=function(x,param)
 {
  x=as.matrix(x)
@@ -2266,6 +2404,8 @@ log.model=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 constant.linear=function(x,param,xcenter=NULL)
 {
  line=drp(parallel.line(0,m=param[1],param[2],param[3])[1,])
@@ -2298,6 +2438,8 @@ constant.linear=function(x,param,xcenter=NULL)
 # 
 # </sample>
 # <source>
+#' @export
+
 linearmodel.bin=function(x,param,...)
 {
  x=as.matrix(x)
@@ -2345,6 +2487,8 @@ linearmodel.bin=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 linearmodel.bin.set=function(v,param,binparam)
 {
  m=param[-length(param)]
@@ -2429,6 +2573,8 @@ linearmodel.bin.set=function(v,param,binparam)
 # 
 # </sample>
 # <source>
+#' @export
+
 addBinParam=function(x,best,bin)
 {
  if(bin==1)
@@ -2471,6 +2617,8 @@ addBinParam=function(x,best,bin)
 # 
 # </sample>
 # <source>
+#' @export
+
 logisticmodel.bin=function(x,param,...)
 {
  pred=invlogit(linearmodel.bin(x=x,param=param,...))
@@ -2496,6 +2644,8 @@ logisticmodel.bin=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 constant.bin=function(x,param)
 {
  noparam=length(param)
@@ -2535,6 +2685,8 @@ constant.bin=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 dpois.max=function(x,lambda,maxx,log=FALSE)
 {
  result=standard=dpois(x,lambda=lambda)
@@ -2565,6 +2717,8 @@ dpois.max=function(x,lambda,maxx,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 dpois.trunc=function(x,lambda,log=FALSE)
 {
  result=dpois(x,lambda=lambda)/(1-exp(-lambda))
@@ -2592,6 +2746,8 @@ dpois.trunc=function(x,lambda,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 dpois.maxtrunc=function(x,lambda,maxx,log=FALSE)
 {
  result=dpois.max(x,lambda=lambda,maxx=maxx)/(1-exp(-lambda))
@@ -2621,6 +2777,8 @@ dpois.maxtrunc=function(x,lambda,maxx,log=FALSE)
 # 
 # </sample>
 # <source>
+#' @export
+
 rpois.max=function(N,lambda,maxx)
 {
  result=rpois(N,lambda=lambda)
@@ -2648,6 +2806,8 @@ rpois.max=function(N,lambda,maxx)
 # 
 # </sample>
 # <source>
+#' @export
+
 rpois.trunc=function(N,lambda)
 {
  return(qpois(runif(N, dpois(0, lambda), 1), lambda))
@@ -2671,6 +2831,8 @@ rpois.trunc=function(N,lambda)
 # 
 # </sample>
 # <source>
+#' @export
+
 asymptote.exp=function(x,param,...)
 {
  a=param[1]
@@ -2706,6 +2868,8 @@ asymptote.exp=function(x,param,...)
 # 
 # </sample>
 # <source>
+#' @export
+
 graph.mvnorm=function(param,x,y,div=10,add=FALSE,clr="gray",lw=.5,pw=2,exclude=NULL,returnit=FALSE)
 {
  arranged=composeParam.GaussianMap(drop(as.matrix(param)),N=1)
@@ -2737,6 +2901,8 @@ graph.mvnorm=function(param,x,y,div=10,add=FALSE,clr="gray",lw=.5,pw=2,exclude=N
 # pospower(-4,0.5)
 # </sample>
 # <source>
+#' @export
+
 pospower=function(x,expon)
 {
  result=sign(x)*(abs(x)^(expon))
@@ -2762,6 +2928,8 @@ pospower=function(x,expon)
 # 
 # </sample>
 # <source>
+#' @export
+
 linear.mortmodel=function(x,param)
 {
  nopred=dim(x)[2]
@@ -2795,6 +2963,8 @@ linear.mortmodel=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 discrete.mortmodel=function(x,param)
 {
  predictor=x[,1]
@@ -2834,6 +3004,8 @@ discrete.mortmodel=function(x,param)
 # 
 # </sample>
 # <source>
+#' @export
+
 discrete.model=function(x,param)
 {
  if(!is.null(dim(x))) x=x[,1]

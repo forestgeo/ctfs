@@ -14,6 +14,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 calcalpha=function(n, s)
 {
  bads=(s==0 | n<=s) 
@@ -57,6 +59,8 @@ calcalpha=function(n, s)
 # 
 # </sample>
 # <source>
+#' @export
+
 d.calcS.alpha=function(a, n, s)
   return(log(1+n/a)-n/(a+n))
 
@@ -81,6 +85,8 @@ d.calcS.alpha=function(a, n, s)
 # 
 # </sample>
 # <source>
+#' @export
+
 calcS.alpha=function(n, a) 
   return( a*log(1+n/a) )
  
@@ -109,6 +115,8 @@ calcS.alpha=function(n, a)
 # 
 # </sample>
 # <source>
+#' @export
+
 rarefy.diversity=function(fulldata,s)
 { 
  n=dim(fulldata)[1]

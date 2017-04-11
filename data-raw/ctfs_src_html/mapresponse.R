@@ -52,6 +52,8 @@
 # length(matrixdata$x)
 # </sample>
 # <source>
+#' @export
+
 coldata.to.imagemat=function(z,x=NULL,y=NULL,gridsize=20,plotmin=c(0,0),plotmax=c(1000,500))
 {
   if(length(gridsize)==1) gridsize=c(gridsize,gridsize)
@@ -120,6 +122,8 @@ coldata.to.imagemat=function(z,x=NULL,y=NULL,gridsize=20,plotmin=c(0,0),plotmax=
 # imageGraph(matrixdata=matdata,breaks=seq(100,400,by=25),img=TRUE,cntrs=FALSE,newgraph=TRUE,export=win.graph,h=11,w=11,plotsize=8)
 # </sample>
 # <source>
+#' @export
+
 imageGraph=function(matrixdata,levels=NULL,breaks=c(-33000,0,150,250,500,1000,2000),xname="x",yname="y",xrange=NULL,yrange=NULL,axisdiv=c(100,100),
                     img=TRUE,cntrs=FALSE,filled=TRUE,drawgrid=FALSE,addaxes=1:4,clrs=NULL,cntcolor='black',lwidth=1,returnline=FALSE,
                     newgraph=FALSE,add=FALSE,plotsize=6,h=11,w=11,export=X11,graphfile=NULL)
@@ -197,6 +201,8 @@ imageGraph=function(matrixdata,levels=NULL,breaks=c(-33000,0,150,250,500,1000,20
 # 
 # </sample>
 # <source>
+#' @export
+
 draw.axes=function(whichaxs=1:4,xrange,yrange,div,whichbox=1:4)
 {
  xtick=seq(xrange[1],xrange[2],by=div[1])
@@ -238,6 +244,8 @@ draw.axes=function(whichaxs=1:4,xrange,yrange,div,whichbox=1:4)
 # image.dataframe(data=subset(bci.full6,status=='A'),xcol='gx',ycol='gy',zcol='dbh',breaks=c(10,20,50,100,500,10000),xrange=c(0,100),yrange=c(0,100), colors=c('orange','yellow','lightgreen','green','blue'),newgraph=TRUE,h=9,w=12,plotsize=7)
 # </sample>
 # <source>
+#' @export
+
 image.dataframe=function(data,xcol='x',ycol='y',zcol='z',breaks=NULL,div=NULL,colors=NULL,xname='x',yname='y',xrange=NULL,yrange=NULL,
                          ptsize=1,graphfile=NULL,export=X11,newgraph=FALSE,h=11,w=11,plotsize=6)
 {

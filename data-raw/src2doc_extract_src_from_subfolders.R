@@ -1,3 +1,8 @@
+# Extracts functions from subfolders, exports them, and places them into a
+# single folder
+
+# Extract from subfolderst out to a single folder -------------------------
+
 # Copy source files (code and html tagged comments) from a folder with
 # subfolders to a single folder
 
@@ -19,3 +24,18 @@ dir_out <- map2(base_out, src_files, paste0) %>% unlist
 dir_out <- str_replace(dir_out, "\\.r$", "\\.R")
 
 file.copy(from = src_path, to = dir_out)
+
+
+
+# Export functions --------------------------------------------------------
+
+export_src <- function(dir_out) {
+  dir_out %>% 
+    read_file() %>% 
+    str_replace_all(
+      fixed("# <source>"), "# <source>\n#' @export\n"
+      ) %>% 
+    write_file(dir_out)
+}
+
+map(dir_out, export_src)

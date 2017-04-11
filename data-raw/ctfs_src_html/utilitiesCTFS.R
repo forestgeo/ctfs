@@ -24,6 +24,8 @@
 # CTFSplot(plot='sinharaja,census=3,type='stem',path='C:/SinharajaRDataTables')
 # </sample>
 # <source>
+#' @export
+
 CTFSplot=function(plot,census=1,type='full',path='CTFSRPackage',remove=FALSE,includespp=TRUE)
 {
  if(includespp) 
@@ -63,6 +65,8 @@ CTFSplot=function(plot,census=1,type='full',path='CTFSRPackage',remove=FALSE,inc
 # 
 # </sample>
 # <source>
+#' @export
+
 load.species=function(spname,sppdatafile)
 {
  index=which(names(sppdatafile)==spname)
@@ -88,6 +92,8 @@ load.species=function(spname,sppdatafile)
 # 
 # </sample>
 # <source>
+#' @export
+
 rndown5=function(s) 
  return(5*floor(s/5))
 
@@ -110,6 +116,8 @@ rndown5=function(s)
 # 
 # </sample>
 # <source>
+#' @export
+
 countspp=function(x) 
  return(length(subset(x,x>0)))
 
@@ -141,6 +149,8 @@ countspp=function(x)
 # result2=assemble.demography(data,type='m',whichdbhcat=2)
 # </sample>
 # <source>
+#' @export
+
 assemble.demography=function(output,type='g',whichdbhcat=1,date1='1960-1-1')
 {
  noclass=length(output$rate)
@@ -257,6 +267,8 @@ assemble.demography=function(output,type='g',whichdbhcat=1,date1='1960-1-1')
 
 # </sample>
 # <source>
+#' @export
+
 clean.demography=function(demogdata,type='mort',Ncol=NULL,Scol=NULL,timecol=NULL,ratecol=NULL,excludespp=NULL)
 {
  if(type=='mort') { ratecol='rate.1'; Ncol='N.1'; Scol='S.1'; timecol='time.1' }
@@ -305,6 +317,8 @@ clean.demography=function(demogdata,type='mort',Ncol=NULL,Scol=NULL,timecol=NULL
 # 
 # </sample>
 # <source>
+#' @export
+
 unidentified.species=function(spnames,exactstr=c('UNIDEN','UNID','uniden','unid'),partialstr=c('XX','**'))
 {
  remove=numeric()
@@ -346,6 +360,8 @@ unidentified.species=function(spnames,exactstr=c('UNIDEN','UNID','uniden','unid'
 # 
 # </sample>
 # <source>
+#' @export
+
 exclude.unidentified=function(speciesnames,plotname)
 {
  if(length(grep('bci',plotname))>0) excludespp=c('BACT','INGACO','INGAM2','INGATH')

@@ -36,6 +36,8 @@
 # </sample>
 
 # <source>
+#' @export
+
 NeighborDensities=function(censdata, censdata2=NULL, r=20, plotdim=c(1000,500), mindbh=10, type='count', include=c("A"))
 {
 ptm <- proc.time()
@@ -146,6 +148,8 @@ return(output)
 # </sample>
 
 # <source>
+#' @export
+
 NDcount=function(censdata, r=20, plotdim=c(1000,500))
 {
 

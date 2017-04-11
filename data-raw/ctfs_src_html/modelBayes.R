@@ -69,6 +69,8 @@
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 modelBayes=function(data,ycol,xcol,start,startSD,model=logistic.standard,error='Binom',update='conjugate',badparam=NULL,
                     sdfunc=constant,badSDparam,steps=1000,showstep=100,burnin=100,debug=FALSE,...)
 {
@@ -179,6 +181,8 @@ modelBayes=function(data,ycol,xcol,start,startSD,model=logistic.standard,error='
 # <sample>
 # 
 # <source>
+#' @export
+
 residual.llike.modelBayes=function(test,whichtest,data,trueN,model,sdpar,fullpar,sdmodel,badparam,errormodel='Gauss',debug=FALSE,...)
 {
  param=arrangeParam.llike(test,sdpar,whichtest)
@@ -222,6 +226,8 @@ residual.llike.modelBayes=function(test,whichtest,data,trueN,model,sdpar,fullpar
 # <sample>
 # 
 # <source>
+#' @export
+
 summaryModelMCMC=function(fit,model,error,sdmodel,badparam,paramfile=NULL,returnfull=TRUE,...)
 {
  noparam=length(fit$parnames)

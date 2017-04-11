@@ -45,6 +45,8 @@
 # gauss67=model.littleR.Gibbs(cns1=bci.full6,cns2=bci.full7,modeltype='asymnorm',mindbh=10,start.param=c(-3,.8,.01,100),  bad.modelparam=bad.asymexp.param,showstep=25)
 # </sample>
 # <source>
+#' @export
+
 model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,1e6),start.param=c(-3,.8,.01,-.5),modeltype='asympower',
                              excludespp=NULL,useIDlevel=TRUE,bad.modelparam=bad.asympower.param,steps=10000,burn=1000,showstep=500,debug=FALSE)
 {
@@ -241,6 +243,8 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 full.abundmodel.llike=function(data,param,spmort,spR,type,debug=FALSE,badparam=NULL)
 {
  nospp=length(spmort)
@@ -284,6 +288,8 @@ full.abundmodel.llike=function(data,param,spmort,spR,type,debug=FALSE,badparam=N
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 prob.N1=function(spmean.ann,Rsd,N1,N2,surv.ann,time,type="norm")
  {
   if(N1==0) browser()
@@ -327,6 +333,8 @@ prob.N1=function(spmean.ann,Rsd,N1,N2,surv.ann,time,type="norm")
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 spmean.mort.abundGibbs=function(spmean.mu,spmean.r,N1,S,time,MuSD,Rsd,type)
 {
  if(is.na(spmean.mu)) browser()
@@ -367,6 +375,8 @@ spmean.mort.abundGibbs=function(spmean.mu,spmean.r,N1,S,time,MuSD,Rsd,type)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 hyper.abundGibbs=function(test,Rsd,spmean,whichtest,type,badparam=NULL,returneach=FALSE)
 {
  param=arrangeParam.llike(testparam=test,allparam=Rsd,whichtest=whichtest)
@@ -403,6 +413,8 @@ hyper.abundGibbs=function(test,Rsd,spmean,whichtest,type,badparam=NULL,returneac
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 hyper.mortGibbs=function(test,MuSD,spmean,whichtest)
 {
  param=arrangeParam.llike(testparam=test,allparam=MuSD,whichtest=whichtest)
@@ -431,6 +443,8 @@ hyper.mortGibbs=function(test,MuSD,spmean,whichtest)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 bad.asympower.param=function(hyperparam)
 {
  if(hyperparam[2]>=0) return(TRUE)
@@ -455,6 +469,8 @@ bad.asympower.param=function(hyperparam)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 bad.asymexp.param=function(hyperparam)
 {
  if(hyperparam[2]<=0) return(TRUE)
@@ -478,6 +494,8 @@ bad.asymexp.param=function(hyperparam)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 fitSeveralAbundModel=function(allcns=list(bci.full1,bci.full2,bci.full3),sptable=bci.spptable,mindbh,excludespp=NULL,useIDlevel=TRUE,abundrange=c(1,1e6),start=c(-3,.8,.01,-.5),
                               modeltype='asympower',bad.modelparam=bad.asympower.param,steps=10000,burn=1000,show=250,debug=FALSE)
 {
@@ -553,6 +571,8 @@ fitSeveralAbundModel=function(allcns=list(bci.full1,bci.full2,bci.full3),sptable
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 graph.abundmodel=function(fit,datafile=NULL,div=.01,tinydiv=0.001,modeltype='asympower',xrange=NULL,yrange=NULL,minabund=50,conf=25,returnextreme=TRUE,
 						  xname='Rate of population change',yname='Frequency',ltype='solid',lwidth=2,modelclr='green',bartype=FALSE,addpts=TRUE,
                           makeleg=TRUE,add=FALSE,newgraph=FALSE,ax=TRUE,mortcorr=FALSE,debug=FALSE)
@@ -682,6 +702,8 @@ graph.abundmodel=function(fit,datafile=NULL,div=.01,tinydiv=0.001,modeltype='asy
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 find.xaxis.hist=function(fit,tinydiv=.001,xrange)
 {
   if(is.null(xrange)) xrange=range(fit$demog$fitr)
@@ -705,6 +727,8 @@ find.xaxis.hist=function(fit,tinydiv=.001,xrange)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 abundmodel.fit=function(x,fit,modeltype,conf=NULL)
 {
  fitcenter=fit$means['hyperR']

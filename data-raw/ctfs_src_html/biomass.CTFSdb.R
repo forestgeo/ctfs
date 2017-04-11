@@ -29,6 +29,8 @@
 # newtable=biomass.CTFSdb(RStemTable=bci.stem1,RTreeTable=bci.full1)
 # </sample>
 # <source>
+#' @export
+
 biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',
                         ht.param=NULL,htmodel=predht.asym,useChave=TRUE,cnsno=NULL,dbname=NULL,fullname=NULL,plotcode=NULL)
 {
@@ -83,6 +85,8 @@ biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plo
 # length(which(is.na(wooddens)))
 # </sample>
 # <source>
+#' @export
+
 density.ind=function(df,plot,wsgdata,denscol='wsg')
 {
  wsgdatamatch=which(wsgdata$site %in% plot)
@@ -125,6 +129,8 @@ density.ind=function(df,plot,wsgdata,denscol='wsg')
 # sum(biomass,na.rm=TRUE)/50
 # </sample>
 # <source>
+#' @export
+
 AGB.ind=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht.param=NULL,htmodel=predht.asym)
 {
  wsg=density.ind(df=df,plot=plot,wsgdata=wsgdata,denscol='wsg')
@@ -160,6 +166,8 @@ AGB.ind=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht.
 # 
 # </sample>
 # <source>
+#' @export
+
 AGB.tree=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht.param=NULL,htmodel=predht.asym)
 {
  AGB.stem=AGB.ind(df=df,dbhunit=dbhunit,plot=plot,wsgdata=wsgdata,forest=forest,ht.param=ht.param,htmodel=htmodel)
@@ -199,6 +207,8 @@ AGB.tree=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht
 # lines(testdbh,AGBwet,col="blue")
 # </sample>
 # <source>
+#' @export
+
 Chave.AGB=function(dbh,density=0.62,htparam=c(41.7,.057,.748),heightmodel=predht.asym,forest='moist')
 {
  if(is.null(htparam))
@@ -241,6 +251,8 @@ Chave.AGB=function(dbh,density=0.62,htparam=c(41.7,.057,.748),heightmodel=predht
 # agb.model(dbh=c(1,1,2),density=c(.6,.6,.5),height=c(2,3,4),param=c(.0501,1))
 # </sample>
 # <source>
+#' @export
+
 agb.model=function(dbh,density,height,param)
  return(param[1]*(density*dbh^2*height)^param[2])
 # </source>
@@ -263,6 +275,8 @@ agb.model=function(dbh,density,height,param)
 # agb.dbhmodel(dbh=c(1,1,2),density=c(.6,.6,.5),param=c(-1.499,2.148,0.207,-0.0281)) 
 # </sample>
 # <source>
+#' @export
+
 agb.dbhmodel=function(dbh,density,param)
  return(density*exp(param[1]+param[2]*log(dbh)+param[3]*log(dbh)^2+param[4]*log(dbh)^3))
 # </source>
@@ -288,6 +302,8 @@ agb.dbhmodel=function(dbh,density,param)
 # ht=predht.asym(dbh=d,param=htparam)
 # </sample>
 # <source>
+#' @export
+
 predht.asym=function(dbh,param)
 {
  if(is.null(dim(param)))
@@ -350,6 +366,8 @@ predht.asym=function(dbh,param)
 # subset(deltaAGB.table,is.infinite(rate)) #<br>
 # </sample>
 # <source>
+#' @export
+
 biomass.change=function(census1,census2,alivecode=c("A"),mindbh=NULL,split1=NULL,split2=NULL)
 {
  if(is.null(split1)) split1=rep("all",dim(census1)[1])
@@ -418,6 +436,8 @@ biomass.change=function(census1,census2,alivecode=c("A"),mindbh=NULL,split1=NULL
 #
 # </sample>
 # <source>
+#' @export
+
 AGB.dbtable=function(df,dbname,plot,code,censusno)
 {
  db=odbcConnect('mysql')

@@ -16,6 +16,8 @@
 # 
 # </sample>
 # <source>
+#' @export
+
 graph.growthmodel.spp=function(fit,jiggle=.001,whichpred='pred',xrange=NULL,yrange=NULL,xtitle=NULL,ytitle=NULL,includeaxs=TRUE,
                                withSD='red',regclr="green",modelclr="blue",modellwd=1,graphdiv=10,add=FALSE,addpts=TRUE,maintitle=NULL,conf=0)
 {
@@ -100,6 +102,8 @@ graph.growthmodel.spp=function(fit,jiggle=.001,whichpred='pred',xrange=NULL,yran
 # 
 # </sample>
 # <source>
+#' @export
+
 graph.growthmodel=function(spp,fitlist,whichbin=1,regclr="green",modelclr="blue",graphdiv=10,export=pdf,outfile="growth/linearbin.fit.pdf",h=8,w=10)
 {
  if(!is.null(export)) 
@@ -131,6 +135,8 @@ graph.growthmodel=function(spp,fitlist,whichbin=1,regclr="green",modelclr="blue"
 # 
 # </sample>
 # <source>
+#' @export
+
 overlay.growthbinmodel=function(fit,bins=1:4,regclr="green",modelclr="blue",graphdiv=15,add=FALSE,newgraph=TRUE,
                                 export=pdf,outfile="growth/linearbin.overlay.pdf",h=8,w=10)
 {
@@ -173,6 +179,8 @@ overlay.growthbinmodel=function(fit,bins=1:4,regclr="green",modelclr="blue",grap
 # 
 # </sample>
 # <source>
+#' @export
+
 compare.growthbinmodel=function(fit,bins=1:4,makegraph=TRUE,conflines=0,newgraph=TRUE,export=pdf,outfile="growth/linearbin.bestfit.pdf",h=8,w=10)
 {
  spp=names(fit)
@@ -257,6 +265,8 @@ compare.growthbinmodel=function(fit,bins=1:4,makegraph=TRUE,conflines=0,newgraph
 # </ul>
 # </sample>
 # <source>
+#' @export
+
 graph.outliers.spp=function(full,trimmed,spname='gustsu',fit=NULL,size='agb',export=NULL,xtitle='log(agb)',ytitle='growth')
 {
  full=subset(full,sp==spname)
@@ -291,6 +301,8 @@ graph.outliers.spp=function(full,trimmed,spname='gustsu',fit=NULL,size='agb',exp
 # 
 # </sample>
 # <source>
+#' @export
+
 graph.outliers=function(full,trimmed,fit=NULL,allspp=NULL,size='agb',export=NULL,wind=X11)
 {
  if(is.null(allspp)) allspp=names(fit)
@@ -326,6 +338,8 @@ graph.outliers=function(full,trimmed,fit=NULL,allspp=NULL,size='agb',export=NULL
 # binGraphSampleSpecies(fulldata='linearbin.fit.allspp',species=c('pri2co','pri2co','brosal','brosal'),whichbin=c(2,3,2,3),export=NULL)
 # </sample>
 # <source>
+#' @export
+
 binGraphSampleSpecies=function(fulldataname,species,whichbin,export=pdf,outfile="growth/linearbin.summary.pdf",h=8,w=10)
 {
  if(!is.null(export)) 
@@ -371,6 +385,8 @@ binGraphSampleSpecies=function(fulldataname,species,whichbin,export=pdf,outfile=
 #                           export=pdf,yrange=c(0,.25),sitename=c('Fushan','BCI','Edoro','Lenda'),darken=5,xrange=c(-3,3.5))
 # </sample>
 # <source>
+#' @export
+
 binGraphManySpecies.Panel=function(fulldataname,sitename,darken=8,xrange=c(-3,3),yrange=c(0,.1),export=pdf,outfile="growth/linearbin.multi.pdf",h=8,w=10)
 {
  if(!is.null(export)) 
@@ -407,6 +423,8 @@ binGraphManySpecies.Panel=function(fulldataname,sitename,darken=8,xrange=c(-3,3)
 # <sample>
 # </sample>
 # <source>
+#' @export
+
 binGraphManySpecies=function(fulldataname,darken=8,xrange=c(-3,3),yrange=c(0,.1),xtitle=NULL,ytitle=NULL,
                              export=pdf,outfile="growth/linearbin.multi.pdf",h=8,w=10)
 {
