@@ -1,3 +1,33 @@
+# Outline ----
+
+# To build the ctfs package from the original CTFSRPackage source do this:
+#   - Produce roxygen documentation
+#   - export functions from source
+#   - combine roxygen documentation with its original source;
+#   - document to export functions via NAMESPACE and to produce help files
+
+#   - After roxygenizing docs (via data-raw/combine_roxygendoc_and_source.R):
+#       + load all,
+#       + clean and rebuild,
+#       + ensure is dissable "Automatically roxygenize when running:
+#           - a. check,
+#           - b. build,
+#   - Ammend namespace,
+#   - check,
+#   - build.
+
+
+
+
+
+
+
+
+
+
+
+
+
 # In a single file, combine the roxygen documentation generated programatically
 # with the original source code and html-tagged documentation.
 

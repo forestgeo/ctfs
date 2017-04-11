@@ -1,9 +1,5 @@
-# 1. Documenting with roxygen (this will mistakenly export some functions as
-#    S3 methods);
-# 2. Run this code to ammend NAMESPACE and make  functions be functions, not
-#    S3 methods;
-# 4. Check
-# 5. Build
+# This file ammends NAMESPACE after exporting functions via roxygen. 1. Roxygen
+# mistakenly exports some functions as S3 methods.
 
 library(readr)
 library(magrittr)
