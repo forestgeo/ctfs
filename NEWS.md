@@ -12,10 +12,6 @@
 
 - Create and document data object month names that is presumably crucial.
 
-## TODO
-
-- remove cleaning  of export and of removing source code via html2roxygen
-
 # ctfs 0.0.0.9003
 
 * Tidy up roxygen documentation. Now empty lines span 2 lines or less.
