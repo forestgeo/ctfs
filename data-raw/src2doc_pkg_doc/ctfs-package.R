@@ -5,8 +5,8 @@
 #' of an R package _sensu stricto_ (with some hacks). After you install it,
 #' functions will be available with `<FUNCTION_NAME>`; and documentation with
 #' `?<FUNCTION_NAME>`, `help(<FUNCTION_NAME>)` or online at
-#' [https://forestgeo.github.io/ctfs/] or
-#' [http://ctfs.si.edu/Public/CTFSRPackage/].
+#' [https://forestgeo.github.io/ctfs/](https://forestgeo.github.io/ctfs/) or
+#' [http://ctfs.si.edu/Public/CTFSRPackage/](http://ctfs.si.edu/Public/CTFSRPackage/).
 #' 
 #' @section Acknowledgement:
 #' The BCI forest dynamics research project was founded by S.P. Hubbell and R.B.

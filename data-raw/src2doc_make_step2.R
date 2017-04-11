@@ -2,11 +2,9 @@
 
 # - document and export functions via NAMESPACE, e.g. by clicking Build & Reload;
 
-# - check package and remove errors and minimize warnings and notes;
-
 # - Ammend namespace for functions to export as functions, not as S3 methods;
 source("./data-raw/src2doc_namespace_amend.R")
 
-# - check again to confirm namespace was ammended;
+# - check package and remove errors and minimize warnings and notes;
 
 # - build package.

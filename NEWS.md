@@ -1,5 +1,9 @@
 # ctfs 0.0.0.9004
 
+- Solve most important warnings during package checks. Most notably, amend NAMESPACE after documenting with roxygen. Because function names use the format function.name, roxygen exports some functions as S3 methods. This is a problem that arises during package checks. Now, this is solved by ammending NAMESPACE, but later versions should replace "." by "_" in function names.
+
+- Combine roxygen documentation and source code into a sigle file
+
 - Import package date, stated as a dependency on original CTFS documentation
 
 - In a vignette, report complexity of ctfs and compare with other complex and simple packages.
