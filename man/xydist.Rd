@@ -2,10 +2,31 @@
 % Please edit documentation in R/geometry.R
 \name{xydist}
 \alias{xydist}
+\alias{xydist}
 \title{xydist}
 \usage{
+xydist(x1, y1, x2, y2)
+
 xydist(x1, y1, x2, y2)
 }
 \description{
 Distance between two pairs of x-y coordinates. Input can be atomic or vector.
+
+#' polar.to.cartesian
+#'
+#' @description
+#'
+#' Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
+#'
+#' @param r = input vector of radii (distance from origin)
+#' @param theta = input vector of angle from horizontal (radians), same length as r
+#'
+#' @examples
+#' \dontrun{
+#' polar.to.cartesian(2,pi/3)}
+#'
+#'
+#'
+#'
+'polar.to.cartesian'
 }

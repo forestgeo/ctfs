@@ -7,5 +7,5 @@
 badSD(x, param, ...)
 }
 \description{
-badSD
+no description
 }

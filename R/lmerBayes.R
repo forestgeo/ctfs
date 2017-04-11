@@ -189,6 +189,8 @@
 'residual.llike.lmerBayes'
 
 #' badSD
+#' @description
+#' no description
 #'
 #' 
 #'
