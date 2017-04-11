@@ -66,11 +66,16 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"> </a>Installation</h2>
-<p>If you are authorized (via <a href="daviess@si.edu">Stuart Davies</a>), you can install ctfs from a private GitHub repo with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-GUEST_PAT &lt;-<span class="st"> "d60277dad4177c278455e885366a7170e22ae092"</span>
-devtools::<span class="kw">install_github</span>(<span class="st">"forestgeo/ctfs"</span>, <span class="dt">auth_token =</span> GUEST_PAT)
-<span class="kw">library</span>(ctfs)</code></pre></div>
+<p>If you are authorized (via <a href="daviess@si.edu">Stuart Davies</a>), you can install ctfs from ForestGEO’s private GitHub repo.</p>
+<pre><code># From ?devtools::install_github:
+# To install from a private repo, use auth_token with a token
+# from https://github.com/settings/tokens. You only need the
+# repo scope. Best practice is to save your PAT in env var called
+# GITHUB_PAT.
+
+# install.packages("devtools")
+devtools::install_github("forestgeo/ctfs", auth_token = "&lt;YOUR_TOKEN&gt;")
+library(ctfs)</code></pre>
 <div id="reference" class="section level3">
 <h3 class="hasAnchor">
 <a href="#reference" class="anchor"> </a>Reference</h3>

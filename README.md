@@ -8,14 +8,17 @@ ctfs provides the original CTFS R Package (Richard Condit) with the structure of
 Installation
 ------------
 
-If you are authorized (via [Stuart Davies](daviess@si.edu)), you can install ctfs from a private GitHub repo with:
+If you are authorized (via [Stuart Davies](daviess@si.edu)), you can install ctfs from ForestGEO's private GitHub repo.
 
-``` r
-# install.packages("devtools")
-GUEST_PAT <- "d60277dad4177c278455e885366a7170e22ae092"
-devtools::install_github("forestgeo/ctfs", auth_token = GUEST_PAT)
-library(ctfs)
-```
+    # From ?devtools::install_github:
+    # To install from a private repo, use auth_token with a token
+    # from https://github.com/settings/tokens. You only need the
+    # repo scope. Best practice is to save your PAT in env var called
+    # GITHUB_PAT.
+
+    # install.packages("devtools")
+    devtools::install_github("forestgeo/ctfs", auth_token = "<YOUR_TOKEN>")
+    library(ctfs)
 
 ### Reference
 

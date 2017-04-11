@@ -4,9 +4,9 @@
 \alias{compare.growthbinmodel}
 \title{compare.growthbinmodel}
 \usage{
-\method{compare}{growthbinmodel}(fit, bins = 1:4, makegraph = TRUE,
-  conflines = 0, newgraph = TRUE, export = pdf,
-  outfile = "growth/linearbin.bestfit.pdf", h = 8, w = 10)
+compare.growthbinmodel(fit, bins = 1:4, makegraph = TRUE, conflines = 0,
+  newgraph = TRUE, export = pdf, outfile = "growth/linearbin.bestfit.pdf",
+  h = 8, w = 10)
 }
 \description{
 Calculates various metrics of fit: DIC, BIC, AIC based on the maximum likelihood, AIC based on the mean of the Gibbs sampler,

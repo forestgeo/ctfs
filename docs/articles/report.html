@@ -112,6 +112,18 @@
 <p>Try running a sig_report on the Hmisc package, the gold standard in monstrously big and complicated functions. For contrast, try funning a report on <em>assertive</em> and <em>testthat</em> too.</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sig_report</span>(<span class="kw">pkg2env</span>(Hmisc))
+<span class="co">#&gt; Loading package 'Hmisc'.</span>
+<span class="co">#&gt; Loading required package: lattice</span>
+<span class="co">#&gt; Loading required package: survival</span>
+<span class="co">#&gt; Loading required package: Formula</span>
+<span class="co">#&gt; Loading required package: ggplot2</span>
+<span class="co">#&gt; Want to understand how all the pieces fit together? Buy the</span>
+<span class="co">#&gt; ggplot2 book: http://ggplot2.org/book/</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'Hmisc'</span>
+<span class="co">#&gt; The following objects are masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     format.pval, round.POSIXt, trunc.POSIXt, units</span>
 <span class="co">#&gt; The environment contains 567 variables of which 562 are functions. </span>
 <span class="co">#&gt; Distribution of the number of input arguments to the functions:</span>
 <span class="co">#&gt;   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17 </span>
@@ -237,6 +249,7 @@
 <span class="co">#&gt; [141] varclus                        wtd.table</span></code></pre></div>
 <p><em>assertive</em></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sig_report</span>(<span class="kw">pkg2env</span>(assertive))
+<span class="co">#&gt; Loading package 'assertive'.</span>
 <span class="co">#&gt; The environment contains 755 variables of which 755 are functions. </span>
 <span class="co">#&gt; Distribution of the number of input arguments to the functions:</span>
 <span class="co">#&gt;   0   1   2   3   4   5   6   7 </span>
@@ -249,6 +262,15 @@
 <span class="co">#&gt; [1] is_uk_telephone_number</span></code></pre></div>
 <p><em>testthat</em></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sig_report</span>(<span class="kw">pkg2env</span>(testthat))
+<span class="co">#&gt; Loading package 'testthat'.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'testthat'</span>
+<span class="co">#&gt; The following objects are masked from 'package:assertive':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     has_names, is_false, is_less_than, is_null, is_true</span>
+<span class="co">#&gt; The following object is masked from 'package:Hmisc':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     describe</span>
 <span class="co">#&gt; The environment contains 111 variables of which 96 are functions. </span>
 <span class="co">#&gt; Distribution of the number of input arguments to the functions:</span>
 <span class="co">#&gt;  0  1  2  3  4  5  6  7 </span>
