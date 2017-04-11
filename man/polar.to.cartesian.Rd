@@ -19,7 +19,6 @@ Convert polar coordinates to Cartesian. Returns a dataframe of two columns named
 polar.to.cartesian(2,pi/3)}
 
 
-Should be deleted ... 
 
 
 }

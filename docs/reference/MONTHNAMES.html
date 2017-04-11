@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>tojulian — tojulian â€¢ ctfs</title>
+<title>MONTHNAMES — MONTHNAMES â€¢ ctfs</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -74,32 +74,36 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>tojulian</h1>
+    <h1>MONTHNAMES</h1>
     </div>
 
     
-    <p>Accepts any character representation of a date and a description of the format. The submitted dates can
-be a vector or a matrix. See strptime for details about the format.</p>
-
-    <p>Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such,
-though it displays as a date.</p>
+    <p>Object assumed to be crucial. In `utilities.R, the original documentation of
+the CTFSRPackage states:</p>
     
 
-    <pre><span class='fu'>tojulian</span>(<span class='no'>x</span>, <span class='kw'>dateform</span> <span class='kw'>=</span> <span class='st'>"%m/%d/%Y"</span>)</pre>
+    <pre><span class='no'>MONTHNAMES</span></pre>
         
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># </span>
-<span class='co'># tojulian(c('23Oct2010','29Mar1956'),'%d%b%Y')</span>
-<span class='co'>## ---------------------------------------------</span></div></pre>
+    <p>An object of class <code>character</code> of length 12.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><pre>MONTHNAMES = c( 
+&#39;Jan&#39;,&#39;Feb&#39;,&#39;Mar&#39;,&#39;Apr&#39;,&#39;May&#39;,&#39;Jun&#39;,&#39;Jul&#39;,&#39;Aug&#39;,&#39;Sep&#39;,&#39;Oct&#39;,&#39;Nov&#39;,&#39;Dec&#39; ) 
+</pre></p>
+    
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

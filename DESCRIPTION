@@ -1,6 +1,6 @@
 Package: ctfs
 Title: What the Package Does (one line, title case)
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: person("Richard", "Condit", email = "conditr@gmail.com", 
     role = c("aut", "cre"))
 Description: What the package does (one paragraph).
@@ -14,3 +14,6 @@ BugReports: https://github.com/forestgeo/ctfs/issues
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
 Imports: date
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

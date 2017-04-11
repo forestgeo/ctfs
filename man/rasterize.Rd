@@ -21,7 +21,6 @@ plots the density of the sp in the plot
 rast1 = rasterize(x= onesp$gx, y=onesp$gy, gridsize=5, plotdim=c(1000,500), type='point', graph=TRUE)  
 
 #' }
-marked point process
 
 
 }

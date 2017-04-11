@@ -2,12 +2,14 @@
 % Please edit documentation in R/utilities.R
 \name{tojulian}
 \alias{tojulian}
-\title{Accepts any character representation of a date and a description of the format. The submitted dates can
-be a vector or a matrix. See strptime for details about the format.}
+\title{tojulian}
 \usage{
 tojulian(x, dateform = "\%m/\%d/\%Y")
 }
 \description{
+Accepts any character representation of a date and a description of the format. The submitted dates can
+be a vector or a matrix. See strptime for details about the format.
+
 Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such,
 though it displays as a date.
 }
