@@ -282,7 +282,6 @@
 #' polar.to.cartesian(2,pi/3)}
 #'
 #'
-#' Should be deleted ... 
 #'
 #'
 'polar.to.cartesian'

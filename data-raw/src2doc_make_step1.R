@@ -1,25 +1,14 @@
-# Outline ----
+# Outline -----------------------------------------------------------------
 
 # This files produces roxygen documentation and combines it with its source. The
 # steps involved are these:
 
-# DO BY RUNNING THIS FILE
+# STEP 1: DO BY RUNNING THIS FILE
 # - 1. produce roxygen documentation;
 # - 2. export functions from source;
 # - 3. combine roxygen documentation with the corresponding original source;
 
-# TO DO AFTER RUNNING THIS FILE
-#   - document to export functions via NAMESPACE and to produce help files;
-
-# - After roxygenizing docs (via data-raw/combine_roxygendoc_and_source.R):
-#     + load all,
-#     + clean and rebuild,
-#     + ensure is dissable "Automatically roxygenize when running:
-#         - a. check,
-#         - b. build,
-#   - Ammend namespace,
-#   - check,
-#   - build.
+# STEP 2: AFTER RUNNING THIS FILE GO TO src2doc_make_step2.R
 
 
 

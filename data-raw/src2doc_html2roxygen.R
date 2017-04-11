@@ -475,16 +475,10 @@ map(paths$from, read_file) %>%
   map(str_replace_all, "(\n#\'){3,}", "\\1\\1") %>%
   map(str_replace_all, "(\n){3,}", "\\1\\1") %>%
   map(str_replace_all, "(\n#\' [A-Z].*)", "\n#\'\\1") %>%
-
+  map(str_replace_all, "\n#\' Should be deleted \\.\\.\\.(.*)", "") %>%
   
   
   
-  
-  
-  
-  
-  
-    
   map(str_replace_all,
     regex(
       "(bad\\.binsdpar.*)@description(.*bad\\.binsdpar.*)",
