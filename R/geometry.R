@@ -1,10 +1,14 @@
+
 # Roxygen documentation generated programatically -------------------
+
+#'
+#'
 
 #' xydist
 #'
 #' @description
 #'
-#' Distance between two pairs of x-y coordinates. Input can be atomic or vector.
+#' Distance between two pairs of x-y coordinates. Input can be atomic or vector. 
 #'
 #'
 'xydist'
@@ -76,7 +80,7 @@
 #'
 #' @description
 #'
-#' Finds the point where 2 lines intersect, given lines as 2 parameters each (intercept b then slope m).
+#' Finds the point where 2 lines intersect, given lines as 2 parameters each (intercept b then slope m). 
 #'
 #' If the two lines are identical, it returns NAs. Note the check for both slopes being infinite (vertical lines).
 #'
@@ -89,7 +93,7 @@
 #'
 #' @description
 #'
-#' Finds the points where a straight line, given lines as intercept b then slope m, intersects with a curve defined by a sequence of segments. Intersections must be found for the line with every segment, then every one checked with is.between. The intersections are returned as a dataframe of x, y coordinates. The b and m must be atomic. The curve must be a dataframe with columns x, y (or capital X, Y).
+#' Finds the points where a straight line, given lines as intercept b then slope m, intersects with a curve defined by a sequence of segments. Intersections must be found for the line with every segment, then every one checked with is.between. The intersections are returned as a dataframe of x, y coordinates. The b and m must be atomic. The curve must be a dataframe with columns x, y (or capital X, Y). 
 #' having any number of segments.
 #'
 #'
@@ -99,9 +103,9 @@
 #'
 #' @description
 #'
-#' Check whether a point x,y falls between two other points. The typical use is where the first point falls on the segment connecting the next two points.
+#' Check whether a point x,y falls between two other points. The typical use is where the first point falls on the segment connecting the next two points. 
 #'
-#' All arguments can be vector, but must be identical in length. An x falls between when it lies in [x1,x2).
+#' All arguments can be vector, but must be identical in length. An x falls between when it lies in [x1,x2). 
 #'
 #'
 'is.between'
@@ -113,7 +117,7 @@
 #' Finds the point where 2 lines intersect, given each line as 2 pairs of points on the line
 #'
 #'
-#' Both arguments must have columns x, y, with two rows, one row per point.
+#' Both arguments must have columns x, y, with two rows, one row per point. 
 #'
 #'
 'line.intersection.pts'
@@ -122,9 +126,9 @@
 #'
 #' @description
 #'
-#' Returns intercept and slope of a line given two pairs of coordinates on the line. Arguments can be vectors; if both are vectors, must be same size.
+#' Returns intercept and slope of a line given two pairs of coordinates on the line. Arguments can be vectors; if both are vectors, must be same size. 
 #'
-#' If the x's are exactly equal, so slope is infinite, it returns the x as the first argument.
+#' If the x's are exactly equal, so slope is infinite, it returns the x as the first argument. 
 #'
 #'
 'pts.to.interceptslope'
@@ -142,7 +146,7 @@
 #'
 #' @description
 #'
-#' Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The columns must have x first then y coordinates.
+#' Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The columns must have x first then y coordinates. 
 #'
 #'
 'drawrectangle'
@@ -210,7 +214,7 @@
 #'
 #' @description
 #'
-#' Calculates points on a
+#' Calculates points on a 
 #'
 #'
 'circle'
@@ -229,7 +233,7 @@
 #'
 #' @description
 #'
-#' Equation for (half) a canonical
+#' Equation for (half) a canonical 
 #'
 #'
 'ellipse'
@@ -238,7 +242,7 @@
 #'
 #' @description
 #'
-#' Creates a dataframe for a full ellipse.
+#' Creates a dataframe for a full ellipse. 
 #'
 #' @param x = input x coordinates
 #' @param center = x-y coordinates of ellipse center (vector of 2)
@@ -264,25 +268,23 @@
 #'
 'cartesian.to.polar'
 
-#' #' polar.to.cartesian
-#' #'
-#' #' @description
-#' #'
-#' #' Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
-#' #'
-#' #' @param r = input vector of radii (distance from origin)
-#' #' @param theta = input vector of angle from horizontal (radians), same length as r
-#' #'
-#' #' @examples
-#' #' \dontrun{
-#' #' polar.to.cartesian(2,pi/3)}
-#' #'
-#' #'
-#' #'
-#' #'
-#' 'polar.to.cartesian'
-
-#' 
+#' polar.to.cartesian
+#'
+#' @description
+#'
+#' Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
+#'
+#' @param r = input vector of radii (distance from origin)
+#' @param theta = input vector of angle from horizontal (radians), same length as r
+#'
+#' @examples
+#' \dontrun{
+#' polar.to.cartesian(2,pi/3)}
+#'
+#'
+#'
+#'
+'polar.to.cartesian'
 
 # Source code and original documentation ----------------------------
 # <function>
