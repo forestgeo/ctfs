@@ -1,42 +1,27 @@
 # Choose 10 random functions to check if documentation matches
-load("C:/Users/dora/Dropbox/git_repos/ctfs/data/CTFSRPackage.rdata")
-set.seed(1234)
+load("C:/Users/dora/Dropbox/git_repos/CTFSRPackage/CTFSRPackage.rdata")
+set.seed(4321)
 sort(sample(ls(), 20))
 
 library(tibble)
 
-checks <- tribble(
+tribble(
   ~fun, ~match_source, ~match_webpage,
-  "abundmodel.fit", T, T,
-  "calc.directionslope", T, T,
-  "countEmpty", T, T,
-  "defineBinBreaks", T, T,
-  "density.ind", T, T,
-  "dgamma.mean", T, T,
-  "index.to.gxgy", T, T,
-   "is.between", T, T,
+  "arrangeParam.llike.2D", T, T,
+  "attach_if_needed", T, T,
+  "biomass.growth", T, T,
+  "border.distance", T, T,
+  "drawrectangle", T, T,
+  "exponential.sin", T, T,
+  "find.xaxis.hist", T, T,
+  "graph.mvnorm", T, T,
+  "linear.mortmodel", T, T,
   "logistic.power.mode", T, T,
-  "logit", T, T,
-  "map", T, T,
-  "metrop1step", T, T,
-  "mortality", F, F, 
-  "selectrandomquad2", T, T
+  "pospower", T, T,
+  "pts.to.interceptslope", T, T,
+  "recalculate.lmerBayesllike", T, T,
+  "saveParamFile", T, T,
+  "skewness", T, T, 
+  "summaryMCMC", T, T
 )
-checks
 
-problems <- tribble(
-  ~fun, ~note,
-  "mortality", "Some <li> itmes maped to arguments should not be arguments."
-)
-problems
-
-
-not_function <- c(
-  "CTFSpath", "CTFSworkshop", "defineBinBreaks", "dendrometer", 
-  "remove.allpackage", "sampledigit"
-)
-not_function
-
-# Todo
-
-# Make "not arguments" to <li> items outside <arguments>. Items <li> map to arguments only if inside <arguments>, else, they are list items for other purposes, not arguments. For example, mortality.
