@@ -45,13 +45,25 @@ library(tibble)
 
 # Prepare files to be combined ----
 
+# Create directories
+
+# Temporary; will be removed at the end.
+dir.create("./data-raw/ctfs_doc/")
+dir.create("./data-raw/ctfs_src_html/")
+# Permanent
+dir.create("./R/")
+
+
+
 # From original (html-tagged) documentation, produce rogygen docum
 
 # Reads from data-raw/CTFSRPackage/ and saves to data-raw/ctfs_doc
 source("./data-raw/src2doc_html2roxygen.R")
 
-# Reads from data-raw/CTFSRPackage/ and saves to data-raw/ctfs_src_html/. This
-# step basically extracts each file from subfolders out into a single folder
+# Reads from data-raw/CTFSRPackage/ and saves to data-raw/ctfs_src_html/. This 
+# step basically extracts each file from subfolders out into a single folder, 
+# and exports the source code so that NAMESPACE processes those exported
+# functions.
 
 source("./data-raw/src2doc_extract_src_from_subfolders.R")
 
@@ -114,4 +126,7 @@ combine_doc_src <- function(from_doc, from_src, to) {
 pmap(list(dirs$path_doc, dirs$path_src, dirs$path_doc_src), combine_doc_src)
 
 
+# Remove temporary directories ---
 
+unlink("./data-raw/ctfs_doc", recursive = TRUE)
+unlink("./data-raw/ctfs_src_html", recursive = TRUE)
