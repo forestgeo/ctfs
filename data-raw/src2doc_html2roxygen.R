@@ -518,7 +518,7 @@ map(paths$from, read_file) %>%
 
 
 # Add files to ./data-raw/ctfs_doc that do not need wrangling
-path_notwrangle <- "./data-raw/R_from_notwrangle/"
+path_notwrangle <- "./data-raw/src2doc_pkg_doc/"
 from_notwrangle <- map2(path_notwrangle, dir(path_notwrangle), paste0)
 to_notwrangle <- map2("./data-raw/ctfs_doc/", dir(path_notwrangle), paste0)
 
