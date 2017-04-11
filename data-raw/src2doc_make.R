@@ -3,7 +3,7 @@
 # This files produces roxygen documentation and combines it with its source. The
 # steps involved are these:
 
-# WHAT RUNNING THIS FILE DOES
+# DO BY RUNNING THIS FILE
 # - 1. produce roxygen documentation;
 # - 2. export functions from source;
 # - 3. combine roxygen documentation with the corresponding original source;
