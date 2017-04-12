@@ -1,5 +1,6 @@
 ---
 title: "Growth variation through time"
+subtitle: "Adapted by Mauro Lepore from the original tutorial by Richard Condit (http://ctfs.si.edu/Public/CTFSRPackage/files/tutorials/GrowthChange/)"
 author: "Richard Condit"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -9,17 +10,46 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+# Hypotheses
+
 The question addressed here is how growth has changed with time, in particular how species differ in growth changes. There are two alternative models described:
 
 * Growth rate changing linearly with time
 * Growth rate varying from census to census, but not following a consistent change
 
-Both hypotheses will be tested running models with the R function lmer in the package lme4.
+# Packages
+
+The functions we use here come with the [ctfs](https://forestgeo.github.io/ctfs/) and [lme4](https://github.com/lme4/lme4/) packages, and the data comes in the [bci](https://forestgeo.github.io/bci/) package.
 
 ```{r}
-# install.packages("lme4")
+# installation instructions at https://github.com/forestgeo/ctfs
+library(ctfs)
+# installation instructions at https://github.com/lme4/lme4/
 library(lme4)
+# installation instructions at https://forestgeo.github.io/bci/
+library(bci)
 ```
 
+# Formatting data
 
-You will need to install the package.
+
+
+
+
+
+# References
+
+[Repository](https://dx.doi.org/10.5479/data.bci.20130603) of the Barro Colorado Forest Census Plot Data (version 2012).
+
+[Description](https://repository.si.edu/bitstream/handle/10088/20925/RoutputFull.pdf?sequence=1&isAllowed=y) of the Barro Colorado Forest Census Plot Data.
+
+
+
