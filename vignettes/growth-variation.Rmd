@@ -1,7 +1,6 @@
 ---
 title: "Growth variation through time"
-subtitle: "Adapted by Mauro Lepore from the original tutorial by Richard Condit (http://ctfs.si.edu/Public/CTFSRPackage/files/tutorials/GrowthChange/)"
-author: "Richard Condit"
+subtitle: "Adapted by Mauro Lepore from the original tutorial by Richard Condit (https://goo.gl/c9RjMY)"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -17,6 +16,16 @@ knitr::opts_chunk$set(
   echo = TRUE
 )
 ```
+
+# Conventions to refer to code
+
+I refer to code following the conventions of [R for data science](http://r4ds.had.co.nz/introduction.html), by Hadley Wickham & Garrett Grolemund:
+
+> Functions are in a code font and followed by parentheses, like `sum()`, or `mean()`.
+
+> Other R objects (like data or function arguments) are in a code font, without parentheses, like `flights` or `x`.
+
+> If we want to make it clear what package an object comes from, we’ll use the package name followed by two colons, like` dplyr::mutate()`, or `nycflights13::flights`. This is also valid R code.
 
 # Hypotheses
 
@@ -39,6 +48,35 @@ library(bci)
 ```
 
 # Formatting data
+
+First, let's table the growth rate of every tree in every census interval.
+
+To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
+
+```{r}
+# See defaults and get help with ?individual_grow.table
+
+# Choose censuses you wish to work with
+censuses <- list(dat_bci12full1, dat_bci12full7)
+# Choose tree diameter between mindbh and maxdbh (here using big trees)
+grate <- individual_grow.table(censuses, mindbh = 400, maxdbh = 10000)
+
+head(grate)
+```
+
+
+
+
+Choose any diameter category, and any . 
+
+Here is an example for big trees at BCI (dbh ≥ 400), with all seven censuses included.
+
+
+
+
+
+
+
 
 
 
