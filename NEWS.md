@@ -1,3 +1,9 @@
+# ctfs 0.0.0.9005
+
+> How about working with the growth, mortality and recruitment functions (Demography functions)? They are already in the R Package, but need work. Use the BCI data to test and build the various documents.
+
+--Stuart
+
 # ctfs 0.0.0.9004
 
 - Document process to build package in `data-raw/src2doc_make_step1.R` and `...step2.R`
