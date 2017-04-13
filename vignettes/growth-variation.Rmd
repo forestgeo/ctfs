@@ -36,9 +36,9 @@ The question addressed here is how growth has changed with time, in particular h
 
 # Packages
 
-The functions we use here come with the [ctfs](https://forestgeo.github.io/ctfs/) and [lme4](https://github.com/lme4/lme4/) packages, and the data comes in the [bci](https://forestgeo.github.io/bci/) package.
+The functions we use here come with the [ctfs](https://forestgeo.github.io/ctfs/) and [lme4](https://github.com/lme4/lme4/) packages, and the data comes in the [bci](https://forestgeo.github.io/bci/) package:
 
-```{r}
+```{r, message=FALSE}
 # installation instructions at https://github.com/forestgeo/ctfs
 library(ctfs)
 # installation instructions at https://github.com/lme4/lme4/
@@ -47,17 +47,39 @@ library(lme4)
 library(bci)
 ```
 
+
+To access functions commonly used for data analysis, load the tidyverse package:
+
+```{r, message=FALSE}
+# install.packages("tidyverse")
+library(tidyverse)
+```
+
+
 # Formatting data
 
 First, let's table the growth rate of every tree in every census interval.
 
 To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
 
-```{r}
+
+
+
+
+
+xxxcont. Use data from several censuses in bci, then let the chunk below run
+
+```{r xxxLoadData, include=FALSE}
+censusdata <- c("bci12full1.rda", "bci12full7.rda")
+map2("../bci/data/", censusdata, paste0) %>% 
+  walk(load, .GlobalEnv)
+```
+
+```{r, eval=FALSE}
 # See defaults and get help with ?individual_grow.table
 
 # Choose censuses you wish to work with
-censuses <- list(dat_bci12full1, dat_bci12full7)
+censuses <- list(bci12full1, bci12full7)
 # Choose tree diameter between mindbh and maxdbh (here using big trees)
 grate <- individual_grow.table(censuses, mindbh = 400, maxdbh = 10000)
 
@@ -67,19 +89,9 @@ head(grate)
 
 
 
-Choose any diameter category, and any . 
-
-Here is an example for big trees at BCI (dbh ≥ 400), with all seven censuses included.
 
 
-
-
-
-
-
-
-
-
+xxxcont
 
 
 
@@ -89,5 +101,13 @@ Here is an example for big trees at BCI (dbh ≥ 400), with all seven censuses i
 
 [Description](https://repository.si.edu/bitstream/handle/10088/20925/RoutputFull.pdf?sequence=1&isAllowed=y) of the Barro Colorado Forest Census Plot Data.
 
+# Todo
 
+MOST IMPORTANT
 
+- Use data from several censuses in bci
+- Document missing arguments in `individual_grow.table()`
+
+LESS IMPORTANT
+
+- track functions called by `individual_grow.table()`
