@@ -15,8 +15,29 @@
 #' is converted to mingrow. There is also a power transformation, where each growth rate is raised to the power given by powertransformation.
 #'
 #' In the latter, negative growths are transformed to negative, so do not need to be corrected. 
-#'
-#'
+#' @return 
+#' A data frame where each row gives data from one individual, including:
+#' - `tag`: the tree’s tag number;
+#' - `gx`, `gy`: coordinates;
+#' - `species`: species;
+#' - `dbh1`, `dbh2`: tree diameter at census 1 and 2;
+#' - `census`, `censusfact`: census interval; 1 means growth between census 1 
+#' and 2, and 2 means growth from census 2 to 3, etc. `census` and `censusfact` 
+#' store the same information but they differ in that their values are integers 
+#' and factors;
+#' - `time`: mid-point of the interval over which growth was measured, centered
+#' on 1992. This is the format needed by lmer. The reason for centering time is
+#' that it is much better in linear regressions to have the x-axis near zero;
+#' - `LnSize`: log(dbh1);
+#' - `incgr`: untransformed growth increment; growth increment (difference in
+#' dbh) per year;
+#' - `LnGrowth`: log of the growth rate, with negatives and zeroes converted to
+#' 0.1 (from the argument mingrowth in the function);
+#' - `CRGrowth`: cube root of growth rate; power transformation of the growth
+#' rate, with negatives maintained negative (exponent = 0.45). Althouth you may
+#' use `incgr`or `LnGrowth`, `CRGrowth` allows cleaner analyses, that need no
+#' assumption about negative growths.
+#' 
 'individual_grow.table'
 
 #' individual_mort.table
