@@ -6,7 +6,10 @@
 
 Documentation improved for:
 
-* `individual_grow.table()`: documented @return
+* `individual_grow.table()`: 
+
+    * documented @return
+    * documented @param rnd
 
 # ctfs 0.0.0.9004
 
