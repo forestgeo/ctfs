@@ -62,64 +62,19 @@ First, let's table the growth rate of every tree in every census interval.
 
 To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
 
-
-
-
-
-
-xxxcont. Use data from several censuses in bci with library(bci) instead of the chunk below
-
-```{r xxxLoadData, include=FALSE}
-census_rda <- c("bci12full1.rda", "bci12full5.rda", "bci12full7.rda")
-map2("../bci/data/", census_rda, paste0) %>%
-  walk(load, .GlobalEnv)
-```
-
-
-
-
-
-
-
-```{r, eval=FALSE}
-# See defaults and variables definition with ?individual_grow.table
-
-# Choose censuses you wish to work with
+```{r}
+# See default arguments, definition of output variables and other details with
+# ?individual_grow.table
 census_lst <- list(bci12full1, bci12full5, bci12full7)
-# Choose tree diameter between mindbh and maxdbh (here using big trees)
-grate <- individual_grow.table(census_lst, mindbh = 400, maxdbh = 10000)
-
+grate <- individual_grow.table(  
+  census_lst,                   # Censuses to use
+  mindbh = 400, maxdbh = 10000  # Tree diameter; here using big trees
+)
 head(grate)
+table(grate$census)
 ```
 
-VALUES
-
-`individual_grow.table` outputs a data frame where each row gives data from one individual, including:
-
-- `tag`: the tree’s tag number;
-- `gx`, `gy`: coordinates;
-- `species`: species;
-- `dbh1`, `dbh2`: tree diameter at census 1 and 2
-- `census`, `censusfact`: census interval; 1 means growth between census 1 and 2, and 2 means growth from census 2 to 3, etc. `census` and `censusfact` store the same information but they differ in that their values are integers and factors.
-- `time`: mid-point of the interval over which growth was measured, centered on 1992. This is the format needed by lmer. The reason for centering time is that it is much better in linear regressions to have the x-axis near zero.
-- `LnSize`: log(dbh1);
-- `incgr`: untransformed growth increment; growth increment (difference in dbh) per year;
-- `LnGrowth`: log of the growth rate, with negatives and zeroes converted to 0.1 (from the argument mingrowth in the function);
-- `CRGrowth`: cube root of growth rate; power transformation of the growth rate, with negatives maintained negative (exponent = 0.45). Althouth you may use `incgr`or `LnGrowth`, `CRGrowth` allows cleaner analyses, that need no assumption about negative growths.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Mean forest-wide growth
 
 
 xxxcont

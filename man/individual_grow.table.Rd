@@ -10,6 +10,31 @@ individual_grow.table(cnsdata = list(bci.full1, bci.full2, bci.full3,
   maxdbh = 10000, maxerrorSD = 4, maxerrorGrow = 75, center = 1992,
   debug = FALSE)
 }
+\value{
+A data frame where each row gives data from one individual, including:
+\itemize{
+\item \code{tag}: the tree’s tag number;
+\item \code{gx}, \code{gy}: coordinates;
+\item \code{species}: species;
+\item \code{dbh1}, \code{dbh2}: tree diameter at census 1 and 2;
+\item \code{census}, \code{censusfact}: census interval; 1 means growth between census 1
+and 2, and 2 means growth from census 2 to 3, etc. \code{census} and \code{censusfact}
+store the same information but they differ in that their values are integers
+and factors;
+\item \code{time}: mid-point of the interval over which growth was measured, centered
+on 1992. This is the format needed by lmer. The reason for centering time is
+that it is much better in linear regressions to have the x-axis near zero;
+\item \code{LnSize}: log(dbh1);
+\item \code{incgr}: untransformed growth increment; growth increment (difference in
+dbh) per year;
+\item \code{LnGrowth}: log of the growth rate, with negatives and zeroes converted to
+0.1 (from the argument mingrowth in the function);
+\item \code{CRGrowth}: cube root of growth rate; power transformation of the growth
+rate, with negatives maintained negative (exponent = 0.45). Althouth you may
+use \code{incgr}or \code{LnGrowth}, \code{CRGrowth} allows cleaner analyses, that need no
+assumption about negative growths.
+}
+}
 \description{
 Create a table of individual trees and their growth over two censuses, with many species included.
 
