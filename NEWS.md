@@ -4,6 +4,10 @@
 
 --Stuart
 
+Documentation improved for:
+
+* `individual_grow.table()`: documented @return
+
 # ctfs 0.0.0.9004
 
 - Document process to build package in `data-raw/src2doc_make_step1.R` and `...step2.R`
