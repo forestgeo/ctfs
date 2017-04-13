@@ -55,7 +55,7 @@ To access functions commonly used for data analysis, load the tidyverse package:
 library(tidyverse)
 ```
 
-# Table growth rate between census intervals
+# Between census intervals, table growth rates of individual trees
 
 First, let's table the growth rate of every tree in every census interval. To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
 
@@ -71,33 +71,42 @@ grate <- individual_grow.table(
   mindbh = 400, maxdbh = 10000  # e.g. with trees of relatively large diameter
 )
 
-# Summarize
+# Overview
 head(grate)
 dplyr::count(grate, census)  # 1, 2 ...: 1st, 2nd ... interval between censuses
 ```
 
-# Mean forest-wide growth
+# 2. Summarize mean growth, forest-wide
 
-Second, let's find the mean growth rate of all individuals in each census period.
-
-
-
-
-xxxcont run dplyr summary instead of the code below.
-
-Calculate mean growth increment per census interval, and the mean(incgr) and mean(CRGrowth). These are simply the observed mean growth rates in all 6 census intervals. The time, meanyr, is the mean years since 1992 of each census interval.
+Second, for each census period, summarize the data to give the mean growth rate of all individuals.
 
 ```{r}
-grate <- as_tibble(grate)
-
-meanyr <- tapply(grate$time, grate$census, mean)
-increment <- tapply(grate$incgr, grate$census, mean)
-increment.med <- tapply(grate$incgr, grate$census, median)
-root <- tapply(grate$CRGrowth, grate$census, mean)
-root.med <- tapply(grate$CRGrowth, grate$census, median)
-meanGrowth <- data.frame(meanyr, increment, increment.med, root, root.med)
-meanGrowth
+by_census <- dplyr::group_by(grate, census) 
+growth_summary <- dplyr::summarize(by_census,
+  yr_mean        = mean(time),       # mean years since 1992
+  increment_mean = mean(incgr),      # mean of untransformed growth increment
+  increment_med  = median(incgr),    # as above but median
+  root_mean      = mean(CRGrowth),   # mean of cube root of growth rate
+  root_med       = median(CRGrowth)  # as above but median
+)
+growth_summary
+# (To refresh definition of variables in grate run ?individual_grow.table)
 ```
+
+To visualize the growth summary, let's graph mean growth vs. time. Although you may simply graph the mean growth increment, here I use the mean of the cube-root of growth.
+
+```{r}
+exponent <- 0.45
+growth_summary <- mutate(growth_summary, 
+  root_exp = root_mean^(1/exponent)  # cube it to restore the original scale
+  )
+
+ggplot(data = growth_summary) +
+  geom_line(aes(x = yr_mean, y = root_exp)) +
+  labs(x = "years since 1992", y = "median growth increment")
+```
+
+# 3. Mixed model to assess species variation in linear changes through time
 
 
 
