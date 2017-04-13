@@ -55,29 +55,57 @@ To access functions commonly used for data analysis, load the tidyverse package:
 library(tidyverse)
 ```
 
+# Table growth rate between census intervals
 
-# Formatting data
-
-First, let's table the growth rate of every tree in every census interval.
-
-To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
+First, let's table the growth rate of every tree in every census interval. To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
 
 ```{r}
 # See default arguments, definition of output variables and other details with
 # ?individual_grow.table
-census_lst <- list(bci12full1, bci12full5, bci12full7)
-grate <- individual_grow.table(  
-  census_lst,                   # Censuses to use
-  mindbh = 400, maxdbh = 10000  # Tree diameter; here using big trees
+
+# Example choosing censuses 1-7
+census17_chr <- paste0("bci12full", 1:7)
+census17_list <- lapply(census17_chr, get)
+grate <- individual_grow.table(
+  census17_list, 
+  mindbh = 400, maxdbh = 10000  # e.g. with trees of relatively large diameter
 )
+
+# Summarize
 head(grate)
-table(grate$census)
+dplyr::count(grate, census)  # 1, 2 ...: 1st, 2nd ... interval between censuses
 ```
 
 # Mean forest-wide growth
 
+Second, let's find the mean growth rate of all individuals in each census period.
 
-xxxcont
+
+
+
+xxxcont run dplyr summary instead of the code below.
+
+Calculate mean growth increment per census interval, and the mean(incgr) and mean(CRGrowth). These are simply the observed mean growth rates in all 6 census intervals. The time, meanyr, is the mean years since 1992 of each census interval.
+
+```{r}
+grate <- as_tibble(grate)
+
+meanyr <- tapply(grate$time, grate$census, mean)
+increment <- tapply(grate$incgr, grate$census, mean)
+increment.med <- tapply(grate$incgr, grate$census, median)
+root <- tapply(grate$CRGrowth, grate$census, mean)
+root.med <- tapply(grate$CRGrowth, grate$census, median)
+meanGrowth <- data.frame(meanyr, increment, increment.med, root, root.med)
+meanGrowth
+```
+
+
+
+
+
+
+
+
 
 
 
