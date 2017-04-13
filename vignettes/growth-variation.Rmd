@@ -55,7 +55,7 @@ To access functions commonly used for data analysis, load the tidyverse package:
 library(tidyverse)
 ```
 
-# Between census intervals, table growth rates of individual trees
+# 1. Calculate growth rates of individual trees between census intervals
 
 First, let's table the growth rate of every tree in every census interval. To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
 
@@ -101,20 +101,88 @@ growth_summary <- mutate(growth_summary,
   root_exp = root_mean^(1/exponent)  # cube it to restore the original scale
   )
 
-ggplot(data = growth_summary) +
-  geom_line(aes(x = yr_mean, y = root_exp)) +
+ggplot(data = growth_summary, aes(x = yr_mean, y = root_exp)) +
+  geom_line() +
+  geom_point() +
   labs(x = "years since 1992", y = "median growth increment")
 ```
 
 # 3. Mixed model to assess species variation in linear changes through time
 
+Third, let's model a linear regression of growth rate vs. time, with species as a random effect. This is equivalent to a hierarchical model, where a Gaussian distribution describes the variation in species responses. As the response variable, we use the cube root of growth. This allows us to come closer to a normal error term while not requiring artificial exclusion of negative growth rates (as a log-tranformation would).
+
+To build the model we can use `lme4::lmer()` with appropriate formula and data (see `?lmer`). 
+
+An appropriate formula is 
+
+```{r}
+myformula <- CRGrowth ~ 1 + time + (1 + time | species)
+```
+
+
+After `~`, the component "`1 + time`" means to fit a model of `CRGrowth` against `time`, with an intercept (the `1`). Next, `(1 + time | species)` means that the intercept and slope should both be allowed to vary across `species`. Following the same logic, `(1 + time | tag)` would account for repeated measures of individuals by using the tree `tag` (identifying individual trees) as a random effect.
+
+The data is more appropriately split in two than used as a whole, so that we can build two models to describe our data. This seems important because the plot above shows that growth rates through time had a different trend before and since the third census (before, they declined; since, they sabilized). So let's run two separate models, for censuses ≤ 3 and censuses ≥ 3.
+
+```{r}
+# Split data to capture trends before and since 3rd census
+dat3_under <- dplyr::filter(grate, census <= 3)
+dat3_over  <- dplyr::filter(grate, census >= 3)
+
+# Apply a model function to each component of the split data set
+mymodels <- lapply(
+  list(mod3_under = dat3_under, mod3_over = dat3_over),
+  function(x) lmer(myformula, data = x)
+)
+mymodels
+```
+
+The key result are the coefficients of each model. The fixed effect gives the forest-wide response, which is the average growth of the species. It is thus not the same as the mean forest-wide growth, because the fixed effect weights each species equally.
+
+To do the same in a more convenient way, we can use the tidyverse. This shows how to manipulate the output of multiple models so that it is easier to visualize and to work with later:
+
+```{r}
+# Same output as mymodel, but easier to visualize and to work with
+# (see the pipe operator "%>%" at http://r4ds.had.co.nz/pipes.html)
+tidymodels <- mymodels %>%  # take mymodels, then transform
+  lapply(broom::tidy) %>%   # from model summmaries to data frames (df), then
+  tibble::enframe() %>%     # from named lists of df to single nested df, then
+  tidyr::unnest()           # from nested df to normal df.
+tidymodels
+```
+
+The following graph uses the function fixef to get the parameters, then the function curve to add them to the graph. The points are forest-wide means, as graphed above.
 
 
 
 
+```{r}
+tidymodels %>% 
+  select(name, term, estimate) %>% 
+  filter(term %in% c("(Intercept)", "time")) %>% 
+  mutate(term = gsub("^..ntercept.$", "intercept", term)) %>% 
+  spread(term, estimate)
+  
 
+mycoefs <- lapply(mymodels, fixef)
 
+ggplot(data = growth_summary, aes(x = yr_mean, y = root_med)) +
+  geom_point() +
+  geom_abline(
+    slope = mycoefs$mod3_under[2],
+    intercept = mycoefs$mod3_under[1]
+    ) +
+  geom_abline(
+    slope = mycoefs$mod3_over[2],
+    intercept = mycoefs$mod3_over[1]
+    ) +
+  labs(x = "years since 1992", y = "median growth")
+```
 
+xxxcont 
+
+- find a better way to do this with modelr
+- note that the scale of axis y is different  from that in vignette
 
 
 
