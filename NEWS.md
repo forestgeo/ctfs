@@ -2,13 +2,15 @@
 
 todo
 
-- use_package('mvtnorm'), use_package('MCMCpack'
+- keep different branches one for enhances and another one for fixes, reports or tests.
 
-# ctfs 0.0.0.9005
+- use_package('mvtnorm'), use_package('MCMCpack'
 
 > How about working with the growth, mortality and recruitment functions (Demography functions)? They are already in the R Package, but need work. Use the BCI data to test and build the various documents.
 
 --Stuart
+
+Maybe revert in ctfs 1
 
 Documentation improved for:
 

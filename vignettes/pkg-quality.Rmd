@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
   echo = TRUE
 )
 library(tibble)
+library(dplyr)
+library(sig)
 ```
 
 # Complexity
@@ -30,9 +32,7 @@ One way of measuring the quality of a package is its complexity. To measure the 
 This reports the complexity of ctfs:
 
 ```{r}
-# install.packages(sig)
-library(sig)
-sig_report(pkg2env(ctfs))
+sig::sig_report(pkg2env(ctfs))
 ```
 
 ## _Hmisc_
@@ -95,19 +95,19 @@ err001 <- "Error in llike.model.lmer(test = one.param[k, 1, 1], allparam = thisp
 
 # functions that err
 
-tibble::tribble(
+solution <- tibble::tribble(
   ~fun, ~msg, ~guess_solution,
   "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')"
 )
 
-tibble::tribble(
-  ~tutorial, ~fun, ~errs, ~msg, ~guess,
+errs <- tribble(
+  ~tutorial, ~fun, ~errs,
   "Growth changes", "individual_grow.table", F,
-  "Growth changes", "pospower", F, NA,
+  "Growth changes", "pospower", F,
   "Mortality changes", "individual_mort.table", F,
   "Mortality changes", "calcMortIndivTable", F,
   "Mortality changes", "growth.indiv", F,
-  "Mortality changes", "lmerBayes", T,
+  "Mortality changes", "lmerBayes", T
   # "Mortality changes",
   # "Mortality vs. dbh",
   # "Population Changes",
@@ -116,14 +116,9 @@ tibble::tribble(
   # "ImageJ",
   # "Plot maps",
   # "Topography",
-
 )
 
-tibble::tribble(
-  
-
-
-
+left_join(errs, solution) %>% filter(errs)
 ```
 
 Finally, this reports if some more functions run or err. The functions, selected at random, are these:
