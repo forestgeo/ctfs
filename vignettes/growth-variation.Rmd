@@ -181,6 +181,8 @@ ggplot(data = growth_summary, aes(x = yr_mean, y = root_med)) +
 
 xxxcont 
 
+- move  faster, focus on models more and on plots less. 
+- review model chapters from r4ds and see what I can use here.
 - find a better way to do this with modelr
 - note that the scale of axis y is different  from that in vignette
 

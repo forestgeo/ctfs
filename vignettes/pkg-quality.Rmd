@@ -1,0 +1,121 @@
+---
+title: "Report Package Quality"
+author: "Mauro Lepore"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 6
+vignette: >
+  %\VignetteIndexEntry{Report Package Quality}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+# Complexity
+
+One way of measuring the quality of a package is its complexity. To measure the complexity of the ctfs package, and to compare it to other packages, we will use the sig package. Best practice is to keep a package simple (_Testing R code_ by Richard Cotton).
+
+## _ctfs_
+
+This reports the complexity of ctfs:
+
+```{r}
+# install.packages(sig)
+library(sig)
+sig_report(pkg2env(ctfs))
+```
+
+## _Hmisc_
+
+For comparison, this is the same report on the Hmisc package, _the gold standard in monstrously big and complicated functions (_Testing R code_ by Richard Cotton, page 67).
+
+```{r}
+sig_report(pkg2env(Hmisc))
+```
+
+And the next two reports are of simple packages.
+
+## _assertive_
+
+```{r}
+sig_report(pkg2env(assertive))
+```
+
+## _testthat_
+
+```{r}
+sig_report(pkg2env(testthat))
+```
+
+# Documentation
+
+This section reports the quality of the documentation. It focuses not on how compleate or correct the documentation is, but on how accurately the documentation information has been programatically extracted from its original source (https://goo.gl/uAvQ1k) into the ctfs package documentation (roxygenized documentation in R their .Rd version in `man/`). That transformation is necessary for the roxygen2 package to create the ctfs documentation (i.e. help pages available via `?<FUNCTION_NAME>` in R and at https://forestgeo.github.io/ctfs/reference).
+
+Choose some functions at random and visually check if documentation matches.
+
+```{r, echo=FALSE}
+tribble(
+  ~fun, ~match_source, ~match_webpage,
+  "arrangeParam.llike.2D", T, T,
+  "attach_if_needed", T, T,
+  "biomass.growth", T, T,
+  "border.distance", T, T,
+  "drawrectangle", T, T,
+  "exponential.sin", T, T,
+  "find.xaxis.hist", T, T,
+  "graph.mvnorm", T, T,
+  "linear.mortmodel", T, T,
+  "logistic.power.mode", T, T,
+  "pospower", T, T,
+  "pts.to.interceptslope", T, T,
+  "recalculate.lmerBayesllike", T, T,
+  "saveParamFile", T, T,
+  "skewness", T, T, 
+  "summaryMCMC", T, T
+)
+```
+
+# Functionality
+
+This reports if a subset of randomly sample functions run or err.
+
+```{r}
+set.seed(4435)
+library(dplyr)
+
+tibble(fun = dir("./man/")) %>% 
+  mutate(
+    fun = stringr::str_replace(fun, ".Rd$", ""),
+    errs = NA_character_
+  ) %>% 
+  sample_n(30)
+```
+
+This reports is key functions of tutorials run or err.
+
+```{r}
+tribble(
+  ~tutorial, ~fun, ~errs,
+  "Growth changes", "individual_grow.table", F,
+  "Growth changes", "pospower", F
+  # "Mortality changes",
+  # "Mortality vs. dbh",
+  # "Population Changes",
+  # "Biomass",
+  # "Growth vs. DBH",
+  # "ImageJ",
+  # "Plot maps",
+  # "Topography",
+
+)
+```
+

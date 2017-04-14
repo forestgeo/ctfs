@@ -16,5 +16,6 @@ Roxygen: list(markdown = TRUE)
 Imports: date
 Suggests: knitr,
     rmarkdown,
-    lme4
+    lme4,
+    testthat
 VignetteBuilder: knitr
