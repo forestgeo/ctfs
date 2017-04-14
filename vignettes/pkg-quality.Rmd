@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   echo = TRUE
 )
+library(tibble)
 ```
 
 # Complexity
@@ -86,27 +87,27 @@ tribble(
 
 # Functionality
 
-This reports if a subset of randomly sample functions run or err.
-
-```{r}
-set.seed(4435)
-library(dplyr)
-
-tibble(fun = dir("./man/")) %>% 
-  mutate(
-    fun = stringr::str_replace(fun, ".Rd$", ""),
-    errs = NA_character_
-  ) %>% 
-  sample_n(30)
-```
-
 This reports is key functions of tutorials run or err.
 
 ```{r}
-tribble(
-  ~tutorial, ~fun, ~errs,
+# errors ----
+err001 <- "Error in llike.model.lmer(test = one.param[k, 1, 1], allparam = thispar,  : could not find function 'dmvnorm'"
+
+# functions that err
+
+tibble::tribble(
+  ~fun, ~msg, ~guess_solution,
+  "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')"
+)
+
+tibble::tribble(
+  ~tutorial, ~fun, ~errs, ~msg, ~guess,
   "Growth changes", "individual_grow.table", F,
-  "Growth changes", "pospower", F
+  "Growth changes", "pospower", F, NA,
+  "Mortality changes", "individual_mort.table", F,
+  "Mortality changes", "calcMortIndivTable", F,
+  "Mortality changes", "growth.indiv", F,
+  "Mortality changes", "lmerBayes", T,
   # "Mortality changes",
   # "Mortality vs. dbh",
   # "Population Changes",
@@ -117,5 +118,43 @@ tribble(
   # "Topography",
 
 )
+
+tibble::tribble(
+  
+
+
+
 ```
 
+Finally, this reports if some more functions run or err. The functions, selected at random, are these:
+
+```{r, include=FALSE}
+# # Sample 30 functions at random (must run, not knit)
+# set.seed(4435)
+# library(dplyr)
+# 
+# tibble::tibble(fun = dir("./man/")) %>% 
+#   dplyr::mutate(
+#     fun = stringr::str_replace(fun, ".Rd$", "")
+#   ) %>% 
+#   dplyr::sample_n(30) %>% 
+#   dplyr::pull()
+```
+
+```r
+ [1] "regression.Bayes"         "dpois.trunc"             
+ [3] "regslope.noint"           "logistic.power.mode"     
+ [5] "quad.to.gxgy"             "CountByGroup"            
+ [7] "angleBisector"            "ellipse"                 
+ [9] "graph.growthmodel"        "order.by.rowcol"         
+[11] "nhd"                      "graph.growthmodel.spp"   
+[13] "coldata.to.imagemat"      "imageGraph"              
+[15] "fullplot.imageJ"          "rasympower"              
+[17] "residual.llike.lmerBayes" "asymp.ht"                
+[19] "logistic.standard"        "covTocorr"               
+[21] "arrangeParam.llike.2D"    "clean.demography"        
+[23] "lmerMortFixedTime"        "bootconf"                
+[25] "minum.perpdist"           "defineSDpar"             
+[27] "cartesian.to.polar"       "rsymexp"                 
+[29] "logistic.ctr"             "majoraxisreg"
+```

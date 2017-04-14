@@ -10,6 +10,12 @@ individual_grow.table(cnsdata = list(bci.full1, bci.full2, bci.full3,
   maxdbh = 10000, maxerrorSD = 4, maxerrorGrow = 75, center = 1992,
   debug = FALSE)
 }
+\arguments{
+\item{rnd}{used to rounddown dbhs for certain intervals. This argument
+indicates that dbhs<50 mm are rounded down to 5-mm, necessary because
+saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
+growth functions in the CTFS R Package handle this.}
+}
 \value{
 A data frame where each row gives data from one individual, including:
 \itemize{
@@ -38,9 +44,12 @@ assumption about negative growths.
 \description{
 Create a table of individual trees and their growth over two censuses, with many species included.
 
-The option rnd is used to rounddown dbhs for certain intervals. The flag ctr is used to center the time variable,
-which is the number of years since 1960 of the interval midpoint. There is a logarithmic transformation, for which all growth<=0
-is converted to mingrow. There is also a power transformation, where each growth rate is raised to the power given by powertransformation.
+The flag ctr is used to center the time variable, which is the number of
+years since 1960 of the interval midpoint. There is a logarithmic
+transformation, for which all growth <= 0 is converted to mingrow. There is
+also a power transformation, where each growth rate is raised to the power
+given by powertransformation.
 
-In the latter, negative growths are transformed to negative, so do not need to be corrected.
+In the latter, negative growths are transformed to negative, so do not need
+to be corrected.
 }

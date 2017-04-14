@@ -1,4 +1,4 @@
-context("Functions work in tutorial growth changes")
+context("functions work in tutorial growth changes")
 
 test_that(
   "individual_grow.table works with census bci12full1 and bci12full15", {
