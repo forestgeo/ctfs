@@ -27,6 +27,60 @@ The goal is two fold:
 
 The original version of this tutorial, by Richard Condit, is at https://goo.gl/c9RjMY.
 
+# The pipe operator %>%
+
+xxx what is the best discusison? HW? Jenny Bryan? maggrittr? ...
+
+xxx to address an exploratory data analysis systematically see r4ds "exploratory data analysis"
+
+- first, before any complex summary or model, analyse how interesting variables vary, here, species (categorical) and growth between intervals (continuous).
+
+xxx explain why use the pipe. clear writing comes from position (Goepen xxx). Ideas are clearly communicated if information flows from new old to old, and agents are mapped to subjects, and actions to verbs (Style by Strunk or white?). 
+This structure is impossible with traditional programming
+
+unnatural flow of information
+
+Unclear: flows backwards, from actions to agents, and from new to old information.
+
+```R
+sum(x)
+action(agent)
+verb(subject)
+
+# minimal semantic example
+eat(I)
+
+# a longer, more realistic example
+sleep(
+  yawn(
+    clean(
+      eat(
+        I
+      )
+    )
+  )
+)
+```
+
+Clear: flows forwards, from agents to actions, and from old to new information.
+
+```R
+x %>% sum()
+agent %>% action()
+subject %>% verb()
+
+# minimal semantic example
+eat(I)
+I %>% eat
+
+# a longer, more realistic example
+I %>% 
+  eat %>% 
+  clean %>% 
+  yawn %>% 
+  sleep
+```
+
 # Conventions to refer to code
 
 I refer to code following the conventions of [R for data science](http://r4ds.had.co.nz/introduction.html), by Hadley Wickham & Garrett Grolemund:
