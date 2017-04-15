@@ -1,7 +1,7 @@
 ---
 title: "Growth variation through time"
 subtitle: "Adapted by Mauro Lepore from the original tutorial by Richard Condit (https://goo.gl/c9RjMY)"
-date: "`r Sys.Date()`"
+date: "2017-04-14"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{"growth variation through time"}
@@ -9,13 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, echo = FALSE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  echo = TRUE
-)
-```
+
 
 # Goal
 
@@ -46,27 +40,27 @@ The question addressed here is how growth has changed with time, in particular h
 
 # Packages
 
-The functions we use here come with the [ctfs](https://forestgeo.github.io/ctfs/) and [lme4](https://github.com/lme4/lme4/) packages, and the data comes in the [bci](https://forestgeo.github.io/bci/) package. To exploratory data easily we can use the tidyverse and modelr package.
+The functions we use here come with the [ctfs](https://forestgeo.github.io/ctfs/) and [lme4](https://github.com/lme4/lme4/) packages, and the data comes in the [bci](https://forestgeo.github.io/bci/) package. This, and all exploratory data analyses, benefit from using tools that come in the tidyverse package.
 
-```{r, message=FALSE}
+
+```r
 # Links provide installation instructions
 library(ctfs)       # https://github.com/forestgeo/ctfs
 library(lme4)       # https://github.com/lme4/lme4/
 library(bci)        # https://forestgeo.github.io/bci/
 library(tidyverse)  # xxx insert link
-library(modelr)     # xxx insert link
 ```
 
 To access functions commonly used for data analysis, load the tidyverse package:
 
-```{r, message=FALSE}
-```
+
 
 # 1. Calculate growth rates of individual trees between census intervals
 
 First, let's table the growth rate of every tree in every census interval. To calculate growth rates for individual trees and table them in the format lmer understands, we use `ctfs::individual_grow.table()`. `individual_grow.table()` collects results from several other functions.
 
-```{r}
+
+```r
 # See default arguments, definition of output variables and other details with
 # ?individual_grow.table
 
@@ -78,24 +72,30 @@ grate <- individual_grow.table(
   mindbh = 400, maxdbh = 10000  # e.g. with trees of relatively large diameter
 )
 # Overview
-(grate <- as_tibble(grate))
-```
-
-# 2. Summarize mean growth, forest-wide
-
-Second, for each census period, summarize the data to give the mean growth rate of all individuals.
-
-```{r}
+str(grate)
+#> 'data.frame':	8594 obs. of  14 variables:
+#>  $ treeID    : int  39 59 102 103 104 117 126 129 131 134 ...
+#>  $ tag       :Class 'AsIs'  chr [1:8594] "000022" "000044" "000087" "000088" ...
+#>  $ gx        : num  989 992 986 984 989 ...
+#>  $ gy        : num  421 342 226 229 233 ...
+#>  $ species   :Class 'AsIs'  chr [1:8594] "anacex" "loncla" "anacex" "tri2tu" ...
+#>  $ dbh1      : num  1761 655 426 553 642 ...
+#>  $ dbh2      : num  1855 670 533 587 661 ...
+#>  $ LnSize    : num  1.1295 0.1405 -0.2897 -0.0287 0.1205 ...
+#>  $ incgr     : num  22.84 3.66 26.23 8.33 4.66 ...
+#>  $ LnGrowth  : num  3.13 1.3 3.27 2.12 1.54 ...
+#>  $ CRGrowth  : num  4.09 1.79 4.35 2.6 2 ...
+#>  $ time      : num  -8.31 -8.33 -8.34 -8.34 -8.34 ...
+#>  $ census    : int  1 1 1 1 1 1 1 1 1 1 ...
+#>  $ censusfact: Factor w/ 6 levels "1","2","3","4",..: 1 1 1 1 1 1 1 1 1 1 ...
 # Table summary
 growth_smry <- grate %>% 
   dplyr::group_by(census) %>% 
   dplyr::summarize(
-    yr_mean = mean(time),  # mean years since 1992
-    increment_mean = mean(incgr),  # mean of untransformed growth increment
-    n = n()  # count observations
+    yr_mean = mean(time),
+    increment_mean = mean(incgr),
+    n = n()
   )
-growth_smry
-
 # Visual summary
 growth_smry %>% 
   ggplot(aes(x = yr_mean, y = increment_mean)) +
@@ -103,17 +103,14 @@ growth_smry %>%
   geom_point()
 ```
 
+![](C:\Users\dora\AppData\Local\Temp\RtmpKyRzBi\preview-3ac82b726288.dir\growth-variation_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
+# 2. Summarize mean growth, forest-wide
+
+Second, for each census period, summarize the data to give the mean growth rate of all individuals.
 
 
-
-
-
-
-
-
-# xxx maybe remove
-
-```{r, eval=FALSE, include=FALSE}
+```r
 by_census_interval <- dplyr::group_by(grate, census) 
 growth_summary <- dplyr::summarize(by_census_interval,
   yr_mean        = mean(time),       # mean years since 1992
@@ -123,12 +120,22 @@ growth_summary <- dplyr::summarize(by_census_interval,
   root_med       = median(CRGrowth)  # as above but median
 )
 growth_summary
+#> # A tibble: 6 × 6
+#>   census   yr_mean increment_mean increment_med root_mean root_med
+#>    <int>     <dbl>          <dbl>         <dbl>     <dbl>    <dbl>
+#> 1      1 -8.341837      10.280166      8.380528  2.456828 2.602987
+#> 2      2 -3.963116       7.510867      5.092428  1.991760 2.080253
+#> 3      3  1.207770       4.644751      3.349970  1.604515 1.722932
+#> 4      4  6.046461       5.183409      3.422960  1.731147 1.739726
+#> 5      5 11.042803       4.777542      3.326767  1.650958 1.717547
+#> 6      6 16.079248       5.080532      3.644401  1.744470 1.789500
 # (To refresh definition of variables in grate run ?individual_grow.table)
 ```
 
 To visualize the growth summary, let's graph mean growth vs. time. Although you may simply graph the mean growth increment, here I use the mean of the cube-root of growth.
 
-```{r, eval=FALSE, include=FALSE}
+
+```r
 exponent <- 0.45
 growth_summary <- mutate(growth_summary, 
   root_exp = root_mean^(1/exponent)  # cube it to restore the original scale
@@ -139,13 +146,7 @@ ggplot(data = growth_summary, aes(x = yr_mean, y = root_exp)) +
   labs(x = "years since 1992", y = "median growth increment")
 ```
 
-
-
-
-
-
-
-
+![](C:\Users\dora\AppData\Local\Temp\RtmpKyRzBi\preview-3ac82b726288.dir\growth-variation_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 # 3. Mixed model to assess species variation in linear changes through time
 
@@ -153,58 +154,20 @@ Third, let's model a linear regression of growth rate vs. time, with species as 
 
 To build the model we can use `lme4::lmer()` with appropriate formula and data (see `?lmer`). 
 
-An appropriate formula is:
+An appropriate formula is 
 
-```{r}
-myformula <- incgr ~ 1 + time + (1 + time | species)
+
+```r
+myformula <- CRGrowth ~ 1 + time + (1 + time | species)
 ```
+
 
 After `~`, the component "`1 + time`" means to fit a model of `CRGrowth` against `time`, with an intercept (the `1`). Next, `(1 + time | species)` means that the intercept and slope should both be allowed to vary across `species`. Following the same logic, `(1 + time | tag)` would account for repeated measures of individuals by using the tree `tag` (identifying individual trees) as a random effect.
 
-```{r}
-mixed_model <- function(df) {
-  lmer(incgr ~ 1 + time + (1 + time | species), data = df)
-}
-modlist <- grate %>% 
-  mutate(uo3 = ifelse(census <= 3, "under3", "over3")) %>% 
-  group_by(uo3) %>% 
-  nest() %>%
-  mutate(models = purrr::map(data, mixed_model))
-
-# extract coefficients
-bind_rows(
-  fixef(modlist$models[[1]]) %>% enframe() %>% mutate(uo3 = "under3"),
-  fixef(modlist$models[[1]]) %>% enframe() %>% mutate(uo3 = "over3")
-)
-
-# add predictions and residuals to data
-map2(modlist$data, modlist$models, add_predictions) %>% 
-  map2(modlist$models, add_residuals) %>% 
-  set_names(c("under3", "over3")) %>% 
-  enframe() %>% 
-  unnest() %>% 
-  rename(uo3 = name) %>% 
-  # plot predictions and residuals
-  ggplot(aes(time, pred)) +
-  geom_point() +
-  geom_point(aes(y = resid), colour = "red", alpha = 0.2) +
-  facet_wrap(~name)
-```
-
-
-
-
-
-
-
-
-
-
-
-
 The data is more appropriately split in two than used as a whole, so that we can build two models to describe our data. This seems important because the plot above shows that growth rates through time had a different trend before and since the third census (before, they declined; since, they sabilized). So let's run two separate models, for censuses ≤ 3 and censuses ≥ 3.
 
-```{r}
+
+```r
 # Split data to capture trends before and since 3rd census
 dat3_under <- dplyr::filter(grate, census <= 3)
 dat3_over  <- dplyr::filter(grate, census >= 3)
@@ -215,13 +178,43 @@ mymodels <- lapply(
   function(x) lmer(myformula, data = x)
 )
 mymodels
+#> $mod3_under
+#> Linear mixed model fit by REML ['lmerMod']
+#> Formula: CRGrowth ~ 1 + time + (1 + time | species)
+#>    Data: x
+#> REML criterion at convergence: 12650.79
+#> Random effects:
+#>  Groups   Name        Std.Dev. Corr 
+#>  species  (Intercept) 0.59096       
+#>           time        0.04298  -0.30
+#>  Residual             1.25747       
+#> Number of obs: 3775, groups:  species, 108
+#> Fixed Effects:
+#> (Intercept)         time  
+#>     1.74035     -0.09083  
+#> 
+#> $mod3_over
+#> Linear mixed model fit by REML ['lmerMod']
+#> Formula: CRGrowth ~ 1 + time + (1 + time | species)
+#>    Data: x
+#> REML criterion at convergence: 18898.28
+#> Random effects:
+#>  Groups   Name        Std.Dev. Corr 
+#>  species  (Intercept) 0.640728      
+#>           time        0.005354 -0.52
+#>  Residual             1.036247      
+#> Number of obs: 6411, groups:  species, 112
+#> Fixed Effects:
+#> (Intercept)         time  
+#>    1.733435     0.004236
 ```
 
 The key result are the coefficients of each model. The fixed effect gives the forest-wide response, which is the average growth of the species. It is thus not the same as the mean forest-wide growth, because the fixed effect weights each species equally.
 
 To do the same in a more convenient way, we can use the tidyverse. This shows how to manipulate the output of multiple models so that it is easier to visualize and to work with later:
 
-```{r}
+
+```r
 # Same output as mymodel, but easier to visualize and to work with
 # (see the pipe operator "%>%" at http://r4ds.had.co.nz/pipes.html)
 tidymodels <- mymodels %>%  # take mymodels, then transform
@@ -229,6 +222,22 @@ tidymodels <- mymodels %>%  # take mymodels, then transform
   tibble::enframe() %>%     # from named lists of df to single nested df, then
   tidyr::unnest()           # from nested df to normal df.
 tidymodels
+#> # A tibble: 12 × 6
+#>          name                         term     estimate   std.error
+#>         <chr>                        <chr>        <dbl>       <dbl>
+#> 1  mod3_under                  (Intercept)  1.740353823 0.073316149
+#> 2  mod3_under                         time -0.090829008 0.008406036
+#> 3  mod3_under       sd_(Intercept).species  0.590962143          NA
+#> 4  mod3_under              sd_time.species  0.042976877          NA
+#> 5  mod3_under cor_(Intercept).time.species -0.300123339          NA
+#> 6  mod3_under      sd_Observation.Residual  1.257467074          NA
+#> 7   mod3_over                  (Intercept)  1.733434746 0.072898890
+#> 8   mod3_over                         time  0.004236226 0.002526474
+#> 9   mod3_over       sd_(Intercept).species  0.640728243          NA
+#> 10  mod3_over              sd_time.species  0.005354221          NA
+#> 11  mod3_over cor_(Intercept).time.species -0.516921709          NA
+#> 12  mod3_over      sd_Observation.Residual  1.036246880          NA
+#> # ... with 2 more variables: statistic <dbl>, group <chr>
 ```
 
 The following graph uses the function fixef to get the parameters, then the function curve to add them to the graph. The points are forest-wide means, as graphed above.
@@ -236,12 +245,18 @@ The following graph uses the function fixef to get the parameters, then the func
 
 
 
-```{r}
+
+```r
 tidymodels %>% 
   select(name, term, estimate) %>% 
   filter(term %in% c("(Intercept)", "time")) %>% 
   mutate(term = gsub("^..ntercept.$", "intercept", term)) %>% 
   spread(term, estimate)
+#> # A tibble: 2 × 3
+#>         name intercept         time
+#> *      <chr>     <dbl>        <dbl>
+#> 1  mod3_over  1.733435  0.004236226
+#> 2 mod3_under  1.740354 -0.090829008
   
 
 mycoefs <- lapply(mymodels, fixef)
@@ -258,6 +273,8 @@ ggplot(data = growth_summary, aes(x = yr_mean, y = root_med)) +
     ) +
   labs(x = "years since 1992", y = "median growth")
 ```
+
+![](C:\Users\dora\AppData\Local\Temp\RtmpKyRzBi\preview-3ac82b726288.dir\growth-variation_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 xxxcont 
 
