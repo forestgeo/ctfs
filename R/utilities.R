@@ -597,7 +597,7 @@ tojulian=function(x,dateform='%m/%d/%Y')
 
  month=x$mon+1
  day=x$mday
- return(mdy.date(month=month,day=day,year=year))
+ return(date::mdy.date(month=month,day=day,year=year))
 }
 
 
@@ -635,7 +635,7 @@ fromjulian=function(j,dateform='%m/%d/%Y')
  
  if(oneDim)
   {
-   s=date.mmddyyyy(j)
+   s=date::date.mmddyyyy(j)
 
    d=strptime(s,format='%m/%d/%Y')
    return(strftime(d,dateform))
@@ -644,7 +644,7 @@ fromjulian=function(j,dateform='%m/%d/%Y')
  result=array(dim=dim(j))  
  for(i in 1:(dim(j)[2])) 
   {
-   s=date.mmddyyyy(j[,i])
+   s=date::date.mmddyyyy(j[,i])
 
    d=strptime(s,format='%m/%d/%Y') 
    result[,i]=strftime(d,dateform)
