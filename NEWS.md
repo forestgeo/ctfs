@@ -1,6 +1,12 @@
 # ctfs 0.0.0.9005
 
-- Imports package date "depends"
+- Imports package date via `use_package("date", "Imports"). Use date::<DATE_FUNCTION> where appropriate.
+
+> Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).
+
+http://r-pkgs.had.co.nz/namespace.html
+
+
 
 todo
 
