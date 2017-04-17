@@ -91,14 +91,15 @@ This reports is key functions of tutorials run or err.
 
 ```{r}
 # errors ----
-err001 <- "Error in llike.model.lmer(test = one.param[k, 1, 1], allparam = thispar,  : could not find function 'dmvnorm'"
-err002 <- "Package date is missing"
+err001 <- "Error in llike.model.lmer, function 'dmvnorm' was missing"
+err002 <- "Error in tojulian, package date was missing"
 
 # functions that err
 
-solution <- tibble::tribble(
+solved_with <- tibble::tribble(
   ~fun, ~msg, ~guess_solution,
-  "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')"
+  "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')",
+  "mortality.eachspp", err002, "use_package('date')"
 )
 
 errs <- tribble(
@@ -109,12 +110,12 @@ errs <- tribble(
   "Mortality changes", "calcMortIndivTable", F,
   "Mortality changes", "growth.indiv", F,
   "Mortality changes", "lmerBayes", T,
-  "Mortality vs. dbh", "mortality.eachspp", T,
-  "Mortality vs. dbh", "xxx", xxx,
-  "Mortality vs. dbh", "xxx", xxx,
-  "Mortality vs. dbh", "xxx", xxx,
-  "Mortality vs. dbh", "xxx", xxx,
-  "Mortality vs. dbh", "xxx", xxx,
+  "Mortality vs. dbh", "mortality.eachspp", T
+  # "Mortality vs. dbh", "xxx", xxx,
+  # "Mortality vs. dbh", "xxx", xxx,
+  # "Mortality vs. dbh", "xxx", xxx,
+  # "Mortality vs. dbh", "xxx", xxx,
+  # "Mortality vs. dbh", "xxx", xxx
   # "Mortality changes",
   # "Mortality vs. dbh",
   # "Population Changes",
@@ -125,7 +126,7 @@ errs <- tribble(
   # "Topography",
 )
 errs
-left_join(errs, solution) %>% filter(errs)
+left_join(errs, solved_with) %>% filter(errs)
 ```
 
 Finally, this reports if some more functions run or err. The functions, selected at random, are these:
