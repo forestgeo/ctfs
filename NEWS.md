@@ -10,6 +10,51 @@ http://r-pkgs.had.co.nz/namespace.html
 
 todo
 
+- replace `subset()` by equivalent function that uses standard evaluation. A total of 18 functions use `subset()`
+
+For example:
+
+``` r
+model.littleR.Gibbs(
+    cns1 = bci::bci12full1,
+    cns2 = bci::bci12full5,
+    sptable = bci.spptable,
+    mindbh = 1
+  )
+#> Error in eval(expr, envir, enclos): could not find function "model.littleR.Gibbs"
+```
+
+The problem above is explained at "Calling from another function"here: http://adv-r.had.co.nz/Computing-on-the-language.html.
+
+
+> **Calling from another function** ...While subset() saves typing, it’s actually difficult to use non-interactively. For example, imagine we want to create a function that randomly reorders a subset of rows of data. A nice way to do that would be to compose a function that reorders with another that selects. Let’s try that:
+
+``` r
+subset2 <- function(x, condition) {
+  condition_call <- substitute(condition)
+  r <- eval(condition_call, x, parent.frame())
+  x[r, ]
+}
+
+scramble <- function(x) x[sample(nrow(x)), ]
+
+subscramble <- function(x, condition) {
+  scramble(subset2(x, condition))
+}
+subscramble(sample_df, a >= 4)
+#> Error in eval(condition_call, x, parent.frame()): object 'sample_df' not found
+```
+
+> Can you see what the problem is? condition_call contains the expression condition. So when we evaluate condition_call it also evaluates condition, which has the value a >= 4. However, this can’t be computed because there’s no object called a in the parent environment. But, if a were set in the global environment, even more confusing things can happen:
+
+...
+
+
+- Search for more functions in base R that use non-standard evaluation and replace them for their standard evaluation equivalents.
+
+
+
+
 - keep different branches one for enhances and another one for fixes, reports or tests.
 
 - use_package('mvtnorm'), use_package('MCMCpack'
