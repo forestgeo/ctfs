@@ -107,7 +107,13 @@ errs <- tribble(
   "Mortality changes", "individual_mort.table", F,
   "Mortality changes", "calcMortIndivTable", F,
   "Mortality changes", "growth.indiv", F,
-  "Mortality changes", "lmerBayes", T
+  "Mortality changes", "lmerBayes", T,
+  "Mortality vs. dbh", "mortality.eachspp", xxx,
+  "Mortality vs. dbh", "xxx", xxx,
+  "Mortality vs. dbh", "xxx", xxx,
+  "Mortality vs. dbh", "xxx", xxx,
+  "Mortality vs. dbh", "xxx", xxx,
+  "Mortality vs. dbh", "xxx", xxx,
   # "Mortality changes",
   # "Mortality vs. dbh",
   # "Population Changes",
@@ -117,7 +123,7 @@ errs <- tribble(
   # "Plot maps",
   # "Topography",
 )
-
+errs
 left_join(errs, solution) %>% filter(errs)
 ```
 
