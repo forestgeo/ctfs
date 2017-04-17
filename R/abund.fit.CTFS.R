@@ -344,29 +344,33 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
 	     exclude1=c('')
 	     }
 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 	 
 	 # Following should not be used if IDlevel is set correctly, because unidentified species have IDlevel=multiple
 	 # if(is.null(excludespp)) exclude2=rownames(demog)[unidentified.species(rownames(demog))]
 	 # else exclude2=rownames(demog)[unidentified.species(rownames(demog),exactstr=excludespp)]
 	 
 	 # This allows user to eliminate any other species
-	 if(is.null(excludespp)) exclude2=''
-	 else exclude2=excludespp
+	 if (is.null(excludespp)) {exclude2 = ''} else {exclude2 = excludespp}
 	 
 	 exclude=(rownames(demog) %in% unique(c(exclude1,exclude2)))
+
 	 
-	 demog=subset(demog,!exclude & N1>=abundrange[1] & N1<abundrange[2] & !is.na(time))
+	 	 
+	 demog <- demog[
+	   !exclude & 
+	     N1 >= abundrange[1] & 
+	     N1 < abundrange[2] & 
+	     !is.na(time), , drop = FALSE
+	   ]
+ 
+	   
+	 # old=subset(demog,!exclude & N1>=abundrange[1] & N1<abundrange[2] & !is.na(time))
+	 
+	 
+	 
+	 
+	 
+	 
+	 
     }
 
  demog$mortrate=(log(demog$N1)-log(demog$S))/demog$time
