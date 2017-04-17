@@ -255,17 +255,51 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
  if(is.null(demog))
 	{
 	 exc=cns1$status=='M' | cns2$status=='M'
-	 cns1=subset(cns1,!exc)
-	 cns2=subset(cns2,!exc)
+	 
+# ----------------------------
+# 	   cns1 = bci::bci12full1
+#      cns2 = bci::bci12full2
+#      mindbh  = 1
+# 	   demog = NULL
+# 	   sptable = bci.spptable
+# 	   abundrange = c(1, 1e6)
+# 	   start.param = c(-3, .8, .01, -.5)
+# 	   modeltype = 'asympower'
+# 	   excludespp = NULL
+# 	   useIDlevel = TRUE
+# 	   bad.modelparam = bad.asympower.param
+# 	   steps = 10000
+# 	   burn = 1000
+# 	   showstep = 500
+# 	   debug = FALSE
+# 	   )
+# ----------------------------
+	 
+	 cns1 <- cns1[!exc, , drop = FALSE]
+	 cns2 <- cns2[!exc, , drop = FALSE]
 	 
 	 allspp=sort(unique(c(cns1$sp,cns2$sp)))
 	 demog=data.frame(matrix(0,nrow=length(allspp),ncol=6))
 	 rownames(demog)=allspp
 	 colnames(demog)=c('N1','N2','S','time','date1','date2')
+
+	 N1 <- table(
+	   cns1[cns1$status == 'A' & cns1$dbh >= mindbh, "sp", drop = FALSE]
+	   )
+	 N2 <- table(
+	   cns2[cns2$status == 'A' & cns2$dbh >= mindbh, "sp", drop = FALSE]
+	   )
+
+	 S <- table(
+	   cns2[
+	     cns2$status == 'A' & cns2$dbh >= mindbh & 
+	       cns1$status == 'A' & cns1$dbh >= mindbh, 
+	     "sp",
+	     drop = FALSE
+	   ]
+	 )
+
 	 
-	 N1=table(subset(cns1,status=='A' & dbh>=mindbh)$sp)
-	 N2=table(subset(cns2,status=='A' & dbh>=mindbh)$sp)
-	 S=table(subset(cns2,status=='A' & dbh>=mindbh & cns1$status=='A' & cns1$dbh>=mindbh)$sp)
 	 meandate1=tapply(cns1$date,cns1$sp,mean,na.rm=TRUE)
 	 meandate2=tapply(cns2$date,cns2$sp,mean,na.rm=TRUE)
 	 
@@ -278,10 +312,50 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
 	 Nch=assemble.demography(pop.change(cns1,cns2,split1=cns1$sp,mindbh=mindbh,type='abund'),type='a')
 	 demog[rownames(Nch),]$time=Nch$interval
 	 if(debug) browser()
+
 	 
-	 if(useIDlevel) exclude1=subset(sptable,tolower(IDlevel)!='species' & tolower(IDlevel)!='genus' & tolower(IDlevel)!='family' & tolower(IDlevel)!='subspeci' & tolower(IDlevel)!='none')$sp
-	 else exclude1=c('')
 	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 	 
+	 if(useIDlevel) {
+	   # get around inconsistent names case
+	   old_names <- names(sptable)
+	   names(sptable) <- tolower(old_names)
+	   exclude1 <- sptable[
+	     tolower(sptable$idlevel) != 'species' &
+	       tolower(sptable$idlevel) != 'genus' &
+	       tolower(sptable$idlevel) != 'family' &
+	       tolower(sptable$idlevel) != 'subspeci' &
+	       tolower(sptable$idlevel) != 'none',
+	     "sp",
+	     drop = FALSE
+	     ]
+	   names(sptable) <- old_names
+	   } else {
+	     exclude1=c('')
+	     }
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 	 
 	 # Following should not be used if IDlevel is set correctly, because unidentified species have IDlevel=multiple
 	 # if(is.null(excludespp)) exclude2=rownames(demog)[unidentified.species(rownames(demog))]
 	 # else exclude2=rownames(demog)[unidentified.species(rownames(demog),exactstr=excludespp)]
