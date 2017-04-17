@@ -10,4 +10,13 @@ test_that("model.littleR.Gibbs works with bci12full1 and 5 & defaults", {
       mindbh = 1
     )
   })
+  # solves by providing sptable
+  path <- "../bci16eg/data/bci.spptable.rda"
+  load(path)
+    model.littleR.Gibbs(
+    cns1 = bci::bci12full1,
+    cns2 = bci::bci12full5,
+    sptable = bci.spptable,
+    mindbh = 1
+  )
 })

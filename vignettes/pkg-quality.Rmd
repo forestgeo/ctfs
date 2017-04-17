@@ -92,6 +92,7 @@ This reports is key functions of tutorials run or err.
 ```{r}
 # errors ----
 err001 <- "Error in llike.model.lmer(test = one.param[k, 1, 1], allparam = thispar,  : could not find function 'dmvnorm'"
+err002 <- "Package date is missing"
 
 # functions that err
 
@@ -108,7 +109,7 @@ errs <- tribble(
   "Mortality changes", "calcMortIndivTable", F,
   "Mortality changes", "growth.indiv", F,
   "Mortality changes", "lmerBayes", T,
-  "Mortality vs. dbh", "mortality.eachspp", xxx,
+  "Mortality vs. dbh", "mortality.eachspp", T,
   "Mortality vs. dbh", "xxx", xxx,
   "Mortality vs. dbh", "xxx", xxx,
   "Mortality vs. dbh", "xxx", xxx,
