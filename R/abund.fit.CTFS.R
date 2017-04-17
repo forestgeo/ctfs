@@ -256,25 +256,6 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
 	{
 	 exc=cns1$status=='M' | cns2$status=='M'
 	 
-# ----------------------------
-# 	   cns1 = bci::bci12full1
-#      cns2 = bci::bci12full2
-#      mindbh  = 1
-# 	   demog = NULL
-# 	   sptable = bci.spptable
-# 	   abundrange = c(1, 1e6)
-# 	   start.param = c(-3, .8, .01, -.5)
-# 	   modeltype = 'asympower'
-# 	   excludespp = NULL
-# 	   useIDlevel = TRUE
-# 	   bad.modelparam = bad.asympower.param
-# 	   steps = 10000
-# 	   burn = 1000
-# 	   showstep = 500
-# 	   debug = FALSE
-# 	   )
-# ----------------------------
-	 
 	 cns1 <- cns1[!exc, , drop = FALSE]
 	 cns2 <- cns2[!exc, , drop = FALSE]
 	 
@@ -299,7 +280,6 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
 	   ]
 	 )
 
-	 
 	 meandate1=tapply(cns1$date,cns1$sp,mean,na.rm=TRUE)
 	 meandate2=tapply(cns2$date,cns2$sp,mean,na.rm=TRUE)
 	 
@@ -313,19 +293,6 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
 	 demog[rownames(Nch),]$time=Nch$interval
 	 if(debug) browser()
 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 	 
 	 if(useIDlevel) {
 	   # get around inconsistent names case
 	   old_names <- names(sptable)
@@ -353,24 +320,12 @@ model.littleR.Gibbs=function(cns1,cns2,mindbh,demog=NULL,sptable,abundrange=c(1,
 	 
 	 exclude=(rownames(demog) %in% unique(c(exclude1,exclude2)))
 
-	 
-	 	 
 	 demog <- demog[
 	   !exclude & 
-	     N1 >= abundrange[1] & 
-	     N1 < abundrange[2] & 
-	     !is.na(time), , drop = FALSE
+	     demog$N1 >= abundrange[1] & 
+	     demog$N1 <  abundrange[2] & 
+	     !is.na(demog$time), , drop = FALSE
 	   ]
- 
-	   
-	 # old=subset(demog,!exclude & N1>=abundrange[1] & N1<abundrange[2] & !is.na(time))
-	 
-	 
-	 
-	 
-	 
-	 
-	 
     }
 
  demog$mortrate=(log(demog$N1)-log(demog$S))/demog$time
