@@ -99,7 +99,9 @@ err002 <- "Error in tojulian, package date was missing"
 solved_with <- tibble::tribble(
   ~fun, ~msg, ~guess_solution,
   "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')",
-  "mortality.eachspp", err002, "use_package('date')"
+  "mortality.eachspp", err002, "use_package('date')",
+  "mortality.eachspp", err002, "use_package('date')",
+  "model.littleR.Gibbs", err003, "remove subset (non-standard evaluation)"
 )
 
 errs <- tribble(
@@ -110,15 +112,8 @@ errs <- tribble(
   "Mortality changes", "calcMortIndivTable", F,
   "Mortality changes", "growth.indiv", F,
   "Mortality changes", "lmerBayes", T,
-  "Mortality vs. dbh", "mortality.eachspp", T
-  # "Mortality vs. dbh", "xxx", xxx,
-  # "Mortality vs. dbh", "xxx", xxx,
-  # "Mortality vs. dbh", "xxx", xxx,
-  # "Mortality vs. dbh", "xxx", xxx,
-  # "Mortality vs. dbh", "xxx", xxx
-  # "Mortality changes",
-  # "Mortality vs. dbh",
-  # "Population Changes",
+  "Mortality vs. dbh", "mortality.eachspp", T,
+  "Population Changes", "model.littleR.Gibbs", T
   # "Biomass",
   # "Growth vs. DBH",
   # "ImageJ",
