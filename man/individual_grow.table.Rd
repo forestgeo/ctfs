@@ -37,7 +37,7 @@ dbh) per year;
 0.1 (from the argument mingrowth in the function);
 \item \code{CRGrowth}: cube root of growth rate; power transformation of the growth
 rate, with negatives maintained negative (exponent = 0.45). Althouth you may
-use \code{incgr}or \code{LnGrowth}, \code{CRGrowth} allows cleaner analyses, that need no
+use \code{incgr} or \code{LnGrowth}, \code{CRGrowth} allows cleaner analyses, that need no
 assumption about negative growths.
 }
 }

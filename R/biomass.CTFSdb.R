@@ -373,13 +373,41 @@ biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plo
 # <source>
 #' @export
 
+
+
+
+
+
+
+
+
+
+
+
+
 density.ind=function(df,plot,wsgdata,denscol='wsg')
 {
+ # old ----
+ # wsgdatamatch=which(wsgdata$site %in% plot)
+ # if(length(wsgdatamatch)==0) return(rep(NA,dim(df)[1]))
+ # 
+ # wsgdata=unique(wsgdata[wsgdatamatch,])
+ # meanwsg=mean(subset(wsgdata,idlevel=='species')[,denscol],na.rm=TRUE)
+ # 
+ # m=match(df$sp,wsgdata$sp)
+ # 
+ # result=wsgdata[m,denscol]
+ # result[is.na(m)]=meanwsg
+ # result[is.na(result)]=meanwsg
+
+ # new ----
  wsgdatamatch=which(wsgdata$site %in% plot)
  if(length(wsgdatamatch)==0) return(rep(NA,dim(df)[1]))
  
  wsgdata=unique(wsgdata[wsgdatamatch,])
- meanwsg=mean(subset(wsgdata,idlevel=='species')[,denscol],na.rm=TRUE)
+ 
+ wsgdata <- wsgdata[wsgdata$idlevel == "species", denscol, drop = FALSE]
+ meanwsg <- mean(wsgdata, na.rm = TRUE)
  
  m=match(df$sp,wsgdata$sp)
  

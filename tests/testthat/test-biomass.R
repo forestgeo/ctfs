@@ -1,20 +1,32 @@
-# context("functions work in tutorial biomass")
-# 
-# test_that("biomass.CTFSdb works with bci12stem1 and bci12full1", {
-#   # actual <- biomass.CTFSdb(bci::bci12stem1, bci::bci12full1)
-#   expect_equal_to_reference(actual, "biomass_ctfsdb.rds")
-# })
+context("functions work in tutorial biomass")
 
+test_that("Wrong inputs to wsgdata_dummy throw error with informative mesages", {
+  expect_error(
+    wsgdata_dummy(
+      bci::bci12stem1, 
+      plot = 1  # wrong
+    )
+  )
+  expect_error(
+    wsgdata_dummy(
+      bci::bci12stem1,
+      plot = c("bci", "other")  # wrong
+    )
+  )
+  df <- bci::bci12stem1
+  df$spp <- bci::bci12stem1$sp
+  df$sp <- NULL
+  expect_error(wsgdata_dummy(df))
+})
 
-
-library(testthat)
-library(ctfs)
-library(bci)
-load("../CTFSRPackage/tables/stem/bci.stem1.rdata")
-load("../CTFSRPackage/tables/full/bci.full1.rdata")
-
-names(bci.full1)
-names(bci.stem1)
-
-actual <- biomass.CTFSdb(bci.stem1, bci.full1)
-
+test_that("biomass.CTFSdb works with minimun inputs", {
+  wsgdata <- wsgdata_dummy(bci::bci12full1)
+  # load("../CTFSRPackage/tables/full/bci.full1.rdata")
+  # wsgdata <- wsgdata_dummy(bci.full1)
+  actual <- biomass.CTFSdb(
+    bci::bci12stem1, 
+    bci::bci12full1, 
+    wsgdata = wsgdata
+  )
+  expect_equal_to_reference(actual, "biomass_ctfsdb.rds")
+})

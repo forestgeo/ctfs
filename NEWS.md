@@ -4,7 +4,12 @@
 
 - graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
 
-- remove non-standard evaluation (nse). 18 functions that used subset, which uses nse. I fixed this in model.littleR.Gibbs but other 17 functions remain. Search for more functions in base R that use non-standard evaluation and replace them for their standard evaluation equivalents.
+- remove non-standard evaluation (nse). 18 functions that used subset, which uses nse. I fixed these:
+
+    - model.littleR.Gibbs
+    - xxx working on density.ind
+
+but other 17 functions remain. Search for more functions in base R that use non-standard evaluation and replace them for their standard evaluation equivalents.
 
 ## To deprecate
 
@@ -29,16 +34,15 @@
 
 
 
-
-
-
-
-
-
-
 # ctfs 0.0.0.9005
 
-- Import packages via `use_package("<PACKAGE>", "Imports"): date, MCMCpack, mvtnorm.
+- document error in news
+- check if function works reversing density.ind to use subset.
+Solve error with biomass.CTFSdb due to density.ind. An object was missing of dumy wood density data. The solution was to provide a dummy object produced with a new function `wsgdata_dummy()`.
+
+- Import packages via `use_package("<PACKAGE>", "Imports"): date, MCMCpack, mvtnorm
+
+- Suggest package bci, I don't import it because it is in a private repo, so the user needs to provide a private token.
 
 
 > Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).
@@ -46,6 +50,10 @@
 -- http://r-pkgs.had.co.nz/namespace.html
 
 - Use date::<DATE_FUNCTION> where appropriate.
+
+
+
+
 
 
 
