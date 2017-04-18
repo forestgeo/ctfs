@@ -94,7 +94,8 @@ This reports is key functions of tutorials run or err.
 err001 <- "Error in llike.model.lmer, function 'dmvnorm' was missing"
 err002 <- "Error in tojulian, package date was missing"
 err003 <- "Errs because uses subset, i.e. non-standard evaluation"
-err004 <- "Errs because density.ind uses subset"
+err004 <- "Errs because density.ind argument wsgdata is missing"
+err005 <- paste0(err004, " and could also err because density.ind used subset")
 
 # solutions ----
 solved_with <- tibble::tribble(
@@ -102,12 +103,13 @@ solved_with <- tibble::tribble(
   "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')",
   "mortality.eachspp", err002, "use_package('date')",
   "model.littleR.Gibbs", err003, "remove subset (non-standard evaluation)",
-  "biomass.CTFSdb", err004, "remove subset (non-standard evaluation)"
+  "biomass.CTFSdb", err004, "provide argument wsgdata with wsgdata_dummy()",
+  "density.ind", err005, "remove subset (non-standard evaluation)"
   
 )
 
 # functions that err ----
-errs <- tribble(
+errs <- tibble::tribble(
   ~tutorial, ~fun, ~errs,
   "Growth changes", "individual_grow.table", F,
   "Growth changes", "pospower", F,
@@ -120,16 +122,18 @@ errs <- tribble(
   "Population Changes", "graph.abundmodel", F,
   "Population Changes", "fitSeveralAbundModel", F,
   "Biomass", "CTFSplot", F,
+  "Biomass", "attach_if_needed", F,
   "Biomass", "biomass.CTFSdb", T,
-  # "Biomass", "biomass.CTFSdb", xxx,
-  # "Biomass", "Chave.AGB", xxx,
+  "Biomass", "density.ind", T
+  "Biomass", "Chave.AGB", F
+  # "Biomass", "Chave.AGB", F,
   # "Growth vs. DBH",
   # "ImageJ",
   # "Plot maps",
   # "Topography",
 )
 errs
-left_join(errs, solved_with) %>% filter(errs)
+dplyr::left_join(errs, solved_with) %>% filter(errs)
 ```
 
 Finally, this reports if some more functions run or err. The functions, selected at random, are these:

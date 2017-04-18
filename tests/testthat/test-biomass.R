@@ -30,3 +30,27 @@ test_that("biomass.CTFSdb works with minimun inputs", {
   )
   expect_equal_to_reference(actual, "biomass_ctfsdb.rds")
 })
+
+
+
+test_that("Chave.AGB works with inputs in example", {
+  testdbh <- c(1, 2, 5, 10, 20, 30, 50, 100, 200)
+  AGBmoist <- Chave.AGB(dbh = testdbh, forest = "moist")
+  expect_type(AGBmoist, "double")
+  expect_length(AGBmoist, 9)
+  expect_equal(length(AGBmoist), length(testdbh))
+})
+
+# Make tests and document results of
+# Chave.AGB works
+# predht.asym works
+# end vignette biomass ----
+
+
+
+
+
+
+
+
+

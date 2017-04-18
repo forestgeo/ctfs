@@ -6,12 +6,11 @@
 #' dummy one. For example, this may help you to test `biomass.CTFSdb()` and
 #' `density.ind()`.
 #' 
-#' `density.ind()`:
-#' 
-#' > There must be a table of wood density submitted (wsgdata), and this table
-#' must have a column sp with species names, a column plot, plus the wood
-#' density in a column called wsg (though the name of that column can be changed
-#' using the argument denscol).
+#' See `?density.ind()`, particularly notice the following: _"There must be a
+#' table of wood density submitted (wsgdata), and this table must have a column
+#' sp with species names, a column plot, plus the wood density in a column
+#' called wsg (though the name of that column can be changed using the argument
+#' denscol)"_.
 #'
 #' @param censdata Census data, e.g. `bci::bci12full1`.
 #' @param plot An character string of length 1 giving the plot name where
