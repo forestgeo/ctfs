@@ -6,6 +6,10 @@
 
 - remove non-standard evaluation (nse). 18 functions that used subset, which uses nse. I fixed this in model.littleR.Gibbs but other 17 functions remain. Search for more functions in base R that use non-standard evaluation and replace them for their standard evaluation equivalents.
 
+## To deprecate
+
+- CTFSplot. Now objects are immediately available via the bci package
+
 > **Calling from another function** ...While subset() saves typing, it’s actually difficult to use non-interactively.
 
 -- http://adv-r.had.co.nz/Computing-on-the-language.html

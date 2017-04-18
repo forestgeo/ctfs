@@ -94,13 +94,16 @@ This reports is key functions of tutorials run or err.
 err001 <- "Error in llike.model.lmer, function 'dmvnorm' was missing"
 err002 <- "Error in tojulian, package date was missing"
 err003 <- "Errs because uses subset, i.e. non-standard evaluation"
+err004 <- err003
 
 # solutions ----
 solved_with <- tibble::tribble(
   ~fun, ~msg, ~guess_solution,
   "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')",
   "mortality.eachspp", err002, "use_package('date')",
-  "model.littleR.Gibbs", err003, "remove subset (non-standard evaluation)"
+  "model.littleR.Gibbs", err003, "remove subset (non-standard evaluation)",
+  "biomass.CTFSdb", err004, "remove subset (non-standard evaluation)"
+  
 )
 
 # functions that err ----
@@ -116,7 +119,8 @@ errs <- tribble(
   "Population Changes", "model.littleR.Gibbs", T,
   "Population Changes", "graph.abundmodel", F,
   "Population Changes", "fitSeveralAbundModel", F,
-  # "Biomass", "CTFSplot", xxx,
+  "Biomass", "CTFSplot", F,
+  "Biomass", "biomass.CTFSdb", T,
   # "Biomass", "biomass.CTFSdb", xxx,
   # "Biomass", "Chave.AGB", xxx,
   # "Growth vs. DBH",
