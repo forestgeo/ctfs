@@ -19,5 +19,6 @@ Imports: date,
 Suggests: knitr,
     rmarkdown,
     lme4,
-    testthat
+    testthat,
+    bcixl
 VignetteBuilder: knitr
