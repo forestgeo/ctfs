@@ -23,9 +23,20 @@ The goal is two fold:
 
 - to show how ctfs functions can help you solve problems that may be relevant to you;
 
-- to show how to explore research problems using modern programatic tools and style in the tidyverse (xxxinsert link)
+- to show how to explore research questions in a systematic way, using modern programatic tools and style in the tidyverse (xxxinsert link)
 
 The original version of this tutorial, by Richard Condit, is at https://goo.gl/c9RjMY.
+
+
+
+
+
+
+xxx change the focus. Instead of replicating the previous tutorial, use r4ds as a guide to show a generic EDA. This should result in a vignette that is more simple from the analitical viewpoint and more comprehensive from the technical viewpoint. So the audience should be broader, making the vignette  more useful than before.
+
+
+
+
 
 # The pipe operator %>%
 
@@ -167,7 +178,7 @@ growth_smry %>%
 
 # xxx maybe remove
 
-```{r, eval=FALSE, include=FALSE}
+```{r}
 by_census_interval <- dplyr::group_by(grate, census) 
 growth_summary <- dplyr::summarize(by_census_interval,
   yr_mean        = mean(time),       # mean years since 1992
@@ -241,8 +252,7 @@ map2(modlist$data, modlist$models, add_predictions) %>%
   # plot predictions and residuals
   ggplot(aes(time, pred)) +
   geom_point() +
-  geom_point(aes(y = resid), colour = "red", alpha = 0.2) +
-  facet_wrap(~name)
+  geom_point(aes(y = resid), colour = "red", alpha = 0.2)
 ```
 
 

@@ -4,12 +4,7 @@
 
 - graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
 
-- remove non-standard evaluation (nse). 18 functions that used subset, which uses nse. I fixed these:
-
-    - model.littleR.Gibbs
-    - xxx working on density.ind
-
-but other 17 functions remain. Search for more functions in base R that use non-standard evaluation and replace them for their standard evaluation equivalents.
+- remove non-standard evaluation (nse) from aproximately 15 functions that use subset.
 
 ## To deprecate
 
@@ -36,9 +31,23 @@ but other 17 functions remain. Search for more functions in base R that use non-
 
 # ctfs 0.0.0.9005
 
-- document error in news
-- check if function works reversing density.ind to use subset.
 Solve error with biomass.CTFSdb due to density.ind. An object was missing of dumy wood density data. The solution was to provide a dummy object produced with a new function `wsgdata_dummy()`.
+
+- To avoid non standar evaluation (not appropriate for programming), replace subset by "[" in:
+
+    - model.littleR.Gibbs,
+    - density.ind,
+    - ... (15 more to go).
+
+
+
+
+
+
+
+
+
+
 
 - Import packages via `use_package("<PACKAGE>", "Imports"): date, MCMCpack, mvtnorm
 

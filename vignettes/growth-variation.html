@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2017-04-14" />
+<meta name="date" content="2017-04-18" />
 
 <title>Growth variation through time</title>
 
@@ -69,10 +69,63 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Growth variation through time</h1>
 <h3 class="subtitle"><em>Adapted by Mauro Lepore from the original tutorial by Richard Condit (<a href="https://goo.gl/c9RjMY" class="uri">https://goo.gl/c9RjMY</a>)</em></h3>
-<h4 class="date"><em>2017-04-14</em></h4>
+<h4 class="date"><em>2017-04-18</em></h4>
 
 
 
+<div id="goal" class="section level1">
+<h1>Goal</h1>
+<p>The goal is two fold:</p>
+<ul>
+<li><p>to show how ctfs functions can help you solve problems that may be relevant to you;</p></li>
+<li><p>to show how to explore research questions in a systematic way, using modern programatic tools and style in the tidyverse (xxxinsert link)</p></li>
+</ul>
+<p>The original version of this tutorial, by Richard Condit, is at <a href="https://goo.gl/c9RjMY" class="uri">https://goo.gl/c9RjMY</a>.</p>
+<p>xxx change the focus. Instead of replicating the previous tutorial, use r4ds as a guide to show a generic EDA. This should result in a vignette that is more simple from the analitical viewpoint and more comprehensive from the technical viewpoint. So the audience should be broader, making the vignette more useful than before.</p>
+</div>
+<div id="the-pipe-operator" class="section level1">
+<h1>The pipe operator %&gt;%</h1>
+<p>xxx what is the best discusison? HW? Jenny Bryan? maggrittr? …</p>
+<p>xxx to address an exploratory data analysis systematically see r4ds “exploratory data analysis”</p>
+<ul>
+<li>first, before any complex summary or model, analyse how interesting variables vary, here, species (categorical) and growth between intervals (continuous).</li>
+</ul>
+<p>xxx explain why use the pipe. clear writing comes from position (Goepen xxx). Ideas are clearly communicated if information flows from new old to old, and agents are mapped to subjects, and actions to verbs (Style by Strunk or white?). This structure is impossible with traditional programming</p>
+<p>unnatural flow of information</p>
+<p>Unclear: flows backwards, from actions to agents, and from new to old information.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(x)
+<span class="kw">action</span>(agent)
+<span class="kw">verb</span>(subject)
+
+<span class="co"># minimal semantic example</span>
+<span class="kw">eat</span>(I)
+
+<span class="co"># a longer, more realistic example</span>
+<span class="kw">sleep</span>(
+  <span class="kw">yawn</span>(
+    <span class="kw">clean</span>(
+      <span class="kw">eat</span>(
+        I
+      )
+    )
+  )
+)</code></pre></div>
+<p>Clear: flows forwards, from agents to actions, and from old to new information.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x %&gt;%<span class="st"> </span><span class="kw">sum</span>()
+agent %&gt;%<span class="st"> </span><span class="kw">action</span>()
+subject %&gt;%<span class="st"> </span><span class="kw">verb</span>()
+
+<span class="co"># minimal semantic example</span>
+<span class="kw">eat</span>(I)
+I %&gt;%<span class="st"> </span>eat
+
+<span class="co"># a longer, more realistic example</span>
+I %&gt;%<span class="st"> </span>
+<span class="st">  </span>eat %&gt;%<span class="st"> </span>
+<span class="st">  </span>clean %&gt;%<span class="st"> </span>
+<span class="st">  </span>yawn %&gt;%<span class="st"> </span>
+<span class="st">  </span>sleep</code></pre></div>
+</div>
 <div id="conventions-to-refer-to-code" class="section level1">
 <h1>Conventions to refer to code</h1>
 <p>I refer to code following the conventions of <a href="http://r4ds.had.co.nz/introduction.html">R for data science</a>, by Hadley Wickham &amp; Garrett Grolemund:</p>
@@ -96,16 +149,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="packages" class="section level1">
 <h1>Packages</h1>
-<p>The functions we use here come with the <a href="https://forestgeo.github.io/ctfs/">ctfs</a> and <a href="https://github.com/lme4/lme4/">lme4</a> packages, and the data comes in the <a href="https://forestgeo.github.io/bci/">bci</a> package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># installation instructions at https://github.com/forestgeo/ctfs</span>
-<span class="kw">library</span>(ctfs)
-<span class="co"># installation instructions at https://github.com/lme4/lme4/</span>
-<span class="kw">library</span>(lme4)
-<span class="co"># installation instructions at https://forestgeo.github.io/bci/</span>
-<span class="kw">library</span>(bci)</code></pre></div>
+<p>The functions we use here come with the <a href="https://forestgeo.github.io/ctfs/">ctfs</a> and <a href="https://github.com/lme4/lme4/">lme4</a> packages, and the data comes in the <a href="https://forestgeo.github.io/bci/">bci</a> package. To exploratory data easily we can use the tidyverse and modelr package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Links provide installation instructions</span>
+<span class="kw">library</span>(ctfs)       <span class="co"># https://github.com/forestgeo/ctfs</span>
+<span class="kw">library</span>(lme4)       <span class="co"># https://github.com/lme4/lme4/</span>
+<span class="kw">library</span>(bci)        <span class="co"># https://forestgeo.github.io/bci/</span>
+<span class="kw">library</span>(tidyverse)  <span class="co"># xxx insert link</span>
+<span class="kw">library</span>(modelr)     <span class="co"># xxx insert link</span></code></pre></div>
 <p>To access functions commonly used for data analysis, load the tidyverse package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;tidyverse&quot;)</span>
-<span class="kw">library</span>(tidyverse)</code></pre></div>
 </div>
 <div id="calculate-growth-rates-of-individual-trees-between-census-intervals" class="section level1">
 <h1>1. Calculate growth rates of individual trees between census intervals</h1>
@@ -120,39 +171,58 @@ grate &lt;-<span class="st"> </span><span class="kw">individual_grow.table</span
   census17_list, 
   <span class="dt">mindbh =</span> <span class="dv">400</span>, <span class="dt">maxdbh =</span> <span class="dv">10000</span>  <span class="co"># e.g. with trees of relatively large diameter</span>
 )
-
 <span class="co"># Overview</span>
-<span class="kw">head</span>(grate)
-<span class="co">#&gt;     treeID    tag    gx    gy species dbh1 dbh2      LnSize     incgr</span>
-<span class="co">#&gt; 39      39 000022 989.1 421.3  anacex 1761 1855  1.12953376 22.843313</span>
-<span class="co">#&gt; 59      59 000044 991.8 342.5  loncla  655  670  0.14053188  3.662266</span>
-<span class="co">#&gt; 102    102 000087 985.6 226.5  anacex  426  533 -0.28966401 26.229362</span>
-<span class="co">#&gt; 103    103 000088 983.7 229.4  tri2tu  553  587 -0.02874535  8.334564</span>
-<span class="co">#&gt; 104    104 000089 988.9 232.8  alsebl  642  661  0.12048495  4.657550</span>
-<span class="co">#&gt; 117    117 000102 994.2 185.3  huracr  732  837  0.25167716 25.825758</span>
-<span class="co">#&gt;     LnGrowth CRGrowth      time census censusfact</span>
-<span class="co">#&gt; 39  3.128658 4.087348 -8.305270      1          1</span>
-<span class="co">#&gt; 59  1.298082 1.793442 -8.328542      1          1</span>
-<span class="co">#&gt; 102 3.266879 4.349652 -8.344969      1          1</span>
-<span class="co">#&gt; 103 2.120411 2.596554 -8.344969      1          1</span>
-<span class="co">#&gt; 104 1.538490 1.998347 -8.344969      1          1</span>
-<span class="co">#&gt; 117 3.251372 4.319405 -8.354552      1          1</span>
-dplyr::<span class="kw">count</span>(grate, census)  <span class="co"># 1, 2 ...: 1st, 2nd ... interval between censuses</span>
-<span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   census     n</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;int&gt;</span>
-<span class="co">#&gt; 1      1  1014</span>
-<span class="co">#&gt; 2      2  1169</span>
-<span class="co">#&gt; 3      3  1592</span>
-<span class="co">#&gt; 4      4  1633</span>
-<span class="co">#&gt; 5      5  1550</span>
-<span class="co">#&gt; 6      6  1636</span></code></pre></div>
+(grate &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(grate))
+<span class="co">#&gt; # A tibble: 8,594 × 14</span>
+<span class="co">#&gt;    treeID        tag    gx    gy    species  dbh1  dbh2      LnSize</span>
+<span class="co">#&gt; *   &lt;int&gt; &lt;S3: AsIs&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;S3: AsIs&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;</span>
+<span class="co">#&gt; 1      39     000022 989.1 421.3     anacex  1761  1855  1.12953376</span>
+<span class="co">#&gt; 2      59     000044 991.8 342.5     loncla   655   670  0.14053188</span>
+<span class="co">#&gt; 3     102     000087 985.6 226.5     anacex   426   533 -0.28966401</span>
+<span class="co">#&gt; 4     103     000088 983.7 229.4     tri2tu   553   587 -0.02874535</span>
+<span class="co">#&gt; 5     104     000089 988.9 232.8     alsebl   642   661  0.12048495</span>
+<span class="co">#&gt; 6     117     000102 994.2 185.3     huracr   732   837  0.25167716</span>
+<span class="co">#&gt; 7     126     000111 998.0 167.2     loncla   453   478 -0.22821123</span>
+<span class="co">#&gt; 8     129     000114 987.0 151.6     huracr   481   543 -0.16823608</span>
+<span class="co">#&gt; 9     131     000116 981.7 141.8     tab2ar   499   525 -0.13149726</span>
+<span class="co">#&gt; 10    134     000120 987.4 129.4     cavapl  1413  1384  0.90936703</span>
+<span class="co">#&gt; # ... with 8,584 more rows, and 6 more variables: incgr &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   LnGrowth &lt;dbl&gt;, CRGrowth &lt;dbl&gt;, time &lt;dbl&gt;, census &lt;int&gt;,</span>
+<span class="co">#&gt; #   censusfact &lt;fctr&gt;</span></code></pre></div>
 </div>
 <div id="summarize-mean-growth-forest-wide" class="section level1">
 <h1>2. Summarize mean growth, forest-wide</h1>
 <p>Second, for each census period, summarize the data to give the mean growth rate of all individuals.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">by_census &lt;-<span class="st"> </span>dplyr::<span class="kw">group_by</span>(grate, census) 
-growth_summary &lt;-<span class="st"> </span>dplyr::<span class="kw">summarize</span>(by_census,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Table summary</span>
+growth_smry &lt;-<span class="st"> </span>grate %&gt;%<span class="st"> </span>
+<span class="st">  </span>dplyr::<span class="kw">group_by</span>(census) %&gt;%<span class="st"> </span>
+<span class="st">  </span>dplyr::<span class="kw">summarize</span>(
+    <span class="dt">yr_mean =</span> <span class="kw">mean</span>(time),  <span class="co"># mean years since 1992</span>
+    <span class="dt">increment_mean =</span> <span class="kw">mean</span>(incgr),  <span class="co"># mean of untransformed growth increment</span>
+    <span class="dt">n =</span> <span class="kw">n</span>()  <span class="co"># count observations</span>
+  )
+growth_smry
+<span class="co">#&gt; # A tibble: 6 × 4</span>
+<span class="co">#&gt;   census   yr_mean increment_mean     n</span>
+<span class="co">#&gt;    &lt;int&gt;     &lt;dbl&gt;          &lt;dbl&gt; &lt;int&gt;</span>
+<span class="co">#&gt; 1      1 -8.341837      10.280166  1014</span>
+<span class="co">#&gt; 2      2 -3.963116       7.510867  1169</span>
+<span class="co">#&gt; 3      3  1.207770       4.644751  1592</span>
+<span class="co">#&gt; 4      4  6.046461       5.183409  1633</span>
+<span class="co">#&gt; 5      5 11.042803       4.777542  1550</span>
+<span class="co">#&gt; 6      6 16.079248       5.080532  1636</span>
+
+<span class="co"># Visual summary</span>
+growth_smry %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> yr_mean, <span class="dt">y =</span> increment_mean)) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="xxx-maybe-remove" class="section level1">
+<h1>xxx maybe remove</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">by_census_interval &lt;-<span class="st"> </span>dplyr::<span class="kw">group_by</span>(grate, census) 
+growth_summary &lt;-<span class="st"> </span>dplyr::<span class="kw">summarize</span>(by_census_interval,
   <span class="dt">yr_mean        =</span> <span class="kw">mean</span>(time),       <span class="co"># mean years since 1992</span>
   <span class="dt">increment_mean =</span> <span class="kw">mean</span>(incgr),      <span class="co"># mean of untransformed growth increment</span>
   <span class="dt">increment_med  =</span> <span class="kw">median</span>(incgr),    <span class="co"># as above but median</span>
@@ -171,24 +241,48 @@ growth_summary
 <span class="co">#&gt; 6      6 16.079248       5.080532      3.644401  1.744470 1.789500</span>
 <span class="co"># (To refresh definition of variables in grate run ?individual_grow.table)</span></code></pre></div>
 <p>To visualize the growth summary, let’s graph mean growth vs. time. Although you may simply graph the mean growth increment, here I use the mean of the cube-root of growth.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exponent &lt;-<span class="st"> </span><span class="fl">0.45</span>
-growth_summary &lt;-<span class="st"> </span><span class="kw">mutate</span>(growth_summary, 
-  <span class="dt">root_exp =</span> root_mean^(<span class="dv">1</span>/exponent)  <span class="co"># cube it to restore the original scale</span>
-  )
-
-<span class="kw">ggplot</span>(<span class="dt">data =</span> growth_summary, <span class="kw">aes</span>(<span class="dt">x =</span> yr_mean, <span class="dt">y =</span> root_exp)) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;years since 1992&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;median growth increment&quot;</span>)</code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="mixed-model-to-assess-species-variation-in-linear-changes-through-time" class="section level1">
 <h1>3. Mixed model to assess species variation in linear changes through time</h1>
 <p>Third, let’s model a linear regression of growth rate vs. time, with species as a random effect. This is equivalent to a hierarchical model, where a Gaussian distribution describes the variation in species responses. As the response variable, we use the cube root of growth. This allows us to come closer to a normal error term while not requiring artificial exclusion of negative growth rates (as a log-tranformation would).</p>
 <p>To build the model we can use <code>lme4::lmer()</code> with appropriate formula and data (see <code>?lmer</code>).</p>
-<p>An appropriate formula is</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myformula &lt;-<span class="st"> </span>CRGrowth ~<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span>time +<span class="st"> </span>(<span class="dv">1</span> +<span class="st"> </span>time |<span class="st"> </span>species)</code></pre></div>
+<p>An appropriate formula is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myformula &lt;-<span class="st"> </span>incgr ~<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span>time +<span class="st"> </span>(<span class="dv">1</span> +<span class="st"> </span>time |<span class="st"> </span>species)</code></pre></div>
 <p>After <code>~</code>, the component “<code>1 + time</code>” means to fit a model of <code>CRGrowth</code> against <code>time</code>, with an intercept (the <code>1</code>). Next, <code>(1 + time | species)</code> means that the intercept and slope should both be allowed to vary across <code>species</code>. Following the same logic, <code>(1 + time | tag)</code> would account for repeated measures of individuals by using the tree <code>tag</code> (identifying individual trees) as a random effect.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mixed_model &lt;-<span class="st"> </span>function(df) {
+  <span class="kw">lmer</span>(incgr ~<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span>time +<span class="st"> </span>(<span class="dv">1</span> +<span class="st"> </span>time |<span class="st"> </span>species), <span class="dt">data =</span> df)
+}
+modlist &lt;-<span class="st"> </span>grate %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">uo3 =</span> <span class="kw">ifelse</span>(census &lt;=<span class="st"> </span><span class="dv">3</span>, <span class="st">&quot;under3&quot;</span>, <span class="st">&quot;over3&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(uo3) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">nest</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">models =</span> purrr::<span class="kw">map</span>(data, mixed_model))
+
+<span class="co"># extract coefficients</span>
+<span class="kw">bind_rows</span>(
+  <span class="kw">fixef</span>(modlist$models[[<span class="dv">1</span>]]) %&gt;%<span class="st"> </span><span class="kw">enframe</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">uo3 =</span> <span class="st">&quot;under3&quot;</span>),
+  <span class="kw">fixef</span>(modlist$models[[<span class="dv">1</span>]]) %&gt;%<span class="st"> </span><span class="kw">enframe</span>() %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">uo3 =</span> <span class="st">&quot;over3&quot;</span>)
+)
+<span class="co">#&gt; # A tibble: 4 × 3</span>
+<span class="co">#&gt;          name      value    uo3</span>
+<span class="co">#&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;chr&gt;</span>
+<span class="co">#&gt; 1 (Intercept)  5.7550942 under3</span>
+<span class="co">#&gt; 2        time -0.7154974 under3</span>
+<span class="co">#&gt; 3 (Intercept)  5.7550942  over3</span>
+<span class="co">#&gt; 4        time -0.7154974  over3</span>
+
+<span class="co"># add predictions and residuals to data</span>
+<span class="kw">map2</span>(modlist$data, modlist$models, add_predictions) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">map2</span>(modlist$models, add_residuals) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">set_names</span>(<span class="kw">c</span>(<span class="st">&quot;under3&quot;</span>, <span class="st">&quot;over3&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">enframe</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">unnest</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">uo3 =</span> name) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="co"># plot predictions and residuals</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, pred)) +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> resid), <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 <p>The data is more appropriately split in two than used as a whole, so that we can build two models to describe our data. This seems important because the plot above shows that growth rates through time had a different trend before and since the third census (before, they declined; since, they sabilized). So let’s run two separate models, for censuses ≤ 3 and censuses ≥ 3.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Split data to capture trends before and since 3rd census</span>
 dat3_under &lt;-<span class="st"> </span>dplyr::<span class="kw">filter</span>(grate, census &lt;=<span class="st"> </span><span class="dv">3</span>)
@@ -202,33 +296,33 @@ mymodels &lt;-<span class="st"> </span><span class="kw">lapply</span>(
 mymodels
 <span class="co">#&gt; $mod3_under</span>
 <span class="co">#&gt; Linear mixed model fit by REML ['lmerMod']</span>
-<span class="co">#&gt; Formula: CRGrowth ~ 1 + time + (1 + time | species)</span>
+<span class="co">#&gt; Formula: incgr ~ 1 + time + (1 + time | species)</span>
 <span class="co">#&gt;    Data: x</span>
-<span class="co">#&gt; REML criterion at convergence: 12650.79</span>
+<span class="co">#&gt; REML criterion at convergence: 25864.86</span>
 <span class="co">#&gt; Random effects:</span>
 <span class="co">#&gt;  Groups   Name        Std.Dev. Corr </span>
-<span class="co">#&gt;  species  (Intercept) 0.59096       </span>
-<span class="co">#&gt;           time        0.04298  -0.30</span>
-<span class="co">#&gt;  Residual             1.25747       </span>
+<span class="co">#&gt;  species  (Intercept) 3.5801        </span>
+<span class="co">#&gt;           time        0.4733   -0.87</span>
+<span class="co">#&gt;  Residual             7.2079        </span>
 <span class="co">#&gt; Number of obs: 3775, groups:  species, 108</span>
 <span class="co">#&gt; Fixed Effects:</span>
 <span class="co">#&gt; (Intercept)         time  </span>
-<span class="co">#&gt;     1.74035     -0.09083  </span>
+<span class="co">#&gt;      5.7551      -0.7155  </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $mod3_over</span>
 <span class="co">#&gt; Linear mixed model fit by REML ['lmerMod']</span>
-<span class="co">#&gt; Formula: CRGrowth ~ 1 + time + (1 + time | species)</span>
+<span class="co">#&gt; Formula: incgr ~ 1 + time + (1 + time | species)</span>
 <span class="co">#&gt;    Data: x</span>
-<span class="co">#&gt; REML criterion at convergence: 18898.28</span>
+<span class="co">#&gt; REML criterion at convergence: 39270.77</span>
 <span class="co">#&gt; Random effects:</span>
-<span class="co">#&gt;  Groups   Name        Std.Dev. Corr </span>
-<span class="co">#&gt;  species  (Intercept) 0.640728      </span>
-<span class="co">#&gt;           time        0.005354 -0.52</span>
-<span class="co">#&gt;  Residual             1.036247      </span>
+<span class="co">#&gt;  Groups   Name        Std.Dev. Corr</span>
+<span class="co">#&gt;  species  (Intercept) 3.956625     </span>
+<span class="co">#&gt;           time        0.002963 1.00</span>
+<span class="co">#&gt;  Residual             5.060651     </span>
 <span class="co">#&gt; Number of obs: 6411, groups:  species, 112</span>
 <span class="co">#&gt; Fixed Effects:</span>
 <span class="co">#&gt; (Intercept)         time  </span>
-<span class="co">#&gt;    1.733435     0.004236</span></code></pre></div>
+<span class="co">#&gt;    5.807901     0.005247</span></code></pre></div>
 <p>The key result are the coefficients of each model. The fixed effect gives the forest-wide response, which is the average growth of the species. It is thus not the same as the mean forest-wide growth, because the fixed effect weights each species equally.</p>
 <p>To do the same in a more convenient way, we can use the tidyverse. This shows how to manipulate the output of multiple models so that it is easier to visualize and to work with later:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same output as mymodel, but easier to visualize and to work with</span>
@@ -239,20 +333,20 @@ tidymodels &lt;-<span class="st"> </span>mymodels %&gt;%<span class="st">  </spa
 <span class="st">  </span>tidyr::<span class="kw">unnest</span>()           <span class="co"># from nested df to normal df.</span>
 tidymodels
 <span class="co">#&gt; # A tibble: 12 × 6</span>
-<span class="co">#&gt;          name                         term     estimate   std.error</span>
-<span class="co">#&gt;         &lt;chr&gt;                        &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span>
-<span class="co">#&gt; 1  mod3_under                  (Intercept)  1.740353823 0.073316149</span>
-<span class="co">#&gt; 2  mod3_under                         time -0.090829008 0.008406036</span>
-<span class="co">#&gt; 3  mod3_under       sd_(Intercept).species  0.590962143          NA</span>
-<span class="co">#&gt; 4  mod3_under              sd_time.species  0.042976877          NA</span>
-<span class="co">#&gt; 5  mod3_under cor_(Intercept).time.species -0.300123339          NA</span>
-<span class="co">#&gt; 6  mod3_under      sd_Observation.Residual  1.257467074          NA</span>
-<span class="co">#&gt; 7   mod3_over                  (Intercept)  1.733434746 0.072898890</span>
-<span class="co">#&gt; 8   mod3_over                         time  0.004236226 0.002526474</span>
-<span class="co">#&gt; 9   mod3_over       sd_(Intercept).species  0.640728243          NA</span>
-<span class="co">#&gt; 10  mod3_over              sd_time.species  0.005354221          NA</span>
-<span class="co">#&gt; 11  mod3_over cor_(Intercept).time.species -0.516921709          NA</span>
-<span class="co">#&gt; 12  mod3_over      sd_Observation.Residual  1.036246880          NA</span>
+<span class="co">#&gt;          name                         term     estimate  std.error</span>
+<span class="co">#&gt;         &lt;chr&gt;                        &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co">#&gt; 1  mod3_under                  (Intercept)  5.755094174 0.42222709</span>
+<span class="co">#&gt; 2  mod3_under                         time -0.715497356 0.06355431</span>
+<span class="co">#&gt; 3  mod3_under       sd_(Intercept).species  3.580133791         NA</span>
+<span class="co">#&gt; 4  mod3_under              sd_time.species  0.473272408         NA</span>
+<span class="co">#&gt; 5  mod3_under cor_(Intercept).time.species -0.873486385         NA</span>
+<span class="co">#&gt; 6  mod3_under      sd_Observation.Residual  7.207897338         NA</span>
+<span class="co">#&gt; 7   mod3_over                  (Intercept)  5.807901217 0.42494908</span>
+<span class="co">#&gt; 8   mod3_over                         time  0.005247249 0.01146385</span>
+<span class="co">#&gt; 9   mod3_over       sd_(Intercept).species  3.956624741         NA</span>
+<span class="co">#&gt; 10  mod3_over              sd_time.species  0.002962972         NA</span>
+<span class="co">#&gt; 11  mod3_over cor_(Intercept).time.species  1.000000000         NA</span>
+<span class="co">#&gt; 12  mod3_over      sd_Observation.Residual  5.060650926         NA</span>
 <span class="co">#&gt; # ... with 2 more variables: statistic &lt;dbl&gt;, group &lt;chr&gt;</span></code></pre></div>
 <p>The following graph uses the function fixef to get the parameters, then the function curve to add them to the graph. The points are forest-wide means, as graphed above.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tidymodels %&gt;%<span class="st"> </span>
@@ -263,8 +357,8 @@ tidymodels
 <span class="co">#&gt; # A tibble: 2 × 3</span>
 <span class="co">#&gt;         name intercept         time</span>
 <span class="co">#&gt; *      &lt;chr&gt;     &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt; 1  mod3_over  1.733435  0.004236226</span>
-<span class="co">#&gt; 2 mod3_under  1.740354 -0.090829008</span>
+<span class="co">#&gt; 1  mod3_over  5.807901  0.005247249</span>
+<span class="co">#&gt; 2 mod3_under  5.755094 -0.715497356</span>
   
 
 mycoefs &lt;-<span class="st"> </span><span class="kw">lapply</span>(mymodels, fixef)
@@ -280,7 +374,7 @@ mycoefs &lt;-<span class="st"> </span><span class="kw">lapply</span>(mymodels, f
     <span class="dt">intercept =</span> mycoefs$mod3_over[<span class="dv">1</span>]
     ) +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;years since 1992&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;median growth&quot;</span>)</code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 <p>xxxcont</p>
 <ul>
 <li>move faster, focus on models more and on plots less.</li>

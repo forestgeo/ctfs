@@ -41,16 +41,9 @@ test_that("Chave.AGB works with inputs in example", {
   expect_equal(length(AGBmoist), length(testdbh))
 })
 
-# Make tests and document results of
-# Chave.AGB works
-# predht.asym works
-# end vignette biomass ----
-
-
-
-
-
-
-
-
-
+test_that("predht.asym works as shown in examples", {
+  htparam <- c(41.7, .057, .748)
+  d <- c(1, 2, 5, 10, 20, 50)
+  ht <- predht.asym(dbh = d, param = htparam)
+  expect_type(ht, "double")
+})

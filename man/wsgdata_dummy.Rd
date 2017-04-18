@@ -23,12 +23,11 @@ If you lack a real wood density table, you can use this function to create a
 dummy one. For example, this may help you to test \code{biomass.CTFSdb()} and
 \code{density.ind()}.
 
-\code{density.ind()}:
-
-There must be a table of wood density submitted (wsgdata), and this table
-must have a column sp with species names, a column plot, plus the wood
-density in a column called wsg (though the name of that column can be changed
-using the argument denscol).
+See \code{?density.ind()}, particularly notice the following: \emph{"There must be a
+table of wood density submitted (wsgdata), and this table must have a column
+sp with species names, a column plot, plus the wood density in a column
+called wsg (though the name of that column can be changed using the argument
+denscol)"}.
 }
 \examples{
 wsgdata_dummy(bci.stem1)
