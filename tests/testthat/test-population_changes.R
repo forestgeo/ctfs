@@ -7,3 +7,15 @@ test_that(
   expect_length(actual, 2)
   expect_named(actual, c("Fastest_increases", "Biggest_losses"))
 })
+
+test_that(
+  "fitSeveralAbundModel works for two censuses", {
+    
+})
+
+
+library(date)
+mod <- ctfs::fitSeveralAbundModel(
+      list(bci::bci12full1, bci::bci12full2),
+      sptable = bci::bci12spptable, mindbh = 10
+  )
