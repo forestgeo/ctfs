@@ -1,6 +1,8 @@
 # Pendent
 
-- model.littleR.Gibbs, function is terribly slow. A test took about 20 minutes to run. Consider finding bottlenecks and maybe re-writing.
+- model.littleR.Gibbs and fitSeveralAbundModel: functions are terribly slow. A test took about 20 minutes to run. Consider finding bottlenecks and maybe re-writing.
+
+- graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
 
 - remove non-standard evaluation (nse). 18 functions that used subset, which uses nse. I fixed this in model.littleR.Gibbs but other 17 functions remain. Search for more functions in base R that use non-standard evaluation and replace them for their standard evaluation equivalents.
 

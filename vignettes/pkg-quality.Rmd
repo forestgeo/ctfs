@@ -100,16 +100,8 @@ solved_with <- tibble::tribble(
   ~fun, ~msg, ~guess_solution,
   "lmerBayes", err001, "use_package('mvtnorm'), use_package('MCMCpack')",
   "mortality.eachspp", err002, "use_package('date')",
-  "mortality.eachspp", err002, "use_package('date')",
   "model.littleR.Gibbs", err003, "remove subset (non-standard evaluation)"
 )
-
-# improvements ----
-notes <- tribble(
-  ~fun, ~note, 
-  #---/-------
-  "graph.abundmodel", "transforms and has side effect; should do 1 thing"
-  )
 
 # functions that err ----
 errs <- tribble(
@@ -122,7 +114,8 @@ errs <- tribble(
   "Mortality changes", "lmerBayes", T,
   "Mortality vs. dbh", "mortality.eachspp", T,
   "Population Changes", "model.littleR.Gibbs", T,
-  "Population Changes", "graph.abundmodel", T
+  "Population Changes", "graph.abundmodel", F,
+  "Population Changes", "fitSeveralAbundModel", F,
   # "Biomass",
   # "Growth vs. DBH",
   # "ImageJ",
@@ -131,7 +124,6 @@ errs <- tribble(
 )
 errs
 left_join(errs, solved_with) %>% filter(errs)
-notes
 ```
 
 Finally, this reports if some more functions run or err. The functions, selected at random, are these:
