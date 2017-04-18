@@ -30,3 +30,18 @@ test_that("biomass.CTFSdb works with minimun inputs", {
   )
   expect_equal_to_reference(actual, "biomass_ctfsdb.rds")
 })
+
+test_that("the output is equal of density.ind before and after removing 
+  subset", {
+  dold <- density.ind_old(
+    bci::bci12full1, 
+    "bci",
+    wsgdata_dummy(bci::bci12full1)
+  )
+  dnew <- density.ind(
+    bci::bci12full1, 
+    "bci",
+    wsgdata_dummy(bci::bci12full1)
+  )
+  expect_equal(dold, dnew)
+})
