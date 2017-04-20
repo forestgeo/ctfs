@@ -96,6 +96,7 @@ err002 <- "Error in tojulian, package date was missing"
 err003 <- "Errs because uses subset, i.e. non-standard evaluation"
 err004 <- "Errs because density.ind argument wsgdata is missing"
 err005 <- paste0(err004, " and could also err because density.ind used subset")
+err006 <- "Called from: linear.model. Error in x %*% b : requires numeric/complex matrix/vector arguments"
 
 # solutions ----
 solved_with <- tibble::tribble(
@@ -124,8 +125,9 @@ errs <- tibble::tribble(
   "Biomass", "attach_if_needed", F,
   "Biomass", "biomass.CTFSdb", T,
   "Biomass", "Chave.AGB", F,
-  "Biomass", "predht.asym", F
-  # "Growth vs. DBH",
+  "Biomass", "predht.asym", F,
+  "Growth vs. DBH", "extract.growthdata", F,
+  # "Growth vs. DBH", "extract.growthdata", T,
   # "ImageJ",
   # "Plot maps",
   # "Topography",
