@@ -98,6 +98,8 @@ err004 <- "Errs because density.ind argument wsgdata is missing"
 err005 <- paste0(err004, " and could also err because density.ind used subset")
 err006 <- "Called from: linear.model. Error in x %*% b : requires numeric/complex matrix/vector arguments"
 err07 <- "need output of run.growthbin.manyspp"
+err008 <- "mandatory input files are not provided for examples"
+
 
 # solutions ----
 solved_with <- tibble::tribble(
@@ -112,7 +114,8 @@ solved_with <- tibble::tribble(
   "run.growthbin.manyspp", err006, "Unsolved. I need to traceback. problem likely in linear.model.ctr.",
   "graph.growthmodel.spp", err07, "unsolved",
   "compare.growthbinmodel", err07, "unsolved",
-  "overlay.growthbinmodel", err07, "unsolved"
+  "overlay.growthbinmodel", err07, "unsolved",
+  "fullplot.imageJ", err008, "unsolved. Should give example files for examples"
 )
 
 
@@ -142,13 +145,11 @@ errs <- tibble::tribble(
   "Growth vs. DBH", "growth.flexbin", T,
   "Growth vs. DBH", "run.growthfit.bin", T,
   "Growth vs. DBH", "run.growthbin.manyspp", T,
-  
   "Growth vs. DBH", "graph.growthmodel.spp", T,
   "Growth vs. DBH", "compare.growthbinmodel", T,
-  "Growth vs. DBH", "overlay.growthbinmodel", T
 
+  "Growth vs. DBH", "overlay.growthbinmodel", T
   
-  # "ImageJ",
   # "Plot maps",
   # "Topography",
 )

@@ -36,6 +36,13 @@ UNSAFE
 
 -- from **Calling from another function** at http://adv-r.had.co.nz/Computing-on-the-language.html
 
+POORLY DOCUMENTED
+
+- `fullplot.imageJ()` requires file that are not provided to run examples. Help file lacks background to understand how to get imageJ or how to create quadrat maps, which are mandatory input of `fullplot.imageJ()`. It provides no dummy file to test the function.
+
+
+
+
 # To deprecate
 
 - CTFSplot is no longer necessary because bci data is now available via the _bci_ package.
