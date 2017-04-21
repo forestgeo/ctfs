@@ -49,9 +49,15 @@ UNSAFE
 
 
 
-POORLY DOCUMENTED
+LACKS EXAMPLE FILE OR DATA
 
-- `fullplot.imageJ()` requires file that are not provided to run examples. Help file lacks background to understand how to get imageJ or how to create quadrat maps, which are mandatory input of `fullplot.imageJ()`. It provides no dummy file to test the function.
+- Lacks (dummy) file or data to test the function or run examples
+
+    - `fullplot.imageJ()` 
+    -    rearrangeSurveyData()`
+    -    `solve.topo()`
+
+
 
 INACURATE DOCUMENTATION
 

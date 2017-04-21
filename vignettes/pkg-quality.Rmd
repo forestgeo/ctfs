@@ -87,9 +87,9 @@ tribble(
 
 # Functionality
 
-This reports is key functions of tutorials run or err.
+This reports how many functions in tutorials run or err, and what kind of problem they are associated to.
 
-```{r}
+```{r, echo=FALSE, message=FALSE}
 # errors ----
 err001 <- "Error in llike.model.lmer, function 'dmvnorm' was missing"
 err002 <- "Error in tojulian, package date was missing"
@@ -100,6 +100,9 @@ err006 <- "Called from: linear.model. Error in x %*% b : requires numeric/comple
 err07 <- "need output of run.growthbin.manyspp"
 err008 <- "mandatory input files are not provided for examples"
 err009 <- "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
+err010 <- "Lacks a survey data object to produce, via rearrangeSurveyData, the main data that this function requires"
+
+
 
 # solutions ----
 solved_with <- tibble::tribble(
@@ -117,13 +120,9 @@ solved_with <- tibble::tribble(
   "overlay.growthbinmodel", err07, "unsolved",
   "fullplot.imageJ", err008, "unsolved. Should give example files for examples",
   "pdf.allplot", err009, "unsolved. Try replacing subset by nse equivalent",
-  "png.allplot", err009, "unsolved. Try replacing subset by nse equivalent"
+  "png.allplot", err009, "unsolved. Try replacing subset by nse equivalent",
+  "solve.topo", err010, "unsolved. Should provide an example survey object"
 )
-
-
-
-
-
 
 # functions that err ----
 errs <- tibble::tribble(
@@ -150,47 +149,25 @@ errs <- tibble::tribble(
   "Growth vs. DBH", "graph.growthmodel.spp", T,
   "Growth vs. DBH", "compare.growthbinmodel", T,
   "Growth vs. DBH", "overlay.growthbinmodel", T,
-  
   "Plot maps", "map", F,
   "Plot maps", "pdf.allplot", T,
   "Plot maps", "png.allplot", T,
-  "Plot maps", "complete.plotmap", F
-  # "Plot maps", "map", F
-  # "Topography",
+  "Plot maps", "complete.plotmap", F,
+  "Topography", "rearrangeSurveyData", F,
+  "Topography", "solve.topo", T
 )
-errs
-dplyr::left_join(errs, solved_with) %>% filter(errs)
 ```
 
-Finally, this reports if some more functions run or err. The functions, selected at random, are these:
 
-```{r, include=FALSE}
-# # Sample 30 functions at random (must run, not knit)
-# set.seed(4435)
-# library(dplyr)
-# 
-# tibble::tibble(fun = dir("./man/")) %>% 
-#   dplyr::mutate(
-#     fun = stringr::str_replace(fun, ".Rd$", "")
-#   ) %>% 
-#   dplyr::sample_n(30) %>% 
-#   dplyr::pull()
+
+```{r}
+errs %>% count(errs)
 ```
 
-```r
- [1] "regression.Bayes"         "dpois.trunc"             
- [3] "regslope.noint"           "logistic.power.mode"     
- [5] "quad.to.gxgy"             "CountByGroup"            
- [7] "angleBisector"            "ellipse"                 
- [9] "graph.growthmodel"        "order.by.rowcol"         
-[11] "nhd"                      "graph.growthmodel.spp"   
-[13] "coldata.to.imagemat"      "imageGraph"              
-[15] "fullplot.imageJ"          "rasympower"              
-[17] "residual.llike.lmerBayes" "asymp.ht"                
-[19] "logistic.standard"        "covTocorr"               
-[21] "arrangeParam.llike.2D"    "clean.demography"        
-[23] "lmerMortFixedTime"        "bootconf"                
-[25] "minum.perpdist"           "defineSDpar"             
-[27] "cartesian.to.polar"       "rsymexp"                 
-[29] "logistic.ctr"             "majoraxisreg"
+```{r}
+dplyr::left_join(errs, solved_with) %>% 
+  filter(errs) %>% 
+  print() %>%
+  select(msg)
 ```
+
