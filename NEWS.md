@@ -6,7 +6,9 @@ Dots "." in <FUNCTION.NAME> names should eventually change to underscore "_" <FU
 
 ERR
 
-- `linear.model` errs: "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
+- `pdf.allplot` Errs likely because  it calls `map()` which uses subset. "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
+
+- `linear.model` "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
 
     - `growth.flexbin()`
     - `run.growthfit.bin()`
@@ -34,11 +36,15 @@ SIDE EFFECTS
 
 UNSAFE
 
-- ~15 functions use subset. Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. It should be replaced by equivalent functions, e.g. "["
+- Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, tt should be replaced by "[". ~15 functions use subset, e.g.:
+    
+    - `map()`
 
 > ...While subset() saves typing, it’s actually difficult to use non-interactively.
 
 -- from **Calling from another function** at http://adv-r.had.co.nz/Computing-on-the-language.html
+
+
 
 POORLY DOCUMENTED
 
