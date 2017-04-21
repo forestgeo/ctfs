@@ -31,9 +31,12 @@
 
 # ctfs 0.0.0.9005
 
-Solve error with biomass.CTFSdb due to density.ind. An object was missing of dumy wood density data. The solution was to provide a dummy object produced with a new function `wsgdata_dummy()`.
+- Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
+    
+    - `biomass.CTFSdb()`
+    - `density.ind()`
 
-- To avoid non standar evaluation (not appropriate for programming), replace subset by "[" in:
+- Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by "[" in:
 
     - model.littleR.Gibbs,
     - density.ind,
