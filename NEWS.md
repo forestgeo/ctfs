@@ -1,10 +1,10 @@
-# Pendent
+# Known issues
 
 - model.littleR.Gibbs and fitSeveralAbundModel: functions are terribly slow. A test took about 20 minutes to run. Consider finding bottlenecks and maybe re-writing.
 
 - graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
 
-- remove non-standard evaluation (nse) from aproximately 15 functions that use subset.
+- ~15 functions use subset. Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. It should be replaced by equivalent functions, e.g. "["
 
 ## To deprecate
 
