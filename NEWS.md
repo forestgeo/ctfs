@@ -1,5 +1,9 @@
 # Known issues
 
+BUILD
+
+Dots "." in <FUNCTION.NAME> names should eventually change to underscore "_" <FUNCTION_NAME> to avoid conflicts in NAMESPACE, that treats functions as methods.
+
 ERR
 
 - `linear.model` errs: "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
@@ -47,7 +51,7 @@ INACURATE DOCUMENTATION
     - the new name of bci.full1 is bci12full1, 
     - of bci.stem4 is bci12stem4, 
     - of bci.spptable is bci12spptable
-    - and _bci_ also contains bci_elevation and bci_habitata
+    - and _bci_ also contains bci_elevation and bci_habitatat
 
 
 
