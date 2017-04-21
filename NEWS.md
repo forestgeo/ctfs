@@ -42,6 +42,7 @@
     - density.ind,
     - ... (15 more to go).
 
+- Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
 
 
 
