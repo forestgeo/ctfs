@@ -1,13 +1,34 @@
 # Known issues
 
-- `growth.flexbin()` calls multiple functions until `linear.model` errs: "Error in x %*% b : requires numeric/complex matrix/vector arguments".
+ERR
+
+- `linear.model` errs: "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
+
+    - `growth.flexbin()`
+    - `run.growthfit.bin()`
+    - `run.growthbin.manyspp()`
+
+    - needs the output of `gwoth.flexibin()`
+        - `graph.growthmodel.spp()`
+        
+    - needs the output of `run.growthbin.manyspp()`
+        - `compare.growthbinmodel()`
+        - `overlay.growthbinmodel()`
+
+SLOW
 
 - Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.
 
     - model.littleR.Gibbs
     - fitSeveralAbundModel
 
+SIDE EFFECTS
+
+- `run.growthbin.manyspp()` saves object to working directory without warning on the console or description in documentation.
+
 - graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
+
+UNSAFE
 
 - ~15 functions use subset. Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. It should be replaced by equivalent functions, e.g. "["
 

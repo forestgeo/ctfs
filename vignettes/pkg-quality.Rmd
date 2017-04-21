@@ -97,6 +97,7 @@ err003 <- "Errs because uses subset, i.e. non-standard evaluation"
 err004 <- "Errs because density.ind argument wsgdata is missing"
 err005 <- paste0(err004, " and could also err because density.ind used subset")
 err006 <- "Called from: linear.model. Error in x %*% b : requires numeric/complex matrix/vector arguments"
+err07 <- "need output of run.growthbin.manyspp"
 
 # solutions ----
 solved_with <- tibble::tribble(
@@ -105,8 +106,19 @@ solved_with <- tibble::tribble(
   "mortality.eachspp", err002, "use_package('date')",
   "model.littleR.Gibbs", err003, "remove subset (non-standard evaluation)",
   "biomass.CTFSdb", err004, "provide argument wsgdata with wsgdata_dummy()",
-  "density.ind", err005, "remove subset (non-standard evaluation)"
+  "density.ind", err005, "remove subset (non-standard evaluation)",
+  "growth.flexbin", err006, "Unsolved. I need to traceback. problem likely in linear.model.ctr.",
+  "run.growthfit.bin", err006, "Unsolved. I need to traceback. problem likely in linear.model.ctr.",
+  "run.growthbin.manyspp", err006, "Unsolved. I need to traceback. problem likely in linear.model.ctr.",
+  "graph.growthmodel.spp", err07, "unsolved",
+  "compare.growthbinmodel", err07, "unsolved",
+  "overlay.growthbinmodel", err07, "unsolved"
 )
+
+
+
+
+
 
 # functions that err ----
 errs <- tibble::tribble(
@@ -127,7 +139,15 @@ errs <- tibble::tribble(
   "Biomass", "Chave.AGB", F,
   "Biomass", "predht.asym", F,
   "Growth vs. DBH", "extract.growthdata", F,
-  # "Growth vs. DBH", "extract.growthdata", T,
+  "Growth vs. DBH", "growth.flexbin", T,
+  "Growth vs. DBH", "run.growthfit.bin", T,
+  "Growth vs. DBH", "run.growthbin.manyspp", T,
+  
+  "Growth vs. DBH", "graph.growthmodel.spp", T,
+  "Growth vs. DBH", "compare.growthbinmodel", T,
+  "Growth vs. DBH", "overlay.growthbinmodel", T
+
+  
   # "ImageJ",
   # "Plot maps",
   # "Topography",
