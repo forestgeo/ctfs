@@ -40,6 +40,15 @@ POORLY DOCUMENTED
 
 - `fullplot.imageJ()` requires file that are not provided to run examples. Help file lacks background to understand how to get imageJ or how to create quadrat maps, which are mandatory input of `fullplot.imageJ()`. It provides no dummy file to test the function.
 
+INACURATE DOCUMENTATION
+
+- Documentation refers to BCI data in a way that is no longer accurate. For example, in the _bci_ package 
+
+    - the new name of bci.full1 is bci12full1, 
+    - of bci.stem4 is bci12stem4, 
+    - of bci.spptable is bci12spptable
+    - and _bci_ also contains bci_elevation and bci_habitata
+
 
 
 
