@@ -1,40 +1,25 @@
 # Known issues
 
-- model.littleR.Gibbs and fitSeveralAbundModel: functions are terribly slow. A test took about 20 minutes to run. Consider finding bottlenecks and maybe re-writing.
+- Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.
+
+    - model.littleR.Gibbs
+    - fitSeveralAbundModel
 
 - graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
 
 - ~15 functions use subset. Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. It should be replaced by equivalent functions, e.g. "["
 
-## To deprecate
+> ...While subset() saves typing, it’s actually difficult to use non-interactively.
 
-- CTFSplot. Now objects are immediately available via the bci package
+-- from **Calling from another function** at http://adv-r.had.co.nz/Computing-on-the-language.html
 
-> **Calling from another function** ...While subset() saves typing, it’s actually difficult to use non-interactively.
+# To deprecate
 
--- http://adv-r.had.co.nz/Computing-on-the-language.html
-
-- keep different branches one for enhances and another one for fixes, reports or tests.
-
-- Maybe revert in ctfs 1 Documentation improved for:
-
-    * `individual_grow.table()`: 
-        * documented @return
-        * documented @param rnd
-
-
-
-
-
-
-
+- CTFSplot is no longer necessary because bci data is now available via the bci package.
 
 # ctfs 0.0.0.9005
 
-- Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
-    
-    - `biomass.CTFSdb()`
-    - `density.ind()`
+- Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
 
 - Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by "[" in:
 
@@ -42,9 +27,12 @@
     - density.ind,
     - ... (15 more to go).
 
-- Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
+- Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
+    
+    - `biomass.CTFSdb()`
+    - `density.ind()`
 
-
+- Enhanced documentation of `individual_grow.table()`. Documented @return and @param rnd.
 
 
 
