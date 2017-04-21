@@ -8,17 +8,19 @@
 #'
 #' @description
 #'
-#' Function to draw map of one or more species from one plot. Must give the complete
-#' plot dataset, in split format (list of one dataframe per species), and one or more
-#' species code. Other arguments are optional, however, many defaults can be adjusted
-#' to get a good map on the screen or exported. This calls the functions maptopo() and map1species()
-#' for the actual mapping. 
+#' Function to draw map of one or more species from one plot. Must give the
+#' complete plot dataset, in split format (list of one dataframe per species),
+#' and one or more species code. Other arguments are optional, however, many
+#' defaults can be adjusted to get a good map on the screen or exported. This
+#' calls the functions maptopo() and map1species() for the actual mapping.
 #'
-#' A common problem is graph size, leading to an error message "Plot region too large". This happens if the export="no" option
-#' is used with the option plotside too large for the default graph size (usually 7 inches). If you use the option export="Windows", 
-#'"Mac", or "Unix", then height and width can be set with arguments ht, wd, and plotside can be as large as you please. 
+#'A common problem is graph size, leading to an error message "Plot region too
+#'large". This happens if the export="no" option is used with the option
+#'plotside too large for the default graph size (usually 7 inches). If you use
+#'the option export="Windows", "Mac", or "Unix", then height and width can be
+#'set with arguments ht, wd, and plotside can be as large as you please.
 #'
-#' @param splitdatafile A full plot dataset in list format.
+#' @param splitdatafile A full plot dataset in list format (see `?split.data`)
 #' @param species One or more species codes to be mapped.
 #' @param spplist A table with species codes and Latin names can be submitted as well, so that the full genus-species is added to plot. This must have species codes as row names. It should be the CTFS R format species table (eg, bci.spptable).
 #' @param It can be set to NULL if not available, then only the species code (as submitted) appears on the map.
