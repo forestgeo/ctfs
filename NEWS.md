@@ -6,7 +6,10 @@ Dots "." in <FUNCTION.NAME> names should eventually change to underscore "_" <FU
 
 ERR
 
-- `pdf.allplot` Errs likely because  it calls `map()` which uses subset. "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
+- Errs likely because  it calls `map()` which uses subset. "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
+
+    - `pdf.allplot()`
+    - `png.allplot()`
 
 - `linear.model` "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
 

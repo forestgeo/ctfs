@@ -99,7 +99,7 @@ err005 <- paste0(err004, " and could also err because density.ind used subset")
 err006 <- "Called from: linear.model. Error in x %*% b : requires numeric/complex matrix/vector arguments"
 err07 <- "need output of run.growthbin.manyspp"
 err008 <- "mandatory input files are not provided for examples"
-
+err009 <- "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
 
 # solutions ----
 solved_with <- tibble::tribble(
@@ -115,7 +115,9 @@ solved_with <- tibble::tribble(
   "graph.growthmodel.spp", err07, "unsolved",
   "compare.growthbinmodel", err07, "unsolved",
   "overlay.growthbinmodel", err07, "unsolved",
-  "fullplot.imageJ", err008, "unsolved. Should give example files for examples"
+  "fullplot.imageJ", err008, "unsolved. Should give example files for examples",
+  "pdf.allplot", err009, "unsolved. Try replacing subset by nse equivalent",
+  "png.allplot", err009, "unsolved. Try replacing subset by nse equivalent"
 )
 
 
@@ -149,7 +151,11 @@ errs <- tibble::tribble(
   "Growth vs. DBH", "compare.growthbinmodel", T,
   "Growth vs. DBH", "overlay.growthbinmodel", T,
   
-  "Plot maps", "map", F
+  "Plot maps", "map", F,
+  "Plot maps", "pdf.allplot", T,
+  "Plot maps", "png.allplot", T,
+  "Plot maps", "complete.plotmap", F
+  # "Plot maps", "map", F
   # "Topography",
 )
 errs
