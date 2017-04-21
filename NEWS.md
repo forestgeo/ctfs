@@ -1,5 +1,7 @@
 # Known issues
 
+- `growth.flexbin()` calls multiple functions until `linear.model` errs: "Error in x %*% b : requires numeric/complex matrix/vector arguments".
+
 - Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.
 
     - model.littleR.Gibbs
@@ -15,9 +17,51 @@
 
 # To deprecate
 
-- CTFSplot is no longer necessary because bci data is now available via the bci package.
+- CTFSplot is no longer necessary because bci data is now available via the _bci_ package.
 
 # ctfs 0.0.0.9005
+
+Fixed bugs in functions listed below that needed functions in packages _mvtnorm_ and _MCMCpack_
+
+    - `lmerBayes()`,
+    - `llike.model.lmer()` (needed function `dmvnorm()`)
+    
+Fixed bug in `tojulian()`, package "date" was missing"
+
+
+
+  "mortality.eachspp", err002, "use_package('date')",
+
+
+
+
+
+
+
+
+
+
+
+
+- Import packages via `use_package("<PACKAGE>", "Imports"): date, MCMCpack, mvtnorm
+
+- Suggest package bci, I don't import it because it is in a private repo, so the user needs to provide a private token.
+
+
+> Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).
+
+-- http://r-pkgs.had.co.nz/namespace.html
+
+- Use date::<DATE_FUNCTION> where appropriate.
+
+
+
+
+
+
+
+
+
 
 - Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
 
@@ -40,17 +84,6 @@
 
 
 
-
-- Import packages via `use_package("<PACKAGE>", "Imports"): date, MCMCpack, mvtnorm
-
-- Suggest package bci, I don't import it because it is in a private repo, so the user needs to provide a private token.
-
-
-> Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).
-
--- http://r-pkgs.had.co.nz/namespace.html
-
-- Use date::<DATE_FUNCTION> where appropriate.
 
 
 
