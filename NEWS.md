@@ -1,7 +1,5 @@
 # ctfs 0.0.0.9005
 
-**Fixed**
-
 - Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
 
 - Fixed bugs in functions listed below, they needed functions in packages
@@ -35,6 +33,8 @@
 -- http://r-pkgs.had.co.nz/namespace.html
 
 - Use date::<DATE_FUNCTION> where appropriate.
+
+- Wrote a vignette to report package quality
 
 **Known issues**
 

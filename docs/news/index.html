@@ -82,6 +82,165 @@
     </div>
 
     <div class="contents">
+    <div id="ctfs-0-0-0-9005" class="section level1">
+<h1 class="hasAnchor">
+<a href="#ctfs-0-0-0-9005" class="anchor"> </a>ctfs 0.0.0.9005</h1>
+<ul>
+<li><p>Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable <code>idlevel</code> was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.</p></li>
+<li>
+<p>Fixed bugs in functions listed below, they needed functions in packages</p>
+<ul>
+<li>
+<p><em>mvtnorm</em> and <em>MCMCpack</em></p>
+<ul>
+<li>
+<code><a href="../reference/lmerBayes.html">lmerBayes()</a></code>,</li>
+<li>
+<code><a href="../reference/llike.model.lmer.html">llike.model.lmer()</a></code> (needed function <code>dmvnorm()</code>)</li>
+</ul>
+</li>
+<li>
+<p><em>date</em></p>
+<ul>
+<li><code><a href="../reference/mortality.eachspp.html">mortality.eachspp()</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by “[” in:</p>
+<ul>
+<li>model.littleR.Gibbs,</li>
+<li>density.ind,</li>
+<li>… (15 more to go).</li>
+</ul>
+</li>
+<li>
+<p>Enhanced documentation of functions listed below by introducing <code><a href="../reference/wsgdata_dummy.html">?wsgdata_dummy()</a></code>, a function to create dummy wood density tables.</p>
+<ul>
+<li><code><a href="../reference/biomass.CTFSdb.html">biomass.CTFSdb()</a></code></li>
+<li><code><a href="../reference/density.ind.html">density.ind()</a></code></li>
+</ul>
+</li>
+<li><p>Enhanced documentation of <code><a href="../reference/individual_grow.table.html">individual_grow.table()</a></code>. Documented @return and @param rnd.</p></li>
+<li><p>Suggest package bci, doesn’t import it because bci is in a private repo, so the user needs to provide a private token.</p></li>
+</ul>
+<blockquote>
+<p>Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).</p>
+</blockquote>
+<p>– <a href="http://r-pkgs.had.co.nz/namespace.html" class="uri">http://r-pkgs.had.co.nz/namespace.html</a></p>
+<ul>
+<li><p>Use date::<date_function> where appropriate.</date_function></p></li>
+<li><p>Wrote a vignette to report package quality</p></li>
+</ul>
+<p><strong>Known issues</strong></p>
+<p>I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next under subreading.</p>
+<p>BUILD PACKAGE</p>
+<p>To build the package NAMESPACE must be amended first. The reson is that NAMESPACE treats some functions as methods. Those problematic functions contain dots “.” in their names (e.g. split.data and density.ind). To avoid this problem, the format &lt;FUNCTION.NAME&gt; should eventually change to <function_name>.</function_name></p>
+<p>ERRORS</p>
+<p>Here is a list of problems and functions that share those problems.</p>
+<ul>
+<li>
+<p>Err likely because it calls <code><a href="../reference/map.html">map()</a></code>, which in turn uses <code>subset()</code>. <code>subset()</code> should <a href="http://adv-r.had.co.nz/Computing-on-the-language.html">not be used inside functions</a>, only interactively. Functions with this problem include:</p>
+<ul>
+<li><code><a href="../reference/pdf.allplot.html">pdf.allplot()</a></code></li>
+<li><code><a href="../reference/png.allplot.html">png.allplot()</a></code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>“Error in subset.default(sppdata, gx &gt;= 0 &amp; gy &gt;= 0 &amp; gx &lt; plotdim[1] &amp; : object ‘gx’ not found”</p>
+</blockquote>
+<ul>
+<li>
+<p>Err likely because the all call <code>linear.model</code></p>
+<ul>
+<li><code><a href="../reference/growth.flexbin.html">growth.flexbin()</a></code></li>
+<li><code><a href="../reference/run.growthfit.bin.html">run.growthfit.bin()</a></code></li>
+<li><code><a href="../reference/run.growthbin.manyspp.html">run.growthbin.manyspp()</a></code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>“Error in x %*% b : requires numeric/complex matrix/vector arguments“. (Seems to be called from linear.model.ctr.) This limits running these other funtions:</p>
+</blockquote>
+<p>These did not solve the problem: <code>as.matrix(b)</code>, nor other less obvious things that I tried. Because <code><a href="../reference/linear.model.html">linear.model()</a></code> seems to work, I suspect that the problem is in some function in between the ones listed above and <code><a href="../reference/linear.model.html">linear.model()</a></code>.</p>
+<p>Related to the problem above are the problems below. These functions fail apparently because some functions that use <code><a href="../reference/linear.model.html">linear.model()</a></code> fail before:</p>
+<div class="sourceCode"><pre class="sourceCode R"><code class="sourceCode r">-<span class="st"> </span>needs the output of <span class="st">`</span><span class="dt">gwoth.flexibin()</span><span class="st">`</span>
+    -<span class="st"> `</span><span class="dt">graph.growthmodel.spp()</span><span class="st">`</span>
+    
+-<span class="st"> </span>needs the output of <span class="st">`</span><span class="dt">run.growthbin.manyspp()</span><span class="st">`</span>
+    -<span class="st"> `</span><span class="dt">compare.growthbinmodel()</span><span class="st">`</span>
+    -<span class="st"> `</span><span class="dt">overlay.growthbinmodel()</span><span class="st">`</span></code></pre></div>
+<p>Next, there are some enhances I suggest, order by priority (my opinion).</p>
+<p>UNSAFE</p>
+<ul>
+<li>
+<p>Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, tt should be replaced by “[”. ~15 functions use subset, e.g.:</p>
+<ul>
+<li><code><a href="../reference/map.html">map()</a></code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>…While subset() saves typing, it’s actually difficult to use non-interactively.</p>
+</blockquote>
+<p>– from <strong>Calling from another function</strong> at <a href="http://adv-r.had.co.nz/Computing-on-the-language.html" class="uri">http://adv-r.had.co.nz/Computing-on-the-language.html</a></p>
+<p>INACURATE DOCUMENTATION</p>
+<ul>
+<li>
+<p>Documentation refers to BCI data in a way that is no longer accurate. For example, in the <em>bci</em> package</p>
+<ul>
+<li>the new name of bci.full1 is bci12full1,</li>
+<li>of bci.stem4 is bci12stem4,</li>
+<li>of bci.spptable is bci12spptable</li>
+<li>and <em>bci</em> also contains bci_elevation and bci_habitatat</li>
+</ul>
+</li>
+</ul>
+<p>LACKS EXAMPLE FILE OR DATA</p>
+<ul>
+<li>
+<p>Lacks (dummy) file or data to test the function or run examples</p>
+<ul>
+<li><code><a href="../reference/fullplot.imageJ.html">fullplot.imageJ()</a></code></li>
+<li>rearrangeSurveyData()`</li>
+<li><code><a href="../reference/solve.topo.html">solve.topo()</a></code></li>
+</ul>
+</li>
+</ul>
+<p>SIDE EFFECTS</p>
+<ul>
+<li><p><code><a href="../reference/run.growthbin.manyspp.html">run.growthbin.manyspp()</a></code> saves object to working directory without warning on the console or description in documentation.</p></li>
+<li><p>graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.</p></li>
+</ul>
+<p>SLOW</p>
+<ul>
+<li>
+<p>Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.</p>
+<ul>
+<li>model.littleR.Gibbs</li>
+<li>fitSeveralAbundModel</li>
+</ul>
+</li>
+</ul>
+<p>TO DEPRECATE</p>
+<ul>
+<li>CTFSplot is no longer necessary because bci data is now available via the <em>bci</em> package.</li>
+</ul>
+</div>
+    <div id="ctfs-0-0-0-9004" class="section level1">
+<h1 class="hasAnchor">
+<a href="#ctfs-0-0-0-9004" class="anchor"> </a>ctfs 0.0.0.9004</h1>
+<ul>
+<li><p>Document process to build package in <code>data-raw/src2doc_make_step1.R</code> and <code>...step2.R</code></p></li>
+<li><p>Solve most important warnings during package checks. Most notably, amend NAMESPACE after documenting with roxygen. Because function names use the format function.name, roxygen exports some functions as S3 methods. This is a problem that arises during package checks. Now, this is solved by ammending NAMESPACE, but later versions should replace “.” by “_" in function names.</p></li>
+<li><p>Combine roxygen documentation and source code into a sigle file</p></li>
+<li><p>Import package date, stated as a dependency on original CTFS documentation</p></li>
+<li><p>In a vignette, report complexity of ctfs and compare with other complex and simple packages.</p></li>
+<li><p>Create and document data object month names that is presumably crucial.</p></li>
+</ul>
+</div>
     <div id="ctfs-0-0-0-9003" class="section level1">
 <h1 class="hasAnchor">
 <a href="#ctfs-0-0-0-9003" class="anchor"> </a>ctfs 0.0.0.9003</h1>
@@ -135,7 +294,6 @@ Warning: @examples [utilities_utilitiesCTFS.R#24]: mismatched braces or quotes
 Warning: @examples [utilities_utilitiesCTFS.R#96]: mismatched braces or quotes
 Warning: utilities_utilities.R:30: Section title spans multiple lines:</code></pre>
 </div>
-    NA
     </div>
   </div>
 
@@ -143,10 +301,11 @@ Warning: utilities_utilities.R:30: Section title spans multiple lines:</code></p
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#ctfs-0-0-0-9005">0.0.0.9005</a></li>
+        <li><a href="#ctfs-0-0-0-9004">0.0.0.9004</a></li>
         <li><a href="#ctfs-0-0-0-9003">0.0.0.9003</a></li>
         <li><a href="#ctfs-0-0-0-9002">0.0.0.9002</a></li>
         <li><a href="#ctfs-0-0-0-9001">0.0.0.9001</a></li>
-        <li><a href="#NA">NA</a></li>
       </ul>
     </div>
   </div>
