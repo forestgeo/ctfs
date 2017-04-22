@@ -83,11 +83,14 @@
     
     <p>Create a table of individual trees and their growth over two censuses, with many species included.</p>
 
-    <p>The option rnd is used to rounddown dbhs for certain intervals. The flag ctr is used to center the time variable,
-which is the number of years since 1960 of the interval midpoint. There is a logarithmic transformation, for which all growth&lt;=0
-is converted to mingrow. There is also a power transformation, where each growth rate is raised to the power given by powertransformation.</p>
+    <p>The flag ctr is used to center the time variable, which is the number of
+years since 1960 of the interval midpoint. There is a logarithmic
+transformation, for which all growth &lt;= 0 is converted to mingrow. There is
+also a power transformation, where each growth rate is raised to the power
+given by powertransformation.</p>
 
-    <p>In the latter, negative growths are transformed to negative, so do not need to be corrected.</p>
+    <p>In the latter, negative growths are transformed to negative, so do not need
+to be corrected.</p>
     
 
     <pre><span class='fu'>individual_grow.table</span>(<span class='kw'>cnsdata</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='no'>bci.full1</span>, <span class='no'>bci.full2</span>, <span class='no'>bci.full3</span>,
@@ -95,13 +98,61 @@ is converted to mingrow. There is also a power transformation, where each growth
   <span class='kw'>rnd</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>, <span class='fu'>rep</span>(<span class='fl'>FALSE</span>, <span class='fl'>4</span>)), <span class='kw'>mingrow</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>,
   <span class='kw'>maxdbh</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>maxerrorSD</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>maxerrorGrow</span> <span class='kw'>=</span> <span class='fl'>75</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>1992</span>,
   <span class='kw'>debug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <dl class="dl-horizontal">
+      <dt>rnd</dt>
+      <dd>used to rounddown dbhs for certain intervals. This argument
+indicates that dbhs&lt;50 mm are rounded down to 5-mm, necessary because
+saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
+growth functions in the CTFS R Package handle this.</dd>
+    </dl>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data frame where each row gives data from one individual, including:
+<ul>
+<li> <code>tag</code>: the tree’s tag number;
+</li>
+<li> <code>gx</code>, <code>gy</code>: coordinates;
+</li>
+<li> <code>species</code>: species;
+</li>
+<li> <code>dbh1</code>, <code>dbh2</code>: tree diameter at census 1 and 2;
+</li>
+<li> <code>census</code>, <code>censusfact</code>: census interval; 1 means growth between census 1
+and 2, and 2 means growth from census 2 to 3, etc. <code>census</code> and <code>censusfact</code>
+store the same information but they differ in that their values are integers
+and factors;
+</li>
+<li> <code>time</code>: mid-point of the interval over which growth was measured, centered
+on 1992. This is the format needed by lmer. The reason for centering time is
+that it is much better in linear regressions to have the x-axis near zero;
+</li>
+<li> <code>LnSize</code>: log(dbh1);
+</li>
+<li> <code>incgr</code>: untransformed growth increment; growth increment (difference in
+dbh) per year;
+</li>
+<li> <code>LnGrowth</code>: log of the growth rate, with negatives and zeroes converted to
+0.1 (from the argument mingrowth in the function);
+</li>
+<li> <code>CRGrowth</code>: cube root of growth rate; power transformation of the growth
+rate, with negatives maintained negative (exponent = 0.45). Althouth you may
+use <code>incgr</code> or <code>LnGrowth</code>, <code>CRGrowth</code> allows cleaner analyses, that need no
+assumption about negative growths.
+</li>
+</ul></p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>

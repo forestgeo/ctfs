@@ -81,15 +81,17 @@
     </div>
 
     
-    <p>Function to draw map of one or more species from one plot. Must give the complete
-plot dataset, in split format (list of one dataframe per species), and one or more
-species code. Other arguments are optional, however, many defaults can be adjusted
-to get a good map on the screen or exported. This calls the functions maptopo() and map1species()
-for the actual mapping.</p>
+    <p>Function to draw map of one or more species from one plot. Must give the
+complete plot dataset, in split format (list of one dataframe per species),
+and one or more species code. Other arguments are optional, however, many
+defaults can be adjusted to get a good map on the screen or exported. This
+calls the functions maptopo() and map1species() for the actual mapping.</p>
 
-    <p>A common problem is graph size, leading to an error message &quot;Plot region too large&quot;. This happens if the export=&quot;no&quot; option
-is used with the option plotside too large for the default graph size (usually 7 inches). If you use the option export=&quot;Windows&quot;,
-&quot;Mac&quot;, or &quot;Unix&quot;, then height and width can be set with arguments ht, wd, and plotside can be as large as you please.</p>
+    <p>A common problem is graph size, leading to an error message &quot;Plot region too
+large&quot;. This happens if the export=&quot;no&quot; option is used with the option
+plotside too large for the default graph size (usually 7 inches). If you use
+the option export=&quot;Windows&quot;, &quot;Mac&quot;, or &quot;Unix&quot;, then height and width can be
+set with arguments ht, wd, and plotside can be as large as you please.</p>
     
 
     <pre><span class='fu'>map</span>(<span class='no'>splitdatafile</span>, <span class='no'>species</span>, <span class='kw'>spplist</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>),
@@ -106,7 +108,7 @@ is used with the option plotside too large for the default graph size (usually 7
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>splitdatafile</dt>
-      <dd>A full plot dataset in list format.</dd>
+      <dd>A full plot dataset in list format (see <code>?split.data</code>)</dd>
       <dt>species</dt>
       <dd>One or more species codes to be mapped.</dd>
       <dt>spplist</dt>

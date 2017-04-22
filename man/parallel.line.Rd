@@ -4,7 +4,7 @@
 \alias{parallel.line}
 \title{parallel.line}
 \usage{
-parallel.line(b, m, x, y)
+\method{parallel}{line}(b, m, x, y)
 }
 \description{
 Finds the slope and intercept of the line parallel to a line whose slope and intercept are given,

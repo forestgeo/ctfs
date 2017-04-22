@@ -4,10 +4,10 @@
 \alias{image.dataframe}
 \title{image.dataframe}
 \usage{
-\method{image}{dataframe}(data, xcol = "x", ycol = "y", zcol = "z",
-  breaks = NULL, div = NULL, colors = NULL, xname = "x", yname = "y",
-  xrange = NULL, yrange = NULL, ptsize = 1, graphfile = NULL,
-  export = X11, newgraph = FALSE, h = 11, w = 11, plotsize = 6)
+image.dataframe(data, xcol = "x", ycol = "y", zcol = "z", breaks = NULL,
+  div = NULL, colors = NULL, xname = "x", yname = "y", xrange = NULL,
+  yrange = NULL, ptsize = 1, graphfile = NULL, export = X11,
+  newgraph = FALSE, h = 11, w = 11, plotsize = 6)
 }
 \arguments{
 \item{data}{A data frame with at least 3 columns, 2 of which are coordinates and one a numerical response at those coordinates}

@@ -35,7 +35,7 @@ These tags must be the same in each and every map file.}
 \item{subquadratsuffix}{used for map files that are smaller than 20x20m (i.e. 10x10m). They should be named clockwise from the lower left subquadrat.}
 }
 \description{
-Reads quadrat maps created by imageJ, converting the digitized pixel to coordinates within a quadrat (local coordinates).<br />
+Reads quadrat maps created by imageJ, converting the digitized pixel to coordinates within a quadrat (local coordinates).
 
 The input imageJ files must be named in a very specific way: all should have the same prefix and the quadrat names should
 have 4 digits. If there are subquadrats, the names should end with the same consistent suffixes. Only those files with this

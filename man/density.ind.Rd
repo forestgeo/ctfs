@@ -7,16 +7,24 @@
 \method{density}{ind}(df, plot, wsgdata, denscol = "wsg")
 }
 \description{
-Create a vector of wood density for each individual tree based on the species name and plot. The table of individuals, called df,
-must include a dbh and a species name, the latter named sp. There must be a table of wood density submitted (wsgdata), and this
-table must have a column sp with species names, a column plot, plus the wood density in a column called wsg (though the
-name of that column can be changed using the argument denscol). The CTFS wood-density table has this structure, but any table with those
-columns will work. If a species in the df table has a matching species name in the correct plot, its wood density is taken.
+Create a vector of wood density for each individual tree based on the species
+name and plot. The table of individuals, called df, must include a dbh and a
+species name, the latter named sp. There must be a table of wood density
+submitted (wsgdata), and this table must have a column sp with species names,
+a column plot, plus the wood density in a column called wsg (though the name
+of that column can be changed using the argument denscol). The CTFS
+wood-density table has this structure, but any table with those columns will
+work. If a species in the df table has a matching species name in the correct
+plot, its wood density is taken.
 
-If a species is not found in the correct plot, then the mean wood density of all species in the same plot is taken. The function
-fails (returns only NAs) if there are no entries for the selected plot in the wood-density table.
+If a species is not found in the correct plot, then the mean wood density of
+all species in the same plot is taken. The function fails (returns only NAs)
+if there are no entries for the selected plot in the wood-density table.
 
 Returns a vector of wood density of the same size as the df table submitted.
+
+If you need a dummy wood density table to feed the wsg argument see
+\code{?wsgdata_dummy()}.
 }
 \examples{
 \dontrun{

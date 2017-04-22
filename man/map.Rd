@@ -16,7 +16,7 @@ map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
   outfile = NULL)
 }
 \arguments{
-\item{splitdatafile}{A full plot dataset in list format.}
+\item{splitdatafile}{A full plot dataset in list format (see \code{?split.data})}
 
 \item{species}{One or more species codes to be mapped.}
 
@@ -69,15 +69,17 @@ map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
 \item{It}{can be set to NULL if not available, then only the species code (as submitted) appears on the map.}
 }
 \description{
-Function to draw map of one or more species from one plot. Must give the complete
-plot dataset, in split format (list of one dataframe per species), and one or more
-species code. Other arguments are optional, however, many defaults can be adjusted
-to get a good map on the screen or exported. This calls the functions maptopo() and map1species()
-for the actual mapping.
+Function to draw map of one or more species from one plot. Must give the
+complete plot dataset, in split format (list of one dataframe per species),
+and one or more species code. Other arguments are optional, however, many
+defaults can be adjusted to get a good map on the screen or exported. This
+calls the functions maptopo() and map1species() for the actual mapping.
 
-A common problem is graph size, leading to an error message "Plot region too large". This happens if the export="no" option
-is used with the option plotside too large for the default graph size (usually 7 inches). If you use the option export="Windows",
-"Mac", or "Unix", then height and width can be set with arguments ht, wd, and plotside can be as large as you please.
+A common problem is graph size, leading to an error message "Plot region too
+large". This happens if the export="no" option is used with the option
+plotside too large for the default graph size (usually 7 inches). If you use
+the option export="Windows", "Mac", or "Unix", then height and width can be
+set with arguments ht, wd, and plotside can be as large as you please.
 }
 \examples{
 \dontrun{

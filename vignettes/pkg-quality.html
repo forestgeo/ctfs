@@ -12,7 +12,7 @@
 
 <meta name="author" content="Mauro Lepore" />
 
-<meta name="date" content="2017-04-18" />
+<meta name="date" content="2017-04-21" />
 
 <title>Report Package Quality</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Report Package Quality</h1>
 <h4 class="author"><em>Mauro Lepore</em></h4>
-<h4 class="date"><em>2017-04-18</em></h4>
+<h4 class="date"><em>2017-04-21</em></h4>
 
 
 <div id="TOC">
@@ -140,6 +140,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt; Loading required package: lattice</span>
 <span class="co">#&gt; Loading required package: survival</span>
 <span class="co">#&gt; Loading required package: Formula</span>
+<span class="co">#&gt; Loading required package: ggplot2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'Hmisc'</span>
 <span class="co">#&gt; The following objects are masked from 'package:dplyr':</span>
@@ -279,11 +280,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt; Loading package 'assertive'.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'assertive'</span>
-<span class="co">#&gt; The following objects are masked from 'package:purrr':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     is_atomic, is_character, is_double, is_empty, is_formula,</span>
-<span class="co">#&gt;     is_function, is_integer, is_list, is_logical, is_null,</span>
-<span class="co">#&gt;     is_numeric, is_vector</span>
 <span class="co">#&gt; The following object is masked from 'package:tibble':</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     has_rownames</span>
@@ -313,9 +309,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt; The following object is masked from 'package:dplyr':</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     matches</span>
-<span class="co">#&gt; The following object is masked from 'package:purrr':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     is_null</span>
 <span class="co">#&gt; The environment contains 111 variables of which 96 are functions. </span>
 <span class="co">#&gt; Distribution of the number of input arguments to the functions:</span>
 <span class="co">#&gt;  0  1  2  3  4  5  6  7 </span>
@@ -353,92 +346,51 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="functionality" class="section level1">
 <h1>Functionality</h1>
-<p>This reports is key functions of tutorials run or err.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># errors ----</span>
-err001 &lt;-<span class="st"> &quot;Error in llike.model.lmer, function 'dmvnorm' was missing&quot;</span>
-err002 &lt;-<span class="st"> &quot;Error in tojulian, package date was missing&quot;</span>
-err003 &lt;-<span class="st"> &quot;Errs because uses subset, i.e. non-standard evaluation&quot;</span>
-err004 &lt;-<span class="st"> &quot;Errs because density.ind argument wsgdata is missing&quot;</span>
-err005 &lt;-<span class="st"> </span><span class="kw">paste0</span>(err004, <span class="st">&quot; and could also err because density.ind used subset&quot;</span>)
-
-<span class="co"># solutions ----</span>
-solved_with &lt;-<span class="st"> </span>tibble::<span class="kw">tribble</span>(
-  ~fun, ~msg, ~guess_solution,
-  <span class="st">&quot;lmerBayes&quot;</span>, err001, <span class="st">&quot;use_package('mvtnorm'), use_package('MCMCpack')&quot;</span>,
-  <span class="st">&quot;mortality.eachspp&quot;</span>, err002, <span class="st">&quot;use_package('date')&quot;</span>,
-  <span class="st">&quot;model.littleR.Gibbs&quot;</span>, err003, <span class="st">&quot;remove subset (non-standard evaluation)&quot;</span>,
-  <span class="st">&quot;biomass.CTFSdb&quot;</span>, err004, <span class="st">&quot;provide argument wsgdata with wsgdata_dummy()&quot;</span>,
-  <span class="st">&quot;density.ind&quot;</span>, err005, <span class="st">&quot;remove subset (non-standard evaluation)&quot;</span>
-)
-
-<span class="co"># functions that err ----</span>
-errs &lt;-<span class="st"> </span>tibble::<span class="kw">tribble</span>(
-  ~tutorial, ~fun, ~errs,
-  <span class="st">&quot;Growth changes&quot;</span>, <span class="st">&quot;individual_grow.table&quot;</span>, F,
-  <span class="st">&quot;Growth changes&quot;</span>, <span class="st">&quot;pospower&quot;</span>, F,
-  <span class="st">&quot;Mortality changes&quot;</span>, <span class="st">&quot;individual_mort.table&quot;</span>, F,
-  <span class="st">&quot;Mortality changes&quot;</span>, <span class="st">&quot;calcMortIndivTable&quot;</span>, F,
-  <span class="st">&quot;Mortality changes&quot;</span>, <span class="st">&quot;growth.indiv&quot;</span>, F,
-  <span class="st">&quot;Mortality changes&quot;</span>, <span class="st">&quot;lmerBayes&quot;</span>, T,
-  <span class="st">&quot;Mortality vs. dbh&quot;</span>, <span class="st">&quot;mortality.eachspp&quot;</span>, T,
-  <span class="st">&quot;Population Changes&quot;</span>, <span class="st">&quot;model.littleR.Gibbs&quot;</span>, T,
-  <span class="st">&quot;Population Changes&quot;</span>, <span class="st">&quot;graph.abundmodel&quot;</span>, F,
-  <span class="st">&quot;Population Changes&quot;</span>, <span class="st">&quot;fitSeveralAbundModel&quot;</span>, F,
-  <span class="st">&quot;Biomass&quot;</span>, <span class="st">&quot;CTFSplot&quot;</span>, F,
-  <span class="st">&quot;Biomass&quot;</span>, <span class="st">&quot;attach_if_needed&quot;</span>, F,
-  <span class="st">&quot;Biomass&quot;</span>, <span class="st">&quot;biomass.CTFSdb&quot;</span>, T,
-  <span class="st">&quot;Biomass&quot;</span>, <span class="st">&quot;Chave.AGB&quot;</span>, F,
-  <span class="st">&quot;Biomass&quot;</span>, <span class="st">&quot;predht.asym&quot;</span>, F
-  <span class="co"># &quot;Growth vs. DBH&quot;,</span>
-  <span class="co"># &quot;ImageJ&quot;,</span>
-  <span class="co"># &quot;Plot maps&quot;,</span>
-  <span class="co"># &quot;Topography&quot;,</span>
-)
-errs
-<span class="co">#&gt; # A tibble: 15 × 3</span>
-<span class="co">#&gt;              tutorial                   fun  errs</span>
-<span class="co">#&gt;                 &lt;chr&gt;                 &lt;chr&gt; &lt;lgl&gt;</span>
-<span class="co">#&gt; 1      Growth changes individual_grow.table FALSE</span>
-<span class="co">#&gt; 2      Growth changes              pospower FALSE</span>
-<span class="co">#&gt; 3   Mortality changes individual_mort.table FALSE</span>
-<span class="co">#&gt; 4   Mortality changes    calcMortIndivTable FALSE</span>
-<span class="co">#&gt; 5   Mortality changes          growth.indiv FALSE</span>
-<span class="co">#&gt; 6   Mortality changes             lmerBayes  TRUE</span>
-<span class="co">#&gt; 7   Mortality vs. dbh     mortality.eachspp  TRUE</span>
-<span class="co">#&gt; 8  Population Changes   model.littleR.Gibbs  TRUE</span>
-<span class="co">#&gt; 9  Population Changes      graph.abundmodel FALSE</span>
-<span class="co">#&gt; 10 Population Changes  fitSeveralAbundModel FALSE</span>
-<span class="co">#&gt; 11            Biomass              CTFSplot FALSE</span>
-<span class="co">#&gt; 12            Biomass      attach_if_needed FALSE</span>
-<span class="co">#&gt; 13            Biomass        biomass.CTFSdb  TRUE</span>
-<span class="co">#&gt; 14            Biomass             Chave.AGB FALSE</span>
-<span class="co">#&gt; 15            Biomass           predht.asym FALSE</span>
-dplyr::<span class="kw">left_join</span>(errs, solved_with) %&gt;%<span class="st"> </span><span class="kw">filter</span>(errs)
+<p>This reports how many functions in tutorials run or err, and what kind of problem they are associated to.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">errs %&gt;%<span class="st"> </span><span class="kw">count</span>(errs)
+<span class="co">#&gt; # A tibble: 2 × 2</span>
+<span class="co">#&gt;    errs     n</span>
+<span class="co">#&gt;   &lt;lgl&gt; &lt;int&gt;</span>
+<span class="co">#&gt; 1 FALSE    15</span>
+<span class="co">#&gt; 2  TRUE    13</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr::<span class="kw">left_join</span>(errs, solved_with) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(errs) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">print</span>() %&gt;%
+<span class="st">  </span><span class="kw">select</span>(msg)
 <span class="co">#&gt; Joining, by = &quot;fun&quot;</span>
-<span class="co">#&gt; # A tibble: 4 × 5</span>
-<span class="co">#&gt;             tutorial                 fun  errs</span>
-<span class="co">#&gt;                &lt;chr&gt;               &lt;chr&gt; &lt;lgl&gt;</span>
-<span class="co">#&gt; 1  Mortality changes           lmerBayes  TRUE</span>
-<span class="co">#&gt; 2  Mortality vs. dbh   mortality.eachspp  TRUE</span>
-<span class="co">#&gt; 3 Population Changes model.littleR.Gibbs  TRUE</span>
-<span class="co">#&gt; 4            Biomass      biomass.CTFSdb  TRUE</span>
-<span class="co">#&gt; # ... with 2 more variables: msg &lt;chr&gt;, guess_solution &lt;chr&gt;</span></code></pre></div>
-<p>Finally, this reports if some more functions run or err. The functions, selected at random, are these:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> [<span class="dv">1</span>] <span class="st">&quot;regression.Bayes&quot;</span>         <span class="st">&quot;dpois.trunc&quot;</span>             
- [<span class="dv">3</span>] <span class="st">&quot;regslope.noint&quot;</span>           <span class="st">&quot;logistic.power.mode&quot;</span>     
- [<span class="dv">5</span>] <span class="st">&quot;quad.to.gxgy&quot;</span>             <span class="st">&quot;CountByGroup&quot;</span>            
- [<span class="dv">7</span>] <span class="st">&quot;angleBisector&quot;</span>            <span class="st">&quot;ellipse&quot;</span>                 
- [<span class="dv">9</span>] <span class="st">&quot;graph.growthmodel&quot;</span>        <span class="st">&quot;order.by.rowcol&quot;</span>         
-[<span class="dv">11</span>] <span class="st">&quot;nhd&quot;</span>                      <span class="st">&quot;graph.growthmodel.spp&quot;</span>   
-[<span class="dv">13</span>] <span class="st">&quot;coldata.to.imagemat&quot;</span>      <span class="st">&quot;imageGraph&quot;</span>              
-[<span class="dv">15</span>] <span class="st">&quot;fullplot.imageJ&quot;</span>          <span class="st">&quot;rasympower&quot;</span>              
-[<span class="dv">17</span>] <span class="st">&quot;residual.llike.lmerBayes&quot;</span> <span class="st">&quot;asymp.ht&quot;</span>                
-[<span class="dv">19</span>] <span class="st">&quot;logistic.standard&quot;</span>        <span class="st">&quot;covTocorr&quot;</span>               
-[<span class="dv">21</span>] <span class="st">&quot;arrangeParam.llike.2D&quot;</span>    <span class="st">&quot;clean.demography&quot;</span>        
-[<span class="dv">23</span>] <span class="st">&quot;lmerMortFixedTime&quot;</span>        <span class="st">&quot;bootconf&quot;</span>                
-[<span class="dv">25</span>] <span class="st">&quot;minum.perpdist&quot;</span>           <span class="st">&quot;defineSDpar&quot;</span>             
-[<span class="dv">27</span>] <span class="st">&quot;cartesian.to.polar&quot;</span>       <span class="st">&quot;rsymexp&quot;</span>                 
-[<span class="dv">29</span>] <span class="st">&quot;logistic.ctr&quot;</span>             <span class="st">&quot;majoraxisreg&quot;</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 13 × 5</span>
+<span class="co">#&gt;              tutorial                    fun  errs</span>
+<span class="co">#&gt;                 &lt;chr&gt;                  &lt;chr&gt; &lt;lgl&gt;</span>
+<span class="co">#&gt; 1   Mortality changes              lmerBayes  TRUE</span>
+<span class="co">#&gt; 2   Mortality vs. dbh      mortality.eachspp  TRUE</span>
+<span class="co">#&gt; 3  Population Changes    model.littleR.Gibbs  TRUE</span>
+<span class="co">#&gt; 4             Biomass         biomass.CTFSdb  TRUE</span>
+<span class="co">#&gt; 5      Growth vs. DBH         growth.flexbin  TRUE</span>
+<span class="co">#&gt; 6      Growth vs. DBH      run.growthfit.bin  TRUE</span>
+<span class="co">#&gt; 7      Growth vs. DBH  run.growthbin.manyspp  TRUE</span>
+<span class="co">#&gt; 8      Growth vs. DBH  graph.growthmodel.spp  TRUE</span>
+<span class="co">#&gt; 9      Growth vs. DBH compare.growthbinmodel  TRUE</span>
+<span class="co">#&gt; 10     Growth vs. DBH overlay.growthbinmodel  TRUE</span>
+<span class="co">#&gt; 11          Plot maps            pdf.allplot  TRUE</span>
+<span class="co">#&gt; 12          Plot maps            png.allplot  TRUE</span>
+<span class="co">#&gt; 13         Topography             solve.topo  TRUE</span>
+<span class="co">#&gt; # ... with 2 more variables: msg &lt;chr&gt;, guess_solution &lt;chr&gt;</span>
+<span class="co">#&gt; # A tibble: 13 × 1</span>
+<span class="co">#&gt;                                                                            msg</span>
+<span class="co">#&gt;                                                                          &lt;chr&gt;</span>
+<span class="co">#&gt; 1                    Error in llike.model.lmer, function 'dmvnorm' was missing</span>
+<span class="co">#&gt; 2                                  Error in tojulian, package date was missing</span>
+<span class="co">#&gt; 3                       Errs because uses subset, i.e. non-standard evaluation</span>
+<span class="co">#&gt; 4                         Errs because density.ind argument wsgdata is missing</span>
+<span class="co">#&gt; 5  Called from: linear.model. Error in x %*% b : requires numeric/complex matr</span>
+<span class="co">#&gt; 6  Called from: linear.model. Error in x %*% b : requires numeric/complex matr</span>
+<span class="co">#&gt; 7  Called from: linear.model. Error in x %*% b : requires numeric/complex matr</span>
+<span class="co">#&gt; 8                                         need output of run.growthbin.manyspp</span>
+<span class="co">#&gt; 9                                         need output of run.growthbin.manyspp</span>
+<span class="co">#&gt; 10                                        need output of run.growthbin.manyspp</span>
+<span class="co">#&gt; 11 Error in subset.default(sppdata, gx &gt;= 0 &amp; gy &gt;= 0 &amp; gx &lt; plotdim[1] &amp;  : o</span>
+<span class="co">#&gt; 12 Error in subset.default(sppdata, gx &gt;= 0 &amp; gy &gt;= 0 &amp; gx &lt; plotdim[1] &amp;  : o</span>
+<span class="co">#&gt; 13 Lacks a survey data object to produce, via rearrangeSurveyData, the main da</span></code></pre></div>
 </div>
 
 

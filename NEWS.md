@@ -1,12 +1,50 @@
-# Known issues
+# ctfs 0.0.0.9005
+
+**Fixed**
+
+- Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
+
+- Fixed bugs in functions listed below, they needed functions in packages
+
+    - _mvtnorm_ and _MCMCpack_
+
+        - `lmerBayes()`,
+        - `llike.model.lmer()` (needed function `dmvnorm()`)
+    
+    - _date_
+
+        - `mortality.eachspp()`
+
+- Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by "[" in:
+
+    - model.littleR.Gibbs,
+    - density.ind,
+    - ... (15 more to go).
+
+- Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
+    
+    - `biomass.CTFSdb()`
+    - `density.ind()`
+
+- Enhanced documentation of `individual_grow.table()`. Documented @return and @param rnd.
+
+- Suggest package bci, doesn't import it because bci is in a private repo, so the user needs to provide a private token.
+
+> Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).
+
+-- http://r-pkgs.had.co.nz/namespace.html
+
+- Use date::<DATE_FUNCTION> where appropriate.
+
+**Known issues**
 
 I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next under subreading.
 
-## BUILD PACKAGE
+BUILD PACKAGE
 
 To build the package NAMESPACE must be amended first. The reson is that NAMESPACE treats some functions as methods. Those problematic functions contain dots "." in their names (e.g. split.data and density.ind). To avoid this problem, the format <FUNCTION.NAME> should eventually change to <FUNCTION_NAME>.
 
-## ERRORS
+ERRORS
 
 Here is a list of problems and functions that share those problems.
 
@@ -41,7 +79,7 @@ Related to the problem above are the problems below. These functions fail appare
 
 Next, there are some enhances I suggest, order by priority (my opinion).
 
-## UNSAFE
+UNSAFE
 
 - Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, tt should be replaced by "[". ~15 functions use subset, e.g.:
     
@@ -51,7 +89,7 @@ Next, there are some enhances I suggest, order by priority (my opinion).
 
 -- from **Calling from another function** at http://adv-r.had.co.nz/Computing-on-the-language.html
 
-## INACURATE DOCUMENTATION
+INACURATE DOCUMENTATION
 
 - Documentation refers to BCI data in a way that is no longer accurate. For example, in the _bci_ package 
 
@@ -61,7 +99,7 @@ Next, there are some enhances I suggest, order by priority (my opinion).
     - and _bci_ also contains bci_elevation and bci_habitatat
 
 
-## LACKS EXAMPLE FILE OR DATA
+LACKS EXAMPLE FILE OR DATA
 
 - Lacks (dummy) file or data to test the function or run examples
 
@@ -69,75 +107,22 @@ Next, there are some enhances I suggest, order by priority (my opinion).
     -    rearrangeSurveyData()`
     -    `solve.topo()`
 
-## SIDE EFFECTS
+SIDE EFFECTS
 
 - `run.growthbin.manyspp()` saves object to working directory without warning on the console or description in documentation.
 
 - graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
 
-## SLOW
+SLOW
 
 - Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.
 
     - model.littleR.Gibbs
     - fitSeveralAbundModel
 
-## TO DEPRECATE
+TO DEPRECATE
 
 - CTFSplot is no longer necessary because bci data is now available via the _bci_ package.
-
-
-
-# ctfs 0.0.0.9005
-
-- Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
-
-- Fixed bugs in functions listed below, they needed functions in packages
-
-    - _mvtnorm_ and _MCMCpack_
-
-        - `lmerBayes()`,
-        - `llike.model.lmer()` (needed function `dmvnorm()`)
-    
-    - _date_
-
-        - `mortality.eachspp()`
-
-- Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by "[" in:
-
-    - model.littleR.Gibbs,
-    - density.ind,
-    - ... (15 more to go).
-
-- Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
-    
-    - `biomass.CTFSdb()`
-    - `density.ind()`
-
-- Enhanced documentation of `individual_grow.table()`. Documented @return and @param rnd.
-
-- Suggest package bci, I don't import it because it is in a private repo, so the user needs to provide a private token.
-
-> Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).
-
--- http://r-pkgs.had.co.nz/namespace.html
-
-- Use date::<DATE_FUNCTION> where appropriate.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # ctfs 0.0.0.9004
 

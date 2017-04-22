@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>parallel.line — parallel.line â€¢ ctfs</title>
+<title>Create a dummy wsgdata data set — wsgdata_dummy â€¢ ctfs</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -77,23 +77,54 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>parallel.line</h1>
+    <h1>Create a dummy wsgdata data set</h1>
     </div>
 
     
-    <p>Finds the slope and intercept of the line parallel to a line whose slope and intercept are given,
-through the points x,y. Note that the intercept is not needed. For any m that are infinite, the intercept is x.</p>
+    <p>Create a dummy wsgdata data set with random values of species density.</p>
     
 
-    <pre><span class='co'># S3 method for line</span>
-<span class='fu'>parallel</span>(<span class='no'>b</span>, <span class='no'>m</span>, <span class='no'>x</span>, <span class='no'>y</span>)</pre>
-        
+    <pre><span class='fu'>wsgdata_dummy</span>(<span class='no'>censdata</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='st'>"bci"</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <dl class="dl-horizontal">
+      <dt>censdata</dt>
+      <dd>Census data, e.g. <code>bci::bci12full1</code>.</dd>
+      <dt>plot</dt>
+      <dd>An character string of length 1 giving the plot name where
+<code>censdata</code> comes from.</dd>
+    </dl>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A data frame with one row per species in <code>censdata</code> and 3 variables.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If you lack a real wood density table, you can use this function to create a
+dummy one. For example, this may help you to test <code>biomass.CTFSdb()</code> and
+<code>density.ind()</code>.</p>
+    <p>See <code>?density.ind()</code>, particularly notice the following: <em>&quot;There must be a
+table of wood density submitted (wsgdata), and this table must have a column
+sp with species names, a column plot, plus the wood density in a column
+called wsg (though the name of that column can be changed using the argument
+denscol)&quot;</em>.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>wsgdata_dummy</span>(<span class='no'>bci.stem1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in assert_engine(is_matching_regex, x, pattern, opts_regex = opts_regex,     .xname = .xname, msg = msg, what = &quot;any&quot;, na_ignore = na_ignore,     severity = severity): object &#39;bci.stem1&#39; not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
