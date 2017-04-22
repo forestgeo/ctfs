@@ -1,21 +1,35 @@
 # Known issues
 
-BUILD
+I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next under subreading.
 
-Dots "." in <FUNCTION.NAME> names should eventually change to underscore "_" <FUNCTION_NAME> to avoid conflicts in NAMESPACE, that treats functions as methods.
+## BUILD PACKAGE
 
-ERR
+To build the package NAMESPACE must be amended first. The reson is that NAMESPACE treats some functions as methods. Those problematic functions contain dots "." in their names (e.g. split.data and density.ind). To avoid this problem, the format <FUNCTION.NAME> should eventually change to <FUNCTION_NAME>.
 
-- Errs likely because  it calls `map()` which uses subset. "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
+## ERRORS
+
+Here is a list of problems and functions that share those problems.
+
+- Err likely because it calls `map()`, which in turn uses `subset()`. `subset()` should [not be used inside functions](http://adv-r.had.co.nz/Computing-on-the-language.html), only interactively. Functions with this problem include:
 
     - `pdf.allplot()`
     - `png.allplot()`
 
-- `linear.model` "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
+> "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
+
+
+
+- Err likely because the all call `linear.model`
 
     - `growth.flexbin()`
     - `run.growthfit.bin()`
     - `run.growthbin.manyspp()`
+
+> "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
+
+These did not solve the problem: `as.matrix(b)`, nor other less obvious things that I tried. Because `linear.model()` seems to work, I suspect that the problem is in some function in between the ones listed above and `linear.model()`.
+
+Related to the problem above are the problems below. These functions fail apparently because some functions that use `linear.model()` fail before:
 
     - needs the output of `gwoth.flexibin()`
         - `graph.growthmodel.spp()`
@@ -24,20 +38,10 @@ ERR
         - `compare.growthbinmodel()`
         - `overlay.growthbinmodel()`
 
-SLOW
 
-- Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.
+Next, there are some enhances I suggest, order by priority (my opinion).
 
-    - model.littleR.Gibbs
-    - fitSeveralAbundModel
-
-SIDE EFFECTS
-
-- `run.growthbin.manyspp()` saves object to working directory without warning on the console or description in documentation.
-
-- graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
-
-UNSAFE
+## UNSAFE
 
 - Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, tt should be replaced by "[". ~15 functions use subset, e.g.:
     
@@ -47,19 +51,7 @@ UNSAFE
 
 -- from **Calling from another function** at http://adv-r.had.co.nz/Computing-on-the-language.html
 
-
-
-LACKS EXAMPLE FILE OR DATA
-
-- Lacks (dummy) file or data to test the function or run examples
-
-    - `fullplot.imageJ()` 
-    -    rearrangeSurveyData()`
-    -    `solve.topo()`
-
-
-
-INACURATE DOCUMENTATION
+## INACURATE DOCUMENTATION
 
 - Documentation refers to BCI data in a way that is no longer accurate. For example, in the _bci_ package 
 
@@ -69,11 +61,32 @@ INACURATE DOCUMENTATION
     - and _bci_ also contains bci_elevation and bci_habitatat
 
 
+## LACKS EXAMPLE FILE OR DATA
 
+- Lacks (dummy) file or data to test the function or run examples
 
-# To deprecate
+    - `fullplot.imageJ()` 
+    -    rearrangeSurveyData()`
+    -    `solve.topo()`
+
+## SIDE EFFECTS
+
+- `run.growthbin.manyspp()` saves object to working directory without warning on the console or description in documentation.
+
+- graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
+
+## SLOW
+
+- Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.
+
+    - model.littleR.Gibbs
+    - fitSeveralAbundModel
+
+## TO DEPRECATE
 
 - CTFSplot is no longer necessary because bci data is now available via the _bci_ package.
+
+
 
 # ctfs 0.0.0.9005
 
