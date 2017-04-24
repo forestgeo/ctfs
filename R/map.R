@@ -334,32 +334,28 @@ map <- function(splitdatafile,
    else sppdata=data.frame(gx=numeric(),gy=numeric(),dbh=numeric(),status=character())
    
    if (is.null(deadtree)) {
-
-     # Replace the line below with all that follows until first blank line
-     # sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2])
      cond_1 <- sppdata$gx >= 0 & 
        sppdata$gy >= 0 & 
        sppdata$gx < plotdim[1] & 
        sppdata$gy < plotdim[2]
      sppdata <- sppdata[cond_1, , drop = FALSE]
-     
    } else {
      if (deadtree) {
-       # Replace the line below with all that follows until first blank line
-       # sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'D')
        cond_2 <- sppdata$gx >= 0 & 
          sppdata$gy >= 0 & 
          sppdata$gx < plotdim[1] & 
          sppdata$gy < plotdim[2] & 
          sppdata$status == 'D'
        sppdata <- sppdata[cond_2, , drop = FALSE]
-       
      } else {
-       sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'A')
+         cond_3 <- sppdata$gx >= 0 & 
+           sppdata$gy >= 0 & 
+           sppdata$gx < plotdim[1] & 
+           sppdata$gy < plotdim[2] & 
+           sppdata$status == 'A'
+       sppdata <- sppdata[cond_3, , drop = FALSE]
      }
    }
-
-     
 
    if(i==1 & !topo)
      map1species(sppdata,color=col[i],symbol=symb[i],size=size,xrange=xrange,yrange=yrange,xaxis=xaxis,yaxis=yaxis,

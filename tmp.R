@@ -1,3 +1,4 @@
+# Test map() to see if fix worked
 library(ctfs)
 load_all()
 library(bci)
