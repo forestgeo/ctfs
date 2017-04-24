@@ -334,7 +334,24 @@ map <- function(splitdatafile,
    else sppdata=data.frame(gx=numeric(),gy=numeric(),dbh=numeric(),status=character())
    
    if (is.null(deadtree)) {
-     sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2])
+
+     
+     
+     
+     
+     # sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2])
+     cond <- sppdata$gx >= 0 & 
+       sppdata$gy >= 0 & 
+       sppdata$gx < plotdim[1] & 
+       sppdata$gy < plotdim[2]
+     sppdata <- sppdata[cond, , drop = FALSE]
+     
+     
+     
+     
+     
+     
+     
    } else {
      if (deadtree) {
        sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'D')
