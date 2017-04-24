@@ -335,26 +335,25 @@ map <- function(splitdatafile,
    
    if (is.null(deadtree)) {
 
-     
-     
-     
-     
+     # Replace the line below with all that follows until first blank line
      # sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2])
-     cond <- sppdata$gx >= 0 & 
+     cond_1 <- sppdata$gx >= 0 & 
        sppdata$gy >= 0 & 
        sppdata$gx < plotdim[1] & 
        sppdata$gy < plotdim[2]
-     sppdata <- sppdata[cond, , drop = FALSE]
-     
-     
-     
-     
-     
-     
+     sppdata <- sppdata[cond_1, , drop = FALSE]
      
    } else {
      if (deadtree) {
-       sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'D')
+       # Replace the line below with all that follows until first blank line
+       # sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'D')
+       cond_2 <- sppdata$gx >= 0 & 
+         sppdata$gy >= 0 & 
+         sppdata$gx < plotdim[1] & 
+         sppdata$gy < plotdim[2] & 
+         sppdata$status == 'D'
+       sppdata <- sppdata[cond_2, , drop = FALSE]
+       
      } else {
        sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'A')
      }
