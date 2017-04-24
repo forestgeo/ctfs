@@ -80,7 +80,7 @@ Related to the problem above are the problems below. These functions fail appare
 Next I suggest some enhances in the order I think it makes sente to address them:
 
 UNSAFE
-
+library
 - Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, it should be replaced by "[". ~15 functions use subset, e.g.:
 
     - `map()`, which affects

@@ -259,11 +259,40 @@
 # <source>
 #' @export
 
-map=function(splitdatafile,species,spplist=NULL,plotdim=c(1000,500),xrange=c(0,plotdim[1]),yrange=c(0,plotdim[2]),elevdata=NULL,
-             cutoff=c(10,100,300,3000),size=NULL,deadtree=FALSE,maintitle='',titlepos=c(plotdim[1]/2,1.32*plotdim[2]),clrs=NULL,
-             bw=FALSE,bgcolor='white',symbols=NULL,xaxis=TRUE,yaxis=TRUE,addlegend=TRUE,legpos=c(plotdim[1]/2,1.16*plotdim[2]),legsize=0.75,
-             labsize=1.15,axisdiv=100,bty='n',ht=6,wd=9,plotside=6,axspos=0.5,topoclr='gray80',topoint=0,
-             export='no',filepath='',outfile=NULL)
+map <- function(splitdatafile,
+                species,
+                spplist = NULL,
+                plotdim = c(1000, 500),
+                xrange = c(0, plotdim[1]),
+                yrange = c(0, plotdim[2]),
+                elevdata = NULL,
+                cutoff = c(10, 100, 300, 3000),
+                size = NULL,
+                deadtree = FALSE,
+                maintitle = '',
+                titlepos = c(plotdim[1] / 2, 1.32 * plotdim[2]),
+                clrs = NULL,
+                bw = FALSE,
+                bgcolor = 'white',
+                symbols = NULL,
+                xaxis = TRUE,
+                yaxis = TRUE,
+                addlegend = TRUE,
+                legpos = c(plotdim[1] / 2, 1.16 * plotdim[2]),
+                legsize = 0.75,
+                labsize = 1.15,
+                axisdiv = 100,
+                bty = 'n',
+                ht = 6,
+                wd = 9,
+                plotside = 6,
+                axspos = 0.5,
+                topoclr = 'gray80',
+                topoint = 0,
+                export = 'no',
+                filepath = '',
+                outfile = NULL
+)
 { 
  filename=get.filename(file=outfile,path=filepath,exp=export,species=species)
  define.graphwindow(exp=export,h=ht,w=wd,file=filename)
@@ -304,9 +333,17 @@ map=function(splitdatafile,species,spplist=NULL,plotdim=c(1000,500),xrange=c(0,p
    if(species[i] %in% names(splitdatafile)) sppdata=load.species(species[i],splitdatafile)
    else sppdata=data.frame(gx=numeric(),gy=numeric(),dbh=numeric(),status=character())
    
-   if(is.null(deadtree)) sppdata=subset(sppdata,gx>=0 & gy>=0 & gx<plotdim[1] & gy<plotdim[2])
-   else if(deadtree) sppdata=subset(sppdata,gx>=0 & gy>=0 & gx<plotdim[1] & gy<plotdim[2] & status=='D') 
-   else sppdata=subset(sppdata,gx>=0 & gy>=0 & gx<plotdim[1] & gy<plotdim[2] & status=='A') 
+   if (is.null(deadtree)) {
+     sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2])
+   } else {
+     if (deadtree) {
+       sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'D')
+     } else {
+       sppdata <- subset(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] & gy < plotdim[2] & status == 'A')
+     }
+   }
+
+     
 
    if(i==1 & !topo)
      map1species(sppdata,color=col[i],symbol=symb[i],size=size,xrange=xrange,yrange=yrange,xaxis=xaxis,yaxis=yaxis,
