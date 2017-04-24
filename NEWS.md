@@ -1,6 +1,17 @@
 # ctfs 0.0.0.9005
 
-- Fixed bug in model.littleR.Gibbs. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
+- Fixed bug in `model.littleR.Gibbs()`. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
+
+- Fixed bugs in functions listed below, by replacing `subset()` by `[` in `map()` (notice that `[` is a function that subsets using standard evaluation rules but `subset()` uses non-standard evaluation and therefore `subset()` should [not be used inside functions](http://adv-r.had.co.nz/Computing-on-the-language.html).
+
+    - `pdf.allplot()`
+    - `png.allplot()`
+
+> "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
+
+Fixes with commit bc417c38; example that functions work: ebe8a601.
+
+
 
 - Fixed bugs in functions listed below, they needed functions in packages
 
@@ -47,15 +58,6 @@ To build the package NAMESPACE must be amended first. The reson is that NAMESPAC
 ERRORS
 
 Here is a list of problems and functions that share those problems.
-
-- Err likely because it calls `map()`, which in turn uses `subset()`. `subset()` should [not be used inside functions](http://adv-r.had.co.nz/Computing-on-the-language.html), only interactively. Functions with this problem include:
-
-    - `pdf.allplot()`
-    - `png.allplot()`
-
-> "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
-
-
 
 - Err likely because the all call `linear.model`
 
