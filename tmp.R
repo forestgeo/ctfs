@@ -4,18 +4,18 @@
 library(ctfs)
 load_all()
 library(bci)
+censdata <- bci::bci12full1
 
-allcns <- list(bci::bci12full1, bci::bci12full2)
+
+censdata = censdata
+plotdim = c(1000, 500)
+gridsize = 2.5
+mindbh = NULL
 
 
-old <- wavelet.allsp(
-  censdata = bci::bci12full1, plotdim=c(1000,500)
+wavelet.allsp(
+  censdata = censdata,
+  plotdim = c(1000, 500),
+  gridsize = 2.5,
+  mindbh = NULL
 )
-
-new <- 
-  
-old <- 
-
-
-
-all.equal(new, old)

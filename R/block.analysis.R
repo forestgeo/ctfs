@@ -216,54 +216,75 @@
 # <source>
 #' @export
 
-wavelet.allsp = function(censdata, plotdim=c(1000,500), gridsize=2.5, mindbh=NULL)
-{
-ptm <- proc.time()
+wavelet.allsp <- function(censdata,
+                          plotdim = c(1000, 500),
+                          gridsize = 2.5,
+                          mindbh = NULL) {
+  ptm <- proc.time()
 
-	if (is.null(mindbh)) {
-	  cond_1 <- censdata$status == "A" &
-	    !is.na(censdata$gx) &
-	    !is.na(censdata$gy) &
-	    !duplicated(censdata$tag)
-	  censdata <- censdata[cond_1, , drop = FALSE]
-	} else {
-	  cond_2 <- censdata$status == "A" &
-	    !is.na(censdata$gx) & 
-	    !is.na(censdata$gy) & 
-	    !duplicated(censdata$tag) & 
-	    censdata$dbh >= mindbh
-	  censdata <- censdata[cond_2, , drop = FALSE]
-	}
+  if (is.null(mindbh)) {
+    cond_1 <- censdata$status == "A" &
+      !is.na(censdata$gx) &
+      !is.na(censdata$gy) &
+      !duplicated(censdata$tag)
+    censdata <- censdata[cond_1, , drop = FALSE]
+  } else {
+    cond_2 <- censdata$status == "A" &
+      !is.na(censdata$gx) & 
+      !is.na(censdata$gy) & 
+      !duplicated(censdata$tag) & 
+      censdata$dbh >= mindbh
+    censdata <- censdata[cond_2, , drop = FALSE]
+  }
 
-censdata$sp = factor(censdata$sp)
-splitdata = split(censdata, censdata$sp)
+  censdata$sp <- factor(censdata$sp)
+  splitdata <- split(censdata, censdata$sp)
 
-n = length(splitdata)
+  n <- length(splitdata)
 
-variance = numeric()				# matrix for normalized variance
-sp.density = matrix(NA, ncol=2, nrow=n)		# matrix for species density
-dimnames(sp.density) = list(names(splitdata), c("number", "density"))
+  variance <- numeric()  # matrix for normalized variance
+  sp.density <- matrix(NA, ncol = 2, nrow = n)  # matrix for species density
+  dimnames(sp.density) <- list(names(splitdata), c("number", "density"))
 
-plot(c(0,100), c(0,100), type='n')
+  plot(c(0, 100), c(0, 100), type = 'n')
+  
+  for (i in 1:n) {
+    coords <- with(splitdata[[i]], data.frame(gx, gy))
+    x <- wavelet.univariate(
+      coords = coords,
+      plotdim = plotdim,
+      gridsize = gridsize,
+      k0 = 8,
+      dj = 0.15,
+      graph = FALSE
+    )
+    variance <- rbind(variance, x$E_norm)  
+    sp.density[i, 1] <- nrow(splitdata[[i]])
+    sp.density[i, 2] <- nrow(splitdata[[i]]) / (plotdim[1] * plotdim[2])
+    lines(x$scale, x$E_norm)
+    
+    if (i %in% seq(10, n + 10, 10)) {
+      cat( i, "of", n, " elapsed time = ", 
+        (proc.time()-ptm)[3]/60, "minutes" , "\n")
+    }
+  }
 
-		for (i in 1:n) 
-		{
-		coords = with( splitdata[[i]], data.frame(gx,gy) )
-		x = wavelet.univariate(coords=coords, plotdim=plotdim, gridsize=gridsize, k0=8, dj=0.15, graph=FALSE)
-		
-		variance = rbind(variance, x$E_norm)  
-		sp.density[i,1] = nrow(splitdata[[i]])
-		sp.density[i,2] = nrow(splitdata[[i]])/(plotdim[1]*plotdim[2])
-		lines(x$scale, x$E_norm)
+  dimnames(variance) <- list(names(splitdata), paste("scale", 1:ncol(variance)))
+  
+  cat( "Total elapsed time = ", (proc.time()-ptm)[3]/60, "minutes" , "\n")
 
-		if (i %in% seq(10,n+10,10))  cat( i, "of", n, " elapsed time = ", 			(proc.time()-ptm)[3]/60, "minutes" , "\n") 
-		}
-
-dimnames(variance) <- list(names(splitdata), paste("scale",1:ncol(variance)))
-
-cat( "Total elapsed time = ", (proc.time()-ptm)[3]/60, "minutes" , "\n")
-
-return(list(scale = x$scale, variance = variance, density= sp.density, plotdim=plotdim, gridsize=gridsize, UCL=x$UCL, LCL=x$LCL)) }
+  return(
+    list(
+      scale = x$scale, 
+      variance = variance, 
+      density = sp.density, 
+      plotdim = plotdim, 
+      gridsize = gridsize, 
+      UCL = x$UCL, 
+      LCL = x$LCL
+    )
+  ) 
+}
 # </source>
 # </function>
 
