@@ -28,7 +28,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
 
     - `model.littleR.Gibbs()`,
     - `density.ind()`,
-    - ... (15 more to go).
+    - `abund.manycensus()`
+    - ... (14 more to go).
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
     
@@ -80,15 +81,11 @@ Related to the problem above are the problems below. These functions fail appare
 
 ENHANCEMENTS
 
-Next I suggest some enhances in the order I think it makes sente to address them:
+Next I suggest some enhances in the order I think it makes sense to address them:
 
 UNSAFE
-library
-- Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, it should be replaced by "[". ~15 functions use subset, e.g.:
 
-    - `map()`, which affects
-        - `pdf.allplot()`
-        - `png.allplot()`
+- Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, it should be replaced by "[". ~15 functions use subset. (To find functions that use `subset()` use Edit/Find in Files.)
 
 > ...While subset() saves typing, it’s actually difficult to use non-interactively.
 
