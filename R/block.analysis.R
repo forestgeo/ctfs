@@ -123,7 +123,7 @@
 #' \dontrun{
 #' load("bci.full1.rdata") 
 #' rast1 = rasterize(, gridsize=5, plotdim=c(100,500), graph=TRUE)
-#' wv = wavelet.var(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
+#' wv = wavelet.univariate(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
 #' plots the scale of aggregation}
 #'
 #'
@@ -237,7 +237,7 @@ plot(c(0,100), c(0,100), type='n')
 		for (i in 1:n) 
 		{
 		coords = with( splitdata[[i]], data.frame(gx,gy) )
-		x = wavelet.var(coords=coords, plotdim=plotdim, gridsize=gridsize, k0=8, dj=0.15, graph=FALSE)
+		x = wavelet.univariate(coords=coords, plotdim=plotdim, gridsize=gridsize, k0=8, dj=0.15, graph=FALSE)
 		
 		variance = rbind(variance, x$E_norm)  
 		sp.density[i,1] = nrow(splitdata[[i]])
@@ -252,6 +252,46 @@ dimnames(variance) <- list(names(splitdata), paste("scale",1:ncol(variance)))
 cat( "Total elapsed time = ", (proc.time()-ptm)[3]/60, "minutes" , "\n")
 
 return(list(scale = x$scale, variance = variance, density= sp.density, plotdim=plotdim, gridsize=gridsize, UCL=x$UCL, LCL=x$LCL)) }
+
+
+
+wavelet.allsp_old = function(censdata, plotdim=c(1000,500), gridsize=2.5, mindbh=NULL)
+{
+ptm <- proc.time()
+
+	if (is.null(mindbh)) censdata = subset(censdata, status=="A" & !is.na(gx) & !is.na(gy) & !duplicated(tag))   
+	else 	censdata = subset(censdata, status=="A" & !is.na(gx) & !is.na(gy) & !duplicated(tag) & dbh>=mindbh) 
+
+censdata$sp = factor(censdata$sp)
+splitdata = split(censdata, censdata$sp)
+
+n = length(splitdata)
+
+variance = numeric()				# matrix for normalized variance
+sp.density = matrix(NA, ncol=2, nrow=n)		# matrix for species density
+dimnames(sp.density) = list(names(splitdata), c("number", "density"))
+
+plot(c(0,100), c(0,100), type='n')
+
+		for (i in 1:n) 
+		{
+		coords = with( splitdata[[i]], data.frame(gx,gy) )
+		x = wavelet.univariate(coords=coords, plotdim=plotdim, gridsize=gridsize, k0=8, dj=0.15, graph=FALSE)
+		
+		variance = rbind(variance, x$E_norm)  
+		sp.density[i,1] = nrow(splitdata[[i]])
+		sp.density[i,2] = nrow(splitdata[[i]])/(plotdim[1]*plotdim[2])
+		lines(x$scale, x$E_norm)
+
+		if (i %in% seq(10,n+10,10))  cat( i, "of", n, " elapsed time = ", 			(proc.time()-ptm)[3]/60, "minutes" , "\n") 
+		}
+
+dimnames(variance) <- list(names(splitdata), paste("scale",1:ncol(variance)))
+
+cat( "Total elapsed time = ", (proc.time()-ptm)[3]/60, "minutes" , "\n")
+
+return(list(scale = x$scale, variance = variance, density= sp.density, plotdim=plotdim, gridsize=gridsize, UCL=x$UCL, LCL=x$LCL)) }
+
 # </source>
 # </function>
 
@@ -389,7 +429,7 @@ return(f)
 # <sample>
 # load("bci.full1.rdata") <br>
 # rast1 = rasterize(, gridsize=5, plotdim=c(100,500), graph=TRUE)<br>
-# wv = wavelet.var(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)<br>
+# wv = wavelet.univariate(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)<br>
 # plots the scale of aggregation<br>
 # </sample>
 

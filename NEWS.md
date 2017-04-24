@@ -1,5 +1,7 @@
 # ctfs 0.0.0.9005
 
+- Fixed one problem in `wavelet.univariate()`, which erroneously refered to `wavelet.univariate()` as `wavelet.var()`. Also fixed an erroneous reference to `wavelet.var()` in examples of `wavelet.univariate()`.
+
 - Fixed bug in `model.littleR.Gibbs()`. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
 
 - Fixed bugs in functions listed below, by replacing `subset()` by `[` in `map()` (notice that `[` is a function that subsets using standard evaluation rules but `subset()` uses non-standard evaluation and therefore `subset()` should [not be used inside functions](http://adv-r.had.co.nz/Computing-on-the-language.html).
