@@ -221,9 +221,18 @@ wavelet.allsp = function(censdata, plotdim=c(1000,500), gridsize=2.5, mindbh=NUL
 ptm <- proc.time()
 
 	if (is.null(mindbh)) {
-	  censdata <- subset(censdata, status=="A" & !is.na(gx) & !is.na(gy) & !duplicated(tag))
+	  cond_1 <- censdata$status == "A" &
+	    !is.na(censdata$gx) &
+	    !is.na(censdata$gy) &
+	    !duplicated(censdata$tag)
+	  censdata <- censdata[cond_1, , drop = FALSE]
 	} else {
-	  censdata <- subset(censdata, status=="A" & !is.na(gx) & !is.na(gy) & !duplicated(tag) & dbh>=mindbh)
+	  cond_2 <- censdata$status == "A" &
+	    !is.na(censdata$gx) & 
+	    !is.na(censdata$gy) & 
+	    !duplicated(censdata$tag) & 
+	    censdata$dbh >= mindbh
+	  censdata <- censdata[cond_2, , drop = FALSE]
 	}
 
 censdata$sp = factor(censdata$sp)
