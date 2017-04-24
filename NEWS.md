@@ -15,8 +15,8 @@
 
 - Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by "[" in:
 
-    - model.littleR.Gibbs,
-    - density.ind,
+    - `model.littleR.Gibbs()`,
+    - `density.ind()`,
     - ... (15 more to go).
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
@@ -38,7 +38,7 @@
 
 **Known issues**
 
-I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next under subreading.
+I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
 
 BUILD PACKAGE
 
@@ -77,13 +77,15 @@ Related to the problem above are the problems below. These functions fail appare
         - `overlay.growthbinmodel()`
 
 
-Next, there are some enhances I suggest, order by priority (my opinion).
+Next I suggest some enhances in the order I think it makes sente to address them:
 
 UNSAFE
 
-- Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, tt should be replaced by "[". ~15 functions use subset, e.g.:
-    
-    - `map()`
+- Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, it should be replaced by "[". ~15 functions use subset, e.g.:
+
+    - `map()`, which affects
+        - `pdf.allplot()`
+        - `png.allplot()`
 
 > ...While subset() saves typing, it’s actually difficult to use non-interactively.
 
