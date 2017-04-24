@@ -5,7 +5,7 @@ test_that("extract.growthdata works with minimum arguments", {
   cns2 <- bci::bci12full2
   actual <- extract.growthdata(cns1, cns2)
   expect_true(is.data.frame(actual))
-  expect_equal_to_reference(actual, "extract.growthdata.rds")
+  expect_equal_to_reference(actual, "ref_extract_growthdata.rds")
 })
 
 

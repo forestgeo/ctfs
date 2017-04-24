@@ -26,7 +26,7 @@ test_that(
 test_that(
   "growth.indiv works with bci12full6 and bci12full7 with defaults", {
     actual <- growth.indiv(bci::bci12full6, bci::bci12full7)
-    expect_equal_to_reference(actual, "ref_growth.indiv.rds")
+    expect_equal_to_reference(actual, "ref_growth_indiv.rds")
   }
 )
 
