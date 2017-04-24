@@ -81,6 +81,13 @@ Related to the problem above are the problems below. These functions fail appare
         - `compare.growthbinmodel()`
         - `overlay.growthbinmodel()`
 
+
+- `wavelet.allsp()` errs with message:
+
+> "Error in dimnames(variance) <- list(names(splitdata), paste("scale", 1:ncol(variance))) : length of 'dimnames' [1] not equal to array extent"
+
+Also, `wavelet.allsp()` uses `with()`, which may cause problems because it uses non-standard evaluation.
+
 ENHANCEMENTS
 
 Next I suggest some enhances in the order I think it makes sense to address them:
