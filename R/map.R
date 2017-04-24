@@ -348,7 +348,7 @@ map <- function(splitdatafile,
          sppdata$status == 'D'
        sppdata <- sppdata[cond_2, , drop = FALSE]
      } else {
-         cond_3 <- sppdata$gx >= 0 & 
+       cond_3 <- sppdata$gx >= 0 & 
            sppdata$gy >= 0 & 
            sppdata$gx < plotdim[1] & 
            sppdata$gy < plotdim[2] & 
