@@ -28,7 +28,7 @@ test_that("biomass.CTFSdb works with minimun inputs", {
     bci::bci12full1, 
     wsgdata = wsgdata
   )
-  expect_equal_to_reference(actual, "biomass_ctfsdb.rds")
+  expect_equal_to_reference(actual, "ref_biomass_ctfsdb.rds")
 })
 
 
