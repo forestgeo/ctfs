@@ -8,7 +8,7 @@ test_that(
         bci::bci12full5
       )
     )
-    expect_equal_to_reference(actual, "ref_individual_mort.table.rds")
+    expect_equal_to_reference(actual, "ref_individual_mort_table.rds")
     expect_is(actual, "data.frame")
   }
 )
