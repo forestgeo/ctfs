@@ -640,6 +640,41 @@ abund.manycensus=function(allcns=list(bci.full1,bci.full2,bci.full3),mindbh,dbhu
  getcol=pst(symb,'.',as.character(1:2))
  
  result=assemble.demography(pop.change(allcns[[1]],allcns[[2]],split1=allcns[[1]]$sp,mindbh=mindbh,dbhunit=dbhunit,type=type),type=innertype)
+ final <- result[getcol]
+ colnames(final)=getcol
+ 
+ if(nocns>2) for(j in 2:(nocns-1))
+   final[,pst(symb,as.character(j+1))]=
+     assemble.demography(pop.change(allcns[[j]],allcns[[j+1]],split1=allcns[[1]]$sp,mindbh=mindbh,dbhunit=dbhunit,type=type),type=innertype)[,pst(symb,'.2')]
+   
+ if(!is.null(excludespp)) 
+  {
+   exclude=unidentified.species(rownames(final),exactstr=excludespp)
+   final <- final[!exclude, , drop = FALSE]
+  }
+  
+ return(final)
+}  
+abund.manycensus_old=function(allcns=list(bci.full1,bci.full2,bci.full3),mindbh,dbhunit='mm',type='abund',excludespp=NULL,excludestatus=NULL)
+{
+ nocns=length(allcns)
+ exclude=numeric()
+ if(!is.null(excludestatus)) 
+     {
+      for(j in 1:nocns) for(i in 1:length(excludestatus)) exclude=c(exclude,which(allcns[[j]]$status==excludestatus[i]))
+      exclude=unique(exclude)
+      if(length(exclude)>0) for(j in 1:nocns) allcns[[j]]=allcns[[j]][-exclude,]
+     }
+   
+ if(type=='abund') innertype='a'
+ else innertype=type
+ 
+ if(type=='abund') symb='N'
+ else if(type=='agb') symb='AGB'
+ else symb='BA'
+ getcol=pst(symb,'.',as.character(1:2))
+ 
+ result=assemble.demography(pop.change(allcns[[1]],allcns[[2]],split1=allcns[[1]]$sp,mindbh=mindbh,dbhunit=dbhunit,type=type),type=innertype)
  final=subset(result,select=getcol)
  colnames(final)=getcol
  
