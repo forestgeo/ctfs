@@ -31,6 +31,7 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `model.littleR.Gibbs()`,
     - `density.ind()`,
     - `abund.manycensus()`
+    - `individual_grow.table()`
     - ... (14 more to go).
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
@@ -38,7 +39,10 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `biomass.CTFSdb()`
     - `density.ind()`
 
-- Enhanced documentation of `individual_grow.table()`. Documented @return and @param rnd.
+- In `individual_grow.table()`
+
+    - enhanced documentation: @return, @param rnd, @param cnsdata
+    - enhanced source code: remove default of data argument cnsdata
 
 - Suggest package bci, doesn't import it because bci is in a private repo, so the user needs to provide a private token.
 
