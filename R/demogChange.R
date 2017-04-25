@@ -117,19 +117,17 @@
 # </sample>
 # <source>
 #' @export
-
-
-
-
-
-
-
-
-
-individual_grow.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.full4,bci.full5,bci.full6,bci.full7),powertransformation=0.45,
-                               rnd=c(FALSE,TRUE,rep(FALSE,4)),mingrow=0.1,mindbh=10,maxdbh=10000,maxerrorSD=4,maxerrorGrow=75,center=1992,debug=FALSE)
-{ 
- for(i in 1:(length(cnsdata)-1))
+individual_grow.table <- function(cnsdata,
+                                  powertransformation = 0.45,
+                                  rnd = c(FALSE, TRUE, rep(FALSE, 4)),
+                                  mingrow = 0.1,
+                                  mindbh = 10,
+                                  maxdbh = 10000,
+                                  maxerrorSD = 4,
+                                  maxerrorGrow = 75,
+                                  center = 1992,
+                                  debug = FALSE) {
+  for(i in 1:(length(cnsdata)-1))
     {
         cns=i:(i+1)
         gtbl=growth.indiv(cnsdata[[i]],cnsdata[[i+1]],rounddown=rnd[i],err.limit=maxerrorSD,maxgrow=maxerrorGrow)
@@ -138,81 +136,44 @@ individual_grow.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.fu
         gtbl$censusfact=as.factor(i)
         # browser()
         
-        # section=subset(gtbl,!is.na(incgr) & dbh1<maxdbh & dbh1>=mindbh)
         cond <- !is.na(gtbl$incgr) & gtbl$dbh1 < maxdbh & gtbl$dbh1 >= mindbh
         section <- gtbl[cond, , drop = FALSE]
         
         if(i==1) final=section
         else final=rbind(final,section)
     }
- 
- final$growth=final$incgr
- final$growth[final$incgr<=0]=mingrow
- final$LnGrowth=log(final$growth)
- final$LnSize=log(final$dbh1)-mean(log(final$dbh1))
- final$CRGrowth=pospower(final$incgr,powertransformation)
- if(debug) browser()
- 
- colnames(final)[which(colnames(final)=='sp')]='species'
- 
- final=subset(final,status2!='M',
-              select=c('treeID','tag','gx','gy','species','dbh1','dbh2','LnSize','incgr','LnGrowth','CRGrowth','time','census','censusfact'))
- if(!is.null(center)) final$time=final$time+1960-center
+  
+  final$growth=final$incgr
+  final$growth[final$incgr<=0]=mingrow
+  final$LnGrowth=log(final$growth)
+  final$LnSize=log(final$dbh1)-mean(log(final$dbh1))
+  final$CRGrowth=pospower(final$incgr,powertransformation)
+  if(debug) browser()
+  
+  colnames(final)[which(colnames(final)=='sp')]='species'
+  
+  vars <-c(
+     'treeID',
+     'tag',
+     'gx',
+     'gy',
+     'species',
+     'dbh1',
+     'dbh2',
+     'LnSize',
+     'incgr',
+     'LnGrowth',
+     'CRGrowth',
+     'time',
+     'census',
+     'censusfact'
+  )
+  final <- final[final$status2 != 'M', vars, drop = FALSE]
+  
+  if(!is.null(center)) final$time=final$time+1960-center
      
- return(final)
+  return(final)
 }
-
-
-
-individual_grow.table_old=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.full4,bci.full5,bci.full6,bci.full7),powertransformation=0.45,
-                               rnd=c(FALSE,TRUE,rep(FALSE,4)),mingrow=0.1,mindbh=10,maxdbh=10000,maxerrorSD=4,maxerrorGrow=75,center=1992,debug=FALSE)
-{ 
- for(i in 1:(length(cnsdata)-1))
-    {
-        cns=i:(i+1)
-        gtbl=growth.indiv(cnsdata[[i]],cnsdata[[i+1]],rounddown=rnd[i],err.limit=maxerrorSD,maxgrow=maxerrorGrow)
-        gtbl$time=(cnsdata[[i+1]]$date+cnsdata[[i]]$date)/(2*365.25)
-        gtbl$census=i
-        gtbl$censusfact=as.factor(i)
-        # browser()
-        
-        section=subset(gtbl,!is.na(incgr) & dbh1<maxdbh & dbh1>=mindbh)
-        
-        if(i==1) final=section
-        else final=rbind(final,section)
-    }
- 
- final$growth=final$incgr
- final$growth[final$incgr<=0]=mingrow
- final$LnGrowth=log(final$growth)
- final$LnSize=log(final$dbh1)-mean(log(final$dbh1))
- final$CRGrowth=pospower(final$incgr,powertransformation)
- if(debug) browser()
- 
- colnames(final)[which(colnames(final)=='sp')]='species'
- 
- final=subset(final,status2!='M',
-              select=c('treeID','tag','gx','gy','species','dbh1','dbh2','LnSize','incgr','LnGrowth','CRGrowth','time','census','censusfact'))
- if(!is.null(center)) final$time=final$time+1960-center
-     
- return(final)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # </source>
 # </function>
