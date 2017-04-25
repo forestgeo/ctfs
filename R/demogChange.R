@@ -197,14 +197,12 @@ individual_grow.table <- function(cnsdata,
 # <source>
 #' @export
 
-individual_mort.table = function(cnsdata,
-  mindbh = 10,
-  maxdbh = 10000,
-  alivecode = c("A", "AB", "AS"),
-  center = 1992
-)
-{ 
- for(i in 1:(length(cnsdata)-1))
+individual_mort.table <- function(cnsdata,
+                                  mindbh = 10,
+                                  maxdbh = 10000,
+                                  alivecode = c("A", "AB", "AS"),
+                                  center = 1992) { 
+  for(i in 1:(length(cnsdata)-1))
     {
         cns=i:(i+1)
         
@@ -221,20 +219,20 @@ individual_mort.table = function(cnsdata,
         else final=rbind(final,section)
     }
     
- final$interval=(final$date2-final$date)/365.25
- final$time=(final$date2+final$date)/(2*365.25)+1960-center
- 
- final=subset(final,status2!='M',select=c('treeID','tag','sp','gx','gy','dbh','interval','status2','time','census'))
- final$censusfact=as.factor(final$census)
- 
- A=rep(NA,dim(final)[1])
- for(i in 1:length(alivecode)) A[final$status2==alivecode[i]]=TRUE
- A[final$status2=='D']=FALSE
- final$fate=A
- final$status2=NULL
- 
- return(final)
-}
+  final$interval=(final$date2-final$date)/365.25
+  final$time=(final$date2+final$date)/(2*365.25)+1960-center
+  
+  final=subset(final,status2!='M',select=c('treeID','tag','sp','gx','gy','dbh','interval','status2','time','census'))
+  final$censusfact=as.factor(final$census)
+  
+  A=rep(NA,dim(final)[1])
+  for(i in 1:length(alivecode)) A[final$status2==alivecode[i]]=TRUE
+  A[final$status2=='D']=FALSE
+  final$fate=A
+  final$status2=NULL
+  
+  return(final)
+  }
 # </source>
 # </function>
 # 
