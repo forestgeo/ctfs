@@ -57,6 +57,7 @@
 #'
 #' Create a table of individual trees and their survival status over two censuses, with many species included. 
 #'
+#' @seealso individual_grow.table
 #'
 'individual_mort.table'
 
@@ -196,28 +197,19 @@ individual_grow.table <- function(cnsdata,
 # <source>
 #' @export
 
-individual_mort.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.full4,bci.full5,bci.full6,bci.full7),
-                               mindbh=10,maxdbh=10000,alivecode=c("A","AB","AS"),center=1992)
+individual_mort.table = function(cnsdata,
+  mindbh = 10,
+  maxdbh = 10000,
+  alivecode = c("A", "AB", "AS"),
+  center = 1992
+)
 { 
  for(i in 1:(length(cnsdata)-1))
     {
         cns=i:(i+1)
         
-        
-        
-        
-        
-        
-        # section=subset(cnsdata[[i]],select=c('date','treeID','tag','sp','gx','gy','dbh','status'))
-        
         vars <- c('date', 'treeID', 'tag', 'sp', 'gx', 'gy', 'dbh', 'status')
         section <- cnsdata[[i]][vars]
-        
-        
-        
-        
-        
-        
         
         section$status2=cnsdata[[i+1]]$status
         section$date2=cnsdata[[i+1]]$date
