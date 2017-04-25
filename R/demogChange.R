@@ -203,7 +203,22 @@ individual_mort.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.fu
     {
         cns=i:(i+1)
         
-        section=subset(cnsdata[[i]],select=c('date','treeID','tag','sp','gx','gy','dbh','status'))
+        
+        
+        
+        
+        
+        # section=subset(cnsdata[[i]],select=c('date','treeID','tag','sp','gx','gy','dbh','status'))
+        
+        vars <- c('date', 'treeID', 'tag', 'sp', 'gx', 'gy', 'dbh', 'status')
+        section <- cnsdata[[i]][vars]
+        
+        
+        
+        
+        
+        
+        
         section$status2=cnsdata[[i+1]]$status
         section$date2=cnsdata[[i+1]]$date
         section$census=i
