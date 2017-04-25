@@ -11,3 +11,10 @@ test_that("abund.manycensus outputs the same before and after fix", {
   )
   expect_equal_to_reference(actual, "ref_abund_manycensus.rds")
 })
+
+test_that("individual_grow.table outputs the same before and after fix", {
+  cnsdata <- list(bci::bci12full1, bci::bci12full2, bci::bci12full3)
+  actual <- individual_grow.table(cnsdata)
+  expect_equal_to_reference(actual, "ref_individual_grow_table_old.rds")
+})
+
