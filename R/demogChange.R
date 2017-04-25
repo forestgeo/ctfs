@@ -213,7 +213,10 @@ individual_mort.table <- function(cnsdata,
         section$date2=cnsdata[[i+1]]$date
         section$census=i
         
-        section=subset(section,status=='A' & dbh>=mindbh & dbh<maxdbh)
+        cond <- section$status == 'A' & 
+          section$dbh >= mindbh & 
+          section$dbh < maxdbh
+        section <- section[cond, , drop = FALSE]
         
         if(i==1) final=section
         else final=rbind(final,section)
