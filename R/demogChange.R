@@ -19,6 +19,8 @@
 #' In the latter, negative growths are transformed to negative, so do not need
 #' to be corrected.
 #' 
+#' @param cnsdata A list of census data sets, for example: 
+#'   `list(bci::bci12full1, bci::bci12full2, bci::bci12full3)`.
 #' @param rnd used to rounddown dbhs for certain intervals. This argument
 #'   indicates that dbhs<50 mm are rounded down to 5-mm, necessary because
 #'   saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
@@ -149,6 +151,7 @@ individual_grow.table=function(cnsdata=list(bci.full1,bci.full2,bci.full3,bci.fu
      
  return(final)
 }
+
 # </source>
 # </function>
 # 
