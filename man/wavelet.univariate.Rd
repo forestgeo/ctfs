@@ -44,7 +44,7 @@ graph (FALSE): logical. If TRUE, plots the wavelet variace as a function of scal
 \dontrun{
 load("bci.full1.rdata") 
 rast1 = rasterize(, gridsize=5, plotdim=c(100,500), graph=TRUE)
-wv = wavelet.var(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
+wv = wavelet.univariate(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
 plots the scale of aggregation}
 
 

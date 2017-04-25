@@ -4,13 +4,14 @@
 \alias{individual_grow.table}
 \title{individual_grow.table}
 \usage{
-individual_grow.table(cnsdata = list(bci.full1, bci.full2, bci.full3,
-  bci.full4, bci.full5, bci.full6, bci.full7), powertransformation = 0.45,
-  rnd = c(FALSE, TRUE, rep(FALSE, 4)), mingrow = 0.1, mindbh = 10,
-  maxdbh = 10000, maxerrorSD = 4, maxerrorGrow = 75, center = 1992,
-  debug = FALSE)
+individual_grow.table(cnsdata, powertransformation = 0.45, rnd = c(FALSE,
+  TRUE, rep(FALSE, 4)), mingrow = 0.1, mindbh = 10, maxdbh = 10000,
+  maxerrorSD = 4, maxerrorGrow = 75, center = 1992, debug = FALSE)
 }
 \arguments{
+\item{cnsdata}{A list of census data sets, for example:
+\code{list(bci::bci12full1, bci::bci12full2, bci::bci12full3)}.}
+
 \item{rnd}{used to rounddown dbhs for certain intervals. This argument
 indicates that dbhs<50 mm are rounded down to 5-mm, necessary because
 saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
