@@ -481,30 +481,47 @@ png.allplot=function(splitdata=bci.split6,spplist=plotspp$bci,elev=ctfs.elev$bci
 # </sample>
 # <source>
 #' @export
-
-complete.plotmap=function(cns=bci.full6,spnames=NULL, mindbh=10,export='no',nospp=3,plotdim=c(1000,500),clrlist=c('blue','green','red','yellow','gray'),
-                          ptsize=c(.45,0.3),xrange=c(0,100),yrange=c(0,100),wd=1100,ht=850,side=6,labsize=1.75,axisdiv=10,
-                          filepath='/home/condit/data/maps/',outfile='fullplotmap')
-{
- filename=get.filename(file=outfile,path=filepath,exp=export,species="FullPlot")
- define.graphwindow(exp=export,h=ht,w=wd,file=filename)
- if(export!="unix" & export!="no" & export!="mac" & export!="windows") on.exit(graphics.off())
+complete.plotmap <- function(cns = bci.full6,
+                            spnames = NULL,
+                            mindbh = 10,
+                            export = 'no',
+                            nospp = 3,
+                            plotdim = c(1000, 500),
+                            clrlist = c('blue', 'green', 'red', 'yellow', 'gray'),
+                            ptsize = c(.45, 0.3),
+                            xrange = c(0, 100),
+                            yrange = c(0, 100),
+                            wd = 1100,
+                            ht = 850,
+                            side = 6,
+                            labsize = 1.75,
+                            axisdiv = 10,
+                            filepath = '/home/condit/data/maps/',
+                            outfile = 'fullplotmap') {
+  filename=get.filename(file=outfile,path=filepath,exp=export,species="FullPlot")
+  define.graphwindow(exp=export,h=ht,w=wd,file=filename)
+  if(export!="unix" & export!="no" & export!="mac" & export!="windows") on.exit(graphics.off())
   
- alive=subset(cns,status=='A' & dbh>=mindbh & insideRectangle(gx,gy,xrange,yrange))
- N=table(alive$sp)
- if(is.null(spnames)) spnames=names(sort(N,decreasing=TRUE))[1:nospp]
- map1species(alive,color='black',plotdim=plotdim,plotside=side,cutoff=c(mindbh,10000),size=ptsize[2],
+  # alive=subset(cns,status=='A' & dbh>=mindbh & insideRectangle(gx,gy,xrange,yrange))
+  cond_1 <- cns$status == 'A' & 
+   cns$dbh >= mindbh & 
+   insideRectangle(cns$gx, cns$gy, xrange, yrange)
+  alive = cns[cond_1, , drop = FALSE]
+  
+  N=table(alive$sp)
+  if(is.null(spnames)) spnames=names(sort(N,decreasing=TRUE))[1:nospp]
+  map1species(alive,color='black',plotdim=plotdim,plotside=side,cutoff=c(mindbh,10000),size=ptsize[2],
              xrange=xrange,yrange=yrange,axisdiv=axisdiv,labsize=labsize)
-
- if(is.null(nospp)) return('')
- if(nospp==0) return('')
- 
- for(i in 1:nospp)
+  
+  if(is.null(nospp)) return('')
+  if(nospp==0) return('')
+  
+  for(i in 1:nospp)
    {
     onespdata=subset(alive,sp==spnames[i])
     map1species(onespdata,color=clrlist[i],cutoff=c(mindbh,10000),size=ptsize[1],add=TRUE)
    }
-}
+  }
 # </source>
 # </function>
 # 

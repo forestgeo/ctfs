@@ -8,51 +8,53 @@ library(testthat)
 load_all()
 
 # tst data ----------------------------------------------------------------
-
-gtable = growth.indiv(bci::bci12full1, bci::bci12full2, mindbh = 100)
-a_few_species = c(
-  'termam',
-  'tachve',
-  'pri2co',
-  'gustsu',
-  'cecrin',
-  'tet2pa',
-  'guatdu',
-  'vochfe',
-  'virose',
-  'maquco'
+png("complete.plotmap.png")
+complete.plotmap(
+  cns = bci::bci12full6,
+  spnames = NULL,
+  mindbh = 10,
+  export = "no",
+  nospp = 3,
+  plotdim = c(1000, 500),
+  clrlist = c("blue",
+    "green", "red", "yellow", "gray"),
+  ptsize = c(0.45, 0.3),
+  xrange = c(0,
+    100),
+  yrange = c(0, 100),
+  wd = 1100,
+  ht = 850,
+  side = 6,
+  labsize = 1.75,
+  axisdiv = 10,
+  filepath = NULL,
+  outfile = NULL
+  # filepath = "./",
+  # outfile = "complete.plotmap_src"
 )
-gtable = subset(gtable, !is.na(incgr) & sp %in% a_few_species)
-
-
-data = gtable
-ycol = 'incgr'
-xcol = 'dbh1'
-randcol = 'sp'
-start = c(1, 0)
-startSD = 1
-startCov = 1
-model = linear.model
-error = 'Gauss'
-includeCovar = FALSE
-badSDparam = badSD
-steps = 1100
-showstep = 50
-burnin = 100
-
-
-
-  for(onex in xcol) data_old=subset(data,!is.na(data[,onex]))
-  for (onex in xcol) data <- data[
-    !is.na(data[, onex]),
-     , 
-    drop = FALSE
-  ]
+dev.off()
 
 
 
 
-all.equal(data_old, data)
+
+
+
+
+
+
+
+graph.outliers.spp(
+  full,
+  trimmed,
+  spname = "gustsu"
+  fit = NULL
+  size = "agb"
+  export = NULL
+  xtitle = "log(agb)"
+  ytitle = "growth"
+)
+
 
 
 

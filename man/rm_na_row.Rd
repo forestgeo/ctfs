@@ -10,12 +10,13 @@ rm_na_row(.data)
 \item{.data}{A data frame or matrix.}
 }
 \value{
-Output is of \code{.data}.
+Output and \code{.data}. have the same type.
 }
 \description{
 Remove rows from data frame or matrix full of NA
 }
 \examples{
+library(tibble)
 df <- tibble::tribble(
 ~x,  ~y,    ~z,
  1, "a", FALSE,

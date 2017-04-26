@@ -1,18 +1,4 @@
----
-title: "Test plots"
-author: "Mauro Lepore"
-date: "`r Sys.Date()`"
-output: 
-  rmarkdown::html_vignette:
-    toc: true
-    toc_depth: 6
-vignette: >
-  %\VignetteIndexEntry{Test plots}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
-```{r setup, include=FALSE}
+## ----setup, include=FALSE------------------------------------------------
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
@@ -26,11 +12,8 @@ knitr::opts_chunk$set(
 
 library(ctfs)
 library(knitr)
-```
 
-### `graph.outliers.spp()`
-
-```{r, include=FALSE, error=TRUE}
+## ---- eval = T, include=FALSE, error=TRUE--------------------------------
 full <- extract.growthdata(
   census1 = bci::bci12full1,
   census2 = bci::bci12full2,
@@ -67,24 +50,17 @@ png("actual_graph_outliers_spp.png")
     ytitle = "growth"
   )
 dev.off()
-```
 
-```{r fig.cap="Reference"}
+## ----fig.cap="Reference"-------------------------------------------------
 include_graphics("ref_graph_outliers_spp.png")
-```
 
-```{r fig.cap="Actual"}
+## ----fig.cap="Actual"----------------------------------------------------
 include_graphics("actual_graph_outliers_spp.png")
-```
 
-```{r echo=TRUE}
+## ------------------------------------------------------------------------
 extract.growthdata
-```
 
-
-### `complete.plotmap()`
-
-```{r, include=FALSE}
+## ---- include=FALSE------------------------------------------------------
 png("actual_complete_plotmap.png")
 complete.plotmap(
   cns = bci::bci12full6,
@@ -108,22 +84,13 @@ complete.plotmap(
   outfile = NULL
 )
 dev.off()
-```
 
-```{r fig.cap="Reference"}
+## ----fig.cap="Reference"-------------------------------------------------
 include_graphics("ref_complete_plotmap.png")
-```
 
-```{r fig.cap="Actual"}
+## ----fig.cap="Actual"----------------------------------------------------
 include_graphics("actual_complete_plotmap.png")
-```
 
-```{r, echo=TRUE}
+## ------------------------------------------------------------------------
 complete.plotmap
-```
-
-
-
-
-
 
