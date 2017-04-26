@@ -399,7 +399,7 @@ graph.outliers.spp <- function(full,
                               export = NULL,
                               xtitle = 'log(agb)',
                               ytitle = 'growth') {
-  full <- full[full$sp == spname, , drop == FALSE]
+  full <- full[full$sp == spname, , drop = FALSE]
   
   trimmed <- trimmed[trimmed$sp == spname, , drop = FALSE]
   
