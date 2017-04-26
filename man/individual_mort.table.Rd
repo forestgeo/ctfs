@@ -4,10 +4,12 @@
 \alias{individual_mort.table}
 \title{individual_mort.table}
 \usage{
-individual_mort.table(cnsdata = list(bci.full1, bci.full2, bci.full3,
-  bci.full4, bci.full5, bci.full6, bci.full7), mindbh = 10, maxdbh = 10000,
+individual_mort.table(cnsdata, mindbh = 10, maxdbh = 10000,
   alivecode = c("A", "AB", "AS"), center = 1992)
 }
 \description{
 Create a table of individual trees and their survival status over two censuses, with many species included.
+}
+\seealso{
+individual_grow.table
 }

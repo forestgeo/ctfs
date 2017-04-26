@@ -225,7 +225,21 @@ individual_mort.table <- function(cnsdata,
   final$interval=(final$date2-final$date)/365.25
   final$time=(final$date2+final$date)/(2*365.25)+1960-center
   
-  final=subset(final,status2!='M',select=c('treeID','tag','sp','gx','gy','dbh','interval','status2','time','census'))
+  vars <- c(
+    'treeID',
+    'tag',
+    'sp',
+    'gx',
+    'gy',
+    'dbh',
+    'interval',
+    'status2',
+    'time',
+    'census'
+  )
+  final <- final[final$status2 != 'M', vars, drop = FALSE]
+  final <- rm_na_row(final)
+  
   final$censusfact=as.factor(final$census)
   
   A=rep(NA,dim(final)[1])
