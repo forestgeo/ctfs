@@ -63,7 +63,6 @@ test_that("lmerBayes outputs the same before and after fix", {
 expect_equal_to_reference(actual, "ref_lmerBayes_old.rds")
 })
 
-xxx now replace subset by [
 
 
 
