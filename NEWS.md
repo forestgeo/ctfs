@@ -38,7 +38,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `extract.growthdata()`
     - `graph.outliers.spp()`
     - `lmerBayes()`
-    - ... (9 more to go).
+    - `complete.plotmap()`
+    - ... (8 more to go).
     - Not yet possible because functions err:
         - `run.growthbin.manyspp()`
     - Not yet possible because functions lacks required input:

@@ -502,7 +502,6 @@ complete.plotmap <- function(cns = bci.full6,
   define.graphwindow(exp=export,h=ht,w=wd,file=filename)
   if(export!="unix" & export!="no" & export!="mac" & export!="windows") on.exit(graphics.off())
   
-  # alive=subset(cns,status=='A' & dbh>=mindbh & insideRectangle(gx,gy,xrange,yrange))
   cond_1 <- cns$status == 'A' & 
    cns$dbh >= mindbh & 
    insideRectangle(cns$gx, cns$gy, xrange, yrange)
@@ -518,7 +517,8 @@ complete.plotmap <- function(cns = bci.full6,
   
   for(i in 1:nospp)
    {
-    onespdata=subset(alive,sp==spnames[i])
+    onespdata <- alive[alive$sp == spnames[i], , drop = FALSE]
+    
     map1species(onespdata,color=clrlist[i],cutoff=c(mindbh,10000),size=ptsize[1],add=TRUE)
    }
   }
