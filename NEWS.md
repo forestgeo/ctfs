@@ -1,5 +1,7 @@
 # ctfs 0.0.0.9005
 
+- New utility functions, not-exported, to remove rows full of NAs from data frames and matrices.
+
 - Fixed one problem in `wavelet.univariate()`, which erroneously refered to `wavelet.univariate()` as `wavelet.var()`. Also fixed an erroneous reference to `wavelet.var()` in examples of `wavelet.univariate()`.
 
 - Fixed bug in `model.littleR.Gibbs()`. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
@@ -32,7 +34,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `density.ind()`,
     - `abund.manycensus()`
     - `individual_grow.table()`
-    - ... (14 more to go).
+    - `individual_mort.table()`
+    - ... (13 more to go).
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
     
@@ -99,6 +102,10 @@ Next I suggest some enhances in the order I think it makes sense to address them
 UNSAFE
 
 - Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, it should be replaced by "[". ~15 functions use subset. (To find functions that use `subset()` use Edit/Find in Files.)
+
+> **Warning:** This is a convenience function intended for use interactively. For programming it is better to use the standard subsetting functions like [, and in particular the non-standard evaluation of argument subset can have unanticipated consequences.
+
+--`?subset()`
 
 > ...While subset() saves typing, it’s actually difficult to use non-interactively.
 
