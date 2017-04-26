@@ -166,61 +166,77 @@
 # <source>
 #' @export
 
-modelBayes=function(data,ycol,xcol,start,startSD,model=logistic.standard,error='Binom',update='conjugate',badparam=NULL,
-                    sdfunc=constant,badSDparam,steps=1000,showstep=100,burnin=100,debug=FALSE,...)
-{
- data=subset(data,!is.na(data[,ycol]))
- for(onex in xcol) data=subset(data,!is.na(data[,onex]))
- 
- y=data[,ycol]
- x=data[,xcol]
- 
- if(!is.null(names(start))) parnames=names(start)
- else parnames=c('Inter',xcol)
- noparam=length(start)
-   
- param=array(dim=c(steps,noparam),dimnames=list(NULL,parnames))
- param[1,]=start
- scale=start
- scale[scale<=0]=1
- 
- # Residual standard deviation is required if error=Gauss or GaussMultResid or NegBinom. It is calculated from sdfunc and sdpar. If error==Binom, resid is ignored.
- if(error=='Gauss' | error=='GaussMultResid' | error=='NegBinom')
-    {
-	 noSDparam=length(startSD)
-	 resid=matrix(ncol=noSDparam,nrow=steps)
-	 resid[1,]=startSD
-	 scale.resid=startSD
-	 scale.resid[scale.resid<=0]=1
-	}
- else if(error=='Binom' | error=='Pois' | error=='Flat') resid=NULL 
+modelBayes <- function(data,
+                       ycol,
+                       xcol,
+                       start,
+                       startSD,
+                       model = logistic.standard,
+                       error = 'Binom',
+                       update = 'conjugate',
+                       badparam = NULL,
+                       sdfunc = constant,
+                       badSDparam,
+                       steps = 1000,
+                       showstep = 100,
+                       burnin = 100,
+                       debug = FALSE,
+                       ...) {
+  # data=subset(data,!is.na(data[,ycol]))
+  data <- data[!is.na(data[ , ycol]), , drop = FALSE]
   
- if(debug) browser()
- 
- llike=numeric()
- i=1
- # Use the function within lmer Bayes that handles a single random effect, with mu=NULL since no hyperdistribution involved
- llike[i]=llike.model.lmer(test=param[i,1],allparam=param[i,],whichtest=1,data=x,trueN=y,model=model,sdmodel=sdfunc,sdpar=resid[i,],
+  # for(onex in xcol) data=subset(data,!is.na(data[,onex]))
+  for(onex in xcol) data <- data[!is.na(data[,onex]), , drop = FALSE]
+  
+  y=data[,ycol]
+  x=data[,xcol]
+  
+  if(!is.null(names(start))) parnames=names(start)
+  else parnames=c('Inter',xcol)
+  noparam=length(start)
+   
+  param=array(dim=c(steps,noparam),dimnames=list(NULL,parnames))
+  param[1,]=start
+  scale=start
+  scale[scale<=0]=1
+  
+  # Residual standard deviation is required if error=Gauss or GaussMultResid or NegBinom. It is calculated from sdfunc and sdpar. If error==Binom, resid is ignored.
+  if(error=='Gauss' | error=='GaussMultResid' | error=='NegBinom')
+    {
+   noSDparam=length(startSD)
+   resid=matrix(ncol=noSDparam,nrow=steps)
+   resid[1,]=startSD
+   scale.resid=startSD
+   scale.resid[scale.resid<=0]=1
+  }
+  else if(error=='Binom' | error=='Pois' | error=='Flat') resid=NULL 
+  
+  if(debug) browser()
+  
+  llike=numeric()
+  i=1
+  # Use the function within lmer Bayes that handles a single random effect, with mu=NULL since no hyperdistribution involved
+  llike[i]=llike.model.lmer(test=param[i,1],allparam=param[i,],whichtest=1,data=x,trueN=y,model=model,sdmodel=sdfunc,sdpar=resid[i,],
                            errormodel=error,badparam=badparam,mu=NULL,covar=NULL,...)
- if(debug) browser()
- 
- for(i in 2:steps)
+  if(debug) browser()
+  
+  for(i in 2:steps)
   {
    ##### Update the parameters for every one of the random effects ####
     for(j in 1:noparam)
         {
          testparam=arrangeParam.Gibbs(i,j,param)
-
+  
          metropResult=metrop1step(func=llike.model.lmer,start.param=testparam[j],scale.param=scale[j],allparam=testparam,whichtest=j,
                                   data=x,trueN=drp(y),sdmodel=sdfunc,sdpar=resid[i-1,],model=model,errormodel=error,mu=NULL,
                                   badparam=badparam,adjust=1.02,target=0.25,...)
-
+  
          param[i,j]=metropResult[1]
          scale[j]=metropResult[2]
         }
-
+  
    if(debug) browser()
-
+  
    #### Update the residual standard deviation (not used for Binom error). Since the residual SD is calculated from sdfunc, each of the sdparams must be updated. 
    if(error=='Gauss' | error=='GaussMultResid' | error=='NegBinom')
       {
@@ -240,7 +256,7 @@ modelBayes=function(data,ycol,xcol,start,startSD,model=logistic.standard,error='
                              errormodel=error,badparam=badparam,mu=NULL,covar=NULL,...)
    if(debug) browser()
    if(is.infinite(llike[i])) browser()
-
+  
    #### Display progress to the screen every showstep steps ####
    if(i%%showstep==2)
       {
@@ -249,13 +265,13 @@ modelBayes=function(data,ycol,xcol,start,startSD,model=logistic.standard,error='
        cat("... resid...",round(resid[i,],3))
        cat(" ...and likelihood...",round(llike[i],1),"\n")
       }
-
-
+  
+  
   }
-
- #### Summary calculations are moved to a separate function
- result=list(resid=resid,fullparam=param,burn=burnin,steps=steps,llike=llike,obs=y,data=x,parnames=parnames,start=start)
- return(summaryModelMCMC(fit=result,model=model,error=error,sdmodel=sdfunc,badparam=badparam,paramfile=NULL,...))
+  
+  #### Summary calculations are moved to a separate function
+  result=list(resid=resid,fullparam=param,burn=burnin,steps=steps,llike=llike,obs=y,data=x,parnames=parnames,start=start)
+  return(summaryModelMCMC(fit=result,model=model,error=error,sdmodel=sdfunc,badparam=badparam,paramfile=NULL,...))
 }
 # </source>
 # </function>
