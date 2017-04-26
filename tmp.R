@@ -39,3 +39,19 @@ badSDparam = badSD
 steps = 1100
 showstep = 50
 burnin = 100
+
+
+
+data_old=subset(data,!is.na(data[,randcol]))
+
+
+
+
+
+all.equal(data_old, data)
+
+
+
+
+
+
