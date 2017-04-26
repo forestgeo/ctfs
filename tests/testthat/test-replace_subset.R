@@ -22,3 +22,7 @@ test_that("extract.growthdata outputs the same before and after fix", {
   actual <- extract.growthdata(bci::bci12full1, bci::bci12full2)
   expect_equal_to_reference(actual, "ref_extract_growthdata_old.rds")
 })
+
+
+
+
