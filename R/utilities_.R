@@ -4,7 +4,7 @@
 #' Detect rows in a data frame full of NA (accross columns)
 #'
 #' @param data 
-#' @return A logical vector of length equal to number of rows in data
+#' @return A logical vector of length equal to number of rows in data.
 #' @examples
 #' library(tibble)
 #' df <- tibble::tribble(
@@ -31,7 +31,7 @@ is_na_row <- function(.data) {
 #' Remove rows from data frame or matrix full of NA
 #'
 #' @param .data A data frame or matrix.
-#' @return Output is of `.data`.
+#' @return Output and `.data`. have the same type.
 #' @examples
 #' library(tibble)
 #' df <- tibble::tribble(
