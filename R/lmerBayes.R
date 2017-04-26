@@ -416,7 +416,9 @@ lmerBayes <- function(data,
                       burnin = 100,
                       debug = FALSE,
                       ...) {
-  data=subset(data,!is.na(data[,ycol]))
+  cond_1 <- !is.na(data[, ycol])
+  data <- data[cond_1, , drop = FALSE]
+  
   data=subset(data,!is.na(data[,randcol]))
   for(onex in xcol) data=subset(data,!is.na(data[,onex]))
   
