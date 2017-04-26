@@ -207,14 +207,6 @@
 # </sample>
 # <source>
 #' @export
-
-
-
-
-
-
-
-
 extract.growthdata = function(census1, 
                               census2,
                               growcol = "incgr",
@@ -229,56 +221,61 @@ extract.growthdata = function(census1,
                               maxgrow = 75,
                               exclude.stem.change = TRUE,
                               returnfull = FALSE) {   
-  growthtable=growthfunc(census1,census2,rounddown=rounddown,mindbh=mindbh,dbhunit=dbhunit,err.limit=err.limit,maxgrow=maxgrow,
-                        pomcut=pomcut,exclude.stem.change=exclude.stem.change)
-  growthrate=growthtable[,growcol]
-  dbh=growthtable$dbh1
-  treeID=growthtable$treeID
-  agb=growthtable$agb1
+  growthtable = growthfunc(
+    census1,
+    census2,
+    rounddown = rounddown,
+    mindbh = mindbh,
+    dbhunit = dbhunit,
+    err.limit = err.limit,
+    maxgrow = maxgrow,
+    pomcut = pomcut,
+    exclude.stem.change = exclude.stem.change
+  )
+  growthrate = growthtable[, growcol]
+  dbh = growthtable$dbh1
+  treeID = growthtable$treeID
+  agb = growthtable$agb1
   
-  if(logit=="x" | logit=="xy") 
+  if (logit == "x" | logit == "xy")
   {
-   dbh=log(growthtable$dbh1)
-   agb=log(growthtable$agb1)
+    dbh = log(growthtable$dbh1)
+    agb = log(growthtable$agb1)
   }
   
-  if(logit=="y" | logit=="xy")
+  if (logit == "y" | logit == "xy")
   {
-   growthrate[growthrate<=0]=mingrow
-   growthrate=log(growthrate)
+    growthrate[growthrate <= 0] = mingrow
+    growthrate = log(growthrate)
   }
   
-  result=data.frame(sp=I(growthtable$sp),treeID,dbh=dbh,agb=agb,growth=growthrate)
-  result=subset(result,!is.na(growth) & !is.na(dbh) & !is.na(agb) & !is.na(sp))
+  result = data.frame(
+    sp = I(growthtable$sp),
+    treeID,
+    dbh = dbh,
+    agb = agb,
+    growth = growthrate
+  )
+  
+  cond_1 <- !is.na(result$growth) & 
+    !is.na(result$dbh) & 
+    !is.na(result$agb) & 
+    !is.na(result$sp)
+  result <- result[cond_1, , drop = FALSE]
+  
   if(!returnfull) return(result)
   
-  full=subset(growthtable,!is.na(growthrate) & !is.na(dbh1) & !is.na(agb1) & !is.na(sp),select=c('sp','treeID','dbh1','dbh2','agb1','agb2','time','incgr'))
-  colnames(full)[which(colnames(full)=='incgr')]='growth'
+  cond_2 <- !is.na(growthtable$growthrate) &
+    !is.na(growthtable$dbh1) &
+    !is.na(growthtable$agb1) &
+    !is.na(growthtable$sp)
+  vars <- c('sp', 'treeID', 'dbh1', 'dbh2', 'agb1', 'agb2', 'time', 'incgr')
+  full <- growthtable[cond_2, vars, drop = FALSE]
+  
+  colnames(full)[which(colnames(full) == 'incgr')] = 'growth'
   
   if(returnfull) return(full)
-  
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 # </source>
 # </function>
 
