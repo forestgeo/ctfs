@@ -394,107 +394,126 @@
 # <source>
 #' @export
 
-lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,model=logistic.standard,error='Binom',includeCovar=TRUE,update='conjugate',badparam=NULL,
-                   sdfunc=constant,badSDparam,paramfile=NULL,savestep=500,steps=1000,showstep=100,burnin=100,debug=FALSE,...)
-{
- data=subset(data,!is.na(data[,ycol]))
- data=subset(data,!is.na(data[,randcol]))
- for(onex in xcol) data=subset(data,!is.na(data[,onex]))
- 
- y=split.data(data[,c(randcol,ycol)],splitcol=randcol)
- ally=data[,ycol]
- x=split.data(data[,c(randcol,xcol)],splitcol=randcol)
- allx=data[,xcol]
- if(debug) browser()
- 
- randeffects=names(y)
- norand=length(randeffects)
-
- if(!is.null(names(start))) parnames=names(start)
- else parnames=c('Inter',xcol)
- if(is.null(dim(start))) noparam=length(start)
- else noparam=dim(start)[2]
-
- if(is.null(dim(start))) start=matrix(start,nrow=norand,ncol=noparam,byrow=TRUE)
- else start=as.matrix(start)                       ## In case it's a data.frame
+lmerBayes <- function(data,
+                      ycol,
+                      randcol,
+                      xcol,
+                      start,
+                      fixef = NULL,
+                      startSD,
+                      startCov,
+                      model = logistic.standard,
+                      error = 'Binom',
+                      includeCovar = TRUE,
+                      update = 'conjugate',
+                      badparam = NULL,
+                      sdfunc = constant,
+                      badSDparam,
+                      paramfile = NULL,
+                      savestep = 500,
+                      steps = 1000,
+                      showstep = 100,
+                      burnin = 100,
+                      debug = FALSE,
+                      ...) {
+  data=subset(data,!is.na(data[,ycol]))
+  data=subset(data,!is.na(data[,randcol]))
+  for(onex in xcol) data=subset(data,!is.na(data[,onex]))
+  
+  y=split.data(data[,c(randcol,ycol)],splitcol=randcol)
+  ally=data[,ycol]
+  x=split.data(data[,c(randcol,xcol)],splitcol=randcol)
+  allx=data[,xcol]
+  if(debug) browser()
+  
+  randeffects=names(y)
+  norand=length(randeffects)
+  
+  if(!is.null(names(start))) parnames=names(start)
+  else parnames=c('Inter',xcol)
+  if(is.null(dim(start))) noparam=length(start)
+  else noparam=dim(start)[2]
+  
+  if(is.null(dim(start))) start=matrix(start,nrow=norand,ncol=noparam,byrow=TRUE)
+  else start=as.matrix(start)                       ## In case it's a data.frame
    
- if(is.null(paramfile)) param=array(dim=c(norand,steps,noparam),dimnames=list(randeffects,NULL,parnames))
- else param=array(dim=c(norand,savestep,noparam),dimnames=list(randeffects,NULL,parnames))
- param[,1,]=start
- scale=start
- scale[scale<=0]=1
- 
- # To include fixed effects.
- if(!is.null(fixef))
+  if(is.null(paramfile)) param=array(dim=c(norand,steps,noparam),dimnames=list(randeffects,NULL,parnames))
+  else param=array(dim=c(norand,savestep,noparam),dimnames=list(randeffects,NULL,parnames))
+  param[,1,]=start
+  scale=start
+  scale[scale<=0]=1
+  
+  # To include fixed effects.
+  if(!is.null(fixef))
   {
    nofix=length(fixef)
    fixparam=matrix(nrow=steps,ncol=nofix)
    fixparam[1,]=fixscale=fixef
    fixscale[fixscale<=0]=1
   }
- else fixparam=NULL
+  else fixparam=NULL
   
- # Residual standard deviation is required if error=Gauss, GaussMultResid, or NegBinom. It is calculated from sdfunc and sdpar. 
- # If error==Binom or Pois, resid is ignored.
- if(error=='Gauss' | error=='GaussMultResid' | error=='NegBinom')
+  # Residual standard deviation is required if error=Gauss, GaussMultResid, or NegBinom. It is calculated from sdfunc and sdpar. 
+  # If error==Binom or Pois, resid is ignored.
+  if(error=='Gauss' | error=='GaussMultResid' | error=='NegBinom')
     {
      noSDparam=length(startSD)
      resid=matrix(ncol=noSDparam,nrow=steps)
      resid[1,]=startSD
      scale.resid=startSD
      scale.resid[scale.resid<=0]=1
-	  }
- else if(error=='Binom' | error=='Pois' | error=='Flat') resid=NULL 
+    }
+  else if(error=='Binom' | error=='Pois' | error=='Flat') resid=NULL 
   
- hypermean=matrix(nrow=steps,ncol=noparam)
- colnames(hypermean)=parnames
- hypermean[1,]=colMeans(start)
- hyper.scale=hypermean[1,]
- hyper.scale[hyper.scale<=0]=1
- if(debug) browser()
- 
- covar=array(dim=c(noparam,steps,noparam),dimnames=list(parnames,NULL,parnames))
- if(includeCovar) covar[,1,]=cov(start)
- else covar[,1,]=0
- if(!includeCovar | length(which(diag(array(covar[,1,],dim=c(noparam,noparam)))==0)>0)) covar[,1,]=AssignDiag(covar[,1,],startCov)
- covar.scale=covar[,1,]
- covar.scale[covar.scale<=0]=startCov[1]
-
- sp.llike=matrix(nrow=norand,ncol=steps)
- rownames(sp.llike)=randeffects
- if(debug) browser()
-
- startfile=FALSE
- llike=numeric()
- fc=pc=1
- llike[fc]=
+  hypermean=matrix(nrow=steps,ncol=noparam)
+  colnames(hypermean)=parnames
+  hypermean[1,]=colMeans(start)
+  hyper.scale=hypermean[1,]
+  hyper.scale[hyper.scale<=0]=1
+  if(debug) browser()
+  
+  covar=array(dim=c(noparam,steps,noparam),dimnames=list(parnames,NULL,parnames))
+  if(includeCovar) covar[,1,]=cov(start)
+  else covar[,1,]=0
+  if(!includeCovar | length(which(diag(array(covar[,1,],dim=c(noparam,noparam)))==0)>0)) covar[,1,]=AssignDiag(covar[,1,],startCov)
+  covar.scale=covar[,1,]
+  covar.scale[covar.scale<=0]=startCov[1]
+  
+  sp.llike=matrix(nrow=norand,ncol=steps)
+  rownames(sp.llike)=randeffects
+  if(debug) browser()
+  
+  startfile=FALSE
+  llike=numeric()
+  fc=pc=1
+  llike[fc]=
    full.likelihood.lmerBayes(one.covar=covar[,fc,],one.param=param[,pc,,drop=FALSE],one.hyper=hypermean[fc,],model=model,fixpar=fixparam[fc,],errormodel=error,
                              data=x,obs=y,sdmodel=sdfunc,sdpar=resid[fc,],bad=badparam,...)
- if(debug) browser()
-
- #### Two different counters, so parameter matrix can be saved and emptied every savestep steps. The counter pc is reset to 2 when saving happens.
- # The hyperparameters are never emptied, so the counter fc augments steadily. 
- pc=2
- 
- for(fc in 2:steps)
+  if(debug) browser()
+  
+  #### Two different counters, so parameter matrix can be saved and emptied every savestep steps. The counter pc is reset to 2 when saving happens.
+  # The hyperparameters are never emptied, so the counter fc augments steadily. 
+  pc=2
+  
+  for(fc in 2:steps)
   {
    ##### Update the parameters for every one of the random effects ####
-	 for(k in 1:norand) 
-	   {
-	    for(j in 1:noparam)
-		    {
-		     testparam=arrangeParam.Gibbs(pc,j,param[k,,])
+   for(k in 1:norand) 
+     {
+      for(j in 1:noparam)
+  	    {
+  	     testparam=arrangeParam.Gibbs(pc,j,param[k,,])
              if(!is.null(fixef)) testparam=c(testparam,fixparam[fc-1,])
              
-		     metropResult=metrop1step(func=llike.model.lmer,start.param=testparam[j],scale.param=scale[k,j],allparam=testparam,whichtest=j,
-		                              data=drp(x[[k]]),trueN=drp(y[[k]]),sdmodel=sdfunc,sdpar=resid[fc-1,],model=model,errormodel=error,
+  	     metropResult=metrop1step(func=llike.model.lmer,start.param=testparam[j],scale.param=scale[k,j],allparam=testparam,whichtest=j,
+  	                              data=drp(x[[k]]),trueN=drp(y[[k]]),sdmodel=sdfunc,sdpar=resid[fc-1,],model=model,errormodel=error,
                                   mu=hypermean[fc-1,],covar=covar[,fc-1,],fixed=fixef,
-		                              badparam=badparam,adjust=1.02,target=0.25,...)
-		     param[k,pc,j]=metropResult[1]
-		     scale[k,j]=metropResult[2]
-		    }
-
-	   }
+  	                              badparam=badparam,adjust=1.02,target=0.25,...)
+  	     param[k,pc,j]=metropResult[1]
+  	     scale[k,j]=metropResult[2]
+  	    }
+  
+     }
    if(debug) browser()
    
    ##### Update any fixed effects using full data. Parameters for each random effect are needed for the model.
@@ -503,13 +522,13 @@ lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,mode
       for(j in 1:nofix)
           {
            testparam=arrangeParam.Gibbs(fc,j,fixparam)
-
-		   # browser()
-		   metropResult=
+  
+  	   # browser()
+  	   metropResult=
              metrop1step(func=llike.fixef.lmer,start.param=fixparam[fc-1,j],scale.param=fixscale[j],fixpar=testparam,one.param=param[,pc,,drop=FALSE],whichtest=j,
-		                 data=x,obs=y,sdmodel=sdfunc,sdpar=resid[fc-1,],model=model,errormodel=error,bad=badparam,adjust=1.02,target=0.25,...)
-		   fixparam[fc,j]=metropResult[1]
-		   fixscale[j]=metropResult[2]
+  	                 data=x,obs=y,sdmodel=sdfunc,sdpar=resid[fc-1,],model=model,errormodel=error,bad=badparam,adjust=1.02,target=0.25,...)
+  	   fixparam[fc,j]=metropResult[1]
+  	   fixscale[j]=metropResult[2]
           }
      }
       
@@ -521,7 +540,7 @@ lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,mode
    #### If includeCovar is set all but the upper triangle, which is fixed by symmetry, is updated; else just the diagonal) ####
    # If no covariance in the model, this accomplishes setting all non-diagonal elements to 0. Otherwise, they are NA.
    if(!includeCovar) { covar[,fc,]=covar[,fc-1,]; covar[,fc,]=AssignDiag(covar[,fc,],NA) }  ## Cannot use diag(covar[,fc,])=NA
-	      
+        
    #### Update covariance matrix using conjugate inverse-Wishart or inverse-gamma
    if(update=='conjugate') 
     {
@@ -531,8 +550,8 @@ lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,mode
     }
    #### Or Update the covariance matrix with Metropolis. 
    else if(update=='metropolis')
-	  for(j in 1:noparam) 
-	    {
+    for(j in 1:noparam) 
+      {
          if(includeCovar) testcol=1:j
          else testcol=j
        
@@ -551,9 +570,9 @@ lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,mode
          }
          if(j<noparam) for(k in (j+1):noparam) covar[j,fc,k]=covar[k,fc-1,j]
       }
-
+  
    if(debug) browser()
-
+  
    #### Update the residual standard deviation (not used for Binom error). Since the residual SD is calculated from sdfunc, each of the sdparams must be updated. 
    if(error=='Gauss' | error=='GaussMultResid' | error=='NegBinom')
       {
@@ -573,42 +592,42 @@ lmerBayes=function(data,ycol,randcol,xcol,start,fixef=NULL,startSD,startCov,mode
      
    #### Calculate full likelihood for current set of parameters ####
    llike[fc]=
-	    full.likelihood.lmerBayes(one.covar=covar[,fc,],one.param=param[,pc,,drop=FALSE],one.hyper=hypermean[fc,],model=model,
+      full.likelihood.lmerBayes(one.covar=covar[,fc,],one.param=param[,pc,,drop=FALSE],one.hyper=hypermean[fc,],model=model,
                                   fixpar=fixparam[fc,],errormodel=error,data=x,obs=y,bad=badparam,sdmodel=sdfunc,sdpar=resid[fc,],...)
-		
+  	
    #### Display progress to the screen every showstep steps ####
-	 if(fc%%showstep==2)
-		  {
-		   showrows=IfElse(norand>5,5,norand)
-		   cat("Full counter ", fc," and param counter ", pc, " at time ", date(), "\n")
-		   for(k in 1:showrows) cat(randeffects[k],"... ",round(param[k,pc,],5),"\n")
-		   cat(" ...and likelihood...",round(llike[fc],1),"  ")
-		   cat(" ...and hypermu...",round(hypermean[fc,],4),"  ")
-		   cat(" ...and hyperSD...",round(sqrt(diag(array(covar[,fc,],dim=c(noparam,noparam)))),4))
+   if(fc%%showstep==2)
+  	  {
+  	   showrows=IfElse(norand>5,5,norand)
+  	   cat("Full counter ", fc," and param counter ", pc, " at time ", date(), "\n")
+  	   for(k in 1:showrows) cat(randeffects[k],"... ",round(param[k,pc,],5),"\n")
+  	   cat(" ...and likelihood...",round(llike[fc],1),"  ")
+  	   cat(" ...and hypermu...",round(hypermean[fc,],4),"  ")
+  	   cat(" ...and hyperSD...",round(sqrt(diag(array(covar[,fc,],dim=c(noparam,noparam)))),4))
            if(!is.null(fixparam)) cat(" ...and fixef...",round(fixparam[fc,],4),"\n")
            else cat("\n")
            # browser()
-		  }
-
+  	  }
+  
    if(!is.null(paramfile) & pc%%savestep==0) 
-		{ 
-		 saveParamFile(param,paramfile,randeffects,firsttime=startfile)
-		 param=resetParam(param,randeffects,savestep,parnames)
-		 startfile=TRUE
-		 pc=1
-		}
+  	{ 
+  	 saveParamFile(param,paramfile,randeffects,firsttime=startfile)
+  	 param=resetParam(param,randeffects,savestep,parnames)
+  	 startfile=TRUE
+  	 pc=1
+  	}
    pc=pc+1
-	 # browser()
-
+   # browser()
+  
   }
-
- #### Summary calculations are moved to a separate function
- result=list(mu=hypermean,sigma=covar,resid=resid,fullparam=param,fixef=fixparam,steps=steps,burn=burnin,llike=llike,obs=y,
+  
+  #### Summary calculations are moved to a separate function
+  result=list(mu=hypermean,sigma=covar,resid=resid,fullparam=param,fixef=fixparam,steps=steps,burn=burnin,llike=llike,obs=y,
              data=x,parnames=parnames,randeffects=randeffects,start=start)
-
- if(!is.null(paramfile)) return(result)
- return(summaryMCMC(fit=result,model=model,error=error,sdmodel=sdfunc,badparam=badparam,paramfile=NULL,...))
-}
+  
+  if(!is.null(paramfile)) return(result)
+  return(summaryMCMC(fit=result,model=model,error=error,sdmodel=sdfunc,badparam=badparam,paramfile=NULL,...))
+  }
 # </source>
 # </function>
 # 
