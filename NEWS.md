@@ -1,5 +1,7 @@
 # ctfs 0.0.0.9005
 
+- New vignette to test plots output remain the same after fixes to plotting functions.
+
 - New utility functions, not-exported, to remove rows full of NAs from data frames and matrices.
 
 - Fixed one problem in `wavelet.univariate()`, which erroneously refered to `wavelet.univariate()` as `wavelet.var()`. Also fixed an erroneous reference to `wavelet.var()` in examples of `wavelet.univariate()`.
@@ -34,7 +36,9 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `individual_grow.table()`
     - `individual_mort.table()`
     - `extract.growthdata()`
-    - ... (12 more to go).
+    - ... (11 more to go).
+    - Not yet possible because functions err:
+        - `run.growthbin.manyspp()`
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
     
