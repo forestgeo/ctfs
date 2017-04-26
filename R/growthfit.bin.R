@@ -208,8 +208,28 @@
 # <source>
 #' @export
 
-extract.growthdata=function(census1,census2,growcol="incgr",mingrow=0.1,logit="x",growthfunc=growth.biomass.indiv,pomcut=10000,
-                            rounddown = FALSE, mindbh = 10, dbhunit = "mm", err.limit = 4, maxgrow = 75, exclude.stem.change=TRUE, returnfull=FALSE)
+
+
+
+
+
+
+
+extract.growthdata = function(census1,
+  census2,
+  growcol = "incgr",
+  mingrow = 0.1,
+  logit = "x",
+  growthfunc = growth.biomass.indiv,
+  pomcut = 10000,
+  rounddown = FALSE,
+  mindbh = 10,
+  dbhunit = "mm",
+  err.limit = 4,
+  maxgrow = 75,
+  exclude.stem.change = TRUE,
+  returnfull = FALSE
+)
 {   
  growthtable=growthfunc(census1,census2,rounddown=rounddown,mindbh=mindbh,dbhunit=dbhunit,err.limit=err.limit,maxgrow=maxgrow,
                         pomcut=pomcut,exclude.stem.change=exclude.stem.change)
@@ -240,6 +260,27 @@ extract.growthdata=function(census1,census2,growcol="incgr",mingrow=0.1,logit="x
  if(returnfull) return(full)
  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # </source>
 # </function>
 
