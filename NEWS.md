@@ -15,8 +15,6 @@
 
 Fixes with commit bc417c38; example that functions work: ebe8a601.
 
-
-
 - Fixed bugs in functions listed below, they needed functions in packages
 
     - _mvtnorm_ and _MCMCpack_
