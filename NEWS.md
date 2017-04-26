@@ -40,6 +40,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - ... (10 more to go).
     - Not yet possible because functions err:
         - `run.growthbin.manyspp()`
+    - Not yet possible because functions lacks required input:
+        - `imageJ.to.lxly()`
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
     
