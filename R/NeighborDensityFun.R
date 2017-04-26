@@ -134,16 +134,7 @@ NeighborDensities <- function(censdata,
   spd <- censdata[cond_1, , drop = FALSE]
   spd <- rm_na_row(spd)
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  	for (i in 1:n) {
+  for (i in 1:n) {
   
   	focal = censdata2[i,]
   	if (is.na(focal$gx) | is.na(focal$gy) | duplicated(focal$tag)) output[i,1:2] = NA  else {
@@ -170,7 +161,14 @@ NeighborDensities <- function(censdata,
     
   if (type =='basal') {
   
-  spd = subset( censdata, !is.na(gx) & !is.na(gy) & !is.na(dbh) & dbh>=mindbh & status %in% include)
+  # spd = subset( censdata, !is.na(gx) & !is.na(gy) & !is.na(dbh) & dbh>=mindbh & status %in% include)
+  cond_2 <- !is.na(censdata$gx) &
+    !is.na(censdata$gy) &
+    !is.na(censdata$dbh) &
+    censdata$dbh >= mindbh & 
+    censdata$status %in% include
+  spd <- censdata[cond_2, , drop = FALSE]
+  spd <- rm_na_row(spd)
   
   	for (i in 1:n) 
   	{
