@@ -207,7 +207,7 @@
 # </sample>
 # <source>
 #' @export
-extract.growthdata = function(census1, 
+extract.growthdata <- function(census1, 
                               census2,
                               growcol = "incgr",
                               mingrow = 0.1,

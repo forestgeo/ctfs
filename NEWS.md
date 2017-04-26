@@ -33,7 +33,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `abund.manycensus()`
     - `individual_grow.table()`
     - `individual_mort.table()`
-    - ... (13 more to go).
+    - `extract.growthdata()`
+    - ... (12 more to go).
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
     
