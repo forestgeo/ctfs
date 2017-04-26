@@ -39,6 +39,7 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `graph.outliers.spp()`
     - `lmerBayes()`
     - `complete.plotmap()`
+    - `modelBayes()`: but errs. It also erred before replacing `subset()` by `[`
     - ... (8 more to go).
     - Not yet possible because functions err:
         - `run.growthbin.manyspp()`
@@ -102,6 +103,10 @@ Related to the problem above are the problems below. These functions fail appare
 > "Error in dimnames(variance) <- list(names(splitdata), paste("scale", 1:ncol(variance))) : length of 'dimnames' [1] not equal to array extent"
 
 Also, `wavelet.allsp()` uses `with()`, which may cause problems because it uses non-standard evaluation.
+
+- `modelBayes()` Calls debug before R throws error. At first, it erred calling `subset()`, so I replaced `subset()` by `[` but continues to call debug from inside the function.
+
+
 
 ENHANCEMENTS
 
