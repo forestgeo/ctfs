@@ -125,7 +125,23 @@ NeighborDensities <- function(censdata,
   
   if (type =='count') {
   
-  spd = subset( censdata, !is.na(gx) & !is.na(gy) & !duplicated(tag) & dbh>=mindbh & status %in% include)
+  # spd = subset( censdata, !is.na(gx) & !is.na(gy) & !duplicated(tag) & dbh>=mindbh & status %in% include)
+  cond_1 <- !is.na(censdata$gx) &
+    !is.na(censdata$gy) &
+    !duplicated(censdata$tag) &
+    censdata$dbh >= mindbh &
+    censdata$status %in% include
+  spd <- censdata[cond_1, , drop = FALSE]
+  spd <- rm_na_row(spd)
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   	for (i in 1:n) {
   

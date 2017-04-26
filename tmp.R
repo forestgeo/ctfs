@@ -11,35 +11,16 @@ load_all()
 
 
 
-gtable = growth.indiv(bci::bci12full6, bci::bci12full7, mindbh = 100) 
+library(splancs)
 
-a_few_species = c(
-  'termam',
-  'tachve',
-  'pri2co',
-  'gustsu',
-  'cecrin',
-  'tet2pa',
-  'guatdu',
-  'vochfe',
-  'virose',
-  'maquco'
-)
-gtable = subset(gtable, !is.na(incgr) & sp %in% a_few_species)
+# sum consp and hetsp neighbors for only one species:
+data <- bci::bci12full7
+one.sp = subset(data, sp == "quaras")
+neighbor.counts <- NeighborDensities(data, one.sp, type = 'count')
 
-modelBayes(
-  data = gtable,
-  ycol = 'incgr',
-  xcol = 'dbh1',
-  start = c(1, 0),
-  startSD = 1,
-  badSDparam = badSD
-
-)
-
-
-
-
+head(neighbor.counts_old)
+head(neighbor.counts)
+all.equal(neighbor.counts_old, neighbor.counts)
 
 
 
