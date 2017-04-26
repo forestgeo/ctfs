@@ -1,6 +1,6 @@
 # ctfs 0.0.0.9005
 
-- New vignette to test plots output remain the same after fixes to plotting functions.
+- New vignette to test plots output remain the same after fixes to plotting functions. Follows advice in _Testing R Code_, by Richard Cotton.
 
 - New utility functions, not-exported, to remove rows full of NAs from data frames and matrices.
 
@@ -36,7 +36,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `individual_grow.table()`
     - `individual_mort.table()`
     - `extract.growthdata()`
-    - ... (11 more to go).
+    - `graph.outliers.spp()`
+    - ... (10 more to go).
     - Not yet possible because functions err:
         - `run.growthbin.manyspp()`
 

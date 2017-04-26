@@ -391,23 +391,29 @@ compare.growthbinmodel=function(fit,bins=1:4,makegraph=TRUE,conflines=0,newgraph
 # </sample>
 # <source>
 #' @export
-
-graph.outliers.spp=function(full,trimmed,spname='gustsu',fit=NULL,size='agb',export=NULL,xtitle='log(agb)',ytitle='growth')
-{
- full=subset(full,sp==spname)
- trimmed=subset(trimmed,sp==spname)
- 
- missing=!(full$treeID %in% trimmed$treeID)
- outliers=full[missing,]
- 
- plot(full[,size],full$growth,pch=16,cex=0.5,xlab=xtitle,ylab=ytitle)
- points(outliers[,size],outliers$growth,col='red')
- points(trimmed[,size],trimmed$growth,col='blue')
- 
- if(!is.null(fit)) overlay.growthbinmodel(fit=fit[spname],add=TRUE,newgraph=FALSE,export=export)
- 
- return(outliers)
-}
+graph.outliers.spp <- function(full,
+                              trimmed,
+                              spname = 'gustsu',
+                              fit = NULL,
+                              size = 'agb',
+                              export = NULL,
+                              xtitle = 'log(agb)',
+                              ytitle = 'growth') {
+  full <- full[full$sp == spname, , drop == FALSE]
+  
+  trimmed <- trimmed[trimmed$sp == spname, , drop = FALSE]
+  
+  missing=!(full$treeID %in% trimmed$treeID)
+  outliers=full[missing,]
+  
+  plot(full[,size],full$growth,pch=16,cex=0.5,xlab=xtitle,ylab=ytitle)
+  points(outliers[,size],outliers$growth,col='red')
+  points(trimmed[,size],trimmed$growth,col='blue')
+  
+  if(!is.null(fit)) overlay.growthbinmodel(fit=fit[spname],add=TRUE,newgraph=FALSE,export=export)
+  
+  return(outliers)
+  }
 # </source>
 # </function>
 
