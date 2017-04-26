@@ -42,8 +42,12 @@ burnin = 100
 
 
 
-data_old=subset(data,!is.na(data[,randcol]))
-
+  for(onex in xcol) data_old=subset(data,!is.na(data[,onex]))
+  for (onex in xcol) data <- data[
+    !is.na(data[, onex]),
+     , 
+    drop = FALSE
+  ]
 
 
 

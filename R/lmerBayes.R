@@ -422,7 +422,7 @@ lmerBayes <- function(data,
   cond_2 <- !is.na(data[, randcol])
   data <- data[cond_2, , drop = FALSE]
   
-  for(onex in xcol) data=subset(data,!is.na(data[,onex]))
+  for (onex in xcol) data <- data[!is.na(data[, onex]), , drop = FALSE]
   
   y=split.data(data[,c(randcol,ycol)],splitcol=randcol)
   ally=data[,ycol]
