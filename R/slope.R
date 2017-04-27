@@ -48,8 +48,7 @@
 #' Helene Muller-Landau added a section to correct convexity in edge quadrats
 #' 
 #' @seealso [calcslope()], [quadslope()]
-#' 
-#' @example 
+#' @examples
 #' # The input to elev is very specific; you may need to tweak it.
 #' elev_asis <- bci::bci_elevation
 #' head(elev_asis)
