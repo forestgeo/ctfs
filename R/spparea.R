@@ -188,10 +188,14 @@ spparea.sq <- function(censdata,
     cat (" too big for plot\n")
    }
   
-  if(is.null(mindbh))
-    censdata=subset(censdata,status=="A" & !unidentified.species(spcolumn,exactstr=unidennames))
-  else
+  if(is.null(mindbh)) {
+    # censdata=subset(censdata,status=="A" & !unidentified.species(spcolumn,exactstr=unidennames))
+    cond <- censdata$status == "A" &
+      !unidentified.species(spcolumn, exactstr = unidennames)
+    censdata <- censdata[cond_1, , drop = FALSE]
+  } else {
     censdata=subset(censdata,status=="A" & dbh>=mindbh & !unidentified.species(spcolumn,exactstr=unidennames))
+    }
   
   allsize=selectrandomquad(size,rectdim,replicates,plotdim)
   noquad=dim(allsize)[1]
