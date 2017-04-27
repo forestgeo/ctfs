@@ -37,45 +37,82 @@
 #'
 #' @description
 #'
-#' Calculating slope of all quadrats in a plot
-#' calcslope takes 3 elevations and finds the slope of the plane through them
-#' quadslope divides the 4 corners of a quadrat into 4 different groups of 3 stakes,
-#' takes the slope of each, then averages
-#' these were first written in C++
-#' see slopeelev.cpp for more on the geometry
-#' allquadratslopes goes through all 20x20 m quadrats in a plot and finds
-#' the slope, mean elevation, and convexity of each
-#' convexity is the mean elevation of one 20x20 m quadrat relative (minus) the mean of its
-#' immediate neighbors
+#' Calculates the slope of all quadrats in a plot.
+#' 
+#' @details
+#' `allquadratslopes()` goes through all 20x20 m quadrats in a plot and finds
+#' the slope, mean elevation, and convexity of each. Convexity is the mean
+#' elevation of one 20x20 m quadrat relative (minus) the mean of its immediate
+#' neighbors.
 #'
 #' Helene Muller-Landau added a section to correct convexity in edge quadrats
+#' 
+#' @seealso [calcslope()], [quadslope()]
+#' 
+#' @example 
+#' # The input to elev is very specific; you may need to tweak it.
+#' elev_asis <- bci::bci_elevation
+#' head(elev_asis)
+#' elev_tweaked <- list(col = elev_asis)
+#' head(elev_tweaked)
+#' 
+#' result <- allquadratslopes(
+#'   elev = elev_tweaked,
+#'   gridsize = 20,
+#'   plotdim = c(1000, 500),
+#'   edgecorrect = TRUE
+#' )
+#' haed(result)
+#' str(result)
 'allquadratslopes'
 
 #' quadslope
 #'
 #' @description
 #'
-#' Given the elevation at four corners of a square of side=gridsize, this estimates the slope in degrees of the terrain over that square. The slope is calculated for each of the 4 planes defined by omitting one of the points. 
+#' Given the elevation at four corners of a square of side=gridsize, this
+#' estimates the slope in degrees of the terrain over that square. The slope is
+#' calculated for each of the 4 planes defined by omitting one of the points.
 #'
-#' The 4 slopes are averaged. Returns both the mean slope and the sqrt of the variance of the 4 different slopes. 
+#' `quadslope()` divides the 4 corners of a quadrat into 4 different groups of 3
+#' stakes, takes the slope of each, then averages these were first written in
+#' C++ see slopeelev.cpp for more on the geometry.
 #'
-#' cornerelev: vector of 4 elevations 
-#' gridsize: the side of the square
 #'
+#' The 4 slopes are averaged. Returns both the mean slope and the sqrt of the
+#' variance of the 4 different slopes.
+#'
+#' @param cornerelev: vector of 4 elevations 
+#' @param gridsize: the side of the square
+#'
+#' @seealso [calcslope()], [quadslope()]
 #'
 'quadslope'
+
+
+
+
+
+
+
+
+
 
 #' calcslope
 #'
 #' @description
 #'
-#' Given the z-coordinate of 3 points in 3D space whose x-y coordinates are corners of a right, isoceles triangle whose short side = gridsize, this calculates the slope in degrees of the plane through the points. 
+#' Given the z-coordinate of 3 points in 3D space whose x-y coordinates are
+#' corners of a right, isoceles triangle whose short side = gridsize, this
+#' calculates the slope in degrees of the plane through the points.
+#' 
+#' `calcslope()` takes 3 elevations and finds the slope of the plane through 
+#' them.
 #'
 #' The second point is the one between the two short sides. 
 #'
-#' z: numeric vector of length 3 
-#' gridsize: numeric scalar
-#'
+#' @param z numeric vector of length 3 
+#' @param gridsize numeric scalar
 #'
 'calcslope'
 
