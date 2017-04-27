@@ -54,6 +54,16 @@ test_that("lmerBayes outputs the same before and after fix", {
   expect_equal_to_reference(names(actual), "ref_lmerBayes_nms.rds")
 })
 
-
-
+test_that("allquadratslopes outputs the same before and after fix", {
+  # The input to elev is very specific, so it needs tweaking
+  elev_tweaked <- list(col = bci::bci_elevation)
+  head(elev_tweaked)
+  actual <- allquadratslopes(
+    elev = elev_tweaked,
+    gridsize = 20,
+    plotdim = c(1000, 500),
+    edgecorrect = TRUE
+  )
+  expect_equal_to_reference(actual, "ref_allquadratslopes_old.rds")
+})
 

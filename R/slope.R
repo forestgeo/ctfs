@@ -89,15 +89,6 @@
 #'
 'quadslope'
 
-
-
-
-
-
-
-
-
-
 #' calcslope
 #'
 #' @description
