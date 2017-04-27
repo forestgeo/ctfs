@@ -78,11 +78,11 @@ I tested all functions used in tutorials and out of a total of 28 functions, 13 
 
 FUNCTIONS INTERPRETED AS S3 METHODS
 
-Some functions are treated as S3 methods, and automatically changed in a problematic way. Problems include:
+Some functions are treated as S3 methods, and automatically changed in a problematic way. Those functions are named `<FUNCTION.NAME>` and problems include:
 
 - In the section "Usage" of the documentation of each problematic function:
 
-    - a lable like this prints in "Usage": \#\# S3 method for class 'data';
+    - a lable like this prints in "Usage": \#\# S3 method for classs '<NAME>';
     - the `<FUNCTION.NAME>` appears as `<FUNCTION>`, withouth `<NAME>`.
 
 - Automatic package checks throw scary messages and the package fails to build.
@@ -91,7 +91,17 @@ The permanent fix is easy: to replace dots "." by "_" in the names of those prob
 
 The functions are these:
 
-- xxx list
+```R
+1     density.ind
+2      exp.2par
+3    hist.compare
+4 image.dataframe
+5       log.model
+6      merge.data
+7    plot.wavelet
+8      solve.topo
+9      split.data
+```
 
 To build the package before the fix, NAMESPACE must be amended first. The reson is that NAMESPACE treats some functions as methods. Those problematic functions contain dots "." in their names (e.g. split.data and density.ind). To avoid this problem, the format <FUNCTION.NAME> should eventually change to <FUNCTION_NAME>.
 
