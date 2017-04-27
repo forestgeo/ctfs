@@ -234,53 +234,55 @@ elev.to.list=function(elevfile,gridsize=5)
 # <source>
 #' @export
 
-allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
-{
- rw=cl=0
- on.exit(cat(rw," ",cl,"\n"))
- 
- columns=1+max(elev$col$x)/gridsize
- rows=1+max(elev$col$y)/gridsize
- totalquads=(columns-1)*(rows-1)
- cat("Calculating topographic indices for ", totalquads, " quadrats\n")
-
- elevdata=elev$col[elev$col$x%%gridsize==0 & elev$col$y%%gridsize==0,]
- elevmat=matrix(elevdata$elev,nrow=rows,ncol=columns,byrow=F)
-
- meanelev=convex=convex2=slope=numeric()
- corner=sideht=numeric()
-
-# Mean elevation of four corners
- for(c in 1:(columns-1))
+allquadratslopes <- function(elev,
+                             gridsize = 20,
+                             plotdim = c(1000, 500),
+                             edgecorrect = TRUE) {
+  rw=cl=0
+  on.exit(cat(rw," ",cl,"\n"))
+  
+  columns=1+max(elev$col$x)/gridsize
+  rows=1+max(elev$col$y)/gridsize
+  totalquads=(columns-1)*(rows-1)
+  cat("Calculating topographic indices for ", totalquads, " quadrats\n")
+  
+  elevdata=elev$col[elev$col$x%%gridsize==0 & elev$col$y%%gridsize==0,]
+  elevmat=matrix(elevdata$elev,nrow=rows,ncol=columns,byrow=F)
+  
+  meanelev=convex=convex2=slope=numeric()
+  corner=sideht=numeric()
+  
+  # Mean elevation of four corners
+  for(c in 1:(columns-1))
   for(r in 1:(rows-1))
    {
     quad.index=rowcol.to.index(r,c,gridsize=gridsize,plotdim=plotdim)
-
+  
     corner[1]=elevmat[r,c]
     corner[2]=elevmat[r+1,c]
     corner[3]=elevmat[r+1,c+1]
     corner[4]=elevmat[r,c+1]
-
+  
     meanelev[quad.index]=mean(corner)
     slope[quad.index]=quadslope(corner,gridsize=gridsize)[1]
-
+  
     if(c%%33==0 & r%%33==0) cat("Finding elevation and slope of quadrat ", quad.index, "\n")
    }
-
-#  Convexity
- for(i in 1:totalquads)
+  
+  #  Convexity
+  for(i in 1:totalquads)
    {
     neighbor.quads=findborderquads(i,dist=gridsize,gridsize=gridsize,plotdim=plotdim)
     meanelev.neighbor=mean(meanelev[neighbor.quads])
     convex[i]=meanelev[i]-meanelev.neighbor
-
+  
     if(i%%1000==0) cat("Finding convexity of quadrat ", i, "\n")
    }
-
-# correcting convexity in edge quadrats, based on center of the 20x20 rather
-# than surrounding 20x20s. This requires that the elev$mat has an elevation
-# at the middle of every grid cell.
- if(edgecorrect)
+  
+  # correcting convexity in edge quadrats, based on center of the 20x20 rather
+  # than surrounding 20x20s. This requires that the elev$mat has an elevation
+  # at the middle of every grid cell.
+  if(edgecorrect)
   {
    for(c in 1:(columns-1))
      for(r in 1:(rows-1))
@@ -289,11 +291,11 @@ allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
         { 
          quad.index=rowcol.to.index(r,c,gridsize=gridsize,plotdim=plotdim)
          xy=index.to.gxgy(quad.index,gridsize=gridsize,plotdim=plotdim)
-
+  
          midx=xy$gx+gridsize/2
          midy=xy$gy+gridsize/2
-
-#         browser()
+  
+  #         browser()
          cond <- elev$col$x == midx & elev$col$y == midy
          elevcol <- elev$col[cond, , drop = FALSE]
          midelev <- elevcol$elev
@@ -302,9 +304,9 @@ allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
         }
       }
   }
-
- return(data.frame(meanelev=meanelev,convex=convex,slope=slope))
-}
+  
+  return(data.frame(meanelev=meanelev,convex=convex,slope=slope))
+  }
 
 
 
