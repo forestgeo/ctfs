@@ -11,17 +11,21 @@ load_all()
 
 
 
-library(splancs)
-
-# sum consp and hetsp neighbors for only one species:
-data <- bci::bci12full7
-one.sp = subset(data, sp == "quaras")
-neighbor.counts <- NeighborDensities(data, one.sp, type = 'count')
 
 
 
-all.equal(neighbor.counts_old, neighbor.counts)
 
 
+
+
+
+
+xxx cont. work on subset in allquadratslopes()
+
+
+
+
+
+# If input is wrong, show a warning "The input to elev is very specific; you may need to tweak it."
 
 

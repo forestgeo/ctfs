@@ -40,7 +40,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `lmerBayes()`
     - `complete.plotmap()`
     - `modelBayes()`: but errs. It also erred before replacing `subset()` by `[`
-    - ... (8 more to go).
+    - `NeighborDensities()`
+    - ... (7 more to go).
     - Not yet possible because functions err:
         - `run.growthbin.manyspp()`
     - Not yet possible because functions lacks required input:
