@@ -18,6 +18,22 @@ neighbors.
 
 Helene Muller-Landau added a section to correct convexity in edge quadrats
 }
+\examples{
+# The input to elev is very specific; you may need to tweak it.
+elev_asis <- bci::bci_elevation
+head(elev_asis)
+elev_tweaked <- list(col = elev_asis)
+head(elev_tweaked)
+
+result <- allquadratslopes(
+  elev = elev_tweaked,
+  gridsize = 20,
+  plotdim = c(1000, 500),
+  edgecorrect = TRUE
+)
+haed(result)
+str(result)
+}
 \seealso{
 \code{\link[=calcslope]{calcslope()}}, \code{\link[=quadslope]{quadslope()}}
 }

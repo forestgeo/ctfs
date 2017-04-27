@@ -1,5 +1,7 @@
 # ctfs 0.0.0.9005
 
+- @importFrom magrittr %>% ([example](https://github.com/tidyverse/dplyr/edit/master/R/utils.r))
+
 - New vignette to test plots output remain the same after fixes to plotting functions. Follows advice in _Testing R Code_, by Richard Cotton.
 
 - New utility functions, not-exported, to remove rows full of NAs from data frames and matrices.

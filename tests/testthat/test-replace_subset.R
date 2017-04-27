@@ -80,16 +80,6 @@ test_that("allquadratslopes warns if elev is not a list with element 'col'", {
   )
 })
 
-
-
-
-
-
-
-
-
-
-
 test_that("spparea.sq outputs the same before and after fix", {
   # Plot is to discard, here I'm interested in sppa only.
   png("ref_spparea_sq.png")  # don't print to console
