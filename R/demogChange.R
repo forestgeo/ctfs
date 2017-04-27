@@ -137,8 +137,8 @@ individual_grow.table <- function(cnsdata,
         gtbl$censusfact=as.factor(i)
         # browser()
         
-        cond <- !is.na(gtbl$incgr) & gtbl$dbh1 < maxdbh & gtbl$dbh1 >= mindbh
-        section <- gtbl[cond, , drop = FALSE]
+        cond_1 <- !is.na(gtbl$incgr) & gtbl$dbh1 < maxdbh & gtbl$dbh1 >= mindbh
+        section <- gtbl[cond_1, , drop = FALSE]
         
         if(i==1) final=section
         else final=rbind(final,section)
@@ -213,10 +213,10 @@ individual_mort.table <- function(cnsdata,
         section$date2=cnsdata[[i+1]]$date
         section$census=i
         
-        cond <- section$status == 'A' & 
+        cond_1 <- section$status == 'A' & 
           section$dbh >= mindbh & 
           section$dbh < maxdbh
-        section <- section[cond, , drop = FALSE]
+        section <- section[cond_1, , drop = FALSE]
         
         if(i==1) final=section
         else final=rbind(final,section)

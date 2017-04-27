@@ -301,8 +301,8 @@ allquadratslopes <- function(elev,
          midy=xy$gy+gridsize/2
   
   #         browser()
-         cond <- elev$col$x == midx & elev$col$y == midy
-         elevcol <- elev$col[cond, , drop = FALSE]
+         cond_1 <- elev$col$x == midx & elev$col$y == midy
+         elevcol <- elev$col[cond_1, , drop = FALSE]
          midelev <- elevcol$elev
          
          convex[quad.index]=midelev-meanelev[quad.index]

@@ -110,7 +110,7 @@ dev.off()
 include_graphics("ref_spparea_sq.png")
 
 ## ----fig.cap="Actual"----------------------------------------------------
-# include_graphics("actual_spparea_sq.png")
+include_graphics("actual_spparea_sq.png")
 
 ## ---- echo=TRUE----------------------------------------------------------
 spparea.sq

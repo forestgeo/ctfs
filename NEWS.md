@@ -42,6 +42,7 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `modelBayes()`: but errs. It also erred before replacing `subset()` by `[`
     - `NeighborDensities()`
     - `allquadratslopes()`
+    - `spparea.sq()`
     - ... (4 more to go).
     - Pendent. Impossible to test because functions err:
         - `run.growthbin.manyspp()`
@@ -75,9 +76,24 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
 
 I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
 
-BUILD PACKAGE
+FUNCTIONS INTERPRETED AS S3 METHODS
 
-To build the package NAMESPACE must be amended first. The reson is that NAMESPACE treats some functions as methods. Those problematic functions contain dots "." in their names (e.g. split.data and density.ind). To avoid this problem, the format <FUNCTION.NAME> should eventually change to <FUNCTION_NAME>.
+Some functions are treated as S3 methods, and automatically changed in a problematic way. Problems include:
+
+- In the section "Usage" of the documentation of each problematic function:
+
+    - a lable like this prints in "Usage": \#\# S3 method for class 'data';
+    - the `<FUNCTION.NAME>` appears as `<FUNCTION>`, withouth `<NAME>`.
+
+- Automatic package checks throw scary messages and the package fails to build.
+
+The permanent fix is easy: to replace dots "." by "_" in the names of those problematic functions, and maybe to deprecate the old function names. Help pages should be reached with both the old and new function names, doable as aliases.
+
+The functions are these:
+
+- xxx list
+
+To build the package before the fix, NAMESPACE must be amended first. The reson is that NAMESPACE treats some functions as methods. Those problematic functions contain dots "." in their names (e.g. split.data and density.ind). To avoid this problem, the format <FUNCTION.NAME> should eventually change to <FUNCTION_NAME>.
 
 ERRORS
 

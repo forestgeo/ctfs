@@ -11,43 +11,12 @@ load_all()
 # tst data ----------------------------------------------------------------
 
 
-png("ref_spparea_sq.png")
-sppa <- spparea.sq(
-  bci::bci12full6,
-  size = c(10, 20, 50),
-  mindbh = 10,
-  plotdim = c(1000, 500),
-  replicates = 5,
-  unidennames = c('unid')
+## S3 method for class 'data'
+censdata <- bci::bci12full1
+split.data(
+  censdata,
+  splitcol = "sp",
+  keepsplitcol = FALSE,
+  allsplit = NULL,
+  showOutput = NULL
 )
-dev.off()
-
-png("ref_spparea_sq.png")
-sppa1 <- spparea.sq(
-  bci::bci12full6,
-  size = c(10, 20, 50),
-  mindbh = 10,
-  plotdim = c(1000, 500),
-  replicates = 5,
-  unidennames = c('unid')
-)
-dev.off()
-
-near(sppa, sppa1)
-library(purrr)
-map2(sppa, sppa1, dplyr::near)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
