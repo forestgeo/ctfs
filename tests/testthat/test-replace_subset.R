@@ -66,3 +66,17 @@ test_that("allquadratslopes outputs the same before and after fix", {
   expect_equal_to_reference(actual, "ref_allquadratslopes_old.rds")
 })
 
+test_that("allquadratslopes warns if elev is not a list with element 'col'", {
+  # throws error and warning
+  expect_warning(                       # capture warning
+    expect_error(                       # capture error
+      allquadratslopes(
+        elev = bci::bci_elevation,
+        gridsize = 20,
+        plotdim = c(1000, 500),
+        edgecorrect = TRUE
+      )
+    )
+  )
+})
+

@@ -238,6 +238,11 @@ allquadratslopes <- function(elev,
                              gridsize = 20,
                              plotdim = c(1000, 500),
                              edgecorrect = TRUE) {
+  if (!"col" %in% names(elev)) {
+    warning("Input to elev must be a list with one element named \"col\";
+        for examples see ?allquadratslopes.")
+  }
+  
   rw=cl=0
   on.exit(cat(rw," ",cl,"\n"))
   
