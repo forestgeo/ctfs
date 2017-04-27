@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 library(ctfs)
 library(knitr)
 
-## ---- eval = T, include=FALSE, error=TRUE--------------------------------
+## ---- include=FALSE, error=TRUE------------------------------------------
 full <- extract.growthdata(
   census1 = bci::bci12full1,
   census2 = bci::bci12full2,
@@ -57,7 +57,7 @@ include_graphics("ref_graph_outliers_spp.png")
 ## ----fig.cap="Actual"----------------------------------------------------
 include_graphics("actual_graph_outliers_spp.png")
 
-## ------------------------------------------------------------------------
+## ----echo=TRUE-----------------------------------------------------------
 extract.growthdata
 
 ## ---- include=FALSE------------------------------------------------------
@@ -91,6 +91,27 @@ include_graphics("ref_complete_plotmap.png")
 ## ----fig.cap="Actual"----------------------------------------------------
 include_graphics("actual_complete_plotmap.png")
 
-## ------------------------------------------------------------------------
+## ---- echo=TRUE----------------------------------------------------------
 complete.plotmap
+
+## ---- include=FALSE------------------------------------------------------
+png("actual_spparea_sq.png")
+sppa <- spparea.sq(
+  bci::bci12full6,
+  size = c(10, 20, 50),
+  mindbh = 10,
+  plotdim = c(1000, 500),
+  replicates = 5,
+  unidennames = c('unid')
+)
+dev.off()
+
+## ----fig.cap="Reference"-------------------------------------------------
+include_graphics("ref_spparea_sq.png")
+
+## ----fig.cap="Actual"----------------------------------------------------
+# include_graphics("actual_spparea_sq.png")
+
+## ---- echo=TRUE----------------------------------------------------------
+spparea.sq
 

@@ -142,7 +142,7 @@ include_graphics("ref_spparea_sq.png")
 ```
 
 ```{r fig.cap="Actual"}
-# include_graphics("actual_spparea_sq.png")
+include_graphics("actual_spparea_sq.png")
 ```
 
 ```{r, echo=TRUE}

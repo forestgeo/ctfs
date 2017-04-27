@@ -8,16 +8,16 @@ allquadratslopes(elev, gridsize = 20, plotdim = c(1000, 500),
   edgecorrect = TRUE)
 }
 \description{
-Calculating slope of all quadrats in a plot
-calcslope takes 3 elevations and finds the slope of the plane through them
-quadslope divides the 4 corners of a quadrat into 4 different groups of 3 stakes,
-takes the slope of each, then averages
-these were first written in C++
-see slopeelev.cpp for more on the geometry
-allquadratslopes goes through all 20x20 m quadrats in a plot and finds
-the slope, mean elevation, and convexity of each
-convexity is the mean elevation of one 20x20 m quadrat relative (minus) the mean of its
-immediate neighbors
+Calculates the slope of all quadrats in a plot.
+}
+\details{
+\code{allquadratslopes()} goes through all 20x20 m quadrats in a plot and finds
+the slope, mean elevation, and convexity of each. Convexity is the mean
+elevation of one 20x20 m quadrat relative (minus) the mean of its immediate
+neighbors.
 
 Helene Muller-Landau added a section to correct convexity in edge quadrats
+}
+\seealso{
+\code{\link[=calcslope]{calcslope()}}, \code{\link[=quadslope]{quadslope()}}
 }

@@ -190,9 +190,10 @@ spparea.sq <- function(censdata,
   
   if(is.null(mindbh)) {
     # censdata=subset(censdata,status=="A" & !unidentified.species(spcolumn,exactstr=unidennames))
-    cond <- censdata$status == "A" &
+    cond_1 <- censdata$status == "A" &
       !unidentified.species(spcolumn, exactstr = unidennames)
     censdata <- censdata[cond_1, , drop = FALSE]
+    
   } else {
     # censdata=subset(censdata,status=="A" & dbh>=mindbh & !unidentified.species(spcolumn,exactstr=unidennames))
     cond_2 <- censdata$status == "A" &
@@ -214,13 +215,6 @@ spparea.sq <- function(censdata,
      censdata$gy < allsize$yhi[i]
    data <- censdata[cond_3, , drop = FALSE]
    
-    
-   
-   
-   
-   
-   
-  
    spp[i]=length(unique(data[,spcolumn]))
    ind[i]=length(data[,spcolumn])
   
