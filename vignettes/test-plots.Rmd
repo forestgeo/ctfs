@@ -122,8 +122,30 @@ include_graphics("actual_complete_plotmap.png")
 complete.plotmap
 ```
 
+### `spparea.sq()`
 
+```{r, include=FALSE}
+png("actual_spparea_sq.png")
+sppa <- spparea.sq(
+  bci::bci12full6,
+  size = c(10, 20, 50),
+  mindbh = 10,
+  plotdim = c(1000, 500),
+  replicates = 5,
+  unidennames = c('unid')
+)
+dev.off()
+```
 
+```{r fig.cap="Reference"}
+include_graphics("ref_spparea_sq.png")
+```
 
+```{r fig.cap="Actual"}
+# include_graphics("actual_spparea_sq.png")
+```
 
+```{r, echo=TRUE}
+spparea.sq
+```
 
