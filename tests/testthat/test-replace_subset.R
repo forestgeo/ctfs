@@ -80,3 +80,47 @@ test_that("allquadratslopes warns if elev is not a list with element 'col'", {
   )
 })
 
+
+
+
+
+
+
+
+
+
+
+test_that("spparea.sq outputs the same before and after fix", {
+  # Plot is to discard, here I'm interested in sppa only.
+  png("ref_spparea_sq.png")  # don't print to console
+    sppa <- spparea.sq(
+      bci::bci12full6,
+      size = c(10, 20, 50),
+      mindbh = 10,
+      plotdim = c(1000, 500),
+      replicates = 5,
+      unidennames = c('unid')
+    )
+  dev.off()
+  unlink("ref_spparea_sq.png")  # clean tests directory
+  
+  # spparea.sq uses random processess, so output is never equal. Check names.
+  expect_named(sppa, c("spparea", "full"))
+  expect_named(
+    sppa[[1]], 
+    c("xdim", "ydim", "area", "indiv", "SDindiv", "taxa", "SDtaxa")
+  )
+  expect_named(
+    sppa[[2]], 
+    c("area", "taxa", "ind")
+  )
+})
+
+
+
+
+
+
+
+
+
