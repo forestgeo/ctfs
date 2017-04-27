@@ -170,55 +170,61 @@
 # <source>
 #' @export
 
-spparea.sq=function(censdata,spcolumn='sp',size,rectdim=1,mindbh=NULL,plotdim=c(1000,500),replicates=10,unidennames=c("**","UNID","uniden","UNIDEN"))
-{
- toolong=size[size>plotdim[1]]
- size=size[size*rectdim<=plotdim[2]]
-
- if(length(toolong)>0)
+spparea.sq <- function(censdata,
+                       spcolumn = 'sp',
+                       size,
+                       rectdim = 1,
+                       mindbh = NULL,
+                       plotdim = c(1000, 500),
+                       replicates = 10,
+                       unidennames = c("**", "UNID", "uniden", "UNIDEN")) {
+  toolong=size[size>plotdim[1]]
+  size=size[size*rectdim<=plotdim[2]]
+  
+  if(length(toolong)>0)
    {
     cat("size ", min(toolong))
     if(length(toolong)>1) cat(", ", max(toolong))
     cat (" too big for plot\n")
    }
-
- if(is.null(mindbh))
+  
+  if(is.null(mindbh))
     censdata=subset(censdata,status=="A" & !unidentified.species(spcolumn,exactstr=unidennames))
- else
+  else
     censdata=subset(censdata,status=="A" & dbh>=mindbh & !unidentified.species(spcolumn,exactstr=unidennames))
-
- allsize=selectrandomquad(size,rectdim,replicates,plotdim)
- noquad=dim(allsize)[1]
- 
- spp=ind=numeric()
- for(i in 1:noquad)
+  
+  allsize=selectrandomquad(size,rectdim,replicates,plotdim)
+  noquad=dim(allsize)[1]
+  
+  spp=ind=numeric()
+  for(i in 1:noquad)
   {
    data=subset(censdata,gx>=allsize$xlo[i] & gx<allsize$xhi[i] & gy>=allsize$ylo[i] & gy<allsize$yhi[i])
- 
+  
    spp[i]=length(unique(data[,spcolumn]))
    ind[i]=length(data[,spcolumn])
- 
+  
    if(i==1) plot(allsize$area[i],spp[i],pch=16,ylim=c(1,1200),xlim=c(.01,60),log="xy")
    else points(allsize$area[i],spp[i],pch=16)
   }
-
- full=data.frame(area=allsize$area,taxa=spp,ind)
- taxa=tapply(full$taxa,full$area,mean)
- SDtaxa=tapply(full$taxa,full$area,sd)
- indiv=tapply(full$ind,full$area,mean)
- SDindiv=tapply(full$ind,full$area,sd)
- area=tapply(full$area,full$area,mean)
- 
- no.area=length(size)
- taxa[no.area+1]=length(unique(censdata[,spcolumn]))
- indiv[no.area+1]=length(censdata[,spcolumn])
- SDtaxa[no.area+1]=SDindiv[no.area+1]=NA
- area[no.area+1]=plotdim[1]*plotdim[2]/1e4
- xdim=c(size,plotdim[1])
- ydim=c(size*rectdim,plotdim[2])
- 
- return(list(spparea=data.frame(xdim,ydim,area,indiv,SDindiv,taxa,SDtaxa),full=full))
-}
+  
+  full=data.frame(area=allsize$area,taxa=spp,ind)
+  taxa=tapply(full$taxa,full$area,mean)
+  SDtaxa=tapply(full$taxa,full$area,sd)
+  indiv=tapply(full$ind,full$area,mean)
+  SDindiv=tapply(full$ind,full$area,sd)
+  area=tapply(full$area,full$area,mean)
+  
+  no.area=length(size)
+  taxa[no.area+1]=length(unique(censdata[,spcolumn]))
+  indiv[no.area+1]=length(censdata[,spcolumn])
+  SDtaxa[no.area+1]=SDindiv[no.area+1]=NA
+  area[no.area+1]=plotdim[1]*plotdim[2]/1e4
+  xdim=c(size,plotdim[1])
+  ydim=c(size*rectdim,plotdim[2])
+  
+  return(list(spparea=data.frame(xdim,ydim,area,indiv,SDindiv,taxa,SDtaxa),full=full))
+  }
 # </source>
 # </function>
 
