@@ -194,7 +194,11 @@ spparea.sq <- function(censdata,
       !unidentified.species(spcolumn, exactstr = unidennames)
     censdata <- censdata[cond_1, , drop = FALSE]
   } else {
-    censdata=subset(censdata,status=="A" & dbh>=mindbh & !unidentified.species(spcolumn,exactstr=unidennames))
+    # censdata=subset(censdata,status=="A" & dbh>=mindbh & !unidentified.species(spcolumn,exactstr=unidennames))
+    cond_2 <- censdata$status == "A" &
+      censdata$dbh >= mindbh &
+      !unidentified.species(spcolumn, exactstr = unidennames)
+    censdata <- censdata[cond_2, , drop = FALSE]
     }
   
   allsize=selectrandomquad(size,rectdim,replicates,plotdim)
@@ -203,7 +207,19 @@ spparea.sq <- function(censdata,
   spp=ind=numeric()
   for(i in 1:noquad)
   {
-   data=subset(censdata,gx>=allsize$xlo[i] & gx<allsize$xhi[i] & gy>=allsize$ylo[i] & gy<allsize$yhi[i])
+   # data=subset(censdata,gx>=allsize$xlo[i] & gx<allsize$xhi[i] & gy>=allsize$ylo[i] & gy<allsize$yhi[i])
+   cond_3 <- censdata$gx >= allsize$xlo[i] & 
+     censdata$gx < allsize$xhi[i] &
+     censdata$gy >= allsize$ylo[i] &
+     censdata$gy < allsize$yhi[i]
+   data <- censdata[cond_3, , drop = FALSE]
+   
+    
+   
+   
+   
+   
+   
   
    spp[i]=length(unique(data[,spcolumn]))
    ind[i]=length(data[,spcolumn])
