@@ -41,7 +41,8 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `complete.plotmap()`
     - `modelBayes()`: but errs. It also erred before replacing `subset()` by `[`
     - `NeighborDensities()`
-    - ... (7 more to go).
+    - `allquadratslopes()`
+    - ... (6 more to go).
     - Not yet possible because functions err:
         - `run.growthbin.manyspp()`
     - Not yet possible because functions lacks required input:

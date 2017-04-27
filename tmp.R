@@ -10,10 +10,11 @@ load_all()
 # tst data ----------------------------------------------------------------
 
 
+library(dplyr)
+elv <- list(col = bci::bci_elevation)
+elevcol <- elv$col[1:5, , drop = FALSE]
 
-
-
-
+elevcol$elev
 
 
 

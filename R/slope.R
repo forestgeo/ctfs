@@ -294,7 +294,10 @@ allquadratslopes=function(elev,gridsize=20,plotdim=c(1000,500),edgecorrect=TRUE)
          midy=xy$gy+gridsize/2
 
 #         browser()
-         midelev=subset(elev$col,x==midx & y==midy)$elev
+         cond <- elev$col$x == midx & elev$col$y == midy
+         elevcol <- elev$col[cond, , drop = FALSE]
+         midelev <- elevcol$elev
+         
          convex[quad.index]=midelev-meanelev[quad.index]
         }
       }

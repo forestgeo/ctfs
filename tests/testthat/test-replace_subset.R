@@ -57,7 +57,6 @@ test_that("lmerBayes outputs the same before and after fix", {
 test_that("allquadratslopes outputs the same before and after fix", {
   # The input to elev is very specific, so it needs tweaking
   elev_tweaked <- list(col = bci::bci_elevation)
-  head(elev_tweaked)
   actual <- allquadratslopes(
     elev = elev_tweaked,
     gridsize = 20,
