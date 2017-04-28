@@ -10,6 +10,7 @@ load_all()
 
 # tst data ----------------------------------------------------------------
 
-
+# xxx cont. replace subset
+# xxx cont. find functions from suggested packages mvtnorm and MCMCpack
 
 
