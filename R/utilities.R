@@ -936,27 +936,31 @@ convert.factor=function(r)
 # <source>
 #' @export
 
-split.data=function(censdata,splitcol='sp',keepsplitcol=FALSE,allsplit=NULL,showOutput=NULL)
-{
- output=list()
-
- split=censdata[,splitcol]
- if(!keepsplitcol) includecol=which(colnames(censdata)!=splitcol)
- else includecol=colnames(censdata)
- 
- if(is.null(allsplit)) allsplit=sort(unique(split))
-
- for(i in 1:length(allsplit))
+split.data <- function(censdata,
+                       splitcol = 'sp',
+                       keepsplitcol = FALSE,
+                       allsplit = NULL,
+                       showOutput = NULL) {
+  output=list()
+  
+  split=censdata[,splitcol]
+  if(!keepsplitcol) includecol=which(colnames(censdata)!=splitcol)
+  else includecol=colnames(censdata)
+  
+  if(is.null(allsplit)) allsplit=sort(unique(split))
+  
+  for(i in 1:length(allsplit))
   {
    if(!is.null(showOutput)) if(i%%showOutput==0) cat('working on number ', i, ' -- ', allsplit[i], '\n')
    thisspecies=allsplit[i]
-   output[[i]]=subset(censdata,split==thisspecies,select=includecol)
+   cond_1 <- split == thisspecies
+   output[[i]] <- censdata[cond_1, includecol, drop = FALSE]
   }
-
- names(output)=allsplit
-
- return(output)
-}
+  
+  names(output)=allsplit
+  
+  return(output)
+  }
 
 
 # </source>
