@@ -15,7 +15,10 @@ not in the data, empty elements are included in the list, but if allsplit
 includes fewer values than found in the data, then missing elements are
 omitted.
 
-The option keepsplitcol can be set to TRUE
-in order to retain in the new dataframes the column on which the data are grouped; otherwise, that
-column is removed.
+The option keepsplitcol can be set to TRUE in order to retain in the new
+dataframes the column on which the data are grouped; otherwise, that column
+is removed.
+}
+\details{
+Name split.data clashed with an S3 method, so it was replaced by split_data.
 }

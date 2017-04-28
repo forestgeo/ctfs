@@ -106,9 +106,9 @@ test_that("spparea.sq outputs the same before and after fix", {
   )
 })
 
-test_that("split.data outputs the same before and after fix", {
+test_that("split_data outputs the same before and after fix", {
   censdata <- bci::bci12full1
-  actual <- split.data(
+  actual <- split_data(
     censdata,
     splitcol = "sp",
     keepsplitcol = FALSE,

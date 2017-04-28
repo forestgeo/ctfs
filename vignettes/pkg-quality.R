@@ -46,8 +46,8 @@ tribble(
 err001 <- "Error in llike.model.lmer, function 'dmvnorm' was missing"
 err002 <- "Error in tojulian, package date was missing"
 err003 <- "Errs because uses subset, i.e. non-standard evaluation"
-err004 <- "Errs because density.ind argument wsgdata is missing"
-err005 <- paste0(err004, " and could also err because density.ind used subset")
+err004 <- "Errs because density_ind argument wsgdata is missing"
+err005 <- paste0(err004, " and could also err because density_ind used subset")
 err006 <- "Called from: linear.model. Error in x %*% b : requires numeric/complex matrix/vector arguments"
 err07 <- "need output of run.growthbin.manyspp"
 err008 <- "mandatory input files are not provided for examples"
@@ -63,7 +63,7 @@ solved_with <- tibble::tribble(
   "mortality.eachspp", err002, "use_package('date')",
   "model.littleR.Gibbs", err003, "remove subset (non-standard evaluation)",
   "biomass.CTFSdb", err004, "provide argument wsgdata with wsgdata_dummy()",
-  "density.ind", err005, "remove subset (non-standard evaluation)",
+  "density_ind", err005, "remove subset (non-standard evaluation)",
   "growth.flexbin", err006, "Unsolved. I need to traceback. problem likely in linear.model.ctr.",
   "run.growthfit.bin", err006, "Unsolved. I need to traceback. problem likely in linear.model.ctr.",
   "run.growthbin.manyspp", err006, "Unsolved. I need to traceback. problem likely in linear.model.ctr.",
@@ -73,7 +73,7 @@ solved_with <- tibble::tribble(
   "fullplot.imageJ", err008, "unsolved. Should give example files for examples",
   "pdf.allplot", err009, "unsolved. Try replacing subset by nse equivalent",
   "png.allplot", err009, "unsolved. Try replacing subset by nse equivalent",
-  "solve.topo", err010, "unsolved. Should provide an example survey object"
+  "solve_topo", err010, "unsolved. Should provide an example survey object"
 )
 
 # functions that err ----
@@ -106,7 +106,7 @@ errs <- tibble::tribble(
   "Plot maps", "png.allplot", T,
   "Plot maps", "complete.plotmap", F,
   "Topography", "rearrangeSurveyData", F,
-  "Topography", "solve.topo", T
+  "Topography", "solve_topo", T
 )
 
 ## ------------------------------------------------------------------------

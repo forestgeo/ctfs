@@ -49,6 +49,7 @@
 #' 
 #' @seealso [calcslope()], [quadslope()]
 #' @examples
+#' \dontrun{
 #' # The input to elev is very specific; you may need to tweak it.
 #' elev_asis <- bci::bci_elevation
 #' head(elev_asis)
@@ -61,8 +62,9 @@
 #'   plotdim = c(1000, 500),
 #'   edgecorrect = TRUE
 #' )
-#' haed(result)
+#' head(result)
 #' str(result)
+#' }
 'allquadratslopes'
 
 #' quadslope

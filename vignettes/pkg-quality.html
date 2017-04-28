@@ -12,7 +12,7 @@
 
 <meta name="author" content="Mauro Lepore" />
 
-<meta name="date" content="2017-04-25" />
+<meta name="date" content="2017-04-28" />
 
 <title>Report Package Quality</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Report Package Quality</h1>
 <h4 class="author"><em>Mauro Lepore</em></h4>
-<h4 class="date"><em>2017-04-25</em></h4>
+<h4 class="date"><em>2017-04-28</em></h4>
 
 
 <div id="TOC">
@@ -93,10 +93,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><em>ctfs</em></h2>
 <p>This reports the complexity of ctfs:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sig::<span class="kw">sig_report</span>(<span class="kw">pkg2env</span>(ctfs))
-<span class="co">#&gt; The environment contains 377 variables of which 376 are functions. </span>
+<span class="co">#&gt; The environment contains 380 variables of which 379 are functions. </span>
 <span class="co">#&gt; Distribution of the number of input arguments to the functions:</span>
 <span class="co">#&gt;  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 22 23 24 33 </span>
-<span class="co">#&gt; 55 62 75 61 25 18 21 10  6  7  8  7  3  2  1  3  4  1  1  2  1  1  1  1 </span>
+<span class="co">#&gt; 58 62 75 61 25 18 21 10  6  7  8  7  3  2  1  3  4  1  1  2  1  1  1  1 </span>
 <span class="co">#&gt; These functions have more than 10 input args:</span>
 <span class="co">#&gt;  [1] biomass.CTFSdb            complete.plotmap         </span>
 <span class="co">#&gt;  [3] extract.growthdata        fitSeveralAbundModel     </span>
@@ -104,7 +104,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt;  [7] graph.abundmodel          graph.growthmodel.spp    </span>
 <span class="co">#&gt;  [9] growth                    growth.dbh               </span>
 <span class="co">#&gt; [11] growth.eachspp            growth.flexbin           </span>
-<span class="co">#&gt; [13] image.dataframe           imageGraph               </span>
+<span class="co">#&gt; [13] imageGraph                image_dataframe          </span>
 <span class="co">#&gt; [15] llike.fixef.lmer          llike.model.lmer         </span>
 <span class="co">#&gt; [17] lmerBayes                 majoraxisreg             </span>
 <span class="co">#&gt; [19] map                       map1species              </span>
@@ -118,7 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt; [35] run.growthfit.bin         trim.growth              </span>
 <span class="co">#&gt; Distribution of the number of lines of the functions:</span>
 <span class="co">#&gt;         1         2     [3,4]     [5,8]    [9,16]   [17,32]   [33,64] </span>
-<span class="co">#&gt;         0        29         7        87       120        80        38 </span>
+<span class="co">#&gt;         0        28         8        89       121        79        39 </span>
 <span class="co">#&gt;  [65,128] [129,256] </span>
 <span class="co">#&gt;        13         2 </span>
 <span class="co">#&gt; These functions have more than 50 lines:</span>
@@ -130,7 +130,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt; [16] map                    maptopo                model.littleR.Gibbs   </span>
 <span class="co">#&gt; [19] model.xy               modelBayes             partialcirclearea     </span>
 <span class="co">#&gt; [22] pop.change             recruitment            regress.loglog        </span>
-<span class="co">#&gt; [25] summaryMCMC            wavelet.bivariate      wavelet.univariate</span></code></pre></div>
+<span class="co">#&gt; [25] spparea.sq             summaryMCMC            wavelet.bivariate     </span>
+<span class="co">#&gt; [28] wavelet.univariate</span></code></pre></div>
 </div>
 <div id="hmisc" class="section level2">
 <h2><em>Hmisc</em></h2>
@@ -373,7 +374,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt; 10     Growth vs. DBH overlay.growthbinmodel  TRUE</span>
 <span class="co">#&gt; 11          Plot maps            pdf.allplot  TRUE</span>
 <span class="co">#&gt; 12          Plot maps            png.allplot  TRUE</span>
-<span class="co">#&gt; 13         Topography             solve.topo  TRUE</span>
+<span class="co">#&gt; 13         Topography             solve_topo  TRUE</span>
 <span class="co">#&gt; # ... with 2 more variables: msg &lt;chr&gt;, guess_solution &lt;chr&gt;</span>
 <span class="co">#&gt; # A tibble: 13 × 1</span>
 <span class="co">#&gt;                                                                            msg</span>
@@ -381,7 +382,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#&gt; 1                    Error in llike.model.lmer, function 'dmvnorm' was missing</span>
 <span class="co">#&gt; 2                                  Error in tojulian, package date was missing</span>
 <span class="co">#&gt; 3                       Errs because uses subset, i.e. non-standard evaluation</span>
-<span class="co">#&gt; 4                         Errs because density.ind argument wsgdata is missing</span>
+<span class="co">#&gt; 4                         Errs because density_ind argument wsgdata is missing</span>
 <span class="co">#&gt; 5  Called from: linear.model. Error in x %*% b : requires numeric/complex matr</span>
 <span class="co">#&gt; 6  Called from: linear.model. Error in x %*% b : requires numeric/complex matr</span>
 <span class="co">#&gt; 7  Called from: linear.model. Error in x %*% b : requires numeric/complex matr</span>

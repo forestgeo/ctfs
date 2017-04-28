@@ -24,7 +24,7 @@ The functions are these:
 6      merge.data  # replaced by merge_data
 7    plot.wavelet  # replaced by plot_wavelet
 8      solve.topo  # replaced by solve_topo
-9      split.data  # # replaced by split_data
+9      split.data  # replaced by split_data
 ```
 
 - @importFrom magrittr %>% ([example](https://github.com/tidyverse/dplyr/edit/master/R/utils.r))
