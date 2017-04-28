@@ -18,5 +18,7 @@ Suggests: knitr,
     rmarkdown,
     lme4,
     testthat,
-    bci
+    bci,
+    MCMCpack,
+    mvtnorm
 VignetteBuilder: knitr
