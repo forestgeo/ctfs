@@ -7,7 +7,7 @@
 is_na_row(.data)
 }
 \arguments{
-\item{data}{}
+\item{.data}{A non empty matrix or data frame}
 }
 \value{
 A logical vector of length equal to number of rows in data.
@@ -16,7 +16,6 @@ A logical vector of length equal to number of rows in data.
 Detect rows in a data frame full of NA (accross columns)
 }
 \examples{
-library(tibble)
 df <- tibble::tribble(
 ~x,  ~y,    ~z,
  1, "a", FALSE,

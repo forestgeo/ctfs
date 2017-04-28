@@ -20,5 +20,6 @@ Suggests: knitr,
     testthat,
     mvtnorm,
     MCMCpack,
-    bci
+    bci,
+    tibble
 VignetteBuilder: knitr

@@ -34,7 +34,6 @@ Output: a data.frame with two columns listing the density of consp and hetsp, an
 \dontrun{
 load("bci.full7.rdata")
 attach("CTFSRPackage.rdata")
-library(splancs)
 
 sum consp and hetsp neighbors for all stems in the plot  
 neighbor.counts <- NeighborDensities(bci.full7, r=20, type='count') 

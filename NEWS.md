@@ -166,19 +166,7 @@ Also, `wavelet.allsp()` uses `with()`, which may cause problems because it uses 
 
 ENHANCEMENTS
 
-Next I suggest some enhances in the order I think it makes sense to address them:
-
-UNSAFE
-
-- Subset is OK for interactive use but unreliable in functions becaue it uses non-standard evaluation and lacks a hatch. Wherever posible, it should be replaced by "[". ~15 functions use subset. (To find functions that use `subset()` use Edit/Find in Files.)
-
-> **Warning:** This is a convenience function intended for use interactively. For programming it is better to use the standard subsetting functions like [, and in particular the non-standard evaluation of argument subset can have unanticipated consequences.
-
---`?subset()`
-
-> ...While subset() saves typing, it’s actually difficult to use non-interactively.
-
--- from **Calling from another function** at http://adv-r.had.co.nz/Computing-on-the-language.html
+Some functions still use `subset()`, generally because those functions fail, so any additional bug my fix may introduce would go unnoticed. The plan is to fix the functions first, then replace `subset()` by `[`.
 
 INACURATE DOCUMENTATION
 
