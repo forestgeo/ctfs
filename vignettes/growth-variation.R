@@ -111,34 +111,34 @@ mymodels <- lapply(
 )
 mymodels
 
-## ------------------------------------------------------------------------
-# Same output as mymodel, but easier to visualize and to work with
-# (see the pipe operator "%>%" at http://r4ds.had.co.nz/pipes.html)
-tidymodels <- mymodels %>%  # take mymodels, then transform
-  lapply(broom::tidy) %>%   # from model summmaries to data frames (df), then
-  tibble::enframe() %>%     # from named lists of df to single nested df, then
-  tidyr::unnest()           # from nested df to normal df.
-tidymodels
+## ---- eval=FALSE, echo=TRUE----------------------------------------------
+#  # Same output as mymodel, but easier to visualize and to work with
+#  # (see the pipe operator "%>%" at http://r4ds.had.co.nz/pipes.html)
+#  tidymodels <- mymodels %>%  # take mymodels, then transform
+#    lapply(broom::tidy) %>%   # from model summmaries to data frames (df), then
+#    tibble::enframe() %>%     # from named lists of df to single nested df, then
+#    tidyr::unnest()           # from nested df to normal df.
+#  tidymodels
 
-## ------------------------------------------------------------------------
-tidymodels %>% 
-  select(name, term, estimate) %>% 
-  filter(term %in% c("(Intercept)", "time")) %>% 
-  mutate(term = gsub("^..ntercept.$", "intercept", term)) %>% 
-  spread(term, estimate)
-  
-
-mycoefs <- lapply(mymodels, fixef)
-
-ggplot(data = growth_summary, aes(x = yr_mean, y = root_med)) +
-  geom_point() +
-  geom_abline(
-    slope = mycoefs$mod3_under[2],
-    intercept = mycoefs$mod3_under[1]
-    ) +
-  geom_abline(
-    slope = mycoefs$mod3_over[2],
-    intercept = mycoefs$mod3_over[1]
-    ) +
-  labs(x = "years since 1992", y = "median growth")
+## ---- eval=FALSE, echo=TRUE----------------------------------------------
+#  tidymodels %>%
+#    select(name, term, estimate) %>%
+#    filter(term %in% c("(Intercept)", "time")) %>%
+#    mutate(term = gsub("^..ntercept.$", "intercept", term)) %>%
+#    spread(term, estimate)
+#  
+#  
+#  mycoefs <- lapply(mymodels, fixef)
+#  
+#  ggplot(data = growth_summary, aes(x = yr_mean, y = root_med)) +
+#    geom_point() +
+#    geom_abline(
+#      slope = mycoefs$mod3_under[2],
+#      intercept = mycoefs$mod3_under[1]
+#      ) +
+#    geom_abline(
+#      slope = mycoefs$mod3_over[2],
+#      intercept = mycoefs$mod3_over[1]
+#      ) +
+#    labs(x = "years since 1992", y = "median growth")
 
