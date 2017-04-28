@@ -26,3 +26,4 @@ NA, "c",    NA
 )
 is_na_row(df)
 }
+\keyword{internal}

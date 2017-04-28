@@ -1,5 +1,21 @@
 # ctfs 0.0.0.9005
 
+```R
+* checking for unstated dependencies in vignettes ... NOTE
+'::' or ':::' imports not declared from:
+  'broom' 'dplyr' 'purrr' 'sig' 'tidyr'
+'library' or 'require' calls not declared from:
+  'dplyr' 'modelr' 'sig' 'tidyverse'
+```
+
+
+
+
+
+
+
+
+
 FUNCTIONS INTERPRETED AS S3 METHODS
 
 Some functions were treated as S3 methods, and automatically changed NAMESPACE in a problematic way. Those functions caused these problems:

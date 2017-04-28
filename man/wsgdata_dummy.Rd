@@ -30,5 +30,5 @@ called wsg (though the name of that column can be changed using the argument
 denscol)"}.
 }
 \examples{
-wsgdata_dummy(bci.stem1)
+wsgdata_dummy(bci::bci12stem1)
 }

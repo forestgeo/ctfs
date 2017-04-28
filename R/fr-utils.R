@@ -2,6 +2,8 @@
 #'
 #' @param .data A non empty matrix or data frame
 #' @return A logical vector of length equal to number of rows in data.
+#' @export
+#' @keywords internal
 #' @examples
 #' df <- tibble::tribble(
 #' ~x,  ~y,    ~z,
@@ -25,6 +27,8 @@ is_na_row <- function(.data) {
 #' 
 #' @param .data A data frame or matrix.
 #' @return Output and `.data`. have the same type.
+#' @export
+#' @keywords internal
 #' @examples
 #' df <- tibble::tribble(
 #' ~x,  ~y,    ~z,
