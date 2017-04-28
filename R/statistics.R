@@ -366,14 +366,14 @@
 #'
 'CI'
 
-#' hist.compare
+#' hist_compare
 #'
 #' @description
 #'
 #' Compares two histograms with a Kolmogorov approach.
 #'
-#'
-'hist.compare'
+#' @aliases hist.compare
+'hist_compare'
 
 #' harmonic.mean
 #'
@@ -1807,7 +1807,7 @@ CI=function(x,prob=c(.025,.975),na.rm=FALSE)
 # 
 # <function>
 # <name>
-# hist.compare
+# hist_compare
 # </name>
 # <description>
 # Compares two histograms with a Kolmogorov approach.
@@ -1821,7 +1821,7 @@ CI=function(x,prob=c(.025,.975),na.rm=FALSE)
 # <source>
 #' @export
 
-hist.compare=function(x,y,div,breaks=NULL)
+hist_compare=function(x,y,div,breaks=NULL)
 {
  y=y[!is.na(y)]
  x=x[!is.na(x)]

@@ -118,7 +118,7 @@
 #'
 'draw.axes'
 
-#' image.dataframe
+#' image_dataframe
 #'
 #' @description
 #'
@@ -139,11 +139,10 @@
 #' \dontrun{
 #'
 #' CTFSplot('bci',6,'full')
-#' image.dataframe(data=subset(bci.full6,status=='A'),xcol='gx',ycol='gy',zcol='dbh',breaks=c(10,20,50,100,500,10000),xrange=c(0,100),yrange=c(0,100), colors=c('orange','yellow','lightgreen','green','blue'),newgraph=TRUE,h=9,w=12,plotsize=7)}
+#' image_dataframe(data=subset(bci.full6,status=='A'),xcol='gx',ycol='gy',zcol='dbh',breaks=c(10,20,50,100,500,10000),xrange=c(0,100),yrange=c(0,100), colors=c('orange','yellow','lightgreen','green','blue'),newgraph=TRUE,h=9,w=12,plotsize=7)}
 #'
-#'
-
-'image.dataframe'
+#' @aliases image.dataframe
+'image_dataframe'
 
 # Source code and original documentation ----------------------------
 # <function>
@@ -371,7 +370,7 @@ draw.axes=function(whichaxs=1:4,xrange,yrange,div,whichbox=1:4)
 # 
 # <function>
 # <name>
-# image.dataframe
+# image_dataframe
 # </name> 
 # <description>
 # Creates a color response map based on columnar data, not a matrix as used by R's image function. It is used in cases where a full matrix
@@ -389,12 +388,12 @@ draw.axes=function(whichaxs=1:4,xrange,yrange,div,whichbox=1:4)
 # </arguments>
 # <sample>
 # CTFSplot('bci',6,'full')<br>
-# image.dataframe(data=subset(bci.full6,status=='A'),xcol='gx',ycol='gy',zcol='dbh',breaks=c(10,20,50,100,500,10000),xrange=c(0,100),yrange=c(0,100), colors=c('orange','yellow','lightgreen','green','blue'),newgraph=TRUE,h=9,w=12,plotsize=7)
+# image_dataframe(data=subset(bci.full6,status=='A'),xcol='gx',ycol='gy',zcol='dbh',breaks=c(10,20,50,100,500,10000),xrange=c(0,100),yrange=c(0,100), colors=c('orange','yellow','lightgreen','green','blue'),newgraph=TRUE,h=9,w=12,plotsize=7)
 # </sample>
 # <source>
 #' @export
 
-image.dataframe=function(data,xcol='x',ycol='y',zcol='z',breaks=NULL,div=NULL,colors=NULL,xname='x',yname='y',xrange=NULL,yrange=NULL,
+image_dataframe=function(data,xcol='x',ycol='y',zcol='z',breaks=NULL,div=NULL,colors=NULL,xname='x',yname='y',xrange=NULL,yrange=NULL,
                          ptsize=1,graphfile=NULL,export=X11,newgraph=FALSE,h=11,w=11,plotsize=6)
 {
  x=data[,xcol]

@@ -117,10 +117,17 @@ The permanent fix is easy: to replace dots "." by "_" in the names of those prob
 The functions are these:
 
 ```R
+x <- "hist.compare"
+
+rplby <- function(x) {
+  x1 <- stringr::str_replace_all(x, "\\.", "_")
+  glue::glue("  # replaced by {x1} with @aliases {x}")
+}
+
 1     density.ind  # replaced by density_ind with @aliases density.ind
 2        exp.2par  # replaced by exp_2par with @aliases exp.2par
-3    hist.compare
-4 image.dataframe
+3    hist.compare  # replaced by hist_compare with @aliases hist.compare
+4 image.dataframe  # replaced by image_dataframe with @aliases image.dataframe
 5       log.model
 6      merge.data
 7    plot.wavelet
