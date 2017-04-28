@@ -106,17 +106,6 @@ test_that("spparea.sq outputs the same before and after fix", {
   )
 })
 
-
-
-
-
-
-
-
-
-
-
-
 test_that("split.data outputs the same before and after fix", {
   censdata <- bci::bci12full1
   actual <- split.data(
@@ -127,4 +116,10 @@ test_that("split.data outputs the same before and after fix", {
     showOutput = NULL
   )
   expect_equal_to_reference(actual, "ref_split_data.rds")
+})
+
+test_that("countspp outputs the same before and after fix", {
+  x <- -5:10
+  actual <- length(subset(x, x > 0))
+  expect_equal(actual, countspp(x))
 })

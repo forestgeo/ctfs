@@ -254,9 +254,9 @@ rndown5=function(s)
 # </sample>
 # <source>
 #' @export
-
-countspp=function(x) 
- return(length(subset(x,x>0)))
+countspp <- function(x) {
+  length(x[x > 0])
+}
 
 # </source>
 # </function>

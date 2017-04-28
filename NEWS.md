@@ -45,14 +45,16 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
     - `NeighborDensities()`
     - `allquadratslopes()`
     - `spparea.sq()`
-    - ... (4 more to go).
-    - Pendent. Impossible to test because functions err:
-        - `run.growthbin.manyspp()`
-    - Pendenr. Impossible to test because functions lacks required input:
-        - `imageJ.to.lxly()`
-    - Pendent. Impossible to test because data is missing to run the function
-        - `solve.topo()`
-        - `rearrangeSurveyData()`
+    - `split.data()`
+    - `countspp()`
+    - Pendent:
+        - Impossible to test because functions err:
+            - `run.growthbin.manyspp()`
+        - Impossible to test because functions lacks required input:
+            - `imageJ.to.lxly()`
+        - Impossible to test because data is missing to run the function
+            - `solve.topo()`
+            - `rearrangeSurveyData()`
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
     
