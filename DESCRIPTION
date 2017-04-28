@@ -13,12 +13,12 @@ URL: https://github.com/forestgeo/ctfs
 BugReports: https://github.com/forestgeo/ctfs/issues
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
-Imports: date,
-    mvtnorm,
-    MCMCpack
+Imports: date
 Suggests: knitr,
     rmarkdown,
     lme4,
     testthat,
+    mvtnorm,
+    MCMCpack,
     bci
 VignetteBuilder: knitr
