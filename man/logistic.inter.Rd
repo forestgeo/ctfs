@@ -7,9 +7,11 @@
 logistic.inter(x, param, log = FALSE, ...)
 }
 \description{
-Logistic function with intercept parameterization (ie, first parameter is y when all x=0). The input x are all independent variables, in a matrix
-with each column one of the variables. The number of rows is the number of datapoints. Just one inter, which is the value
-at all x=0, and passed as param\link{1}. Slope parameters follow, one per column of x.
+Logistic function with intercept parameterization (i.e., first parameter is y
+when all \code{x = 0}). The input x are all independent variables, in a matrix
+with each column one of the variables. The number of rows is the number of
+datapoints. Just one inter, which is the value at all \code{x = 0}, and passed as
+\code{param[1]}. Slope parameters follow, one per column of \code{x}.
 
-This is identical to standard
+This is identical to standard.
 }

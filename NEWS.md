@@ -1,12 +1,28 @@
 # ctfs 0.0.0.9005
 
-```R
-* checking for unstated dependencies in vignettes ... NOTE
-'::' or ':::' imports not declared from:
-  'broom' 'dplyr' 'purrr' 'sig' 'tidyr'
-'library' or 'require' calls not declared from:
-  'dplyr' 'modelr' 'sig' 'tidyverse'
 ```
+checking Rd cross-references ... WARNING
+Missing link or links in documentation object 'logistic.power.mode.Rd':
+  '2' '3'
+
+Missing link or links in documentation object 'model.littleR.Gibbs.Rd':
+  'modeltype="norm", with the quotes' 'modeltype="asymnorm", with the
+  quotes' 'modeltype="symexp", with the quotes' 'modeltype="asymexp",
+  with the quotes' 'modeltype="asympower", with the quotes'
+  
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -35,6 +35,10 @@
 #'   283: 554-557.
 #' @name ctfs
 #' @docType package
+#' @importFrom utils head data read.delim read.table write.table
+#' @import grDevices
+#' @import stats
+#' @import graphics
 NULL
 
 

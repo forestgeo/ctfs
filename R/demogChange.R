@@ -76,12 +76,17 @@
 #'
 #' @description
 #'
-#' A linear model of an annual mortality parameter [which is -log(annual survival)] as a function of N predictors x, which must be the first N columns of x. 
+#' A linear model of an annual mortality parameter, which is 
+#' `-log(annual survival)`, as a function of N predictors x, which must be the
+#' first N columns of x.
 #'
-#' The parameters are standard slope and intercept for a linear model. There must be one additional column in x for the time interval t. The linear model predicts annual log(survival).
+#' The parameters are standard slope and intercept for a linear model. There
+#' must be one additional column in x for the time interval t. The linear model
+#' predicts annual log(survival).
 #'
-#' Return value is predicted survival rate (probability) over an interval of t years. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
-#'
+#' Return value is predicted survival rate (probability) over an interval of t
+#' years. Nothing prevents the output from being outside (0,1); that must be
+#' handled in the likelihood function.
 #'
 'lmerMortLinear'
 

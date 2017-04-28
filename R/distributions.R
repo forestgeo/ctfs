@@ -516,13 +516,13 @@
 #' logistic.inter
 #'
 #' @description
-#'
-#' Logistic function with intercept parameterization (ie, first parameter is y when all x=0). The input x are all independent variables, in a matrix
-#' with each column one of the variables. The number of rows is the number of datapoints. Just one inter, which is the value
-#' at all x=0, and passed as param[1]. Slope parameters follow, one per column of x. 
-#'
-#' This is identical to standard 
-#'
+#' Logistic function with intercept parameterization (i.e., first parameter is y
+#' when all `x = 0`). The input x are all independent variables, in a matrix
+#' with each column one of the variables. The number of rows is the number of 
+#' datapoints. Just one inter, which is the value at all `x = 0`, and passed as 
+#' `param[1]`. Slope parameters follow, one per column of `x`.
+#' 
+#' This is identical to standard.
 #'
 'logistic.inter'
 
@@ -902,12 +902,13 @@
 #' linear.mortmodel
 #'
 #' @description
+#' A model for mortality as a function of one or more predictors, with the time
+#' interval for each individual incorporated (as a last predictor).
 #'
-#' A model for mortality as a function of one or more predictors, with the time interval for each individual incorporated (as a last predictor).
-#'
-#' The log(mortality parameter) is modeled as a linear function of x[,-nopred].  The return value is a survival probability. Nothing prevents the output from
-#' being outside (0,1); that must be handled in the likelihood function.
-#'
+#' The log(mortality parameter) is modeled as a linear function of 
+#' `x[ , -nopred]`. The return value is a survival probability. Nothing prevents
+#' the output from being outside (0,1); that must be handled in the likelihood 
+#' function.
 #'
 'linear.mortmodel'
 
