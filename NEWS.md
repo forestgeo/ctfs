@@ -39,7 +39,12 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
         -`NeighborDensities()`
         -`NDcount()`
         -`RipUvK()`
-
+    
+    - `splancs::inpip`, used in:
+        `NeighborDensities()`
+        
+    - `splancs::dsquare`, used in:
+        - `NeighborDensities()`
     
     - `date::mdy.date` and `date::date.mmddyy`, used in:
         - `tojulian()`

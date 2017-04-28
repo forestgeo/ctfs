@@ -29,7 +29,6 @@
 #' \dontrun{
 #' load("bci.full7.rdata")
 #' attach("CTFSRPackage.rdata")
-#' library(splancs)
 #'
 #' sum consp and hetsp neighbors for all stems in the plot  
 #' neighbor.counts <- NeighborDensities(bci.full7, r=20, type='count') 
@@ -97,7 +96,6 @@
 # <sample>
 # > load("bci.full7.rdata")<br>
 # > attach("CTFSRPackage.rdata")<br>
-# > library(splancs)<br>
 # ## sum consp and hetsp neighbors for all stems in the plot <br> 
 # > neighbor.counts <- NeighborDensities(bci.full7, r=20, type='count')<br> 
 # ## sum consp and hetsp neighbors for only one species:<br> 
@@ -140,11 +138,11 @@ NeighborDensities <- function(censdata,
   	if (is.na(focal$gx) | is.na(focal$gy) | duplicated(focal$tag)) output[i,1:2] = NA  else {
   
   	poly= with(focal, splancs::spoints(c(gx-r, gy-r, gx-r, gy+r, gx+r, gy+r, gx+r, gy-r)))
-  	use = inpip(splancs::spoints(rbind(spd$gx,spd$gy)), poly)
+  	use = splancs::inpip(splancs::spoints(rbind(spd$gx,spd$gy)), poly)
   
   	if (length(use)==0) output[i,1:2]=0  else {
   
-  	incircle = sqrt(dsquare(splancs::spoints(rbind(spd$gx[use],spd$gy[use])), splancs::spoints(rbind(focal$gx,focal$gy)) )) <= r
+  	incircle = sqrt(splancs::dsquare(splancs::spoints(rbind(spd$gx[use],spd$gy[use])), splancs::spoints(rbind(focal$gx,focal$gy)) )) <= r
   	nn = use[incircle]  #  & spd$tag[use] != focal$tag[i]
   
   	consp <- spd$sp[nn]==focal$sp
@@ -179,12 +177,12 @@ NeighborDensities <- function(censdata,
   		{
   
   			poly= with(focal, splancs::spoints(c(gx-r, gy-r, gx-r, gy+r, gx+r, gy+r, gx+r, gy-r)))
-  			use = inpip(splancs::spoints(rbind(spd$gx,spd$gy)), poly)
+  			use = splancs::inpip(splancs::spoints(rbind(spd$gx,spd$gy)), poly)
   
   			if (length(use)==0) output[i,1:2]=0 else 
   			{
   
-  				incircle = sqrt(dsquare(splancs::spoints(rbind(spd$gx[use],spd$gy[use])), splancs::spoints(rbind(focal$gx,focal$gy)) )) <= r
+  				incircle = sqrt(splancs::dsquare(splancs::spoints(rbind(spd$gx[use],spd$gy[use])), splancs::spoints(rbind(focal$gx,focal$gy)) )) <= r
   				nn = use[incircle]  #   & spd$tag[use] != focal$tag[i]
   
   				area = CalcRingArea(data.frame(gx=focal$gx,gy=focal$gy), r, plotdim)$each 
