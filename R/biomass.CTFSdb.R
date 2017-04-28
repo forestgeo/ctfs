@@ -58,7 +58,7 @@
 #'
 'biomass.CTFSdb'
 
-#' density.ind
+#' density_ind
 #'
 #' @description
 #'
@@ -83,14 +83,14 @@
 #' 
 #' @examples
 #' \dontrun{
-#' wooddens=density.ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2)
+#' wooddens=density_ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2)
 #'
 #' mean(wooddens,na.rm=TRUE)
 #'
 #' length(which(is.na(wooddens)))}
 #'
-#'
-'density.ind'
+#' @aliases density.ind
+'density_ind'
 
 #'
 #' AGB.ind
@@ -99,7 +99,7 @@
 #'
 #' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types. 
 #'
-#' Requires a table (df) with dbh and species names, a wood-density table (described under density.ind), a plot name, 
+#' Requires a table (df) with dbh and species names, a wood-density table (described under density_ind), a plot name, 
 #' dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
 #'
 #' The height parameters default to NULL, and the Chave equations without height are then used. Alternatively, height parameters
@@ -371,7 +371,7 @@ biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plo
 
 # <function>
 # <name>
-# density.ind
+# density_ind
 # </name>
 # <description>
 # Create a vector of wood density for each individual tree based on the species name and plot. The table of individuals, called df,
@@ -387,14 +387,14 @@ biomass.CTFSdb=function(RStemTable,RTreeTable,whichtable='tree',dbhunit='mm',plo
 # 
 # </arguments>
 # <sample>
-# wooddens=density.ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2) #<br>
+# wooddens=density_ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2) #<br>
 # mean(wooddens,na.rm=TRUE) #<br>
 # length(which(is.na(wooddens)))
 # </sample>
 # <source>
 #' @export
 
-density.ind=function(df,plot,wsgdata,denscol='wsg')
+density_ind=function(df,plot,wsgdata,denscol='wsg')
 {
 
  wsgdatamatch=which(wsgdata$site %in% plot)
@@ -423,7 +423,7 @@ density.ind=function(df,plot,wsgdata,denscol='wsg')
 # </name>
 # <description>
 # Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types. 
-# Requires a table (df) with dbh and species names, a wood-density table (described under density.ind), a plot name, 
+# Requires a table (df) with dbh and species names, a wood-density table (described under density_ind), a plot name, 
 # dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
 # The height parameters default to NULL, and the Chave equations without height are then used. Alternatively, height parameters
 # and a height function can be supplied, the latter to calculate height from diameter for every tree, in which case the
@@ -443,7 +443,7 @@ density.ind=function(df,plot,wsgdata,denscol='wsg')
 
 AGB.ind=function(df,dbhunit='mm',plot='bci',wsgdata=wsg.ctfs2,forest='moist',ht.param=NULL,htmodel=predht.asym)
 {
- wsg=density.ind(df=df,plot=plot,wsgdata=wsgdata,denscol='wsg')
+ wsg=density_ind(df=df,plot=plot,wsgdata=wsgdata,denscol='wsg')
 
  if(dbhunit=='mm') dbh=df$dbh/10
  else if(dbhunit=='inch') dbh=df$dbh/2.54
