@@ -119,32 +119,36 @@
 #'
 'convert.factor'
 
-#' split.data
+#' split_data
 #'
 #' @description
-#'
 #' Converts a big dataframe into a list of smaller dataframes, grouped using any
-#' column in the database, or any external vector. The variable allsplit can be set to a vector
-#' of data sections to be included; if allsplit includes values not in the data, empty elements
-#' are included in the list, but if allsplit includes fewer values than found in the data, then
-#' missing elements are omitted. 
+#' column in the database, or any external vector. The variable allsplit can be
+#' set to a vector of data sections to be included; if allsplit includes values
+#' not in the data, empty elements are included in the list, but if allsplit
+#' includes fewer values than found in the data, then missing elements are
+#' omitted.
 #'
-#' The option keepsplitcol can be set to TRUE
-#' in order to retain in the new dataframes the column on which the data are grouped; otherwise, that
-#' column is removed. 
+#' The option keepsplitcol can be set to TRUE in order to retain in the new 
+#' dataframes the column on which the data are grouped; otherwise, that column 
+#' is removed.
 #'
+#' @details
+#' Name split.data clashed with an S3 method, so it was replaced by split_data.
 #'
-'split.data'
+'split_data'
 
-#' merge.data
+#' merge_data
 #'
 #' @description
+#' Combine many dataframes as elements of a list into a single large dataframe.
+#' Each individual dataframe must have exactly the same columns. This is exactly
+#' the opposite operation as split_data.
+#' 
+#' @details 
+#' Name merge.data clashed with an S3 method, so it was replaced by merge_data.
 #'
-#' Combine many dataframes as elements of a list into a single large dataframe. Each individual dataframe must
-#' have exactly the same columns. This is exactly the opposite operation as split.data. 
-#'
-#'
-'merge.data'
+'merge_data'
 
 #' pst
 #'
@@ -305,7 +309,7 @@
 #'
 #' Merges a list of parameter matrices into one
 #' large matrix. Used for the parameter output from MCMCmetrop1R, stored
-#' as a list. No longer used; superseded by merge.data. 
+#' as a list. No longer used; superseded by merge_data. 
 #'
 #'
 'mergeParam'
@@ -914,7 +918,7 @@ convert.factor=function(r)
 # 
 # <function>
 # <name>
-# split.data
+# split_data
 # </name>
 # <description>
 #  Converts a big dataframe into a list of smaller dataframes, grouped using any
@@ -936,7 +940,7 @@ convert.factor=function(r)
 # <source>
 #' @export
 
-split.data <- function(censdata,
+split_data <- function(censdata,
                        splitcol = 'sp',
                        keepsplitcol = FALSE,
                        allsplit = NULL,
@@ -970,11 +974,11 @@ split.data <- function(censdata,
 # 
 # <function>
 # <name>
-# merge.data
+# merge_data
 # </name>
 # <description>
 #  Combine many dataframes as elements of a list into a single large dataframe. Each individual dataframe must
-# have exactly the same columns. This is exactly the opposite operation as split.data. 
+# have exactly the same columns. This is exactly the opposite operation as split_data. 
 
 # </description>
 # <arguments>
@@ -986,7 +990,7 @@ split.data <- function(censdata,
 # <source>
 #' @export
 
-merge.data=function(listdata,showOutput=NULL)
+merge_data=function(listdata,showOutput=NULL)
 {
  k=length(listdata)
  
@@ -1550,7 +1554,7 @@ is.leap=function(yr,start=1904,end=2096)
 # <description>
 #  Merges a list of parameter matrices into one
 # large matrix. Used for the parameter output from MCMCmetrop1R, stored
-# as a list. No longer used; superseded by merge.data. 
+# as a list. No longer used; superseded by merge_data. 
 
 # </description>
 # <arguments>

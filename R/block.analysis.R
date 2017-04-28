@@ -36,24 +36,27 @@
 #'
 'wavelet.allsp'
 
-#' plot.wavelet
+#' plot_wavelet
 #'
 #' @description
-#'
 #' Function to plot the wavelet variance from the output of the wavelet.allsp. 
+#' 
+#' @details 
+#' Name plot.wavelet clashed with an S3 method, so it was replaced by
+#' plot_wavelet.
+#' 
 #' @author Tania Brenes  
 #'
-#'  x (): output for wavelet.allsp; 
+#' @param x Output for wavelet.allsp
 #'
-#'
-'plot.wavelet'
+'plot_wavelet'
 
 #' rasterize
 #'
 #' @description
-#'
-#' Function to calculate the count (type='point'), basal area or agb (type='marked') per quadrat 
-#' by selecting quadrats of variable sizes.  
+#' Function to calculate the count (type='point'), basal area or agb
+#' (type='marked') per quadrat by selecting quadrats of variable sizes.
+#' 
 #' @author Matteo Detto and Tania Brenes  
 #'
 #' Output is a list containing a matrix with the raster data.
@@ -72,10 +75,16 @@
 #' attach("/home/brenest/Documents/Windocs/WorkFiles/R/Functions/CTFSRPackage.rdata")   
 #' onesp = subset(bci.full1, sp=="rinosy")  
 #'
-#' plots the density of the sp in the plot  
-#' rast1 = rasterize(x= onesp$gx, y=onesp$gy, gridsize=5, plotdim=c(1000,500), type='point', graph=TRUE)  
-#'
-#'#' }
+#' # plots the density of the sp in the plot  
+#' rast1 = rasterize(
+#'   x = onesp$gx,
+#'   y = onesp$gy,
+#'   gridsize = 5,
+#'   plotdim = c(1000, 500),
+#'   type = 'point',
+#'   graph = TRUE
+#' )
+#' }
 #'
 #'
 'rasterize'
@@ -291,7 +300,7 @@ wavelet.allsp <- function(censdata,
 
 # <function>
 # <name>
-# plot.wavelet
+# plot_wavelet
 # </name>
 
 # <description>
@@ -308,7 +317,7 @@ wavelet.allsp <- function(censdata,
 # <source>
 #' @export
 
-plot.wavelet = function(x) {
+plot_wavelet = function(x) {
 plot(c(2*x$gridsize, min(x$plotdim)), c(0.3,100), log='xy', type='n')
 		for (i in 1:nrow(x$variance)) {
 		lines(x$scale, x$variance[i,])

@@ -16,7 +16,7 @@ map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
   outfile = NULL)
 }
 \arguments{
-\item{splitdatafile}{A full plot dataset in list format (see \code{?split.data})}
+\item{splitdatafile}{A full plot dataset in list format (see \code{?split_data})}
 
 \item{species}{One or more species codes to be mapped.}
 
@@ -90,7 +90,7 @@ If you have not saved:
 
 CTFSplot(plot='bci',census=6)
 
-bci.split6=split.data(censdata=bci.full6,splitcol='sp')
+bci.split6=split_data(censdata=bci.full6,splitcol='sp')
 
 nospp=length(species)
 

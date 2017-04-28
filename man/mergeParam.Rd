@@ -9,5 +9,5 @@ mergeParam(p)
 \description{
 Merges a list of parameter matrices into one
 large matrix. Used for the parameter output from MCMCmetrop1R, stored
-as a list. No longer used; superseded by merge.data.
+as a list. No longer used; superseded by merge_data.
 }

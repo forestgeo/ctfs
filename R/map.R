@@ -20,7 +20,7 @@
 #'the option export="Windows", "Mac", or "Unix", then height and width can be
 #'set with arguments ht, wd, and plotside can be as large as you please.
 #'
-#' @param splitdatafile A full plot dataset in list format (see `?split.data`)
+#' @param splitdatafile A full plot dataset in list format (see `?split_data`)
 #' @param species One or more species codes to be mapped.
 #' @param spplist A table with species codes and Latin names can be submitted as well, so that the full genus-species is added to plot. This must have species codes as row names. It should be the CTFS R format species table (eg, bci.spptable).
 #' @param It can be set to NULL if not available, then only the species code (as submitted) appears on the map.
@@ -56,7 +56,7 @@
 #'
 #' CTFSplot(plot='bci',census=6)
 #'
-#' bci.split6=split.data(censdata=bci.full6,splitcol='sp')
+#' bci.split6=split_data(censdata=bci.full6,splitcol='sp')
 #'
 #' nospp=length(species)
 #'
@@ -246,7 +246,7 @@
 # If you have not saved: <br> 
 # CTFSplot(plot='bci',census=6)
 # <br>
-# bci.split6=split.data(censdata=bci.full6,splitcol='sp')
+# bci.split6=split_data(censdata=bci.full6,splitcol='sp')
 # <br>
 # nospp=length(species)
 # <br>

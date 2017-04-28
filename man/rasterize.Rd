@@ -8,8 +8,8 @@ rasterize(x, y, z = NULL, gridsize = 20, plotdim = c(1000, 500),
   FUN = sum, graph = FALSE)
 }
 \description{
-Function to calculate the count (type='point'), basal area or agb (type='marked') per quadrat
-by selecting quadrats of variable sizes.
+Function to calculate the count (type='point'), basal area or agb
+(type='marked') per quadrat by selecting quadrats of variable sizes.
 }
 \examples{
 \dontrun{
@@ -17,10 +17,16 @@ load("bci.full1.rdata")
 attach("/home/brenest/Documents/Windocs/WorkFiles/R/Functions/CTFSRPackage.rdata")   
 onesp = subset(bci.full1, sp=="rinosy")  
 
-plots the density of the sp in the plot  
-rast1 = rasterize(x= onesp$gx, y=onesp$gy, gridsize=5, plotdim=c(1000,500), type='point', graph=TRUE)  
-
-#' }
+# plots the density of the sp in the plot  
+rast1 = rasterize(
+  x = onesp$gx,
+  y = onesp$gy,
+  gridsize = 5,
+  plotdim = c(1000, 500),
+  type = 'point',
+  graph = TRUE
+)
+}
 
 
 }

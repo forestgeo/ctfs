@@ -122,26 +122,48 @@
 #'
 #' @description
 #'
-#' Creates a color response map based on columnar data, not a matrix as used by R's image function. It is used in cases where a full matrix
-#' of responses, over a complete grid, is not available. Data are submitted as a table with x and y coordinates, and a response z at each.
+#' Creates a color response map based on columnar data, not a matrix as used by
+#' R's image function. It is used in cases where a full matrix of responses,
+#' over a complete grid, is not available. Data are submitted as a table with x
+#' and y coordinates, and a response z at each.
 #'
-#' The points are mapped on an x-y plot, then colored according to the value of z. One typical use would be where soil data are available
-#' at many locations, coloring points by the concentration of one nutrient. Another, illustrated below, would be to color tree locations according to dbh. 
+#' The points are mapped on an x-y plot, then colored according to the value of
+#' z. One typical use would be where soil data are available at many locations,
+#' coloring points by the concentration of one nutrient. Another, illustrated
+#' below, would be to color tree locations according to dbh.
 #'
-#' @param data A data frame with at least 3 columns, 2 of which are coordinates and one a numerical response at those coordinates
-#' @param xcol, ycol, zcol These allow the columns of data to carry non-standard names
+#' @param data A data frame with at least 3 columns, 2 of which are coordinates
+#'   and one a numerical response at those coordinates
+#' @param xcol, ycol, zcol These allow the columns of data to carry non-standard
+#'   names
 #' @param ptsize Size of points to be drawn
 #'
-#'
+#' @details
 #' Other arguments are the same as imageGraph().
+#' 
+#' Name image.dataframe clashed with an S3 method, so it was replaced by
+#' image_dataframe.
 #'
 #' @examples
 #' \dontrun{
 #'
 #' CTFSplot('bci',6,'full')
-#' image_dataframe(data=subset(bci.full6,status=='A'),xcol='gx',ycol='gy',zcol='dbh',breaks=c(10,20,50,100,500,10000),xrange=c(0,100),yrange=c(0,100), colors=c('orange','yellow','lightgreen','green','blue'),newgraph=TRUE,h=9,w=12,plotsize=7)}
+#' 
+#' image_dataframe(
+#'   data = subset(bci.full6, status == 'A'),
+#'   xcol = 'gx',
+#'   ycol = 'gy',
+#'   zcol = 'dbh',
+#'   breaks = c(10, 20, 50, 100, 500, 10000),
+#'   xrange = c(0, 100),
+#'   yrange = c(0, 100),
+#'   colors = c('orange', 'yellow', 'lightgreen', 'green', 'blue'),
+#'   newgraph = TRUE,
+#'   h = 9,
+#'   w = 12,
+#'   plotsize = 7
+#' )}
 #'
-#' @aliases image.dataframe
 'image_dataframe'
 
 # Source code and original documentation ----------------------------

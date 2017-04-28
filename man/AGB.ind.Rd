@@ -10,7 +10,7 @@ AGB.ind(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
 \description{
 Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types.
 
-Requires a table (df) with dbh and species names, a wood-density table (described under density.ind), a plot name,
+Requires a table (df) with dbh and species names, a wood-density table (described under density_ind), a plot name,
 dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
 
 The height parameters default to NULL, and the Chave equations without height are then used. Alternatively, height parameters

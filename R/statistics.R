@@ -369,10 +369,12 @@
 #' hist_compare
 #'
 #' @description
-#'
 #' Compares two histograms with a Kolmogorov approach.
 #'
-#' @aliases hist.compare
+#' @details 
+#' Name hist.compare clashed with a S3 method, so it was replaced by
+#' hist_compare.
+#'
 'hist_compare'
 
 #' harmonic.mean

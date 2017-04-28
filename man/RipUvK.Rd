@@ -49,13 +49,13 @@ The output is a list of 5 components.
 }
 \examples{
 \dontrun{
-# If a split database has been created by split.data and stored, CTFSplot will load it.
+# If a split database has been created by split_data and stored, CTFSplot will load it.
 
 CTFSplot("bci",6,type="split")
 # Otherwise start with a standard R Analytical Table (could be stem also):
 
 CTFSplot("bci",6,type="full")
-bci.split6=split.data(bci.full6)
+bci.split6=split_data(bci.full6)
 # A quick test, run on only the first 10 species:
 rip=RipUvK(splitdata=bci.split6[1:10],plotdim=c(1000,500),rseq=c(10,20,30,40,50,60),mindbh=10,xcol="gx",ycol="gy")
 # All the species (takes several minutes):

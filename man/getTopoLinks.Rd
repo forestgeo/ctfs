@@ -7,5 +7,5 @@
 getTopoLinks(index, labels, data, from, to, backward = FALSE)
 }
 \description{
-This is solely for use by solve.topo. It finds all points linked via a sighting to a given point.
+This is solely for use by solve_topo. It finds all points linked via a sighting to a given point.
 }

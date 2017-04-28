@@ -424,9 +424,9 @@ lmerBayes <- function(data,
   
   for (onex in xcol) data <- data[!is.na(data[, onex]), , drop = FALSE]
   
-  y=split.data(data[,c(randcol,ycol)],splitcol=randcol)
+  y=split_data(data[,c(randcol,ycol)],splitcol=randcol)
   ally=data[,ycol]
-  x=split.data(data[,c(randcol,xcol)],splitcol=randcol)
+  x=split_data(data[,c(randcol,xcol)],splitcol=randcol)
   allx=data[,xcol]
   if(debug) browser()
   
@@ -1011,7 +1011,7 @@ saveParamFile=function(param,paramfile,rand,firsttime=FALSE)
 restoreParamFile=function(paramfile)
 {
  par=read.delim(paramfile,as.is=TRUE)
- param.list=split.data(par,splitcol='randeffect',showOutput=25)
+ param.list=split_data(par,splitcol='randeffect',showOutput=25)
  # browser()
  
  param=array(dim=c(length(param.list),dim(param.list[[1]])),dimnames=list(names(param.list),NULL,colnames(param.list[[1]])))

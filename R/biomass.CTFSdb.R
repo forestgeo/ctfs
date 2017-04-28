@@ -61,7 +61,6 @@
 #' density_ind
 #'
 #' @description
-#'
 #' Create a vector of wood density for each individual tree based on the species
 #' name and plot. The table of individuals, called df, must include a dbh and a
 #' species name, the latter named sp. There must be a table of wood density
@@ -81,6 +80,10 @@
 #' If you need a dummy wood density table to feed the wsg argument see
 #' `?wsgdata_dummy()`.
 #' 
+#' @details 
+#' Name density.ind clashed with an S3 method, so it was replaced by
+#' density_ind.
+#' 
 #' @examples
 #' \dontrun{
 #' wooddens=density_ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2)
@@ -89,7 +92,6 @@
 #'
 #' length(which(is.na(wooddens)))}
 #'
-#' @aliases density.ind
 'density_ind'
 
 #'

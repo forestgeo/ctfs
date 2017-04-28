@@ -667,16 +667,16 @@
 #'
 #' Same formulation, but the asymptote is fixed, so only two parameters fitted.
 #'
-#'
 'asymp.ht.fixmax'
 
 #' exp_2par
 #'
 #' @description
-#'
 #' An exponential distribution with an asymptote.
+#' 
+#' @details
+#' Name exp.2par clashed with an S3 method, so it was replaced by exp_2par.
 #'
-#' @aliases exp.2par
 'exp_2par'
 
 #' linear.model
@@ -718,20 +718,21 @@
 #' expon.model
 #'
 #' @description
-#'
-#' Exponential model, y = a exp(b1*x1 + b2*x2) for any number of predictors x. Compare to linear.model. 
-#'
+#' Exponential model, y = a exp(b1*x1 + b2*x2) for any number of predictors x.
+#' Compare to linear.model.
 #'
 'expon.model'
 
-#' log.model
+#' log_model
 #'
 #' @description
+#' Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number of
+#' predictors x. Compare to linear.model. All x should be positive.
+#' 
+#' @details 
+#' Name log.model clashed with an S3 method, so it was replaced by log_model.
 #'
-#' Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number of predictors x. Compare to linear.model. All x should be positive.
-#'
-#'
-'log.model'
+'log_model'
 
 #' constant.linear
 #'
@@ -3296,7 +3297,7 @@ expon.model=function(x,param)
 
 # <function>
 # <name>
-# log.model
+# log_model
 # </name>
 # <description>
 # Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number of predictors x. Compare to linear.model. All x should be positive.
@@ -3310,7 +3311,7 @@ expon.model=function(x,param)
 # <source>
 #' @export
 
-log.model=function(x,param)
+log_model=function(x,param)
 {
  x=as.matrix(x)
  nopredictor=dim(x)[2]

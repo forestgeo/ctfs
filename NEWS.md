@@ -1,5 +1,32 @@
 # ctfs 0.0.0.9005
 
+FUNCTIONS INTERPRETED AS S3 METHODS
+
+Some functions were treated as S3 methods, and automatically changed NAMESPACE in a problematic way. Those functions caused these problems:
+
+- In the section "Usage" of the documentation of each problematic function:
+
+    - a lable like this printed: \#\# S3 method for classs '<NAME>';
+    - the `<FUNCTION.NAME>` appeared as `<FUNCTION>`, withouth `<NAME>`.
+
+- Automatic package checks throwed scary messages and the package failed to build.
+
+To permanently fix this problem, I replaced dots "." by "_" in the names of those problematic functions. The change should be easy to digest by users. The nuew names of those functions shows up with RStudio's autocompletion.
+
+The functions are these:
+
+```R
+1     density.ind  # replaced by density_ind
+2        exp.2par  # replaced by exp_2par
+3    hist.compare  # replaced by hist_compare
+4 image.dataframe  # replaced by image_dataframe
+5       log.model  # replaced by log_model
+6      merge.data  # replaced by merge_data
+7    plot.wavelet  # replaced by plot_wavelet
+8      solve.topo  # replaced by solve_topo
+9      split.data  # # replaced by split_data
+```
+
 - @importFrom magrittr %>% ([example](https://github.com/tidyverse/dplyr/edit/master/R/utils.r))
 
 - New vignette to test plots output remain the same after fixes to plotting functions. Follows advice in _Testing R Code_, by Richard Cotton.
@@ -100,42 +127,6 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
 **Known issues**
 
 I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
-
-FUNCTIONS INTERPRETED AS S3 METHODS
-
-Some functions are treated as S3 methods, and automatically changed in a problematic way. Those functions are named `<FUNCTION.NAME>` and problems include:
-
-- In the section "Usage" of the documentation of each problematic function:
-
-    - a lable like this prints in "Usage": \#\# S3 method for classs '<NAME>';
-    - the `<FUNCTION.NAME>` appears as `<FUNCTION>`, withouth `<NAME>`.
-
-- Automatic package checks throw scary messages and the package fails to build.
-
-The permanent fix is easy: to replace dots "." by "_" in the names of those problematic functions, and maybe to deprecate the old function names. Help pages should be reached with both the old and new function names, doable as aliases.
-
-The functions are these:
-
-```R
-x <- "hist.compare"
-
-rplby <- function(x) {
-  x1 <- stringr::str_replace_all(x, "\\.", "_")
-  glue::glue("  # replaced by {x1} with @aliases {x}")
-}
-
-1     density.ind  # replaced by density_ind with @aliases density.ind
-2        exp.2par  # replaced by exp_2par with @aliases exp.2par
-3    hist.compare  # replaced by hist_compare with @aliases hist.compare
-4 image.dataframe  # replaced by image_dataframe with @aliases image.dataframe
-5       log.model
-6      merge.data
-7    plot.wavelet
-8      solve.topo
-9      split.data
-```
-
-To build the package before the fix, NAMESPACE must be amended first. The reson is that NAMESPACE treats some functions as methods. Those problematic functions contain dots "." in their names (e.g. split.data and density.ind). To avoid this problem, the format <FUNCTION.NAME> should eventually change to <FUNCTION_NAME>.
 
 ERRORS
 
