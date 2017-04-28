@@ -19,18 +19,31 @@
 
 Fixes with commit bc417c38; example that functions work: ebe8a601.
 
-- Fixed bugs in functions listed below, they needed functions in packages
+- Refer to functions from external packages explicitly with pkg::fun()
 
-    - _mvtnorm_ and _MCMCpack_: replace calls
-        - to dmvnorm by mvtnorm::dmvnorm
-        - to rmvnorm by mvtnorm::rmvnorm
-        - to rinvgamma by MCMCpack::rinvgamma
+> ...this is what I recommend: list the package in DESCRIPTION so that it’s installed, then always refer to it explicitly with pkg::fun(). Unless there is a strong reason not to, it’s better to be explicit
 
-        - `lmerBayes()`,
-        - `llike.model.lmer()` (needed function `dmvnorm()`)
+-- R packages, by Hadley Wickham (http://r-pkgs.had.co.nz/namespace.html)
+
+    - `mvtnorm::dmvnorm` and `mvtnorm::rmvnorm`, used in
+        - `graph.mvnorm()`
+        - `lmerBayes.hyperllike.sigma()`
+        - `lmerBayes.hyperllike.mean()`
+        - `llike.model.lmer()`
+        
+    - `MCMCpack::rinvgamma`, used in:
+        - `Gibbs.regsigma()`
+        - `Gibbs.normalvar()`
+        
+    - `splancs::spoints`, used in:
+        -`NeighborDensities()`
+        -`NDcount()`
+        -`RipUvK()`
+
     
-    - _date_
-
+    - `date::mdy.date` and `date::date.mmddyy`, used in:
+        - `tojulian()`
+        - `fromjulian()`
         - `mortality.eachspp()`
 
 - Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by "[" in:
