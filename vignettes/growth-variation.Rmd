@@ -285,7 +285,7 @@ The key result are the coefficients of each model. The fixed effect gives the fo
 
 To do the same in a more convenient way, we can use the tidyverse. This shows how to manipulate the output of multiple models so that it is easier to visualize and to work with later:
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 # Same output as mymodel, but easier to visualize and to work with
 # (see the pipe operator "%>%" at http://r4ds.had.co.nz/pipes.html)
 tidymodels <- mymodels %>%  # take mymodels, then transform
@@ -300,7 +300,7 @@ The following graph uses the function fixef to get the parameters, then the func
 
 
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 tidymodels %>% 
   select(name, term, estimate) %>% 
   filter(term %in% c("(Intercept)", "time")) %>% 
