@@ -670,14 +670,14 @@
 #'
 'asymp.ht.fixmax'
 
-#' exp.2par
+#' exp_2par
 #'
 #' @description
 #'
 #' An exponential distribution with an asymptote.
 #'
-#'
-'exp.2par'
+#' @aliases exp.2par
+'exp_2par'
 
 #' linear.model
 #'
@@ -3132,7 +3132,7 @@ asymp.ht.fixmax=function(x,param,asymp)
 # 
 # <function>
 # <name>
-# exp.2par
+# exp_2par
 # </name>
 # <description>
 # An exponential distribution with an asymptote.
@@ -3146,7 +3146,7 @@ asymp.ht.fixmax=function(x,param,asymp)
 # <source>
 #' @export
 
-exp.2par=function(x,param,asymp)
+exp_2par=function(x,param,asymp)
 {
  ymax=asymp
  a=param[1]

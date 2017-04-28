@@ -117,8 +117,8 @@ The permanent fix is easy: to replace dots "." by "_" in the names of those prob
 The functions are these:
 
 ```R
-1     density.ind
-2      exp.2par
+1     density.ind  # replaced by density_ind with @aliases density.ind
+2        exp.2par  # replaced by exp_2par with @aliases exp.2par
 3    hist.compare
 4 image.dataframe
 5       log.model
