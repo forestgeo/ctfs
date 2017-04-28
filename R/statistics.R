@@ -1077,7 +1077,7 @@ Gibbs.regsigma=function(X,y,beta)
  s=(n-k)/2
  c=0.5*t(M)%*%M
  
- return(rinvgamma(1,shape=s,scale=c))
+ return(MCMCpack::rinvgamma(1,shape=s,scale=c))
 }
 
 
@@ -1146,7 +1146,7 @@ Gibbs.normalvar=function(y)
  n=length(y)
  vr=var(y)
  
- return(rinvgamma(1,shape=(n-1)/2,scale=(n-1)*vr/2))
+ return(MCMCpack::rinvgamma(1,shape=(n-1)/2,scale=(n-1)*vr/2))
 }
 # </source>
 # </function>

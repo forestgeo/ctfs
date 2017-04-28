@@ -21,7 +21,10 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
 
 - Fixed bugs in functions listed below, they needed functions in packages
 
-    - _mvtnorm_ and _MCMCpack_
+    - _mvtnorm_ and _MCMCpack_: replace calls
+        - to dmvnorm by mvtnorm::dmvnorm
+        - to rmvnorm by mvtnorm::rmvnorm
+        - to rinvgamma by MCMCpack::rinvgamma
 
         - `lmerBayes()`,
         - `llike.model.lmer()` (needed function `dmvnorm()`)

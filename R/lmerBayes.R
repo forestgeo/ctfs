@@ -117,7 +117,7 @@
 #'
 #' @description
 #'
-#' This is the hyper-likelihood for updating the covariances. It is always based on dmvnorm. The par is a matrix of parameters, one row per random effect,
+#' This is the hyper-likelihood for updating the covariances. It is always based on mvtnorm::dmvnorm. The par is a matrix of parameters, one row per random effect,
 #' one column the set of parameters. It allows the Gibbs sampler to work by passing a single scalar parameter as the first
 #' argument.
 #'
@@ -128,7 +128,7 @@
 #'
 #' @description
 #'
-#' This is the hyper-likelihood for updating the hypermeans, based on dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest, 
+#' This is the hyper-likelihood for updating the hypermeans, based on mvtnorm::dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest, 
 #' is to be tested; covarSD is the covariance matrix. The modelpar is a matrix of parameters, one row per random effect, one column for each parameter. 
 #'
 #'
@@ -538,8 +538,8 @@ lmerBayes <- function(data,
       
    ##### Update the hypermeans using posterior Gaussian ####
    ## Need to add the option of a transformation such as logit...
-   # hypermean[fc,]=rmvnorm(1,mean=colMeans(logit(param[,pc,,drop=FALSE])),sigma=array(covar[,fc-1,],dim=c(noparam,noparam))/norand)
-   hypermean[fc,]=rmvnorm(1,mean=colMeans(param[,pc,,drop=FALSE]),sigma=array(covar[,fc-1,],dim=c(noparam,noparam))/norand)
+   # hypermean[fc,]=mvtnorm::rmvnorm(1,mean=colMeans(logit(param[,pc,,drop=FALSE])),sigma=array(covar[,fc-1,],dim=c(noparam,noparam))/norand)
+   hypermean[fc,]=mvtnorm::rmvnorm(1,mean=colMeans(param[,pc,,drop=FALSE]),sigma=array(covar[,fc-1,],dim=c(noparam,noparam))/norand)
    
    #### If includeCovar is set all but the upper triangle, which is fixed by symmetry, is updated; else just the diagonal) ####
    # If no covariance in the model, this accomplishes setting all non-diagonal elements to 0. Otherwise, they are NA.
@@ -641,7 +641,7 @@ lmerBayes <- function(data,
 # lmerBayes.hyperllike.sigma
 # </name>
 # <description>
-# This is the hyper-likelihood for updating the covariances. It is always based on dmvnorm. The par is a matrix of parameters, one row per random effect,
+# This is the hyper-likelihood for updating the covariances. It is always based on mvtnorm::dmvnorm. The par is a matrix of parameters, one row per random effect,
 # one column the set of parameters. It allows the Gibbs sampler to work by passing a single scalar parameter as the first
 # argument.
 # </description>
@@ -665,7 +665,7 @@ lmerBayes.hyperllike.sigma=function(testcov,fullcov,hypermean,modelpar,whichrow,
  test=try(solve(covar))
  if(class(test)=='try-error') return(-Inf)
  
- llike=dmvnorm(modelpar,mean=hypermean,sigma=covar,log=TRUE)
+ llike=mvtnorm::dmvnorm(modelpar,mean=hypermean,sigma=covar,log=TRUE)
  
  if(length(which(is.na(llike)))>0) browser()
  return(sum(llike))
@@ -679,7 +679,7 @@ lmerBayes.hyperllike.sigma=function(testcov,fullcov,hypermean,modelpar,whichrow,
 # lmerBayes.hyperllike.mean
 # </name>
 # <description>
-# This is the hyper-likelihood for updating the hypermeans, based on dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest, 
+# This is the hyper-likelihood for updating the hypermeans, based on mvtnorm::dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest, 
 # is to be tested; covarSD is the covariance matrix. The modelpar is a matrix of parameters, one row per random effect, one column for each parameter. 
 # </description>
 # <arguments>
@@ -694,7 +694,7 @@ lmerBayes.hyperllike.mean=function(testmn,full.hypermean,whichtest,modelpar,cova
 {
  hypermean=arrangeParam.llike(testmn,full.hypermean,whichtest)
  
- llike=dmvnorm(modelpar,mean=hypermean,sigma=covar,log=TRUE)
+ llike=mvtnorm::dmvnorm(modelpar,mean=hypermean,sigma=covar,log=TRUE)
  
  if(length(which(is.na(llike)))>0) browser()
  return(sum(llike))
@@ -813,7 +813,7 @@ llike.model.lmer=function(test,allparam,whichtest,data,trueN,model,sdmodel=const
  if(!is.null(mu)) adjustcov=array(covar,dim=c(noparam,noparam))    
 
  # browser()
- if(!is.null(mu)) llike.hyper=dmvnorm(param[1:noparam],mean=mu,sigma=adjustcov,log=TRUE)
+ if(!is.null(mu)) llike.hyper=mvtnorm::dmvnorm(param[1:noparam],mean=mu,sigma=adjustcov,log=TRUE)
  else llike.hyper=0
  if(is.na(sum(llike.hyper))) browser()
  

@@ -8,7 +8,7 @@ lmerBayes.hyperllike.sigma(testcov, fullcov, hypermean, modelpar, whichrow,
   whichcol)
 }
 \description{
-This is the hyper-likelihood for updating the covariances. It is always based on dmvnorm. The par is a matrix of parameters, one row per random effect,
+This is the hyper-likelihood for updating the covariances. It is always based on mvtnorm::dmvnorm. The par is a matrix of parameters, one row per random effect,
 one column the set of parameters. It allows the Gibbs sampler to work by passing a single scalar parameter as the first
 argument.
 }

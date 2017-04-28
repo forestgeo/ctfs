@@ -3810,7 +3810,7 @@ graph.mvnorm=function(param,x,y,div=10,add=FALSE,clr="gray",lw=.5,pw=2,exclude=N
  arranged=composeParam.GaussianMap(drop(as.matrix(param)),N=1)
 
  pts=full.xygrid(x,y)
- probdensity=dmvnorm(pts,mean=arranged$center,sigma=arranged$sigma[[1]])
+ probdensity=mvtnorm::dmvnorm(pts,mean=arranged$center,sigma=arranged$sigma[[1]])
  if(!is.null(exclude)) probdensity[exclude]=0
  
  breaks=seq(0,max(probdensity),len=div)

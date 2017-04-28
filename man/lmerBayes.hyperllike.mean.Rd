@@ -7,6 +7,6 @@
 lmerBayes.hyperllike.mean(testmn, full.hypermean, whichtest, modelpar, covar)
 }
 \description{
-This is the hyper-likelihood for updating the hypermeans, based on dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest,
+This is the hyper-likelihood for updating the hypermeans, based on mvtnorm::dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest,
 is to be tested; covarSD is the covariance matrix. The modelpar is a matrix of parameters, one row per random effect, one column for each parameter.
 }
