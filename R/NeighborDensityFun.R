@@ -139,12 +139,12 @@ NeighborDensities <- function(censdata,
   	focal = censdata2[i,]
   	if (is.na(focal$gx) | is.na(focal$gy) | duplicated(focal$tag)) output[i,1:2] = NA  else {
   
-  	poly= with(focal, spoints(c(gx-r, gy-r, gx-r, gy+r, gx+r, gy+r, gx+r, gy-r)))
-  	use = inpip(spoints(rbind(spd$gx,spd$gy)), poly)
+  	poly= with(focal, splancs::spoints(c(gx-r, gy-r, gx-r, gy+r, gx+r, gy+r, gx+r, gy-r)))
+  	use = inpip(splancs::spoints(rbind(spd$gx,spd$gy)), poly)
   
   	if (length(use)==0) output[i,1:2]=0  else {
   
-  	incircle = sqrt(dsquare(spoints(rbind(spd$gx[use],spd$gy[use])), spoints(rbind(focal$gx,focal$gy)) )) <= r
+  	incircle = sqrt(dsquare(splancs::spoints(rbind(spd$gx[use],spd$gy[use])), splancs::spoints(rbind(focal$gx,focal$gy)) )) <= r
   	nn = use[incircle]  #  & spd$tag[use] != focal$tag[i]
   
   	consp <- spd$sp[nn]==focal$sp
@@ -178,13 +178,13 @@ NeighborDensities <- function(censdata,
   		if(is.na(focal$gx) | is.na(focal$gy) ) output[i,1:2] = NA  else 
   		{
   
-  			poly= with(focal, spoints(c(gx-r, gy-r, gx-r, gy+r, gx+r, gy+r, gx+r, gy-r)))
-  			use = inpip(spoints(rbind(spd$gx,spd$gy)), poly)
+  			poly= with(focal, splancs::spoints(c(gx-r, gy-r, gx-r, gy+r, gx+r, gy+r, gx+r, gy-r)))
+  			use = inpip(splancs::spoints(rbind(spd$gx,spd$gy)), poly)
   
   			if (length(use)==0) output[i,1:2]=0 else 
   			{
   
-  				incircle = sqrt(dsquare(spoints(rbind(spd$gx[use],spd$gy[use])), spoints(rbind(focal$gx,focal$gy)) )) <= r
+  				incircle = sqrt(dsquare(splancs::spoints(rbind(spd$gx[use],spd$gy[use])), splancs::spoints(rbind(focal$gx,focal$gy)) )) <= r
   				nn = use[incircle]  #   & spd$tag[use] != focal$tag[i]
   
   				area = CalcRingArea(data.frame(gx=focal$gx,gy=focal$gy), r, plotdim)$each 
@@ -245,7 +245,7 @@ NDcount=function(censdata, r=20, plotdim=c(1000,500))
 sppi.pts <- with(censdata, data.frame(gx,gy))
 areas <- CalcRingArea(sppi.pts, r, plotdim)$each
 
-poly=spoints(c(0,0,plotdim[1],0,plotdim[1],plotdim[2],0,plotdim[2]))
+poly=splancs::spoints(c(0,0,plotdim[1],0,plotdim[1],plotdim[2],0,plotdim[2]))
 counts <- khat(sppi.pts, poly=poly,r, newstyle=TRUE)$counts
 output = counts * pi * r^2 /areas
 

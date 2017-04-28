@@ -188,7 +188,7 @@ RipUvK=function(splitdata,plotdim=c(1000,500),rseq=c(5,10,20,30,40,50),mindbh=10
   rip.list=Ovalue=list()
   abund=numeric()
   
-  poly=spoints(c(0,0,plotdim[1],0,plotdim[1],plotdim[2],0,plotdim[2]))
+poly=splancs::spoints(c(0,0,plotdim[1],0,plotdim[1],plotdim[2],0,plotdim[2]))
 # calculate K and the (number of conspecific) individuals for each tree within 
 # distances of rseq
 
@@ -212,7 +212,7 @@ RipUvK=function(splitdata,plotdim=c(1000,500),rseq=c(5,10,20,30,40,50),mindbh=10
     
     if(abund[i]>1)
      {
-      sppi.pts <- spoints(rbind(gx,gy),length(gx))
+      sppi.pts <- splancs::spoints(rbind(gx,gy),length(gx))
       rip.list[[i]] <- khat(as.points(sppi.pts),poly=poly,rseq,newstyle=TRUE)
   
       ringarea=Annuli(data.frame(gx,gy),rseq,plotdim)
