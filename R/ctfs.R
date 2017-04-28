@@ -1,4 +1,4 @@
-#' A shortcut to the Original CTFS R Package (Richard Condit)
+#' The maintained version of the CTFS R Package by Richard Condit.
 #' 
 #' @description
 #' ctfs provides the original CTFS R Package (Richard Condit) with the structure
