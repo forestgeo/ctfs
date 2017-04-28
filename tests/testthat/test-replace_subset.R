@@ -114,8 +114,8 @@ test_that("split.data outputs the same before and after fix", {
     keepsplitcol = FALSE,
     allsplit = NULL,
     showOutput = NULL
-    expect_equal_to_reference(actual, "ref_split_data.rds")
   )
+  expect_equal_to_reference(actual, "ref_split_data.rds")
 })
 
 

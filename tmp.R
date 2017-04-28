@@ -13,4 +13,8 @@ load_all()
 # xxx cont. replace subset
 # xxx cont. find functions from suggested packages mvtnorm and MCMCpack
 
-
+Run lmerBayes to track functions needed from pkgs
+```R
+  library(MCMCpack)
+  library(mvtnorm)
+```
