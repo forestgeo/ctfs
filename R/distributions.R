@@ -551,13 +551,14 @@
 #' logistic.power.mode
 #'
 #' @description
+#' This is the Gaussian logistic function, where logit is a second-order
+#' polynomial of x, but with third parameter the position of the critical point
+#' (peak or trough). Given 3 parameters for standard logistic.power, the mode is
+#' at `-param[2]/2*param[3]`).
 #'
-#' This is the Gaussian logistic function, where logit is a second-order polynomial of x, but with third parameter the position
-#' of the critical point (peak or trough). Given 3 parameters for standard logistic.power, the mode is at -param[2]/2*param[3]).
-#'
-#' Asymptote and basement are allowed. There must be 1+2*nopredictors parameters; the asympotote and basement are only implemented
-#' if extra parameters are passed.  
-#'
+#' Asymptote and basement are allowed. There must be `1+2*nopredictors`
+#' parameters; the asympotote and basement are only implemented if extra
+#' parameters are passed.
 #'
 'logistic.power.mode'
 
@@ -1627,6 +1628,12 @@ qasymexp=function(y,rate1,rate2,c)
 # 
 # </sample>
 # <source>
+
+
+#' dasymnorm
+#' 
+#' xxx Undocumented.
+#'
 #' @export
 
 dasymnorm=function(x,center,sigma1,sigma2,log=FALSE)

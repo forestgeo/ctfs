@@ -1,34 +1,40 @@
 # ctfs 0.0.0.9005
 
-```
-checking Rd cross-references ... WARNING
-Missing link or links in documentation object 'logistic.power.mode.Rd':
-  '2' '3'
 
-Missing link or links in documentation object 'model.littleR.Gibbs.Rd':
-  'modeltype="norm", with the quotes' 'modeltype="asymnorm", with the
-  quotes' 'modeltype="symexp", with the quotes' 'modeltype="asymexp",
-  with the quotes' 'modeltype="asympower", with the quotes'
-  
-```
+TODO
 
+WARNINGS
 
+- See what else I can do realtively easy
 
+NOTES
 
+checking Rd line widths ... NOTE
 
+- Rd file 'RipUvK.Rd':
+- Rd file 'spparea.sq.Rd':
+- Rd file 'abund.manycensus.Rd':
+- ... 44 lines ...
 
-
-
+lines wider than 100 characters: These lines will be truncated in the PDF manual.
 
 
 
+MORE TO IMPROVE: learn from the CTFS-CRAN version
+
+- Incorporate the documentation of the 88 functions from CTFS-CRAN.
+
+- Are those 88 functions the most important ones? The ones that do not depend on more stuff than that?
 
 
 
 
 
+DONE
 
+- Pushed to private repo on forestgeo the CTFS version archived on CRAN. Consider using the archived version of CTFS as a source for missing documentation and data.
 
+- I Made CTFS-ForestGEO the author of the package and removed Richard Condit
 
 
 

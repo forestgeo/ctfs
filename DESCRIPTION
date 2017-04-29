@@ -3,7 +3,7 @@ Title: Tools for the Analysis of Forest Dynamics
 Version: 0.0.0.9005
 Authors@R: person("CTFS", "ForestGEO", email = "ForestGEO@si.edu", 
     role = c("aut", "cre"))
-Description: Tools for the Analysis of Forest Dynamics
+Description: Tools for the analysis of forest dynamics.
 Depends:
     R (>= 3.1.2)
 License: What license is it under?

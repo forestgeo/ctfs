@@ -2200,8 +2200,12 @@ randomRow=function(data)
 # 
 # </sample>
 # <source>
-#' @export
 
+#' randomElement
+#' 
+#' xxx Undocumented
+#' 
+#' @export
 randomElement=function(data)
 {
  size=length(data)

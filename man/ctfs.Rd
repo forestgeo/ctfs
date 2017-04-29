@@ -4,13 +4,10 @@
 \name{ctfs}
 \alias{ctfs}
 \alias{ctfs-package}
-\title{The maintained version of the CTFS R Package by Richard Condit.}
+\title{Tools for the Analysis of Forest Dynamics}
 \description{
-ctfs provides the original CTFS R Package (Richard Condit) with the structure
-of an R package \emph{sensu stricto} (with some hacks). After you install it,
-functions will be available with \code{<FUNCTION_NAME>}; and documentation with
-\code{?<FUNCTION_NAME>}, \code{help(<FUNCTION_NAME>)} or online at
-\url{https://forestgeo.github.io/ctfs/} or
+This package provides tools for the analysis of forest dynamics. It evolves
+from the source code of the CTFS R Package by Richard Condit, available at
 \url{http://ctfs.si.edu/Public/CTFSRPackage/}.
 }
 \section{Acknowledgement}{
@@ -40,6 +37,5 @@ recruitment limitation, and tree diversity in a neotropical forest. Science
 283: 554-557.
 }
 \author{
-Richard Condit \email{conditr@gmail.com}, Mauro Lepore
-\email{maurolepore@gmail.com} (maintainer).
+CTFS-ForestGEO \email{ForestGEO@si.edu}
 }

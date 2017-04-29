@@ -508,8 +508,11 @@ skewness=function(x)
 # 
 # </sample>
 # <source>
+#' se.skewness
+#' 
+#' xxx Undocumented
+#' 
 #' @export
-
 se.skewness=function(x)
 {
  x=x[!is.na(x)]
@@ -540,6 +543,10 @@ se.skewness=function(x)
 # 
 # </sample>
 # <source>
+#' kurtosis
+#' 
+#' xxx Undocumented.
+#' 
 #' @export
 
 kurtosis=function(x)
@@ -576,8 +583,11 @@ kurtosis=function(x)
 # 
 # </sample>
 # <source>
+#' se.kurtosis
+#' 
+#' xxx Undocumented
+#'
 #' @export
-
 se.kurtosis=function(x)
 {
  x=x[!is.na(x)]

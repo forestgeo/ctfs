@@ -8,49 +8,94 @@
 #'
 #' @description
 #'
-#' The main function for fitting the probability distribution of population growth rates. Accepts any two full census R Analytical Tables.
+#' The main function for fitting the probability distribution of population
+#' growth rates. Accepts any two full census R Analytical Tables.
 #'
-#' Five different functional forms to the distribution can be fitted, as chosen with the argument modeltype:
-#' *  Gaussian [modeltype="norm", with the quotes]
-#' *  Asymmetric Gaussian (a different standard deviation on left and right of the mode) [modeltype="asymnorm", with the quotes]
-#' *  Laplace (exponential distribution, with mirror image for negative values) [modeltype="symexp", with the quotes]
-#' *  Asymmetric Laplace (different rate constant for left and right of the center) [modeltype="asymexp", with the quotes]
-#' *  Asymmetric power distribution (different rate constant for left and right of the center) [modeltype="asympower", with the quotes]
+#' Five different functional forms to the distribution can be fitted, as chosen
+#' with the argument modeltype:
+#' * Gaussian `modeltype = "norm"`, with the quotes
+#' * Asymmetric Gaussian (a different standard deviation on left and right of
+#' the mode) `modeltype = "asymnorm"`, with the quotes
+#' * Laplace (exponential distribution, with mirror image for negative values)
+#' `modeltype = "symexp"`, with the quotes
+#' * Asymmetric Laplace (different rate constant for left and right of the
+#' center) `modeltype = "asymexp"`, with the quotes
+#' * Asymmetric power distribution (different rate constant for left and right
+#' of the center) `modeltype = "asympower", with the quotes
 #'
+#' A Gibbs sampler is used to fit the parameter, with a hierarchical component
+#' for the distribution of species'mortality rates (mu) and species'rates of
+#' population change (r). and be sure to set mindbh. Other parameters can be
+#' left at defaults.
 #'
-#' A Gibbs sampler is used to fit the parameter, with a hierarchical component for the distribution of species'mortality rates (mu) and
-#' species'rates of population change (r). 
-#' and be sure to set mindbh. Other parameters can be left at defaults. 
+#' Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this
+#' has to be included for asymexp; before, the check for negative SD parameters
+#' was hard-coded.
 #'
-#' Added the bad.modelparam option to accomodate dasympower Aug 2011. Now this has to be included for asymexp; before, the
-#' check for negative SD parameters was hard-coded. 
+#' Optionally, a table demog can be created separately and submitted. It must
+#' have columns N1, N2, S, time.
 #'
-#' Optionally, a table demog can be created separately and submitted. It must have columns N1, N2, S, time.
-#'
-#' @param cns1 and cns2 the two census R Analytical Tables, with earlier census first
-#' @param mindbh minimum dbh to be included; all trees smaller than mindbh are excluded
-#' @param demog optional, must match exactly the table created within the function
-#' @param abundrange the default includes every species, but this can be set to a minimum and maximum abundance (first census); species with abundances outside the range are excluded
-#' @param start.param parameter values at the outset, 1) mean of log(mortality) rate, 2) SD of log(mortality), 3) center of distribution of little r, 4) rate (or SD) of the distribution of little r; if an asymmetric model is chosen, the latter is the initial value for both left and right rate 
+#' @param cns1 and cns2 the two census R Analytical Tables, with earlier census
+#'   first
+#' @param mindbh minimum dbh to be included; all trees smaller than mindbh are
+#'   excluded
+#' @param demog optional, must match exactly the table created within the
+#'   function
+#' @param abundrange the default includes every species, but this can be set to
+#'   a minimum and maximum abundance (first census); species with abundances
+#'   outside the range are excluded
+#' @param start.param parameter values at the outset, 1) mean of log(mortality)
+#'   rate, 2) SD of log(mortality), 3) center of distribution of little r, 4)
+#'   rate (or SD) of the distribution of little r; if an asymmetric model is
+#'   chosen, the latter is the initial value for both left and right rate
 #' @param modeltype, as listed above
-#' @param bad.modelparam name of a function which checks the model parameters for bad values; for modeltype asymexp, must be bad.asymexp.param, for modeltype asympower, must be bad.asympower.param
+#' @param bad.modelparam name of a function which checks the model parameters
+#'   for bad values; for modeltype asymexp, must be bad.asymexp.param, for
+#'   modeltype asympower, must be bad.asympower.param
 #' @param steps number of steps to run the Gibbs sampler
 #' @param burn number of steps of sampler to exclude as burn-in
-#' @param showstep print hyperparameters and likelihood to the screen every showstep steps
+#' @param showstep print hyperparameters and likelihood to the screen every
+#'   showstep steps
 #' @param debug set to TRUE to call browser within the function
 #'
 #' @examples
 #' \dontrun{
-#' lambir.modelR=model.littleR.Gibbs(cns1=lambir.full3,cns2=lambir.full4,mindbh=1,bad.modelparam=bad.asymexp.param))
-#' palanan.modelR=model.littleR.Gibbs(cns1=palanan.full3,palanan.full4,mindbh=1,bad.modelparam=bad.asymexp.param)
+#' lambir.modelR = model.littleR.Gibbs(
+#'   cns1 = lambir.full3,
+#'   cns2 = lambir.full4,
+#'   mindbh = 1,
+#'   bad.modelparam = bad.asymexp.param
+#' )
+#' palanan.modelR = model.littleR.Gibbs(
+#'   cns1 = palanan.full3,
+#'   palanan.full4,
+#'   mindbh = 1,
+#'   bad.modelparam = bad.asymexp.param
+#' )
+#' # For graphic output, just pass the result to graph.abundmodel. There are 
+#' # many options, but the defaults will show the key results. 
+#' graph.abundmodel(fit = lambir.modelR)
 #'
-#' For graphic output, just pass the result to graph.abundmodel. There are many options, but the defaults will show the key results. 
-#' graph.abundmodel(fit=lambir.modelR)
-#'
-#' Alternate distributions for little r:
-#' power67=model.littleR.Gibbs(cns1=bci.full6,cns2=bci.full7,modeltype='asympower',mindbh=10,start.param=c(-3,.8,.01,-.5),  bad.modelparam=bad.asympower.param,showstep=25)
-#' gauss67=model.littleR.Gibbs(cns1=bci.full6,cns2=bci.full7,modeltype='asymnorm',mindbh=10,start.param=c(-3,.8,.01,100),  bad.modelparam=bad.asymexp.param,showstep=25)}
-#'
+#' # Alternate distributions for little r:
+#' power67 = model.littleR.Gibbs(
+#'   cns1 = bci.full6,
+#'   cns2 = bci.full7,
+#'   modeltype = 'asympower',
+#'   mindbh = 10,
+#'   start.param = c(-3, .8, .01, -.5),
+#'   bad.modelparam = bad.asympower.param,
+#'   showstep = 25
+#' )
+#' gauss67 = model.littleR.Gibbs(
+#'   cns1 = bci.full6,
+#'   cns2 = bci.full7,
+#'   modeltype = 'asymnorm',
+#'   mindbh = 10,
+#'   start.param = c(-3, .8, .01, 100),
+#'   bad.modelparam = bad.asymexp.param,
+#'   showstep = 25
+#' )
+#' }
 #'
 'model.littleR.Gibbs'
 
