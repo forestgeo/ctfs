@@ -1,9 +1,9 @@
 Package: ctfs
-Title: What the Package Does (one line, title case)
+Title: Tools for the Analysis of Forest Dynamics
 Version: 0.0.0.9005
-Authors@R: person("Richard", "Condit", email = "conditr@gmail.com", 
+Authors@R: person("CTFS", "ForestGEO", email = "ForestGEO@si.edu", 
     role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Tools for the Analysis of Forest Dynamics
 Depends:
     R (>= 3.1.2)
 License: What license is it under?

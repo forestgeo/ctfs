@@ -1,11 +1,8 @@
-#' The maintained version of the CTFS R Package by Richard Condit.
+#' Tools for the Analysis of Forest Dynamics
 #' 
 #' @description
-#' ctfs provides the original CTFS R Package (Richard Condit) with the structure
-#' of an R package _sensu stricto_ (with some hacks). After you install it,
-#' functions will be available with `<FUNCTION_NAME>`; and documentation with
-#' `?<FUNCTION_NAME>`, `help(<FUNCTION_NAME>)` or online at
-#' [https://forestgeo.github.io/ctfs/](https://forestgeo.github.io/ctfs/) or
+#' This package provides tools for the analysis of forest dynamics. It evolves
+#' from the source code of the CTFS R Package by Richard Condit, available at
 #' [http://ctfs.si.edu/Public/CTFSRPackage/](http://ctfs.si.edu/Public/CTFSRPackage/).
 #' 
 #' @section Acknowledgement:
@@ -15,8 +12,7 @@
 #' Numerous organizations have provided funding, principally the U.S. National 
 #' Science Foundation, and hundreds of field workers have contributed.
 #' 
-#' @author Richard Condit \email{conditr@gmail.com}, Mauro Lepore 
-#'   \email{maurolepore@@gmail.com} (maintainer).
+#' @author CTFS-ForestGEO \email{ForestGEO@@si.edu}
 #'   
 #' @references Anderson-Teixeira, K. J., Davies, S. J., Bennett, A. C., 
 #'   Gonzalez-Akre, E. B., Muller-Landau, H. C., Joseph Wright, S., . . . 
