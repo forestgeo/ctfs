@@ -1,11 +1,54 @@
 # ctfs 0.0.0.9005
 
 
-TODO
+
 
 WARNINGS
 
-- See what else I can do realtively easy
+- Find what is qpdf
+
+```R
+'qpdf' is needed for checks on size reduction of PDFs
+```
+
+- Find what function replaced `as.real`
+
+```R
+Found the defunct/removed function:
+  'as.real'
+```
+
+- Try replacing all these weird devices by `dev.new()` as suggested in the message. But first do a little google search.
+
+```R
+Found the platform-specific devices:
+  'X11' 'quartz' 'win.graph' 'win.metafile' 'x11'
+dev.new() is the preferred way to open a new device, in the unlikely
+event one is needed.
+```
+
+- It seems that those devices are used in all the functions below, which warning may dissapear once they are replaced by dev.new. (so check if the functions below use the weird devices above).
+
+```R
+Found an obsolete/platform-specific call in the following functions:
+  'compare.growthbinmodel' 'define.graphwindow' 'graph.abundmodel'
+  'graph.growthmodel' 'graph.modeldiag' 'graph.outliers' 'imageGraph'
+  'image_dataframe' 'map2species' 'maptopo' 'overlay.growthbinmodel'
+  'regsum' 'wavelet.bivariate'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 NOTES
 
