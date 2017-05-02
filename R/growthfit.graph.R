@@ -54,10 +54,30 @@
 #'
 #' @examples
 #' \dontrun{
-#' full=extract.growthdata(census1=bci.full5,census2=bci.full6,growcol='incgr',growthfunc=growth.biomass.indiv,logit='x',rounddown = FALSE,
-#'                        mindbh = 100,dbhunit = 'mm',err.limit = 4000,maxgrow = 7500)
-#' trimmed=extract.growthdata(census1=bci.full5,census2=bci.full6,growcol='incgr',growthfunc=growth.biomass.indiv,logit='x',rounddown = FALSE,
-#'                           mindbh = 100,dbhunit = 'mm',err.limit = 4,maxgrow = 75)
+#' full = extract.growthdata(
+#'   census1 = bci.full5,
+#'   census2 = bci.full6,
+#'   growcol = 'incgr',
+#'   growthfunc = growth.biomass.indiv,
+#'   logit = 'x',
+#'   rounddown = FALSE,
+#'   mindbh = 100,
+#'   dbhunit = 'mm',
+#'   err.limit = 4000,
+#'   maxgrow = 7500
+#' )
+#' trimmed = extract.growthdata(
+#'   census1 = bci.full5,
+#'   census2 = bci.full6,
+#'   growcol = 'incgr',
+#'   growthfunc = growth.biomass.indiv,
+#'   logit = 'x',
+#'   rounddown = FALSE,
+#'   mindbh = 100,
+#'   dbhunit = 'mm',
+#'   err.limit = 4,
+#'   maxgrow = 75
+#' )
 #' }
 #'
 #'
@@ -88,10 +108,29 @@
 #' attach('growth/growthfitYiching/linearbin.fit.allspp.rdata')
 #' attach('growth/linearbin.fit.edoro.rdata')
 #' attach('growth/linearbin.fit.lenda.rdata')
-#' binGraphSampleSpecies(fulldata='linearbin.fit.allspp',species=c('pri2co','tri2tu','brosal','jac1co'),whichbin=2,export=NULL)
-#' binGraphSampleSpecies(fulldata=c('linearbin.fit.allspp','linearbin.fit.trim3','linearbin.fit.edoro3','linearbin.fit.lenda3'),
-#'                       species=c('PYRESH','pri2co','JULBSE','GILBDE'),whichbin=3,export=NULL)
-#' binGraphSampleSpecies(fulldata='linearbin.fit.allspp',species=c('pri2co','pri2co','brosal','brosal'),whichbin=c(2,3,2,3),export=NULL)}
+#' binGraphSampleSpecies(
+#'   fulldata = 'linearbin.fit.allspp',
+#'   species = c('pri2co', 'tri2tu', 'brosal', 'jac1co'),
+#'   whichbin = 2,
+#'   export = NULL
+#' )
+#' binGraphSampleSpecies(
+#'   fulldata = c(
+#'     'linearbin.fit.allspp',
+#'     'linearbin.fit.trim3',
+#'     'linearbin.fit.edoro3',
+#'     'linearbin.fit.lenda3'
+#'   ),
+#'   species = c('PYRESH', 'pri2co', 'JULBSE', 'GILBDE'),
+#'   whichbin = 3,
+#'   export = NULL
+#' )
+#' binGraphSampleSpecies(
+#'   fulldata = 'linearbin.fit.allspp',
+#'   species = c('pri2co', 'pri2co', 'brosal', 'brosal'),
+#'   whichbin = c(2, 3, 2, 3),
+#'   export = NULL
+#' )}
 #'
 #'
 'binGraphSampleSpecies'
@@ -105,9 +144,20 @@
 #'
 #' @examples
 #' \dontrun{
-#' binGraphManySpecies.Panel(c('linearbin.fit.allspp','linearbin.fit.trim3','linearbin.fit.edoro3','linearbin.fit.lenda3'),
-#'                          export=pdf,yrange=c(0,.25),sitename=c('Fushan','BCI','Edoro','Lenda'),darken=5,xrange=c(-3,3.5))}
-#'
+#' binGraphManySpecies.Panel(
+#'   c(
+#'     'linearbin.fit.allspp',
+#'     'linearbin.fit.trim3',
+#'     'linearbin.fit.edoro3',
+#'     'linearbin.fit.lenda3'
+#'   ),
+#'   export = pdf,
+#'   yrange = c(0, .25),
+#'   sitename = c('Fushan', 'BCI', 'Edoro', 'Lenda'),
+#'   darken = 5,
+#'   xrange = c(-3, 3.5)
+#' )
+#' }
 #'
 'binGraphManySpecies.Panel'
 

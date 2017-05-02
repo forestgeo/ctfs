@@ -84,21 +84,35 @@ set with arguments ht, wd, and plotside can be as large as you please.
 \examples{
 \dontrun{
 
-If you have saved split formatted data:  CTFSplot(plot='bci',census=6,type='split')
+# If you have saved split formatted data:  
+CTFSplot(plot = 'bci',
+  census = 6,
+  type = 'split')
 
-If you have not saved:  
+# If you have not saved:
 
-CTFSplot(plot='bci',census=6)
+CTFSplot(plot = 'bci', census = 6)
 
-bci.split6=split_data(censdata=bci.full6,splitcol='sp')
+bci.split6 = split_data(censdata = bci.full6, splitcol = 'sp')
 
-nospp=length(species)
+nospp = length(species)
 
-map(splitdatafile=bci.split6,species='poular')
+map(splitdatafile = bci.split6, species = 'poular')
 
-map(splitdatafile=bci.split6,species='poular',export='pdf',filepath='~/data/maps/',outfile='Poulsenia1995map',plotside=10,ht=8.5,wd=11)
+map(
+  splitdatafile = bci.split6,
+  species = 'poular',
+  export = 'pdf',
+  filepath = '~/data/maps/',
+  outfile = 'Poulsenia1995map',
+  plotside = 10,
+  ht = 8.5,
+  wd = 11
+)
 
-map(splitdatafile=bci.split6,species=c('guatdu','poular'))}
+map(splitdatafile = bci.split6,
+  species = c('guatdu', 'poular'))
+}
 
 
 }

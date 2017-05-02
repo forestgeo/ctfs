@@ -30,14 +30,24 @@
 #'
 #' @examples
 #' \dontrun{
-#' mapfolder='/maps/rabi/'
-#' coords=
-#' fullplot.imageJ(path=mapfolder,include.subdir=T,gridsize=c(10,10),outfile='location.txt',corners=c('p2','p1','p4','p3'),
-#'                prefix='Map_',colrange=c(0,49), rowrange=c(0,24),subquadsuffix=c('_1','_2','_3','_4'))
+#' mapfolder = '/maps/rabi/'
+#' coords =
+#'   fullplot.imageJ(
+#'     path = mapfolder,
+#'     include.subdir = T,
+#'     gridsize = c(10, 10),
+#'     outfile = 'location.txt',
+#'     corners = c('p2', 'p1', 'p4', 'p3'),
+#'     prefix = 'Map_',
+#'     colrange = c(0, 49),
+#'     rowrange = c(0, 24),
+#'     subquadsuffix = c('_1', '_2', '_3', '_4')
+#'   )
 #' head(coords)
 #' dim(coords)
 #' range(coords$lx)
-#' range(coords$ly)}
+#' range(coords$ly)
+#' }
 #'
 #'
 'fullplot.imageJ'

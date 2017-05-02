@@ -27,19 +27,58 @@
 #'
 #' @examples
 #' \dontrun{
-#' spp20=c('tri2tu','alsebl','tet2pa','tachve','beilpe','pri2co','quaras','ocotwh','hirttr','gar2in','protpa','protte',
-#'        'eugeoe','virose','guargu','maquco','jac1co','cecrin','cordbi','micoar') 
-#'
-#' Creating the complete table of biomass growth for all individuals in a plot: 
-#' agb.growth=extract.growthdata(bci.full5,bci.full6,growthfunc=growth.biomass.indiv,logit='x',
-#'                              rounddown = FALSE,mindbh = 100,dbhunit = 'mm',err.limit = 4,maxgrow = 75) 
-#'
-#' Creating a vector of all species names in the agb.growth table. 
-#' allspecies=sort(unique(agb.growth$sp)) 
-#'
-#' Fitting the model for all species, 1-4 bins: 
-#' fit=run.growthbin.manyspp(growthdata=agb.growth,size='agb',spp=allspecies,minabund300=15,minTotal=40,startpar=c(.03,.005),startsdpar=c(.04,0))}
-#'
+#' spp20 = c(
+#'   'tri2tu',
+#'   'alsebl',
+#'   'tet2pa',
+#'   'tachve',
+#'   'beilpe',
+#'   'pri2co',
+#'   'quaras',
+#'   'ocotwh',
+#'   'hirttr',
+#'   'gar2in',
+#'   'protpa',
+#'   'protte',
+#'   'eugeoe',
+#'   'virose',
+#'   'guargu',
+#'   'maquco',
+#'   'jac1co',
+#'   'cecrin',
+#'   'cordbi',
+#'   'micoar'
+#' )
+#' 
+#' # Creating the complete table of biomass growth for all individuals in a 
+#' # plot:
+#' agb.growth = extract.growthdata(
+#'   bci.full5,
+#'   bci.full6,
+#'   growthfunc = growth.biomass.indiv,
+#'   logit = 'x',
+#'   rounddown = FALSE,
+#'   mindbh = 100,
+#'   dbhunit = 'mm',
+#'   err.limit = 4,
+#'   maxgrow = 75
+#' )
+#' 
+#' # Creating a vector of all species names in the agb.growth table.
+#' allspecies = sort(unique(agb.growth$sp))
+#' 
+#' # Fitting the model for all species, 1 - 4 bins:
+#' fit = run.growthbin.manyspp(
+#'   growthdata = agb.growth,
+#'   size = 'agb',
+#'   spp = allspecies,
+#'   minabund300 = 15,
+#'   minTotal = 40,
+#'   startpar = c(.03, .005),
+#'   startsdpar = c(.04, 0)
+#' )
+#' }
+#' 
 #'
 'run.growthbin.manyspp'
 

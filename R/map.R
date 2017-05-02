@@ -50,21 +50,35 @@
 #' @examples
 #' \dontrun{
 #'
-#' If you have saved split formatted data:  CTFSplot(plot='bci',census=6,type='split')
+#' # If you have saved split formatted data:  
+#' CTFSplot(plot = 'bci',
+#'   census = 6,
+#'   type = 'split')
 #'
-#' If you have not saved:  
-#'
-#' CTFSplot(plot='bci',census=6)
-#'
-#' bci.split6=split_data(censdata=bci.full6,splitcol='sp')
-#'
-#' nospp=length(species)
-#'
-#' map(splitdatafile=bci.split6,species='poular')
-#'
-#' map(splitdatafile=bci.split6,species='poular',export='pdf',filepath='~/data/maps/',outfile='Poulsenia1995map',plotside=10,ht=8.5,wd=11)
-#'
-#' map(splitdatafile=bci.split6,species=c('guatdu','poular'))}
+#' # If you have not saved:
+#' 
+#' CTFSplot(plot = 'bci', census = 6)
+#' 
+#' bci.split6 = split_data(censdata = bci.full6, splitcol = 'sp')
+#' 
+#' nospp = length(species)
+#' 
+#' map(splitdatafile = bci.split6, species = 'poular')
+#' 
+#' map(
+#'   splitdatafile = bci.split6,
+#'   species = 'poular',
+#'   export = 'pdf',
+#'   filepath = '~/data/maps/',
+#'   outfile = 'Poulsenia1995map',
+#'   plotside = 10,
+#'   ht = 8.5,
+#'   wd = 11
+#' )
+#' 
+#' map(splitdatafile = bci.split6,
+#'   species = c('guatdu', 'poular'))
+#' }
 #'
 #'
 'map'
