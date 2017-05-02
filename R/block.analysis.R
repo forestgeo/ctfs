@@ -142,9 +142,11 @@
 #'
 #' @description
 #'
-#' Function to calculate the wavelet variance to evaluate the association between two point patterns using furier transforms. 
+#' Function to calculate the wavelet variance to evaluate the association
+#' between two point patterns using furier transforms.
 #'
-#' It accepts a raster data or a point pattern, but the type of data entered has to be specified in the argument type.  
+#' It accepts a raster data or a point pattern, but the type of data entered has
+#' to be specified in the argument type (xxx see section Warning).
 #'
 #' The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.
 #'
@@ -176,28 +178,30 @@
 #' dj  (0.15):  numeric. discretization of the scale axis; 
 #' graph (TRUE): logical. plot the wavelet variace ? 
 #'
+#' @section Warning:
+#' If the argument type is ignored the function works. But one issue with this
+#' function is that the description mentions the argument `type`, but `type` is
+#' not part of the function definition not is passed to any other function.
+#' Confusingly, this function calls `plot()`, which has argument `type` but
+#' seems to have nothing to do with the `tpye` referred to in the description of
+#' this function. In the example, `type` is kept as a reminder of this issue but
+#' is with a comment.
+#'
 #' @examples
 #' \dontrun{
-
-
-
 #' sp.one = subset(bci::bci12full7, sp == "quaras")[, c("gx", "gy")]
 #' sp.two = subsetbci::bci12full7, sp == "cordal")[, c("gx", "gy")]
 #' wv = wavelet.bivariate(
 #'   coords = sp.one,
 #'   coords2 = sp.two,
-#'   #' type = 'point',
+#'   #' type = 'point',  # dissabled because it errs, see section Warning
 #'   k0 = 8,
 #'   dj = 0.15,
 #'   graph = TRUE
 #' )
 #' # plots the scale of aggregation
-
-
-
-
 #' }
-
+#' 
 'wavelet.bivariate'
 
 # Source code and original documentation ----------------------------

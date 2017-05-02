@@ -11,12 +11,8 @@ WARNINGS
 'qpdf' is needed for checks on size reduction of PDFs
 ```
 
-- Find what function replaced `as.real`
 
-```R
-Found the defunct/removed function:
-  'as.real'
-```
+
 
 - Try replacing all these weird devices by `dev.new()` as suggested in the message. But first do a little google search.
 
@@ -205,6 +201,23 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
 
 - Wrote a vignette to report package quality
 
+- Fixed `wavelet.bivariate()`, replace `as.real` (defunc) by `as.double`. Detect missing argument type and wrote a warning in the help file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Known issues**
 
 I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
@@ -255,6 +268,9 @@ INACURATE DOCUMENTATION
     - of bci.stem4 is bci12stem4, 
     - of bci.spptable is bci12spptable
     - and _bci_ also contains bci_elevation and bci_habitatat
+
+- In `wavelet.bivariate()`, argument type is missing from function definition. A warning was added to the help file.
+
 
 
 LACKS EXAMPLE FILE OR DATA
