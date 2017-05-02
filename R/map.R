@@ -513,7 +513,11 @@ complete.plotmap <- function(cns = bci.full6,
                             filepath = '/home/condit/data/maps/',
                             outfile = 'fullplotmap') {
   filename=get.filename(file=outfile,path=filepath,exp=export,species="FullPlot")
-  define.graphwindow(exp=export,h=ht,w=wd,file=filename)
+  define.graphwindow(export = export,
+    h = ht,
+    w = wd,
+    file = filename
+  )
   if(export!="unix" & export!="no" & export!="mac" & export!="windows") on.exit(graphics.off())
   
   cond_1 <- cns$status == 'A' & 
