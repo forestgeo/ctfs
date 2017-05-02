@@ -4,7 +4,7 @@
 ## R CMD check results
 
 ```r
-0 errors | 2 warnings | 3 notes
+0 errors | 2 warnings | 1 note 
 
 R CMD check succeeded
 ```
@@ -25,14 +25,14 @@ Easy to fix, we just need to choose a license
 WARNING 2
 
 ```R
-checking Rd \usage sections ... WARNING
 Undocumented arguments in documentation object 'AGB.dbtable'
   'df' 'dbname' 'plot' 'code' 'censusno'
-
-... 1153 lines ...
+Undocumented arguments in documentation object 'AGB.ind'
+  'df' 'dbhunit' 'plot' 'wsgdata' 'forest' 'ht.param' 'htmodel'
+...(about 1,150 more)
 ```
 
-Can take long to fix, there are about 1150 undocumented arguments. Some may be easy to define because they may be defined somewhere else or because they may be obvious. But I expect that some other arguments I won't be able to define without some help from those who have used the functions before. In any case, the version of CTFS that is archived on CRAN has relatively good documentation that could be used as a model. However, that version has only 88 functions versus about 400 that has the complete CTFS R Package.
+May take long to fix, there are about 1150 undocumented arguments. Some may be easy to define because they may be defined somewhere else or because they may be obvious. But I expect that some other arguments I won't be able to define without some help from those who have used the functions before. In any case, the version of CTFS that is archived on CRAN has relatively good documentation that could be used as a model. However, that version has only 88 functions versus about 400 that has the complete CTFS R Package.
 
 
 
@@ -48,28 +48,39 @@ NOTE 1
 
 ```R
 checking R code for possible problems ... NOTE
+
 Found an obsolete/platform-specific call in the following functions:
   'compare.growthbinmodel' 'define.graphwindow' 'graph.abundmodel'
   'graph.growthmodel' 'graph.modeldiag' 'graph.outliers' 'imageGraph'
   'image_dataframe' 'map2species' 'maptopo' 'overlay.growthbinmodel'
   'regsum'
+  
 Found the platform-specific devices:
   'X11' 'quartz' 'win.graph' 'win.metafile' 'x11'
 dev.new() is the preferred way to open a new device, in the unlikely
 event one is needed.
 
-... 75 lines ...
+complete.plotmap: warning ...: partial argument match of 'exp' to 'export'
+dgammaMinusdexp:  warning ...: partial argument match of 'log' to 'log.p'
+...(4 more)
+
+AGB.dbtable: no visible global function definition for 'odbcConnect'
+AGB.dbtable: no visible global function definition for 'odbcClose'
+...(about 30 more)
+
+Undefined global functions or variables:
+  as.points bci.full1 bci.full2 bci.full3 bci.full6 bci.split6
+  bci.spptable bci3.spp composeParam.GaussianMap contour.quaddata
+  coords2 ctfs.elev date.mdy dbh decimal.form gen.logistic index
+  insideRectange inter khat korup.spp line.intersection mvrnorm
+  odbcClose odbcConnect plotspp riwish samplemapfile sp spp20 sqlQuery
+  trim.growth.mismeasure wsg.ctfs2
 ```
-
-This note seems harmless and may not deserve effort.
-
-
 
 ```R
 Found the following calls to attach():
 File 'ctfs/R/utilities.R':
   attach(file)
-See section 'Good practice' in '?attach'.
 ```
 
 Easy to fix. There is only one function, `attach_if_needed()`, that contains `attach()` in its source. It is a convenience function that could be removed. It is called only in two other functions:
