@@ -1079,7 +1079,13 @@ dgammaMinusdexp=function(z,mean,sd,lambda,draws=10000,div=.01,xrange=c(0,25),xma
  a=mean*r
  
  part1=a*(log(r/(r+lambda)))+log(lambda)+lambda*z
- part2=pgamma(z,shape=a,rate=r+lambda,lower.tail=FALSE,log=TRUE)
+ part2 = pgamma(
+   z,
+   shape = a,
+   rate = r + lambda,
+   lower.tail = FALSE,
+   log.p = TRUE
+ )
  
  pdf.z=numeric()
 

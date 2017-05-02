@@ -85,9 +85,59 @@ Found the platform-specific devices:
 dev.new() is the preferred way to open a new device, in the unlikely
 event one is needed.
 
+
+
+
+
+
+
+
+DONE
+
 complete.plotmap: warning ...: partial argument match of 'exp' to 'export'
-dgammaMinusdexp:  warning ...: partial argument match of 'log' to 'log.p'
-...(4 more)
+
+dgammaMinusdexp: warning in pgamma(z, shape = a, rate = r + lambda,
+  lower.tail = FALSE, log = TRUE): partial argument match of 'log' to
+  'log.p'
+  
+TODO
+
+map: warning in define.graphwindow(exp = export, h = ht, w = wd, file =
+  filename): partial argument match of 'exp' to 'export'
+map: warning in maptopo(elev = elevdata, plotdim = plotdim, xaxis =
+  xaxis, yaxis = yaxis, interval = topoint, ht = ht, wd = wd, plotside
+  = plotside, labelsize = labsize, axspos = axspos, bgcolor = bgcolor,
+  clr = topoclr): partial argument match of 'elev' to 'elevmat'
+run.growthbin.manyspp: warning in run.growthfit.bin(growthdata =
+  spdata, size = size, binoption = binoption, startpar = startpar,
+  sdmodel = sdmodel, startsdpar = startsdpar, badsdfunc = badsdfunc,
+  norep = noreps, noburn = noburn, noshow = noshow, ...): partial
+  argument match of 'norep' to 'noreps'
+selectrandomquad2: warning in index.to.gxgy(r, grid = 1, plotdim =
+  plotdim - size): partial argument match of 'grid' to 'gridsize'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 AGB.dbtable: no visible global function definition for 'odbcConnect'
 AGB.dbtable: no visible global function definition for 'odbcClose'
