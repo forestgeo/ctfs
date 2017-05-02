@@ -178,12 +178,25 @@
 #'
 #' @examples
 #' \dontrun{
-#' load("bci.full1.rdata") 
-#' sp.one = subset(bci.full7, sp=="quaras")[,c("gx","gy")] 
-#' sp.two = subset(bci.full7, sp=="cordal")[,c("gx","gy")]
-#' wv = wavelet.bivariate(coords=sp.one, coords2=sp.two, type='point', rk0=8, dj=0.15, graph=TRUE)
-#' plots the scale of aggregation}
-#'
+
+
+
+#' sp.one = subset(bci::bci12full7, sp == "quaras")[, c("gx", "gy")]
+#' sp.two = subsetbci::bci12full7, sp == "cordal")[, c("gx", "gy")]
+#' wv = wavelet.bivariate(
+#'   coords = sp.one,
+#'   coords2 = sp.two,
+#'   #' type = 'point',
+#'   k0 = 8,
+#'   dj = 0.15,
+#'   graph = TRUE
+#' )
+#' # plots the scale of aggregation
+#' 
+
+
+
+#' }
 
 'wavelet.bivariate'
 
