@@ -192,7 +192,7 @@
 #'   graph = TRUE
 #' )
 #' # plots the scale of aggregation
-#' 
+
 
 
 
@@ -638,7 +638,7 @@ if (graph == TRUE)
 	abline(h=0, lty=2)  
 	}
 
-output=list(E_norm=coh, UCL=UCL, LCL=LCL, var11= as.real(E11), var12=as.real(E12), var22=as.real(E22), norm=norm, scale=sc)
+output=list(E_norm=coh, UCL=UCL, LCL=LCL, var11= as.double(E11), var12=as.double(E12), var22=as.double(E22), norm=norm, scale=sc)
 
 return(output)	}
 # </source>
