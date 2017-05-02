@@ -1,15 +1,142 @@
 # ctfs 0.0.0.9005
 
 
+## R CMD check results
+
+```r
+0 errors | 2 warnings | 3 notes
+
+R CMD check succeeded
+```
+
+WARNING 1
+
+```R
+checking DESCRIPTION meta-information ... WARNING
+Non-standard license specification:
+  What license is it under?
+Standardizable: FALSE
+```
+
+Easy to fix, we just need to choose a license
 
 
-WARNINGS
 
-- Find what is qpdf
+WARNING 2
+
+```R
+checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'AGB.dbtable'
+  'df' 'dbname' 'plot' 'code' 'censusno'
+
+... 1153 lines ...
+```
+
+Can take long to fix, there are about 1150 undocumented arguments. Some may be easy to define because they may be defined somewhere else or because they may be obvious. But I expect that some other arguments I won't be able to define without some help from those who have used the functions before. In any case, the version of CTFS that is archived on CRAN has relatively good documentation that could be used as a model. However, that version has only 88 functions versus about 400 that has the complete CTFS R Package.
+
+
+
+NOTE 1
+
+```R
+checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  'data-raw'
+```
+
+This is not a problem. It is easy to justify because it follows modern best practices.
+
+
+
+NOTE 2
+
+```R
+checking R code for possible problems ... NOTE
+Found an obsolete/platform-specific call in the following functions:
+  'compare.growthbinmodel' 'define.graphwindow' 'graph.abundmodel'
+  'graph.growthmodel' 'graph.modeldiag' 'graph.outliers' 'imageGraph'
+  'image_dataframe' 'map2species' 'maptopo' 'overlay.growthbinmodel'
+  'regsum'
+Found the platform-specific devices:
+  'X11' 'quartz' 'win.graph' 'win.metafile' 'x11'
+dev.new() is the preferred way to open a new device, in the unlikely
+event one is needed.
+
+... 75 lines ...
+```
+
+
+```R
+Found the following calls to attach():
+File 'ctfs/R/utilities.R':
+  attach(file)
+See section 'Good practice' in '?attach'.
+```
+
+Easy to fix. There is only one function, `attach_if_needed()`, that contains `attach()` in its source. It is a convenience function that could be removed. It is called only in two other functions:
+
+- `graph.abundmodel()`
+- `CTFSplot()`
+
+To access the data, a good alternative to `attach_if_needed` is to load data with `bci::<DATA>`.
+
+
+
+NOTE 3
+
+```R
+checking Rd line widths ... NOTE
+Rd file 'RipUvK.Rd':
+  \examples lines wider than 100 characters:
+     rip=RipUvK(splitdata=bci.split6[1:10],plotdim=c(1000,500),rseq=c(10,20,30,40,50,60),mindbh=10,xcol="gx",ycol="gy")
+
+... 44 lines ...
+```
+
+Easy to fix. The lines in 44 functions must be broken to less than 100 characters, the recommended lengh is actually less than 80 characters.
+
+
+## Another check 
+
+```R
+Status: 3 WARNINGs, 3 NOTEs
+```
+
+Another type of check throws this additional warning:
 
 ```R
 'qpdf' is needed for checks on size reduction of PDFs
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
