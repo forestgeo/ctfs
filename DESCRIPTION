@@ -1,12 +1,18 @@
 Package: ctfs
 Title: Tools for the Analysis of Forest Dynamics
 Version: 0.0.0.9005
-Authors@R: person("CTFS", "ForestGEO", email = "ForestGEO@si.edu", 
-    role = c("aut", "cre"))
+Authors@R: c(
+    person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut")),
+    person("Pamela", "Hall", , "phall@alum.mit.edu", role = c("aut")),
+    person("Suzanne", "Lao", , "laoz@si.edu", role = c("aut")),
+    person("Kyle", "Harms", , "kharms@lsu.edu", role = c("aut")),
+    person("Mauro", "Lepore", , "leporem@si.edu", role = c("aut", "ctr", "cre")),
+    person("CTFS-ForestGEO", , , "ForestGEO@si.edu", role = c("cph", "fnd"))
+    )
 Description: Tools for the analysis of forest dynamics.
 Depends:
     R (>= 3.1.2)
-License: What license is it under?
+License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/forestgeo/ctfs

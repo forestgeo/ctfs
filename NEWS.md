@@ -1,28 +1,67 @@
 # ctfs 0.0.0.9005
 
+## Persons' roles
+
+Persons responsabilities are listed in `?person`. Some useful ones are these:
+
+"aut": (Author) Use for full authors who have made substantial contributions to the package and should show up in the package citation.
+
+"ctb": (Contributor) Use for authors who have made smaller contributions (such as code patches etc.) but should not show up in the package citation.
+
+"cph": (Copyright holder) Use for all copyright holders.
+
+"cre": (Creator) Use for the package _maintainer_.
+
+"ctr": (Contractor) Use for authors who have been contracted to write (parts of) the package and hence do not own intellectual property.
+
+The version of CTFS archived on CRAN contained the following information (file AUTHORS):
+
+```r
+Authors to date:
+Rick Condit	<condit@ctfs.si.edu>
+Pamela Hall <phall@alum.mit.edu>
+Suzanne Lao  <laoz@si.edu>
+Kyle Harms	<kharms@lsu.edu>
+Akira Itoh	<itoh57@hotmail.com>
+```
+
+Conservatively, all those are described as authors in the current development (if this needs to change let me konw):
+
+```R
+Authors@R: c(
+    person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut")),
+    person("Pamela", "Hall", , "phall@alum.mit.edu", role = c("aut")),
+    person("Suzanne", "Lao", , "laoz@si.edu", role = c("aut")),
+    person("Kyle", "Harms", , "kharms@lsu.edu", role = c("aut")),
+    person("Mauro", "Lepore", , "leporem@si.edu", role = c("aut", "ctr", "cre")),
+    person("CTFS-ForestGEO", , , "ForestGEO@si.edu", role = c("cph", "fnd"))
+    )
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## R CMD check results
 
 ```r
-0 errors | 2 warnings | 1 note 
+0 errors | 1 warning  | 1 note 
 
 R CMD check succeeded
 ```
 
 WARNING 1
-
-```R
-checking DESCRIPTION meta-information ... WARNING
-Non-standard license specification:
-  What license is it under?
-Standardizable: FALSE
-```
-
-Easy to fix, we just need to choose a license
-
-
-
-WARNING 2
 
 ```R
 Undocumented arguments in documentation object 'AGB.dbtable'
