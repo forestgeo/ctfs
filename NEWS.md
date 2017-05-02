@@ -43,16 +43,6 @@ Authors@R: c(
 
 
 
-
-
-
-
-
-
-
-
-
-
 ## R CMD check results
 
 ```r
@@ -61,7 +51,7 @@ Authors@R: c(
 R CMD check succeeded
 ```
 
-WARNING 1
+WARNING
 
 ```R
 Undocumented arguments in documentation object 'AGB.dbtable'
@@ -75,15 +65,11 @@ May take long to fix, there are about 1150 undocumented arguments. Some may be e
 
 
 
-## NOTES
+NOTE
 
 > ...If you’re not submitting to CRAN, carefully read each NOTE, but don’t go out of your way to fix things that you don’t think are problems.
 
 http://r-pkgs.had.co.nz/check.html
-
-
-
-NOTE 1
 
 ```R
 checking R code for possible problems ... NOTE
