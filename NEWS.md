@@ -36,19 +36,15 @@ Can take long to fix, there are about 1150 undocumented arguments. Some may be e
 
 
 
+## NOTES
+
+> ...If you’re not submitting to CRAN, carefully read each NOTE, but don’t go out of your way to fix things that you don’t think are problems.
+
+http://r-pkgs.had.co.nz/check.html
+
+
+
 NOTE 1
-
-```R
-checking top-level files ... NOTE
-Non-standard file/directory found at top level:
-  'data-raw'
-```
-
-This is not a problem. It is easy to justify because it follows modern best practices.
-
-
-
-NOTE 2
 
 ```R
 checking R code for possible problems ... NOTE
@@ -65,6 +61,9 @@ event one is needed.
 ... 75 lines ...
 ```
 
+This note seems harmless and may not deserve effort.
+
+
 
 ```R
 Found the following calls to attach():
@@ -79,6 +78,8 @@ Easy to fix. There is only one function, `attach_if_needed()`, that contains `at
 - `CTFSplot()`
 
 To access the data, a good alternative to `attach_if_needed` is to load data with `bci::<DATA>`.
+
+
 
 
 
