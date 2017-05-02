@@ -100,15 +100,47 @@
 #' @examples
 #' \dontrun{
 #'
-#' Assume two plot datasets from BCI are attached, bci.full6 and bci.full7. Subset to trees above 10 cm dbh and just 10 species for illustration (the model will run much faster). The fixed effect, species-level variation (or error), and the model parameters for each species are shown below. Check the names of the result to see what else lmerBayes returns.
-#' gtable=growth.indiv(bci.full6,bci.full7,mindbh=100) 
-#' a_few_species=c('termam','tachve','pri2co','gustsu','cecrin','tet2pa','guatdu', 'vochfe','virose','maquco') 
-#' gtable=subset(gtable,!is.na(incgr) & sp %in% a_few_species) 
-#' mod=lmerBayes(data=gtable,ycol='incgr',xcol='dbh1',randcol='sp',start=c(1,0),startSD=1,startCov=1,model=linear.model,error='Gauss', includeCovar=FALSE,badSDparam=badSD,steps=1100,showstep=50,burnin=100) 
-#' mod$bestmu 
-#' diag(sqrt(mod$bestsigma)) 
-#' mod$best  
-#' names(mod)}
+#' # Assume two plot datasets from BCI are attached, bci.full6 and bci.full7.
+#' # Subset to trees above 10 cm dbh and just 10 species for illustration (the
+#' # model will run much faster). The fixed effect, species - level variation
+#' # (or error), and the model parameters for each species are shown below. 
+#' # Check the names of the result to see what else lmerBayes returns.
+#' 
+#' gtable = growth.indiv(bci.full6, bci.full7, mindbh = 100)
+#' a_few_species = c(
+#'   'termam',
+#'   'tachve',
+#'   'pri2co',
+#'   'gustsu',
+#'   'cecrin',
+#'   'tet2pa',
+#'   'guatdu',
+#'   'vochfe',
+#'   'virose',
+#'   'maquco'
+#' )
+#' gtable = subset(gtable, !is.na(incgr) & sp %in% a_few_species)
+#' mod = lmerBayes(
+#'   data = gtable,
+#'   ycol = 'incgr',
+#'   xcol = 'dbh1',
+#'   randcol = 'sp',
+#'   start = c(1, 0),
+#'   startSD = 1,
+#'   startCov = 1,
+#'   model = linear.model,
+#'   error = 'Gauss',
+#'   includeCovar = FALSE,
+#'   badSDparam = badSD,
+#'   steps = 1100,
+#'   showstep = 50,
+#'   burnin = 100
+#' )
+#' mod$bestmu
+#' diag(sqrt(mod$bestsigma))
+#' mod$best
+#' names(mod)
+#' }
 #'
 #'
 'lmerBayes'

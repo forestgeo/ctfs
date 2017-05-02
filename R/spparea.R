@@ -38,10 +38,26 @@
 #'
 #' @examples
 #' \dontrun{
-#' speciesPerArea=spparea.sq(bci.full6,size=c(10,20,50),mindbh=10,plotdim=c(1000,500),replicates=5,unidennames=c('unid'))
-#' rowmatch=match(bci.full6$sp,bci.spptable$sp)
-#' bci.full6$Genus=bci.spptable$Genus[rowmatch]
-#' genusPerArea=spparea.sq(bci.full6,spcolumn='Genus',size=c(10,20,50),mindbh=10,plotdim=c(1000,500),replicates=5,unidennames=c('unid'))}
+#' speciesPerArea = spparea.sq(
+#'   bci.full6,
+#'   size = c(10, 20, 50),
+#'   mindbh = 10,
+#'   plotdim = c(1000, 500),
+#'   replicates = 5,
+#'   unidennames = c('unid')
+#' )
+#' rowmatch = match(bci.full6$sp, bci.spptable$sp)
+#' bci.full6$Genus = bci.spptable$Genus[rowmatch]
+#' genusPerArea = spparea.sq(
+#'   bci.full6,
+#'   spcolumn = 'Genus',
+#'   size = c(10, 20, 50),
+#'   mindbh = 10,
+#'   plotdim = c(1000, 500),
+#'   replicates = 5,
+#'   unidennames = c('unid')
+#' )
+#' }
 #'
 #'
 'spparea.sq'

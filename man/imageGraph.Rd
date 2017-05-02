@@ -58,13 +58,45 @@ There are many options for tweaking the graph, explained with the arguments.
 \examples{
 \dontrun{
 
-CTFSplot('bci',6,'full')
+CTFSplot('bci', 6, 'full')
 
-N=colSums(abundanceperquad(bci.full6,plotdim=c(1000,500),grid=20)$abund)
-matdata=coldata.to.imagemat(z=N,gridsize=20,plotmax=c(1000,500))
-imageGraph(matrixdata=matdata,breaks=seq(100,400,by=25),img=TRUE,cntrs=FALSE,newgraph=FALSE,plotsize=6,h=11,w=11)
-imageGraph(matrixdata=matdata,breaks=seq(100,400,by=25),img=TRUE,cntrs=TRUE,newgraph=FALSE,plotsize=6,h=11,w=11)
-imageGraph(matrixdata=matdata,breaks=seq(100,400,by=25),img=TRUE,cntrs=FALSE,newgraph=TRUE,export=win.graph,h=11,w=11,plotsize=8)}
+N = colSums(
+  abundanceperquad(bci.full6, plotdim = c(1000, 500), grid = 20)$abund
+)
+matdata = coldata.to.imagemat(z = N,
+  gridsize = 20,
+  plotmax = c(1000, 500))
+imageGraph(
+  matrixdata = matdata,
+  breaks = seq(100, 400, by = 25),
+  img = TRUE,
+  cntrs = FALSE,
+  newgraph = FALSE,
+  plotsize = 6,
+  h = 11,
+  w = 11
+)
+imageGraph(
+  matrixdata = matdata,
+  breaks = seq(100, 400, by = 25),
+  img = TRUE,
+  cntrs = TRUE,
+  newgraph = FALSE,
+  plotsize = 6,
+  h = 11,
+  w = 11
+)
+imageGraph(
+  matrixdata = matdata,
+  breaks = seq(100, 400, by = 25),
+  img = TRUE,
+  cntrs = FALSE,
+  newgraph = TRUE,
+  export = win.graph,
+  h = 11,
+  w = 11,
+  plotsize = 8
+)}
 
 
 }

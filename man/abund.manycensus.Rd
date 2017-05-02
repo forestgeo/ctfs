@@ -19,11 +19,23 @@ A character vector of species codes can be submitted as excludespp, for instance
 \examples{
 \dontrun{
 
-N=abund.manycensus(allcns=list(bci.full1,bci.full2,bci.full3,bci.full4),mindbh=10,type='abund',excludespp='uniden',excludestatus='M')
+N = abund.manycensus(
+  allcns = list(bci.full1, bci.full2, bci.full3, bci.full4),
+  mindbh = 10,
+  type = 'abund',
+  excludespp = 'uniden',
+  excludestatus = 'M'
+)
 head(N)
 colSums(N)
 apply(N,2,countspp)
 
-N=abund.manycensus(allcns=list(bci.full5,bci.full6),mindbh=10,type='abund',excludespp=c('uniden','tremxx'),excludestatus=NULL)}
+N = abund.manycensus(
+  allcns = list(bci.full5, bci.full6),
+  mindbh = 10,
+  type = 'abund',
+  excludespp = c('uniden', 'tremxx'),
+  excludestatus = NULL
+)}
 
 }

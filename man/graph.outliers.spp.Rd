@@ -13,10 +13,30 @@ the records trimmed and overlays them on the entire graph. If a model is submitt
 }
 \examples{
 \dontrun{
-full=extract.growthdata(census1=bci.full5,census2=bci.full6,growcol='incgr',growthfunc=growth.biomass.indiv,logit='x',rounddown = FALSE,
-                       mindbh = 100,dbhunit = 'mm',err.limit = 4000,maxgrow = 7500)
-trimmed=extract.growthdata(census1=bci.full5,census2=bci.full6,growcol='incgr',growthfunc=growth.biomass.indiv,logit='x',rounddown = FALSE,
-                          mindbh = 100,dbhunit = 'mm',err.limit = 4,maxgrow = 75)
+full = extract.growthdata(
+  census1 = bci.full5,
+  census2 = bci.full6,
+  growcol = 'incgr',
+  growthfunc = growth.biomass.indiv,
+  logit = 'x',
+  rounddown = FALSE,
+  mindbh = 100,
+  dbhunit = 'mm',
+  err.limit = 4000,
+  maxgrow = 7500
+)
+trimmed = extract.growthdata(
+  census1 = bci.full5,
+  census2 = bci.full6,
+  growcol = 'incgr',
+  growthfunc = growth.biomass.indiv,
+  logit = 'x',
+  rounddown = FALSE,
+  mindbh = 100,
+  dbhunit = 'mm',
+  err.limit = 4,
+  maxgrow = 75
+)
 }
 
 

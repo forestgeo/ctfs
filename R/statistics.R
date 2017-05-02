@@ -206,10 +206,20 @@
 #'
 #' @examples
 #' \dontrun{
-#' testx=1:10; testy=1+2*testx+rnorm(10,0,1)
-#'  model.xy(x=testx,y=testy,predfunc=linear.model,llikefunc=llike.GaussModel,badpredpar=BadParam,start.predpar=c(1,1),
-#'           sdfunc=constant,start.sdpar=1,llikefuncSD=llike.GaussModelSD)}
-#'
+#' testx = 1:10
+#' testy = 1 + 2 * testx + rnorm(10, 0, 1)
+#' model.xy(
+#'   x = testx,
+#'   y = testy,
+#'   predfunc = linear.model,
+#'   llikefunc = llike.GaussModel,
+#'   badpredpar = BadParam,
+#'   start.predpar = c(1, 1),
+#'   sdfunc = constant,
+#'   start.sdpar = 1,
+#'   llikefuncSD = llike.GaussModelSD
+#' )
+#' }
 #'
 'model.xy'
 

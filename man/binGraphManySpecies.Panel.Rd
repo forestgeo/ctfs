@@ -14,8 +14,19 @@ Make a graph, 4 panels, of AGB growth and model fit of many species overlaid, pr
 }
 \examples{
 \dontrun{
-binGraphManySpecies.Panel(c('linearbin.fit.allspp','linearbin.fit.trim3','linearbin.fit.edoro3','linearbin.fit.lenda3'),
-                         export=pdf,yrange=c(0,.25),sitename=c('Fushan','BCI','Edoro','Lenda'),darken=5,xrange=c(-3,3.5))}
-
+binGraphManySpecies.Panel(
+  c(
+    'linearbin.fit.allspp',
+    'linearbin.fit.trim3',
+    'linearbin.fit.edoro3',
+    'linearbin.fit.lenda3'
+  ),
+  export = pdf,
+  yrange = c(0, .25),
+  sitename = c('Fushan', 'BCI', 'Edoro', 'Lenda'),
+  darken = 5,
+  xrange = c(-3, 3.5)
+)
+}
 
 }

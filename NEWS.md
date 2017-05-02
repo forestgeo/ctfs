@@ -82,20 +82,6 @@ To access the data, a good alternative to `attach_if_needed` is to load data wit
 
 
 
-NOTE 3
-
-```R
-checking Rd line widths ... NOTE
-Rd file 'RipUvK.Rd':
-  \examples lines wider than 100 characters:
-     rip=RipUvK(splitdata=bci.split6[1:10],plotdim=c(1000,500),rseq=c(10,20,30,40,50,60),mindbh=10,xcol="gx",ycol="gy")
-
-... 44 lines ...
-```
-
-Easy to fix. The lines in 44 functions must be broken to less than 100 characters, the recommended lengh is actually less than 80 characters.
-
-
 ## Another check 
 
 ```R
