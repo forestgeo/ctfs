@@ -61,7 +61,7 @@ increases and biggest decreases in abundance is printed to the screen.
 \section{Warning}{
 
 If you use the argument datafile, beware that it uses \code{attach()}. After use
-you should remove the attached object from the serach path. See _Good
-practice in \code{?attach()}. This argument may be deprecated in future versions.
+you should remove the attached object from the serach path. See \emph{Good
+practice} in \code{?attach()}. This argument may be deprecated in future versions.
 }
 
