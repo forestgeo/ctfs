@@ -51,8 +51,17 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 \item{graphit}{if set to false,}
 }
 \description{
-Output histograms of little.r across species, observed and fitted, using the result of
-model.littleR.Gibbs. The histogram of black points is all species, blue points only those starting with N >= minabund. If the argument mortcorr=TRUE,
-a graph of mortality rate vs. population change for every species is also produced. Otherwise, a table of the species with biggest increases and biggest
-decreases in abundance is printed to the screen.
+Output histograms of little.r across species, observed and fitted, using the
+result of model.littleR.Gibbs. The histogram of black points is all species,
+blue points only those starting with N >= minabund. If the argument
+mortcorr=TRUE, a graph of mortality rate vs. population change for every
+species is also produced. Otherwise, a table of the species with biggest
+increases and biggest decreases in abundance is printed to the screen.
 }
+\section{Warning}{
+
+If you use the argument datafile, beware that it uses \code{attach()}. After use
+you should remove the attached object from the serach path. See _Good
+practice in \code{?attach()}. This argument may be deprecated in future versions.
+}
+
