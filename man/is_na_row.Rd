@@ -16,7 +16,8 @@ A logical vector of length equal to number of rows in data.
 Detect rows in a data frame full of NA (accross columns)
 }
 \examples{
-df <- tibble::tribble(
+library(tibble)
+df <- tribble(
 ~x,  ~y,    ~z,
  1, "a", FALSE,
 NA,  NA,    NA,

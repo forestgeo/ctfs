@@ -16,6 +16,7 @@ Output and \code{.data}. have the same type.
 Remove rows from data frame or matrix full of NA
 }
 \examples{
+library(tibble)
 df <- tibble::tribble(
 ~x,  ~y,    ~z,
  1, "a", FALSE,

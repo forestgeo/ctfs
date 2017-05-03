@@ -4,9 +4,11 @@ knitr::opts_chunk$set(
   comment = "#>",
   echo = TRUE
 )
-library(tibble)
-library(dplyr)
+
 library(sig)
+# Not simply library(tidyverse) to avoid a note in check, but should work.
+library(dplyr)
+library(tibble)
 
 ## ------------------------------------------------------------------------
 sig::sig_report(pkg2env(ctfs))

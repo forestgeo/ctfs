@@ -5,6 +5,11 @@ knitr::opts_chunk$set(
   echo = TRUE
 )
 
+# Not simply library(tidyverse) to avoid a note in check, but should work.
+library(dplyr)
+library(purrr)
+library(tibble)
+
 ## ---- message=FALSE------------------------------------------------------
 # Links provide installation instructions
 library(ctfs)       # https://github.com/forestgeo/ctfs

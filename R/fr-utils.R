@@ -5,7 +5,8 @@
 #' @export
 #' @keywords internal
 #' @examples
-#' df <- tibble::tribble(
+#' library(tibble)
+#' df <- tribble(
 #' ~x,  ~y,    ~z,
 #'  1, "a", FALSE,
 #' NA,  NA,    NA,
@@ -30,6 +31,7 @@ is_na_row <- function(.data) {
 #' @export
 #' @keywords internal
 #' @examples
+#' library(tibble)
 #' df <- tibble::tribble(
 #' ~x,  ~y,    ~z,
 #'  1, "a", FALSE,
