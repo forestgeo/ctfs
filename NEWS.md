@@ -198,10 +198,6 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
 
 
 
-
-
-
-
 ### To fix
 
 - Document undocumented arguments
