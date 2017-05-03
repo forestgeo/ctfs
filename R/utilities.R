@@ -446,11 +446,13 @@
 
 #' attach_if_needed
 #'
-#' @description
-#'
-#' Attach one or more datafiles,checking first whether the file is already attached. If it is attached,
-#' it is not reattached, and the search position where attached is returned. 
-#'
+#' Deprecated. See section _Good practice_ in `?attach`. To use <DATA> from BCI
+#' with bci::<DATA>, see 
+#' [https://github.com/forestgeo/bci](https://github.com/forestgeo/bci).
+#' 
+#' Attach one or more datafiles, checking first whether the file is already
+#' attached. If it is attached, it is not reattached, and the search position
+#' where attached is returned.
 #'
 'attach_if_needed'
 

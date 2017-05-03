@@ -7,6 +7,12 @@
 attach_if_needed(datafiles)
 }
 \description{
-Attach one or more datafiles,checking first whether the file is already attached. If it is attached,
-it is not reattached, and the search position where attached is returned.
+Deprecated. See section \emph{Good practice} in \code{?attach}. To use <DATA> from BCI
+with bci::<DATA>, see
+\url{https://github.com/forestgeo/bci}.
+}
+\details{
+Attach one or more datafiles, checking first whether the file is already
+attached. If it is attached, it is not reattached, and the search position
+where attached is returned.
 }

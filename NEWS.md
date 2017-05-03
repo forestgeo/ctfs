@@ -1,18 +1,28 @@
 # ctfs 0.0.0.9005
 
-## Persons' roles
 
-Persons responsabilities are listed in `?person`. Some useful ones are these:
 
-"aut": (Author) Use for full authors who have made substantial contributions to the package and should show up in the package citation.
 
-"ctb": (Contributor) Use for authors who have made smaller contributions (such as code patches etc.) but should not show up in the package citation.
 
-"cph": (Copyright holder) Use for all copyright holders.
 
-"cre": (Creator) Use for the package _maintainer_.
 
-"ctr": (Contractor) Use for authors who have been contracted to write (parts of) the package and hence do not own intellectual property.
+
+## Done
+
+### Fixed
+
+
+
+
+
+
+
+
+
+
+### Enhanced
+
+#### Persons' roles
 
 The version of CTFS archived on CRAN contained the following information (file AUTHORS):
 
@@ -38,20 +48,52 @@ Authors@R: c(
     )
 ```
 
+Persons responsabilities are listed in `?person`. Some useful ones are these:
+
+- "aut": (Author) Use for full authors who have made substantial contributions to the package and should show up in the package citation.
+
+- "ctb": (Contributor) Use for authors who have made smaller contributions (such as code patches etc.) but should not show up in the package citation.
+
+- "cph": (Copyright holder) Use for all copyright holders.
+
+- "cre": (Creator) Use for the package _maintainer_.
+
+- "ctr": (Contractor) Use for authors who have been contracted to write (parts of) the package and hence do not own intellectual property.
+
+
+
+### Deprecated
+
+`attach_if_needed()`
 
 
 
 
 
-## R CMD check results
 
-```r
-0 errors | 1 warning  | 1 note 
 
-R CMD check succeeded
-```
 
-WARNING
+
+
+
+
+
+
+
+
+
+
+## Todo
+
+### To fix
+
+#### R CMD check, 1 warning
+
+> Checking for missing documentation entries. All exported objects must be documented. See ?tools::undoc for more details.
+
+http://r-pkgs.had.co.nz/check.html
+
+The R CMD check throws 1 warning for over 1,000 undocumented arguments in documentation objects.
 
 ```R
 Undocumented arguments in documentation object 'AGB.dbtable'
@@ -61,11 +103,17 @@ Undocumented arguments in documentation object 'AGB.ind'
 ...(about 1,150 more)
 ```
 
-May take long to fix, there are about 1150 undocumented arguments. Some may be easy to define because they may be defined somewhere else or because they may be obvious. But I expect that some other arguments I won't be able to define without some help from those who have used the functions before. In any case, the version of CTFS that is archived on CRAN has relatively good documentation that could be used as a model. However, that version has only 88 functions versus about 400 that has the complete CTFS R Package.
+This may take long to fix but important. Some arguments seems easy to define because they are defined somewhere else or because they are obvious. But many others are not not obvious and I may need help from those who have used the functions before.
+
+One source of useful information may be the version of CTFS that is archived on CRAN, which has relatively good documentation. However, that version contains only 88 functions, versus about 400 that has the complete CTFS R Package.
 
 
 
-NOTE
+
+
+### To enhance
+
+#### R CMD check, 1 note (with multiple components)
 
 > ...If you’re not submitting to CRAN, carefully read each NOTE, but don’t go out of your way to fix things that you don’t think are problems.
 
@@ -96,28 +144,56 @@ Undefined global functions or variables:
   insideRectange inter khat korup.spp line.intersection mvrnorm
   odbcClose odbcConnect plotspp riwish samplemapfile sp spp20 sqlQuery
   trim.growth.mismeasure wsg.ctfs2
-```
 
-```R
 Found the following calls to attach():
 File 'ctfs/R/utilities.R':
   attach(file)
 ```
 
-Easy to fix. There is only one function, `attach_if_needed()`, that contains `attach()` in its source. It is a convenience function that could be removed. It is called only in two other functions:
 
+
+
+
+
+
+
+
+### To deprecate
+
+These functions should be deprecated because they use `attach()`
 - `graph.abundmodel()`
 - `CTFSplot()`
 
-To access the data, a good alternative to `attach_if_needed` is to load data with `bci::<DATA>`.
+E.g. #' Deprecated. To load data from BCI, please use `bci::data` instead.
 
 
 
-Another type of check throws this additional warning:
+
+
+
+
+
+
+
+### To keep in mind but disregard for now
+
+#### R CMD check, 1 warning
+
+R CMD check throws one additional warning that I disregard for now:
 
 ```R
 'qpdf' is needed for checks on size reduction of PDFs
 ```
+
+> I think this error is related to a glitch in R CMD check
+
+https://github.com/krlmlr/r-appveyor/issues/24
+
+> ...a package that has an HTML vignette (but no PDF vignette) failed R CMD check --as-cran ... I think the warning 
+originates ... due to a premature check for the existence of qpdf
+
+https://stat.ethz.ch/pipermail/r-devel/2015-October/071917.html
+
 
 
 
