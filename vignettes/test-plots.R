@@ -115,3 +115,18 @@ include_graphics("actual_spparea_sq.png")
 ## ---- echo=TRUE----------------------------------------------------------
 spparea.sq
 
+## ---- include=FALSE------------------------------------------------------
+data_split <- split_data(censdata = bci::bci12full6, splitcol = 'sp')
+png("actual_map.png")
+map_poular <- map(splitdatafile = data_split, species = 'poular')
+dev.off()
+
+## ----fig.cap="Reference"-------------------------------------------------
+include_graphics("ref_map.png")
+
+## ----fig.cap="Actual"----------------------------------------------------
+include_graphics("actual_map.png")
+
+## ----echo=TRUE-----------------------------------------------------------
+map
+

@@ -365,10 +365,20 @@ run.growthbin.manyspp=function(growthdata,size='dbh',spp=spp20,minabund300=15, m
    
    if(total>=minTotal & nobig>=minabund300)
     {
-     result[[onesp]]=
-       run.growthfit.bin(growthdata=spdata,size=size,binoption=binoption,startpar=startpar,
-                         sdmodel=sdmodel,startsdpar=startsdpar,badsdfunc=badsdfunc,
-                         norep=noreps,noburn=noburn,noshow=noshow,...)
+     result[[onesp]] =
+       run.growthfit.bin(
+         growthdata = spdata,
+         size = size,
+         binoption = binoption,
+         startpar = startpar,
+         sdmodel = sdmodel,
+         startsdpar = startsdpar,
+         badsdfunc = badsdfunc,
+         noreps = noreps,
+         noburn = noburn,
+         noshow = noshow,
+         ...
+       )
      
      for(j in 1:length(result[[onesp]])) 
        result[[onesp]][[j]]$summary=list(dbhunit=dbhunit, totalsample=total, totalbig=nobig)
