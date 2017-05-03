@@ -309,7 +309,10 @@ map <- function(splitdatafile,
 )
 { 
  filename=get.filename(file=outfile,path=filepath,exp=export,species=species)
- define.graphwindow(exp=export,h=ht,w=wd,file=filename)
+ define.graphwindow(export = export,
+   h = ht,
+   w = wd,
+   file = filename)
  if(export!="unix" & export!="no" & export!="mac" & export!="windows") on.exit(graphics.off())
   
  col=latin=character()
@@ -339,8 +342,20 @@ map <- function(splitdatafile,
  if(!is.null(elevdata)) topo=TRUE
  
  if(topo) 
-  maptopo(elev=elevdata,plotdim=plotdim,xaxis=xaxis,yaxis=yaxis,interval=topoint,ht=ht,wd=wd,plotside=plotside,labelsize=labsize,
-          axspos=axspos,bgcolor=bgcolor,clr=topoclr)
+   maptopo(
+     elevmat = elevdata,
+     plotdim = plotdim,
+     xaxis = xaxis,
+     yaxis = yaxis,
+     interval = topoint,
+     ht = ht,
+     wd = wd,
+     plotside = plotside,
+     labelsize = labsize,
+     axspos = axspos,
+     bgcolor = bgcolor,
+     clr = topoclr
+   )
  # browser()
  for(i in 1:length(species))
   {

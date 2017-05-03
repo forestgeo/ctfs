@@ -100,14 +100,16 @@ dgammaMinusdexp: warning in pgamma(z, shape = a, rate = r + lambda,
   lower.tail = FALSE, log = TRUE): partial argument match of 'log' to
   'log.p'
   
-TODO
-
 map: warning in define.graphwindow(exp = export, h = ht, w = wd, file =
   filename): partial argument match of 'exp' to 'export'
+  
 map: warning in maptopo(elev = elevdata, plotdim = plotdim, xaxis =
   xaxis, yaxis = yaxis, interval = topoint, ht = ht, wd = wd, plotside
   = plotside, labelsize = labsize, axspos = axspos, bgcolor = bgcolor,
   clr = topoclr): partial argument match of 'elev' to 'elevmat'
+
+TODO
+
 run.growthbin.manyspp: warning in run.growthfit.bin(growthdata =
   spdata, size = size, binoption = binoption, startpar = startpar,
   sdmodel = sdmodel, startsdpar = startsdpar, badsdfunc = badsdfunc,
