@@ -1,221 +1,6 @@
 # ctfs 0.0.0.9005
 
-
-
-
-
-
-
-
-## Done
-
 ### Fixed
-
-
-
-
-
-
-
-
-
-
-### Enhanced
-
-#### Persons' roles
-
-The version of CTFS archived on CRAN contained the following information (file AUTHORS):
-
-```r
-Authors to date:
-Rick Condit	<condit@ctfs.si.edu>
-Pamela Hall <phall@alum.mit.edu>
-Suzanne Lao  <laoz@si.edu>
-Kyle Harms	<kharms@lsu.edu>
-Akira Itoh	<itoh57@hotmail.com>
-```
-
-Conservatively, all those are described as authors in the current development (if this needs to change let me konw):
-
-```R
-Authors@R: c(
-    person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut")),
-    person("Pamela", "Hall", , "phall@alum.mit.edu", role = c("aut")),
-    person("Suzanne", "Lao", , "laoz@si.edu", role = c("aut")),
-    person("Kyle", "Harms", , "kharms@lsu.edu", role = c("aut")),
-    person("Mauro", "Lepore", , "leporem@si.edu", role = c("aut", "ctr", "cre")),
-    person("CTFS-ForestGEO", , , "ForestGEO@si.edu", role = c("cph", "fnd"))
-    )
-```
-
-Persons responsabilities are listed in `?person`. Some useful ones are these:
-
-- "aut": (Author) Use for full authors who have made substantial contributions to the package and should show up in the package citation.
-
-- "ctb": (Contributor) Use for authors who have made smaller contributions (such as code patches etc.) but should not show up in the package citation.
-
-- "cph": (Copyright holder) Use for all copyright holders.
-
-- "cre": (Creator) Use for the package _maintainer_.
-
-- "ctr": (Contractor) Use for authors who have been contracted to write (parts of) the package and hence do not own intellectual property.
-
-
-
-### Deprecated
-
-- `attach_if_needed()`: "In programming, functions should not change the search path unless that is their purpose" (_Good practice_ in `?attach`).
-
-- `CTFSplot()`: no longer necessary because bci data is now available via the _bci_ package.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Todo
-
-### To fix
-
-#### R CMD check, 1 warning
-
-> Checking for missing documentation entries. All exported objects must be documented. See ?tools::undoc for more details.
-
-http://r-pkgs.had.co.nz/check.html
-
-The R CMD check throws 1 warning for over 1,000 undocumented arguments in documentation objects.
-
-```R
-Undocumented arguments in documentation object 'AGB.dbtable'
-  'df' 'dbname' 'plot' 'code' 'censusno'
-Undocumented arguments in documentation object 'AGB.ind'
-  'df' 'dbhunit' 'plot' 'wsgdata' 'forest' 'ht.param' 'htmodel'
-...(about 1,150 more)
-```
-
-This may take long to fix but important. Some arguments seems easy to define because they are defined somewhere else or because they are obvious. But many others are not not obvious and I may need help from those who have used the functions before.
-
-One source of useful information may be the version of CTFS that is archived on CRAN, which has relatively good documentation. However, that version contains only 88 functions, versus about 400 that has the complete CTFS R Package.
-
-
-
-
-
-### To enhance
-
-#### R CMD check, 1 note (with multiple components)
-
-> ...If you’re not submitting to CRAN, carefully read each NOTE, but don’t go out of your way to fix things that you don’t think are problems.
-
-http://r-pkgs.had.co.nz/check.html
-
-```R
-checking R code for possible problems ... NOTE
-
-Found an obsolete/platform-specific call in the following functions:
-  'compare.growthbinmodel' 'define.graphwindow' 'graph.abundmodel'
-  'graph.growthmodel' 'graph.modeldiag' 'graph.outliers' 'imageGraph'
-  'image_dataframe' 'map2species' 'maptopo' 'overlay.growthbinmodel'
-  'regsum'
-  
-Found the platform-specific devices:
-  'X11' 'quartz' 'win.graph' 'win.metafile' 'x11'
-dev.new() is the preferred way to open a new device, in the unlikely
-event one is needed.
-
-AGB.dbtable: no visible global function definition for 'odbcConnect'
-AGB.dbtable: no visible global function definition for 'odbcClose'
-...(about 30 more)
-
-Undefined global functions or variables:
-  as.points bci.full1 bci.full2 bci.full3 bci.full6 bci.split6
-  bci.spptable bci3.spp composeParam.GaussianMap contour.quaddata
-  coords2 ctfs.elev date.mdy dbh decimal.form gen.logistic index
-  insideRectange inter khat korup.spp line.intersection mvrnorm
-  odbcClose odbcConnect plotspp riwish samplemapfile sp spp20 sqlQuery
-  trim.growth.mismeasure wsg.ctfs2
-
-Found the following calls to attach():
-File 'ctfs/R/utilities.R':
-  attach(file)
-```
-
-
-
-
-
-
-
-
-
-### To deprecate
-
-These functions should be deprecated because they use `attach()`
-- `graph.abundmodel()`
-
-
-
-
-
-
-
-
-
-
-
-### To keep in mind but disregard for now
-
-#### R CMD check, 1 warning
-
-R CMD check throws one additional warning that I disregard for now:
-
-```R
-'qpdf' is needed for checks on size reduction of PDFs
-```
-
-> I think this error is related to a glitch in R CMD check
-
-https://github.com/krlmlr/r-appveyor/issues/24
-
-> ...a package that has an HTML vignette (but no PDF vignette) failed R CMD check --as-cran ... I think the warning 
-originates ... due to a premature check for the existence of qpdf
-
-https://stat.ethz.ch/pipermail/r-devel/2015-October/071917.html
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-DONE
-
-- Pushed to private repo on forestgeo the CTFS version archived on CRAN. Consider using the archived version of CTFS as a source for missing documentation and data.
-
-- I Made CTFS-ForestGEO the author of the package and removed Richard Condit
 
 - Fixed NOTE on partially matched arguments.
 
@@ -243,21 +28,9 @@ selectrandomquad2: warning in index.to.gxgy(r, grid = 1, plotdim =
   plotdim - size): partial argument match of 'grid' to 'gridsize'
 ```
 
+- Fixed name of functions that where automatically interpreted as S3 methods
 
-
-
-FUNCTIONS INTERPRETED AS S3 METHODS
-
-Some functions were treated as S3 methods, and automatically changed NAMESPACE in a problematic way. Those functions caused these problems:
-
-- In the section "Usage" of the documentation of each problematic function:
-
-    - a lable like this printed: \#\# S3 method for classs '<NAME>';
-    - the `<FUNCTION.NAME>` appeared as `<FUNCTION>`, withouth `<NAME>`.
-
-- Automatic package checks throwed scary messages and the package failed to build.
-
-To permanently fix this problem, I replaced dots "." by "_" in the names of those problematic functions. The change should be easy to digest by users. The nuew names of those functions shows up with RStudio's autocompletion.
+To permanently fix this problem, I replaced dots "." by "_" in the names of those problematic functions. The change should be easy to digest by users. The new names of those functions shows up with RStudio's autocompletion, and the change has been detailed in the documentation of each function.
 
 The functions are these:
 
@@ -273,24 +46,55 @@ The functions are these:
 9      split.data  # replaced by split_data
 ```
 
-- @importFrom magrittr %>% ([example](https://github.com/tidyverse/dplyr/edit/master/R/utils.r))
-
-- New vignette to test plots output remain the same after fixes to plotting functions. Follows advice in _Testing R Code_, by Richard Cotton.
-
-- New utility functions, not-exported, to remove rows full of NAs from data frames and matrices.
-
 - Fixed one problem in `wavelet.univariate()`, which erroneously refered to `wavelet.univariate()` as `wavelet.var()`. Also fixed an erroneous reference to `wavelet.var()` in examples of `wavelet.univariate()`.
 
 - Fixed bug in `model.littleR.Gibbs()`. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
 
-- Fixed bugs in functions listed below, by replacing `subset()` by `[` in `map()` (notice that `[` is a function that subsets using standard evaluation rules but `subset()` uses non-standard evaluation and therefore `subset()` should [not be used inside functions](http://adv-r.had.co.nz/Computing-on-the-language.html).
+- Fixed bugs in `pdf.allplot()` and `png.allplot()` by replacing `subset()` by `[` in `map()`. `subset()`  [should not be used inside functions](http://adv-r.had.co.nz/Computing-on-the-language.html).
 
-    - `pdf.allplot()`
-    - `png.allplot()`
+- Fixed `wavelet.bivariate()`, replace `as.real` (defunc) by `as.double`. Detect missing argument type and wrote a warning in the help file.
 
-> "Error in subset.default(sppdata, gx >= 0 & gy >= 0 & gx < plotdim[1] &  : object 'gx' not found"
 
-Fixes with commit bc417c38; example that functions work: ebe8a601.
+
+### Enhanced
+
+- Updated persons' roles
+
+The version of CTFS archived on CRAN contained the following information (file AUTHORS):
+
+```r
+Authors to date:
+Rick Condit	<condit@ctfs.si.edu>
+Pamela Hall <phall@alum.mit.edu>
+Suzanne Lao  <laoz@si.edu>
+Kyle Harms	<kharms@lsu.edu>
+Akira Itoh	<itoh57@hotmail.com>
+```
+
+Conservatively, all those are described as authors in the current development (if this needs to change let me konw):
+
+```R
+Authors@R: c(
+    person("CTFS-ForestGEO", , , "ForestGEO@si.edu", role = c("cph", "fnd")),
+    person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut")),
+    person("Pamela", "Hall", , "phall@alum.mit.edu", role = c("aut")),
+    person("Suzanne", "Lao", , "laoz@si.edu", role = c("aut")),
+    person("Kyle", "Harms", , "kharms@lsu.edu", role = c("aut")),
+    person("Mauro", "Lepore", , "leporem@si.edu", role = c("aut", "ctr", "cre"))
+    )
+```
+
+Persons responsabilities are listed in `?person`. Some useful ones are these:
+
+"aut": (Author) Use for full authors who have made substantial contributions to the package and should show up in the package citation.
+
+"ctb": (Contributor) Use for authors who have made smaller contributions (such as code patches etc.) but should not show up in the package citation.
+
+"cph": (Copyright holder) Use for all copyright holders.
+
+"cre": (Creator) Use for the package _maintainer_.
+
+"ctr": (Contractor) Use for authors who have been contracted to write (parts of) the package and hence do not own intellectual property.
 
 - Refer to functions from external packages explicitly with pkg::fun()
 
@@ -366,14 +170,31 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
 
 -- http://r-pkgs.had.co.nz/namespace.html
 
-- Use date::<DATE_FUNCTION> where appropriate.
-
-- Wrote a vignette to report package quality
-
-- Fixed `wavelet.bivariate()`, replace `as.real` (defunc) by `as.double`. Detect missing argument type and wrote a warning in the help file.
+- Enhanced documentation in `wavelet.bivariate()`: argument type is missing from function definition, so I added a warning.
 
 
 
+### Deprecated
+
+- `attach_if_needed()`: "In programming, functions should not change the search path unless that is their purpose" (_Good practice_ in `?attach`).
+
+- `CTFSplot()`: no longer necessary because bci data is now available via the _bci_ package.
+
+
+
+### Notes
+
+- Added tests to verify that functions amended output equal values before and after the fix.
+
+- Added a new vignette to test plots output remain the same after fixes to plotting functions. Follows advice in _Testing R Code_, by Richard Cotton.
+
+- Added a new vignette to report package quality
+
+- Added a new utility functions to remove rows full of NAs from data frames and matrices. Exported to access it from other functions easyly, but removed from index with `@keywords internal`.
+
+- Created a private repo on forestgeo to store the CTFS version archived on CRAN, which seems to be a useful source for missing documentation and data, and for deciding what are the most important functions.
+
+- Tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
 
 
 
@@ -381,21 +202,28 @@ Fixes with commit bc417c38; example that functions work: ebe8a601.
 
 
 
+### To fix
 
+- Document undocumented arguments
 
+The R CMD check throws 1 warning for over 1,000 undocumented arguments in documentation objects.
 
+```R
+Undocumented arguments in documentation object 'AGB.dbtable'
+  'df' 'dbname' 'plot' 'code' 'censusno'
+Undocumented arguments in documentation object 'AGB.ind'
+  'df' 'dbhunit' 'plot' 'wsgdata' 'forest' 'ht.param' 'htmodel'
+...(about 1,150 more)
+```
+> Checking for missing documentation entries. All exported objects must be documented. See ?tools::undoc for more details.
 
+http://r-pkgs.had.co.nz/check.html
 
+This may take long to fix but important. Some arguments seems easy to define because they are defined somewhere else or because they are obvious. But many others are not not obvious and I may need help from those who have used the functions before.
 
-**Known issues**
+One source of useful information may be the version of CTFS that is archived on CRAN, which has relatively good documentation. However, that version contains only 88 functions, versus about 400 that has the complete CTFS R Package.
 
-I tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
-
-ERRORS
-
-Here is a list of problems and functions that share those problems.
-
-- Err likely because the all call `linear.model`
+- Fix errors in functions below; they likely err because they along the way of calling `linear.model`
 
     - `growth.flexbin()`
     - `run.growthfit.bin()`
@@ -403,9 +231,7 @@ Here is a list of problems and functions that share those problems.
 
 > "Error in x %*% b : requires numeric/complex matrix/vector arguments". (Seems to be called from linear.model.ctr.) This limits running these other funtions:
 
-These did not solve the problem: `as.matrix(b)`, nor other less obvious things that I tried. Because `linear.model()` seems to work, I suspect that the problem is in some function in between the ones listed above and `linear.model()`.
-
-Related to the problem above are the problems below. These functions fail apparently because some functions that use `linear.model()` fail before:
+I tried `as.matrix(b)` but did not solve the problem, neither other less obvious things that I tried. Because `linear.model()` seems to work, I suspect that the problem is in some function in between the ones listed above and `linear.model()`. Also, these functions fail likely because they involve `linear.model()`:
 
     - needs the output of `gwoth.flexibin()`
         - `graph.growthmodel.spp()`
@@ -414,54 +240,108 @@ Related to the problem above are the problems below. These functions fail appare
         - `compare.growthbinmodel()`
         - `overlay.growthbinmodel()`
 
-
-- `wavelet.allsp()` errs with message:
+- fix `wavelet.allsp()`; it errs with message:
 
 > "Error in dimnames(variance) <- list(names(splitdata), paste("scale", 1:ncol(variance))) : length of 'dimnames' [1] not equal to array extent"
 
-Also, `wavelet.allsp()` uses `with()`, which may cause problems because it uses non-standard evaluation.
+- Avoid `with()` (non-standard evaluation) in:
 
-- `modelBayes()` Calls debug before R throws error. At first, it erred calling `subset()`, so I replaced `subset()` by `[` but continues to call debug from inside the function.
+    - `wavelet.allsp()`, 
+    - `NeighborDensities()`,
+    - `NDcount()`
+
+- fix `modelBayes()`; it calls debug before R throws error. At first, it erred calling `subset()`, so I replaced `subset()` by `[`, but continues to call debug from inside the function.
 
 
 
-ENHANCEMENTS
+### To enhance
 
-Some functions still use `subset()`, generally because those functions fail, so any additional bug my fix may introduce would go unnoticed. The plan is to fix the functions first, then replace `subset()` by `[`.
+- Address one note with multiple components
 
-INACURATE DOCUMENTATION
+Before working on it, consider: _"If you're not submitting to CRAN, carefully read each NOTE, but don’t go out of your way to fix things that you don’t think are problems"_ (http://r-pkgs.had.co.nz/check.html).
 
-- Documentation refers to BCI data in a way that is no longer accurate. For example, in the _bci_ package 
+```R
+checking R code for possible problems ... NOTE
+
+Found an obsolete/platform-specific call in the following functions:
+  'compare.growthbinmodel' 'define.graphwindow' 'graph.abundmodel'
+  'graph.growthmodel' 'graph.modeldiag' 'graph.outliers' 'imageGraph'
+  'image_dataframe' 'map2species' 'maptopo' 'overlay.growthbinmodel'
+  'regsum'
+  
+Found the platform-specific devices:
+  'X11' 'quartz' 'win.graph' 'win.metafile' 'x11'
+dev.new() is the preferred way to open a new device, in the unlikely
+event one is needed.
+
+AGB.dbtable: no visible global function definition for 'odbcConnect'
+AGB.dbtable: no visible global function definition for 'odbcClose'
+...(about 30 more)
+
+Undefined global functions or variables:
+  as.points bci.full1 bci.full2 bci.full3 bci.full6 bci.split6
+  bci.spptable bci3.spp composeParam.GaussianMap contour.quaddata
+  coords2 ctfs.elev date.mdy dbh decimal.form gen.logistic index
+  insideRectange inter khat korup.spp line.intersection mvrnorm
+  odbcClose odbcConnect plotspp riwish samplemapfile sp spp20 sqlQuery
+  trim.growth.mismeasure wsg.ctfs2
+
+Found the following calls to attach():
+File 'ctfs/R/utilities.R':
+  attach(file)
+```
+
+- Document data accurately. Now, BCI data is available from the _bci_ package, so old references to data should change to new references. For example:
 
     - the new name of bci.full1 is bci12full1, 
     - of bci.stem4 is bci12stem4, 
     - of bci.spptable is bci12spptable
     - and _bci_ also contains bci_elevation and bci_habitatat
 
-- In `wavelet.bivariate()`, argument type is missing from function definition. A warning was added to the help file.
-
-
-
-LACKS EXAMPLE FILE OR DATA
-
-- Lacks (dummy) file or data to test the function or run examples
+- Add example data. These functions lack a file or data to test the function or run examples
 
     - `fullplot.imageJ()` 
     -    rearrangeSurveyData()`
     -    `solve.topo()`
 
-SIDE EFFECTS
+- Avoid side effect in `run.growthbin.manyspp()`; it saves object to working directory without warning on the console or description in documentation.
 
-- `run.growthbin.manyspp()` saves object to working directory without warning on the console or description in documentation.
+- `graph.abundmodel()` transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
 
-- graph.abundmodel transforms and prints data and plots data, should do 1 thing. Best to plot and return the first argument invisibly.
+> Side-effects functions should “invisibly” return the first argument, so that while they’re not printed they can still be used in a pipeline.
 
-SLOW
+--http://r4ds.had.co.nz/functions.html
 
-- Functions listed below are slow. A test took about 20 minutes to run. If important, I may search the bottlenecks.
+- Consider improving performance of `model.littleR.Gibbs()` and `fitSeveralAbundModel()`; a test took about 20 minutes to run. If important, I may search the bottlenecks.
 
-    - model.littleR.Gibbs
-    - fitSeveralAbundModel
+
+
+### To deprecate
+
+These functions should be deprecated because they use `attach()`
+- `graph.abundmodel()`: Argument `datafile` passed to `graph.abundmodel()` may be deprecated becauses it uses `attach()` (see _Good practice_ in `?attach`). The function documentation now includes a warning.
+
+
+
+### To keep in mind, but disregard for now
+
+- R CMD check throws one additional warning that I disregard for now:
+
+```R
+'qpdf' is needed for checks on size reduction of PDFs
+```
+
+> I think this error is related to a glitch in R CMD check
+
+https://github.com/krlmlr/r-appveyor/issues/24
+
+> ...a package that has an HTML vignette (but no PDF vignette) failed R CMD check --as-cran ... I think the warning 
+originates ... due to a premature check for the existence of qpdf
+
+https://stat.ethz.ch/pipermail/r-devel/2015-October/071917.html
+
+
+
 
 
 
