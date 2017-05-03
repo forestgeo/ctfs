@@ -2,6 +2,24 @@
 
 ### Fixed
 
+- Fixed name of functions that where automatically interpreted as S3 methods
+
+To permanently fix this problem, I replaced dots "." by "_" in the names of those problematic functions. The change should be easy to digest by users. The new names of those functions shows up with RStudio's autocompletion, and the change has been detailed in the documentation of each function.
+
+The functions are these:
+
+```R
+1     density.ind  # replaced by density_ind
+2        exp.2par  # replaced by exp_2par
+3    hist.compare  # replaced by hist_compare
+4 image.dataframe  # replaced by image_dataframe
+5       log.model  # replaced by log_model
+6      merge.data  # replaced by merge_data
+7    plot.wavelet  # replaced by plot_wavelet
+8      solve.topo  # replaced by solve_topo
+9      split.data  # replaced by split_data
+```
+
 - Fixed NOTE on partially matched arguments.
 
 ```R
@@ -26,24 +44,6 @@ run.growthbin.manyspp: warning in run.growthfit.bin(growthdata =
 
 selectrandomquad2: warning in index.to.gxgy(r, grid = 1, plotdim =
   plotdim - size): partial argument match of 'grid' to 'gridsize'
-```
-
-- Fixed name of functions that where automatically interpreted as S3 methods
-
-To permanently fix this problem, I replaced dots "." by "_" in the names of those problematic functions. The change should be easy to digest by users. The new names of those functions shows up with RStudio's autocompletion, and the change has been detailed in the documentation of each function.
-
-The functions are these:
-
-```R
-1     density.ind  # replaced by density_ind
-2        exp.2par  # replaced by exp_2par
-3    hist.compare  # replaced by hist_compare
-4 image.dataframe  # replaced by image_dataframe
-5       log.model  # replaced by log_model
-6      merge.data  # replaced by merge_data
-7    plot.wavelet  # replaced by plot_wavelet
-8      solve.topo  # replaced by solve_topo
-9      split.data  # replaced by split_data
 ```
 
 - Fixed one problem in `wavelet.univariate()`, which erroneously refered to `wavelet.univariate()` as `wavelet.var()`. Also fixed an erroneous reference to `wavelet.var()` in examples of `wavelet.univariate()`.
@@ -71,7 +71,7 @@ Kyle Harms	<kharms@lsu.edu>
 Akira Itoh	<itoh57@hotmail.com>
 ```
 
-Conservatively, all those are described as authors in the current development (if this needs to change let me konw):
+Conservatively, every person listed above is described as authors in the current development (if this needs to change let me konw):
 
 ```R
 Authors@R: c(
@@ -97,10 +97,6 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
 "ctr": (Contractor) Use for authors who have been contracted to write (parts of) the package and hence do not own intellectual property.
 
 - Refer to functions from external packages explicitly with pkg::fun()
-
-> ...this is what I recommend: list the package in DESCRIPTION so that it’s installed, then always refer to it explicitly with pkg::fun(). Unless there is a strong reason not to, it’s better to be explicit
-
--- R packages, by Hadley Wickham (http://r-pkgs.had.co.nz/namespace.html)
 
     - `mvtnorm::dmvnorm` and `mvtnorm::rmvnorm`, used in
         - `graph.mvnorm()`
@@ -128,7 +124,11 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
         - `fromjulian()`
         - `mortality.eachspp()`
 
-- Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced subset by "[" in:
+> ...this is what I recommend: list the package in DESCRIPTION so that it’s installed, then always refer to it explicitly with pkg::fun(). Unless there is a strong reason not to, it’s better to be explicit.
+
+--[R packages, by Hadley Wickham](http://r-pkgs.had.co.nz/namespace.html)
+
+- Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced `subset()` by `[` in:
 
     - `model.littleR.Gibbs()`,
     - `density.ind()`,
@@ -145,14 +145,6 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
     - `spparea.sq()`
     - `split.data()`
     - `countspp()`
-    - Pendent:
-        - Impossible to test because functions err:
-            - `run.growthbin.manyspp()`
-        - Impossible to test because functions lacks required input:
-            - `imageJ.to.lxly()`
-        - Impossible to test because data is missing to run the function
-            - `solve.topo()`
-            - `rearrangeSurveyData()`
 
 - Enhanced documentation of functions listed below by introducing `?wsgdata_dummy()`, a function to create dummy wood density tables.
     
@@ -165,10 +157,6 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
     - enhanced source code: remove default of data argument cnsdata
 
 - Suggest package bci, doesn't import it because bci is in a private repo, so the user needs to provide a private token.
-
-> Unless there is a good reason otherwise, you should always list packages in Imports not Depends. That’s because a good package is self-contained, and minimises changes to the global environment (including the search path).
-
--- http://r-pkgs.had.co.nz/namespace.html
 
 - Enhanced documentation in `wavelet.bivariate()`: argument type is missing from function definition, so I added a warning.
 
@@ -254,7 +242,11 @@ I tried `as.matrix(b)` but did not solve the problem, neither other less obvious
 
 - Address one note with multiple components
 
-Before working on it, consider: _"If you're not submitting to CRAN, carefully read each NOTE, but don’t go out of your way to fix things that you don’t think are problems"_ (http://r-pkgs.had.co.nz/check.html).
+Before working on it, consider: 
+
+> If you're not submitting to CRAN, carefully read each NOTE, but don’t go out of your way to fix things that you don’t think are problems
+
+--http://r-pkgs.had.co.nz/check.html
 
 ```R
 checking R code for possible problems ... NOTE
@@ -309,6 +301,18 @@ File 'ctfs/R/utilities.R':
 --http://r4ds.had.co.nz/functions.html
 
 - Consider improving performance of `model.littleR.Gibbs()` and `fitSeveralAbundModel()`; a test took about 20 minutes to run. If important, I may search the bottlenecks.
+
+
+
+- Enhance source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming) by replacing `subset()` with `[`. They were not fixed yet because, for the reasons listed below, I can't run the functions, and therefore I can't ensure that my fix doesn't brake some other part of the code.
+
+    - function errs:
+        - `run.growthbin.manyspp()`
+    - function lacks required input:
+        - `imageJ.to.lxly()`
+    - data is missing to run the function
+        - `solve.topo()`
+        - `rearrangeSurveyData()`
 
 
 
