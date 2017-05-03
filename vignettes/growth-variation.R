@@ -9,14 +9,15 @@ knitr::opts_chunk$set(
 library(dplyr)
 library(purrr)
 library(tibble)
+library(ggplot2)
+library(tidyr)
+library(modelr)
 
 ## ---- message=FALSE------------------------------------------------------
 # Links provide installation instructions
 library(ctfs)       # https://github.com/forestgeo/ctfs
 library(lme4)       # https://github.com/lme4/lme4/
 library(bci)        # https://forestgeo.github.io/bci/
-library(tidyverse)  # xxx insert link
-library(modelr)     # xxx insert link
 
 ## ---- message=FALSE------------------------------------------------------
 

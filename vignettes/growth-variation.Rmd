@@ -20,6 +20,9 @@ knitr::opts_chunk$set(
 library(dplyr)
 library(purrr)
 library(tibble)
+library(ggplot2)
+library(tidyr)
+library(modelr)
 ```
 
 # Goal
@@ -123,11 +126,11 @@ The functions we use here come with the [ctfs](https://forestgeo.github.io/ctfs/
 library(ctfs)       # https://github.com/forestgeo/ctfs
 library(lme4)       # https://github.com/lme4/lme4/
 library(bci)        # https://forestgeo.github.io/bci/
+```
 
+```R
 # Install from the tidyverse http://tidyverse.org/
-library(dplyr)
-library(purrr)
-library(tibble)
+library(tidyverse)
 library(modelr)
 ```
 

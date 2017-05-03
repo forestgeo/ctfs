@@ -1,0 +1,27 @@
+home:
+  links:
+  - text: Learn more
+    href: http://www.forestgeo.si.edu/
+
+reference:
+- title: Abundance and change in population size
+  contents:
+  - abundance
+  - abundance.spp
+  - abundanceperquad
+  - abund.manycensus
+
+- title: Mortality
+  contents:
+  - mortality
+  - mortality.dbh
+  - mortality.eachspp
+  - mortality.calculation
+
+- title: Growth
+  contents:
+  - growth
+  - growth.dbh
+  - growth.indiv
+  - growth.biomass.indiv
+

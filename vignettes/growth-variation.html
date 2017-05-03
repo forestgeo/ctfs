@@ -153,9 +153,10 @@ I %&gt;%<span class="st"> </span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Links provide installation instructions</span>
 <span class="kw">library</span>(ctfs)       <span class="co"># https://github.com/forestgeo/ctfs</span>
 <span class="kw">library</span>(lme4)       <span class="co"># https://github.com/lme4/lme4/</span>
-<span class="kw">library</span>(bci)        <span class="co"># https://forestgeo.github.io/bci/</span>
-<span class="kw">library</span>(tidyverse)  <span class="co"># xxx insert link</span>
-<span class="kw">library</span>(modelr)     <span class="co"># xxx insert link</span></code></pre></div>
+<span class="kw">library</span>(bci)        <span class="co"># https://forestgeo.github.io/bci/</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install from the tidyverse http://tidyverse.org/</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(modelr)</code></pre></div>
 <p>To access functions commonly used for data analysis, load the tidyverse package:</p>
 </div>
 <div id="calculate-growth-rates-of-individual-trees-between-census-intervals" class="section level1">
@@ -266,9 +267,9 @@ modlist &lt;-<span class="st"> </span>grate %&gt;%<span class="st"> </span>
 <span class="co">#&gt; # A tibble: 4 × 3</span>
 <span class="co">#&gt;          name      value    uo3</span>
 <span class="co">#&gt;         &lt;chr&gt;      &lt;dbl&gt;  &lt;chr&gt;</span>
-<span class="co">#&gt; 1 (Intercept)  5.7550942 under3</span>
+<span class="co">#&gt; 1 (Intercept)  5.7550940 under3</span>
 <span class="co">#&gt; 2        time -0.7154974 under3</span>
-<span class="co">#&gt; 3 (Intercept)  5.7550942  over3</span>
+<span class="co">#&gt; 3 (Intercept)  5.7550940  over3</span>
 <span class="co">#&gt; 4        time -0.7154974  over3</span>
 
 <span class="co"># add predictions and residuals to data</span>
@@ -316,7 +317,7 @@ mymodels
 <span class="co">#&gt; REML criterion at convergence: 39270.77</span>
 <span class="co">#&gt; Random effects:</span>
 <span class="co">#&gt;  Groups   Name        Std.Dev. Corr</span>
-<span class="co">#&gt;  species  (Intercept) 3.956625     </span>
+<span class="co">#&gt;  species  (Intercept) 3.956626     </span>
 <span class="co">#&gt;           time        0.002963 1.00</span>
 <span class="co">#&gt;  Residual             5.060651     </span>
 <span class="co">#&gt; Number of obs: 6411, groups:  species, 112</span>
