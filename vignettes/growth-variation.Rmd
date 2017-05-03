@@ -123,8 +123,12 @@ The functions we use here come with the [ctfs](https://forestgeo.github.io/ctfs/
 library(ctfs)       # https://github.com/forestgeo/ctfs
 library(lme4)       # https://github.com/lme4/lme4/
 library(bci)        # https://forestgeo.github.io/bci/
-library(tidyverse)  # xxx insert link
-library(modelr)     # xxx insert link
+
+# Install from the tidyverse http://tidyverse.org/
+library(dplyr)
+library(purrr)
+library(tibble)
+library(modelr)
 ```
 
 To access functions commonly used for data analysis, load the tidyverse package:

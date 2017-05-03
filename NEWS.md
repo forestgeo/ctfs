@@ -240,6 +240,8 @@ I tried `as.matrix(b)` but did not solve the problem, neither other less obvious
 
 ### To enhance
 
+- For all suggested packages, use `requireNamespace("package", quietly = TRUE) to test if package is installed, then use `package::fun()` to refer to functions.
+
 - Address one note with multiple components
 
 Before working on it, consider: 
