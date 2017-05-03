@@ -85,62 +85,6 @@ Found the platform-specific devices:
 dev.new() is the preferred way to open a new device, in the unlikely
 event one is needed.
 
-
-
-
-
-
-
-
-DONE
-
-complete.plotmap: warning ...: partial argument match of 'exp' to 'export'
-
-dgammaMinusdexp: warning in pgamma(z, shape = a, rate = r + lambda,
-  lower.tail = FALSE, log = TRUE): partial argument match of 'log' to
-  'log.p'
-  
-map: warning in define.graphwindow(exp = export, h = ht, w = wd, file =
-  filename): partial argument match of 'exp' to 'export'
-  
-map: warning in maptopo(elev = elevdata, plotdim = plotdim, xaxis =
-  xaxis, yaxis = yaxis, interval = topoint, ht = ht, wd = wd, plotside
-  = plotside, labelsize = labsize, axspos = axspos, bgcolor = bgcolor,
-  clr = topoclr): partial argument match of 'elev' to 'elevmat'
-
-TODO
-
-run.growthbin.manyspp: warning in run.growthfit.bin(growthdata =
-  spdata, size = size, binoption = binoption, startpar = startpar,
-  sdmodel = sdmodel, startsdpar = startsdpar, badsdfunc = badsdfunc,
-  norep = noreps, noburn = noburn, noshow = noshow, ...): partial
-  argument match of 'norep' to 'noreps'
-selectrandomquad2: warning in index.to.gxgy(r, grid = 1, plotdim =
-  plotdim - size): partial argument match of 'grid' to 'gridsize'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 AGB.dbtable: no visible global function definition for 'odbcConnect'
 AGB.dbtable: no visible global function definition for 'odbcClose'
 ...(about 30 more)
@@ -169,14 +113,6 @@ To access the data, a good alternative to `attach_if_needed` is to load data wit
 
 
 
-
-
-## Another check 
-
-```R
-Status: 3 WARNINGs, 3 NOTEs
-```
-
 Another type of check throws this additional warning:
 
 ```R
@@ -202,80 +138,38 @@ Another type of check throws this additional warning:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- Try replacing all these weird devices by `dev.new()` as suggested in the message. But first do a little google search.
-
-```R
-Found the platform-specific devices:
-  'X11' 'quartz' 'win.graph' 'win.metafile' 'x11'
-dev.new() is the preferred way to open a new device, in the unlikely
-event one is needed.
-```
-
-- It seems that those devices are used in all the functions below, which warning may dissapear once they are replaced by dev.new. (so check if the functions below use the weird devices above).
-
-```R
-Found an obsolete/platform-specific call in the following functions:
-  'compare.growthbinmodel' 'define.graphwindow' 'graph.abundmodel'
-  'graph.growthmodel' 'graph.modeldiag' 'graph.outliers' 'imageGraph'
-  'image_dataframe' 'map2species' 'maptopo' 'overlay.growthbinmodel'
-  'regsum' 'wavelet.bivariate'
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-NOTES
-
-checking Rd line widths ... NOTE
-
-- Rd file 'RipUvK.Rd':
-- Rd file 'spparea.sq.Rd':
-- Rd file 'abund.manycensus.Rd':
-- ... 44 lines ...
-
-lines wider than 100 characters: These lines will be truncated in the PDF manual.
-
-
-
-MORE TO IMPROVE: learn from the CTFS-CRAN version
-
-- Incorporate the documentation of the 88 functions from CTFS-CRAN.
-
-- Are those 88 functions the most important ones? The ones that do not depend on more stuff than that?
-
-
-
-
-
 DONE
 
 - Pushed to private repo on forestgeo the CTFS version archived on CRAN. Consider using the archived version of CTFS as a source for missing documentation and data.
 
 - I Made CTFS-ForestGEO the author of the package and removed Richard Condit
+
+- Fixed NOTE on partially matched arguments.
+
+```R
+complete.plotmap: warning ...: partial argument match of 'exp' to 'export'
+
+dgammaMinusdexp: warning in pgamma(z, shape = a, rate = r + lambda,
+  lower.tail = FALSE, log = TRUE): partial argument match of 'log' to
+  'log.p'
+  
+map: warning in define.graphwindow(exp = export, h = ht, w = wd, file =
+  filename): partial argument match of 'exp' to 'export'
+  
+map: warning in maptopo(elev = elevdata, plotdim = plotdim, xaxis =
+  xaxis, yaxis = yaxis, interval = topoint, ht = ht, wd = wd, plotside
+  = plotside, labelsize = labsize, axspos = axspos, bgcolor = bgcolor,
+  clr = topoclr): partial argument match of 'elev' to 'elevmat'
+run.growthbin.manyspp: warning in run.growthfit.bin(growthdata =
+  spdata, size = size, binoption = binoption, startpar = startpar,
+  sdmodel = sdmodel, startsdpar = startsdpar, badsdfunc = badsdfunc,
+  norep = noreps, noburn = noburn, noshow = noshow, ...): partial
+  argument match of 'norep' to 'noreps'
+
+selectrandomquad2: warning in index.to.gxgy(r, grid = 1, plotdim =
+  plotdim - size): partial argument match of 'grid' to 'gridsize'
+```
+
 
 
 

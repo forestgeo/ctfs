@@ -12,3 +12,11 @@ test_that("dgammaMinusdexp outputs equal when partial argument is complete", {
   )
   expect_equal_to_reference(actual, "ref_dgammaMinusdexp.rds")
 })
+
+test_that("selectrandomquad2 outputs equal when partial argument is complete", {
+  set.seed(123)
+  actual <- selectrandomquad2(
+    size = 20, rep = 5, plotdim = c(1000, 500), graphit = FALSE
+  )
+  expect_equal_to_reference(actual, "ref_selectrandomquad2.rds")
+})

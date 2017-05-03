@@ -399,8 +399,8 @@ selectrandomquad2=function(size,rep,plotdim=c(1000,500),graphit=FALSE)
  linelen=(plotdim[1]-size)*(plotdim[2]-size)
  r=runif(rep,min=0,max=linelen)
 
- coord=index.to.gxgy(r,grid=1,plotdim=plotdim-size)
-
+ coord = index.to.gxgy(r, gridsize = 1, plotdim = plotdim - size)
+ 
  xlo=coord$gx
  ylo=coord$gy
  xhi=xlo+size
