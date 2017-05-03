@@ -64,10 +64,9 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
 
 ### Deprecated
 
-`attach_if_needed()`
+- `attach_if_needed()`: "In programming, functions should not change the search path unless that is their purpose" (_Good practice_ in `?attach`).
 
-
-
+- `CTFSplot()`: no longer necessary because bci data is now available via the _bci_ package.
 
 
 
@@ -162,9 +161,7 @@ File 'ctfs/R/utilities.R':
 
 These functions should be deprecated because they use `attach()`
 - `graph.abundmodel()`
-- `CTFSplot()`
 
-E.g. #' Deprecated. To load data from BCI, please use `bci::data` instead.
 
 
 
@@ -466,9 +463,7 @@ SLOW
     - model.littleR.Gibbs
     - fitSeveralAbundModel
 
-TO DEPRECATE
 
-- CTFSplot is no longer necessary because bci data is now available via the _bci_ package.
 
 # ctfs 0.0.0.9004
 
