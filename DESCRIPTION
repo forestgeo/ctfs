@@ -21,18 +21,14 @@ RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
 Imports: assertive,
     date,
+    graphics,
+    grDevices,
+    modelr,
     splancs,
+    stats,
     stringr,
     tidyverse,
-    tibble,
-    readr,
-    utils,
-    dplyr,
-    purrr,
-    modelr,
-    grDevices,
-    stats,
-    graphics
+    utils
 Suggests: bci, 
     knitr,
     lme4,
