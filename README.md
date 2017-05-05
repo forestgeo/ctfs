@@ -1,4 +1,4 @@
-ctfs
+forestr
 ================
 CTFS-ForestGEO
 
@@ -8,7 +8,7 @@ This package provides tools for the analysis of forest dynamics. It evolves from
 Installation
 ------------
 
-If you are authorized (via [Stuart Davies](daviess@si.edu)), you can install ctfs from ForestGEO's private GitHub repo.
+If you are authorized (via [Stuart Davies](daviess@si.edu)), you can install forestr from ForestGEO's private GitHub repo.
 
     # From ?devtools::install_github:
     # To install from a private repo, use auth_token with a token
@@ -17,8 +17,8 @@ If you are authorized (via [Stuart Davies](daviess@si.edu)), you can install ctf
     # GITHUB_PAT.
 
     # install.packages("devtools")
-    devtools::install_github("forestgeo/ctfs", auth_token = "<YOUR_TOKEN>")
-    library(ctfs)
+    devtools::install_github("forestgeo/forestr", auth_token = "<YOUR_TOKEN>")
+    library(forestr)
 
 ### Reference
 
