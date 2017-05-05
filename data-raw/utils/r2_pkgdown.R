@@ -12,60 +12,56 @@
 
 library(ctfs)
 library(tidyverse)
+library(stringr)
 
 
 
 
-# tibble all files in R/ and functions in each --------------------------
+# Access to files and functions -----------------------------------------
 
-# tibble all file names in R/ and paths
-
-address <- tibble(path = paste0("./R/", dir("./R")))
-
-# do it for 1 file
-
-# tibble file name and the name of each function in that file
-
-# path <- address$path[1]
-
-funs_n_files <- function(path) {
-  txt <- readr::read_lines(path) %>% 
-    stringr::str_extract("^\\'[a-z]+.*$") %>% 
-    stringr::str_replace_all(stringr::fixed("'"), "")
-  tbl <- tibble(fun_nm = txt) %>% rm_na_row()
-  tbl$fun_nm <- paste("\n   -", tbl$fun_nm)
-  paste0(tbl$fun_nm, collapse = "")
-}
+files_in_R <- paste0("./R/", dir("./R"))
+raw_strings <- purrr::map(files_in_R, read_file)
+names(raw_strings) <- stringr::str_replace(files_in_R, 
+  pattern = "^\\./R/(.*)\\.R$", 
+  replacement = "\\1"
+)
 
 
 
-
-path_to_file_nm <- function(path){
-  stringr::str_replace(path, stringr::fixed("./R/"), "")
-}
-
-
-paste_pkgdown <- function(path) {
-  paste0(
-    "\n- title: ", path_to_file_nm(path),
-    "\n  contents:",
-    funs_n_files(path),
-    "\n"
+extract_funs <- function(raw_string){
+  extracted <- raw_string %>% 
+    stringr::str_extract_all(
+      stringr::regex("^\\'[a-z]+.*$", multiline = TRUE)
+    ) %>% 
+    tibble::tibble() %>% 
+    tidyr::unnest() %>% 
+    purrr::set_names("funs") %>% 
+    dplyr::mutate(
+      funs = stringr::str_replace_all(funs, stringr::fixed("'"), ""),
+      funs = paste("\n   -", funs)
   )
+  header <- paste0(
+    "\n  contents:",
+    collapse = ""
+  )
+  funs <- paste0(extracted$funs, collapse = "")
+  paste0(header, funs)
 }
 
-paste_pkgdown(path)
 
 
-# iterate over all
-address$path %>% 
-  purrr::map(paste_pkgdown)
+file_header <- paste0(
+  "\nhome:",
+  "\n  links:",
+  "\n  - text: Learn more",
+  "\n    href: http://www.forestgeo.si.edu/",
+  "\n",
+  "\nreference:"
+)
 
+formatted_funs <- purrr::map(raw_strings, extract_funs)
+formatted_nms <- paste0("\n- title: ", names(raw_strings))
+file_body <- purrr::map2(formatted_nms, formatted_funs, paste0) %>% 
+  paste0(collapse = "\n")
 
-
-
-
-
-
-
-
+paste0(file_header, file_body) %>% write_file("_pkgdown.yml")
