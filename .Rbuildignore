@@ -4,4 +4,5 @@
 ^README-.*\.png$
 ^\.travis\.yml$
 ^data-raw$
-^C:\Users\dora\Dropbox\git_repos\forestr\docs$
+^docs$
+^_pkgdown\.yml$
