@@ -1,6 +1,6 @@
 # forestr 0.0.0.9000
 
-- Clone from ctfs 0.0.0.9005
+- Clone from ctfs 0.0.0.9005 ([advice](https://goo.gl/GhNLyz))
 
 
 
