@@ -1,4 +1,4 @@
 library(testthat)
-library(ctfs)
+library(forestr)
 
-test_check("ctfs")
+test_check("forestr")

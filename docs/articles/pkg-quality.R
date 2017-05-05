@@ -11,7 +11,7 @@ library(dplyr)
 library(tibble)
 
 ## ------------------------------------------------------------------------
-sig::sig_report(pkg2env(ctfs))
+sig::sig_report(pkg2env(forestr))
 
 ## ------------------------------------------------------------------------
 sig_report(pkg2env(Hmisc))

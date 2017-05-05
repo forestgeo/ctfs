@@ -1,3 +1,13 @@
 base
-ctfs
+forestr
+sig
+dplyr
+tibble
+lattice
+survival
+Formula
+ggplot2
+Hmisc
+assertive
+testthat
 knitr

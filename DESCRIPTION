@@ -1,6 +1,6 @@
-Package: ctfs
+Package: forestr
 Title: Tools for the Analysis of Forest Dynamics
-Version: 0.0.0.9005
+Version: 0.0.0.9000
 Authors@R: c(
     person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut")),
     person("Pamela", "Hall", , "phall@alum.mit.edu", role = c("aut")),
@@ -15,8 +15,8 @@ Depends:
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/forestgeo/ctfs
-BugReports: https://github.com/forestgeo/ctfs/issues
+URL: https://github.com/forestgeo/forestr
+BugReports: https://github.com/forestgeo/forestr/issues
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
 Imports: assertive,
