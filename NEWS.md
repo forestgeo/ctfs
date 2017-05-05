@@ -184,7 +184,7 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
 
 - Tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
 
-
+- In website references, gropued functions by file. This will later improve to include original source folder and the first line of the description of each function.
 
 ### To fix
 
