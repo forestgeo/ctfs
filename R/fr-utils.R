@@ -81,7 +81,7 @@ rm_na_row <- function(.data) {
 # Access files and functions
 raw_strings <- function() {
   files_in_R <- paste0("./R/", dir("./R"))
-  raw_strings <- purrr::map(files_in_R, read_file)
+  raw_strings <- purrr::map(files_in_R, readr::read_file)
   names(raw_strings) <- stringr::str_replace(
     files_in_R, 
     pattern = "^\\./R/(.*)\\.R$", 
