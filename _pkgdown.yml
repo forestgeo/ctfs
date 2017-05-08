@@ -5,7 +5,7 @@ home:
     href: http://www.forestgeo.si.edu/
 
 reference:
-- title: abund.fit.CTFS
+- title: demogchange; abund.fit.CTFS
   contents:
    - model.littleR.Gibbs
    - full.abundmodel.llike
@@ -20,7 +20,7 @@ reference:
    - find.xaxis.hist
    - abundmodel.fit
 
-- title: abundance
+- title: abundance; abundance
   contents:
    - abundance
    - abundanceperquad
@@ -31,7 +31,7 @@ reference:
    - basum
    - abund.manycensus
 
-- title: biomass.CTFSdb
+- title: biomass; biomass.CTFSdb
   contents:
    - biomass.CTFSdb
    - density_ind
@@ -40,7 +40,7 @@ reference:
    - predht.asym
    - biomass.change
 
-- title: block.analysis
+- title: spatial; block.analysis
   contents:
    - wavelet.allsp
    - plot_wavelet
@@ -48,20 +48,17 @@ reference:
    - wavelet.univariate
    - wavelet.bivariate
 
-- title: calcalpha
+- title: utilities; calcalpha
   contents:
    - calcalpha
    - d.calcS.alpha
    - calcS.alpha
    - rarefy.diversity
 
-- title: forestr
+- title: NA; dat_monthnames
   contents:
 
-- title: dat_monthnames
-  contents:
-
-- title: demogChange
+- title: demogchange; demogChange
   contents:
    - individual_grow.table
    - individual_mort.table
@@ -69,7 +66,7 @@ reference:
    - lmerMortLinear
    - lmerMortFixedTime
 
-- title: distributions
+- title: utilities; distributions
   contents:
    - doublenormal
    - dnormprod0
@@ -158,13 +155,16 @@ reference:
    - discrete.mortmodel
    - discrete.model
 
-- title: fr-biomass
+- title: NA; forestr
   contents:
 
-- title: fr-utils
+- title: NA; fr-biomass
   contents:
 
-- title: geometry
+- title: NA; fr-utils
+  contents:
+
+- title: utilities; geometry
   contents:
    - xydist
    - xydistvect
@@ -191,7 +191,7 @@ reference:
    - cartesian.to.polar
    - polar.to.cartesian
 
-- title: growth
+- title: growth; growth
   contents:
    - growth
    - biomass.growth
@@ -201,7 +201,7 @@ reference:
    - trim.growth
    - growth.biomass.indiv
 
-- title: growthfit.bin
+- title: growth; growthfit.bin
   contents:
    - extract.growthdata
    - run.growthbin.manyspp
@@ -219,7 +219,7 @@ reference:
    - calculateBinModel.bestpred
    - assembleBinOutput
 
-- title: growthfit.graph
+- title: growth; growthfit.graph
   contents:
    - graph.growthmodel.spp
    - graph.growthmodel
@@ -231,13 +231,13 @@ reference:
    - binGraphManySpecies.Panel
    - binGraphManySpecies
 
-- title: imageJ
+- title: topography; imageJ
   contents:
    - fullplot.imageJ
    - imageJ.to.lxly
    - distance.to.side
 
-- title: lmerBayes
+- title: utilities; lmerBayes
   contents:
    - lmerBayes
    - lmerBayes.hyperllike.sigma
@@ -255,7 +255,7 @@ reference:
    - recalculate.lmerBayesllike
    - covTocorr
 
-- title: map
+- title: map; map
   contents:
    - map
    - pdf.allplot
@@ -268,20 +268,20 @@ reference:
    - setsize
    - map2species
 
-- title: mapresponse
+- title: map; mapresponse
   contents:
    - coldata.to.imagemat
    - imageGraph
    - draw.axes
    - image_dataframe
 
-- title: modelBayes
+- title: utilities; modelBayes
   contents:
    - modelBayes
    - residual.llike.modelBayes
    - summaryModelMCMC
 
-- title: mortality
+- title: mortality; mortality
   contents:
    - mortality
    - mortality.eachspp
@@ -289,10 +289,10 @@ reference:
    - mortality.calculation
    - find.climits
 
-- title: NeighborDensityFun
+- title: spatial; NeighborDensityFun
   contents:
 
-- title: quadfunc
+- title: spatial; quadfunc
   contents:
    - quad.to.gxgy
    - rowcol.to.index
@@ -315,17 +315,17 @@ reference:
    - full.xygrid
    - distance
 
-- title: recruitment
+- title: recruitment; recruitment
   contents:
    - recruitment
    - recruitment.eachspp
 
-- title: RipUvK
+- title: spatial; RipUvK
   contents:
    - circlearea
    - partialcirclearea
 
-- title: slope
+- title: topography; slope
   contents:
    - readelevdata
    - elev.to.list
@@ -335,13 +335,13 @@ reference:
    - calc.gradient
    - calc.directionslope
 
-- title: solvetopo
+- title: topography; solvetopo
   contents:
    - solve_topo
    - getTopoLinks
    - rearrangeSurveyData
 
-- title: spparea
+- title: speciesarea; spparea
   contents:
    - spparea.sq
    - selectrandomquad
@@ -350,11 +350,11 @@ reference:
    - graph.quadrats
    - coverage.diag
 
-- title: startCTFS
+- title: startCTFS; startCTFS
   contents:
    - startCTFS
 
-- title: statistics
+- title: utilities; statistics
   contents:
    - skewness
    - skewness
@@ -391,7 +391,7 @@ reference:
    - colMedians
    - midPoint
 
-- title: utilities
+- title: utilities; utilities
   contents:
    - tojulian
    - fromjulian
@@ -440,7 +440,7 @@ reference:
    - graphFilledBand
    - make.CredIntervalVect
 
-- title: utilitiesCTFS
+- title: utilities; utilitiesCTFS
   contents:
    - load.species
    - rndown5
