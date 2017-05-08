@@ -108,10 +108,21 @@ extract_funs <- function(raw_strings){
   paste0(header, funs)
 }
 
+
+
+# Reference the folder where each file and function comes from.
+title_folder_files <- function(raw_strings) {
+  files <- tibble(file = names(raw_strings))
+  folder_files <- readr::read_csv("./data-raw/folder_files.csv")
+  left_join(files, folder_files) %>% 
+    dplyr::transmute(title = paste0(folder, "; ", file)) %>% 
+    .[["title"]]
+}
+
 # Write body of the pkgdown file
 file_body <- function(raw_strings) {
   formatted_funs <- purrr::map(raw_strings, extract_funs)
-  formatted_nms <- paste0("\n- title: ", names(raw_strings))
+  formatted_nms <- paste0("\n- title: ", title_folder_files(raw_strings))
   purrr::map2(formatted_nms, formatted_funs, paste0) %>% 
     paste0(collapse = "\n")
 }
