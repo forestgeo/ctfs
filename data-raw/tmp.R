@@ -20,6 +20,33 @@ paste0(arranged$str, collapse = "") %>% write_file("tmp.R")
 
 
 
+# one list item
+raw_strings <- raw_strings()
+formatted_funs <- purrr::map(raw_strings, extract_funs) %>% 
+  purrr::map(tibble)
+formatted_nms <- paste0("\n- title: ", title_folder_files(raw_strings))
+purrr::map2(formatted_nms, formatted_funs, paste0) %>% 
+  str_split("- title: ")
+  
+  
+  
+  paste0(collapse = "\n") %>% 
+  str_split("- title: ") %>% 
+  tibble() %>% 
+  unnest() %>% 
+  set_names("str") %>% 
+  arrange(str) %>%
+  filter(str_detect(str, "[a-zA-Z]")) %>% 
+  mutate(str = paste0("- title: ", str)) %>% 
+
+paste0(arranged$str, collapse = "") %>% write_file("tmp.R")
+
+
+
+
+
+
+
 
 
 
