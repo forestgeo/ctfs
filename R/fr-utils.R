@@ -66,18 +66,28 @@ rm_na_row <- function(.data) {
 
 # write_pkgdown_yml -------------------------------------------------------
 
-# Extract function names from each file in R/<FILE>.R and transforms it into 
-# an entry to reference for _pgkgdown.yml that looks like this:
-# - title: <FILE>
-#   contents:
-#   - <FUNCTION_1>
-#   - <FUNCTION_2>
-#   - <FUNCTION_N>
+# To build the reference section of the package website, write a _pkgdown.yml 
+# referencing the folder and file where each function comes from the original 
+# source  code of the CTFSRPackage. Functions are sorded first by folder, then
+# by file and function.
+#
+# The head of the file looks like this:
+#
+# home:
+#   links:
+#   - text: Learn more
+#     href: http://www.forestgeo.si.edu/
+# 
+# reference:
+# - title: abundance; abundance
+#   contents: 
+#    - abund.manycensus
+#    - abundance
+#    - ...
 
 
 
-# Setup
-
+# The field title has a reference of the fol
 # Access files and functions
 raw_strings <- function() {
   files_in_R <- paste0("./R/", dir("./R"))
@@ -91,46 +101,57 @@ raw_strings <- function() {
 }
 
 # From a list of raw strings, extract functions in each and format for pkgdown
-extract_funs <- function(raw_strings){
-  extracted <- raw_strings %>% 
+get_funs <- function(raw_strings){
+  raw_strings %>% 
     stringr::str_extract_all(
       stringr::regex("^\\'[a-z]+.*$", multiline = TRUE)
     ) %>% 
     tibble::tibble() %>% 
     tidyr::unnest() %>% 
-    purrr::set_names("funs") %>% 
+    purrr::set_names("fun") %>% 
     dplyr::mutate(
-      funs = stringr::str_replace_all(funs, stringr::fixed("'"), ""),
-      funs = paste("\n   -", funs)
+      fun = stringr::str_replace_all(fun, stringr::fixed("'"), "")
     )
-  header <- paste0("\n  contents:", collapse = "")
-  funs <- paste0(extracted$funs, collapse = "")
-  paste0(header, funs)
 }
 
 
 
-# Reference the folder where each file and function comes from.
-title_folder_files <- function(raw_strings) {
-  files <- tibble(file = names(raw_strings))
-  folder_files <- readr::read_csv("./data-raw/folder_files.csv")
-  left_join(files, folder_files) %>% 
-    dplyr::transmute(title = paste0(folder, "; ", file)) %>% 
-    .[["title"]]
+# Sort by folder, file and functions
+tibble_folder_file_fun <- function(raw_strings) {
+  folder_files <- read_csv("./data-raw/folder_files.csv")
+  file_functions <- purrr::map(raw_strings, get_funs) %>% 
+    enframe() %>% 
+    unnest() %>%
+    rename(file = name)
+  right_join(folder_files, file_functions) %>% 
+    arrange(folder, file, fun)
 }
 
-# Write body of the pkgdown file
-file_body <- function(raw_strings) {
-  formatted_funs <- purrr::map(raw_strings, extract_funs)
-  formatted_nms <- paste0("\n- title: ", title_folder_files(raw_strings))
-  purrr::map2(formatted_nms, formatted_funs, paste0) %>% 
-    paste0(collapse = "\n")
+
+
+# Write body of the _pkgdown file
+site_ref_body <- function(raw_strings) {
+  tibble_folder_file_fun(raw_strings) %>% 
+  group_by(folder, file) %>% 
+  mutate(
+    fun = paste0("\n   - ", fun),
+    fun = paste0(fun, collapse = "")
+    ) %>% 
+  unique() %>% 
+  transmute(
+    reference = paste0("\n- title: ", folder, "; ", file, "\n  contents: "),
+    reference = paste0(reference, fun, collapse = "\n")
+  ) %>% 
+  .[["reference"]] %>% 
+  paste0(collapse = "\n")
 }
+
+
 
 # Write header of the pkgdown file
-file_header <- function() {
+site_ref_head <- function() {
     paste0(
-    "\nhome:",
+    "home:",
     "\n  links:",
     "\n  - text: Learn more",
     "\n    href: http://www.forestgeo.si.edu/",
@@ -139,11 +160,82 @@ file_header <- function() {
   )
 }
 
+
+
 # Combine all of the above in one single step
 write_pkgdown_yml <- function() {
-  paste0(file_header(), file_body(raw_strings())) %>% 
+  paste0(site_ref_head(), site_ref_body(raw_strings())) %>% 
     readr::write_file("_pkgdown.yml")
 }
+
+# # Setup
+# 
+# # Access files and functions
+# raw_strings <- function() {
+#   files_in_R <- paste0("./R/", dir("./R"))
+#   raw_strings <- purrr::map(files_in_R, readr::read_file)
+#   names(raw_strings) <- stringr::str_replace(
+#     files_in_R,
+#     pattern = "^\\./R/(.*)\\.R$",
+#     replacement = "\\1"
+#   )
+#   raw_strings
+# }
+# 
+# # From a list of raw strings, extract functions in each and format for pkgdown
+# extract_funs <- function(raw_strings){
+#   extracted <- raw_strings %>%
+#     stringr::str_extract_all(
+#       stringr::regex("^\\'[a-z]+.*$", multiline = TRUE)
+#     ) %>%
+#     tibble::tibble() %>%
+#     tidyr::unnest() %>%
+#     purrr::set_names("funs") %>%
+#     dplyr::mutate(
+#       funs = stringr::str_replace_all(funs, stringr::fixed("'"), ""),
+#       funs = paste("\n   -", funs)
+#     )
+#   header <- paste0("\n  contents:", collapse = "")
+#   funs <- paste0(extracted$funs, collapse = "")
+#   paste0(header, funs)
+# }
+# 
+# 
+# 
+# # Reference the folder where each file and function comes from.
+# title_folder_files <- function(raw_strings) {
+#   files <- tibble(file = names(raw_strings))
+#   folder_files <- readr::read_csv("./data-raw/folder_files.csv")
+#   left_join(files, folder_files) %>%
+#     dplyr::transmute(title = paste0(folder, "; ", file)) %>%
+#     .[["title"]]
+# }
+# 
+# # Write body of the pkgdown file
+# file_body <- function(raw_strings) {
+#   formatted_funs <- purrr::map(raw_strings, extract_funs)
+#   formatted_nms <- paste0("\n- title: ", title_folder_files(raw_strings))
+#   purrr::map2(formatted_nms, formatted_funs, paste0) %>%
+#     paste0(collapse = "\n")
+# }
+# 
+# # Write header of the pkgdown file
+# file_header <- function() {
+#     paste0(
+#     "home:",
+#     "\n  links:",
+#     "\n  - text: Learn more",
+#     "\n    href: http://www.forestgeo.si.edu/",
+#     "\n",
+#     "\nreference:"
+#   )
+# }
+# 
+# # Combine all of the above in one single step
+# write_pkgdown_yml <- function() {
+#   paste0(file_header(), file_body(raw_strings())) %>%
+#     readr::write_file("_pkgdown.yml")
+# }
 
 
 
