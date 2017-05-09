@@ -1,46 +1,37 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
 #' skewness
-#'
+#' 
 #' @description
-#'
-#' Sample skewness. The biased portion is the population skewness; correction is for finite sample.  
-#'
-#' D. N. Joanes and C. A. Gill. “Comparing Measures of Sample Skewness and Kurtosis”. The Statistician 47(1):183–189
-#'
-#'
+#' Sample skewness. The biased portion is the population skewness; correction is
+#' for finite sample.
+#' 
+#' D. N. Joanes and C. A. Gill. “Comparing Measures of Sample Skewness and 
+#' Kurtosis”. The Statistician 47(1):183–189
+#' 
 'skewness'
 
-#' skewness
-#'
-#' @description
-#'
-#' Standard error of skewness. Depends only on sample size. 
-#'
-#'
-'skewness'
 
-#' skewness
-#'
-#' @description
-#'
-#' Sample kurtosis. The biased portion is the population kurtosis; corrected is for finite sample.  
-#'
-#'
-'skewness'
 
-#' skewness
-#'
+#' se.kurtosis
+#' 
 #' @description
-#'
-#' Standard error of kurtosis. Depends only on sample size. 
-#'
-#'
-'skewness'
+#' Standard error of kurtosis. Depends only on sample size.
+#' 
+'se.kurtosis'
+
+
+
+#' kurtosis
+#' 
+#' @description
+#' Sample kurtosis. The biased portion is the population kurtosis; corrected is
+#' for finite sample.
+#' 
+'kurtosis'
+
+
 
 #' regslope
 #'
@@ -52,12 +43,12 @@
 'regslope'
 
 #' regslope.noint
-#'
+#' 
 #' @description
-#'
-#' Returns slope of regression with no intercept as single scalar (for use with apply).
-#'
-#'
+#' 
+#' Returns slope of regression with no intercept as single scalar (for use with
+#' apply).
+#' 
 'regslope.noint'
 
 #' regress.plot
@@ -67,20 +58,19 @@
 #' Performs regression in convenient way and returns coefficients and
 #' probabilities in a single vector, and plots a graph.
 #'
-#'
 'regress.plot'
 
 #' regress.loglog
-#'
+#' 
 #' @description
-#'
-#' Performs regression and graphs in a convenient way: with or without log-transforming x and y variables (the option addone
-#' can be included to handle zeros for log-transformation), with or
-#' without manual point labelling, without or without the best-fit line added, and with many options for colors and points. 
-#' add can be a vector of length 2, a constant to be added to every value
-#' of x, y to remove zeroes.
-#'
-#'
+#' 
+#' Performs regression and graphs in a convenient way: with or without
+#' log-transforming x and y variables (the option addone can be included to
+#' handle zeros for log-transformation), with or without manual point labelling,
+#' without or without the best-fit line added, and with many options for colors
+#' and points. add can be a vector of length 2, a constant to be added to every
+#' value of x, y to remove zeroes.
+#' 
 'regress.loglog'
 
 #' majoraxisreg
@@ -518,10 +508,9 @@ skewness=function(x)
 # 
 # </sample>
 # <source>
-#' se.skewness
-#' 
-#' xxx Undocumented
-#' 
+
+
+
 #' @export
 se.skewness=function(x)
 {
@@ -553,10 +542,8 @@ se.skewness=function(x)
 # 
 # </sample>
 # <source>
-#' kurtosis
-#' 
-#' xxx Undocumented.
-#' 
+
+
 #' @export
 
 kurtosis=function(x)
@@ -593,10 +580,7 @@ kurtosis=function(x)
 # 
 # </sample>
 # <source>
-#' se.kurtosis
-#' 
-#' xxx Undocumented
-#'
+
 #' @export
 se.kurtosis=function(x)
 {

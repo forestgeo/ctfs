@@ -212,6 +212,12 @@
 #'
 'qasymexp'
 
+#' dasymnorm
+#' 
+#' xxx Undocumented.
+#'
+'dasymnorm'
+
 #' dasymexp
 #'
 #' @description
@@ -1636,12 +1642,9 @@ qasymexp=function(y,rate1,rate2,c)
 # <source>
 
 
-#' dasymnorm
-#' 
-#' xxx Undocumented.
-#'
-#' @export
 
+# xxx undocumented
+#' @export
 dasymnorm=function(x,center,sigma1,sigma2,log=FALSE)
 {
  y=numeric()
