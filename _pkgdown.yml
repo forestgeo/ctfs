@@ -18,9 +18,13 @@ reference:
 - title: biomass; biomass.CTFSdb
   contents: 
    - agb.dbhmodel
+   - AGB.dbtable
+   - AGB.ind
    - agb.model
+   - AGB.tree
    - biomass.change
    - biomass.CTFSdb
+   - Chave.AGB
    - density_ind
    - predht.asym
 
@@ -50,6 +54,7 @@ reference:
 - title: growth; growth
   contents: 
    - biomass.growth
+   - DBHtransition
    - growth
    - growth.biomass.indiv
    - growth.dbh
@@ -128,6 +133,11 @@ reference:
    - wavelet.bivariate
    - wavelet.univariate
 
+- title: spatial; NeighborDensityFun
+  contents: 
+   - NDcount
+   - NeighborDensities
+
 - title: spatial; quadfunc
   contents: 
    - convert.rowcol
@@ -153,8 +163,11 @@ reference:
 
 - title: spatial; RipUvK
   contents: 
+   - Annuli
+   - CalcRingArea
    - circlearea
    - partialcirclearea
+   - RipUvK
 
 - title: speciesarea; spparea
   contents: 
@@ -174,6 +187,7 @@ reference:
    - distance.to.side
    - fullplot.imageJ
    - imageJ.to.lxly
+   - SectionCorrection
 
 - title: topography; slope
   contents: 
@@ -343,11 +357,17 @@ reference:
    - arrangeParam.Gibbs
    - arrangeParam.llike
    - autoregression
+   - BadParam
    - bootconf
    - bootstrap.corr
    - border.distance
+   - CI
    - colMedians
    - cumul.above
+   - Gibbs.normalmean
+   - Gibbs.normalvar
+   - Gibbs.regsigma
+   - Gibbs.regslope
    - graph.modeldiag
    - harmonic.mean
    - hist_compare
@@ -377,9 +397,11 @@ reference:
 
 - title: utilities; utilities
   contents: 
+   - AssignDiag
    - attach_if_needed
    - charlocate
    - convert.factor
+   - CountByGroup
    - countEmpty
    - countNA
    - countone
@@ -398,6 +420,7 @@ reference:
    - fromjulian
    - graphFilledBand
    - gsp
+   - IfElse
    - is.leap
    - left
    - leftbut
@@ -416,6 +439,8 @@ reference:
    - rightbut
    - save.searchpath
    - split_data
+   - StringToVect
+   - TextToRdata
    - tojulian
    - trim
    - vectToCommas
@@ -429,7 +454,12 @@ reference:
    - assemble.demography
    - clean.demography
    - countspp
+   - CTFSplot
    - exclude.unidentified
    - load.species
    - rndown5
    - unidentified.species
+
+- title: NA; dat_monthnames
+  contents: 
+   - MONTHNAMES

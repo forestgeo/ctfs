@@ -290,7 +290,7 @@
 #'
 'biomass.change'
 
-#'
+
 #' AGB.dbtable
 #'
 #' @description

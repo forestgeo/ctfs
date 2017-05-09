@@ -104,7 +104,7 @@ raw_strings <- function() {
 get_funs <- function(raw_strings){
   raw_strings %>% 
     stringr::str_extract_all(
-      stringr::regex("^\\'[a-z]+.*$", multiline = TRUE)
+      stringr::regex("^\\'[a-zA-Z]+.*$", multiline = TRUE)
     ) %>% 
     tibble::tibble() %>% 
     tidyr::unnest() %>% 
@@ -127,8 +127,6 @@ tibble_folder_file_fun <- function(raw_strings) {
     dplyr::arrange(folder, file, fun)
 }
 
-
-
 # Write body of the _pkgdown file
 site_ref_body <- function(raw_strings) {
   tibble_folder_file_fun(raw_strings) %>% 
@@ -146,8 +144,6 @@ site_ref_body <- function(raw_strings) {
   paste0(collapse = "\n")
 }
 
-
-
 # Write header of the pkgdown file
 site_ref_head <- function() {
     paste0(
@@ -159,8 +155,6 @@ site_ref_head <- function() {
     "\nreference:"
   )
 }
-
-
 
 # Combine all of the above in one single step
 write_pkgdown_yml <- function() {
