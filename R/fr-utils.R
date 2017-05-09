@@ -118,13 +118,13 @@ get_funs <- function(raw_strings){
 
 # Sort by folder, file and functions
 tibble_folder_file_fun <- function(raw_strings) {
-  folder_files <- read_csv("./data-raw/folder_files.csv")
+  folder_files <- readr::read_csv("./data-raw/folder_files.csv")
   file_functions <- purrr::map(raw_strings, get_funs) %>% 
-    enframe() %>% 
-    unnest() %>%
-    rename(file = name)
-  right_join(folder_files, file_functions) %>% 
-    arrange(folder, file, fun)
+    tibble::enframe() %>% 
+    tidyr::unnest() %>%
+    dplyr::rename(file = name)
+  dplyr::right_join(folder_files, file_functions) %>% 
+    dplyr::arrange(folder, file, fun)
 }
 
 
@@ -132,13 +132,13 @@ tibble_folder_file_fun <- function(raw_strings) {
 # Write body of the _pkgdown file
 site_ref_body <- function(raw_strings) {
   tibble_folder_file_fun(raw_strings) %>% 
-  group_by(folder, file) %>% 
-  mutate(
+  dplyr::group_by(folder, file) %>% 
+  dplyr::mutate(
     fun = paste0("\n   - ", fun),
     fun = paste0(fun, collapse = "")
     ) %>% 
   unique() %>% 
-  transmute(
+  dplyr::transmute(
     reference = paste0("\n- title: ", folder, "; ", file, "\n  contents: "),
     reference = paste0(reference, fun, collapse = "\n")
   ) %>% 
