@@ -1,9 +1,38 @@
-library(tidyverse)
 library(stringr)
 
-load_all()
+formatted_funs <- purrr::map(raw_strings, extract_funs)
+formatted_nms <- paste0("\n- title: ", title_folder_files(raw_strings))
+arranged <- purrr::map2(formatted_nms, formatted_funs, paste0) %>% 
+  paste0(collapse = "\n") %>% 
+  str_split("- title: ") %>% 
+  tibble() %>% 
+  unnest() %>% 
+  set_names("str") %>% 
+  arrange(str) %>%
+  filter(str_detect(str, "[a-zA-Z]")) %>% 
+  mutate(str = paste0("- title: ", str)) %>% 
 
-raw_strings <- raw_strings()
+paste0(arranged$str, collapse = "") %>% write_file("tmp.R")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

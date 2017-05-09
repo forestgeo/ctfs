@@ -1,0 +1,444 @@
+- title: abundance; abundance
+  contents:
+   - abundance
+   - abundanceperquad
+   - abundance.spp
+   - pop.change
+   - pop.change.dbh
+   - ba
+   - basum
+   - abund.manycensus
+
+- title: biomass; biomass.CTFSdb
+  contents:
+   - biomass.CTFSdb
+   - density_ind
+   - agb.model
+   - agb.dbhmodel
+   - predht.asym
+   - biomass.change
+
+- title: demogchange; abund.fit.CTFS
+  contents:
+   - model.littleR.Gibbs
+   - full.abundmodel.llike
+   - prob.N1
+   - spmean.mort.abundGibbs
+   - hyper.abundGibbs
+   - hyper.mortGibbs
+   - bad.asympower.param
+   - bad.asymexp.param
+   - fitSeveralAbundModel
+   - graph.abundmodel
+   - find.xaxis.hist
+   - abundmodel.fit
+
+- title: demogchange; demogChange
+  contents:
+   - individual_grow.table
+   - individual_mort.table
+   - calcMortIndivTable
+   - lmerMortLinear
+   - lmerMortFixedTime
+
+- title: growth; growth
+  contents:
+   - growth
+   - biomass.growth
+   - growth.eachspp
+   - growth.dbh
+   - growth.indiv
+   - trim.growth
+   - growth.biomass.indiv
+
+- title: growth; growthfit.bin
+  contents:
+   - extract.growthdata
+   - run.growthbin.manyspp
+   - run.growthfit.bin
+   - growth.flexbin
+   - llike.linearbin.optim
+   - defineBinBreaks
+   - defineSDpar
+   - enoughSamplePerBin
+   - wideEnoughBins
+   - bad.binparam
+   - bad.binsdpar
+   - calculateBinModel.BIC
+   - calculateBinModel.AIC
+   - calculateBinModel.bestpred
+   - assembleBinOutput
+
+- title: growth; growthfit.graph
+  contents:
+   - graph.growthmodel.spp
+   - graph.growthmodel
+   - overlay.growthbinmodel
+   - compare.growthbinmodel
+   - graph.outliers.spp
+   - graph.outliers
+   - binGraphSampleSpecies
+   - binGraphManySpecies.Panel
+   - binGraphManySpecies
+
+- title: map; map
+  contents:
+   - map
+   - pdf.allplot
+   - png.allplot
+   - complete.plotmap
+   - define.graphwindow
+   - get.filename
+   - maptopo
+   - map1species
+   - setsize
+   - map2species
+
+- title: map; mapresponse
+  contents:
+   - coldata.to.imagemat
+   - imageGraph
+   - draw.axes
+   - image_dataframe
+
+- title: mortality; mortality
+  contents:
+   - mortality
+   - mortality.eachspp
+   - mortality.dbh
+   - mortality.calculation
+   - find.climits
+
+- title: NA; dat_monthnames
+  contents:
+
+- title: NA; forestr
+  contents:
+
+- title: NA; fr-biomass
+  contents:
+
+- title: NA; fr-utils
+  contents:
+
+- title: recruitment; recruitment
+  contents:
+   - recruitment
+   - recruitment.eachspp
+
+- title: spatial; block.analysis
+  contents:
+   - wavelet.allsp
+   - plot_wavelet
+   - rasterize
+   - wavelet.univariate
+   - wavelet.bivariate
+
+- title: spatial; NeighborDensityFun
+  contents:
+
+- title: spatial; quadfunc
+  contents:
+   - quad.to.gxgy
+   - rowcol.to.index
+   - gxgy.to.quad
+   - getquadratname
+   - convert.rowcol
+   - gxgy.to.index
+   - index.to.rowcol
+   - index.to.gxgy
+   - gxgy.to.rowcol
+   - gxgy.to.hectindex
+   - gxgy.to.lxly
+   - lxly.to.p5
+   - findborderquads
+   - create.neighbordata
+   - findneighborabund
+   - neighbors
+   - torus.shift
+   - getsmallerquads
+   - full.xygrid
+   - distance
+
+- title: spatial; RipUvK
+  contents:
+   - circlearea
+   - partialcirclearea
+
+- title: speciesarea; spparea
+  contents:
+   - spparea.sq
+   - selectrandomquad
+   - selectrandomquad3
+   - selectrandomquad2
+   - graph.quadrats
+   - coverage.diag
+
+- title: startCTFS; startCTFS
+  contents:
+   - startCTFS
+
+- title: topography; imageJ
+  contents:
+   - fullplot.imageJ
+   - imageJ.to.lxly
+   - distance.to.side
+
+- title: topography; slope
+  contents:
+   - readelevdata
+   - elev.to.list
+   - allquadratslopes
+   - quadslope
+   - calcslope
+   - calc.gradient
+   - calc.directionslope
+
+- title: topography; solvetopo
+  contents:
+   - solve_topo
+   - getTopoLinks
+   - rearrangeSurveyData
+
+- title: utilities; calcalpha
+  contents:
+   - calcalpha
+   - d.calcS.alpha
+   - calcS.alpha
+   - rarefy.diversity
+
+- title: utilities; distributions
+  contents:
+   - doublenormal
+   - dnormprod0
+   - dgammadexp
+   - dgammaMinusdexp
+   - dgammaPlusdexp
+   - dgamma.meansd
+   - rgamma.meansd
+   - dgamma.mean
+   - dgamma.scale
+   - dpower
+   - rpower
+   - dasympower
+   - rasympower
+   - qasympower
+   - dsymexp
+   - psymexp
+   - rsymexp
+   - dasymexp
+   - qasymexp
+   - dasymexp
+   - minum.normal
+   - fitnorm
+   - fit.pdf
+   - default.badpar
+   - bad.paretopar
+   - normalproduct
+   - dbeta.reparam
+   - betaproduct
+   - beta.normalized
+   - beta.total
+   - fit.beta.normal
+   - minum.beta.normal
+   - dbinomrev
+   - dnormrev
+   - dpois.rearrange
+   - logit
+   - invlogit
+   - pweibull.3param
+   - dweibull.3param
+   - weibull.median.3param
+   - weibull.mean.3param
+   - weibull.sd.3param
+   - dexp.sin
+   - exponential.sin
+   - pexp.sin
+   - mvrnormRC
+   - dmixnorm
+   - rmixnorm
+   - minum.mixnorm
+   - logistic.inter
+   - logistic.standard
+   - logistic.power
+   - logistic.power.mode
+   - logistic.power_simple
+   - logistic.ctr
+   - logistic.multiplicative
+   - constant
+   - center.predictors
+   - fit.logistic
+   - logistic.sum.squares
+   - asymp.ht
+   - asymp.ht.fixmax
+   - exp_2par
+   - linear.model
+   - simple.model
+   - simple
+   - linear.model.ctr
+   - expon.model
+   - log_model
+   - constant.linear
+   - linearmodel.bin
+   - linearmodel.bin.set
+   - addBinParam
+   - logisticmodel.bin
+   - constant.bin
+   - dpois.max
+   - dpois.trunc
+   - dpois.maxtrunc
+   - rpois.max
+   - rpois.trunc
+   - asymptote.exp
+   - graph.mvnorm
+   - pospower
+   - linear.mortmodel
+   - discrete.mortmodel
+   - discrete.model
+
+- title: utilities; geometry
+  contents:
+   - xydist
+   - xydistvect
+   - xydistmat
+   - perpendicular.distance
+   - perpendicular.line
+   - parallel.line
+   - intersection.of.lines
+   - intersection.line.curve
+   - is.between
+   - line.intersection.pts
+   - pts.to.interceptslope
+   - segmentPt
+   - drawrectangle
+   - angleBisector
+   - insideRectangle
+   - are.ptsinside
+   - ispt.inside
+   - inside.rect
+   - circle
+   - fullcircle
+   - ellipse
+   - fullellipse
+   - cartesian.to.polar
+   - polar.to.cartesian
+
+- title: utilities; lmerBayes
+  contents:
+   - lmerBayes
+   - lmerBayes.hyperllike.sigma
+   - lmerBayes.hyperllike.mean
+   - full.likelihood.lmerBayes
+   - llike.model.lmer
+   - residual.llike.lmerBayes
+   - badSD
+   - arrangeParam.llike.2D
+   - arrangeParam.Gibbs.2D
+   - saveParamFile
+   - restoreParamFile
+   - resetParam
+   - summaryMCMC
+   - recalculate.lmerBayesllike
+   - covTocorr
+
+- title: utilities; modelBayes
+  contents:
+   - modelBayes
+   - residual.llike.modelBayes
+   - summaryModelMCMC
+
+- title: utilities; statistics
+  contents:
+   - skewness
+   - skewness
+   - skewness
+   - skewness
+   - regslope
+   - regslope.noint
+   - regress.plot
+   - regress.loglog
+   - majoraxisreg
+   - minum.perpdist
+   - majoraxisreg.no.int
+   - standardreg.no.int
+   - autoregression
+   - regression.Bayes
+   - model.xy
+   - arrangeParam.llike
+   - arrangeParam.Gibbs
+   - llike.GaussModel
+   - llike.GaussModelSD
+   - graph.modeldiag
+   - bootstrap.corr
+   - bootconf
+   - metrop1step
+   - metrop1step.discrete
+   - testmcmcfunc
+   - hist_compare
+   - harmonic.mean
+   - cumul.above
+   - sumsq
+   - is.odd
+   - border.distance
+   - regsum
+   - colMedians
+   - midPoint
+
+- title: utilities; utilities
+  contents:
+   - tojulian
+   - fromjulian
+   - create.fulldate
+   - create.fulldate.split
+   - order.by.rowcol
+   - order.bynumber
+   - fill.dimension
+   - fill.1dimension
+   - convert.factor
+   - split_data
+   - merge_data
+   - pst
+   - detachfiles
+   - save.searchpath
+   - gsp
+   - match.dataframe
+   - trim
+   - charlocate
+   - left
+   - leftbut
+   - right
+   - rightbut
+   - explode
+   - ditch
+   - is.leap
+   - mergeParam
+   - countzero
+   - countone
+   - countNA
+   - countEmpty
+   - countpresent
+   - find.nonNA
+   - which.nonNA
+   - which.allnonNA
+   - which.vmatch
+   - logical.grep
+   - nhd
+   - which.maxNAs
+   - attach_if_needed
+   - vectToCommas
+   - drp
+   - randomRow
+   - randomRow
+   - countUnique
+   - graphFilledBand
+   - make.CredIntervalVect
+
+- title: utilities; utilitiesCTFS
+  contents:
+   - load.species
+   - rndown5
+   - countspp
+   - assemble.demography
+   - clean.demography
+   - unidentified.species
+   - exclude.unidentified
