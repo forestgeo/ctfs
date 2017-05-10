@@ -508,14 +508,13 @@
 #'
 'randomRow'
 
-#' randomRow
-#'
+#' randomElement
+#' 
 #' @description
 #'
 #' Return a random element from a vector
-#'
-#'
-'randomRow'
+#' 
+'randomElement'
 
 #' countUnique
 #'
@@ -2190,7 +2189,7 @@ randomRow=function(data)
 
 # <function>
 # <name>
-# randomRow
+# randomElement
 # </name>
 # <description>
 # Return a random element from a vector
@@ -2202,16 +2201,6 @@ randomRow=function(data)
 # 
 # </sample>
 # <source>
-
-
-
-#' randomElement
-#' 
-#' xxx Undocumented
-#' 
-'randomElement'
-
-
 
 #' @export
 randomElement=function(data)
