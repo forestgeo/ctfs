@@ -187,19 +187,7 @@
 #'
 'rsymexp'
 
-#' dasymexp
-#'
-#' @description
-#'
-#' Probability distributions for a folded but asymmetrical exponential. 
-#'
-#' When x>=center, it's a standard exponential. When x<center, it's the mirror image 
-#' of a different exponential; rate1 refers to the right half, rate2 to the
-#' left. The center is not the median: the section x>center has integral rate2/(rate1+rate2),
-#' and the section x<center rate1/(rate1+rate2). 
-#'
-#'
-'dasymexp'
+
 
 #' qasymexp
 #'
@@ -222,12 +210,36 @@
 #'
 #' @description
 #'
-#' Probability distributions for an asymmetrical Gaussian, that is with different standard deviations
-#' above and below the mode, or center. The mode is not the mean, though. The SD on the right is sigma1,
-#' and on the left, sigma2. 
-#'
+#' Probability distributions for an asymmetrical Gaussian, that is with
+#' different standard deviations above and below the mode, or center. The mode
+#' is not the mean, though. The SD on the right is sigma1, and on the left,
+#' sigma2.
 #'
 'dasymexp'
+
+
+#' dasymexp
+#'
+#' @description
+#'
+#' Probability distributions for a folded but asymmetrical exponential. 
+#'
+#' When `x >= center`, it's a standard exponential. When `x < center`, it's the 
+#' mirror image of a different exponential; `rate1` refers to the right half, 
+#' `rate2` to the left. The center is not the median: the section x>center has 
+#' integral `rate2 / (rate1 + rate2)`, and the section 
+#' `x < center rate1 / (rate1 + rate2)`.
+#'
+'dasymexp'
+
+
+
+
+
+
+
+
+
 
 #' minum.normal
 #'

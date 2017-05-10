@@ -7,5 +7,5 @@
 se.skewness(x)
 }
 \description{
-xxx Undocumented
+Standard error of skewness.
 }

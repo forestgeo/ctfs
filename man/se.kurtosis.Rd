@@ -7,5 +7,5 @@
 se.kurtosis(x)
 }
 \description{
-xxx Undocumented
+Standard error of kurtosis. Depends only on sample size.
 }

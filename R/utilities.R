@@ -2206,8 +2206,9 @@ randomRow=function(data)
 
 
 #' randomElement
-#' @describeIn
+#' 
 #' xxx Undocumented
+#' 
 'randomElement'
 
 

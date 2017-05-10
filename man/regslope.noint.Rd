@@ -7,5 +7,6 @@
 regslope.noint(y, x)
 }
 \description{
-Returns slope of regression with no intercept as single scalar (for use with apply).
+Returns slope of regression with no intercept as single scalar (for use with
+apply).
 }

@@ -7,5 +7,6 @@
 kurtosis(x)
 }
 \description{
-xxx Undocumented.
+Sample kurtosis. The biased portion is the population kurtosis; corrected is
+for finite sample.
 }
