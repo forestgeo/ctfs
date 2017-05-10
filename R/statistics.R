@@ -12,6 +12,24 @@
 #' 
 'skewness'
 
+#' se.skewness
+#' 
+#' @description
+#' Standard error of skewness.
+#' 
+'se.skewness'
+
+
+
+
+#' kurtosis
+#' 
+#' @description
+#' Sample kurtosis. The biased portion is the population kurtosis; corrected is
+#' for finite sample.
+#' 
+'kurtosis'
+
 
 
 #' se.kurtosis
@@ -23,13 +41,6 @@
 
 
 
-#' kurtosis
-#' 
-#' @description
-#' Sample kurtosis. The biased portion is the population kurtosis; corrected is
-#' for finite sample.
-#' 
-'kurtosis'
 
 
 
@@ -126,7 +137,6 @@
 #' @description
 #'
 #' Regression using the Gibbs sampler, with just one x variable. 
-#'
 #'
 'regression.Bayes'
 

@@ -390,6 +390,7 @@ reference:
    - regslope.noint
    - regsum
    - se.kurtosis
+   - se.skewness
    - skewness
    - standardreg.no.int
    - sumsq
