@@ -7,5 +7,8 @@
 dasymnorm(x, center, sigma1, sigma2, log = FALSE)
 }
 \description{
-xxx Undocumented.
+Probability distributions for an asymmetrical Gaussian, that is with
+different standard deviations above and below the mode, or center. The mode
+is not the mean, though. The SD on the right is sigma1, and on the left,
+sigma2.
 }

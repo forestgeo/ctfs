@@ -227,7 +227,6 @@ reference:
    - constant.bin
    - constant.linear
    - dasymexp
-   - dasymexp
    - dasymnorm
    - dasympower
    - dbeta.reparam
