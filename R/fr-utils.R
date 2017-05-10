@@ -89,8 +89,9 @@ rm_na_row <- function(.data) {
 
 # The field title has a reference of the fol
 # Access files and functions
-raw_strings <- function() {
-  files_in_R <- paste0("./R/", dir("./R"))
+raw_strings <- function(path2r = "./R/") {
+  path2r
+  files_in_R <- paste0(path2r, dir(path2r))
   raw_strings <- purrr::map(files_in_R, readr::read_file)
   names(raw_strings) <- stringr::str_replace(
     files_in_R, 
@@ -165,6 +166,9 @@ write_pkgdown_yml <- function() {
 
 
 
+
+
+
 # List internal functions
 
 list_internal_funs <- function(raw_strings) {
@@ -188,12 +192,31 @@ raw_strings %>%
   )
 }
 
-list_internal_funs(raw_strings())
+showdiff_man_pkg <- function(current_dir = "./") {
+  path2r <- paste0(current_dir, "R/")
+  path2man <- paste0(current_dir, "man")
+  path2pkdownyml <- paste0(current_dir, "_pkgdown.yml")
 
-
-
-
-
+  exported_not_indexed <- list_internal_funs(raw_strings(path2r))
+  exported_not_indexed <- exported_not_indexed$fun_internal
+  pkg_doc <- "forestr"
+  not_applicable <- c(pkg_doc, exported_not_indexed)
+  
+  man <- dir(path2man) %>% 
+  stringr::str_replace("\\.Rd", "") %>% 
+  setdiff(not_applicable)
+  
+  pkg <- readr::read_lines(path2pkdownyml) %>% 
+  stringr::str_subset("^   -") %>% 
+  stringr::str_replace("-", "") %>% 
+  stringr::str_trim()
+  
+  list(
+    pkg_man = setdiff(sort(pkg),  sort(man)),
+    man_pkg = setdiff(sort(man),  sort(pkg))
+    )
+}
+  
 # end ---------------------------------------------------------------------
 
 

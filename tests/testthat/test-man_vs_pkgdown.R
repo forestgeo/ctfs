@@ -1,11 +1,10 @@
 context("compare_man_vs_pkgdown")
 
 test_that("Functions in man are all in _pkgdown.yml", {
-  exported_not_indexed <- c(
-  "rm_na_row", 
-  "wsgdata_dummy",
-  "is_na_row"
-  )
+  # Avoid documenting testing internal functions, because they are in man but
+  # not indexed
+  exported_not_indexed <- list_internal_funs(raw_strings(path2r = "../../R/"))
+  exported_not_indexed <- exported_not_indexed$fun_internal
   pkg_doc <- "forestr"
   not_applicable <- c(pkg_doc, exported_not_indexed)
   
@@ -14,7 +13,6 @@ test_that("Functions in man are all in _pkgdown.yml", {
   setdiff(not_applicable)
   
   pkg <- readr::read_lines("../../_pkgdown.yml") %>% 
-  # pkg <- readr::read_lines("_pkgdown.yml") %>% 
   stringr::str_subset("^   -") %>% 
   stringr::str_replace("-", "") %>% 
   stringr::str_trim()
