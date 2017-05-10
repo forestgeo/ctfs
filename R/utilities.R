@@ -2203,10 +2203,15 @@ randomRow=function(data)
 # </sample>
 # <source>
 
+
+
 #' randomElement
-#' 
+#' @describeIn
 #' xxx Undocumented
-#' 
+'randomElement'
+
+
+
 #' @export
 randomElement=function(data)
 {

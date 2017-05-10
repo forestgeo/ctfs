@@ -7,7 +7,7 @@ write_pkgdown_yml()
 
 not_applicable <- c("forestr", "rm_na_row", "wsgdata_dummy", "is_na_row")
 man <- dir("./man") %>% 
-  stringr::str_replace(".Rd", "") %>% 
+  stringr::str_replace("\\.Rd", "") %>% 
   setdiff(not_applicable)
 
 
