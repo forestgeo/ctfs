@@ -5,10 +5,45 @@ load_all()
 
 write_pkgdown_yml()
 
+
+
+
+
+
+
+
+
+
+  stringr::str_extract_all(
+      stringr::regex(
+        pat,
+        multiline = TRUE,
+        dotall = TRUE
+      )
+  )
+
+
+
+
+%>% 
+    tibble::tibble() %>% 
+    tidyr::unnest() %>% 
+    purrr::set_names("fun") %>% 
+    dplyr::mutate(
+      fun = stringr::str_replace_all(fun, stringr::fixed("'"), "")
+    )
+
+
+
+
+
+
+
 not_applicable <- c("forestr", "rm_na_row", "wsgdata_dummy", "is_na_row")
+
 man <- dir("./man") %>% 
-  stringr::str_replace("\\.Rd", "") %>% 
-  setdiff(not_applicable)
+  stringr::str_replace("\\.Rd", "") 
+
 
 
 

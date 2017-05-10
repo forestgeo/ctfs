@@ -435,7 +435,6 @@ reference:
    - pst
    - randomElement
    - randomRow
-   - randomRow
    - right
    - rightbut
    - save.searchpath

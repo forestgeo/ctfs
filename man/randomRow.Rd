@@ -2,15 +2,10 @@
 % Please edit documentation in R/utilities.R
 \name{randomRow}
 \alias{randomRow}
-\alias{randomRow}
 \title{randomRow}
 \usage{
-randomRow(data)
-
 randomRow(data)
 }
 \description{
 Return a random row from a dataframe
-
-Return a random element from a vector
 }

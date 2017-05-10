@@ -7,5 +7,5 @@
 randomElement(data)
 }
 \description{
-xxx Undocumented
+Return a random element from a vector
 }

@@ -162,6 +162,38 @@ write_pkgdown_yml <- function() {
     readr::write_file("_pkgdown.yml")
 }
 
+
+
+
+# List internal functions
+
+list_internal_funs <- function(raw_strings) {
+raw_strings %>% 
+  stringr::str_subset("@keywords internal") %>%
+  stringr::str_split("\n\r") %>% 
+  tibble::tibble() %>% 
+  tidyr::unnest() %>% 
+  purrr::set_names("fun_internal") %>%
+  dplyr::filter(grepl("@keywords internal", fun_internal)) %>%
+  dplyr::mutate(
+    fun_internal = stringr::str_extract_all(
+      fun_internal, "[A-z0-9_.]+ <- function"
+    )
+  ) %>% 
+  tidyr::unnest() %>% 
+  dplyr::mutate(
+    fun_internal = stringr::str_replace_all(
+      fun_internal, " <- function", ""
+    )
+  )
+}
+
+list_internal_funs(raw_strings())
+
+
+
+
+
 # end ---------------------------------------------------------------------
 
 
