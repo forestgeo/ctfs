@@ -129,8 +129,8 @@ tibble_folder_file_fun <- function(raw_strings) {
 
 
 # Write body of the _pkgdown file
-tibble_fff <- function(raw_strings) {
-  tibble_folder_file_fun(raw_strings) %>% 
+tibble_fff <- function(tibble_folder_file_fun) {
+  tibble_folder_file_fun %>% 
   dplyr::group_by(folder, file) %>% 
   dplyr::mutate(
     fun = paste0("\n   - ", fun),
@@ -148,7 +148,9 @@ format_pkgdown <- function(tibble_fff) {
   paste0(collapse = "\n")
 }
 site_ref_body <- function(raw_strings) {
-  tibble_fff(raw_strings) %>% format_pkgdown()
+  tibble_folder_file_fun(raw_strings) %>% 
+    tibble_fff() %>% 
+    format_pkgdown()
 }
 
 
@@ -238,12 +240,27 @@ tibble_no_folder <- function(fun) {
   )
 }
 
-# showdiff_man_pkg()$man_pkg %>% 
-#   # c("wsgdata_dummy", "abundance") %>% 
-#   purrr::map_df(tibble_no_folder) %>% 
-#   group_by(folder, file) %>% 
-#   format_pkgdown() %>% 
-#   write_file("tmp.yml")
+
+
+
+format_diff_man_pkg <- function() {
+  showdiff_man_pkg()$man_pkg %>%
+    purrr::map_df(tibble_no_folder) %>%
+    tibble_fff() %>% 
+    format_pkgdown()
+}
+
+
+
+add_diff_man_pkg <- function() {
+  paste(
+    readr::read_file("_pkgdown.yml"), 
+    format_diff_man_pkg(), sep = "\n"
+  ) %>% 
+    write_file("_pkgdown.yml")
+}
+
+
 
 # end ---------------------------------------------------------------------
 
