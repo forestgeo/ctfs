@@ -1,6 +1,6 @@
-context("compare_man_vs_pkgdown")
+context("Functions in man/ and _pkgdown.yml are the same")
 
-test_that("Functions in man are all in _pkgdown.yml", {
+test_that("Functions in man/ are all in _pkgdown.yml and viceversa", {
   # Avoid documenting testing internal functions, because they are in man but
   # not indexed
   exported_not_indexed <- list_internal_funs(raw_strings(path2r = "../../R/"))
@@ -17,11 +17,21 @@ test_that("Functions in man are all in _pkgdown.yml", {
   stringr::str_replace("-", "") %>% 
   stringr::str_trim()
   
-  expect_equal(sort(pkg),  sort(man))
+  expect_equal(sort(pkg), sort(man), 
+    info = "See showdiff_man_pkg()"
+  )
   
-  expect_true(purrr::is_empty(setdiff(man, pkg)))
-  expect_true(purrr::is_empty(setdiff(pkg, man)))
+  expect_true(purrr::is_empty(setdiff(man, pkg)), 
+    info = "See showdiff_man_pkg()"
+  )
+  expect_true(purrr::is_empty(setdiff(pkg, man)),
+        info = "See showdiff_man_pkg()"
+  )
   
-  expect_true(purrr::is_empty(man[duplicated(man)]))
-  expect_true(purrr::is_empty(pkg[duplicated(pkg)]))
+  expect_true(purrr::is_empty(man[duplicated(man)]),
+    info = "See showdiff_man_pkg()"
+  )
+  expect_true(purrr::is_empty(pkg[duplicated(pkg)]),
+    info = "See showdiff_man_pkg()"
+  )
 })
