@@ -168,7 +168,7 @@ site_ref_head <- function() {
 }
 
 # Combine all of the above in one single step
-write_pkgdown_yml <- function(raw_strings) {
+pkgdown_doc_nms <- function(raw_strings) {
   paste0(site_ref_head(), site_ref_body(raw_strings)) %>% 
     readr::write_file("_pkgdown.yml")
 }
@@ -252,7 +252,7 @@ format_diff_man_pkg <- function() {
 
 
 
-add_diff_man_pkg <- function() {
+pkgdown_diff_man_pkg <- function() {
   paste(
     readr::read_file("_pkgdown.yml"), 
     format_diff_man_pkg(), sep = "\n"
@@ -260,7 +260,13 @@ add_diff_man_pkg <- function() {
     write_file("_pkgdown.yml")
 }
 
-
+write_pkgdown_yml <- function(raw_strings) {
+  # write _pkgdown.yml from functions documented as names with 'name'
+  pkgdown_doc_nms(raw_strings)
+  # To _pkgdown.yml, add functions present  in man but not in pkg, which are 
+  # new functions, documented properly as: name <- function().
+  pkgdown_diff_man_pkg()
+}
 
 # end ---------------------------------------------------------------------
 
