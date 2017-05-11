@@ -4,6 +4,40 @@ library(tidyverse)
 load_all()
 
 write_pkgdown_yml()
+raw_strings <- raw_strings()
+
+
+#################
+
+
+# xxxcont. integrate this in utils. Insert funs in chain to continue formatting.
+
+file_of_fun <- function(fun) {
+strings <- raw_strings() %>% 
+  tibble::enframe() %>% 
+  tidyr::unnest()
+strings[grepl(paste0(fun, " <- function"), strings$value), ]$name
+}
+
+tibble_no_folder <- function(fun) {
+  tibble::tibble(
+    folder = ".",
+    file = file_of_fun(fun),
+    fun = fun
+  )
+}
+
+bind_funs <- function(fun, raw_strings){
+  bind_rows(
+    tibble_folder_file_fun(raw_strings),
+    purrr::map_df(fun, tibble_no_folder)
+  )
+}
+
+# raw_strings <- raw_strings()
+# fun <- showdiff_man_pkg()$man_pkg
+
+bind_funs(fun, raw_strings)
 
 
 
@@ -12,7 +46,7 @@ write_pkgdown_yml()
 
 
 
-
+###############
 
   stringr::str_extract_all(
       stringr::regex(

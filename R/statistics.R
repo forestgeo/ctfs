@@ -485,7 +485,7 @@
 # <source>
 #' @export
 
-skewness=function(x)
+skewness <- function(x)
 {
  x=x[!is.na(x)]
  n=length(x)

@@ -268,7 +268,7 @@
 # <source>
 #' @export
 
-abundance <- function(censdata,type='abund',alivecode=c("A"),mindbh=NULL,dbhunit='mm',split1=NULL,split2=NULL)
+abundance=function(censdata,type='abund',alivecode=c("A"),mindbh=NULL,dbhunit='mm',split1=NULL,split2=NULL)
 {
  if(is.null(split1)) split1=rep("all",dim(censdata)[1])
  if(is.null(split2)) split2=rep("all",dim(censdata)[1])
