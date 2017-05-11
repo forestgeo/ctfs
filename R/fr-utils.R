@@ -115,8 +115,6 @@ get_funs <- function(raw_strings){
     )
 }
 
-
-
 # Sort by folder, file and functions
 tibble_folder_file_fun <- function(raw_strings) {
   folder_files <- readr::read_csv("./data-raw/folder_files.csv")
@@ -128,15 +126,20 @@ tibble_folder_file_fun <- function(raw_strings) {
     dplyr::arrange(folder, file, fun)
 }
 
+
+
 # Write body of the _pkgdown file
-site_ref_body <- function(raw_strings) {
+tibble_fff <- function(raw_strings) {
   tibble_folder_file_fun(raw_strings) %>% 
   dplyr::group_by(folder, file) %>% 
   dplyr::mutate(
     fun = paste0("\n   - ", fun),
     fun = paste0(fun, collapse = "")
     ) %>% 
-  unique() %>% 
+  unique()
+}
+format_pkgdown <- function(tibble_fff) {
+  tibble_fff %>% 
   dplyr::transmute(
     reference = paste0("\n- title: ", folder, "; ", file, "\n  contents: "),
     reference = paste0(reference, fun, collapse = "\n")
@@ -144,6 +147,11 @@ site_ref_body <- function(raw_strings) {
   .[["reference"]] %>% 
   paste0(collapse = "\n")
 }
+site_ref_body <- function(raw_strings) {
+  tibble_fff(raw_strings) %>% format_pkgdown()
+}
+
+
 
 # Write header of the pkgdown file
 site_ref_head <- function() {
@@ -158,14 +166,10 @@ site_ref_head <- function() {
 }
 
 # Combine all of the above in one single step
-write_pkgdown_yml <- function() {
-  paste0(site_ref_head(), site_ref_body(raw_strings())) %>% 
+write_pkgdown_yml <- function(raw_strings) {
+  paste0(site_ref_head(), site_ref_body(raw_strings)) %>% 
     readr::write_file("_pkgdown.yml")
 }
-
-
-
-
 
 
 
@@ -216,11 +220,30 @@ showdiff_man_pkg <- function(current_dir = "./") {
     man_pkg = setdiff(sort(man),  sort(pkg))
     )
 }
-  
+
+
+
+file_of_fun <- function(fun) {
+strings <- raw_strings() %>% 
+  tibble::enframe() %>% 
+  tidyr::unnest()
+strings[grepl(paste0(fun, " <- function"), strings$value), ]$name
+}
+
+tibble_no_folder <- function(fun) {
+  tibble::tibble(
+    folder = ".",
+    file = file_of_fun(fun),
+    fun = fun
+  )
+}
+
+# showdiff_man_pkg()$man_pkg %>% 
+#   # c("wsgdata_dummy", "abundance") %>% 
+#   purrr::map_df(tibble_no_folder) %>% 
+#   group_by(folder, file) %>% 
+#   format_pkgdown() %>% 
+#   write_file("tmp.yml")
+
 # end ---------------------------------------------------------------------
-
-
-
-
-
 

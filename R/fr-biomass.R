@@ -31,3 +31,14 @@ wsgdata_dummy <- function(censdata, plot = "bci") {
     wsg = dnorm(1:length(unique(censdata$sp)))
   )
 }
+
+
+
+
+
+#' A dummy function
+#'
+#' @return A string
+#' @export
+#'
+dummy_fun <- function() {"this is a dummy function"}
