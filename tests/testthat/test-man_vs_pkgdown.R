@@ -19,9 +19,6 @@ test_that("Functions in man are all in _pkgdown.yml", {
   
   expect_equal(sort(pkg),  sort(man))
   
-  # expect_equal(setdiff(man, pkg), "character(0)")
-  # expect_equal(setdiff(pkg, man), "character(0)")
-  
   expect_true(purrr::is_empty(setdiff(man, pkg)))
   expect_true(purrr::is_empty(setdiff(pkg, man)))
   
