@@ -7,6 +7,7 @@ load_all()
 # xxx cont. 
 #   check test
 #   add description
+#   tidy non standard evaluation
 
 
 
