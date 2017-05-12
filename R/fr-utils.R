@@ -195,7 +195,8 @@ raw_strings %>%
     fun_internal = stringr::str_replace_all(
       fun_internal, " <- function", ""
     )
-  )
+  ) %>% 
+    dplyr::filter(fun_internal != "list_internal_funs")
 }
 
 showdiff_man_pkg <- function(current_dir = "./") {
@@ -261,12 +262,27 @@ pkgdown_diff_man_pkg <- function() {
 }
 
 write_pkgdown_yml <- function(raw_strings) {
+  if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  stop("tidiverse needed for this function to work. Please install it.", 
+    call. = FALSE)
+  }
   # write _pkgdown.yml from functions documented as names with 'name'
   pkgdown_doc_nms(raw_strings)
   # To _pkgdown.yml, add functions present  in man but not in pkg, which are 
   # new functions, documented properly as: name <- function().
   pkgdown_diff_man_pkg()
 }
+
+
+
+
+
+
+
+
+
+
+
 
 # end ---------------------------------------------------------------------
 
