@@ -5,7 +5,7 @@
 #'
 
 #'
-#' NeighborDensities
+#' Calculates the total number or basal area of conspecific and hetero...
 #'
 #' @description
 #'
@@ -41,7 +41,7 @@
 'NeighborDensities'
 
 #'
-#' NDcount
+#' Calculates the count of neighbors within radius r with edge effect ...
 #'
 #' @description
 #'

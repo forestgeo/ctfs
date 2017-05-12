@@ -1,4 +1,4 @@
-#' MONTHNAMES
+#' Object assumed to be crucial. In `utilities.R, the original documen...
 #' 
 #' Object assumed to be crucial. In `utilities.R, the original documentation of
 #' the CTFSRPackage states:

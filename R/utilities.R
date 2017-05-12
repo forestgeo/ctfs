@@ -210,7 +210,7 @@
 'trim'
 
 #'
-#' StringToVect
+#' Converts a character string into a vector of individual characters....
 #'
 #' @description
 #'
@@ -413,7 +413,7 @@
 'nhd'
 
 #'
-#' TextToRdata
+#' Reads a tab-delimited text file and save as rdata.TextToRdata Count...
 #'
 #' @description
 #'
@@ -423,7 +423,7 @@
 'TextToRdata'
 
 #'
-#' CountByGroup
+#' Groups a dataframe by one or more columns (named by groupcol). This...
 #'
 #' @description
 #'
@@ -457,7 +457,7 @@
 'attach_if_needed'
 
 #'
-#' IfElse
+#' A more convenient version of the R function ifelse in cases where t...
 #'
 #' @description
 #'
@@ -467,7 +467,7 @@
 'IfElse'
 
 #'
-#' AssignDiag
+#' A way to assign the diagonals of a matrix that can handle input hav...
 #'
 #' @description
 #'

@@ -5,7 +5,7 @@
 #'
 
 #'
-#' CTFSplot
+#' Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> ...
 #'
 #' @description
 #' Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> (see 

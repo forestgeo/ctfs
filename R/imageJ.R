@@ -53,7 +53,7 @@
 'fullplot.imageJ'
 
 #'
-#' SectionCorrection
+#' This function is called by fullplot.imageJ in the case that the map...
 #'
 #' @description
 #'

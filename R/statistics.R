@@ -141,7 +141,7 @@
 'regression.Bayes'
 
 #'
-#' Gibbs.regslope
+#' Updates the regression slope (used in regression.Bayes).Gibbs.regsl...
 #'
 #' @description
 #'
@@ -149,7 +149,7 @@
 'Gibbs.regslope'
 
 #'
-#' Gibbs.regsigma
+#' Updates the regression standard deviation (used in regression.Bayes...
 #'
 #' @description
 #'
@@ -159,7 +159,7 @@
 'Gibbs.regsigma'
 
 #'
-#' Gibbs.normalmean
+#' The standard Gibbs sampler for a normal distribution with unknown m...
 #'
 #' @description
 #'
@@ -172,7 +172,7 @@
 'Gibbs.normalmean'
 
 #'
-#' Gibbs.normalvar
+#' Gibbs draw for the variance of a normal distribution (http://www.bi...
 #'
 #' @description
 #'
@@ -274,7 +274,7 @@
 'llike.GaussModelSD'
 
 #'
-#' BadParam
+#' This is a default for model.xy, never returning TRUE. To use model....
 #'
 #' @description
 #'
@@ -367,7 +367,7 @@
 'testmcmcfunc'
 
 #'
-#' CI
+#' Confidence limits (quantiles) from a vector at specified probabilit...
 #'
 #' @description
 #'

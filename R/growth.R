@@ -162,7 +162,7 @@
 'growth.biomass.indiv'
 
 #'
-#' DBHtransition
+#' Calculates a transition matrix of individuals by diameter categorie...
 #'
 #' @description
 #'

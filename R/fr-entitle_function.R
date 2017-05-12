@@ -33,7 +33,7 @@ trunc_description <- function(patt) {
   paste0("#' ", title)
 }
 
-entitle_function <- function(path2R){
+entitle_function <- function(path2R = "./data-raw/to_copy_to_R/"){
   comment_patt <- comment_patt()
   replaced <- purrr::map(raw_strings(), 
     stringr::str_replace_all, 

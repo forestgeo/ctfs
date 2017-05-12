@@ -95,7 +95,7 @@
 'density_ind'
 
 #'
-#' AGB.ind
+#' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) m...
 #'
 #' @description
 #'
@@ -123,7 +123,7 @@
 'AGB.ind'
 
 #'
-#' AGB.tree
+#' Computes AGB of each tree in a table, grouping all stems of one tre...
 #'
 #' @description
 #'
@@ -143,7 +143,7 @@
 'AGB.tree'
 
 #'
-#' Chave.AGB
+#' The Chave 2005 Oecologia model for calculating biomass from dbh in ...
 #'
 #' @description
 #'
@@ -291,7 +291,7 @@
 'biomass.change'
 
 
-#' AGB.dbtable
+#' This function looks up the database named AGB in the MySQL server t...
 #'
 #' @description
 #'
