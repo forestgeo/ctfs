@@ -243,7 +243,6 @@ tibble_no_folder <- function(fun) {
 
 
 
-
 format_diff_man_pkg <- function() {
   showdiff_man_pkg()$man_pkg %>%
     purrr::map_df(tibble_no_folder) %>%
@@ -261,12 +260,67 @@ pkgdown_diff_man_pkg <- function() {
     write_file("_pkgdown.yml")
 }
 
+
+
+# test
+
+# Test that functions in man/ and _pkgdown.yml are the same")
+
+test_man_vs_pkg <- function() {
+  # Test that functions in man/ are all in _pkgdown.yml and viceversa
+  
+  # Avoid documenting testing internal functions, because they are in man but
+  # not indexed
+  here <- stringr::str_extract(getwd(), "/[^/]*$")
+  prefix <- ifelse(here == "/forestr" , "./", "../../")
+  here_path <- function(here) {paste0(prefix, here)}
+  exported_not_indexed <- list_internal_funs(
+    raw_strings(path2r = here_path("R/"))
+  )
+  exported_not_indexed <- exported_not_indexed$fun_internal
+  pkg_doc <- "forestr"
+  not_applicable <- c(pkg_doc, exported_not_indexed)
+  
+  man <- dir(here_path("man")) %>% 
+  stringr::str_replace("\\.Rd", "") %>% 
+  setdiff(not_applicable)
+  
+  pkg <- readr::read_lines(here_path("_pkgdown.yml")) %>% 
+  stringr::str_subset("^   -") %>% 
+  stringr::str_replace("-", "") %>% 
+  stringr::str_trim()
+  
+  testthat::expect_equal(sort(pkg), sort(man), 
+    info = "See showdiff_man_pkg()"
+  )
+  
+  testthat::expect_true(purrr::is_empty(setdiff(man, pkg)), 
+    info = "See showdiff_man_pkg()"
+  )
+  testthat::expect_true(purrr::is_empty(setdiff(pkg, man)),
+        info = "See showdiff_man_pkg()"
+  )
+  
+  testthat::expect_true(purrr::is_empty(man[duplicated(man)]),
+    info = "See showdiff_man_pkg()"
+  )
+  testthat::expect_true(purrr::is_empty(pkg[duplicated(pkg)]),
+    info = "See showdiff_man_pkg()"
+  )
+}
+
+
+
+# Run and test
+
 write_pkgdown_yml <- function(raw_strings) {
   # write _pkgdown.yml from functions documented as names with 'name'
   pkgdown_doc_nms(raw_strings)
   # To _pkgdown.yml, add functions present  in man but not in pkg, which are 
   # new functions, documented properly as: name <- function().
   pkgdown_diff_man_pkg()
+  # test is not outside testthat because OK test fails in devtools::check()
+  test_man_vs_pkg()
 }
 
 
