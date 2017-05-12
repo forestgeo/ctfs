@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{constant.bin}
 \alias{constant.bin}
-\title{constant.bin}
+\title{A model like piecewise regression (linearmodel.bin), but y is a con...}
 \usage{
 constant.bin(x, param)
 }

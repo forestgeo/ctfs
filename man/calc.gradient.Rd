@@ -2,7 +2,7 @@
 % Please edit documentation in R/slope.R
 \name{calc.gradient}
 \alias{calc.gradient}
-\title{calc.gradient}
+\title{Calculate flow using Seibert & McGlynn algorithm. Takes a 3x3 matri...}
 \usage{
 calc.gradient(elev, grid = 20)
 }

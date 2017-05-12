@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{qasympower}
 \alias{qasympower}
-\title{qasympower}
+\title{Quantiles from the bilateral power distribution, dasympower. By R. ...}
 \usage{
 qasympower(y, rate1, rate2, c)
 }

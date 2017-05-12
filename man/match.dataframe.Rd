@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{match.dataframe}
 \alias{match.dataframe}
-\title{match.dataframe}
+\title{Matches two dataframes using two or more columns. Rs function match...}
 \usage{
 match.dataframe(x, y)
 }

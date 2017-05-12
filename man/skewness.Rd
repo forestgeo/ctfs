@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{skewness}
 \alias{skewness}
-\title{skewness}
+\title{Sample skewness. The biased portion is the population skewness; cor...}
 \usage{
 skewness(x)
 }

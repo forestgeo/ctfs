@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{graph.growthmodel}
 \alias{graph.growthmodel}
-\title{graph.growthmodel}
+\title{Graph growth rates and model fit. graph.growthmodel overlay.growthb...}
 \usage{
 graph.growthmodel(spp, fitlist, whichbin = 1, regclr = "green",
   modelclr = "blue", graphdiv = 10, export = pdf,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{logical.grep}
 \alias{logical.grep}
-\title{logical.grep}
+\title{A form of grep returning logical instead of indices (numbers).logic...}
 \usage{
 logical.grep(needle, haystack)
 }

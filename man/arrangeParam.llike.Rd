@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{arrangeParam.llike}
 \alias{arrangeParam.llike}
-\title{arrangeParam.llike}
+\title{Used in likelihood function of a Gibbs sampler. Allows any of a set...}
 \usage{
 arrangeParam.llike(testparam, allparam, whichtest)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{lmerBayes.hyperllike.sigma}
 \alias{lmerBayes.hyperllike.sigma}
-\title{lmerBayes.hyperllike.sigma}
+\title{This is the hyper-likelihood for updating the covariances. It is al...}
 \usage{
 lmerBayes.hyperllike.sigma(testcov, fullcov, hypermean, modelpar, whichrow,
   whichcol)

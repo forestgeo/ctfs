@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{fitSeveralAbundModel}
 \alias{fitSeveralAbundModel}
-\title{fitSeveralAbundModel}
+\title{Run model.littleR.Gibbs for a series of census databases, for every...}
 \usage{
 fitSeveralAbundModel(allcns = list(bci.full1, bci.full2, bci.full3),
   sptable = bci.spptable, mindbh, excludespp = NULL, useIDlevel = TRUE,

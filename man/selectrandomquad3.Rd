@@ -2,7 +2,7 @@
 % Please edit documentation in R/spparea.R
 \name{selectrandomquad3}
 \alias{selectrandomquad3}
-\title{selectrandomquad3}
+\title{Creates randomly drawn quadrats, using same arguments and producing...}
 \usage{
 selectrandomquad3(size, shape, rep, plotdim = c(1000, 500), graphit = FALSE)
 }

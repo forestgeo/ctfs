@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{pdf.allplot}
 \alias{pdf.allplot}
-\title{pdf.allplot}
+\title{Export a pdf with one or more species maps. If singlefile=TRUE,  al...}
 \usage{
 pdf.allplot(splitdata = bci.split6, spplist = bci.spptable,
   elev = ctfs.elev$bci$mat, plotdim = c(1000, 500), cutoff = c(10, 100,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{graph.growthmodel.spp}
 \alias{graph.growthmodel.spp}
-\title{graph.growthmodel.spp}
+\title{Use output of growth.flexbin to graph observed growth and predictio...}
 \usage{
 graph.growthmodel.spp(fit, jiggle = 0.001, whichpred = "pred",
   xrange = NULL, yrange = NULL, xtitle = NULL, ytitle = NULL,

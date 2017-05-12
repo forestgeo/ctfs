@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{llike.model.lmer}
 \alias{llike.model.lmer}
-\title{llike.model.lmer}
+\title{A llikelihood function for one set of parameters, for a single rand...}
 \usage{
 llike.model.lmer(test, allparam, whichtest, data, trueN, model,
   sdmodel = constant, sdpar, errormodel = "Gauss", badparam = NULL,

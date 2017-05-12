@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{mvrnormRC}
 \alias{mvrnormRC}
-\title{mvrnormRC}
+\title{Function that takes a variance-covariance matrix and produces norma...}
 \usage{
 mvrnormRC(N, Sigma)
 }

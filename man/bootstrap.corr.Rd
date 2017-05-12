@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{bootstrap.corr}
 \alias{bootstrap.corr}
-\title{bootstrap.corr}
+\title{Running bootstrap on a correlation. Any columsn can be chosen from ...}
 \usage{
 bootstrap.corr(dataset, xcol = (-1), ycol = (-1), xcolname = "no",
   ycolname = "no", boot = 100)

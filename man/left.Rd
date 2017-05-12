@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{left}
 \alias{left}
-\title{left}
+\title{A standard left function. Returns the leftmost n characters of a st...}
 \usage{
 left(s, n)
 }

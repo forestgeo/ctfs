@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{rndown5}
 \alias{rndown5}
-\title{rndown5}
+\title{Rounds a numeric value to the next lowest multiple of 5.rndown5 cou...}
 \usage{
 rndown5(s)
 }

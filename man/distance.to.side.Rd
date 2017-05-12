@@ -2,7 +2,7 @@
 % Please edit documentation in R/imageJ.R
 \name{distance.to.side}
 \alias{distance.to.side}
-\title{distance.to.side}
+\title{Called from imageJ.to.lxly where for each point, distance to each s...}
 \usage{
 distance.to.side(pt, target, side1, side2)
 }

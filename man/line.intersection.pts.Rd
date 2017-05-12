@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{line.intersection.pts}
 \alias{line.intersection.pts}
-\title{line.intersection.pts}
+\title{Finds the point where 2 lines intersect, given each line as 2 pairs...}
 \usage{
 line.intersection.pts(pts1, pts2)
 }

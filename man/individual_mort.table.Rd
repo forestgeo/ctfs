@@ -2,7 +2,7 @@
 % Please edit documentation in R/demogChange.R
 \name{individual_mort.table}
 \alias{individual_mort.table}
-\title{individual_mort.table}
+\title{Create a table of individual trees and their survival status over t...}
 \usage{
 individual_mort.table(cnsdata, mindbh = 10, maxdbh = 10000,
   alivecode = c("A", "AB", "AS"), center = 1992)

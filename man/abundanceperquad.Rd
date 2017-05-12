@@ -2,7 +2,7 @@
 % Please edit documentation in R/abundance.R
 \name{abundanceperquad}
 \alias{abundanceperquad}
-\title{abundanceperquad}
+\title{Finds abundance, basal area, or agb of every species per square qua...}
 \usage{
 abundanceperquad(censdata, mindbh = 10, plotdim = c(1000, 500),
   gridsize = 100, type = "abund", dbhunit = "mm")

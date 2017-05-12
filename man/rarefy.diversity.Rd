@@ -2,7 +2,7 @@
 % Please edit documentation in R/calcalpha.R
 \name{rarefy.diversity}
 \alias{rarefy.diversity}
-\title{rarefy.diversity}
+\title{takes a full plot dataframe and calculates species number in a rand...}
 \usage{
 rarefy.diversity(fulldata, s)
 }

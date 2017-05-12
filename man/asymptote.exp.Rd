@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{asymptote.exp}
 \alias{asymptote.exp}
-\title{asymptote.exp}
+\title{A 3-parameter function which asymptotes as x->infinity. The 3rd par...}
 \usage{
 asymptote.exp(x, param, ...)
 }

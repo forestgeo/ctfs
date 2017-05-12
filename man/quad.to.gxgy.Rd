@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{quad.to.gxgy}
 \alias{quad.to.gxgy}
-\title{quad.to.gxgy}
+\title{Convert quadrat names into x-y coordinates, assuming the first 2 di...}
 \usage{
 quad.to.gxgy(quad, gridsize = 20, start = 0)
 }

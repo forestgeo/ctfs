@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{gsp}
 \alias{gsp}
-\title{gsp}
+\title{Returns one of the objects at a given search position. This provide...}
 \usage{
 gsp(searchpos, whichobj = 1)
 }

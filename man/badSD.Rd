@@ -2,10 +2,10 @@
 % Please edit documentation in R/lmerBayes.R
 \name{badSD}
 \alias{badSD}
-\title{badSD}
+\title{badSD arrangeParam.llike.2D  Used in likelihood function of a Gibbs...}
 \usage{
 badSD(x, param, ...)
 }
 \description{
-badSD
+badSD arrangeParam.llike.2D  Used in likelihood function of a Gibbs...
 }

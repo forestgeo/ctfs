@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{split_data}
 \alias{split_data}
-\title{split_data}
+\title{Converts a big dataframe into a list of smaller dataframes, grouped...}
 \usage{
 split_data(censdata, splitcol = "sp", keepsplitcol = FALSE,
   allsplit = NULL, showOutput = NULL)

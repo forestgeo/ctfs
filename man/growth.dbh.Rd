@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{growth.dbh}
 \alias{growth.dbh}
-\title{growth.dbh}
+\title{This calculates forest-wide growth in given dbh categories. Argumen...}
 \usage{
 growth.dbh(census1, census2, classbreak = c(10, 100, 300), dbhunit = "mm",
   growthcol = "dbh", err.limit = 4, maxgrow = 75, rounddown = FALSE,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{angleBisector}
 \alias{angleBisector}
-\title{angleBisector}
+\title{Given 3 sets of coordinates defining two line segments (middle poin...}
 \usage{
 angleBisector(corners)
 }

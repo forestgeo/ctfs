@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{which.maxNAs}
 \alias{which.maxNAs}
-\title{which.maxNAs}
+\title{An unfortunate bug in which.max: if all elements are NA, it doesnt ...}
 \usage{
 which.maxNAs(v)
 }

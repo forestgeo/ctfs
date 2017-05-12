@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{bad.asymexp.param}
 \alias{bad.asymexp.param}
-\title{bad.asymexp.param}
+\title{For either the Gaussian, or asymexp, the SD parameters must be > 0....}
 \usage{
 bad.asymexp.param(hyperparam)
 }

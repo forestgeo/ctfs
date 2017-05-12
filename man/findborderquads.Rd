@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{findborderquads}
 \alias{findborderquads}
-\title{findborderquads}
+\title{Calculate indices of neighboring quadrats, for a given quadrat inde...}
 \usage{
 findborderquads(index, dist = 20, gridsize = 20, plotdim = c(1000, 500))
 }

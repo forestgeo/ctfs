@@ -2,7 +2,7 @@
 % Please edit documentation in R/demogChange.R
 \name{calcMortIndivTable}
 \alias{calcMortIndivTable}
-\title{calcMortIndivTable}
+\title{Calculate mortality rate per species per census interval using the ...}
 \usage{
 calcMortIndivTable(mtable, by = "species")
 }

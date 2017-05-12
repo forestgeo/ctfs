@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.power}
 \alias{logistic.power}
-\title{logistic.power}
+\title{This is the Gaussian logistic function, where logit is a second-ord...}
 \usage{
 logistic.power(x, param, log = FALSE, ...)
 }

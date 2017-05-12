@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{ellipse}
 \alias{ellipse}
-\title{ellipse}
+\title{Equation for (half) a canonical ellipse fullellipse  Creates a data...}
 \usage{
 ellipse(x, center = c(0, 0), radius = c(7, 5), half = "top")
 }

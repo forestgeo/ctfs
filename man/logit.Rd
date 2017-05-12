@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logit}
 \alias{logit}
-\title{logit}
+\title{Logit transformation for a probability >0 and < 1logit invlogit  In...}
 \usage{
 logit(p)
 }

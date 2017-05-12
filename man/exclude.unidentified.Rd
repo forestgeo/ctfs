@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{exclude.unidentified}
 \alias{exclude.unidentified}
-\title{exclude.unidentified}
+\title{A more specialized version of unidentified species. It excludes spe...}
 \usage{
 exclude.unidentified(speciesnames, plotname)
 }

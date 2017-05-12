@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{unidentified.species}
 \alias{unidentified.species}
-\title{unidentified.species}
+\title{Takes a string of species names or codes and returns a logical vect...}
 \usage{
 unidentified.species(spnames, exactstr = c("UNIDEN", "UNID", "uniden",
   "unid"), partialstr = c("XX", "**"))

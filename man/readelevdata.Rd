@@ -2,7 +2,7 @@
 % Please edit documentation in R/slope.R
 \name{readelevdata}
 \alias{readelevdata}
-\title{readelevdata}
+\title{A function to read a table of elevation data into a matrix appropri...}
 \usage{
 readelevdata(elevfile, gridsize = 5, text = FALSE)
 }

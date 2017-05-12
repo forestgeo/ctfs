@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{getquadratname}
 \alias{getquadratname}
-\title{getquadratname}
+\title{Convert x, y coordinates and plot dimensions into 4-character quadr...}
 \usage{
 getquadratname(x, y, plotdim)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{load.species}
 \alias{load.species}
-\title{load.species}
+\title{A function for extracting a single speciesdataframe from the large ...}
 \usage{
 load.species(spname, sppdatafile)
 }

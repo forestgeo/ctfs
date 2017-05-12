@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{kurtosis}
 \alias{kurtosis}
-\title{kurtosis}
+\title{Sample kurtosis. The biased portion is the population kurtosis; cor...}
 \usage{
 kurtosis(x)
 }

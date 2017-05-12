@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{linearmodel.bin.set}
 \alias{linearmodel.bin.set}
-\title{linearmodel.bin.set}
+\title{This does the work of calculating predicted values at each independ...}
 \usage{
 linearmodel.bin.set(v, param, binparam)
 }

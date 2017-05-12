@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dbinomrev}
 \alias{dbinomrev}
-\title{dbinomrev}
+\title{A version of dbinom in which parameters are submitted in a differen...}
 \usage{
 dbinomrev(trial, p, success)
 }

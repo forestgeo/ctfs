@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{simple}
 \alias{simple}
-\title{simple}
+\title{An even more trivial model to return x unchanged. The argument para...}
 \usage{
 simple(x, param)
 }

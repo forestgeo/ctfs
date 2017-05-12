@@ -2,7 +2,7 @@
 % Please edit documentation in R/demogChange.R
 \name{lmerMortFixedTime}
 \alias{lmerMortFixedTime}
-\title{lmerMortFixedTime}
+\title{A model for mortality as a function of a single predictor variable,...}
 \usage{
 lmerMortFixedTime(x, param)
 }

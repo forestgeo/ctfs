@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{betaproduct}
 \alias{betaproduct}
-\title{betaproduct}
+\title{This is equivalent to the normal product above.betaproduct beta.nor...}
 \usage{
 betaproduct(x, lag, mean1, sd1, meanint, meanslope, CV)
 }

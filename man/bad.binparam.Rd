@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{bad.binparam}
 \alias{bad.binparam}
-\title{bad.binparam}
+\title{This prevents the bin parameters from moving outside the x range, a...}
 \usage{
 bad.binparam(x, param, ...)
 }

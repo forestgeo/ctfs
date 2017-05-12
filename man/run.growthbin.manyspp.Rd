@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{run.growthbin.manyspp}
 \alias{run.growthbin.manyspp}
-\title{run.growthbin.manyspp}
+\title{Run the model to fit growth rate in bins for many species, 1-4 bins...}
 \usage{
 run.growthbin.manyspp(growthdata, size = "dbh", spp = spp20,
   minabund300 = 15, minTotal = 40, dbhunit = "mm",

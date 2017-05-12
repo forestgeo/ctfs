@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{llike.GaussModel}
 \alias{llike.GaussModel}
-\title{llike.GaussModel}
+\title{This is for model.xy. It takes the model function, its parameters, ...}
 \usage{
 llike.GaussModel(testparam, allparam, whichtest, x, obs, model, badpred, SD,
   ...)

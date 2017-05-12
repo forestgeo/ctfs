@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{fullellipse}
 \alias{fullellipse}
-\title{fullellipse}
+\title{Creates a dataframe for a full ellipse.  @param x = input x coordin...}
 \usage{
 fullellipse(x, center = c(0, 0), radius = c(7, 5))
 }

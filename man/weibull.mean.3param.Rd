@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{weibull.mean.3param}
 \alias{weibull.mean.3param}
-\title{weibull.mean.3param}
+\title{Mean of three-parameter Weibullweibull.mean.3param weibull.sd.3para...}
 \usage{
 weibull.mean.3param(x0, shape, scale)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dasymexp}
 \alias{dasymexp}
-\title{dasymexp}
+\title{Probability distributions for a folded but asymmetrical exponential...}
 \usage{
 dasymexp(x, center, rate1, rate2, log = FALSE)
 }

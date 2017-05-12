@@ -2,7 +2,7 @@
 % Please edit documentation in R/abundance.R
 \name{basum}
 \alias{basum}
-\title{basum}
+\title{Returns the basal area summed over all submitted dbhs. NAs can be i...}
 \usage{
 basum(dbh, mindbh = 10, dbhunit = "mm")
 }

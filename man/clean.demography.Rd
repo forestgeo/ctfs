@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{clean.demography}
 \alias{clean.demography}
-\title{clean.demography}
+\title{This takes a CTFS demography table, output by functions mortality, ...}
 \usage{
 clean.demography(demogdata, type = "mort", Ncol = NULL, Scol = NULL,
   timecol = NULL, ratecol = NULL, excludespp = NULL)

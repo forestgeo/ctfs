@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{drp}
 \alias{drp}
-\title{drp}
+\title{A version of drop which includes as.matrix. Without it, drop does n...}
 \usage{
 drp(x)
 }

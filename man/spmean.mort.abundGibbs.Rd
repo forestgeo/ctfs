@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{spmean.mort.abundGibbs}
 \alias{spmean.mort.abundGibbs}
-\title{spmean.mort.abundGibbs}
+\title{Likelihood function for a species mean (a scalar, one species at a ...}
 \usage{
 spmean.mort.abundGibbs(spmean.mu, spmean.r, N1, S, time, MuSD, Rsd, type)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/abundance.R
 \name{pop.change.dbh}
 \alias{pop.change.dbh}
-\title{pop.change.dbh}
+\title{Finds abundance or basal area in two censuses and the rate of chang...}
 \usage{
 pop.change.dbh(census1, census2, type = "abund", dbhunit = "mm",
   alivecode = c("A"), classbreak = c(10, 100, 300), split = NULL)

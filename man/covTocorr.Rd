@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{covTocorr}
 \alias{covTocorr}
-\title{covTocorr}
+\title{Convert covariance matrix to correlation matrix. Each element is di...}
 \usage{
 covTocorr(cov)
 }

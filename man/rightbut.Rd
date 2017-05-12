@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{rightbut}
 \alias{rightbut}
-\title{rightbut}
+\title{Returns the rightmost characters of a string, excluding the initial...}
 \usage{
 rightbut(s, n, bytetype = "bytes")
 }

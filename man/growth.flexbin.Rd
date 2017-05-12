@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{growth.flexbin}
 \alias{growth.flexbin}
-\title{growth.flexbin}
+\title{Fitting a regression line through log growth against log dbh, binni...}
 \usage{
 growth.flexbin(growthtable, sizecol = "dbh", nobin = 2, start = NULL,
   startsd = NULL, sdmodel = linear.model.ctr, badsdfunc = NULL,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{create.neighbordata}
 \alias{create.neighbordata}
-\title{create.neighbordata}
+\title{Calculates the mean density in neighboring quadrats for every quadr...}
 \usage{
 create.neighbordata(abundperquad)
 }

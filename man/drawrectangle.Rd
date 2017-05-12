@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{drawrectangle}
 \alias{drawrectangle}
-\title{drawrectangle}
+\title{Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. ...}
 \usage{
 drawrectangle(corners, add = TRUE, clr = "black", lwidth = 1)
 }

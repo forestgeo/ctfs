@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dgamma.meansd}
 \alias{dgamma.meansd}
-\title{dgamma.meansd}
+\title{Probability distribution of gamma, parameterized with mean and sd i...}
 \usage{
 dgamma.meansd(x, mean, sd, log = FALSE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{countzero}
 \alias{countzero}
-\title{countzero}
+\title{Counts vector elements exactly zero.countzero countone  Counts vect...}
 \usage{
 countzero(x)
 }

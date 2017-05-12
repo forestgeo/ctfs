@@ -2,7 +2,7 @@
 % Please edit documentation in R/slope.R
 \name{quadslope}
 \alias{quadslope}
-\title{quadslope}
+\title{Given the elevation at four corners of a square of side=gridsize, t...}
 \usage{
 quadslope(cornerelev, gridsize = 20)
 }

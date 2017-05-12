@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{tojulian}
 \alias{tojulian}
-\title{tojulian}
+\title{Accepts any character representation of a date and a description of...}
 \usage{
 tojulian(x, dateform = "\%m/\%d/\%Y")
 }

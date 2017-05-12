@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{arrangeParam.Gibbs}
 \alias{arrangeParam.Gibbs}
-\title{arrangeParam.Gibbs}
+\title{Used in the loop of a Gibbs sampler, setting parameters not yet tes...}
 \usage{
 arrangeParam.Gibbs(i, j, allparam)
 }

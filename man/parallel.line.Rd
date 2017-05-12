@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{parallel.line}
 \alias{parallel.line}
-\title{parallel.line}
+\title{Finds the slope and intercept of the line parallel to a line whose ...}
 \usage{
 parallel.line(b, m, x, y)
 }

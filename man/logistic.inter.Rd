@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.inter}
 \alias{logistic.inter}
-\title{logistic.inter}
+\title{Logistic function with intercept parameterization (i.e., first para...}
 \usage{
 logistic.inter(x, param, log = FALSE, ...)
 }

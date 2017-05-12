@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{lxly.to.p5}
 \alias{lxly.to.p5}
-\title{lxly.to.p5}
+\title{Given local, or  within-quadrat, coordinates for a 20-m quadrat, re...}
 \usage{
 lxly.to.p5(lx, ly, gridsize = 20)
 }

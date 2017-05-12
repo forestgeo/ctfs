@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{normalproduct}
 \alias{normalproduct}
-\title{normalproduct}
+\title{A function which returns the product of 2 normal distributions, the...}
 \usage{
 normalproduct(x, lag, mean1, sd1, meanint, meanslope, CV)
 }

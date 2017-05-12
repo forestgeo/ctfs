@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{fromjulian}
 \alias{fromjulian}
-\title{fromjulian}
+\title{Accepts a julian date and returns a character representation of dat...}
 \usage{
 fromjulian(j, dateform = "\%m/\%d/\%Y")
 }

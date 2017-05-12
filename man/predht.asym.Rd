@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{predht.asym}
 \alias{predht.asym}
-\title{predht.asym}
+\title{An allometric model predicting an asymptote at large size, used in ...}
 \usage{
 predht.asym(dbh, param)
 }

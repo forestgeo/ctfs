@@ -2,7 +2,7 @@
 % Please edit documentation in R/recruitment.R
 \name{recruitment}
 \alias{recruitment}
-\title{recruitment}
+\title{Functions for calculating recruitment rates. Recruitment is the mai...}
 \usage{
 recruitment(census1, census2, mindbh = 10, alivecode = c("A", "AB", "AS"),
   split1 = NULL, split2 = NULL)

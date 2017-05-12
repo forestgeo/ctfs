@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{torus.shift}
 \alias{torus.shift}
-\title{torus.shift}
+\title{Creates a torus-shifted quadrat topographic dataset. It accepts a q...}
 \usage{
 torus.shift(quaddata, slip.horiz, slip.vert, invert = F, reverse = F,
   plotdim = c(1000, 500), gridsize = 20)

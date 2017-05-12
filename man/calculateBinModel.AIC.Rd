@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{calculateBinModel.AIC}
 \alias{calculateBinModel.AIC}
-\title{calculateBinModel.AIC}
+\title{Calculate AIC of the model, using various log(likelihood) estimator...}
 \usage{
 calculateBinModel.AIC(fit, type = "optim")
 }

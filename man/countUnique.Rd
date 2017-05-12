@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{countUnique}
 \alias{countUnique}
-\title{countUnique}
+\title{Count the number of unique elements in a vectorcountUnique graphFil...}
 \usage{
 countUnique(x)
 }

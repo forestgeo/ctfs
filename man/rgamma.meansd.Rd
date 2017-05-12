@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{rgamma.meansd}
 \alias{rgamma.meansd}
-\title{rgamma.meansd}
+\title{Random draws of gamma, parameterized with mean and sd instead of sh...}
 \usage{
 rgamma.meansd(n, mean, sd)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{intersection.line.curve}
 \alias{intersection.line.curve}
-\title{intersection.line.curve}
+\title{Finds the points where a straight line, given lines as intercept b ...}
 \usage{
 intersection.line.curve(b, m, curve)
 }

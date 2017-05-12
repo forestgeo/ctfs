@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dmixnorm}
 \alias{dmixnorm}
-\title{dmixnorm}
+\title{Mixed normal distribution. The parameter f is the probability  of f...}
 \usage{
 dmixnorm(x, mean1, mean2, sd1, sd2, f, log = FALSE)
 }

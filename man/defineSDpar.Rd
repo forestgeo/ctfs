@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{defineSDpar}
 \alias{defineSDpar}
-\title{defineSDpar}
+\title{For default SD parameters, if nothing else works. Choose the midpoi...}
 \usage{
 defineSDpar(x, nopar)
 }

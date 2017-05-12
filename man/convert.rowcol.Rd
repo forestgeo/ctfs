@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{convert.rowcol}
 \alias{convert.rowcol}
-\title{convert.rowcol}
+\title{Convert an integer to a character, with a single leading zero if th...}
 \usage{
 convert.rowcol(num)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{center.predictors}
 \alias{center.predictors}
-\title{center.predictors}
+\title{Transform all data by subtracting a constant, either the mean, medi...}
 \usage{
 center.predictors(x, by = "mean")
 }

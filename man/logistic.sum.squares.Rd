@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.sum.squares}
 \alias{logistic.sum.squares}
-\title{logistic.sum.squares}
+\title{Sets a prediction based on a generalized logistic, then returns the...}
 \usage{
 logistic.sum.squares(param, x, obs)
 }

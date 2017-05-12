@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{binGraphManySpecies}
 \alias{binGraphManySpecies}
-\title{binGraphManySpecies}
+\title{Make a graph of AGB growth and model fit of many species overlaid, ...}
 \usage{
 binGraphManySpecies(fulldataname, darken = 8, xrange = c(-3, 3),
   yrange = c(0, 0.1), xtitle = NULL, ytitle = NULL, export = pdf,

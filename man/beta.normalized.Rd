@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{beta.normalized}
 \alias{beta.normalized}
-\title{beta.normalized}
+\title{Normalzing beta.total. No longer used. beta.normalized beta.total  ...}
 \usage{
 beta.normalized(x, par1, xmin, par2, xmax)
 }

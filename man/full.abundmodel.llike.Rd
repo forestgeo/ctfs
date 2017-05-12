@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{full.abundmodel.llike}
 \alias{full.abundmodel.llike}
-\title{full.abundmodel.llike}
+\title{With the table of abundances, hyper-parameter estimates, and estima...}
 \usage{
 full.abundmodel.llike(data, param, spmort, spR, type, debug = FALSE,
   badparam = NULL)

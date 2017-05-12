@@ -2,7 +2,7 @@
 % Please edit documentation in R/calcalpha.R
 \name{calcalpha}
 \alias{calcalpha}
-\title{calcalpha}
+\title{Calculates alpha from a stem and species count submitted using Newt...}
 \usage{
 calcalpha(n, s)
 }

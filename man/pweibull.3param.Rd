@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{pweibull.3param}
 \alias{pweibull.3param}
-\title{pweibull.3param}
+\title{CDF of three-parameter Weibull(http://www.itl.nist.gov/div898/handb...}
 \usage{
 pweibull.3param(x, x0, shape, scale)
 }

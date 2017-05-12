@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{graph.mvnorm}
 \alias{graph.mvnorm}
-\title{graph.mvnorm}
+\title{Graphs contours for an mvnorm, with parameters submitted as a vecto...}
 \usage{
 graph.mvnorm(param, x, y, div = 10, add = FALSE, clr = "gray", lw = 0.5,
   pw = 2, exclude = NULL, returnit = FALSE)

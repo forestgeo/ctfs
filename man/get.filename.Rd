@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{get.filename}
 \alias{get.filename}
-\title{get.filename}
+\title{This sets a name for outputting a map (or any graph) to a file. The...}
 \usage{
 get.filename(file, path, exp, species, type = "Map.")
 }

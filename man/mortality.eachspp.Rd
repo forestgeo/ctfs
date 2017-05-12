@@ -2,7 +2,7 @@
 % Please edit documentation in R/mortality.R
 \name{mortality.eachspp}
 \alias{mortality.eachspp}
-\title{mortality.eachspp}
+\title{Calculate mortality for each species in given dbh categories. It se...}
 \usage{
 mortality.eachspp(census1, census2, classbreak = c(10, 100, 300),
   alivecode = c("A", "AB", "AS"))

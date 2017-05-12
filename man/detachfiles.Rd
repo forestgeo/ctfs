@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{detachfiles}
 \alias{detachfiles}
-\title{detachfiles}
+\title{detachs from the searchpath files matching a submitted vector of na...}
 \usage{
 detachfiles(filename)
 }

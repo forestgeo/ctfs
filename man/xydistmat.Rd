@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{xydistmat}
 \alias{xydistmat}
-\title{xydistmat}
+\title{Distance between two x-y coordinates, but accepts two sets of coord...}
 \usage{
 xydistmat(pts)
 }

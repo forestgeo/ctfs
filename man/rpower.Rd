@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{rpower}
 \alias{rpower}
-\title{rpower}
+\title{Random draws based on the integral.rpower dasympower  A bilateral p...}
 \usage{
 rpower(n, beta)
 }

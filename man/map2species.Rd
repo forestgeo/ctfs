@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{map2species}
 \alias{map2species}
-\title{map2species}
+\title{Map 2 species to a 2-panel pdf. Two species names are passed to spp...}
 \usage{
 map2species(spp, data = list(bci3.spp, korup.spp),
   spplist = list(plotspp$bci, plotspp$korup), elev = list(ctfs.elev$bci,

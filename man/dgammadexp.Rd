@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dgammadexp}
 \alias{dgammadexp}
-\title{dgammadexp}
+\title{PDF of a function formed by adding a gamma distribution to a symmet...}
 \usage{
 dgammadexp(z, mean, sd, lambda, draws = 10000, div = 0.1, xrange = c(-10,
   30), graphit = F)

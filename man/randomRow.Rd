@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{randomRow}
 \alias{randomRow}
-\title{randomRow}
+\title{Return a random row from a dataframerandomRow randomElement   Retur...}
 \usage{
 randomRow(data)
 }

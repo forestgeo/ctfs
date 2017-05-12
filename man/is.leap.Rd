@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{is.leap}
 \alias{is.leap}
-\title{is.leap}
+\title{Return a logical indicating which elements of a vector are leap yea...}
 \usage{
 is.leap(yr, start = 1904, end = 2096)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mapresponse.R
 \name{coldata.to.imagemat}
 \alias{coldata.to.imagemat}
-\title{coldata.to.imagemat}
+\title{These functions create maps of response variables using the R funct...}
 \usage{
 coldata.to.imagemat(z, x = NULL, y = NULL, gridsize = 20, plotmin = c(0,
   0), plotmax = c(1000, 500))

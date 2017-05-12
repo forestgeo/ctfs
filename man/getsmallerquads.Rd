@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{getsmallerquads}
 \alias{getsmallerquads}
-\title{getsmallerquads}
+\title{Takes a vector of indices for a larger quadrat dimension, as create...}
 \usage{
 getsmallerquads(index, gridlarge, gridsmall, plotdim)
 }

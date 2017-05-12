@@ -2,7 +2,7 @@
 % Please edit documentation in R/solvetopo.R
 \name{getTopoLinks}
 \alias{getTopoLinks}
-\title{getTopoLinks}
+\title{This is solely for use by solve_topo. It finds all points linked vi...}
 \usage{
 getTopoLinks(index, labels, data, from, to, backward = FALSE)
 }

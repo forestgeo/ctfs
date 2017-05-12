@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{resetParam}
 \alias{resetParam}
-\title{resetParam}
+\title{This starts a new 3D parameter array whose first element is the las...}
 \usage{
 resetParam(param, rand, savestep, pars)
 }

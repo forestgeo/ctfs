@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{linearmodel.bin}
 \alias{linearmodel.bin}
-\title{linearmodel.bin}
+\title{Multiple bin model predicting y as a function of x in several bins....}
 \usage{
 linearmodel.bin(x, param, ...)
 }

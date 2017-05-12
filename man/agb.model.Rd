@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{agb.model}
 \alias{agb.model}
-\title{agb.model}
+\title{Calculates biomass from density, height, and dbh. Requires just two...}
 \usage{
 agb.model(dbh, density, height, param)
 }

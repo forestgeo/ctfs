@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{se.kurtosis}
 \alias{se.kurtosis}
-\title{se.kurtosis}
+\title{Standard error of kurtosis. Depends only on sample size. se.kurtosi...}
 \usage{
 se.kurtosis(x)
 }

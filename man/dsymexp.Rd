@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dsymexp}
 \alias{dsymexp}
-\title{dsymexp}
+\title{Probability distribution for a folded, symmetrical exponential. Whe...}
 \usage{
 dsymexp(x, center, rate, log = FALSE)
 }
