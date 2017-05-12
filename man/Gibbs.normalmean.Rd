@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{Gibbs.normalmean}
 \alias{Gibbs.normalmean}
-\title{Gibbs.normalmean}
+\title{The standard Gibbs sampler for a normal distribution with unknown m...}
 \usage{
 Gibbs.normalmean(y, sigma)
 }

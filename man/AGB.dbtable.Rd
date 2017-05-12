@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{AGB.dbtable}
 \alias{AGB.dbtable}
-\title{AGB.dbtable}
+\title{This function looks up the database named AGB in the MySQL server t...}
 \usage{
 AGB.dbtable(df, dbname, plot, code, censusno)
 }

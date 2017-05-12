@@ -2,7 +2,7 @@
 % Please edit documentation in R/RipUvK.R
 \name{Annuli}
 \alias{Annuli}
-\title{Annuli}
+\title{Calculates the total area in a series of annuli, summed over all in...}
 \usage{
 Annuli(spdata, r, plotdim)
 }

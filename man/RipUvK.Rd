@@ -2,7 +2,7 @@
 % Please edit documentation in R/RipUvK.R
 \name{RipUvK}
 \alias{RipUvK}
-\title{RipUvK}
+\title{Ripleys K using splancs. Computes the univariate Ripleys K for a li...}
 \usage{
 RipUvK(splitdata, plotdim = c(1000, 500), rseq = c(5, 10, 20, 30, 40, 50),
   mindbh = 10, xcol = "gx", ycol = "gy", debug = FALSE, show = FALSE)

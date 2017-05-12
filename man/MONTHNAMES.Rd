@@ -3,7 +3,7 @@
 \docType{data}
 \name{MONTHNAMES}
 \alias{MONTHNAMES}
-\title{MONTHNAMES}
+\title{Object assumed to be crucial. In `utilities.R, the original documen...}
 \format{An object of class \code{character} of length 12.}
 \usage{
 MONTHNAMES

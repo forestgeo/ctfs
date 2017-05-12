@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{Chave.AGB}
 \alias{Chave.AGB}
-\title{Chave.AGB}
+\title{The Chave 2005 Oecologia model for calculating biomass from dbh in ...}
 \usage{
 Chave.AGB(dbh, density = 0.62, htparam = c(41.7, 0.057, 0.748),
   heightmodel = predht.asym, forest = "moist")
