@@ -4,7 +4,7 @@
 #'
 #'
 
-#' solve_topo
+#' This is based on the problem and solution outlined in my book on pl...
 #' 
 #' This is based on the problem and solution outlined in my book on plot methods
 #' (Condit, 1998). Each of N stakes i has an estimated height `E[i]` and a true
@@ -48,14 +48,14 @@
 #'
 'solve_topo'
 
-#' getTopoLinks
+#' This is solely for use by solve_topo. It finds all points linked vi...
 #'
 #' @description
 #'
 #' This is solely for use by solve_topo. It finds all points linked via a sighting to a given point.
 'getTopoLinks'
 
-#' rearrangeSurveyData
+#' Takes a table of survey sightings with columns of x and y locations...
 #'
 #' @description
 #'

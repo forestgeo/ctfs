@@ -44,4 +44,5 @@ entitle_function <- function(path2R){
     dplyr::mutate(path = paste0(path2R, name, ".R"))
   if (!dir.exists(path2R)) {dir.create(path2R)}
   purrr::walk2(replaced$value, replaced$path, write_file)
+  message("Now manually move files from ", path2R, "into .R/")
 }

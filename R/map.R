@@ -4,7 +4,7 @@
 #'
 #'
 
-#' map
+#' Function to draw map of one or more species from one plot. Must giv...
 #'
 #' @description
 #'
@@ -83,7 +83,7 @@
 #'
 'map'
 
-#' pdf.allplot
+#' Export a pdf with one or more species maps. If singlefile=TRUE,  al...
 #'
 #' @description
 #'
@@ -99,7 +99,7 @@
 #'
 'pdf.allplot'
 
-#' png.allplot
+#' Export species maps as png. There will be one for every species cho...
 #'
 #' @description
 #'
@@ -108,7 +108,7 @@
 #'
 'png.allplot'
 
-#' complete.plotmap
+#' This creates a map with every individual shown. The area to be mapp...
 #'
 #' @description
 #'
@@ -136,7 +136,7 @@
 #'
 'complete.plotmap'
 
-#' define.graphwindow
+#' This defines an export device for a graph, based on the argument ex...
 #'
 #' @description
 #'
@@ -150,7 +150,7 @@
 #'
 'define.graphwindow'
 
-#' get.filename
+#' This sets a name for outputting a map (or any graph) to a file. The...
 #'
 #' @description
 #'
@@ -161,7 +161,7 @@
 #'
 'get.filename'
 
-#' maptopo
+#' Draws contours on a plot map. Elevmat has elevation data in matrix ...
 #'
 #' @description
 #'
@@ -175,7 +175,7 @@
 #'
 'maptopo'
 
-#' map1species
+#' This does the mapping for a single species, called from map() but a...
 #'
 #' @description
 #'
@@ -186,7 +186,7 @@
 #'
 'map1species'
 
-#' setsize
+#' An internal function, called by map() to choose size of plotting po...
 #'
 #' @description
 #'
@@ -196,7 +196,7 @@
 #'
 'setsize'
 
-#' map2species
+#' Map 2 species to a 2-panel pdf. Two species names are passed to spp...
 #'
 #' @description
 #'

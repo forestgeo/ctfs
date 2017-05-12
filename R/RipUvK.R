@@ -107,7 +107,7 @@
 #'
 'CalcRingArea'
 
-#' circlearea
+#' Simply returns area of a circle of radius r.circlearea partialcircl...
 #'
 #' @description
 #'
@@ -116,7 +116,7 @@
 #'
 'circlearea'
 
-#' partialcirclearea
+#' Calculates the area of a circle of radius r that is inside a rectan...
 #'
 #' @description
 #'

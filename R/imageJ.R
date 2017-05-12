@@ -4,7 +4,7 @@
 #'
 #'
 
-#' fullplot.imageJ
+#' Reads quadrat maps created by imageJ, converting the digitized pixe...
 #'
 #' @description
 #'
@@ -68,7 +68,7 @@
 #'
 'SectionCorrection'
 
-#' imageJ.to.lxly
+#' Convert map pixels from digitzing program to plot coordinates. Uses...
 #'
 #' @description
 #'
@@ -85,7 +85,7 @@
 #'
 'imageJ.to.lxly'
 
-#' distance.to.side
+#' Called from imageJ.to.lxly where for each point, distance to each s...
 #'
 #' @description
 #'

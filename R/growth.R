@@ -4,7 +4,7 @@
 #'
 #'
 
-#' growth
+#' The principle growth function, constructed like recruitment and mor...
 #'
 #' @description
 #'
@@ -59,7 +59,7 @@
 #'
 'growth'
 
-#' biomass.growth
+#' Like growth(), but calculates change in biomass (agb) instead of db...
 #'
 #' @description
 #'
@@ -70,7 +70,7 @@
 #'
 'biomass.growth'
 
-#' growth.eachspp
+#' This calculates growth for each species in given dbh categories. It...
 #'
 #' @description
 #'
@@ -84,7 +84,7 @@
 #'
 'growth.eachspp'
 
-#' growth.dbh
+#' This calculates forest-wide growth in given dbh categories. Argumen...
 #'
 #' @description
 #'
@@ -97,7 +97,7 @@
 #'
 'growth.dbh'
 
-#' growth.indiv
+#' This returns a complete table with growth rate of every individual,...
 #'
 #' @description
 #'
@@ -113,7 +113,7 @@
 #'
 'growth.indiv'
 
-#' trim.growth
+#' This is where growth rates are excluded. It is based on  a linear m...
 #'
 #' @description
 #'
@@ -143,7 +143,7 @@
 #'
 'trim.growth'
 
-#' growth.biomass.indiv
+#' Like growth.indiv but based on agb growth, not dbh growth. Extreme ...
 #'
 #' @description
 #'

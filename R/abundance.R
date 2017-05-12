@@ -4,7 +4,7 @@
 #'
 #'
 
-#' abundance
+#' Calculates total abundance or basal area, dividing data with 1 or 2...
 #'
 #' @description
 #'
@@ -53,7 +53,7 @@
 #'
 'abundance'
 
-#' abundanceperquad
+#' Finds abundance, basal area, or agb of every species per square qua...
 #'
 #' @description
 #'
@@ -78,7 +78,7 @@
 #'
 'abundanceperquad'
 
-#' abundance.spp
+#' A wrapper to calculate total abundance (or ba or agb) for each spec...
 #'
 #' @description
 #'
@@ -90,7 +90,7 @@
 #'
 'abundance.spp'
 
-#' pop.change
+#' Finds abundance, basal area, or agb in two censuses and the rate of...
 #'
 #' @description
 #'
@@ -135,7 +135,7 @@
 #'
 'pop.change'
 
-#' pop.change.dbh
+#' Finds abundance or basal area in two censuses and the rate of chang...
 #'
 #' @description
 #'
@@ -167,7 +167,7 @@
 #'
 'pop.change.dbh'
 
-#' ba
+#' Calculates the individual basal areas (in square meters) for all su...
 #'
 #' @description
 #'
@@ -177,7 +177,7 @@
 #'
 'ba'
 
-#' basum
+#' Returns the basal area summed over all submitted dbhs. NAs can be i...
 #'
 #' @description
 #'
@@ -186,7 +186,7 @@
 #'
 'basum'
 
-#' abund.manycensus
+#' Collect abundances of all species across several censuses. The full...
 #'
 #' @description
 #'

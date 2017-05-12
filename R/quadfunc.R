@@ -4,7 +4,7 @@
 #'
 #'
 
-#' quad.to.gxgy
+#' Convert quadrat names into x-y coordinates, assuming the first 2 di...
 #'
 #' @description
 #'
@@ -15,7 +15,7 @@
 #'
 'quad.to.gxgy'
 
-#' rowcol.to.index
+#' None given.rowcol.to.index gxgy.to.quad  Calculate a quadrat name (...
 #'
 #' @description
 #'
@@ -24,7 +24,7 @@
 #'
 'rowcol.to.index'
 
-#' gxgy.to.quad
+#' Calculate a quadrat name (column number then row number, as a 4-dig...
 #'
 #' @description
 #'
@@ -33,7 +33,7 @@
 #'
 'gxgy.to.quad'
 
-#' getquadratname
+#' Convert x, y coordinates and plot dimensions into 4-character quadr...
 #'
 #' @description
 #'
@@ -42,7 +42,7 @@
 #'
 'getquadratname'
 
-#' convert.rowcol
+#' Convert an integer to a character, with a single leading zero if th...
 #'
 #' @description
 #'
@@ -52,7 +52,7 @@
 #'
 'convert.rowcol'
 
-#' gxgy.to.index
+#' Assign any location(s) a single index identifying the quadrat. The ...
 #'
 #' @description
 #'
@@ -61,7 +61,7 @@
 #'
 'gxgy.to.index'
 
-#' index.to.rowcol
+#' Calculate the row and column given the quadrat index, as calculated...
 #'
 #' @description
 #'
@@ -70,7 +70,7 @@
 #'
 'index.to.rowcol'
 
-#' index.to.gxgy
+#' Calculate the x and y coordinates given the quadrat index, as calcu...
 #'
 #' @description
 #'
@@ -79,7 +79,7 @@
 #'
 'index.to.gxgy'
 
-#' gxgy.to.rowcol
+#' Returns row and column for any set of coordinates. Rows and columns...
 #'
 #' @description
 #'
@@ -88,14 +88,14 @@
 #'
 'gxgy.to.rowcol'
 
-#' gxgy.to.hectindex
+#' gxgy.to.hectindex gxgy.to.lxly  Given global coordinates and quadra...
 #'
 #' 
 #'
 #'
 'gxgy.to.hectindex'
 
-#' gxgy.to.lxly
+#' Given global coordinates and quadrat and plot dimensions, calculate...
 #'
 #' @description
 #'
@@ -104,7 +104,7 @@
 #'
 'gxgy.to.lxly'
 
-#' lxly.to.p5
+#' Given local, or  within-quadrat, coordinates for a 20-m quadrat, re...
 #'
 #' @description
 #'
@@ -113,7 +113,7 @@
 #'
 'lxly.to.p5'
 
-#' findborderquads
+#' Calculate indices of neighboring quadrats, for a given quadrat inde...
 #'
 #' @description
 #'
@@ -122,7 +122,7 @@
 #'
 'findborderquads'
 
-#' create.neighbordata
+#' Calculates the mean density in neighboring quadrats for every quadr...
 #'
 #' @description
 #'
@@ -133,7 +133,7 @@
 #'
 'create.neighbordata'
 
-#' findneighborabund
+#' For every quadrat, finds neighboring quadrats and then returns a ve...
 #'
 #' @description
 #'
@@ -143,7 +143,7 @@
 #'
 'findneighborabund'
 
-#' neighbors
+#' Finds proportion of neighboring quadrats in which a species is pres...
 #'
 #' @description
 #'
@@ -153,7 +153,7 @@
 #'
 'neighbors'
 
-#' torus.shift
+#' Creates a torus-shifted quadrat topographic dataset. It accepts a q...
 #'
 #' @description
 #'
@@ -167,7 +167,7 @@
 #'
 'torus.shift'
 
-#' getsmallerquads
+#' Takes a vector of indices for a larger quadrat dimension, as create...
 #'
 #' @description
 #'
@@ -179,7 +179,7 @@
 #'
 'getsmallerquads'
 
-#' full.xygrid
+#' Create a complete of points x-y, given the sequence of unique x and...
 #'
 #' @description
 #'
@@ -189,7 +189,7 @@
 #'
 'full.xygrid'
 
-#' distance
+#' Calculates the distance from one quadrat to a second quadrat, where...
 #'
 #' @description
 #'

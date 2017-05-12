@@ -1,6 +1,6 @@
 # Write a title for each function using 70 characters after documentation start.
 # This routine operates on the functions from the original source code of the 
-# CTFSRPackage, which title was produced programatically (as #' function_name).
+# CTFSRPackage, which title was produced programatically (as #' function_name). It shoud be necessary only once and never again.ext...function_name).
 # It shoud be necessary only once and never again.
 
 extract_fun_patt <- function(raw_strings) {
@@ -13,7 +13,7 @@ extract_fun_patt <- function(raw_strings) {
 
 comment_patt <- function() {
   paste0(
-    "#' ", 
+    "#' function_name). It shoud be necessary only once and never again.ext...", 
     extract_fun_patt(raw_strings()) %>% stringr::str_replace_all("'", "")
   ) %>% 
     paste0(collapse = "\r|")
@@ -30,7 +30,7 @@ trunc_description <- function(patt) {
     stringr::str_replace_all("\r|\n|#|'|@description", "") %>% 
     stringr::str_trim() %>% 
     stringr::str_trunc(70)
-  paste0("#' ", title)
+  paste0("#' function_name). It shoud be necessary only once and never again.ext...", title)
 }
 
 entitle_function <- function(path2R){

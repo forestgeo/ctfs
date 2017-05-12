@@ -4,7 +4,7 @@
 #'
 #'
 
-#' lmerBayes
+#' A Metropolis MCMC version of lmer. A single independent variable, y...
 #'
 #' @description
 #'
@@ -145,7 +145,7 @@
 #'
 'lmerBayes'
 
-#' lmerBayes.hyperllike.sigma
+#' This is the hyper-likelihood for updating the covariances. It is al...
 #'
 #' @description
 #'
@@ -156,7 +156,7 @@
 #'
 'lmerBayes.hyperllike.sigma'
 
-#' lmerBayes.hyperllike.mean
+#' This is the hyper-likelihood for updating the hypermeans, based on ...
 #'
 #' @description
 #'
@@ -166,7 +166,7 @@
 #'
 'lmerBayes.hyperllike.mean'
 
-#' full.likelihood.lmerBayes
+#' Calculate full likelihood for any complete set of parameters, inclu...
 #'
 #' @description
 #'
@@ -182,7 +182,7 @@
 #'
 'full.likelihood.lmerBayes'
 
-#' llike.model.lmer
+#' A llikelihood function for one set of parameters, for a single rand...
 #'
 #' @description
 #'
@@ -207,7 +207,7 @@
 #'
 'llike.model.lmer'
 
-#' residual.llike.lmerBayes
+#' Calculate likelihood of residual standard deviation, given observat...
 #'
 #' @description
 #'
@@ -220,14 +220,14 @@
 #'
 'residual.llike.lmerBayes'
 
-#' badSD
+#' badSD arrangeParam.llike.2D  Used in likelihood function of a Gibbs...
 #'
 #' 
 #'
 #'
 'badSD'
 
-#' arrangeParam.llike.2D
+#' Used in likelihood function of a Gibbs sampler for lmerBayes, but f...
 #'
 #' @description
 #'
@@ -242,7 +242,7 @@
 #'
 'arrangeParam.llike.2D'
 
-#' arrangeParam.Gibbs.2D
+#' Used in the loop of a Gibbs sampler, setting parameters not yet tes...
 #'
 #' @description
 #'
@@ -257,7 +257,7 @@
 #'
 'arrangeParam.Gibbs.2D'
 
-#' saveParamFile
+#' This saves a run of the full parameters into a text file, reducing ...
 #'
 #' @description
 #'
@@ -266,7 +266,7 @@
 #'
 'saveParamFile'
 
-#' restoreParamFile
+#' Reverses the steps of saveParamFile, back to a 3D array. This requi...
 #'
 #' @description
 #'
@@ -276,7 +276,7 @@
 #'
 'restoreParamFile'
 
-#' resetParam
+#' This starts a new 3D parameter array whose first element is the las...
 #'
 #' @description
 #'
@@ -286,7 +286,7 @@
 #'
 'resetParam'
 
-#' summaryMCMC
+#' Make summary calculations based on the full Gibbs sampler. The argu...
 #'
 #' @description
 #'
@@ -298,7 +298,7 @@
 #'
 'summaryMCMC'
 
-#' recalculate.lmerBayesllike
+#' Walk through entire chain of parameters to calculate full likelihoo...
 #'
 #' @description
 #'
@@ -308,7 +308,7 @@
 #'
 'recalculate.lmerBayesllike'
 
-#' covTocorr
+#' Convert covariance matrix to correlation matrix. Each element is di...
 #'
 #' @description
 #'

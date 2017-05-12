@@ -4,7 +4,7 @@
 #'
 #'
 
-#' xydist
+#' Distance between two pairs of x-y coordinates. Input can be atomic ...
 #'
 #' @description
 #'
@@ -13,7 +13,7 @@
 #'
 'xydist'
 
-#' xydistvect
+#' Distance between two x-y coordinates, but accepts each set of coord...
 #'
 #' @description
 #'
@@ -23,7 +23,7 @@
 #'
 'xydistvect'
 
-#' xydistmat
+#' Distance between two x-y coordinates, but accepts two sets of coord...
 #'
 #' @description
 #'
@@ -34,7 +34,7 @@
 #'
 'xydistmat'
 
-#' perpendicular.distance
+#' Distance from a point to a line (so its the perpendicular distance)...
 #'
 #' @description
 #'
@@ -56,7 +56,7 @@
 #'
 'perpendicular.distance'
 
-#' perpendicular.line
+#' Finds the slope and intercept of the line perpendicular to a line w...
 #'
 #' @description
 #'
@@ -66,7 +66,7 @@
 #'
 'perpendicular.line'
 
-#' parallel.line
+#' Finds the slope and intercept of the line parallel to a line whose ...
 #'
 #' @description
 #'
@@ -76,7 +76,7 @@
 #'
 'parallel.line'
 
-#' intersection.of.lines
+#' Finds the point where 2 lines intersect, given lines as 2 parameter...
 #'
 #' @description
 #'
@@ -89,7 +89,7 @@
 #'
 'intersection.of.lines'
 
-#' intersection.line.curve
+#' Finds the points where a straight line, given lines as intercept b ...
 #'
 #' @description
 #'
@@ -99,7 +99,7 @@
 #'
 'intersection.line.curve'
 
-#' is.between
+#' Check whether a point x,y falls between two other points. The typic...
 #'
 #' @description
 #'
@@ -110,7 +110,7 @@
 #'
 'is.between'
 
-#' line.intersection.pts
+#' Finds the point where 2 lines intersect, given each line as 2 pairs...
 #'
 #' @description
 #'
@@ -122,7 +122,7 @@
 #'
 'line.intersection.pts'
 
-#' pts.to.interceptslope
+#' Returns intercept and slope of a line given two pairs of coordinate...
 #'
 #' @description
 #'
@@ -133,7 +133,7 @@
 #'
 'pts.to.interceptslope'
 
-#' segmentPt
+#' Draw a line segment between two points, where each point is a vecto...
 #'
 #' @description
 #'
@@ -142,7 +142,7 @@
 #'
 'segmentPt'
 
-#' drawrectangle
+#' Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. ...
 #'
 #' @description
 #'
@@ -151,7 +151,7 @@
 #'
 'drawrectangle'
 
-#' angleBisector
+#' Given 3 sets of coordinates defining two line segments (middle poin...
 #'
 #' @description
 #' Given 3 sets of coordinates defining two line segments (middle point is
@@ -175,7 +175,7 @@
 #'
 'angleBisector'
 
-#' insideRectangle
+#' Checks a vector of coordinates x, y to return which are inside a re...
 #'
 #' @description
 #'
@@ -185,7 +185,7 @@
 #'
 'insideRectangle'
 
-#' are.ptsinside
+#' Checks many points (dataframe pt with x and y) against a single qua...
 #'
 #' @description
 #'
@@ -197,7 +197,7 @@
 #'
 'are.ptsinside'
 
-#' ispt.inside
+#' Check a single pt (x and y) against a large number of quadrats whos...
 #'
 #' @description
 #'
@@ -209,7 +209,7 @@
 #'
 'ispt.inside'
 
-#' inside.rect
+#' Determines whether any of the 4 corners of one rectangle are within...
 #'
 #' @description
 #'
@@ -219,7 +219,7 @@
 #'
 'inside.rect'
 
-#' circle
+#' Calculates points on a circle fullcircle  Create a dataframe for a ...
 #'
 #' @description
 #'
@@ -228,7 +228,7 @@
 #'
 'circle'
 
-#' fullcircle
+#' Create a dataframe for a full circle, with x values repeated to get...
 #'
 #' @description
 #'
@@ -238,7 +238,7 @@
 #'
 'fullcircle'
 
-#' ellipse
+#' Equation for (half) a canonical ellipse fullellipse  Creates a data...
 #'
 #' @description
 #'
@@ -247,7 +247,7 @@
 #'
 'ellipse'
 
-#' fullellipse
+#' Creates a dataframe for a full ellipse.  @param x = input x coordin...
 #'
 #' @description
 #'
@@ -259,7 +259,7 @@
 #'
 'fullellipse'
 
-#' cartesian.to.polar
+#' Convert Cartesian coordinates to polar. Returns a dataframe of two ...
 #'
 #' @description
 #'
@@ -277,7 +277,7 @@
 #'
 'cartesian.to.polar'
 
-#' polar.to.cartesian
+#' Convert polar coordinates to Cartesian. Returns a dataframe of two ...
 #'
 #' @description
 #'

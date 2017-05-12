@@ -4,7 +4,7 @@
 #'
 #'
 
-#' readelevdata
+#' A function to read a table of elevation data into a matrix appropri...
 #'
 #' @description
 #'
@@ -18,7 +18,7 @@
 #'
 'readelevdata'
 
-#' elev.to.list
+#' A function which reads a dataframe with x,y,elevation for a given g...
 #'
 #' @description
 #'
@@ -33,7 +33,7 @@
 #'
 'elev.to.list'
 
-#' allquadratslopes
+#' Calculates the slope of all quadrats in a plot.  @details `allquadr...
 #'
 #' @description
 #'
@@ -67,7 +67,7 @@
 #' }
 'allquadratslopes'
 
-#' quadslope
+#' Given the elevation at four corners of a square of side=gridsize, t...
 #'
 #' @description
 #'
@@ -90,7 +90,7 @@
 #'
 'quadslope'
 
-#' calcslope
+#' Given the z-coordinate of 3 points in 3D space whose x-y coordinate...
 #'
 #' @description
 #'
@@ -108,7 +108,7 @@
 #'
 'calcslope'
 
-#' calc.gradient
+#' Calculate flow using Seibert & McGlynn algorithm. Takes a 3x3 matri...
 #'
 #' @description
 #'
@@ -122,7 +122,7 @@
 #' The output is a data.frame of direction and slope for the 8 facets, starting with the lower left and moving clockwise
 'calc.gradient'
 
-#' calc.directionslope
+#' This runs equations 1-3 of Seibert & McGlynncalc.directionslope Sou...
 #'
 #' @description
 #'

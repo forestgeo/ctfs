@@ -4,7 +4,7 @@
 #'
 #'
 
-#' model.littleR.Gibbs
+#' The main function for fitting the probability distribution of popul...
 #'
 #' @description
 #'
@@ -99,7 +99,7 @@
 #'
 'model.littleR.Gibbs'
 
-#' full.abundmodel.llike
+#' With the table of abundances, hyper-parameter estimates, and estima...
 #'
 #' @description
 #'
@@ -111,7 +111,7 @@
 #'
 'full.abundmodel.llike'
 
-#' prob.N1
+#' Calculates the probability of observing N2 given N1, assuming a com...
 #'
 #' @description
 #'
@@ -124,7 +124,7 @@
 #'
 'prob.N1'
 
-#' spmean.mort.abundGibbs
+#' Likelihood function for a species mean (a scalar, one species at a ...
 #'
 #' @description
 #'
@@ -137,7 +137,7 @@
 #'
 'spmean.mort.abundGibbs'
 
-#' hyper.abundGibbs
+#' Likelihood function for hyperparameters of abundance model, given t...
 #'
 #' @description
 #'
@@ -149,7 +149,7 @@
 #'
 'hyper.abundGibbs'
 
-#' hyper.mortGibbs
+#' Likelihood function for logMu and logSD, given the species means (l...
 #'
 #' @description
 #'
@@ -160,7 +160,7 @@
 #'
 'hyper.mortGibbs'
 
-#' bad.asympower.param
+#' The 3 parameters submitted to hyper.abundGibbs have to be checked, ...
 #'
 #' @description
 #'
@@ -172,7 +172,7 @@
 #'
 'bad.asympower.param'
 
-#' bad.asymexp.param
+#' For either the Gaussian, or asymexp, the SD parameters must be > 0....
 #'
 #' @description
 #'
@@ -181,7 +181,7 @@
 #'
 'bad.asymexp.param'
 
-#' fitSeveralAbundModel
+#' Run model.littleR.Gibbs for a series of census databases, for every...
 #'
 #' @description
 #'
@@ -191,7 +191,7 @@
 #'
 'fitSeveralAbundModel'
 
-#' graph.abundmodel
+#' Output histograms of little.r across species, observed and fitted, ...
 #'
 #' @description
 #' Output histograms of little.r across species, observed and fitted, using the
@@ -229,7 +229,7 @@
 #'
 'graph.abundmodel'
 
-#' find.xaxis.hist
+#' Given an abundance fit and x axis range and divisions, return a seq...
 #'
 #' @description
 #'
@@ -238,7 +238,7 @@
 #'
 'find.xaxis.hist'
 
-#' abundmodel.fit
+#' Simply return the modeled histogram for any set of parameters. Used...
 #'
 #' @description
 #'

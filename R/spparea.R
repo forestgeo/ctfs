@@ -4,7 +4,7 @@
 #'
 #'
 
-#' spparea.sq
+#' Function for calculating the number of species in replicated, rando...
 #'
 #' @description
 #'
@@ -62,7 +62,7 @@
 #'
 'spparea.sq'
 
-#' selectrandomquad
+#' Draws rectangular quadrats in a plot at random. Returns a dataframe...
 #'
 #' @description
 #'
@@ -95,7 +95,7 @@
 #'
 'selectrandomquad'
 
-#' selectrandomquad3
+#' Creates randomly drawn quadrats, using same arguments and producing...
 #'
 #' @description
 #'
@@ -107,7 +107,7 @@
 #'
 'selectrandomquad3'
 
-#' selectrandomquad2
+#' Creates randomly drawn quadrats, using same arguments and producing...
 #'
 #' @description
 #' Creates randomly drawn quadrats, using same arguments and producing same
@@ -129,7 +129,7 @@
 #'
 'selectrandomquad2'
 
-#' graph.quadrats
+#' Make a graph of a series of quadrats whose corners are given by the...
 #'
 #' @description
 #'
@@ -139,7 +139,7 @@
 #'
 'graph.quadrats'
 
-#' coverage.diag
+#' Draws a diagonal across a plot, from lower left to upper right (if ...
 #'
 #' @description
 #'

@@ -4,7 +4,7 @@
 #'
 #'
 
-#' recruitment
+#' Functions for calculating recruitment rates. Recruitment is the mai...
 #'
 #' @description
 #'
@@ -32,7 +32,7 @@
 #'
 'recruitment'
 
-#' recruitment.eachspp
+#' A wrapper to calculate recruitment for each species.recruitment.eac...
 #'
 #' @description
 #'

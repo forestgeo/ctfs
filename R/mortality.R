@@ -4,7 +4,7 @@
 #'
 #'
 
-#' mortality
+#' Mortality is the main function, and is constructed like  growth and...
 #'
 #' @description
 #'
@@ -52,7 +52,7 @@
 #'
 'mortality'
 
-#' mortality.eachspp
+#' Calculate mortality for each species in given dbh categories. It se...
 #'
 #' @description
 #'
@@ -72,7 +72,7 @@
 #'
 'mortality.eachspp'
 
-#' mortality.dbh
+#' Calculate forest-wide mortality in given dbh categories. See mortal...
 #'
 #' @description
 #'
@@ -81,7 +81,7 @@
 #'
 'mortality.dbh'
 
-#' mortality.calculation
+#' This is the calculation of mortality rate and confidence limits, gi...
 #'
 #' @description
 #'
@@ -99,7 +99,7 @@
 #'
 'mortality.calculation'
 
-#' find.climits
+#' Calculates confidence limits around a number of deaths, D, out of N...
 #'
 #' @description
 #'
