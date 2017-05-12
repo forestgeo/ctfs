@@ -1,22 +1,18 @@
-entitle_function("./data-raw/to_R/")
-
 # Procedure to build this package
-# - rebuild package
-build()
-# - document 
-document()
-# - write pkgdown.yml
+
+.rs.restartR()
+devtools::build()
+devtools::document()
+library(tidyverse)
 write_pkgdown_yml(raw_strings())
-# - test man and pkgdown.yml have the same functions
-test()
-#     - if not, show
-showdiff_man_pkg()
-# build site
+.rs.restartR()
+devtools::test()
+pkgdown::build_site()
 
+.rs.restartR()
+devtools::check()
+devtools::install()
 
-
-
-raw_strings() %>% 
-  stringr::str_subset("#' AssignDiag\r") %>% 
-  stringr::str_extract("#' AssignDiag\r")
+# To debug difference in documentation between pkgdown and man
+# showdiff_man_pkg
 
