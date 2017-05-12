@@ -6,7 +6,7 @@
 extract_fun_patt <- function(raw_strings) {
   raw_strings %>% 
     stringr::str_extract_all(
-      stringr::regex("^\\'[a-z]+.*$", multiline = TRUE)
+      stringr::regex("^\\'[a-zA-Z]+.*$", multiline = TRUE)
     ) %>% 
     unlist()
 }
