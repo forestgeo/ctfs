@@ -45,7 +45,7 @@
 #'
 'compare.growthbinmodel'
 
-#' Pass the output of extract.growth with every individual\s growth (f...
+#' Pass the output of extract.growth with every individual's growth (f...
 #'
 #' @description
 #'
