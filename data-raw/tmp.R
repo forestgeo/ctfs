@@ -7,13 +7,6 @@ load_all()
 
 # Write a title for each function using 70 characters after documentation start
 
-
-
-
- 
-
-
-
 extract_fun_patt <- function(raw_strings) {
   raw_strings %>% 
     stringr::str_extract_all(
@@ -21,9 +14,6 @@ extract_fun_patt <- function(raw_strings) {
     ) %>% 
     unlist()
 }
-
-
-
 
 comment_patt <- function() {
   paste0(
@@ -45,26 +35,16 @@ trunc_description <- function(patt) {
   paste0("#' ", title)
 }
 
-
-
-# script to change to function?
-
-path2R <- "./data-raw/to_R/"
-comment_patt <- comment_patt()
-replaced <- purrr::map(raw_strings(), 
-  str_replace_all, 
-  pattern = comment_patt, 
-  replacement = trunc_description
-  ) %>% 
-  enframe() %>% 
-  mutate(path = paste0(path2R, name, ".R"))
-
-purrr::walk2(replaced$value, replaced$path, write_file)
-
-
-
-
-
-
-
-
+entitle_function <- function(path2R){
+  comment_patt <- comment_patt()
+  replaced <- purrr::map(raw_strings(), 
+    str_replace_all, 
+    pattern = comment_patt, 
+    replacement = trunc_description
+    ) %>% 
+    enframe() %>% 
+    mutate(path = paste0(path2R, name, ".R"))
+  if (!dir.exists(path2R)) {dir.create(path2R)}
+  purrr::walk2(replaced$value, replaced$path, write_file)
+}
+entitle_function("./data-raw/to_R/")
