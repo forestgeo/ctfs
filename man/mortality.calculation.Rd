@@ -2,7 +2,7 @@
 % Please edit documentation in R/mortality.R
 \name{mortality.calculation}
 \alias{mortality.calculation}
-\title{mortality.calculation}
+\title{This is the calculation of mortality rate and confidence limits, gi...}
 \usage{
 mortality.calculation(N, S, meantime)
 }

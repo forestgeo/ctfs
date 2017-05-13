@@ -2,10 +2,10 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.hectindex}
 \alias{gxgy.to.hectindex}
-\title{gxgy.to.hectindex}
+\title{gxgy.to.hectindex gxgy.to.lxly  Given global coordinates and quadra...}
 \usage{
 gxgy.to.hectindex(gx, gy, plotdim = c(1000, 500))
 }
 \description{
-gxgy.to.hectindex
+gxgy.to.hectindex gxgy.to.lxly  Given global coordinates and quadra...
 }

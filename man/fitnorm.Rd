@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{fitnorm}
 \alias{fitnorm}
-\title{fitnorm}
+\title{Fitting a normal distribution to data Parameters are a mean and sd ...}
 \usage{
 fitnorm(start.param = c(-1, -1, 1), x, y)
 }

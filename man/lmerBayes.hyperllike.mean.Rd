@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{lmerBayes.hyperllike.mean}
 \alias{lmerBayes.hyperllike.mean}
-\title{lmerBayes.hyperllike.mean}
+\title{This is the hyper-likelihood for updating the hypermeans, based on ...}
 \usage{
 lmerBayes.hyperllike.mean(testmn, full.hypermean, whichtest, modelpar, covar)
 }

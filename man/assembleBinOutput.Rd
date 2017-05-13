@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{assembleBinOutput}
 \alias{assembleBinOutput}
-\title{assembleBinOutput}
+\title{Use the list output from piecewise regression (growthfit.bin) and c...}
 \usage{
 assembleBinOutput(inputtable, fulldata, sitename)
 }

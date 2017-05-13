@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{bootconf}
 \alias{bootconf}
-\title{bootconf}
+\title{A simple calculation of confidence limits based on the SD of a vect...}
 \usage{
 bootconf(x)
 }

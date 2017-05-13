@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{border.distance}
 \alias{border.distance}
-\title{border.distance}
+\title{Returns distance from a point to the nearest boundary of a rectangl...}
 \usage{
 border.distance(x, y, plotdim = c(1000, 500), pt = NULL)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/spparea.R
 \name{graph.quadrats}
 \alias{graph.quadrats}
-\title{graph.quadrats}
+\title{Make a graph of a series of quadrats whose corners are given by the...}
 \usage{
 graph.quadrats(coord, plotdim = c(1000, 500), clr = "black", add = FALSE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{create.fulldate.split}
 \alias{create.fulldate.split}
-\title{create.fulldate.split}
+\title{Converts the MySQL date format by splitting on the hyphen (or other...}
 \usage{
 create.fulldate.split(datestr, sep = "-")
 }

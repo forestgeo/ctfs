@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{graph.outliers.spp}
 \alias{graph.outliers.spp}
-\title{graph.outliers.spp}
+\title{Pass the output of extract.growth with every individual's growth (f...}
 \usage{
 graph.outliers.spp(full, trimmed, spname = "gustsu", fit = NULL,
   size = "agb", export = NULL, xtitle = "log(agb)", ytitle = "growth")

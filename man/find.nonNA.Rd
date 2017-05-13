@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{find.nonNA}
 \alias{find.nonNA}
-\title{find.nonNA}
+\title{Returns the first value of a vector x which is not NAfind.nonNA whi...}
 \usage{
 find.nonNA(x)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{linear.mortmodel}
 \alias{linear.mortmodel}
-\title{linear.mortmodel}
+\title{A model for mortality as a function of one or more predictors, with...}
 \usage{
 linear.mortmodel(x, param)
 }

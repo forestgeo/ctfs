@@ -2,7 +2,7 @@
 % Please edit documentation in R/demogChange.R
 \name{lmerMortLinear}
 \alias{lmerMortLinear}
-\title{lmerMortLinear}
+\title{A linear model of an annual mortality parameter, which is  `-log(an...}
 \usage{
 lmerMortLinear(x, param, ...)
 }

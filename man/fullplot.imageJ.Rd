@@ -2,7 +2,7 @@
 % Please edit documentation in R/imageJ.R
 \name{fullplot.imageJ}
 \alias{fullplot.imageJ}
-\title{fullplot.imageJ}
+\title{Reads quadrat maps created by imageJ, converting the digitized pixe...}
 \usage{
 fullplot.imageJ(path = "", outfile = "plotLxLy.txt", delim = ",",
   include.subdir = T, corners = c("p1", "p2", "p3", "p4"), colrange = c(0,

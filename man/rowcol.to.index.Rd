@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{rowcol.to.index}
 \alias{rowcol.to.index}
-\title{rowcol.to.index}
+\title{None given.rowcol.to.index gxgy.to.quad  Calculate a quadrat name (...}
 \usage{
 rowcol.to.index(rowno, colno, gridsize = 20, plotdim = c(1000, 500))
 }

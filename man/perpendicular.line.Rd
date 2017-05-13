@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{perpendicular.line}
 \alias{perpendicular.line}
-\title{perpendicular.line}
+\title{Finds the slope and intercept of the line perpendicular to a line w...}
 \usage{
 perpendicular.line(b, m, x, y)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{model.littleR.Gibbs}
 \alias{model.littleR.Gibbs}
-\title{model.littleR.Gibbs}
+\title{The main function for fitting the probability distribution of popul...}
 \usage{
 model.littleR.Gibbs(cns1, cns2, mindbh, demog = NULL, sptable,
   abundrange = c(1, 1e+06), start.param = c(-3, 0.8, 0.01, -0.5),

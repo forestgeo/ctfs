@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{AGB.ind}
 \alias{AGB.ind}
-\title{AGB.ind}
+\title{Compute biomass (agb) based on one of the Chave (Oecologia, 2005) m...}
 \usage{
 AGB.ind(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
   forest = "moist", ht.param = NULL, htmodel = predht.asym)

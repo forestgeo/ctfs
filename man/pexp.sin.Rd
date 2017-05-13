@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{pexp.sin}
 \alias{pexp.sin}
-\title{pexp.sin}
+\title{CDF of four-parameter exponential sinpexp.sin mvrnormRC  Function t...}
 \usage{
 pexp.sin(x, b, c, d, e)
 }

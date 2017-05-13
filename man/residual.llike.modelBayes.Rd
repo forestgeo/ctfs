@@ -2,7 +2,7 @@
 % Please edit documentation in R/modelBayes.R
 \name{residual.llike.modelBayes}
 \alias{residual.llike.modelBayes}
-\title{residual.llike.modelBayes}
+\title{Calculate likelihood of residual standard deviation, given observat...}
 \usage{
 residual.llike.modelBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
   sdmodel, badparam, errormodel = "Gauss", debug = FALSE, ...)

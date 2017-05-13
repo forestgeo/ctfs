@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dgammaPlusdexp}
 \alias{dgammaPlusdexp}
-\title{dgammaPlusdexp}
+\title{The PDF of the sum of gamma and negative exponential distribution. ...}
 \usage{
 dgammaPlusdexp(z, mean, sd, lambda, draws = 10000, div = 0.01,
   xrange = c(0, 25), xmax = 4, graphit = FALSE)

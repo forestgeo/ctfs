@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{graph.outliers}
 \alias{graph.outliers}
-\title{graph.outliers}
+\title{Graph the outliers overlaid on the model and full data for all spec...}
 \usage{
 graph.outliers(full, trimmed, fit = NULL, allspp = NULL, size = "agb",
   export = NULL, wind = X11)

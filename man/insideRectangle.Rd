@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{insideRectangle}
 \alias{insideRectangle}
-\title{insideRectangle}
+\title{Checks a vector of coordinates x, y to return which are inside a re...}
 \usage{
 insideRectangle(x, y, xrange, yrange)
 }

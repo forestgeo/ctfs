@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{trim.growth}
 \alias{trim.growth}
-\title{trim.growth}
+\title{This is where growth rates are excluded. It is based on  a linear m...}
 \usage{
 trim.growth(cens1, cens2, time, slope = 0.006214, intercept = 0.9036,
   err.limit = 4, maxgrow = 75, pomcut = 0.05, mindbh = 10,

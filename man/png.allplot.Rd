@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{png.allplot}
 \alias{png.allplot}
-\title{png.allplot}
+\title{Export species maps as png. There will be one for every species cho...}
 \usage{
 png.allplot(splitdata = bci.split6, spplist = plotspp$bci,
   elev = ctfs.elev$bci$mat, plotdim = c(1000, 500), topoint = 2,

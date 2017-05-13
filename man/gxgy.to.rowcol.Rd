@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.rowcol}
 \alias{gxgy.to.rowcol}
-\title{gxgy.to.rowcol}
+\title{Returns row and column for any set of coordinates. Rows and columns...}
 \usage{
 gxgy.to.rowcol(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 }

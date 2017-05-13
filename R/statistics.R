@@ -1,48 +1,50 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
-#' skewness
-#'
+#' Sample skewness. The biased portion is the population skewness; cor...
+#' 
 #' @description
-#'
-#' Sample skewness. The biased portion is the population skewness; correction is for finite sample.  
-#'
-#' D. N. Joanes and C. A. Gill. “Comparing Measures of Sample Skewness and Kurtosis”. The Statistician 47(1):183–189
-#'
-#'
+#' Sample skewness. The biased portion is the population skewness; correction is
+#' for finite sample.
+#' 
+#' D. N. Joanes and C. A. Gill. “Comparing Measures of Sample Skewness and 
+#' Kurtosis”. The Statistician 47(1):183–189
+#' 
 'skewness'
 
-#' skewness
-#'
+#' Standard error of skewness. se.skewness kurtosis   Sample kurtosis....
+#' 
 #' @description
-#'
-#' Standard error of skewness. Depends only on sample size. 
-#'
-#'
-'skewness'
+#' Standard error of skewness.
+#' 
+'se.skewness'
 
-#' skewness
-#'
+
+
+
+#' Sample kurtosis. The biased portion is the population kurtosis; cor...
+#' 
 #' @description
-#'
-#' Sample kurtosis. The biased portion is the population kurtosis; corrected is for finite sample.  
-#'
-#'
-'skewness'
+#' Sample kurtosis. The biased portion is the population kurtosis; corrected is
+#' for finite sample.
+#' 
+'kurtosis'
 
-#' skewness
-#'
+
+
+#' Standard error of kurtosis. Depends only on sample size. se.kurtosi...
+#' 
 #' @description
-#'
-#' Standard error of kurtosis. Depends only on sample size. 
-#'
-#'
-'skewness'
+#' Standard error of kurtosis. Depends only on sample size.
+#' 
+'se.kurtosis'
 
-#' regslope
+
+
+
+
+
+#' Returns slope of regression as single scalar (for use with apply).r...
 #'
 #' @description
 #'
@@ -51,39 +53,38 @@
 #'
 'regslope'
 
-#' regslope.noint
-#'
+#' Returns slope of regression with no intercept as single scalar (for...
+#' 
 #' @description
-#'
-#' Returns slope of regression with no intercept as single scalar (for use with apply).
-#'
-#'
+#' 
+#' Returns slope of regression with no intercept as single scalar (for use with
+#' apply).
+#' 
 'regslope.noint'
 
-#' regress.plot
+#' Performs regression in convenient way and returns coefficients and ...
 #'
 #' @description
 #'
 #' Performs regression in convenient way and returns coefficients and
 #' probabilities in a single vector, and plots a graph.
 #'
-#'
 'regress.plot'
 
-#' regress.loglog
-#'
+#' Performs regression and graphs in a convenient way: with or without...
+#' 
 #' @description
-#'
-#' Performs regression and graphs in a convenient way: with or without log-transforming x and y variables (the option addone
-#' can be included to handle zeros for log-transformation), with or
-#' without manual point labelling, without or without the best-fit line added, and with many options for colors and points. 
-#' add can be a vector of length 2, a constant to be added to every value
-#' of x, y to remove zeroes.
-#'
-#'
+#' 
+#' Performs regression and graphs in a convenient way: with or without
+#' log-transforming x and y variables (the option addone can be included to
+#' handle zeros for log-transformation), with or without manual point labelling,
+#' without or without the best-fit line added, and with many options for colors
+#' and points. add can be a vector of length 2, a constant to be added to every
+#' value of x, y to remove zeroes.
+#' 
 'regress.loglog'
 
-#' majoraxisreg
+#' A major axis regression with parameters fitted by optim. The regres...
 #'
 #' @description
 #'
@@ -94,7 +95,7 @@
 #'
 'majoraxisreg'
 
-#' minum.perpdist
+#' The sum of squares used by majoraxisreg.minum.perpdist majoraxisreg...
 #'
 #' @description
 #'
@@ -103,7 +104,7 @@
 #'
 'minum.perpdist'
 
-#' majoraxisreg.no.int
+#' Major axis regression with no intercept. Only a slope is returned. ...
 #'
 #' @description
 #'
@@ -113,7 +114,7 @@
 #'
 'majoraxisreg.no.int'
 
-#' standardreg.no.int
+#' Standard regression with no intercept.standardreg.no.int autoregres...
 #'
 #' @description
 #'
@@ -122,7 +123,7 @@
 #'
 'standardreg.no.int'
 
-#' autoregression
+#' Autocorrelation with a given lag of a vector y.autoregression regre...
 #'
 #' @description
 #'
@@ -131,17 +132,16 @@
 #'
 'autoregression'
 
-#' regression.Bayes
+#' Regression using the Gibbs sampler, with just one x variable. regre...
 #'
 #' @description
 #'
 #' Regression using the Gibbs sampler, with just one x variable. 
 #'
-#'
 'regression.Bayes'
 
 #'
-#' Gibbs.regslope
+#' Updates the regression slope (used in regression.Bayes).Gibbs.regsl...
 #'
 #' @description
 #'
@@ -149,7 +149,7 @@
 'Gibbs.regslope'
 
 #'
-#' Gibbs.regsigma
+#' Updates the regression standard deviation (used in regression.Bayes...
 #'
 #' @description
 #'
@@ -159,7 +159,7 @@
 'Gibbs.regsigma'
 
 #'
-#' Gibbs.normalmean
+#' The standard Gibbs sampler for a normal distribution with unknown m...
 #'
 #' @description
 #'
@@ -172,7 +172,7 @@
 'Gibbs.normalmean'
 
 #'
-#' Gibbs.normalvar
+#' Gibbs draw for the variance of a normal distribution (http://www.bi...
 #'
 #' @description
 #'
@@ -182,7 +182,7 @@
 #'
 'Gibbs.normalvar'
 
-#' model.xy
+#' Generic Bayesian routine for fitting a model to y given 1 predictor...
 #'
 #' @description
 #'
@@ -223,7 +223,7 @@
 #'
 'model.xy'
 
-#' arrangeParam.llike
+#' Used in likelihood function of a Gibbs sampler. Allows any of a set...
 #'
 #' @description
 #'
@@ -231,7 +231,7 @@
 #' whichtest is the index of the parameter to test. If NULL, zero, or NA, it simply returns allparam.
 'arrangeParam.llike'
 
-#' arrangeParam.Gibbs
+#' Used in the loop of a Gibbs sampler, setting parameters not yet tes...
 #'
 #' @description
 #'
@@ -243,7 +243,7 @@
 #'
 'arrangeParam.Gibbs'
 
-#' llike.GaussModel
+#' This is for model.xy. It takes the model function, its parameters, ...
 #'
 #' @description
 #'
@@ -256,7 +256,7 @@
 #'
 'llike.GaussModel'
 
-#' llike.GaussModelSD
+#' This is for model.xy. Take the function for the SD, its parameters,...
 #'
 #' @description
 #'
@@ -274,7 +274,7 @@
 'llike.GaussModelSD'
 
 #'
-#' BadParam
+#' This is a default for model.xy, never returning TRUE. To use model....
 #'
 #' @description
 #'
@@ -285,7 +285,7 @@
 #'
 'BadParam'
 
-#' graph.modeldiag
+#' Graph diagnostics of model.xygraph.modeldiag bootstrap.corr  Runnin...
 #'
 #' @description
 #'
@@ -294,7 +294,7 @@
 #'
 'graph.modeldiag'
 
-#' bootstrap.corr
+#' Running bootstrap on a correlation. Any columsn can be chosen from ...
 #'
 #' @description
 #'
@@ -303,7 +303,7 @@
 #'
 'bootstrap.corr'
 
-#' bootconf
+#' A simple calculation of confidence limits based on the SD of a vect...
 #'
 #' @description
 #'
@@ -312,7 +312,7 @@
 #'
 'bootconf'
 
-#' metrop1step
+#' Takes a single metropolis step on a single parameter for any given ...
 #'
 #' @description
 #'
@@ -349,7 +349,7 @@
 #'6) the new parameter tested (whether accepted or not)
 'metrop1step'
 
-#' metrop1step.discrete
+#' A version for metrop1step where the alternative values are characte...
 #'
 #' @description
 #'
@@ -359,7 +359,7 @@
 #' is no step-size thus no adjustment.
 'metrop1step.discrete'
 
-#' testmcmcfunc
+#' For testing mcmc1step. No longer used.testmcmcfunc CI  Confidence l...
 #'
 #' @description
 #'
@@ -367,7 +367,7 @@
 'testmcmcfunc'
 
 #'
-#' CI
+#' Confidence limits (quantiles) from a vector at specified probabilit...
 #'
 #' @description
 #'
@@ -376,7 +376,7 @@
 #'
 'CI'
 
-#' hist_compare
+#' Compares two histograms with a Kolmogorov approach. @details  Name ...
 #'
 #' @description
 #' Compares two histograms with a Kolmogorov approach.
@@ -387,7 +387,7 @@
 #'
 'hist_compare'
 
-#' harmonic.mean
+#' Harmonic mean of a vector x. NAs and nonzero values can be ignored,...
 #'
 #' @description
 #'
@@ -396,7 +396,7 @@
 #'
 'harmonic.mean'
 
-#' cumul.above
+#' Given y values as a function of x, this seeks the x at which the cu...
 #'
 #' @description
 #'
@@ -408,7 +408,7 @@
 #'
 'cumul.above'
 
-#' sumsq
+#' A trivial function used in minimizing sums of squares.sumsq is.odd ...
 #'
 #' @description
 #'
@@ -417,7 +417,7 @@
 #'
 'sumsq'
 
-#' is.odd
+#' A trivial function to test whether numbers (scalar or vector) are o...
 #'
 #' @description
 #'
@@ -426,7 +426,7 @@
 #'
 'is.odd'
 
-#' border.distance
+#' Returns distance from a point to the nearest boundary of a rectangl...
 #'
 #' @description
 #'
@@ -437,7 +437,7 @@
 #'
 'border.distance'
 
-#' regsum
+#' This carries out either first or second order polynomial regression...
 #'
 #' @description
 #'
@@ -448,7 +448,7 @@
 #'
 'regsum'
 
-#' colMedians
+#' For convenient medians, like colMeans.colMedians midPoint  Midpoint...
 #'
 #' @description
 #'
@@ -457,7 +457,7 @@
 #'
 'colMedians'
 
-#' midPoint
+#' Midpoint of any vector.midPoint Source code and original documentat...
 #'
 #' @description
 #'
@@ -485,7 +485,7 @@
 # <source>
 #' @export
 
-skewness=function(x)
+skewness <- function(x)
 {
  x=x[!is.na(x)]
  n=length(x)
@@ -518,10 +518,9 @@ skewness=function(x)
 # 
 # </sample>
 # <source>
-#' se.skewness
-#' 
-#' xxx Undocumented
-#' 
+
+
+
 #' @export
 se.skewness=function(x)
 {
@@ -553,10 +552,8 @@ se.skewness=function(x)
 # 
 # </sample>
 # <source>
-#' kurtosis
-#' 
-#' xxx Undocumented.
-#' 
+
+
 #' @export
 
 kurtosis=function(x)
@@ -593,10 +590,7 @@ kurtosis=function(x)
 # 
 # </sample>
 # <source>
-#' se.kurtosis
-#' 
-#' xxx Undocumented
-#'
+
 #' @export
 se.kurtosis=function(x)
 {

@@ -2,7 +2,7 @@
 % Please edit documentation in R/abundance.R
 \name{abundance.spp}
 \alias{abundance.spp}
-\title{abundance.spp}
+\title{A wrapper to calculate total abundance (or ba or agb) for each spec...}
 \usage{
 abundance.spp(censdata, type = "abund", dbhunit = "mm",
   alivecode = c("A"), dbhbreaks = c(10, 100, 300))

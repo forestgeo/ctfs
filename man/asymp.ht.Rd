@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{asymp.ht}
 \alias{asymp.ht}
-\title{asymp.ht}
+\title{The function from Sean Thomas which produces an asymptote for y as ...}
 \usage{
 asymp.ht(x, param, ...)
 }

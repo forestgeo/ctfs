@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{complete.plotmap}
 \alias{complete.plotmap}
-\title{complete.plotmap}
+\title{This creates a map with every individual shown. The area to be mapp...}
 \usage{
 complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
   export = "no", nospp = 3, plotdim = c(1000, 500), clrlist = c("blue",

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{addBinParam}
 \alias{addBinParam}
-\title{addBinParam}
+\title{Given parameters for a model with N linear bins, creates parameters...}
 \usage{
 addBinParam(x, best, bin)
 }

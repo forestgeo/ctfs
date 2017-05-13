@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dnormrev}
 \alias{dnormrev}
-\title{dnormrev}
+\title{This reverses the order of parameters to dnorm, so that outer can b...}
 \usage{
 dnormrev(m, x, s, log = F)
 }

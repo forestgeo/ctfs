@@ -2,7 +2,7 @@
 % Please edit documentation in R/RipUvK.R
 \name{partialcirclearea}
 \alias{partialcirclearea}
-\title{partialcirclearea}
+\title{Calculates the area of a circle of radius r that is inside a rectan...}
 \usage{
 partialcirclearea(r, c2, cy1, cy2)
 }

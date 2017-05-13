@@ -2,10 +2,10 @@
 % Please edit documentation in R/utilities.R
 \name{randomElement}
 \alias{randomElement}
-\title{randomElement}
+\title{Return a random element from a vector randomElement countUnique  Co...}
 \usage{
 randomElement(data)
 }
 \description{
-xxx Undocumented
+Return a random element from a vector
 }

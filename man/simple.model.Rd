@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{simple.model}
 \alias{simple.model}
-\title{simple.model}
+\title{A trivial model to return a different value at every x. If param is...}
 \usage{
 simple.model(x, param)
 }

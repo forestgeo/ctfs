@@ -2,7 +2,7 @@
 % Please edit documentation in R/slope.R
 \name{allquadratslopes}
 \alias{allquadratslopes}
-\title{allquadratslopes}
+\title{Calculates the slope of all quadrats in a plot.  @details `allquadr...}
 \usage{
 allquadratslopes(elev, gridsize = 20, plotdim = c(1000, 500),
   edgecorrect = TRUE)

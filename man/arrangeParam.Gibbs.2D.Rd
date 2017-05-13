@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{arrangeParam.Gibbs.2D}
 \alias{arrangeParam.Gibbs.2D}
-\title{arrangeParam.Gibbs.2D}
+\title{Used in the loop of a Gibbs sampler, setting parameters not yet tes...}
 \usage{
 arrangeParam.Gibbs.2D(j, k, allparam.prev, allparam.next)
 }

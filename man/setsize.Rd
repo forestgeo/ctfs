@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{setsize}
 \alias{setsize}
-\title{setsize}
+\title{An internal function, called by map() to choose size of plotting po...}
 \usage{
 setsize(n, s)
 }

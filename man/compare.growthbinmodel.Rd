@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{compare.growthbinmodel}
 \alias{compare.growthbinmodel}
-\title{compare.growthbinmodel}
+\title{Calculates various metrics of fit: DIC, BIC, AIC based on the maxim...}
 \usage{
 compare.growthbinmodel(fit, bins = 1:4, makegraph = TRUE, conflines = 0,
   newgraph = TRUE, export = pdf, outfile = "growth/linearbin.bestfit.pdf",

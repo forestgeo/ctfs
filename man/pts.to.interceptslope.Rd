@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{pts.to.interceptslope}
 \alias{pts.to.interceptslope}
-\title{pts.to.interceptslope}
+\title{Returns intercept and slope of a line given two pairs of coordinate...}
 \usage{
 pts.to.interceptslope(pt1, pt2)
 }

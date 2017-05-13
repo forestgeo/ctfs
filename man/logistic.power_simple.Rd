@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.power_simple}
 \alias{logistic.power_simple}
-\title{logistic.power_simple}
+\title{This is a mixture of logistic and logistic-standard models. The pre...}
 \usage{
 logistic.power_simple(x, param, log = FALSE, N = 1, ...)
 }

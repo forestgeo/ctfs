@@ -2,7 +2,7 @@
 % Please edit documentation in R/imageJ.R
 \name{SectionCorrection}
 \alias{SectionCorrection}
-\title{SectionCorrection}
+\title{This function is called by fullplot.imageJ in the case that the map...}
 \usage{
 SectionCorrection(pts, subquad, gridsize, subquadsuffix)
 }

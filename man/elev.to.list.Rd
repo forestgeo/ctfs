@@ -2,7 +2,7 @@
 % Please edit documentation in R/slope.R
 \name{elev.to.list}
 \alias{elev.to.list}
-\title{elev.to.list}
+\title{A function which reads a dataframe with x,y,elevation for a given g...}
 \usage{
 elev.to.list(elevfile, gridsize = 5)
 }

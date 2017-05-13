@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{CI}
 \alias{CI}
-\title{CI}
+\title{Confidence limits (quantiles) from a vector at specified probabilit...}
 \usage{
 CI(x, prob = c(0.025, 0.975), na.rm = FALSE)
 }

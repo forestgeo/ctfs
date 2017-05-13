@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{AGB.tree}
 \alias{AGB.tree}
-\title{AGB.tree}
+\title{Computes AGB of each tree in a table, grouping all stems of one tre...}
 \usage{
 AGB.tree(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
   forest = "moist", ht.param = NULL, htmodel = predht.asym)

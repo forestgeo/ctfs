@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dasympower}
 \alias{dasympower}
-\title{dasympower}
+\title{A bilateral power distribution, centered at center, decaying with e...}
 \usage{
 dasympower(x, center, rate1, rate2, log = FALSE)
 }

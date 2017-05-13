@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{inside.rect}
 \alias{inside.rect}
-\title{inside.rect}
+\title{Determines whether any of the 4 corners of one rectangle are within...}
 \usage{
 inside.rect(rect1, rect2)
 }

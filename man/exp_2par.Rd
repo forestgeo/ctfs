@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{exp_2par}
 \alias{exp_2par}
-\title{exp_2par}
+\title{An exponential distribution with an asymptote.  @details Name exp.2...}
 \usage{
 exp_2par(x, param, asymp)
 }

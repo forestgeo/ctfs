@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{attach_if_needed}
 \alias{attach_if_needed}
-\title{attach_if_needed}
+\title{Deprecated. See section \emph{Good practice} in \code{?attach}. To use <DATA>...}
 \usage{
 attach_if_needed(datafiles)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{discrete.model}
 \alias{discrete.model}
-\title{discrete.model}
+\title{A model for a numeric response to a single discrete predictor. The ...}
 \usage{
 discrete.model(x, param)
 }

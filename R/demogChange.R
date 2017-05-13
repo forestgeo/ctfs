@@ -4,7 +4,7 @@
 #'
 #'
 
-#' individual_grow.table
+#' Create a table of individual trees and their growth over two census...
 #'
 #' @description
 #'
@@ -51,7 +51,7 @@
 #' 
 'individual_grow.table'
 
-#' individual_mort.table
+#' Create a table of individual trees and their survival status over t...
 #'
 #' @description
 #'
@@ -61,7 +61,7 @@
 #'
 'individual_mort.table'
 
-#' calcMortIndivTable
+#' Calculate mortality rate per species per census interval using the ...
 #'
 #' @description
 #'
@@ -72,7 +72,7 @@
 #'
 'calcMortIndivTable'
 
-#' lmerMortLinear
+#' A linear model of an annual mortality parameter, which is  `-log(an...
 #'
 #' @description
 #'
@@ -90,7 +90,7 @@
 #'
 'lmerMortLinear'
 
-#' lmerMortFixedTime
+#' A model for mortality as a function of a single predictor variable,...
 #'
 #' @description
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.quad}
 \alias{gxgy.to.quad}
-\title{gxgy.to.quad}
+\title{Calculate a quadrat name (column number then row number, as a 4-dig...}
 \usage{
 gxgy.to.quad(gx, gy, gridsize = 20, plotdim = c(1000, 500), digits = 2,
   start = "zero")

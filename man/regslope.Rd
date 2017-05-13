@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{regslope}
 \alias{regslope}
-\title{regslope}
+\title{Returns slope of regression as single scalar (for use with apply).r...}
 \usage{
 regslope(y, x)
 }

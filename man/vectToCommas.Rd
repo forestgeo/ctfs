@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{vectToCommas}
 \alias{vectToCommas}
-\title{vectToCommas}
+\title{Given a vector of character variables, collapse into a single strin...}
 \usage{
 vectToCommas(v)
 }

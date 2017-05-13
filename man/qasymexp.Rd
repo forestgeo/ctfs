@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{qasymexp}
 \alias{qasymexp}
-\title{qasymexp}
+\title{Quantiles of dasymexp  y is the vector of desired quantiles; c is t...}
 \usage{
 qasymexp(y, rate1, rate2, c)
 }

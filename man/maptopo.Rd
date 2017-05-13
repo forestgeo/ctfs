@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{maptopo}
 \alias{maptopo}
-\title{maptopo}
+\title{Draws contours on a plot map. Elevmat has elevation data in matrix ...}
 \usage{
 maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
   interval = 0, xrange = NULL, yrange = NULL, xaxis = TRUE,

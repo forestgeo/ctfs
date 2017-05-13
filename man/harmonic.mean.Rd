@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{harmonic.mean}
 \alias{harmonic.mean}
-\title{harmonic.mean}
+\title{Harmonic mean of a vector x. NAs and nonzero values can be ignored,...}
 \usage{
 harmonic.mean(x, add = 0, na.rm = TRUE)
 }

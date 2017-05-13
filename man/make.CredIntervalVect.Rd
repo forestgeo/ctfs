@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{make.CredIntervalVect}
 \alias{make.CredIntervalVect}
-\title{make.CredIntervalVect}
+\title{Take a vector y having mean then lower and upper credible limits an...}
 \usage{
 make.CredIntervalVect(y, digits = c(3, 3), CIonly = FALSE)
 }

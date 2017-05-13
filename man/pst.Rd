@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{pst}
 \alias{pst}
-\title{pst}
+\title{A version of paste with sep.pst detachfiles  detachs from the searc...}
 \usage{
 pst(...)
 }

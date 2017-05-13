@@ -4,7 +4,7 @@
 #'
 #'
 
-#' graph.growthmodel.spp
+#' Use output of growth.flexbin to graph observed growth and predictio...
 #'
 #' @description
 #'
@@ -17,7 +17,7 @@
 #'
 'graph.growthmodel.spp'
 
-#' graph.growthmodel
+#' Graph growth rates and model fit. graph.growthmodel overlay.growthb...
 #'
 #' @description
 #'
@@ -26,7 +26,7 @@
 #'
 'graph.growthmodel'
 
-#' overlay.growthbinmodel
+#' Show model fits for 1, 2, 3, and 4 bins on each speciesoverlay.grow...
 #'
 #' @description
 #'
@@ -35,7 +35,7 @@
 #'
 'overlay.growthbinmodel'
 
-#' compare.growthbinmodel
+#' Calculates various metrics of fit: DIC, BIC, AIC based on the maxim...
 #'
 #' @description
 #'
@@ -45,7 +45,7 @@
 #'
 'compare.growthbinmodel'
 
-#' graph.outliers.spp
+#' Pass the output of extract.growth with every individual's growth (f...
 #'
 #' @description
 #'
@@ -83,7 +83,7 @@
 #'
 'graph.outliers.spp'
 
-#' graph.outliers
+#' Graph the outliers overlaid on the model and full data for all spec...
 #'
 #' @description
 #'
@@ -94,7 +94,7 @@
 #'
 'graph.outliers'
 
-#' binGraphSampleSpecies
+#' Make a single graph, 4 panels, of AGB growth and model fit. Must su...
 #'
 #' @description
 #'
@@ -135,7 +135,7 @@
 #'
 'binGraphSampleSpecies'
 
-#' binGraphManySpecies.Panel
+#' Make a graph, 4 panels, of AGB growth and model fit of many species...
 #'
 #' @description
 #'
@@ -161,7 +161,7 @@
 #'
 'binGraphManySpecies.Panel'
 
-#' binGraphManySpecies
+#' Make a graph of AGB growth and model fit of many species overlaid, ...
 #'
 #' @description
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{xydistvect}
 \alias{xydistvect}
-\title{xydistvect}
+\title{Distance between two x-y coordinates, but accepts each set of coord...}
 \usage{
 xydistvect(pt1, pt2)
 }

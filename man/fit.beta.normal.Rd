@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{fit.beta.normal}
 \alias{fit.beta.normal}
-\title{fit.beta.normal}
+\title{Finding a normal distribution which most closely fits a given beta ...}
 \usage{
 fit.beta.normal(x, par1, xmin, par2, xmax)
 }

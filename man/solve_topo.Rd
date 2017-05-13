@@ -2,7 +2,7 @@
 % Please edit documentation in R/solvetopo.R
 \name{solve_topo}
 \alias{solve_topo}
-\title{solve_topo}
+\title{This is based on the problem and solution outlined in my book on pl...}
 \usage{
 solve_topo(coldata, column1 = "pt1", column2 = "pt2",
   diffcolumn = "htdiff", basept = "1", baseelev = 0, debug = NULL)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/block.analysis.R
 \name{wavelet.bivariate}
 \alias{wavelet.bivariate}
-\title{wavelet.bivariate}
+\title{Function to calculate the wavelet variance to evaluate the associat...}
 \usage{
 wavelet.bivariate(raster1 = NULL, raster2 = NULL, coords1, coords2,
   gridsize = 1, plotdim = c(1000, 500), FUN = NULL, k0 = 8, dj = 0.15,

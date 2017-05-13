@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{AssignDiag}
 \alias{AssignDiag}
-\title{AssignDiag}
+\title{A way to assign the diagonals of a matrix that can handle input hav...}
 \usage{
 AssignDiag(x, newdiag)
 }

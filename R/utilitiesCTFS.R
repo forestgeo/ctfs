@@ -5,7 +5,7 @@
 #'
 
 #'
-#' CTFSplot
+#' Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> ...
 #'
 #' @description
 #' Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> (see 
@@ -40,7 +40,7 @@
 #'
 'CTFSplot'
 
-#' load.species
+#' A function for extracting a single speciesdataframe from the large ...
 #'
 #' @description
 #'
@@ -51,7 +51,7 @@
 #'
 'load.species'
 
-#' rndown5
+#' Rounds a numeric value to the next lowest multiple of 5.rndown5 cou...
 #'
 #' @description
 #'
@@ -60,7 +60,7 @@
 #'
 'rndown5'
 
-#' countspp
+#' Returns the number of elements in a numeric vector > 0. countspp as...
 #'
 #' @description
 #'
@@ -69,7 +69,7 @@
 #'
 'countspp'
 
-#' assemble.demography
+#' Takes output of a demographic analysis (produced by functions growt...
 #'
 #' @description
 #'
@@ -90,7 +90,7 @@
 #' result2=assemble.demography(data,type='m',whichdbhcat=2)}
 'assemble.demography'
 
-#' clean.demography
+#' This takes a CTFS demography table, output by functions mortality, ...
 #'
 #' @description
 #'
@@ -113,7 +113,7 @@
 #'
 'clean.demography'
 
-#' unidentified.species
+#' Takes a string of species names or codes and returns a logical vect...
 #'
 #' @description
 #'
@@ -128,7 +128,7 @@
 #'
 'unidentified.species'
 
-#' exclude.unidentified
+#' A more specialized version of unidentified species. It excludes spe...
 #'
 #' @description
 #'

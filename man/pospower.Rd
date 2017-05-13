@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{pospower}
 \alias{pospower}
-\title{pospower}
+\title{Raise to any power, but with negative numbers converted to positive...}
 \usage{
 pospower(x, expon)
 }

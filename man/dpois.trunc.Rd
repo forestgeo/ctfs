@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dpois.trunc}
 \alias{dpois.trunc}
-\title{dpois.trunc}
+\title{A zero-truncated Poisson distribution. dpois.trunc dpois.maxtrunc  ...}
 \usage{
 dpois.trunc(x, lambda, log = FALSE)
 }

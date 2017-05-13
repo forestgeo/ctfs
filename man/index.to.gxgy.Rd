@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{index.to.gxgy}
 \alias{index.to.gxgy}
-\title{index.to.gxgy}
+\title{Calculate the x and y coordinates given the quadrat index, as calcu...}
 \usage{
 index.to.gxgy(index, gridsize = 20, plotdim = c(1000, 500))
 }

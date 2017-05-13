@@ -2,7 +2,7 @@
 % Please edit documentation in R/NeighborDensityFun.R
 \name{NDcount}
 \alias{NDcount}
-\title{NDcount}
+\title{Calculates the count of neighbors within radius r with edge effect ...}
 \usage{
 NDcount(censdata, r = 20, plotdim = c(1000, 500))
 }

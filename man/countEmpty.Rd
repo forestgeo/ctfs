@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{countEmpty}
 \alias{countEmpty}
-\title{countEmpty}
+\title{Counts vector elements that are NA or a string of no length.countEm...}
 \usage{
 countEmpty(x)
 }

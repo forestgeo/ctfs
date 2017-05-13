@@ -2,7 +2,7 @@
 % Please edit documentation in R/block.analysis.R
 \name{wavelet.allsp}
 \alias{wavelet.allsp}
-\title{wavelet.allsp}
+\title{Function to calculate the wavelet variance curves for all species i...}
 \usage{
 wavelet.allsp(censdata, plotdim = c(1000, 500), gridsize = 2.5,
   mindbh = NULL)

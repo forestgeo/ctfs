@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{lmerBayes}
 \alias{lmerBayes}
-\title{lmerBayes}
+\title{A Metropolis MCMC version of lmer. A single independent variable, y...}
 \usage{
 lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
   model = logistic.standard, error = "Binom", includeCovar = TRUE,

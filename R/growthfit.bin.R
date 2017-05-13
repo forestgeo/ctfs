@@ -4,7 +4,7 @@
 #'
 #'
 
-#' extract.growthdata
+#' Extract data for growth rates from plot databases and 2 censuses in...
 #'
 #' @description
 #'
@@ -15,7 +15,7 @@
 #'
 'extract.growthdata'
 
-#' run.growthbin.manyspp
+#' Run the model to fit growth rate in bins for many species, 1-4 bins...
 #'
 #' @description
 #'
@@ -82,7 +82,7 @@
 #'
 'run.growthbin.manyspp'
 
-#' run.growthfit.bin
+#' Find best fits for linearmodel.bin, with one set of data and a seri...
 #'
 #' @description
 #'
@@ -93,7 +93,7 @@
 #'
 'run.growthfit.bin'
 
-#' growth.flexbin
+#' Fitting a regression line through log growth against log dbh, binni...
 #'
 #' @description
 #'
@@ -105,7 +105,7 @@
 #'
 'growth.flexbin'
 
-#' llike.linearbin.optim
+#' This is for optim, a single function taking all parameters at once,...
 #'
 #' @description
 #'
@@ -114,7 +114,7 @@
 #'
 'llike.linearbin.optim'
 
-#' defineBinBreaks
+#' This finds divisions of over the vector size which produce equal nu...
 #'
 #' @description
 #'
@@ -125,7 +125,7 @@
 #'
 'defineBinBreaks'
 
-#' defineSDpar
+#' For default SD parameters, if nothing else works. Choose the midpoi...
 #'
 #' @description
 #'
@@ -134,7 +134,7 @@
 #'
 'defineSDpar'
 
-#' enoughSamplePerBin
+#' Test whether the number of elements in a vector x between successiv...
 #'
 #' @description
 #'
@@ -144,7 +144,7 @@
 #'
 'enoughSamplePerBin'
 
-#' wideEnoughBins
+#' Test whether all the bin widths exceed a minimum.  MINBIN=0.1 MINBI...
 #'
 #' @description
 #'
@@ -157,7 +157,7 @@
 #'
 'wideEnoughBins'
 
-#' bad.binparam
+#' This prevents the bin parameters from moving outside the x range, a...
 #'
 #' @description
 #'
@@ -168,14 +168,14 @@
 #'
 'bad.binparam'
 
-#' bad.binsdpar
+#' bad.binsdpar calculateBinModel.BIC  Calculate Bayes Information Cri...
 #'
 #' 
 #'
 #'
 'bad.binsdpar'
 
-#' calculateBinModel.BIC
+#' Calculate Bayes Information Criteria using Wikipedia formula Descri...
 #'
 #' @description
 #'
@@ -186,7 +186,7 @@
 #'
 'calculateBinModel.BIC'
 
-#' calculateBinModel.AIC
+#' Calculate AIC of the model, using various log(likelihood) estimator...
 #'
 #' @description
 #'
@@ -199,7 +199,7 @@
 #'
 'calculateBinModel.AIC'
 
-#' calculateBinModel.bestpred
+#' Calculate mean predicted value at every x using every one of the Gi...
 #'
 #' @description
 #'
@@ -209,7 +209,7 @@
 #'
 'calculateBinModel.bestpred'
 
-#' assembleBinOutput
+#' Use the list output from piecewise regression (growthfit.bin) and c...
 #'
 #' @description
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dbeta.reparam}
 \alias{dbeta.reparam}
-\title{dbeta.reparam}
+\title{This reparameterizes the beta distribution as a function of its mea...}
 \usage{
 dbeta.reparam(x, mu, sd)
 }

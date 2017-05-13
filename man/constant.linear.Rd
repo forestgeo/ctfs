@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{constant.linear}
 \alias{constant.linear}
-\title{constant.linear}
+\title{A model which is constant for x<lim, and linear for x>lim. The firs...}
 \usage{
 constant.linear(x, param, xcenter = NULL)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{countone}
 \alias{countone}
-\title{countone}
+\title{Counts vector elements exactly one.countone countNA  Counts vector ...}
 \usage{
 countone(x)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{order.bynumber}
 \alias{order.bynumber}
-\title{order.bynumber}
+\title{Returns ordering of a character vector with any numbers coming firs...}
 \usage{
 order.bynumber(x)
 }

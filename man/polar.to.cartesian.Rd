@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{polar.to.cartesian}
 \alias{polar.to.cartesian}
-\title{polar.to.cartesian}
+\title{Convert polar coordinates to Cartesian. Returns a dataframe of two ...}
 \usage{
 polar.to.cartesian(r, theta)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.index}
 \alias{gxgy.to.index}
-\title{gxgy.to.index}
+\title{Assign any location(s) a single index identifying the quadrat. The ...}
 \usage{
 gxgy.to.index(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 }

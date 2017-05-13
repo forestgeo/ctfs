@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{leftbut}
 \alias{leftbut}
-\title{leftbut}
+\title{Returns the leftmost characters of a string, excluding the last n.l...}
 \usage{
 leftbut(s, n, bytetype = "bytes")
 }

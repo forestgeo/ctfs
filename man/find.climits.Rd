@@ -2,7 +2,7 @@
 % Please edit documentation in R/mortality.R
 \name{find.climits}
 \alias{find.climits}
-\title{find.climits}
+\title{Calculates confidence limits around a number of deaths, D, out of N...}
 \usage{
 find.climits(N, D, alpha = 0.05, kind = "upper")
 }

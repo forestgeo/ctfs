@@ -2,7 +2,7 @@
 % Please edit documentation in R/block.analysis.R
 \name{rasterize}
 \alias{rasterize}
-\title{rasterize}
+\title{Function to calculate the count (type=point), basal area or agb (ty...}
 \usage{
 rasterize(x, y, z = NULL, gridsize = 20, plotdim = c(1000, 500),
   FUN = sum, graph = FALSE)

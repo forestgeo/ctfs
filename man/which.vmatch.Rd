@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{which.vmatch}
 \alias{which.vmatch}
-\title{which.vmatch}
+\title{Finds which subsequent element of a vector matches the first elemen...}
 \usage{
 which.vmatch(v)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{growth.eachspp}
 \alias{growth.eachspp}
-\title{growth.eachspp}
+\title{This calculates growth for each species in given dbh categories. It...}
 \usage{
 growth.eachspp(census1, census2, classbreak = c(10, 100, 300),
   dbhunit = "mm", mindbh = 10, growthcol = "dbh", err.limit = 4,

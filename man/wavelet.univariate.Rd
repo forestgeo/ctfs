@@ -2,7 +2,7 @@
 % Please edit documentation in R/block.analysis.R
 \name{wavelet.univariate}
 \alias{wavelet.univariate}
-\title{wavelet.univariate}
+\title{Function to calculate the univariate wavelet variance using furier ...}
 \usage{
 wavelet.univariate(raster = NULL, coords, gridsize = 2, plotdim = c(1000,
   500), FUN = NULL, k0 = 8, dj = 0.15, graph = FALSE)

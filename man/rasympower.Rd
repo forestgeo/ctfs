@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{rasympower}
 \alias{rasympower}
-\title{rasympower}
+\title{Random draws from the bilateral power distribution, dasympower. By ...}
 \usage{
 rasympower(n, rate1, rate2, c)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{findneighborabund}
 \alias{findneighborabund}
-\title{findneighborabund}
+\title{For every quadrat, finds neighboring quadrats and then returns a ve...}
 \usage{
 findneighborabund(abundvect, gridsize = 20, plotdim = c(1000, 500))
 }

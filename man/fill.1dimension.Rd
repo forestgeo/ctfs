@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{fill.1dimension}
 \alias{fill.1dimension}
-\title{fill.1dimension}
+\title{Filling a 1D array resulting from tapply. Same as fill.dimension, b...}
 \usage{
 fill.1dimension(dataarray, class1, fill = 0)
 }

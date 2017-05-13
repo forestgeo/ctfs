@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{right}
 \alias{right}
-\title{right}
+\title{Returns the rightmost n characters of a stringright rightbut  Retur...}
 \usage{
 right(s, n, bytetype = "bytes")
 }

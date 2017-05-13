@@ -2,7 +2,7 @@
 % Please edit documentation in R/spparea.R
 \name{spparea.sq}
 \alias{spparea.sq}
-\title{spparea.sq}
+\title{Function for calculating the number of species in replicated, rando...}
 \usage{
 spparea.sq(censdata, spcolumn = "sp", size, rectdim = 1, mindbh = NULL,
   plotdim = c(1000, 500), replicates = 10, unidennames = c("**", "UNID",

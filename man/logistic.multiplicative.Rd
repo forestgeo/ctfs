@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.multiplicative}
 \alias{logistic.multiplicative}
-\title{logistic.multiplicative}
+\title{Logistic with a pair of parameters for each x; y=product of all the...}
 \usage{
 logistic.multiplicative(x, param, log = FALSE)
 }

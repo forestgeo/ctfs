@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{exponential.sin}
 \alias{exponential.sin}
-\title{exponential.sin}
+\title{Five-parameter exponential sinexponential.sin pexp.sin  CDF of four...}
 \usage{
 exponential.sin(x, asymp, b, c, d, e)
 }

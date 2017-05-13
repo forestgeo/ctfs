@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dnormprod0}
 \alias{dnormprod0}
-\title{dnormprod0}
+\title{Probability density of product of two normal variates, both with me...}
 \usage{
 dnormprod0(z, sx, sy)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/RipUvK.R
 \name{circlearea}
 \alias{circlearea}
-\title{circlearea}
+\title{Simply returns area of a circle of radius r.circlearea partialcircl...}
 \usage{
 circlearea(r)
 }

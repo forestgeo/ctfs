@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{testmcmcfunc}
 \alias{testmcmcfunc}
-\title{testmcmcfunc}
+\title{For testing mcmc1step. No longer used.testmcmcfunc CI  Confidence l...}
 \usage{
 testmcmcfunc(x, mn, s)
 }

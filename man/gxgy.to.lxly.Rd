@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.lxly}
 \alias{gxgy.to.lxly}
-\title{gxgy.to.lxly}
+\title{Given global coordinates and quadrat and plot dimensions, calculate...}
 \usage{
 gxgy.to.lxly(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 }

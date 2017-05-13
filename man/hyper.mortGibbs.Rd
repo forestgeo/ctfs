@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{hyper.mortGibbs}
 \alias{hyper.mortGibbs}
-\title{hyper.mortGibbs}
+\title{Likelihood function for logMu and logSD, given the species means (l...}
 \usage{
 hyper.mortGibbs(test, MuSD, spmean, whichtest)
 }

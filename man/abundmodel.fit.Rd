@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{abundmodel.fit}
 \alias{abundmodel.fit}
-\title{abundmodel.fit}
+\title{Simply return the modeled histogram for any set of parameters. Used...}
 \usage{
 abundmodel.fit(x, fit, modeltype, conf = NULL)
 }

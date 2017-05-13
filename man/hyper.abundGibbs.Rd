@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{hyper.abundGibbs}
 \alias{hyper.abundGibbs}
-\title{hyper.abundGibbs}
+\title{Likelihood function for hyperparameters of abundance model, given t...}
 \usage{
 hyper.abundGibbs(test, Rsd, spmean, whichtest, type, badparam = NULL,
   returneach = FALSE)

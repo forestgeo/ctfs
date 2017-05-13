@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{midPoint}
 \alias{midPoint}
-\title{midPoint}
+\title{Midpoint of any vector.midPoint Source code and original documentat...}
 \usage{
 midPoint(x, na.rm = TRUE)
 }

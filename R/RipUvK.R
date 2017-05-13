@@ -5,7 +5,7 @@
 #'
 
 #'
-#' RipUvK
+#' Ripleys K using splancs. Computes the univariate Ripleys K for a li...
 #'
 #' @description
 #'
@@ -77,7 +77,7 @@
 'RipUvK'
 
 #'
-#' Annuli
+#' Calculates the total area in a series of annuli, summed over all in...
 #'
 #' @description
 #'
@@ -94,7 +94,7 @@
 'Annuli'
 
 #'
-#' CalcRingArea
+#' Given a dataframe that includes gx, gy coordinates, and a single va...
 #'
 #' @description
 #'
@@ -107,7 +107,7 @@
 #'
 'CalcRingArea'
 
-#' circlearea
+#' Simply returns area of a circle of radius r.circlearea partialcircl...
 #'
 #' @description
 #'
@@ -116,7 +116,7 @@
 #'
 'circlearea'
 
-#' partialcirclearea
+#' Calculates the area of a circle of radius r that is inside a rectan...
 #'
 #' @description
 #'

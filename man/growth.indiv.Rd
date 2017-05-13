@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{growth.indiv}
 \alias{growth.indiv}
-\title{growth.indiv}
+\title{This returns a complete table with growth rate of every individual,...}
 \usage{
 growth.indiv(census1, census2, rounddown = FALSE, mindbh = 10,
   dbhunit = "mm", err.limit = 4, maxgrow = 75)

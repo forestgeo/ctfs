@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{extract.growthdata}
 \alias{extract.growthdata}
-\title{extract.growthdata}
+\title{Extract data for growth rates from plot databases and 2 censuses in...}
 \usage{
 extract.growthdata(census1, census2, growcol = "incgr", mingrow = 0.1,
   logit = "x", growthfunc = growth.biomass.indiv, pomcut = 10000,

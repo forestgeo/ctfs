@@ -2,7 +2,7 @@
 % Please edit documentation in R/solvetopo.R
 \name{rearrangeSurveyData}
 \alias{rearrangeSurveyData}
-\title{rearrangeSurveyData}
+\title{Takes a table of survey sightings with columns of x and y locations...}
 \usage{
 rearrangeSurveyData(inputtable)
 }

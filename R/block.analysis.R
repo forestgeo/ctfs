@@ -4,7 +4,7 @@
 #'
 #'
 
-#' wavelet.allsp
+#' Function to calculate the wavelet variance curves for all species i...
 #'
 #' @description
 #'
@@ -36,7 +36,7 @@
 #'
 'wavelet.allsp'
 
-#' plot_wavelet
+#' Function to plot the wavelet variance from the output of the wavele...
 #'
 #' @description
 #' Function to plot the wavelet variance from the output of the wavelet.allsp. 
@@ -51,7 +51,7 @@
 #'
 'plot_wavelet'
 
-#' rasterize
+#' Function to calculate the count (type=point), basal area or agb (ty...
 #'
 #' @description
 #' Function to calculate the count (type='point'), basal area or agb
@@ -89,7 +89,7 @@
 #'
 'rasterize'
 
-#' wavelet.univariate
+#' Function to calculate the univariate wavelet variance using furier ...
 #'
 #' @description
 #'
@@ -138,7 +138,7 @@
 #'
 'wavelet.univariate'
 
-#' wavelet.bivariate
+#' Function to calculate the wavelet variance to evaluate the associat...
 #'
 #' @description
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mortality.R
 \name{mortality}
 \alias{mortality}
-\title{mortality}
+\title{Mortality is the main function, and is constructed like  growth and...}
 \usage{
 mortality(census1, census2, alivecode = c("A", "AB", "AS"), split1 = NULL,
   split2 = NULL)

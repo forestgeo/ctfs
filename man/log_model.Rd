@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{log_model}
 \alias{log_model}
-\title{log_model}
+\title{Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number o...}
 \usage{
 log_model(x, param)
 }

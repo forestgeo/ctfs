@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{countpresent}
 \alias{countpresent}
-\title{countpresent}
+\title{Counts vector elements > 0. See countspp as well.countpresent find....}
 \usage{
 countpresent(x)
 }

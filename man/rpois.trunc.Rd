@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{rpois.trunc}
 \alias{rpois.trunc}
-\title{rpois.trunc}
+\title{Random draws on dpois.trunc. This is taken unchanged from an answer...}
 \usage{
 rpois.trunc(N, lambda)
 }

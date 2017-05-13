@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{merge_data}
 \alias{merge_data}
-\title{merge_data}
+\title{Combine many dataframes as elements of a list into a single large d...}
 \usage{
 merge_data(listdata, showOutput = NULL)
 }

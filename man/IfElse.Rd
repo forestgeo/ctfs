@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{IfElse}
 \alias{IfElse}
-\title{IfElse}
+\title{A more convenient version of the R function ifelse in cases where t...}
 \usage{
 IfElse(test, a, b)
 }

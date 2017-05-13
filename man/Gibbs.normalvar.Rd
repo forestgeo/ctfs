@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{Gibbs.normalvar}
 \alias{Gibbs.normalvar}
-\title{Gibbs.normalvar}
+\title{Gibbs draw for the variance of a normal distribution (http://www.bi...}
 \usage{
 Gibbs.normalvar(y)
 }

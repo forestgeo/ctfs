@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{full.xygrid}
 \alias{full.xygrid}
-\title{full.xygrid}
+\title{Create a complete of points x-y, given the sequence of unique x and...}
 \usage{
 full.xygrid(x, y)
 }

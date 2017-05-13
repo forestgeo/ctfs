@@ -2,7 +2,7 @@
 % Please edit documentation in R/spparea.R
 \name{coverage.diag}
 \alias{coverage.diag}
-\title{coverage.diag}
+\title{Draws a diagonal across a plot, from lower left to upper right (if ...}
 \usage{
 coverage.diag(randomquads, slope = 1, plotdim = c(1000, 500),
   graphit = FALSE)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{segmentPt}
 \alias{segmentPt}
-\title{segmentPt}
+\title{Draw a line segment between two points, where each point is a vecto...}
 \usage{
 segmentPt(pt1, pt2, clr = "black", lwidth = 1)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/slope.R
 \name{calcslope}
 \alias{calcslope}
-\title{calcslope}
+\title{Given the z-coordinate of 3 points in 3D space whose x-y coordinate...}
 \usage{
 calcslope(z, gridsize = 20)
 }

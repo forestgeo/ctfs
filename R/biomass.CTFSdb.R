@@ -4,7 +4,7 @@
 #'
 #'
 
-#' biomass.CTFSdb
+#' Calculate biomass from existing R-formatted tables for trees and st...
 #'
 #' @description
 #'
@@ -58,7 +58,7 @@
 #'
 'biomass.CTFSdb'
 
-#' density_ind
+#' Create a vector of wood density for each individual tree based on t...
 #'
 #' @description
 #' Create a vector of wood density for each individual tree based on the species
@@ -95,7 +95,7 @@
 'density_ind'
 
 #'
-#' AGB.ind
+#' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) m...
 #'
 #' @description
 #'
@@ -123,7 +123,7 @@
 'AGB.ind'
 
 #'
-#' AGB.tree
+#' Computes AGB of each tree in a table, grouping all stems of one tre...
 #'
 #' @description
 #'
@@ -143,7 +143,7 @@
 'AGB.tree'
 
 #'
-#' Chave.AGB
+#' The Chave 2005 Oecologia model for calculating biomass from dbh in ...
 #'
 #' @description
 #'
@@ -178,7 +178,7 @@
 #'
 'Chave.AGB'
 
-#' agb.model
+#' Calculates biomass from density, height, and dbh. Requires just two...
 #'
 #' @description
 #'
@@ -194,7 +194,7 @@
 #'
 'agb.model'
 
-#' agb.dbhmodel
+#' Calculates biomass from density and diameter, without height. Requi...
 #'
 #' @description
 #'
@@ -211,7 +211,7 @@
 #'
 'agb.dbhmodel'
 
-#' predht.asym
+#' An allometric model predicting an asymptote at large size, used in ...
 #'
 #' @description
 #'
@@ -235,7 +235,7 @@
 #'
 'predht.asym'
 
-#' biomass.change
+#' Finds biomass in two censuses and change between them. The submitte...
 #'
 #' @description
 #'
@@ -290,8 +290,8 @@
 #'
 'biomass.change'
 
-#'
-#' AGB.dbtable
+
+#' This function looks up the database named AGB in the MySQL server t...
 #'
 #' @description
 #'

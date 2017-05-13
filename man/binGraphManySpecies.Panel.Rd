@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{binGraphManySpecies.Panel}
 \alias{binGraphManySpecies.Panel}
-\title{binGraphManySpecies.Panel}
+\title{Make a graph, 4 panels, of AGB growth and model fit of many species...}
 \usage{
 binGraphManySpecies.Panel(fulldataname, sitename, darken = 8, xrange = c(-3,
   3), yrange = c(0, 0.1), export = pdf,

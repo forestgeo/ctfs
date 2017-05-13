@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{metrop1step}
 \alias{metrop1step}
-\title{metrop1step}
+\title{Takes a single metropolis step on a single parameter for any given ...}
 \usage{
 metrop1step(func, start.param, scale.param, adjust, target, ...)
 }

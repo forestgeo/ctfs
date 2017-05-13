@@ -4,7 +4,7 @@
 #'
 #'
 
-#' coldata.to.imagemat
+#' These functions create maps of response variables using the R funct...
 #'
 #' @description
 #' These functions create maps of response variables using the R functions
@@ -84,7 +84,7 @@
 #'
 'coldata.to.imagemat'
 
-#' imageGraph
+#' Maps a response variable with Rs contour or image functions, or bot...
 #'
 #' @description
 #'
@@ -160,7 +160,7 @@
 #'
 'imageGraph'
 
-#' draw.axes
+#' Add axes to a graph, with ticks spaced by the vector div. This is a...
 #'
 #' @description
 #'
@@ -169,7 +169,7 @@
 #'
 'draw.axes'
 
-#' image_dataframe
+#' Creates a color response map based on columnar data, not a matrix a...
 #'
 #' @description
 #'

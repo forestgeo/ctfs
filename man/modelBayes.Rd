@@ -2,7 +2,7 @@
 % Please edit documentation in R/modelBayes.R
 \name{modelBayes}
 \alias{modelBayes}
-\title{modelBayes}
+\title{A Metropolis MCMC version for any modeling y~x, without random effe...}
 \usage{
 modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
   error = "Binom", update = "conjugate", badparam = NULL,
