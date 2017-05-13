@@ -2,7 +2,7 @@
 % Please edit documentation in R/RipUvK.R
 \name{CalcRingArea}
 \alias{CalcRingArea}
-\title{CalcRingArea}
+\title{Given a dataframe that includes gx, gy coordinates, and a single va...}
 \usage{
 CalcRingArea(data, radius, plotdim)
 }

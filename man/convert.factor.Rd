@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{convert.factor}
 \alias{convert.factor}
-\title{convert.factor}
+\title{Converts any character fields in a dataframe from factors to charac...}
 \usage{
 convert.factor(r)
 }

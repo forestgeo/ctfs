@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{nhd}
 \alias{nhd}
-\title{nhd}
+\title{A version of head with only 6 columns shown.nhd TextToRdata  Reads ...}
 \usage{
 nhd(d, w = 1:6, h = 8)
 }

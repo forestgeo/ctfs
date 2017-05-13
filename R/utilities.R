@@ -1,6 +1,6 @@
 
 # Roxygen documentation generated programatically -------------------
-#' tojulian
+#' Accepts any character representation of a date and a description of...
 #'
 #' @description
 #'
@@ -18,7 +18,7 @@
 #'
 'tojulian'
 
-#' fromjulian
+#' Accepts a julian date and returns a character representation of dat...
 #'
 #' @description
 #'
@@ -33,7 +33,7 @@
 #'
 'fromjulian'
 
-#' create.fulldate
+#' Converts a vector of date character strings in any format to a data...
 #'
 #' @description
 #'
@@ -49,7 +49,7 @@
 #'
 'create.fulldate'
 
-#' create.fulldate.split
+#' Converts the MySQL date format by splitting on the hyphen (or other...
 #'
 #' @description
 #'
@@ -69,7 +69,7 @@
 #'
 'create.fulldate.split'
 
-#' order.by.rowcol
+#' Reorder rows and columns of a matrix so they are sorted as if colum...
 #'
 #' @description
 #'
@@ -79,7 +79,7 @@
 #'
 'order.by.rowcol'
 
-#' order.bynumber
+#' Returns ordering of a character vector with any numbers coming firs...
 #'
 #' @description
 #'
@@ -89,7 +89,7 @@
 #'
 'order.bynumber'
 
-#' fill.dimension
+#' This function fills out an array of 2 dimensions, adding zeroes (or...
 #'
 #' @description
 #'
@@ -101,7 +101,7 @@
 #'
 'fill.dimension'
 
-#' fill.1dimension
+#' Filling a 1D array resulting from tapply. Same as fill.dimension, b...
 #'
 #' @description
 #'
@@ -110,7 +110,7 @@
 #'
 'fill.1dimension'
 
-#' convert.factor
+#' Converts any character fields in a dataframe from factors to charac...
 #'
 #' @description
 #'
@@ -119,7 +119,7 @@
 #'
 'convert.factor'
 
-#' split_data
+#' Converts a big dataframe into a list of smaller dataframes, grouped...
 #'
 #' @description
 #' Converts a big dataframe into a list of smaller dataframes, grouped using any
@@ -138,7 +138,7 @@
 #'
 'split_data'
 
-#' merge_data
+#' Combine many dataframes as elements of a list into a single large d...
 #'
 #' @description
 #' Combine many dataframes as elements of a list into a single large dataframe.
@@ -150,7 +150,7 @@
 #'
 'merge_data'
 
-#' pst
+#' A version of paste with sep.pst detachfiles  detachs from the searc...
 #'
 #' @description
 #'
@@ -160,7 +160,7 @@
 #'
 'pst'
 
-#' detachfiles
+#' detachs from the searchpath files matching a submitted vector of na...
 #'
 #' @description
 #' detachs from the searchpath files matching a submitted vector of names.
@@ -168,7 +168,7 @@
 #'
 'detachfiles'
 
-#' save.searchpath
+#' Saves all functions in position n to the file already  attached at ...
 #'
 #' @description
 #'
@@ -179,7 +179,7 @@
 #'
 'save.searchpath'
 
-#' gsp
+#' Returns one of the objects at a given search position. This provide...
 #'
 #' @description
 #'
@@ -189,7 +189,7 @@
 #'
 'gsp'
 
-#' match.dataframe
+#' Matches two dataframes using two or more columns. Rs function match...
 #'
 #' @description
 #'
@@ -199,7 +199,7 @@
 #'
 'match.dataframe'
 
-#' trim
+#' Trims leading and trailing blanks from a vector of character variab...
 #'
 #' @description
 #'
@@ -210,7 +210,7 @@
 'trim'
 
 #'
-#' StringToVect
+#' Converts a character string into a vector of individual characters....
 #'
 #' @description
 #'
@@ -224,7 +224,7 @@
 #'
 'StringToVect'
 
-#' charlocate
+#' Finds position of a substring needle inside a longer string haystac...
 #'
 #' @description
 #'
@@ -238,7 +238,7 @@
 #'
 'charlocate'
 
-#' left
+#' A standard left function. Returns the leftmost n characters of a st...
 #'
 #' @description
 #'
@@ -248,7 +248,7 @@
 #'
 'left'
 
-#' leftbut
+#' Returns the leftmost characters of a string, excluding the last n.l...
 #'
 #' @description
 #'
@@ -257,7 +257,7 @@
 #'
 'leftbut'
 
-#' right
+#' Returns the rightmost n characters of a stringright rightbut  Retur...
 #'
 #' @description
 #'
@@ -266,7 +266,7 @@
 #'
 'right'
 
-#' rightbut
+#' Returns the rightmost characters of a string, excluding the initial...
 #'
 #' @description
 #'
@@ -275,7 +275,7 @@
 #'
 'rightbut'
 
-#' explode
+#' Split a single (atomic) character variable into sections, separated...
 #'
 #' @description
 #'
@@ -285,7 +285,7 @@
 #'
 'explode'
 
-#' ditch
+#' Detaches all files at one or more search positions; v can be a vect...
 #'
 #' @description
 #'
@@ -294,7 +294,7 @@
 #'
 'ditch'
 
-#' is.leap
+#' Return a logical indicating which elements of a vector are leap yea...
 #'
 #' @description
 #'
@@ -303,7 +303,7 @@
 #'
 'is.leap'
 
-#' mergeParam
+#' Merges a list of parameter matrices into one large matrix. Used for...
 #'
 #' @description
 #'
@@ -314,7 +314,7 @@
 #'
 'mergeParam'
 
-#' countzero
+#' Counts vector elements exactly zero.countzero countone  Counts vect...
 #'
 #' @description
 #'
@@ -323,7 +323,7 @@
 #'
 'countzero'
 
-#' countone
+#' Counts vector elements exactly one.countone countNA  Counts vector ...
 #'
 #' @description
 #'
@@ -332,7 +332,7 @@
 #'
 'countone'
 
-#' countNA
+#' Counts vector elements that are NA.countNA countEmpty  Counts vecto...
 #'
 #' @description
 #'
@@ -341,7 +341,7 @@
 #'
 'countNA'
 
-#' countEmpty
+#' Counts vector elements that are NA or a string of no length.countEm...
 #'
 #' @description
 #'
@@ -350,7 +350,7 @@
 #'
 'countEmpty'
 
-#' countpresent
+#' Counts vector elements > 0. See countspp as well.countpresent find....
 #'
 #' @description
 #'
@@ -359,7 +359,7 @@
 #'
 'countpresent'
 
-#' find.nonNA
+#' Returns the first value of a vector x which is not NAfind.nonNA whi...
 #'
 #' @description
 #'
@@ -368,7 +368,7 @@
 #'
 'find.nonNA'
 
-#' which.nonNA
+#' Returns the first index at which a vector x is not NAwhich.nonNA wh...
 #'
 #' @description
 #'
@@ -377,7 +377,7 @@
 #'
 'which.nonNA'
 
-#' which.allnonNA
+#' Finds all values of a vector which are not NA. Fills out a vector t...
 #'
 #' @description
 #'
@@ -387,7 +387,7 @@
 #'
 'which.allnonNA'
 
-#' which.vmatch
+#' Finds which subsequent element of a vector matches the first elemen...
 #'
 #' @description
 #'
@@ -396,14 +396,14 @@
 #'
 'which.vmatch'
 
-#' logical.grep
+#' A form of grep returning logical instead of indices (numbers).logic...
 #'
 #' @description
 #'
 #' A form of grep returning logical instead of indices (numbers).
 'logical.grep'
 
-#' nhd
+#' A version of head with only 6 columns shown.nhd TextToRdata  Reads ...
 #'
 #' @description
 #'
@@ -413,7 +413,7 @@
 'nhd'
 
 #'
-#' TextToRdata
+#' Reads a tab-delimited text file and save as rdata.TextToRdata Count...
 #'
 #' @description
 #'
@@ -423,7 +423,7 @@
 'TextToRdata'
 
 #'
-#' CountByGroup
+#' Groups a dataframe by one or more columns (named by groupcol). This...
 #'
 #' @description
 #'
@@ -434,7 +434,7 @@
 #'
 'CountByGroup'
 
-#' which.maxNAs
+#' An unfortunate bug in which.max: if all elements are NA, it doesnt ...
 #'
 #' @description
 #'
@@ -444,7 +444,7 @@
 #'
 'which.maxNAs'
 
-#' attach_if_needed
+#' Deprecated. See section _Good practice_ in `?attach`. To use <DATA>...
 #'
 #' Deprecated. See section _Good practice_ in `?attach`. To use <DATA> from BCI
 #' with bci::<DATA>, see 
@@ -457,7 +457,7 @@
 'attach_if_needed'
 
 #'
-#' IfElse
+#' A more convenient version of the R function ifelse in cases where t...
 #'
 #' @description
 #'
@@ -467,7 +467,7 @@
 'IfElse'
 
 #'
-#' AssignDiag
+#' A way to assign the diagonals of a matrix that can handle input hav...
 #'
 #' @description
 #'
@@ -480,7 +480,7 @@
 #'
 'AssignDiag'
 
-#' vectToCommas
+#' Given a vector of character variables, collapse into a single strin...
 #'
 #' @description
 #'
@@ -489,7 +489,7 @@
 #'
 'vectToCommas'
 
-#' drp
+#' A version of drop which includes as.matrix. Without it, drop does n...
 #'
 #' @description
 #'
@@ -499,7 +499,7 @@
 #'
 'drp'
 
-#' randomRow
+#' Return a random row from a dataframerandomRow randomElement   Retur...
 #'
 #' @description
 #'
@@ -508,16 +508,15 @@
 #'
 'randomRow'
 
-#' randomRow
-#'
+#' Return a random element from a vector randomElement countUnique  Co...
+#' 
 #' @description
 #'
 #' Return a random element from a vector
-#'
-#'
-'randomRow'
+#' 
+'randomElement'
 
-#' countUnique
+#' Count the number of unique elements in a vectorcountUnique graphFil...
 #'
 #' @description
 #'
@@ -526,7 +525,7 @@
 #'
 'countUnique'
 
-#' graphFilledBand
+#' Fill the area between two curves on a graph. Useful for confidence ...
 #'
 #' @description
 #'
@@ -552,7 +551,7 @@
 #'
 'graphFilledBand'
 
-#' make.CredIntervalVect
+#' Take a vector y having mean then lower and upper credible limits an...
 #'
 #' @description
 #'
@@ -2190,7 +2189,7 @@ randomRow=function(data)
 
 # <function>
 # <name>
-# randomRow
+# randomElement
 # </name>
 # <description>
 # Return a random element from a vector
@@ -2203,10 +2202,6 @@ randomRow=function(data)
 # </sample>
 # <source>
 
-#' randomElement
-#' 
-#' xxx Undocumented
-#' 
 #' @export
 randomElement=function(data)
 {

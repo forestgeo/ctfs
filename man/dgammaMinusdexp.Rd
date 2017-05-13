@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dgammaMinusdexp}
 \alias{dgammaMinusdexp}
-\title{dgammaMinusdexp}
+\title{The PDF of the difference between a gamma and a negative exponentia...}
 \usage{
 dgammaMinusdexp(z, mean, sd, lambda, draws = 10000, div = 0.01,
   xrange = c(0, 25), xmax = 4, graphit = F)

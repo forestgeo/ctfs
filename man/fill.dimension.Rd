@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{fill.dimension}
 \alias{fill.dimension}
-\title{fill.dimension}
+\title{This function fills out an array of 2 dimensions, adding zeroes (or...}
 \usage{
 fill.dimension(dataarray, class1, class2, fill = 0)
 }

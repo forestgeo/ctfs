@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{which.allnonNA}
 \alias{which.allnonNA}
-\title{which.allnonNA}
+\title{Finds all values of a vector which are not NA. Fills out a vector t...}
 \usage{
 which.allnonNA(x)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.ctr}
 \alias{logistic.ctr}
-\title{logistic.ctr}
+\title{This is logistic function with intercept parameterization (see logi...}
 \usage{
 logistic.ctr(x, param, log = FALSE, center = NA)
 }

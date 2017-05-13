@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{fullcircle}
 \alias{fullcircle}
-\title{fullcircle}
+\title{Create a dataframe for a full circle, with x values repeated to get...}
 \usage{
 fullcircle(x, center = c(0, 0), radius = 5)
 }

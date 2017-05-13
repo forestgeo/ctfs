@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{create.fulldate}
 \alias{create.fulldate}
-\title{create.fulldate}
+\title{Converts a vector of date character strings in any format to a data...}
 \usage{
 create.fulldate(datestr, format = "\%Y-\%m-\%d")
 }

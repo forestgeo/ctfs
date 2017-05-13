@@ -2,7 +2,7 @@
 % Please edit documentation in R/NeighborDensityFun.R
 \name{NeighborDensities}
 \alias{NeighborDensities}
-\title{NeighborDensities}
+\title{Calculates the total number or basal area of conspecific and hetero...}
 \usage{
 NeighborDensities(censdata, censdata2 = NULL, r = 20, plotdim = c(1000,
   500), mindbh = 10, type = "count", include = c("A"))

@@ -4,7 +4,7 @@
 #'
 #'
 
-#' calcalpha
+#' Calculates alpha from a stem and species count submitted using Newt...
 #'
 #' @description
 #'
@@ -13,7 +13,7 @@
 #'
 'calcalpha'
 
-#' d.calcS.alpha
+#' The derivative for use in Newtons methodd.calcS.alpha calcS.alpha  ...
 #'
 #' @description
 #'
@@ -22,7 +22,7 @@
 #'
 'd.calcS.alpha'
 
-#' calcS.alpha
+#' Estimated number of species in a sample of N individuals, given Fis...
 #'
 #' @description
 #'
@@ -31,7 +31,7 @@
 #'
 'calcS.alpha'
 
-#' rarefy.diversity
+#' takes a full plot dataframe and calculates species number in a rand...
 #'
 #' @description
 #' takes a full plot dataframe and calculates species number in a

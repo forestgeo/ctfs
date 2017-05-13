@@ -2,10 +2,10 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{bad.binsdpar}
 \alias{bad.binsdpar}
-\title{bad.binsdpar}
+\title{bad.binsdpar calculateBinModel.BIC  Calculate Bayes Information Cri...}
 \usage{
 bad.binsdpar(x, param, ...)
 }
 \description{
-bad.binsdpar
+bad.binsdpar calculateBinModel.BIC  Calculate Bayes Information Cri...
 }

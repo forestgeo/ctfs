@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{trim}
 \alias{trim}
-\title{trim}
+\title{Trims leading and trailing blanks from a vector of character variab...}
 \usage{
 trim(s)
 }

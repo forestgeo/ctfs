@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dgamma.mean}
 \alias{dgamma.mean}
-\title{dgamma.mean}
+\title{A version of dgamma where the parameters are ordered so that the me...}
 \usage{
 dgamma.mean(mu, x, k)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{index.to.rowcol}
 \alias{index.to.rowcol}
-\title{index.to.rowcol}
+\title{Calculate the row and column given the quadrat index, as calculated...}
 \usage{
 index.to.rowcol(index, gridsize = 20, plotdim = c(1000, 500))
 }

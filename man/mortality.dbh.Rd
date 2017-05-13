@@ -2,7 +2,7 @@
 % Please edit documentation in R/mortality.R
 \name{mortality.dbh}
 \alias{mortality.dbh}
-\title{mortality.dbh}
+\title{Calculate forest-wide mortality in given dbh categories. See mortal...}
 \usage{
 mortality.dbh(census1, census2, classbreak = c(10, 100, 300),
   alivecode = c("A", "AB", "AS"))

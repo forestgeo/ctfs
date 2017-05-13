@@ -2,7 +2,7 @@
 % Please edit documentation in R/mapresponse.R
 \name{draw.axes}
 \alias{draw.axes}
-\title{draw.axes}
+\title{Add axes to a graph, with ticks spaced by the vector div. This is a...}
 \usage{
 draw.axes(whichaxs = 1:4, xrange, yrange, div, whichbox = 1:4)
 }

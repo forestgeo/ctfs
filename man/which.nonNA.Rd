@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{which.nonNA}
 \alias{which.nonNA}
-\title{which.nonNA}
+\title{Returns the first index at which a vector x is not NAwhich.nonNA wh...}
 \usage{
 which.nonNA(x)
 }

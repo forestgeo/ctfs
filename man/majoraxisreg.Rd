@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{majoraxisreg}
 \alias{majoraxisreg}
-\title{majoraxisreg}
+\title{A major axis regression with parameters fitted by optim. The regres...}
 \usage{
 majoraxisreg(x, y, title = "", graphit = F, add = F, pts = T,
   clr = "blue", xtitle = "x", ytitle = "y", ptsize = 1, labsize = 1)

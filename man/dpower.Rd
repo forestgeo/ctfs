@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dpower}
 \alias{dpower}
-\title{dpower}
+\title{A probability distribution defined by a power function. There is a ...}
 \usage{
 dpower(x, beta, log = FALSE)
 }

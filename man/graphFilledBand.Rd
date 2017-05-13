@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{graphFilledBand}
 \alias{graphFilledBand}
-\title{graphFilledBand}
+\title{Fill the area between two curves on a graph. Useful for confidence ...}
 \usage{
 graphFilledBand(x, y1, y2, fillcol = "gray", add = TRUE,
   linecol = "black", ltype = "solid", lwidth = 1)

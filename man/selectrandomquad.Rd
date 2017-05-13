@@ -2,7 +2,7 @@
 % Please edit documentation in R/spparea.R
 \name{selectrandomquad}
 \alias{selectrandomquad}
-\title{selectrandomquad}
+\title{Draws rectangular quadrats in a plot at random. Returns a dataframe...}
 \usage{
 selectrandomquad(size, shape, rep, plotdim = c(1000, 500), graphit = FALSE)
 }

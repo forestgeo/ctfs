@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{calculateBinModel.bestpred}
 \alias{calculateBinModel.bestpred}
-\title{calculateBinModel.bestpred}
+\title{Calculate mean predicted value at every x using every one of the Gi...}
 \usage{
 calculateBinModel.bestpred(fit)
 }

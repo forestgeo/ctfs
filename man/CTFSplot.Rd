@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{CTFSplot}
 \alias{CTFSplot}
-\title{CTFSplot}
+\title{Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> ...}
 \usage{
 CTFSplot(plot, census = 1, type = "full", path = "CTFSRPackage",
   remove = FALSE, includespp = TRUE)

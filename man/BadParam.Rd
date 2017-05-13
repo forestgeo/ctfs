@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{BadParam}
 \alias{BadParam}
-\title{BadParam}
+\title{This is a default for model.xy, never returning TRUE. To use model....}
 \usage{
 BadParam(x, param, pred)
 }

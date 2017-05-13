@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{invlogit}
 \alias{invlogit}
-\title{invlogit}
+\title{Inverse logit transformation, turns a logit back into a probability...}
 \usage{
 invlogit(x)
 }

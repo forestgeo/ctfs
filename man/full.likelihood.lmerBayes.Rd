@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{full.likelihood.lmerBayes}
 \alias{full.likelihood.lmerBayes}
-\title{full.likelihood.lmerBayes}
+\title{Calculate full likelihood for any complete set of parameters, inclu...}
 \usage{
 full.likelihood.lmerBayes(one.covar, one.param, one.hyper, fixpar = NULL,
   errormodel, data, obs, model, sdmodel = "constant", sdpar, bad = NULL,

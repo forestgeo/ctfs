@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{calculateBinModel.BIC}
 \alias{calculateBinModel.BIC}
-\title{calculateBinModel.BIC}
+\title{Calculate Bayes Information Criteria using Wikipedia formula Descri...}
 \usage{
 calculateBinModel.BIC(fit)
 }

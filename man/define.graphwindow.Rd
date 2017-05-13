@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{define.graphwindow}
 \alias{define.graphwindow}
-\title{define.graphwindow}
+\title{This defines an export device for a graph, based on the argument ex...}
 \usage{
 define.graphwindow(export = "no", w, h, file)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{growth}
 \alias{growth}
-\title{growth}
+\title{The principle growth function, constructed like recruitment and mor...}
 \usage{
 growth(census1, census2, rounddown = FALSE, method = "I", stdev = FALSE,
   dbhunit = "mm", mindbh = 10, growthcol = "dbh", err.limit = 4,

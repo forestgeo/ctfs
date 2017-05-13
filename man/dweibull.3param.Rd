@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dweibull.3param}
 \alias{dweibull.3param}
-\title{dweibull.3param}
+\title{PDF of three-parameter Weibulldweibull.3param weibull.median.3param...}
 \usage{
 dweibull.3param(x, x0, shape, scale)
 }

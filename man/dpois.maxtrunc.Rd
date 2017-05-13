@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dpois.maxtrunc}
 \alias{dpois.maxtrunc}
-\title{dpois.maxtrunc}
+\title{A zero-truncated Poisson distribution with a ceiling (combining dpo...}
 \usage{
 dpois.maxtrunc(x, lambda, maxx, log = FALSE)
 }

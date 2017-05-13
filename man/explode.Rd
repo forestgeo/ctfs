@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{explode}
 \alias{explode}
-\title{explode}
+\title{Split a single (atomic) character variable into sections, separated...}
 \usage{
 explode(str, sep = "")
 }

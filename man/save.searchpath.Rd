@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{save.searchpath}
 \alias{save.searchpath}
-\title{save.searchpath}
+\title{Saves all functions in position n to the file already  attached at ...}
 \usage{
 save.searchpath(n)
 }

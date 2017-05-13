@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{biomass.growth}
 \alias{biomass.growth}
-\title{biomass.growth}
+\title{Like growth(), but calculates change in biomass (agb) instead of db...}
 \usage{
 biomass.growth(census1, census2, rounddown = FALSE, stdev = FALSE,
   mindbh = 10, split1 = NULL, split2 = NULL)

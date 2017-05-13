@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dpois.max}
 \alias{dpois.max}
-\title{dpois.max}
+\title{A probability distribution which is simply a curtailed poisson: all...}
 \usage{
 dpois.max(x, lambda, maxx, log = FALSE)
 }

@@ -4,7 +4,7 @@
 #'
 #'
 
-#' modelBayes
+#' A Metropolis MCMC version for any modeling y~x, without random effe...
 #'
 #' @description
 #'
@@ -70,7 +70,7 @@
 #'
 'modelBayes'
 
-#' residual.llike.modelBayes
+#' Calculate likelihood of residual standard deviation, given observat...
 #'
 #' @description
 #'
@@ -81,7 +81,7 @@
 #'
 'residual.llike.modelBayes'
 
-#' summaryModelMCMC
+#' Make summary calculations based on the full Gibbs sampler. The argu...
 #'
 #' @description
 #'

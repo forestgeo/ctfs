@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{is.between}
 \alias{is.between}
-\title{is.between}
+\title{Check whether a point x,y falls between two other points. The typic...}
 \usage{
 is.between(x, y, x1, y1, x2, y2)
 }

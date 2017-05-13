@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{wideEnoughBins}
 \alias{wideEnoughBins}
-\title{wideEnoughBins}
+\title{Test whether all the bin widths exceed a minimum.  MINBIN=0.1 MINBI...}
 \usage{
 wideEnoughBins(x, b, ...)
 }

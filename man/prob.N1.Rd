@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{prob.N1}
 \alias{prob.N1}
-\title{prob.N1}
+\title{Calculates the probability of observing N2 given N1, assuming a com...}
 \usage{
 prob.N1(spmean.ann, Rsd, N1, N2, surv.ann, time, type = "norm")
 }

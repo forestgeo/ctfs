@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{rmixnorm}
 \alias{rmixnorm}
-\title{rmixnorm}
+\title{Random draw on the mixed normal distribution.rmixnorm minum.mixnorm...}
 \usage{
 rmixnorm(n, mean1, mean2, sd1, sd2, f)
 }

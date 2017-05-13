@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{density_ind}
 \alias{density_ind}
-\title{density_ind}
+\title{Create a vector of wood density for each individual tree based on t...}
 \usage{
 density_ind(df, plot, wsgdata, denscol = "wsg")
 }

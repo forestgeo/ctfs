@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{llike.linearbin.optim}
 \alias{llike.linearbin.optim}
-\title{llike.linearbin.optim}
+\title{This is for optim, a single function taking all parameters at once,...}
 \usage{
 llike.linearbin.optim(param, x, y, predfunc, nomainpar, badpredpar, llikefunc,
   sdfunc, badsdpar, ...)

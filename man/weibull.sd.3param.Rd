@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{weibull.sd.3param}
 \alias{weibull.sd.3param}
-\title{weibull.sd.3param}
+\title{SD of three-parameter Weibullweibull.sd.3param dexp.sin  Four-param...}
 \usage{
 weibull.sd.3param(x0, shape, scale)
 }

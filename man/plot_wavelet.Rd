@@ -2,7 +2,7 @@
 % Please edit documentation in R/block.analysis.R
 \name{plot_wavelet}
 \alias{plot_wavelet}
-\title{plot_wavelet}
+\title{Function to plot the wavelet variance from the output of the wavele...}
 \usage{
 plot_wavelet(x)
 }

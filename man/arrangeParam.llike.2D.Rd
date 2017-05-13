@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{arrangeParam.llike.2D}
 \alias{arrangeParam.llike.2D}
-\title{arrangeParam.llike.2D}
+\title{Used in likelihood function of a Gibbs sampler for lmerBayes, but f...}
 \usage{
 arrangeParam.llike.2D(testparam, allparam, whichrow, whichcol,
   forcesymmetry = FALSE)

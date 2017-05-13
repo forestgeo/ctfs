@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.standard}
 \alias{logistic.standard}
-\title{logistic.standard}
+\title{This is standard logistic function, but with asymptote and basement...}
 \usage{
 logistic.standard(x, param, log = FALSE, ...)
 }

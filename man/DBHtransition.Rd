@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{DBHtransition}
 \alias{DBHtransition}
-\title{DBHtransition}
+\title{Calculates a transition matrix of individuals by diameter categorie...}
 \usage{
 DBHtransition(data1, data2, dbhbreaks = c(10, 50, 100, 300, 10000),
   maxgrow = 45, misscode = "M")

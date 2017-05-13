@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{colMedians}
 \alias{colMedians}
-\title{colMedians}
+\title{For convenient medians, like colMeans.colMedians midPoint  Midpoint...}
 \usage{
 colMedians(mat, na.rm = TRUE)
 }

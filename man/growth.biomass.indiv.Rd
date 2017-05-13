@@ -2,7 +2,7 @@
 % Please edit documentation in R/growth.R
 \name{growth.biomass.indiv}
 \alias{growth.biomass.indiv}
-\title{growth.biomass.indiv}
+\title{Like growth.indiv but based on agb growth, not dbh growth. Extreme ...}
 \usage{
 growth.biomass.indiv(census1, census2, mindbh = 10, steminfo = FALSE,
   dbhunit = "mm", err.limit = 4, maxgrow = 75, rounddown = NULL,

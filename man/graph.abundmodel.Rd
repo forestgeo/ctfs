@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{graph.abundmodel}
 \alias{graph.abundmodel}
-\title{graph.abundmodel}
+\title{Output histograms of little.r across species, observed and fitted, ...}
 \usage{
 graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
   modeltype = "asympower", xrange = NULL, yrange = NULL, minabund = 50,

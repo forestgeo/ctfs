@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{rpois.max}
 \alias{rpois.max}
-\title{rpois.max}
+\title{Random draws on dpois.maxrpois.max rpois.trunc  Random draws on dpo...}
 \usage{
 rpois.max(N, lambda, maxx)
 }

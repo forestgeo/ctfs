@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{ditch}
 \alias{ditch}
-\title{ditch}
+\title{Detaches all files at one or more search positions; v can be a vect...}
 \usage{
 ditch(v)
 }

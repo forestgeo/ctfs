@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{Gibbs.regsigma}
 \alias{Gibbs.regsigma}
-\title{Gibbs.regsigma}
+\title{Updates the regression standard deviation (used in regression.Bayes...}
 \usage{
 Gibbs.regsigma(X, y, beta)
 }

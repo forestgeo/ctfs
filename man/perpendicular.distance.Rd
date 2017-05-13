@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{perpendicular.distance}
 \alias{perpendicular.distance}
-\title{perpendicular.distance}
+\title{Distance from a point to a line (so its the perpendicular distance)...}
 \usage{
 perpendicular.distance(b, m, x, y)
 }

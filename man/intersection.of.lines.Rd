@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{intersection.of.lines}
 \alias{intersection.of.lines}
-\title{intersection.of.lines}
+\title{Finds the point where 2 lines intersect, given lines as 2 parameter...}
 \usage{
 intersection.of.lines(b1, m1, b2, m2)
 }

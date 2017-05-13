@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{map}
 \alias{map}
-\title{map}
+\title{Function to draw map of one or more species from one plot. Must giv...}
 \usage{
 map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
   xrange = c(0, plotdim[1]), yrange = c(0, plotdim[2]), elevdata = NULL,

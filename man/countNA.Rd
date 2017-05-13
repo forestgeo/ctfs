@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{countNA}
 \alias{countNA}
-\title{countNA}
+\title{Counts vector elements that are NA.countNA countEmpty  Counts vecto...}
 \usage{
 countNA(x)
 }

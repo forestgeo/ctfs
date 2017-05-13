@@ -2,7 +2,7 @@
 % Please edit documentation in R/calcalpha.R
 \name{calcS.alpha}
 \alias{calcS.alpha}
-\title{calcS.alpha}
+\title{Estimated number of species in a sample of N individuals, given Fis...}
 \usage{
 calcS.alpha(n, a)
 }

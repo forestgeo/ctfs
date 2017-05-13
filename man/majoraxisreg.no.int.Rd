@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{majoraxisreg.no.int}
 \alias{majoraxisreg.no.int}
-\title{majoraxisreg.no.int}
+\title{Major axis regression with no intercept. Only a slope is returned. ...}
 \usage{
 majoraxisreg.no.int(x, y)
 }

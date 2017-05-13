@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{summaryMCMC}
 \alias{summaryMCMC}
-\title{summaryMCMC}
+\title{Make summary calculations based on the full Gibbs sampler. The argu...}
 \usage{
 summaryMCMC(fit, model, error, sdmodel, badparam, paramfile = NULL,
   returnfull = TRUE, ...)

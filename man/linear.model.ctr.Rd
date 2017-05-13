@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{linear.model.ctr}
 \alias{linear.model.ctr}
-\title{linear.model.ctr}
+\title{A simple linear model, where the first parameter is intercept, seco...}
 \usage{
 linear.model.ctr(x, param, xcenter = NULL)
 }

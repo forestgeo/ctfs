@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{standardreg.no.int}
 \alias{standardreg.no.int}
-\title{standardreg.no.int}
+\title{Standard regression with no intercept.standardreg.no.int autoregres...}
 \usage{
 standardreg.no.int(x, y)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{restoreParamFile}
 \alias{restoreParamFile}
-\title{restoreParamFile}
+\title{Reverses the steps of saveParamFile, back to a 3D array. This requi...}
 \usage{
 restoreParamFile(paramfile)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{CountByGroup}
 \alias{CountByGroup}
-\title{CountByGroup}
+\title{Groups a dataframe by one or more columns (named by groupcol). This...}
 \usage{
 CountByGroup(data, groupcol, count_to_data = FALSE, countname = "count",
   groupname = "groupID")

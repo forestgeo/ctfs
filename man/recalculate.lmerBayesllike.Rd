@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{recalculate.lmerBayesllike}
 \alias{recalculate.lmerBayesllike}
-\title{recalculate.lmerBayesllike}
+\title{Walk through entire chain of parameters to calculate full likelihoo...}
 \usage{
 recalculate.lmerBayesllike(fit, model, error, bad = NULL, keep = NULL,
   dup = TRUE, ...)

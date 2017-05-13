@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{residual.llike.lmerBayes}
 \alias{residual.llike.lmerBayes}
-\title{residual.llike.lmerBayes}
+\title{Calculate likelihood of residual standard deviation, given observat...}
 \usage{
 residual.llike.lmerBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
   sdmodel, badparam, errormodel = "Gauss", ...)

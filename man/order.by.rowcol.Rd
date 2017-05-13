@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{order.by.rowcol}
 \alias{order.by.rowcol}
-\title{order.by.rowcol}
+\title{Reorder rows and columns of a matrix so they are sorted as if colum...}
 \usage{
 order.by.rowcol(x)
 }

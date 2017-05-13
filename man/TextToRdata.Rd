@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{TextToRdata}
 \alias{TextToRdata}
-\title{TextToRdata}
+\title{Reads a tab-delimited text file and save as rdata.TextToRdata Count...}
 \usage{
 TextToRdata(infile, outfile, object, NAs = "NA")
 }

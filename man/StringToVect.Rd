@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{StringToVect}
 \alias{StringToVect}
-\title{StringToVect}
+\title{Converts a character string into a vector of individual characters....}
 \usage{
 StringToVect(s)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{charlocate}
 \alias{charlocate}
-\title{charlocate}
+\title{Finds position of a substring needle inside a longer string haystac...}
 \usage{
 charlocate(needle, haystack)
 }

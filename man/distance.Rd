@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{distance}
 \alias{distance}
-\title{distance}
+\title{Calculates the distance from one quadrat to a second quadrat, where...}
 \usage{
 distance(quad1, quad2, gridsize = 20, plotdim = c(1000, 500))
 }

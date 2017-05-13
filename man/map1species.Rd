@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{map1species}
 \alias{map1species}
-\title{map1species}
+\title{This does the mapping for a single species, called from map() but a...}
 \usage{
 map1species(sppdata, plotdim = c(1000, 500), xrange = c(0, plotdim[1]),
   yrange = c(0, plotdim[2]), color = "black", bgcolor = "white",

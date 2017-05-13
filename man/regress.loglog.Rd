@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{regress.loglog}
 \alias{regress.loglog}
-\title{regress.loglog}
+\title{Performs regression and graphs in a convenient way: with or without...}
 \usage{
 regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
   graphit = TRUE, xrange = NULL, yrange = NULL, add = FALSE, pts = 16,
@@ -11,9 +11,10 @@ regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
   lineclr = "red", includeaxis = TRUE)
 }
 \description{
-Performs regression and graphs in a convenient way: with or without log-transforming x and y variables (the option addone
-can be included to handle zeros for log-transformation), with or
-without manual point labelling, without or without the best-fit line added, and with many options for colors and points.
-add can be a vector of length 2, a constant to be added to every value
-of x, y to remove zeroes.
+Performs regression and graphs in a convenient way: with or without
+log-transforming x and y variables (the option addone can be included to
+handle zeros for log-transformation), with or without manual point labelling,
+without or without the best-fit line added, and with many options for colors
+and points. add can be a vector of length 2, a constant to be added to every
+value of x, y to remove zeroes.
 }

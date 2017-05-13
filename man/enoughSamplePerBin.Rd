@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{enoughSamplePerBin}
 \alias{enoughSamplePerBin}
-\title{enoughSamplePerBin}
+\title{Test whether the number of elements in a vector x between successiv...}
 \usage{
 enoughSamplePerBin(x, b, ...)
 }

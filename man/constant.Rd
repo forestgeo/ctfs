@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{constant}
 \alias{constant}
-\title{constant}
+\title{A function to return a constant at all predictors x. The predictors...}
 \usage{
 constant(x, param, ...)
 }

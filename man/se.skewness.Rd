@@ -2,10 +2,10 @@
 % Please edit documentation in R/statistics.R
 \name{se.skewness}
 \alias{se.skewness}
-\title{se.skewness}
+\title{Standard error of skewness. se.skewness kurtosis   Sample kurtosis....}
 \usage{
 se.skewness(x)
 }
 \description{
-xxx Undocumented
+Standard error of skewness.
 }

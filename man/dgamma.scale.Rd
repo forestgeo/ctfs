@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dgamma.scale}
 \alias{dgamma.scale}
-\title{dgamma.scale}
+\title{Like above, but with scale as the first parameter.dgamma.scale dpow...}
 \usage{
 dgamma.scale(k, x, mu)
 }

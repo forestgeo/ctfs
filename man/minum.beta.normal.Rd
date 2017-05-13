@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{minum.beta.normal}
 \alias{minum.beta.normal}
-\title{minum.beta.normal}
+\title{Function to be minimized for fitting normal to beta.minum.beta.norm...}
 \usage{
 minum.beta.normal(param, x, y)
 }

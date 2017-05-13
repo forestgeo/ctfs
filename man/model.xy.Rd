@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{model.xy}
 \alias{model.xy}
-\title{model.xy}
+\title{Generic Bayesian routine for fitting a model to y given 1 predictor...}
 \usage{
 model.xy(x, y, predfunc, llikefunc, badpredpar, badsdpar = NULL,
   start.predpar, sdfunc = NULL, start.sdpar = NULL, llikefuncSD,

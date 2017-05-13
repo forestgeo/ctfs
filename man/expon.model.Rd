@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{expon.model}
 \alias{expon.model}
-\title{expon.model}
+\title{Exponential model, y = a exp(b1\emph{x1 + b2}x2) for any number of predi...}
 \usage{
 expon.model(x, param)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{biomass.CTFSdb}
 \alias{biomass.CTFSdb}
-\title{biomass.CTFSdb}
+\title{Calculate biomass from existing R-formatted tables for trees and st...}
 \usage{
 biomass.CTFSdb(RStemTable, RTreeTable, whichtable = "tree", dbhunit = "mm",
   plot = "bci", wsgdata = wsg.ctfs2, forest = "moist", ht.param = NULL,

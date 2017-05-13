@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{psymexp}
 \alias{psymexp}
-\title{psymexp}
+\title{The CDF for the symmetric exponential.psymexp rsymexp  Drawing a ra...}
 \usage{
 psymexp(x, center, rate)
 }

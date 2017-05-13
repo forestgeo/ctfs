@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{countspp}
 \alias{countspp}
-\title{countspp}
+\title{Returns the number of elements in a numeric vector > 0. countspp as...}
 \usage{
 countspp(x)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{sumsq}
 \alias{sumsq}
-\title{sumsq}
+\title{A trivial function used in minimizing sums of squares.sumsq is.odd ...}
 \usage{
 sumsq(x)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{rsymexp}
 \alias{rsymexp}
-\title{rsymexp}
+\title{Drawing a random variate on the symmetric exponential, based on the...}
 \usage{
 rsymexp(n, center, rate)
 }

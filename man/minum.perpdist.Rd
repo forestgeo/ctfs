@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{minum.perpdist}
 \alias{minum.perpdist}
-\title{minum.perpdist}
+\title{The sum of squares used by majoraxisreg.minum.perpdist majoraxisreg...}
 \usage{
 minum.perpdist(param, x, y)
 }

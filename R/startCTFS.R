@@ -4,7 +4,7 @@
 #'
 #'
 
-#' startCTFS
+#' Function to source all components of CTFS R package. Load all CTFS ...
 #'
 #' @description
 #'

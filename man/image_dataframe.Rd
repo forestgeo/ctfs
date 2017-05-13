@@ -2,7 +2,7 @@
 % Please edit documentation in R/mapresponse.R
 \name{image_dataframe}
 \alias{image_dataframe}
-\title{image_dataframe}
+\title{Creates a color response map based on columnar data, not a matrix a...}
 \usage{
 image_dataframe(data, xcol = "x", ycol = "y", zcol = "z", breaks = NULL,
   div = NULL, colors = NULL, xname = "x", yname = "y", xrange = NULL,

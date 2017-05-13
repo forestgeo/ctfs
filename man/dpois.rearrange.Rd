@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dpois.rearrange}
 \alias{dpois.rearrange}
-\title{dpois.rearrange}
+\title{This rearranges dpois so that it works on a single vector, with the...}
 \usage{
 dpois.rearrange(v, log = F)
 }

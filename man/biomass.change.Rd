@@ -2,7 +2,7 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{biomass.change}
 \alias{biomass.change}
-\title{biomass.change}
+\title{Finds biomass in two censuses and change between them. The submitte...}
 \usage{
 biomass.change(census1, census2, alivecode = c("A"), mindbh = NULL,
   split1 = NULL, split2 = NULL)

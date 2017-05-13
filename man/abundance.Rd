@@ -2,7 +2,7 @@
 % Please edit documentation in R/abundance.R
 \name{abundance}
 \alias{abundance}
-\title{abundance}
+\title{Calculates total abundance or basal area, dividing data with 1 or 2...}
 \usage{
 abundance(censdata, type = "abund", alivecode = c("A"), mindbh = NULL,
   dbhunit = "mm", split1 = NULL, split2 = NULL)

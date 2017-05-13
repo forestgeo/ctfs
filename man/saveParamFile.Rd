@@ -2,7 +2,7 @@
 % Please edit documentation in R/lmerBayes.R
 \name{saveParamFile}
 \alias{saveParamFile}
-\title{saveParamFile}
+\title{This saves a run of the full parameters into a text file, reducing ...}
 \usage{
 saveParamFile(param, paramfile, rand, firsttime = FALSE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{Gibbs.regslope}
 \alias{Gibbs.regslope}
-\title{Gibbs.regslope}
+\title{Updates the regression slope (used in regression.Bayes).Gibbs.regsl...}
 \usage{
 Gibbs.regslope(X, y, var)
 }

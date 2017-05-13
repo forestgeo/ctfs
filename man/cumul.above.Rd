@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{cumul.above}
 \alias{cumul.above}
-\title{cumul.above}
+\title{Given y values as a function of x, this seeks the x at which the cu...}
 \usage{
 cumul.above(x, y, cutoff, logaxs = "", graphit = TRUE, returnfull = FALSE)
 }

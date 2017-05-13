@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{hist_compare}
 \alias{hist_compare}
-\title{hist_compare}
+\title{Compares two histograms with a Kolmogorov approach. @details  Name ...}
 \usage{
 hist_compare(x, y, div, breaks = NULL)
 }

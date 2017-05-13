@@ -4,7 +4,7 @@
 #'
 #'
 
-#' doublenormal
+#' Simulate draws from a double normaldoublenormal dnormprod0  Probabi...
 #'
 #' @description
 #'
@@ -13,7 +13,7 @@
 #'
 'doublenormal'
 
-#' dnormprod0
+#' Probability density of product of two normal variates, both with me...
 #'
 #' @description
 #'
@@ -22,7 +22,7 @@
 #'
 'dnormprod0'
 
-#' dgammadexp
+#' PDF of a function formed by adding a gamma distribution to a symmet...
 #'
 #' @description
 #'
@@ -34,7 +34,7 @@
 #'
 'dgammadexp'
 
-#' dgammaMinusdexp
+#' The PDF of the difference between a gamma and a negative exponentia...
 #'
 #' @description
 #'
@@ -47,7 +47,7 @@
 #'
 'dgammaMinusdexp'
 
-#' dgammaPlusdexp
+#' The PDF of the sum of gamma and negative exponential distribution. ...
 #'
 #' @description
 #'
@@ -69,7 +69,7 @@
 #'
 'dgammaPlusdexp'
 
-#' dgamma.meansd
+#' Probability distribution of gamma, parameterized with mean and sd i...
 #'
 #' @description
 #'
@@ -78,7 +78,7 @@
 #'
 'dgamma.meansd'
 
-#' rgamma.meansd
+#' Random draws of gamma, parameterized with mean and sd instead of sh...
 #'
 #' @description
 #'
@@ -87,7 +87,7 @@
 #'
 'rgamma.meansd'
 
-#' dgamma.mean
+#' A version of dgamma where the parameters are ordered so that the me...
 #'
 #' @description
 #'
@@ -99,7 +99,7 @@
 #'
 'dgamma.mean'
 
-#' dgamma.scale
+#' Like above, but with scale as the first parameter.dgamma.scale dpow...
 #'
 #' @description
 #'
@@ -108,7 +108,7 @@
 #'
 'dgamma.scale'
 
-#' dpower
+#' A probability distribution defined by a power function. There is a ...
 #'
 #' @description
 #'
@@ -118,7 +118,7 @@
 #'
 'dpower'
 
-#' rpower
+#' Random draws based on the integral.rpower dasympower  A bilateral p...
 #'
 #' @description
 #'
@@ -127,7 +127,7 @@
 #'
 'rpower'
 
-#' dasympower
+#' A bilateral power distribution, centered at center, decaying with e...
 #'
 #' @description
 #'
@@ -137,7 +137,7 @@
 #'
 'dasympower'
 
-#' rasympower
+#' Random draws from the bilateral power distribution, dasympower. By ...
 #'
 #' @description
 #'
@@ -146,7 +146,7 @@
 #'
 'rasympower'
 
-#' qasympower
+#' Quantiles from the bilateral power distribution, dasympower. By R. ...
 #'
 #' @description
 #'
@@ -155,19 +155,19 @@
 #'
 'qasympower'
 
-#' dsymexp
+#' Probability distribution for a folded, symmetrical exponential. Whe...
 #'
 #' @description
 #'
-#' Probability distribution for a folded, symmetrical exponential. When x>=center, 
-#' it's just a standard exponential. When x<center, it's the mirror image of same one.
+#' Probability distribution for a folded, symmetrical exponential. When `x >=
+#' center`, it's just a standard exponential. When `x < center`, it's the mirror
+#' image of same one.
 #'
 #' Each must be divided by two, though, in order to integrate to one.
 #'
-#'
 'dsymexp'
 
-#' psymexp
+#' The CDF for the symmetric exponential.psymexp rsymexp  Drawing a ra...
 #'
 #' @description
 #'
@@ -176,7 +176,7 @@
 #'
 'psymexp'
 
-#' rsymexp
+#' Drawing a random variate on the symmetric exponential, based on the...
 #'
 #' @description
 #'
@@ -187,21 +187,7 @@
 #'
 'rsymexp'
 
-#' dasymexp
-#'
-#' @description
-#'
-#' Probability distributions for a folded but asymmetrical exponential. 
-#'
-#' When x>=center, it's a standard exponential. When x<center, it's the mirror image 
-#' of a different exponential; rate1 refers to the right half, rate2 to the
-#' left. The center is not the median: the section x>center has integral rate2/(rate1+rate2),
-#' and the section x<center rate1/(rate1+rate2). 
-#'
-#'
-'dasymexp'
-
-#' qasymexp
+#' Quantiles of dasymexp  y is the vector of desired quantiles; c is t...
 #'
 #' @description
 #'
@@ -212,18 +198,29 @@
 #'
 'qasymexp'
 
-#' dasymexp
+#' Probability distributions for an asymmetrical Gaussian, that is wit...
+#' 
+#' Probability distributions for an asymmetrical Gaussian, that is with
+#' different standard deviations above and below the mode, or center. The mode
+#' is not the mean, though. The SD on the right is sigma1, and on the left,
+#' sigma2.
+#'
+'dasymnorm'
+
+#' Probability distributions for a folded but asymmetrical exponential...
 #'
 #' @description
 #'
-#' Probability distributions for an asymmetrical Gaussian, that is with different standard deviations
-#' above and below the mode, or center. The mode is not the mean, though. The SD on the right is sigma1,
-#' and on the left, sigma2. 
-#'
+#' Probability distributions for a folded but asymmetrical exponential. When 
+#' `x >= center`, it's a standard exponential. When `x < center`, it's the 
+#' mirror image of a different exponential; `rate1` refers to the right half,
+#' `rate2` to the left. The center is not the median: the section `x > center`
+#' has integral `rate2 / (rate1 + rate2)`, and the section 
+#' `x < center rate1 / (rate1 + rate2)`.
 #'
 'dasymexp'
 
-#' minum.normal
+#' The likelihood function for use by fitnorm.minum.normal fitnorm  Fi...
 #'
 #' @description
 #'
@@ -232,7 +229,7 @@
 #'
 'minum.normal'
 
-#' fitnorm
+#' Fitting a normal distribution to data Parameters are a mean and sd ...
 #'
 #' @description
 #'
@@ -251,7 +248,7 @@
 #'
 'fitnorm'
 
-#' fit.pdf
+#' Fit a random variable x to any submitted probability distribution. ...
 #'
 #' @description
 #'
@@ -261,7 +258,7 @@
 #'
 'fit.pdf'
 
-#' default.badpar
+#' None given.default.badpar bad.paretopar  Test whether parameters fo...
 #'
 #' @description
 #'
@@ -270,7 +267,7 @@
 #'
 'default.badpar'
 
-#' bad.paretopar
+#' Test whether parameters for the Pareto distribution are acceptable....
 #'
 #' @description
 #'
@@ -279,7 +276,7 @@
 #'
 'bad.paretopar'
 
-#' normalproduct
+#' A function which returns the product of 2 normal distributions, the...
 #'
 #' @description
 #'
@@ -293,7 +290,7 @@
 #'
 'normalproduct'
 
-#' dbeta.reparam
+#' This reparameterizes the beta distribution as a function of its mea...
 #'
 #' @description
 #'
@@ -303,7 +300,7 @@
 #'
 'dbeta.reparam'
 
-#' betaproduct
+#' This is equivalent to the normal product above.betaproduct beta.nor...
 #'
 #' @description
 #'
@@ -312,7 +309,7 @@
 #'
 'betaproduct'
 
-#' beta.normalized
+#' Normalzing beta.total. No longer used. beta.normalized beta.total  ...
 #'
 #' @description
 #'
@@ -321,7 +318,7 @@
 #'
 'beta.normalized'
 
-#' beta.total
+#' A beta distribution on the interval xmin to xmax, instead of 0 to 1...
 #'
 #' @description
 #'
@@ -330,7 +327,7 @@
 #'
 'beta.total'
 
-#' fit.beta.normal
+#' Finding a normal distribution which most closely fits a given beta ...
 #'
 #' @description
 #'
@@ -342,7 +339,7 @@
 #'
 'fit.beta.normal'
 
-#' minum.beta.normal
+#' Function to be minimized for fitting normal to beta.minum.beta.norm...
 #'
 #' @description
 #'
@@ -351,7 +348,7 @@
 #'
 'minum.beta.normal'
 
-#' dbinomrev
+#' A version of dbinom in which parameters are submitted in a differen...
 #'
 #' @description
 #'
@@ -360,7 +357,7 @@
 #'
 'dbinomrev'
 
-#' dnormrev
+#' This reverses the order of parameters to dnorm, so that outer can b...
 #'
 #' @description
 #'
@@ -371,7 +368,7 @@
 #'
 'dnormrev'
 
-#' dpois.rearrange
+#' This rearranges dpois so that it works on a single vector, with the...
 #'
 #' @description
 #'
@@ -381,7 +378,7 @@
 #'
 'dpois.rearrange'
 
-#' logit
+#' Logit transformation for a probability >0 and < 1logit invlogit  In...
 #'
 #' @description
 #'
@@ -390,7 +387,7 @@
 #'
 'logit'
 
-#' invlogit
+#' Inverse logit transformation, turns a logit back into a probability...
 #'
 #' @description
 #'
@@ -399,7 +396,7 @@
 #'
 'invlogit'
 
-#' pweibull.3param
+#' CDF of three-parameter Weibull(http://www.itl.nist.gov/div898/handb...
 #'
 #' @description
 #'
@@ -409,7 +406,7 @@
 #'
 'pweibull.3param'
 
-#' dweibull.3param
+#' PDF of three-parameter Weibulldweibull.3param weibull.median.3param...
 #'
 #' @description
 #'
@@ -418,7 +415,7 @@
 #'
 'dweibull.3param'
 
-#' weibull.median.3param
+#' Median of three-parameter Weibullweibull.median.3param weibull.mean...
 #'
 #' @description
 #'
@@ -427,7 +424,7 @@
 #'
 'weibull.median.3param'
 
-#' weibull.mean.3param
+#' Mean of three-parameter Weibullweibull.mean.3param weibull.sd.3para...
 #'
 #' @description
 #'
@@ -436,7 +433,7 @@
 #'
 'weibull.mean.3param'
 
-#' weibull.sd.3param
+#' SD of three-parameter Weibullweibull.sd.3param dexp.sin  Four-param...
 #'
 #' @description
 #'
@@ -445,7 +442,7 @@
 #'
 'weibull.sd.3param'
 
-#' dexp.sin
+#' Four-parameter exponential sin, as a probability distributiondexp.s...
 #'
 #' @description
 #'
@@ -454,7 +451,7 @@
 #'
 'dexp.sin'
 
-#' exponential.sin
+#' Five-parameter exponential sinexponential.sin pexp.sin  CDF of four...
 #'
 #' @description
 #'
@@ -463,7 +460,7 @@
 #'
 'exponential.sin'
 
-#' pexp.sin
+#' CDF of four-parameter exponential sinpexp.sin mvrnormRC  Function t...
 #'
 #' @description
 #'
@@ -472,7 +469,7 @@
 #'
 'pexp.sin'
 
-#' mvrnormRC
+#' Function that takes a variance-covariance matrix and produces norma...
 #'
 #' @description
 #'
@@ -484,7 +481,7 @@
 #'
 'mvrnormRC'
 
-#' dmixnorm
+#' Mixed normal distribution. The parameter f is the probability  of f...
 #'
 #' @description
 #'
@@ -495,7 +492,7 @@
 #'
 'dmixnorm'
 
-#' rmixnorm
+#' Random draw on the mixed normal distribution.rmixnorm minum.mixnorm...
 #'
 #' @description
 #'
@@ -504,7 +501,7 @@
 #'
 'rmixnorm'
 
-#' minum.mixnorm
+#' Fit a mixture of 2 normals.minum.mixnorm logistic.inter  Logistic f...
 #'
 #' @description
 #'
@@ -513,7 +510,7 @@
 #'
 'minum.mixnorm'
 
-#' logistic.inter
+#' Logistic function with intercept parameterization (i.e., first para...
 #'
 #' @description
 #' Logistic function with intercept parameterization (i.e., first parameter is y
@@ -526,7 +523,7 @@
 #'
 'logistic.inter'
 
-#' logistic.standard
+#' This is standard logistic function, but with asymptote and basement...
 #'
 #' @description
 #'
@@ -536,7 +533,7 @@
 #'
 'logistic.standard'
 
-#' logistic.power
+#' This is the Gaussian logistic function, where logit is a second-ord...
 #'
 #' @description
 #'
@@ -548,7 +545,7 @@
 #'
 'logistic.power'
 
-#' logistic.power.mode
+#' This is the Gaussian logistic function, where logit is a second-ord...
 #'
 #' @description
 #' This is the Gaussian logistic function, where logit is a second-order
@@ -562,7 +559,7 @@
 #'
 'logistic.power.mode'
 
-#' logistic.power_simple
+#' This is a mixture of logistic and logistic-standard models. The pre...
 #'
 #' @description
 #'
@@ -574,7 +571,7 @@
 #'
 'logistic.power_simple'
 
-#' logistic.ctr
+#' This is logistic function with intercept parameterization (see logi...
 #'
 #' @description
 #'
@@ -589,7 +586,7 @@
 #'
 'logistic.ctr'
 
-#' logistic.multiplicative
+#' Logistic with a pair of parameters for each x; y=product of all the...
 #'
 #' @description
 #'
@@ -599,7 +596,7 @@
 #'
 'logistic.multiplicative'
 
-#' constant
+#' A function to return a constant at all predictors x. The predictors...
 #'
 #' @description
 #'
@@ -610,7 +607,7 @@
 #'
 'constant'
 
-#' center.predictors
+#' Transform all data by subtracting a constant, either the mean, medi...
 #'
 #' @description
 #'
@@ -627,7 +624,7 @@
 #'
 'center.predictors'
 
-#' fit.logistic
+#' A function to fit a set of data y, observed at the vector x, to a g...
 #'
 #' @description
 #'
@@ -637,7 +634,7 @@
 #'
 'fit.logistic'
 
-#' logistic.sum.squares
+#' Sets a prediction based on a generalized logistic, then returns the...
 #'
 #' @description
 #'
@@ -647,7 +644,7 @@
 #'
 'logistic.sum.squares'
 
-#' asymp.ht
+#' The function from Sean Thomas which produces an asymptote for y as ...
 #'
 #' @description
 #'
@@ -662,7 +659,7 @@
 #'
 'asymp.ht'
 
-#' asymp.ht.fixmax
+#' Same formulation, but the asymptote is fixed, so only two parameter...
 #'
 #' @description
 #'
@@ -670,7 +667,7 @@
 #'
 'asymp.ht.fixmax'
 
-#' exp_2par
+#' An exponential distribution with an asymptote.  @details Name exp.2...
 #'
 #' @description
 #' An exponential distribution with an asymptote.
@@ -680,7 +677,7 @@
 #'
 'exp_2par'
 
-#' linear.model
+#' A simple linear model, where the first parameter is intercept, rema...
 #'
 #' @description
 #'
@@ -689,7 +686,7 @@
 #'
 'linear.model'
 
-#' simple.model
+#' A trivial model to return a different value at every x. If param is...
 #'
 #' @description
 #'
@@ -698,7 +695,7 @@
 #'
 'simple.model'
 
-#' simple
+#' An even more trivial model to return x unchanged. The argument para...
 #'
 #' @description
 #'
@@ -707,7 +704,7 @@
 #'
 'simple'
 
-#' linear.model.ctr
+#' A simple linear model, where the first parameter is intercept, seco...
 #'
 #' @description
 #'
@@ -716,7 +713,7 @@
 #'
 'linear.model.ctr'
 
-#' expon.model
+#' Exponential model, y = a exp(b1*x1 + b2*x2) for any number of predi...
 #'
 #' @description
 #' Exponential model, y = a exp(b1*x1 + b2*x2) for any number of predictors x.
@@ -724,7 +721,7 @@
 #'
 'expon.model'
 
-#' log_model
+#' Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number o...
 #'
 #' @description
 #' Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number of
@@ -735,7 +732,7 @@
 #'
 'log_model'
 
-#' constant.linear
+#' A model which is constant for x<lim, and linear for x>lim. The firs...
 #'
 #' @description
 #'
@@ -745,7 +742,7 @@
 #'
 'constant.linear'
 
-#' linearmodel.bin
+#' Multiple bin model predicting y as a function of x in several bins....
 #'
 #' @description
 #'
@@ -761,7 +758,7 @@
 #'
 'linearmodel.bin'
 
-#' linearmodel.bin.set
+#' This does the work of calculating predicted values at each independ...
 #'
 #' @description
 #'
@@ -777,7 +774,7 @@
 #'
 'linearmodel.bin.set'
 
-#' addBinParam
+#' Given parameters for a model with N linear bins, creates parameters...
 #'
 #' @description
 #'
@@ -786,7 +783,7 @@
 #'
 'addBinParam'
 
-#' logisticmodel.bin
+#' Multiple bin model predicting y as a function of x, where each segm...
 #'
 #' @description
 #'
@@ -803,7 +800,7 @@
 #'
 'logisticmodel.bin'
 
-#' constant.bin
+#' A model like piecewise regression (linearmodel.bin), but y is a con...
 #'
 #' @description
 #'
@@ -815,7 +812,7 @@
 #'
 'constant.bin'
 
-#' dpois.max
+#' A probability distribution which is simply a curtailed poisson: all...
 #'
 #' @description
 #'
@@ -826,7 +823,7 @@
 #'
 'dpois.max'
 
-#' dpois.trunc
+#' A zero-truncated Poisson distribution. dpois.trunc dpois.maxtrunc  ...
 #'
 #' @description
 #'
@@ -835,7 +832,7 @@
 #'
 'dpois.trunc'
 
-#' dpois.maxtrunc
+#' A zero-truncated Poisson distribution with a ceiling (combining dpo...
 #'
 #' @description
 #'
@@ -844,7 +841,7 @@
 #'
 'dpois.maxtrunc'
 
-#' rpois.max
+#' Random draws on dpois.maxrpois.max rpois.trunc  Random draws on dpo...
 #'
 #' @description
 #'
@@ -853,7 +850,7 @@
 #'
 'rpois.max'
 
-#' rpois.trunc
+#' Random draws on dpois.trunc. This is taken unchanged from an answer...
 #'
 #' @description
 #'
@@ -863,7 +860,7 @@
 #'
 'rpois.trunc'
 
-#' asymptote.exp
+#' A 3-parameter function which asymptotes as x->infinity. The 3rd par...
 #'
 #' @description
 #'
@@ -872,7 +869,7 @@
 #'
 'asymptote.exp'
 
-#' graph.mvnorm
+#' Graphs contours for an mvnorm, with parameters submitted as a vecto...
 #'
 #' @description
 #'
@@ -886,7 +883,7 @@
 #'
 'graph.mvnorm'
 
-#' pospower
+#' Raise to any power, but with negative numbers converted to positive...
 #'
 #' @description
 #'
@@ -900,7 +897,7 @@
 #'
 'pospower'
 
-#' linear.mortmodel
+#' A model for mortality as a function of one or more predictors, with...
 #'
 #' @description
 #' A model for mortality as a function of one or more predictors, with the time
@@ -913,7 +910,7 @@
 #'
 'linear.mortmodel'
 
-#' discrete.mortmodel
+#' A model for mortality as a function of a single discrete predictor,...
 #'
 #' @description
 #'
@@ -926,7 +923,7 @@
 #'
 'discrete.mortmodel'
 
-#' discrete.model
+#' A model for a numeric response to a single discrete predictor. The ...
 #'
 #' @description
 #'
@@ -1557,11 +1554,11 @@ rsymexp=function(n,center,rate)
 # dasymexp
 # </name>
 # <description>
-# Probability distributions for a folded but asymmetrical exponential. 
-# When x>=center, it's a standard exponential. When x<center, it's the mirror image 
-# of a different exponential; rate1 refers to the right half, rate2 to the
-# left. The center is not the median: the section x>center has integral rate2/(rate1+rate2),
-# and the section x<center rate1/(rate1+rate2). 
+# Probability distributions for a folded but asymmetrical exponential. When
+# x>=center, it's a standard exponential. When x<center, it's the mirror image
+# of a different exponential; rate1 refers to the right half, rate2 to the left.
+# The center is not the median: the section x>center has integral
+# rate2/(rate1+rate2), and the section x<center rate1/(rate1+rate2).
 # </description>
 # <arguments>
 # 
@@ -1620,12 +1617,12 @@ qasymexp=function(y,rate1,rate2,c)
 # 
 # <function>
 # <name>
-# dasymexp
+# dasymnorm
 # </name>
 # <description>
-# Probability distributions for an asymmetrical Gaussian, that is with different standard deviations
-# above and below the mode, or center. The mode is not the mean, though. The SD on the right is sigma1,
-# and on the left, sigma2. 
+# Probability distributions for an asymmetrical Gaussian, that is with different
+# standard deviations above and below the mode, or center. The mode is not the
+# mean, though. The SD on the right is sigma1, and on the left, sigma2.
 # </description>
 # <arguments>
 # 
@@ -1636,12 +1633,7 @@ qasymexp=function(y,rate1,rate2,c)
 # <source>
 
 
-#' dasymnorm
-#' 
-#' xxx Undocumented.
-#'
 #' @export
-
 dasymnorm=function(x,center,sigma1,sigma2,log=FALSE)
 {
  y=numeric()

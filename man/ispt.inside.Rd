@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{ispt.inside}
 \alias{ispt.inside}
-\title{ispt.inside}
+\title{Check a single pt (x and y) against a large number of quadrats whos...}
 \usage{
 ispt.inside(pt, coord)
 }

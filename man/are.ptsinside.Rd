@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{are.ptsinside}
 \alias{are.ptsinside}
-\title{are.ptsinside}
+\title{Checks many points (dataframe pt with x and y) against a single qua...}
 \usage{
 are.ptsinside(pts, coord)
 }

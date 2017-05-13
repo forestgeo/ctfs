@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{neighbors}
 \alias{neighbors}
-\title{neighbors}
+\title{Finds proportion of neighboring quadrats in which a species is pres...}
 \usage{
 neighbors(pres, plotdim = c(1000, 500))
 }

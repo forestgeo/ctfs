@@ -2,7 +2,7 @@
 % Please edit documentation in R/geometry.R
 \name{xydist}
 \alias{xydist}
-\title{xydist}
+\title{Distance between two pairs of x-y coordinates. Input can be atomic ...}
 \usage{
 xydist(x1, y1, x2, y2)
 }

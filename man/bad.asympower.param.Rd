@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{bad.asympower.param}
 \alias{bad.asympower.param}
-\title{bad.asympower.param}
+\title{The 3 parameters submitted to hyper.abundGibbs have to be checked, ...}
 \usage{
 bad.asympower.param(hyperparam)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/abundance.R
 \name{abund.manycensus}
 \alias{abund.manycensus}
-\title{abund.manycensus}
+\title{Collect abundances of all species across several censuses. The full...}
 \usage{
 abund.manycensus(allcns = list(bci.full1, bci.full2, bci.full3), mindbh,
   dbhunit = "mm", type = "abund", excludespp = NULL,

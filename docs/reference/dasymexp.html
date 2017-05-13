@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>dasymexp — dasymexp â€¢ forestr</title>
+<title>Probability distributions for a folded but asymmetrical exponential... — dasymexp â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,23 +79,19 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>dasymexp</h1>
+    <h1>Probability distributions for a folded but asymmetrical exponential...</h1>
     </div>
 
     
-    <p>Probability distributions for a folded but asymmetrical exponential.</p>
-<p>When x&gt;=center, it's a standard exponential. When x&lt;center, it's the mirror image
-of a different exponential; rate1 refers to the right half, rate2 to the
-left. The center is not the median: the section x&gt;center has integral rate2/(rate1+rate2),
-and the section x&lt;center rate1/(rate1+rate2).</p>
-<p>Probability distributions for an asymmetrical Gaussian, that is with different standard deviations
-above and below the mode, or center. The mode is not the mean, though. The SD on the right is sigma1,
-and on the left, sigma2.</p>
+    <p>Probability distributions for a folded but asymmetrical exponential. When
+<code>x &gt;= center</code>, it's a standard exponential. When <code>x &lt; center</code>, it's the
+mirror image of a different exponential; <code>rate1</code> refers to the right half,
+<code>rate2</code> to the left. The center is not the median: the section <code>x &gt; center</code>
+has integral <code>rate2 / (rate1 + rate2)</code>, and the section
+<code>x &lt; center rate1 / (rate1 + rate2)</code>.</p>
     
 
-    <pre class="usage"><span class='fu'>dasymexp</span>(<span class='no'>x</span>, <span class='no'>center</span>, <span class='no'>rate1</span>, <span class='no'>rate2</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>dasymexp</span>(<span class='no'>x</span>, <span class='no'>center</span>, <span class='no'>rate1</span>, <span class='no'>rate2</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>dasymexp</span>(<span class='no'>x</span>, <span class='no'>center</span>, <span class='no'>rate1</span>, <span class='no'>rate2</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
         
 
   </div>

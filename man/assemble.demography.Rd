@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{assemble.demography}
 \alias{assemble.demography}
-\title{assemble.demography}
+\title{Takes output of a demographic analysis (produced by functions growt...}
 \usage{
 assemble.demography(output, type = "g", whichdbhcat = 1,
   date1 = "1960-1-1")

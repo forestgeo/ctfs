@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{linear.model}
 \alias{linear.model}
-\title{linear.model}
+\title{A simple linear model, where the first parameter is intercept, rema...}
 \usage{
 linear.model(x, param)
 }

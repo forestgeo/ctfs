@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{logisticmodel.bin}
 \alias{logisticmodel.bin}
-\title{logisticmodel.bin}
+\title{Multiple bin model predicting y as a function of x, where each segm...}
 \usage{
 logisticmodel.bin(x, param, ...)
 }

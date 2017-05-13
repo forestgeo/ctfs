@@ -2,7 +2,7 @@
 % Please edit documentation in R/startCTFS.R
 \name{startCTFS}
 \alias{startCTFS}
-\title{startCTFS}
+\title{Function to source all components of CTFS R package. Load all CTFS ...}
 \usage{
 startCTFS(folder)
 }

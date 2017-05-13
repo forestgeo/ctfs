@@ -2,7 +2,7 @@
 % Please edit documentation in R/abundance.R
 \name{ba}
 \alias{ba}
-\title{ba}
+\title{Calculates the individual basal areas (in square meters) for all su...}
 \usage{
 ba(dbh, dbhunit = "mm")
 }

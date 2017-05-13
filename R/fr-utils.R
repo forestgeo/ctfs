@@ -66,21 +66,32 @@ rm_na_row <- function(.data) {
 
 # write_pkgdown_yml -------------------------------------------------------
 
-# Extract function names from each file in R/<FILE>.R and transforms it into 
-# an entry to reference for _pgkgdown.yml that looks like this:
-# - title: <FILE>
-#   contents:
-#   - <FUNCTION_1>
-#   - <FUNCTION_2>
-#   - <FUNCTION_N>
+# To build the reference section of the package website, write a _pkgdown.yml 
+# referencing the folder and file where each function comes from the original 
+# source  code of the CTFSRPackage. Functions are sorded first by folder, then
+# by file and function.
+#
+# The head of the file looks like this:
+#
+# home:
+#   links:
+#   - text: Learn more
+#     href: http://www.forestgeo.si.edu/
+# 
+# reference:
+# - title: abundance; abundance
+#   contents: 
+#    - abund.manycensus
+#    - abundance
+#    - ...
 
 
 
-# Setup
-
+# The field title has a reference of the fol
 # Access files and functions
-raw_strings <- function() {
-  files_in_R <- paste0("./R/", dir("./R"))
+raw_strings <- function(path2r = "./R/") {
+  path2r
+  files_in_R <- paste0(path2r, dir(path2r))
   raw_strings <- purrr::map(files_in_R, readr::read_file)
   names(raw_strings) <- stringr::str_replace(
     files_in_R, 
@@ -91,46 +102,63 @@ raw_strings <- function() {
 }
 
 # From a list of raw strings, extract functions in each and format for pkgdown
-extract_funs <- function(raw_strings){
-  extracted <- raw_strings %>% 
+get_funs <- function(raw_strings){
+  raw_strings %>% 
     stringr::str_extract_all(
-      stringr::regex("^\\'[a-z]+.*$", multiline = TRUE)
+      stringr::regex("^\\'[a-zA-Z]+.*$", multiline = TRUE)
     ) %>% 
     tibble::tibble() %>% 
     tidyr::unnest() %>% 
-    purrr::set_names("funs") %>% 
+    purrr::set_names("fun") %>% 
     dplyr::mutate(
-      funs = stringr::str_replace_all(funs, stringr::fixed("'"), ""),
-      funs = paste("\n   -", funs)
+      fun = stringr::str_replace_all(fun, stringr::fixed("'"), "")
     )
-  header <- paste0("\n  contents:", collapse = "")
-  funs <- paste0(extracted$funs, collapse = "")
-  paste0(header, funs)
 }
 
-
-
-# Reference the folder where each file and function comes from.
-title_folder_files <- function(raw_strings) {
-  files <- tibble(file = names(raw_strings))
+# Sort by folder, file and functions
+tibble_folder_file_fun <- function(raw_strings) {
   folder_files <- readr::read_csv("./data-raw/folder_files.csv")
-  left_join(files, folder_files) %>% 
-    dplyr::transmute(title = paste0(folder, "; ", file)) %>% 
-    .[["title"]]
+  file_functions <- purrr::map(raw_strings, get_funs) %>% 
+    tibble::enframe() %>% 
+    tidyr::unnest() %>%
+    dplyr::rename(file = name)
+  dplyr::right_join(folder_files, file_functions) %>% 
+    dplyr::arrange(folder, file, fun)
 }
 
-# Write body of the pkgdown file
-file_body <- function(raw_strings) {
-  formatted_funs <- purrr::map(raw_strings, extract_funs)
-  formatted_nms <- paste0("\n- title: ", title_folder_files(raw_strings))
-  purrr::map2(formatted_nms, formatted_funs, paste0) %>% 
-    paste0(collapse = "\n")
+
+
+# Write body of the _pkgdown file
+tibble_fff <- function(tibble_folder_file_fun) {
+  tibble_folder_file_fun %>% 
+  dplyr::group_by(folder, file) %>% 
+  dplyr::mutate(
+    fun = paste0("\n   - ", fun),
+    fun = paste0(fun, collapse = "")
+    ) %>% 
+  unique()
 }
+format_pkgdown <- function(tibble_fff) {
+  tibble_fff %>% 
+  dplyr::transmute(
+    reference = paste0("\n- title: ", folder, "; ", file, "\n  contents: "),
+    reference = paste0(reference, fun, collapse = "\n")
+  ) %>% 
+  .[["reference"]] %>% 
+  paste0(collapse = "\n")
+}
+site_ref_body <- function(raw_strings) {
+  tibble_folder_file_fun(raw_strings) %>% 
+    tibble_fff() %>% 
+    format_pkgdown()
+}
+
+
 
 # Write header of the pkgdown file
-file_header <- function() {
+site_ref_head <- function() {
     paste0(
-    "\nhome:",
+    "home:",
     "\n  links:",
     "\n  - text: Learn more",
     "\n    href: http://www.forestgeo.si.edu/",
@@ -140,18 +168,171 @@ file_header <- function() {
 }
 
 # Combine all of the above in one single step
-write_pkgdown_yml <- function() {
-  paste0(file_header(), file_body(raw_strings())) %>% 
+pkgdown_doc_nms <- function(raw_strings) {
+  paste0(site_ref_head(), site_ref_body(raw_strings)) %>% 
     readr::write_file("_pkgdown.yml")
 }
 
 
 
+# List internal functions
+
+list_internal_funs <- function(raw_strings) {
+raw_strings %>% 
+  stringr::str_subset("@keywords internal") %>%
+  stringr::str_split("\n\r") %>% 
+  tibble::tibble() %>% 
+  tidyr::unnest() %>% 
+  purrr::set_names("fun_internal") %>%
+  dplyr::filter(grepl("@keywords internal", fun_internal)) %>%
+  dplyr::mutate(
+    fun_internal = stringr::str_extract_all(
+      fun_internal, "[A-z0-9_.]+ <- function"
+    )
+  ) %>% 
+  tidyr::unnest() %>% 
+  dplyr::mutate(
+    fun_internal = stringr::str_replace_all(
+      fun_internal, " <- function", ""
+    )
+  ) %>% 
+    dplyr::filter(fun_internal != "list_internal_funs")
+}
+
+showdiff_man_pkg <- function(current_dir = "./") {
+  path2r <- paste0(current_dir, "R/")
+  path2man <- paste0(current_dir, "man")
+  path2pkdownyml <- paste0(current_dir, "_pkgdown.yml")
+
+  exported_not_indexed <- list_internal_funs(raw_strings(path2r))
+  exported_not_indexed <- exported_not_indexed$fun_internal
+  pkg_doc <- "forestr"
+  not_applicable <- c(pkg_doc, exported_not_indexed)
+  
+  man <- dir(path2man) %>% 
+  stringr::str_replace("\\.Rd", "") %>% 
+  setdiff(not_applicable)
+  
+  pkg <- readr::read_lines(path2pkdownyml) %>% 
+  stringr::str_subset("^   -") %>% 
+  stringr::str_replace("-", "") %>% 
+  stringr::str_trim()
+  
+  list(
+    pkg_man = setdiff(sort(pkg),  sort(man)),
+    man_pkg = setdiff(sort(man),  sort(pkg))
+    )
+}
+
+
+
+file_of_fun <- function(fun) {
+strings <- raw_strings() %>% 
+  tibble::enframe() %>% 
+  tidyr::unnest()
+strings[grepl(paste0(fun, " <- function"), strings$value), ]$name
+}
+
+tibble_no_folder <- function(fun) {
+  tibble::tibble(
+    folder = ".",
+    file = file_of_fun(fun),
+    fun = fun
+  )
+}
+
+
+
+format_diff_man_pkg <- function() {
+  showdiff_man_pkg()$man_pkg %>%
+    purrr::map_df(tibble_no_folder) %>%
+    tibble_fff() %>% 
+    format_pkgdown()
+}
+
+
+
+pkgdown_diff_man_pkg <- function() {
+  paste(
+    readr::read_file("_pkgdown.yml"), 
+    format_diff_man_pkg(), sep = "\n"
+  ) %>% 
+    write_file("_pkgdown.yml")
+}
+
+
+
+# test
+
+# Test that functions in man/ and _pkgdown.yml are the same")
+
+test_man_vs_pkg <- function() {
+  # Test that functions in man/ are all in _pkgdown.yml and viceversa
+  
+  # Avoid documenting testing internal functions, because they are in man but
+  # not indexed
+  here <- stringr::str_extract(getwd(), "/[^/]*$")
+  prefix <- ifelse(here == "/forestr" , "./", "../../")
+  here_path <- function(here) {paste0(prefix, here)}
+  exported_not_indexed <- list_internal_funs(
+    raw_strings(path2r = here_path("R/"))
+  )
+  exported_not_indexed <- exported_not_indexed$fun_internal
+  pkg_doc <- "forestr"
+  not_applicable <- c(pkg_doc, exported_not_indexed)
+  
+  man <- dir(here_path("man")) %>% 
+  stringr::str_replace("\\.Rd", "") %>% 
+  setdiff(not_applicable)
+  
+  pkg <- readr::read_lines(here_path("_pkgdown.yml")) %>% 
+  stringr::str_subset("^   -") %>% 
+  stringr::str_replace("-", "") %>% 
+  stringr::str_trim()
+  
+  testthat::expect_equal(sort(pkg), sort(man), 
+    info = "See showdiff_man_pkg()"
+  )
+  
+  testthat::expect_true(purrr::is_empty(setdiff(man, pkg)), 
+    info = "See showdiff_man_pkg()"
+  )
+  testthat::expect_true(purrr::is_empty(setdiff(pkg, man)),
+        info = "See showdiff_man_pkg()"
+  )
+  
+  testthat::expect_true(purrr::is_empty(man[duplicated(man)]),
+    info = "See showdiff_man_pkg()"
+  )
+  testthat::expect_true(purrr::is_empty(pkg[duplicated(pkg)]),
+    info = "See showdiff_man_pkg()"
+  )
+}
+
+
+
+# Run and test
+
+write_pkgdown_yml <- function(raw_strings) {
+  # write _pkgdown.yml from functions documented as names with 'name'
+  pkgdown_doc_nms(raw_strings)
+  # To _pkgdown.yml, add functions present  in man but not in pkg, which are 
+  # new functions, documented properly as: name <- function().
+  pkgdown_diff_man_pkg()
+  # test is not outside testthat because OK test fails in devtools::check()
+  test_man_vs_pkg()
+}
+
+
+
+
+
+
+
+
+
+
+
 
 # end ---------------------------------------------------------------------
-
-
-
-
-
 

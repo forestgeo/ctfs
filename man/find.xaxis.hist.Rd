@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{find.xaxis.hist}
 \alias{find.xaxis.hist}
-\title{find.xaxis.hist}
+\title{Given an abundance fit and x axis range and divisions, return a seq...}
 \usage{
 find.xaxis.hist(fit, tinydiv = 0.001, xrange)
 }

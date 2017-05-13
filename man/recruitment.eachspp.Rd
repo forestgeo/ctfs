@@ -2,7 +2,7 @@
 % Please edit documentation in R/recruitment.R
 \name{recruitment.eachspp}
 \alias{recruitment.eachspp}
-\title{recruitment.eachspp}
+\title{A wrapper to calculate recruitment for each species.recruitment.eac...}
 \usage{
 recruitment.eachspp(census1, census2, mindbh = 10, alivecode = c("A", "AB",
   "AS"))

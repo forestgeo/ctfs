@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{defineBinBreaks}
 \alias{defineBinBreaks}
-\title{defineBinBreaks}
+\title{This finds divisions of over the vector size which produce equal nu...}
 \usage{
 defineBinBreaks(size, nobin, ...)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mapresponse.R
 \name{imageGraph}
 \alias{imageGraph}
-\title{imageGraph}
+\title{Maps a response variable with Rs contour or image functions, or bot...}
 \usage{
 imageGraph(matrixdata, levels = NULL, breaks = c(-33000, 0, 150, 250, 500,
   1000, 2000), xname = "x", yname = "y", xrange = NULL, yrange = NULL,

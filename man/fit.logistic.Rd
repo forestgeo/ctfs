@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{fit.logistic}
 \alias{fit.logistic}
-\title{fit.logistic}
+\title{A function to fit a set of data y, observed at the vector x, to a g...}
 \usage{
 fit.logistic(x, y, start.param, tech = "Nelder-Mead")
 }

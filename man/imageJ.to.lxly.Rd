@@ -2,7 +2,7 @@
 % Please edit documentation in R/imageJ.R
 \name{imageJ.to.lxly}
 \alias{imageJ.to.lxly}
-\title{imageJ.to.lxly}
+\title{Convert map pixels from digitzing program to plot coordinates. Uses...}
 \usage{
 imageJ.to.lxly(textfile = samplemapfile, delim = ",", lowerleft = "P2",
   upperleft = "P1", upperright = "P4", lowerright = "P3",

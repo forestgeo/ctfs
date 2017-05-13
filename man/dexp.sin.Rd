@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{dexp.sin}
 \alias{dexp.sin}
-\title{dexp.sin}
+\title{Four-parameter exponential sin, as a probability distributiondexp.s...}
 \usage{
 dexp.sin(x, lo, hi, skew, tail)
 }

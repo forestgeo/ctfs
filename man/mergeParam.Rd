@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{mergeParam}
 \alias{mergeParam}
-\title{mergeParam}
+\title{Merges a list of parameter matrices into one large matrix. Used for...}
 \usage{
 mergeParam(p)
 }

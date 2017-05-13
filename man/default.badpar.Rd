@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{default.badpar}
 \alias{default.badpar}
-\title{default.badpar}
+\title{None given.default.badpar bad.paretopar  Test whether parameters fo...}
 \usage{
 default.badpar(param)
 }

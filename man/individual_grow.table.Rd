@@ -2,7 +2,7 @@
 % Please edit documentation in R/demogChange.R
 \name{individual_grow.table}
 \alias{individual_grow.table}
-\title{individual_grow.table}
+\title{Create a table of individual trees and their growth over two census...}
 \usage{
 individual_grow.table(cnsdata, powertransformation = 0.45, rnd = c(FALSE,
   TRUE, rep(FALSE, 4)), mingrow = 0.1, mindbh = 10, maxdbh = 10000,

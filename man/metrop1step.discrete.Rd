@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{metrop1step.discrete}
 \alias{metrop1step.discrete}
-\title{metrop1step.discrete}
+\title{A version for metrop1step where the alternative values are characte...}
 \usage{
 metrop1step.discrete(func, start.param, alter.param, ...)
 }
