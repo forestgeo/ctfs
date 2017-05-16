@@ -1,4 +1,28 @@
-# Procedure to build this package
+
+# Compare forestr and CTFS-CRAN -------------------------------------------
+
+fr <- dir("man")
+cran <- dir("../CTFS-CRAN/man/")
+in_both <- intersect(cran, fr)
+
+setdiff(cran, fr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Procedure to build this package ----
 
 .rs.restartR()
 devtools::build()

@@ -83,11 +83,14 @@
 #'
 #' @description
 #'
-#' A wrapper to calculate total abundance (or ba or agb) for each species in given dbh categories. The dbh categories
-#' are set with dbhbreaks. See abundance() for description of the other arguments and return value.
-#'
-#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last category will be >= the final division
-#'
+#' A wrapper to calculate total abundance (or ba or agb) for each species in
+#' given dbh categories. The dbh categories are set with `dbhbreaks`.
+#' 
+#' @return See [abundance()].
+#' @seealso [abundance()]
+#' @inheritParams abundance
+#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last
+#'   category will be >= the final division
 #'
 'abundance.spp'
 
@@ -95,7 +98,8 @@
 #'
 #' @description
 #'
-#' Finds abundance, basal area, or agb in two censuses and the rate of change between them. 
+#' Finds abundance, basal area, or agb in two censuses and the rate of change
+#' between them.
 #'
 #' Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
 #'
