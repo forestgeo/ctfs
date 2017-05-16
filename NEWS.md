@@ -1,5 +1,14 @@
 # forestr 0.0.0.9000
 
+TODO
+
+Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate.
+
+FUNCTIONS WHICH NAME IS THE SAME IN BOTH PACKAGES
+
+- `abundance`, I mostly used forestr, but I re-wrote for clarity.
+
+
 ## Enhanced
 
 - To help users find the functions they need the online [functions' reference](https://forestgeo.github.io/forestr/reference/index.html) now gives more information about each function and better organized. Using the folder and file name where each function lived in the CTFSRPackage, I arranged the functions alphabetically by the name of folder, file and function. And I extracted text from the description of each function to give some indication of what each function does. I did all this pragmatically; it would improve with human curation.

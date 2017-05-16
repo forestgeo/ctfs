@@ -4,36 +4,37 @@
 #'
 #'
 
-#' Calculates total abundance or basal area, dividing data with 1 or 2...
-#'
+#' Abundance or basal area dividing data with 1 or 2 categorical variables
+#' 
 #' @description
-#'
-#' Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables. 
-#'
-#' The categorical variables must be submitted as vectors whose length
-#' matches exactly as the number of rows in the plot data submitted (so one per tree or stem). 
-#'
-#' The first vector should be the one with the most categories
-#'(for instances, split1=species, split2=dbhcategory). 
-#'
-#' The mean measurement date for all individuals in each category is
-#' also calculated. 
-#'
-#' For abundance, set type='abund'(the default), for basal area, set type='ba'. Be sure to use the R Analytical
-#'
-#' Stem Table for basal area. For abundance, either the stem table or full table can be used, the former to count stems, the latter trees. 
-#'
-#' The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of 
-#' one or two dimensions, depending on how many split variables were submitted:
-#' each of the dimensions of the array handles one of the categorical variables.  
-#'
-#' @param censdata an R Analytical Table for a full plot census, either full or stem
-#' @param type must be either 'abund', 'ba', or 'agb'
-#' @param alivecode all codes defining alive; the default 'A'is the standard CTFS designation for living trees or stems
-#' @param mindbh the minimum diameter above which the counts are done; if NULL, all (living) are included
+#' Calculates total abundance or basal area, dividing data with 1 or 2 
+#' categorical variables.
+#' 
+#' @details
+#' The categorical variables must be submitted as vectors whose length matches
+#' exactly as the number of rows in the plot data submitted (so one per tree or
+#' stem). The first vector should be the one with the most categories (for
+#' instances, `split1 = species`, `split2 = dbhcategory`).
+#' 
+#' @param censdata an R Analytical Table for a full plot census. For basal area 
+#'   use a stem table. For abundance, use either the stem or full table to count
+#'   stems or trees, respectively.
+#' @param type either 'abund' (default) for abundance, 'ba' for basal area, or
+#'   'agb'.
+#' @param alivecode character, codes of the variable `status` that indicate the 
+#'   tree is alive. The default 'A' is the standard CTFS designation for living 
+#'   trees or stems
+#' @param mindbh the minimum diameter above which the counts are done; if NULL, 
+#'   all (living) are included
 #' @param dbhunit 'cm'or 'mm', only used for basal area
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual
+#'
+#' @return a named list of two elements, either `abund` or `ba`, and meandate 
+#'   (mean measurement date for all individuals in each category). Each element 
+#'   of the list is an array of one or two dimensions, depending on how many 
+#'   split variables were submitted: each of the dimensions of the array handles
+#'   one of the categorical variables.
 #'
 #' @examples
 #' \dontrun{
