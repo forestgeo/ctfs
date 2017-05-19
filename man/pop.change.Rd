@@ -25,7 +25,8 @@ This list can be submitted to assemble.demography (topic utilitiesCTFS) to conve
 See abundance()}
 }
 \description{
-Finds abundance, basal area, or agb in two censuses and the rate of change between them.
+Finds abundance, basal area, or agb in two censuses and the rate of change
+between them.
 
 Accepts two dataframes, each an R Analytical Table for one census, the earlier census first.
 

@@ -2,15 +2,35 @@
 % Please edit documentation in R/abundance.R
 \name{abundance.spp}
 \alias{abundance.spp}
-\title{A wrapper to calculate total abundance (or ba or agb) for each spec...}
+\title{Abundance of trees by species and DBH classes.}
 \usage{
 abundance.spp(censdata, type = "abund", dbhunit = "mm",
   alivecode = c("A"), dbhbreaks = c(10, 100, 300))
 }
 \arguments{
-\item{dbhbreaks}{a vector of dbhs to define divisions of categories; the last category will be >= the final division}
+\item{censdata}{an R Analytical Table for a full plot census. For basal area
+use a stem table. For abundance, use either the stem or full table to count
+stems or trees, respectively.}
+
+\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+'agb'.}
+
+\item{dbhunit}{'cm'or 'mm', only used for basal area}
+
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems}
+
+\item{dbhbreaks}{a vector of dbhs to define divisions of categories; the last
+category will be >= the final division}
+}
+\value{
+See \code{\link[=abundance]{abundance()}}.
 }
 \description{
-A wrapper to calculate total abundance (or ba or agb) for each species in given dbh categories. The dbh categories
-are set with dbhbreaks. See abundance() for description of the other arguments and return value.
+A wrapper to calculate total abundance (or ba or agb) for each species in
+given dbh categories. The dbh categories are set with \code{dbhbreaks}.
+}
+\seealso{
+\code{\link[=abundance]{abundance()}}
 }
