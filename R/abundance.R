@@ -79,7 +79,7 @@
 #'
 'abundanceperquad'
 
-#' A wrapper to calculate total abundance (or ba or agb) for each spec...
+#' Abundance of trees by species and DBH classes.
 #'
 #' @description
 #'
