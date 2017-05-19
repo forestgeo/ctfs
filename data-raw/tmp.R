@@ -3,10 +3,9 @@
 
 fr <- dir("man")
 cran <- dir("../CTFS-CRAN/man/")
-in_both <- intersect(cran, fr)
-
 setdiff(cran, fr)
-
+in_both <- intersect(cran, fr)
+in_both
 
 
 

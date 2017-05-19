@@ -7,6 +7,9 @@ Improve documentation in forestr by incorporating documentation in CTFS-CRAN whe
 FUNCTIONS WHICH NAME IS THE SAME IN BOTH PACKAGES
 
 - `abundance`, I mostly used forestr, but I re-wrote for clarity.
+- `abundance.spp`, inherit params from abundance. Some args don't match.
+- `assemble.demography`, Some argument names don't match.
+- `ba`, 
 
 
 ## Enhanced
