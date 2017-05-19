@@ -77,11 +77,16 @@
 #'
 #' Takes output of a demographic analysis (produced by functions growth,
 #' mortality, or pop.change) and converts into one dataframe. Only indicated dbh
-#' categories are included; be sure that whichdbhcat does not exceed the number
-#' of columns in the data submitted. Type is 'g'for growth, 'm' for mortality,
-#' 'ba'for basal area, 'agb'for biomass, 'r'for recruitment, and 'a'for
-#' abundance.
-#'
+#' categories are included.
+#' 
+#' @param output The results from one of the demographic functions
+#' @param type A character. Either `'g'` for growth, `'m'` for `mortality`,
+#'   `'ba'` for basal area, `'agb'` for biomass, `'r'` for recruitment, or
+#'   `'a'` for abundance.
+#' @param whichdbhcat A number indicating how many dbh categories to include,
+#'   cannot exceed the number of columns in output.
+#' @param date1 date of first enumeration at site, format: yyyy-mm-dd.
+#' @return A dataframe.
 #' @examples
 #' \dontrun{
 #'
