@@ -172,14 +172,15 @@
 #'
 'pop.change.dbh'
 
-#' Calculates the individual basal areas (in square meters) for all su...
+#' Basal area of trees.
 #'
 #' @description
-#'
-#' Calculates the individual basal areas (in square meters) for all submitted dbhs. The dbh units must be submitted, either
-#' cm'or 'millimeters'. The return value is a vector of basal area values of same length as the submitted vector of dbhs.
-#'
-#'
+#' Calculates the individual basal areas (in square meters) for all submitted
+#' dbhs. The dbh units must be submitted, either cm'or 'millimeters'. The return
+#' value is a vector of basal area values of same length as the submitted vector
+#' of dbhs.
+#' @inheritParams abundance
+#' @param dbh DBH in mm of tree
 'ba'
 
 #' Returns the basal area summed over all submitted dbhs. NAs can be i...
