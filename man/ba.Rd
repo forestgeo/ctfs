@@ -11,9 +11,11 @@ ba(dbh, dbhunit = "mm")
 
 \item{dbhunit}{'cm'or 'mm', only used for basal area}
 }
+\value{
+A vector of basal area values of same length as the submitted vector
+of dbhs.
+}
 \description{
 Calculates the individual basal areas (in square meters) for all submitted
-dbhs. The dbh units must be submitted, either cm'or 'millimeters'. The return
-value is a vector of basal area values of same length as the submitted vector
-of dbhs.
+dbhs. The dbh units must be submitted, either cm'or 'millimeters'.
 }
