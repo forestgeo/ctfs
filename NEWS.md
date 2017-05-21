@@ -2,14 +2,63 @@
 
 TODO
 
-Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate.
+Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively. That from CTFS-CRAN is only used to add missing documentation (most often params) and as a source of information to rewrite forestr's documentation.
 
 FUNCTIONS WHICH NAME IS THE SAME IN BOTH PACKAGES
 
-- `abundance`, I mostly used forestr, but I re-wrote for clarity.
-- `abundance.spp`, inherit params from abundance. Some args don't match.
+SOURCE OF PARAMS
+
+- `abundance`, I mostly used forestr, but I re-wrote for clarity. Common params:
+    - censdata
+    - type
+    - alivecode
+    - mindbh
+    - dbhunit
+    - split1
+    - split2
+
+INHERITING PARAMPS
+
+Inherit from abundance:
+- `abundance.spp`, Some args don't match.
+- `biomass.change`
+- `ba`
+
+OTHER FUNCTIONS
+
 - `assemble.demography`, Some argument names don't match.
-- `ba`, 
+
+
+
+
+ [6] "elev.to.list.Rd"         
+ [7] "find.climits.Rd"         
+ [8] "findborderquads.Rd"      
+ [9] "growth.dbh.Rd"           
+[10] "growth.eachspp.Rd"
+[11] "growth.indiv.Rd"         
+[12] "growth.Rd"               
+[13] "gxgy.to.hectindex.Rd"    
+[14] "gxgy.to.index.Rd"        
+[15] "gxgy.to.rowcol.Rd"       
+[16] "index.to.gxgy.Rd"        
+[17] "index.to.rowcol.Rd"      
+[18] "map.Rd"                  
+[19] "maptopo.Rd"              
+[20] "mortality.calculation.Rd"
+[21] "mortality.dbh.Rd"        
+[22] "mortality.eachspp.Rd"    
+[23] "mortality.Rd"            
+[24] "readelevdata.Rd"         
+[25] "recruitment.eachspp.Rd"  
+[26] "recruitment.Rd"          
+[27] "rowcol.to.index.Rd"      
+[28] "tojulian.Rd"             
+[29] "trim.growth.Rd"          
+
+
+
+
 
 
 ## Enhanced
