@@ -99,25 +99,30 @@
 #'
 'mortality.calculation'
 
-#' Calculates confidence limits around a number of deaths, D, out of N...
+#' Calculate confidence limits around a number of deaths.
 #'
 #' @description
+#' Calculates confidence limits around a number of deaths, D, out of N 
+#' individuals.
+#' 
+#' @details 
+#' It uses the beta distribution as the conjugate of the binomial, so the beta
+#' is the posterior of the number dying. N and D can be vectors or matrices, but
+#' must have matching dimensions.
 #'
-#' Calculates confidence limits around a number of deaths, D, out of N individuals.
+#' @return Confidence limits for the given number of surviving trees.
 #'
-#' It uses the beta distribution as the conjugate of the binomial, so the beta is the posterior of the number
-#' dying. N and D can be vectors or matrices, but must have matching dimensions.
-#'
-#' @param N, number of individuals alive at the outset
-#' @param D, number of deaths by the end
-#' @param alpha, the critical probability (default alpha=0.05 gives 95\% confidence limits)
-#' @param kind, either "upper" or "lower"
+#' @param N The number of individuals alive at the outset.
+#' @param D The number of deaths by the end.
+#' @param alpha The critical probability. Defaults to 0.05, which gives 95\%
+#'   confidence limits.
+#' @param kind Either "upper" or "lower".
 #'
 #' @examples
 #' \dontrun{
-#' find.climits(10,5,kind='lower')}
+#' find.climits(10, 5, kind = 'lower')
+#' }
 #'
-
 'find.climits'
 
 # Source code and original documentation ----------------------------
