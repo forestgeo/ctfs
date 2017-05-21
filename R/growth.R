@@ -84,17 +84,21 @@
 #'
 'growth.eachspp'
 
-#' This calculates forest-wide growth in given dbh categories. Argumen...
+#' Calculates forest-wide growth in given dbh categories.
 #'
 #' @description
+#' This calculates forest-wide growth in given dbh categories.
 #'
-#' This calculates forest-wide growth in given dbh categories. Arguments as for growth().
+#' @inheritParams growth
+#'
+#' @return A list of arrays; values are provided for each DBH class.
 #'
 #' @examples
 #' \dontrun{
-#' growth.dbh=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))}
-#'
-#'
+#' growth.dbh <- growth.eachspp(
+#'   bci.full5, bci.full6,
+#'   classbreak = c(10, 50, 100, 300, 500))
+#' }
 'growth.dbh'
 
 #' This returns a complete table with growth rate of every individual,...
