@@ -2,6 +2,12 @@
 
 TODO
 
+Remove comma: replace "\n#' @param word," by "\n#' @param word".
+
+
+
+DOING
+
 Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively. That from CTFS-CRAN is only used to add missing documentation (most often params) and as a source of information to rewrite forestr's documentation.
 
 FUNCTIONS WHICH NAME IS THE SAME IN BOTH PACKAGES
@@ -17,6 +23,14 @@ SOURCE OF PARAMS
     - split1
     - split2
 
+
+- `findborderquads`
+    - index Quadrate number, between 0 and 1249 in the standard plot.
+    - dist Distance in m within which the neighboring quadrates are located. Distance is measured from any side of the index quadrate.
+    - gridsize Side of the square quadrate, 20 x 20m by default.
+    - plotdim Dimensions of the plot: east-west 1000m and north-south 500m
+
+
 INHERITING PARAMPS
 
 Inherit from abundance:
@@ -27,13 +41,11 @@ Inherit from abundance:
 OTHER FUNCTIONS
 
 - `assemble.demography`, Some argument names don't match.
+- `elev.to.list`, may be deprecated. Converts a data.frame into a list, but this can be done with list(data.frame(x))
+- `find.climits`
 
 
 
-
- [6] "elev.to.list.Rd"         
- [7] "find.climits.Rd"         
- [8] "findborderquads.Rd"      
  [9] "growth.dbh.Rd"           
 [10] "growth.eachspp.Rd"
 [11] "growth.indiv.Rd"         
