@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This calculates forest-wide growth in given dbh categories. Argumen... — growth.dbh â€¢ forestr</title>
+<title>Calculates forest-wide growth in given dbh categories. — growth.dbh â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,27 +79,74 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This calculates forest-wide growth in given dbh categories. Argumen...</h1>
+    <h1>Calculates forest-wide growth in given dbh categories.</h1>
     </div>
 
     
-    <p>This calculates forest-wide growth in given dbh categories. Arguments as for growth().</p>
+    <p>This calculates forest-wide growth in given dbh categories.</p>
     
 
     <pre class="usage"><span class='fu'>growth.dbh</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>classbreak</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>300</span>), <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>,
   <span class='kw'>growthcol</span> <span class='kw'>=</span> <span class='st'>"dbh"</span>, <span class='kw'>err.limit</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>maxgrow</span> <span class='kw'>=</span> <span class='fl'>75</span>, <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"I"</span>, <span class='kw'>stdev</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>census1</th>
+      <td><p>The R Analytical Table for a single census, either tree or
+stem.</p></td>
+    </tr>
+    <tr>
+      <th>census2</th>
+      <td><p>The matching R Analytical Table for a later census.</p></td>
+    </tr>
+    <tr>
+      <th>growthcol</th>
+      <td><p>defines how growth is measured, either 'dbh'or
+'agb'(agb=biomass)</p></td>
+    </tr>
+    <tr>
+      <th>rounddown</th>
+      <td><p>If TRUE, all dbh &lt; 55 are rounded down to the nearest
+multiple of 5.</p></td>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td><p>Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.</p></td>
+    </tr>
+    <tr>
+      <th>stdev</th>
+      <td><p>Logical. Default (FALSE) returns confidence limits, otherwise
+returns the SD in growth rate per group.</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>the minimum diameter above which the counts are done; if NULL,
+all (living) are included</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list of arrays; values are provided for each DBH class.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>growth.dbh</span><span class='kw'>=</span><span class='fu'><a href='growth.eachspp.html'>growth.eachspp</a></span>(<span class='no'>bci.full5</span>,<span class='no'>bci.full6</span>,<span class='kw'>classbreak</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>10</span>,<span class='fl'>50</span>,<span class='fl'>100</span>,<span class='fl'>300</span>,<span class='fl'>500</span>))
+  <span class='no'>growth.dbh</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='growth.eachspp.html'>growth.eachspp</a></span>(
+    <span class='no'>bci.full5</span>, <span class='no'>bci.full6</span>,
+    <span class='kw'>classbreak</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>50</span>, <span class='fl'>100</span>, <span class='fl'>300</span>, <span class='fl'>500</span>))
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

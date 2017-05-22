@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate indices of neighboring quadrats, for a given quadrat inde... — findborderquads â€¢ forestr</title>
+<title>Given a quadrat index, calculate indices of neighboring quadrats. — findborderquads â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate indices of neighboring quadrats, for a given quadrat inde...</h1>
+    <h1>Given a quadrat index, calculate indices of neighboring quadrats.</h1>
     </div>
 
     
@@ -87,13 +87,43 @@
     
 
     <pre class="usage"><span class='fu'>findborderquads</span>(<span class='no'>index</span>, <span class='kw'>dist</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>))</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>index</th>
+      <td><p>Quadrate number, between 0 and 1249 in the standard plot.</p></td>
+    </tr>
+    <tr>
+      <th>dist</th>
+      <td><p>Distance in m within which the neighboring quadrates are located.
+Distance is measured from any side of the index quadrate.</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>Side of the square quadrate, 20 x 20m by default.</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>Dimensions of the plot: east-west 1000m and north-south 500m</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A vector of numbers, the quadrate indices for all surrounding
+quadrates.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>

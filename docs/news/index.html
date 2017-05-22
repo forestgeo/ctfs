@@ -87,9 +87,52 @@
     <div id="forestr-0-0-0-9000" class="section level1">
 <h1 class="hasAnchor">
 <a href="#forestr-0-0-0-9000" class="anchor"></a>forestr 0.0.0.9000</h1>
+<p>Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters’ documentation) and as a source of information to rewrite forestr’s documentation.</p>
+<p>Some limitations in merging documentation in forestr and CTFS-CRAN are:</p>
 <ul>
-<li>Clone from ctfs 0.0.0.9005 (<a href="https://goo.gl/GhNLyz">advice</a>)</li>
+<li><p>the number of functions differ; there are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.</p></li>
+<li><p>only 29 functions are named exactly the same in both packages; those functions are these:</p></li>
 </ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> [<span class="dv">1</span>] <span class="st">"abundance.Rd"</span>            
+ [<span class="dv">2</span>] <span class="st">"abundance.spp.Rd"</span>        
+ [<span class="dv">3</span>] <span class="st">"assemble.demography.Rd"</span>  
+ [<span class="dv">4</span>] <span class="st">"ba.Rd"</span>                   
+ [<span class="dv">5</span>] <span class="st">"biomass.change.Rd"</span>       
+ [<span class="dv">6</span>] <span class="st">"elev.to.list.Rd"</span>         
+ [<span class="dv">7</span>] <span class="st">"find.climits.Rd"</span>         
+ [<span class="dv">8</span>] <span class="st">"findborderquads.Rd"</span>      
+ [<span class="dv">9</span>] <span class="st">"growth.dbh.Rd"</span>           
+[<span class="dv">10</span>] <span class="st">"growth.eachspp.Rd"</span>       
+[<span class="dv">11</span>] <span class="st">"growth.indiv.Rd"</span>         
+[<span class="dv">12</span>] <span class="st">"growth.Rd"</span>               
+[<span class="dv">13</span>] <span class="st">"gxgy.to.hectindex.Rd"</span>    
+[<span class="dv">14</span>] <span class="st">"gxgy.to.index.Rd"</span>        
+[<span class="dv">15</span>] <span class="st">"gxgy.to.rowcol.Rd"</span>       
+[<span class="dv">16</span>] <span class="st">"index.to.gxgy.Rd"</span>        
+[<span class="dv">17</span>] <span class="st">"index.to.rowcol.Rd"</span>      
+[<span class="dv">18</span>] <span class="st">"map.Rd"</span>                  
+[<span class="dv">19</span>] <span class="st">"maptopo.Rd"</span>              
+[<span class="dv">20</span>] <span class="st">"mortality.calculation.Rd"</span>
+[<span class="dv">21</span>] <span class="st">"mortality.dbh.Rd"</span>        
+[<span class="dv">22</span>] <span class="st">"mortality.eachspp.Rd"</span>    
+[<span class="dv">23</span>] <span class="st">"mortality.Rd"</span>            
+[<span class="dv">24</span>] <span class="st">"readelevdata.Rd"</span>         
+[<span class="dv">25</span>] <span class="st">"recruitment.eachspp.Rd"</span>  
+[<span class="dv">26</span>] <span class="st">"recruitment.Rd"</span>          
+[<span class="dv">27</span>] <span class="st">"rowcol.to.index.Rd"</span>      
+[<span class="dv">28</span>] <span class="st">"tojulian.Rd"</span>             
+[<span class="dv">29</span>] <span class="st">"trim.growth.Rd"</span>      </code></pre></div>
+<ul>
+<li>although the 29 functions above have the same name, some differ in the source code, including arguments number and name, and the documentation.</li>
+</ul>
+<div id="enhanced" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhanced" class="anchor"></a>Enhanced</h2>
+<ul>
+<li><p>To help users find the functions they need the online <a href="https://forestgeo.github.io/forestr/reference/index.html">functions’ reference</a> now gives more information about each function and better organized. Using the folder and file name where each function lived in the CTFSRPackage, I arranged the functions alphabetically by the name of folder, file and function. And I extracted text from the description of each function to give some indication of what each function does. I did all this pragmatically; it would improve with human curation.</p></li>
+<li><p>Clone from ctfs 0.0.0.9005 (<a href="https://goo.gl/GhNLyz">advice</a>)</p></li>
+</ul>
+</div>
 </div>
     <div id="ctfs-0-0-0-9005" class="section level1">
 <h1 class="hasAnchor">
@@ -142,9 +185,9 @@ selectrandomquad2:<span class="st"> </span>warning in <span class="kw"><a href="
 <li><p>Fixed <code><a href="../reference/wavelet.bivariate.html">wavelet.bivariate()</a></code>, replace <code>as.real</code> (defunc) by <code>as.double</code>. Detect missing argument type and wrote a warning in the help file.</p></li>
 </ul>
 </div>
-<div id="enhanced" class="section level3">
+<div id="enhanced-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#enhanced" class="anchor"></a>Enhanced</h3>
+<a href="#enhanced-1" class="anchor"></a>Enhanced</h3>
 <ul>
 <li>Updated persons’ roles</li>
 </ul>
