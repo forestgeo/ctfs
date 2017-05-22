@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculates total abundance or basal area, dividing data with 1 or 2... — abundance â€¢ forestr</title>
+<title>Abundance or basal area dividing data with 1 or 2 categorical variables — abundance â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,22 +79,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculates total abundance or basal area, dividing data with 1 or 2...</h1>
+    <h1>Abundance or basal area dividing data with 1 or 2 categorical variables</h1>
     </div>
 
     
-    <p>Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables.</p>
-<p>The categorical variables must be submitted as vectors whose length
-matches exactly as the number of rows in the plot data submitted (so one per tree or stem).</p>
-<p>The first vector should be the one with the most categories
-(for instances, split1=species, split2=dbhcategory).</p>
-<p>The mean measurement date for all individuals in each category is
-also calculated.</p>
-<p>For abundance, set type='abund'(the default), for basal area, set type='ba'. Be sure to use the R Analytical</p>
-<p>Stem Table for basal area. For abundance, either the stem table or full table can be used, the former to count stems, the latter trees.</p>
-<p>The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of
-one or two dimensions, depending on how many split variables were submitted:
-each of the dimensions of the array handles one of the categorical variables.</p>
+    <p>Calculates total abundance or basal area, dividing data with 1 or 2
+categorical variables.</p>
     
 
     <pre class="usage"><span class='fu'>abundance</span>(<span class='no'>censdata</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"abund"</span>, <span class='kw'>alivecode</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>), <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -105,19 +95,25 @@ each of the dimensions of the array handles one of the categorical variables.</p
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>censdata</th>
-      <td><p>an R Analytical Table for a full plot census, either full or stem</p></td>
+      <td><p>an R Analytical Table for a full plot census. For basal area
+use a stem table. For abundance, use either the stem or full table to count
+stems or trees, respectively.</p></td>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>must be either 'abund', 'ba', or 'agb'</p></td>
+      <td><p>either 'abund' (default) for abundance, 'ba' for basal area, or
+'agb'.</p></td>
     </tr>
     <tr>
       <th>alivecode</th>
-      <td><p>all codes defining alive; the default 'A'is the standard CTFS designation for living trees or stems</p></td>
+      <td><p>character, codes of the variable <code>status</code> that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems</p></td>
     </tr>
     <tr>
       <th>mindbh</th>
-      <td><p>the minimum diameter above which the counts are done; if NULL, all (living) are included</p></td>
+      <td><p>the minimum diameter above which the counts are done; if NULL,
+all (living) are included</p></td>
     </tr>
     <tr>
       <th>dbhunit</th>
@@ -132,6 +128,21 @@ each of the dimensions of the array handles one of the categorical variables.</p
       <td><p>another vector of categories, one per individual</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a named list of two elements, either <code>abund</code> or <code>ba</code>, and meandate
+(mean measurement date for all individuals in each category). Each element
+of the list is an array of one or two dimensions, depending on how many
+split variables were submitted: each of the dimensions of the array handles
+one of the categorical variables.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The categorical variables must be submitted as vectors whose length matches
+exactly as the number of rows in the plot data submitted (so one per tree or
+stem). The first vector should be the one with the most categories (for
+instances, <code>split1 = species</code>, <code>split2 = dbhcategory</code>).</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -154,7 +165,11 @@ each of the dimensions of the array handles one of the categorical variables.</p
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

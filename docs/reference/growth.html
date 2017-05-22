@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The principle growth function, constructed like recruitment and mor... — growth â€¢ forestr</title>
+<title>Annual Growth Rates by Categories. — growth â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,32 +79,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The principle growth function, constructed like recruitment and mor...</h1>
+    <h1>Annual Growth Rates by Categories.</h1>
     </div>
 
     
-    <p>The principle growth function, constructed like
-recruitment and mortality. It requires two complete datasets, one per census,
-with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format).</p>
-<p>It calculates the mean growth rate in one or more categories defined by the split variables, split1
-and split2. The column date is required for annualizing rates.</p>
-<p>The columns status and stemID are both required, in order to determine which stems should have dbh change calculated.</p>
-<p>The function trim.growth handles all
-checks for trees to include; excluded are cases where the stemID changes, extreme values
-based on err.limit and maxgrow, and trees below a minimum dbh in the
-first census. See the description of trim.growth for more information.</p>
-<p>Growth requires fill.dimension in utilities.r.</p>
-<p>Output of the growth function is a list with components:</p><ul>
-<li><p>rate, the mean annualized growth rate per category selected, either dbh increment, or relative growth</p></li>
-<li><p>N, the number of individuals included in the mean (not counting any excluded)</p></li>
-<li><p>clim, width of confidence interval; add this number to the mean rate to get upper confidence limit, substract to get lower</p></li>
-<li><p>dbhmean, mean dbh in census 1 of individuals included</p></li>
-<li><p>time, mean time interval in years</p></li>
-<li><p>date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)</p></li>
-<li><p>date2, mean date in census 2</p></li>
-</ul>
-
-    <p>Pass the list to assemble.demography (in utilities.r) with type="g" to convert the list to a data.frame.</p>
+    <p>The principle growth function, constructed like recruitment and mortality. It
+requires two complete datasets, one per census, with dbh, pom, and date for
+every individual of all species in at least 2 censuses (see Data Format).</p>
     
 
     <pre class="usage"><span class='fu'>growth</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"I"</span>, <span class='kw'>stdev</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -115,57 +96,106 @@ first census. See the description of trim.growth for more information.</p>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dbhunit</th>
-      <td><p>must be 'mm'or 'cm'</p></td>
+      <th>census1</th>
+      <td><p>The R Analytical Table for a single census, either tree or
+stem.</p></td>
+    </tr>
+    <tr>
+      <th>census2</th>
+      <td><p>The matching R Analytical Table for a later census.</p></td>
+    </tr>
+    <tr>
+      <th>rounddown</th>
+      <td><p>If TRUE, all dbh &lt; 55 are rounded down to the nearest
+multiple of 5.</p></td>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td><p>Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.</p></td>
+    </tr>
+    <tr>
+      <th>stdev</th>
+      <td><p>Logical. Default (FALSE) returns confidence limits, otherwise
+returns the SD in growth rate per group.</p></td>
     </tr>
     <tr>
       <th>mindbh</th>
-      <td><p>is the minimum dbh to include in results</p></td>
+      <td><p>the minimum diameter above which the counts are done; if NULL,
+all (living) are included</p></td>
     </tr>
     <tr>
       <th>growthcol</th>
-      <td><p>defines how growth is measured, either 'dbh'or 'agb'(agb=biomass)</p></td>
+      <td><p>defines how growth is measured, either 'dbh'or
+'agb'(agb=biomass)</p></td>
     </tr>
     <tr>
       <th>split1</th>
-      <td><p>and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
-(or both can be NULL), for instance, species names, dbh categories, or quadrat numbers</p></td>
+      <td><p>a vector of categories, one per individual</p></td>
     </tr>
     <tr>
-      <th>Usually</th>
-      <td><p>use rounddown=FALSE; if TRUE, all dbh&lt;55 are rounded down to the nearest multiple of 5</p></td>
-    </tr>
-    <tr>
-      <th>With</th>
-      <td><p>method='I', annual dbh increment is calculated, (dbh2-dbh1)/time; with method='E', relative growth rate, (log(dbh2)-log(dbh1))/time</p></td>
-    </tr>
-    <tr>
-      <th>With</th>
-      <td><p>stdev=FALSE, confidence limits are returned, otherwise the SD in growth rate per group</p></td>
-    </tr>
-    <tr>
-      <th>for</th>
-      <td><p>err.limit and maxgrow, see trim.growth()</p></td>
+      <th>split2</th>
+      <td><p>another vector of categories, one per individual</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list with components:</p><ul>
+<li><p><code>rate</code>, the mean annualized growth rate per category selected, either dbh
+increment, or relative growth</p></li>
+<li><p><code>N</code>, the number of individuals included in the mean (not counting any
+excluded)</p></li>
+<li><p><code>clim</code>, width of confidence interval; add this number to the mean rate to get
+upper confidence limit, substract to get lower</p></li>
+<li><p><code>dbhmean</code>, mean dbh in census 1 of individuals included</p></li>
+<li><p><code>time</code>, mean time interval in years</p></li>
+<li><p><code>date1</code>, mean date included individuals were measured in census 1, as julian
+object (R displays as date, but treats as integer)</p></li>
+<li><p><code>date2</code>, mean date in census 2</p></li>
+</ul>
+
+<p>Pass the list to <code><a href='assemble.demography.html'>assemble.demography()</a></code> (in utilities.r) with type = "g" to
+convert the list to a data.frame.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>It calculates the mean growth rate in one or more categories defined by the
+split variables, <code>split1</code> and <code>split2</code>. The column <code>date</code> is required for
+annualizing rates.</p>
+<p>The columns <code>status</code> and <code>stemID</code> are both required, in order to determine
+which stems should have dbh change calculated.</p>
+<p>The function <code><a href='trim.growth.html'>trim.growth()</a></code> handles all checks for trees to include;
+excluded are (a) cases where the <code>stemID</code> changes, (b) extreme values based
+on <code>err.limit</code> and <code>maxgrow</code>, (c) and trees below a minimum dbh in the first
+census.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='trim.growth.html'>trim.growth()</a></code>.</p>
+<p>Growth requires <code><a href='fill.dimension.html'>fill.dimension()</a></code> in utilities.r.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-
-  <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>"bci"</span>,<span class='fl'>56</span>)
-  <span class='no'>growth.data</span><span class='kw'>=</span><span class='fu'>growth</span>(<span class='no'>bci.full5</span>,<span class='no'>bci.full6</span>)
+  <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>"bci"</span>, <span class='fl'>56</span>)
+  <span class='no'>growth.data</span> <span class='kw'>=</span> <span class='fu'>growth</span>(<span class='no'>bci.full5</span>, <span class='no'>bci.full6</span>)
   <span class='no'>growth.data</span>$<span class='no'>rate</span>
-  <span class='no'>growth.data</span><span class='kw'>=</span><span class='fu'>growth</span>(<span class='no'>bci.full5</span>,<span class='no'>bci.full6</span>,<span class='kw'>split1</span><span class='kw'>=</span><span class='no'>bci.full5</span>$<span class='no'>sp</span>)
+  <span class='no'>growth.data</span> <span class='kw'>=</span> <span class='fu'>growth</span>(<span class='no'>bci.full5</span>, <span class='no'>bci.full6</span>, <span class='kw'>split1</span> <span class='kw'>=</span> <span class='no'>bci.full5</span>$<span class='no'>sp</span>)
   <span class='no'>growth.data</span>$<span class='no'>rate</span>
-  <span class='fu'><a href='assemble.demography.html'>assemble.demography</a></span>(<span class='no'>grow.data</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'g'</span>)
+  <span class='fu'><a href='assemble.demography.html'>assemble.demography</a></span>(<span class='no'>grow.data</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'g'</span>)
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

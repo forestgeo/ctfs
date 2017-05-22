@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A function which reads a dataframe with x,y,elevation for a given g... — elev.to.list â€¢ forestr</title>
+<title>Convert a dataframe of coordinates and elevation into a list. — elev.to.list â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,26 +79,48 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A function which reads a dataframe with x,y,elevation for a given g...</h1>
+    <h1>Convert a dataframe of coordinates and elevation into a list.</h1>
     </div>
 
     
-    <p>A function which reads a dataframe with x,y,elevation for a given grid
-size and converts to a list
-note the names of the columns in the dataframe must be:
-x y elev</p>
-<p>object 1 in list is: the input dataframe
-object 2 in list is: matrix of elevation value sin the orientation of the plot</p>
+    <p>Reads a dataframe with variable names <code>x</code> (coordinate), <code>y</code> (coordinate),
+<code>elev</code> (elevation) for a given grid size and converts to a list.</p>
     
 
     <pre class="usage"><span class='fu'>elev.to.list</span>(<span class='no'>elevfile</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>elevfile</th>
+      <td><p>A data frame with x, y coordinates and elevation,
+bcielev.info.</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>scale of elevation values (m)</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    
+<ul>
+<li><p>object 1: the input dataframe</p></li>
+<li><p>object 2: matrix of elevation value sin the orientation of the plot</p></li>
+</ul>
+
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>

@@ -60,7 +60,7 @@
       <h1>Report Package Quality</h1>
                         <h4 class="author">Mauro Lepore</h4>
             
-            <h4 class="date">2017-05-12</h4>
+            <h4 class="date">2017-05-22</h4>
           </div>
 
     
@@ -316,7 +316,7 @@
 <a href="#documentation" class="anchor"></a>Documentation</h1>
 <p>This section reports the quality of the documentation. It focuses not on how compleate or correct the documentation is, but on how accurately the documentation information has been programatically extracted from its original source (<a href="https://goo.gl/uAvQ1k" class="uri">https://goo.gl/uAvQ1k</a>) into the forestr package documentation (roxygenized documentation in R their .Rd version in <code>man/</code>). That transformation is necessary for the roxygen2 package to create the forestr documentation (i.e. help pages available via <code>?&lt;FUNCTION_NAME&gt;</code> in R and at <a href="https://forestgeo.github.io/forestr/reference" class="uri">https://forestgeo.github.io/forestr/reference</a>).</p>
 <p>Choose some functions at random and visually check if documentation matches.</p>
-<pre><code>#&gt; # A tibble: 16 × 3
+<pre><code>#&gt; # A tibble: 16 x 3
 #&gt;                           fun match_source match_webpage
 #&gt;                         &lt;chr&gt;        &lt;lgl&gt;         &lt;lgl&gt;
 #&gt;  1      arrangeParam.llike.2D         TRUE          TRUE
@@ -341,7 +341,7 @@
 <a href="#functionality" class="anchor"></a>Functionality</h1>
 <p>This reports how many functions in tutorials run or err, and what kind of problem they are associated to.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">errs %&gt;%<span class="st"> </span><span class="kw">count</span>(errs)
-<span class="co">#&gt; # A tibble: 2 × 2</span>
+<span class="co">#&gt; # A tibble: 2 x 2</span>
 <span class="co">#&gt;    errs     n</span>
 <span class="co">#&gt;   &lt;lgl&gt; &lt;int&gt;</span>
 <span class="co">#&gt; 1 FALSE    15</span>
@@ -351,7 +351,7 @@
 <span class="st">  </span><span class="kw">print</span>() %&gt;%
 <span class="st">  </span><span class="kw">select</span>(msg)
 <span class="co">#&gt; Joining, by = "fun"</span>
-<span class="co">#&gt; # A tibble: 13 × 5</span>
+<span class="co">#&gt; # A tibble: 13 x 5</span>
 <span class="co">#&gt;              tutorial                    fun  errs</span>
 <span class="co">#&gt;                 &lt;chr&gt;                  &lt;chr&gt; &lt;lgl&gt;</span>
 <span class="co">#&gt;  1  Mortality changes              lmerBayes  TRUE</span>
@@ -368,7 +368,7 @@
 <span class="co">#&gt; 12          Plot maps            png.allplot  TRUE</span>
 <span class="co">#&gt; 13         Topography             solve_topo  TRUE</span>
 <span class="co">#&gt; # ... with 2 more variables: msg &lt;chr&gt;, guess_solution &lt;chr&gt;</span>
-<span class="co">#&gt; # A tibble: 13 × 1</span>
+<span class="co">#&gt; # A tibble: 13 x 1</span>
 <span class="co">#&gt;                                                                            msg</span>
 <span class="co">#&gt;                                                                          &lt;chr&gt;</span>
 <span class="co">#&gt;  1                   Error in llike.model.lmer, function 'dmvnorm' was missing</span>
