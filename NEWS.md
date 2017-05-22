@@ -1,53 +1,24 @@
 # forestr 0.0.0.9000
 
-TODO
+Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation.
 
-Remove comma: replace "\n#' @param word," by "\n#' @param word".
+Some limitations in merging documentation in forestr and CTFS-CRAN are:
 
+- the number of functions differ; there are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.
 
+- only 29 functions are named exactly the same in both packages; those functions are these:
 
-DOING
-
-Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively. That from CTFS-CRAN is only used to add missing documentation (most often params) and as a source of information to rewrite forestr's documentation.
-
-FUNCTIONS WHICH NAME IS THE SAME IN BOTH PACKAGES
-
-SOURCE OF PARAMS
-
-- `abundance`, I mostly used forestr, but I re-wrote for clarity. Common params:
-    - censdata
-    - type
-    - alivecode
-    - mindbh
-    - dbhunit
-    - split1
-    - split2
-
-
-- `findborderquads`
-    - index Quadrate number, between 0 and 1249 in the standard plot.
-    - dist Distance in m within which the neighboring quadrates are located. Distance is measured from any side of the index quadrate.
-    - gridsize Side of the square quadrate, 20 x 20m by default.
-    - plotdim Dimensions of the plot: east-west 1000m and north-south 500m
-
-
-INHERITING PARAMPS
-
-Inherit from abundance:
-- `abundance.spp`, Some args don't match.
-- `biomass.change`
-- `ba`
-
-OTHER FUNCTIONS
-
-- `assemble.demography`, Some argument names don't match.
-- `elev.to.list`, may be deprecated. Converts a data.frame into a list, but this can be done with list(data.frame(x))
-- `find.climits`
-
-
-
+```R
+ [1] "abundance.Rd"            
+ [2] "abundance.spp.Rd"        
+ [3] "assemble.demography.Rd"  
+ [4] "ba.Rd"                   
+ [5] "biomass.change.Rd"       
+ [6] "elev.to.list.Rd"         
+ [7] "find.climits.Rd"         
+ [8] "findborderquads.Rd"      
  [9] "growth.dbh.Rd"           
-[10] "growth.eachspp.Rd"
+[10] "growth.eachspp.Rd"       
 [11] "growth.indiv.Rd"         
 [12] "growth.Rd"               
 [13] "gxgy.to.hectindex.Rd"    
@@ -66,10 +37,10 @@ OTHER FUNCTIONS
 [26] "recruitment.Rd"          
 [27] "rowcol.to.index.Rd"      
 [28] "tojulian.Rd"             
-[29] "trim.growth.Rd"          
+[29] "trim.growth.Rd"      
+```
 
-
-
+- although the 29 functions above have the same name, some differ in the source code, including arguments number and name, and the documentation.
 
 
 
