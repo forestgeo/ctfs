@@ -2,18 +2,42 @@
 % Please edit documentation in R/growth.R
 \name{growth.dbh}
 \alias{growth.dbh}
-\title{This calculates forest-wide growth in given dbh categories. Argumen...}
+\title{Calculates forest-wide growth in given dbh categories.}
 \usage{
 growth.dbh(census1, census2, classbreak = c(10, 100, 300), dbhunit = "mm",
   growthcol = "dbh", err.limit = 4, maxgrow = 75, rounddown = FALSE,
   method = "I", stdev = FALSE, mindbh = 10)
 }
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
+\item{growthcol}{defines how growth is measured, either 'dbh'or
+'agb'(agb=biomass)}
+
+\item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
+multiple of 5.}
+
+\item{method}{Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.}
+
+\item{stdev}{Logical. Default (FALSE) returns confidence limits, otherwise
+returns the SD in growth rate per group.}
+
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
+}
+\value{
+A list of arrays; values are provided for each DBH class.
+}
 \description{
-This calculates forest-wide growth in given dbh categories. Arguments as for growth().
+This calculates forest-wide growth in given dbh categories.
 }
 \examples{
 \dontrun{
-growth.dbh=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))}
-
-
+growth.dbh <- growth.eachspp(
+  bci.full5, bci.full6,
+  classbreak = c(10, 50, 100, 300, 500))
+}
 }
