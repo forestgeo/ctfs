@@ -9,7 +9,15 @@ in_both
 
 
 
-
+#' @inheritParams biomass.change
+#' param mindbh is the minimum dbh to include in results
+#' param dbhunit Either 'mm'or 'cm'
+#' param split1,split2 must both be vectors of character variables with exactly
+#'   as many elements as there are rows in the tables `census1` and `census2` 
+#'   (or both can be NULL), for instance, species names, dbh categories, or 
+#'   quadrat numbers.
+#' param err.limit See [trim.growth()].
+#' param maxgrow See [trim.growth()].
 
 
 
