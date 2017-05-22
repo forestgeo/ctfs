@@ -56,7 +56,7 @@ Some limitations in merging documentation in forestr and CTFS-CRAN are:
 
 - Fixed name of functions that where automatically interpreted as S3 methods
 
-To permanently fix this problem, I replaced dots "." by "_" in the names of those problematic functions. The change should be easy to digest by users. The new names of those functions shows up with RStudio's autocompletion, and the change has been detailed in the documentation of each function.
+To permanently fix this problem, I replaced dots "." by "_" in the names of those problematic functions. The change should be easy to digest by users. The new names of those functions shows up with RStudio's auto-completion, and the change has been detailed in the documentation of each function.
 
 The functions are these:
 
@@ -98,7 +98,7 @@ selectrandomquad2: warning in index.to.gxgy(r, grid = 1, plotdim =
   plotdim - size): partial argument match of 'grid' to 'gridsize'
 ```
 
-- Fixed one problem in `wavelet.univariate()`, which erroneously refered to `wavelet.univariate()` as `wavelet.var()`. Also fixed an erroneous reference to `wavelet.var()` in examples of `wavelet.univariate()`.
+- Fixed one problem in `wavelet.univariate()`, which erroneously referred to `wavelet.univariate()` as `wavelet.var()`. Also fixed an erroneous reference to `wavelet.var()` in examples of `wavelet.univariate()`.
 
 - Fixed bug in `model.littleR.Gibbs()`. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable `idlevel` was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.
 
@@ -123,7 +123,7 @@ Kyle Harms	<kharms@lsu.edu>
 Akira Itoh	<itoh57@hotmail.com>
 ```
 
-Conservatively, every person listed above is described as authors in the current development (if this needs to change let me konw):
+Conservatively, every person listed above is described as authors in the current development (if this needs to change let me know):
 
 ```R
 Authors@R: c(
@@ -136,7 +136,7 @@ Authors@R: c(
     )
 ```
 
-Persons responsabilities are listed in `?person`. Some useful ones are these:
+Persons responsibilities are listed in `?person`. Some useful ones are these:
 
 "aut": (Author) Use for full authors who have made substantial contributions to the package and should show up in the package citation.
 
@@ -180,7 +180,7 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
 
 --[R packages, by Hadley Wickham](http://r-pkgs.had.co.nz/namespace.html)
 
-- Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced `subset()` by `[` in:
+- Enhanced source code of functions listed below to defensively avoid non standard evaluation (not appropriate for programming). Replaced `subset()` by `[` in:
 
     - `model.littleR.Gibbs()`,
     - `density.ind()`,
@@ -230,13 +230,13 @@ Persons responsabilities are listed in `?person`. Some useful ones are these:
 
 - Added a new vignette to report package quality
 
-- Added a new utility functions to remove rows full of NAs from data frames and matrices. Exported to access it from other functions easyly, but removed from index with `@keywords internal`.
+- Added a new utility functions to remove rows full of NAs from data frames and matrices. Exported to access it from other functions easily, but removed from index with `@keywords internal`.
 
 - Created a private repo on forestgeo to store the CTFS version archived on CRAN, which seems to be a useful source for missing documentation and data, and for deciding what are the most important functions.
 
 - Tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.
 
-- In website references, gropued functions by file. This will later improve to include original source folder and the first line of the description of each function.
+- In website references, grouped functions by file. This will later improve to include original source folder and the first line of the description of each function.
 
 ### To fix
 
@@ -358,7 +358,7 @@ File 'ctfs/R/utilities.R':
 
 
 
-- Enhance source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming) by replacing `subset()` with `[`. They were not fixed yet because, for the reasons listed below, I can't run the functions, and therefore I can't ensure that my fix doesn't brake some other part of the code.
+- Enhance source code of functions listed below to defensively avoid non standard evaluation (not appropriate for programming) by replacing `subset()` with `[`. They were not fixed yet because, for the reasons listed below, I can't run the functions, and therefore I can't ensure that my fix doesn't brake some other part of the code.
 
     - function errs:
         - `run.growthbin.manyspp()`
@@ -373,7 +373,7 @@ File 'ctfs/R/utilities.R':
 ### To deprecate
 
 These functions should be deprecated because they use `attach()`
-- `graph.abundmodel()`: Argument `datafile` passed to `graph.abundmodel()` may be deprecated becauses it uses `attach()` (see _Good practice_ in `?attach`). The function documentation now includes a warning.
+- `graph.abundmodel()`: Argument `datafile` passed to `graph.abundmodel()` may be deprecated because it uses `attach()` (see _Good practice_ in `?attach`). The function documentation now includes a warning.
 
 
 
@@ -403,9 +403,9 @@ https://stat.ethz.ch/pipermail/r-devel/2015-October/071917.html
 
 - Document process to build package in `data-raw/src2doc_make_step1.R` and `...step2.R`
 
-- Solve most important warnings during package checks. Most notably, amend NAMESPACE after documenting with roxygen. Because function names use the format function.name, roxygen exports some functions as S3 methods. This is a problem that arises during package checks. Now, this is solved by ammending NAMESPACE, but later versions should replace "." by "_" in function names.
+- Solve most important warnings during package checks. Most notably, amend NAMESPACE after documenting with roxygen. Because function names use the format function.name, roxygen exports some functions as S3 methods. This is a problem that arises during package checks. Now, this is solved by amending NAMESPACE, but later versions should replace "." by "_" in function names.
 
-- Combine roxygen documentation and source code into a sigle file
+- Combine roxygen documentation and source code into a single file
 
 - Import package date, stated as a dependency on original CTFS documentation
 
@@ -417,7 +417,7 @@ https://stat.ethz.ch/pipermail/r-devel/2015-October/071917.html
 
 * Tidy up roxygen documentation. Now empty lines span 2 lines or less.
 
-* Accept Rmarkdown in roxygen documentation. This allows lists to display nicely.
+* Accept R markdown in roxygen documentation. This allows lists to display nicely.
 
 * Solve warnings that result from empty descriptions.
 
