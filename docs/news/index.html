@@ -143,7 +143,7 @@
 <ul>
 <li>Fixed name of functions that where automatically interpreted as S3 methods</li>
 </ul>
-<p>To permanently fix this problem, I replaced dots “.” by “_" in the names of those problematic functions. The change should be easy to digest by users. The new names of those functions shows up with RStudio’s autocompletion, and the change has been detailed in the documentation of each function.</p>
+<p>To permanently fix this problem, I replaced dots “.” by “_" in the names of those problematic functions. The change should be easy to digest by users. The new names of those functions shows up with RStudio’s auto-completion, and the change has been detailed in the documentation of each function.</p>
 <p>The functions are these:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>     density.ind  <span class="co"># replaced by density_ind</span>
 <span class="dv">2</span>        exp.2par  <span class="co"># replaced by exp_2par</span>
@@ -179,7 +179,7 @@ run.growthbin.manyspp:<span class="st"> </span>warning in <span class="kw"><a hr
 selectrandomquad2:<span class="st"> </span>warning in <span class="kw"><a href="../reference/index.to.gxgy.html">index.to.gxgy</a></span>(r, <span class="dt">grid =</span> <span class="dv">1</span>, <span class="dt">plotdim =</span>
   plotdim -<span class="st"> </span>size):<span class="st"> </span>partial argument match of <span class="st">'grid'</span> to <span class="st">'gridsize'</span></code></pre></div>
 <ul>
-<li><p>Fixed one problem in <code><a href="../reference/wavelet.univariate.html">wavelet.univariate()</a></code>, which erroneously refered to <code><a href="../reference/wavelet.univariate.html">wavelet.univariate()</a></code> as <code>wavelet.var()</code>. Also fixed an erroneous reference to <code>wavelet.var()</code> in examples of <code><a href="../reference/wavelet.univariate.html">wavelet.univariate()</a></code>.</p></li>
+<li><p>Fixed one problem in <code><a href="../reference/wavelet.univariate.html">wavelet.univariate()</a></code>, which erroneously referred to <code><a href="../reference/wavelet.univariate.html">wavelet.univariate()</a></code> as <code>wavelet.var()</code>. Also fixed an erroneous reference to <code>wavelet.var()</code> in examples of <code><a href="../reference/wavelet.univariate.html">wavelet.univariate()</a></code>.</p></li>
 <li><p>Fixed bug in <code><a href="../reference/model.littleR.Gibbs.html">model.littleR.Gibbs()</a></code>. In a code chunk, lowercase names of the data set passed to the argument sptable because the variable <code>idlevel</code> was referred to with inconsistent case. After that chunk the original names were recovered to avoid potential problems downstream.</p></li>
 <li><p>Fixed bugs in <code><a href="../reference/pdf.allplot.html">pdf.allplot()</a></code> and <code><a href="../reference/png.allplot.html">png.allplot()</a></code> by replacing <code>subset()</code> by <code>[</code> in <code><a href="../reference/map.html">map()</a></code>. <code>subset()</code> <a href="http://adv-r.had.co.nz/Computing-on-the-language.html">should not be used inside functions</a>.</p></li>
 <li><p>Fixed <code><a href="../reference/wavelet.bivariate.html">wavelet.bivariate()</a></code>, replace <code>as.real</code> (defunc) by <code>as.double</code>. Detect missing argument type and wrote a warning in the help file.</p></li>
@@ -198,7 +198,7 @@ Pamela Hall &lt;phall@alum.mit.edu&gt;
 Suzanne Lao  &lt;laoz@si.edu&gt;
 Kyle Harms  &lt;kharms@lsu.edu&gt;
 Akira Itoh  &lt;itoh57@hotmail.com&gt;</code></pre></div>
-<p>Conservatively, every person listed above is described as authors in the current development (if this needs to change let me konw):</p>
+<p>Conservatively, every person listed above is described as authors in the current development (if this needs to change let me know):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Authors@R:<span class="st"> </span><span class="kw">c</span>(
     <span class="kw">person</span>(<span class="st">"CTFS-ForestGEO"</span>, , , <span class="st">"ForestGEO@si.edu"</span>, <span class="dt">role =</span> <span class="kw">c</span>(<span class="st">"cph"</span>, <span class="st">"fnd"</span>)),
     <span class="kw">person</span>(<span class="st">"Rick"</span>, <span class="st">"Condit"</span>, , <span class="st">"condit@ctfs.si.edu"</span>, <span class="dt">role =</span> <span class="kw">c</span>(<span class="st">"aut"</span>)),
@@ -207,7 +207,7 @@ Akira Itoh  &lt;itoh57@hotmail.com&gt;</code></pre></div>
     <span class="kw">person</span>(<span class="st">"Kyle"</span>, <span class="st">"Harms"</span>, , <span class="st">"kharms@lsu.edu"</span>, <span class="dt">role =</span> <span class="kw">c</span>(<span class="st">"aut"</span>)),
     <span class="kw">person</span>(<span class="st">"Mauro"</span>, <span class="st">"Lepore"</span>, , <span class="st">"leporem@si.edu"</span>, <span class="dt">role =</span> <span class="kw">c</span>(<span class="st">"aut"</span>, <span class="st">"ctr"</span>, <span class="st">"cre"</span>))
     )</code></pre></div>
-<p>Persons responsabilities are listed in <code>?person</code>. Some useful ones are these:</p>
+<p>Persons responsibilities are listed in <code>?person</code>. Some useful ones are these:</p>
 <p>“aut”: (Author) Use for full authors who have made substantial contributions to the package and should show up in the package citation.</p>
 <p>“ctb”: (Contributor) Use for authors who have made smaller contributions (such as code patches etc.) but should not show up in the package citation.</p>
 <p>“cph”: (Copyright holder) Use for all copyright holders.</p>
@@ -258,7 +258,7 @@ Akira Itoh  &lt;itoh57@hotmail.com&gt;</code></pre></div>
 <p>–<a href="http://r-pkgs.had.co.nz/namespace.html">R packages, by Hadley Wickham</a></p>
 <ul>
 <li>
-<p>Enhanced source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming). Replaced <code>subset()</code> by <code>[</code> in:</p>
+<p>Enhanced source code of functions listed below to defensively avoid non standard evaluation (not appropriate for programming). Replaced <code>subset()</code> by <code>[</code> in:</p>
 <ul>
 <li>
 <code><a href="../reference/model.littleR.Gibbs.html">model.littleR.Gibbs()</a></code>,</li>
@@ -314,10 +314,10 @@ Akira Itoh  &lt;itoh57@hotmail.com&gt;</code></pre></div>
 <li><p>Added tests to verify that functions amended output equal values before and after the fix.</p></li>
 <li><p>Added a new vignette to test plots output remain the same after fixes to plotting functions. Follows advice in <em>Testing R Code</em>, by Richard Cotton.</p></li>
 <li><p>Added a new vignette to report package quality</p></li>
-<li><p>Added a new utility functions to remove rows full of NAs from data frames and matrices. Exported to access it from other functions easyly, but removed from index with <code>@keywords internal</code>.</p></li>
+<li><p>Added a new utility functions to remove rows full of NAs from data frames and matrices. Exported to access it from other functions easily, but removed from index with <code>@keywords internal</code>.</p></li>
 <li><p>Created a private repo on forestgeo to store the CTFS version archived on CRAN, which seems to be a useful source for missing documentation and data, and for deciding what are the most important functions.</p></li>
 <li><p>Tested all functions used in tutorials and out of a total of 28 functions, 13 failed to run. In addition to errors, I detected a number of other problems, described next.</p></li>
-<li><p>In website references, gropued functions by file. This will later improve to include original source folder and the first line of the description of each function.</p></li>
+<li><p>In website references, grouped functions by file. This will later improve to include original source folder and the first line of the description of each function.</p></li>
 </ul>
 </div>
 <div id="to-fix" class="section level3">
@@ -446,7 +446,7 @@ File <span class="st">'ctfs/R/utilities.R'</span>:
 <ul>
 <li><p>Consider improving performance of <code><a href="../reference/model.littleR.Gibbs.html">model.littleR.Gibbs()</a></code> and <code><a href="../reference/fitSeveralAbundModel.html">fitSeveralAbundModel()</a></code>; a test took about 20 minutes to run. If important, I may search the bottlenecks.</p></li>
 <li>
-<p>Enhance source code of functions listed below to defensively avoid non standar evaluation (not appropriate for programming) by replacing <code>subset()</code> with <code>[</code>. They were not fixed yet because, for the reasons listed below, I can’t run the functions, and therefore I can’t ensure that my fix doesn’t brake some other part of the code.</p>
+<p>Enhance source code of functions listed below to defensively avoid non standard evaluation (not appropriate for programming) by replacing <code>subset()</code> with <code>[</code>. They were not fixed yet because, for the reasons listed below, I can’t run the functions, and therefore I can’t ensure that my fix doesn’t brake some other part of the code.</p>
 <ul>
 <li>function errs:
 <ul>
@@ -474,7 +474,7 @@ File <span class="st">'ctfs/R/utilities.R'</span>:
 <p>These functions should be deprecated because they use <code>attach()</code></p>
 <ul>
 <li>
-<code><a href="../reference/graph.abundmodel.html">graph.abundmodel()</a></code>: Argument <code>datafile</code> passed to <code><a href="../reference/graph.abundmodel.html">graph.abundmodel()</a></code> may be deprecated becauses it uses <code>attach()</code> (see <em>Good practice</em> in <code>?attach</code>). The function documentation now includes a warning.</li>
+<code><a href="../reference/graph.abundmodel.html">graph.abundmodel()</a></code>: Argument <code>datafile</code> passed to <code><a href="../reference/graph.abundmodel.html">graph.abundmodel()</a></code> may be deprecated because it uses <code>attach()</code> (see <em>Good practice</em> in <code>?attach</code>). The function documentation now includes a warning.</li>
 </ul>
 </div>
 <div id="to-keep-in-mind-but-disregard-for-now" class="section level3">
@@ -499,8 +499,8 @@ File <span class="st">'ctfs/R/utilities.R'</span>:
 <a href="#ctfs-0-0-0-9004" class="anchor"></a>ctfs 0.0.0.9004</h1>
 <ul>
 <li><p>Document process to build package in <code>data-raw/src2doc_make_step1.R</code> and <code>...step2.R</code></p></li>
-<li><p>Solve most important warnings during package checks. Most notably, amend NAMESPACE after documenting with roxygen. Because function names use the format function.name, roxygen exports some functions as S3 methods. This is a problem that arises during package checks. Now, this is solved by ammending NAMESPACE, but later versions should replace “.” by “_" in function names.</p></li>
-<li><p>Combine roxygen documentation and source code into a sigle file</p></li>
+<li><p>Solve most important warnings during package checks. Most notably, amend NAMESPACE after documenting with roxygen. Because function names use the format function.name, roxygen exports some functions as S3 methods. This is a problem that arises during package checks. Now, this is solved by amending NAMESPACE, but later versions should replace “.” by “_" in function names.</p></li>
+<li><p>Combine roxygen documentation and source code into a single file</p></li>
 <li><p>Import package date, stated as a dependency on original CTFS documentation</p></li>
 <li><p>In a vignette, report complexity of ctfs and compare with other complex and simple packages.</p></li>
 <li><p>Create and document data object month names that is presumably crucial.</p></li>
@@ -511,7 +511,7 @@ File <span class="st">'ctfs/R/utilities.R'</span>:
 <a href="#ctfs-0-0-0-9003" class="anchor"></a>ctfs 0.0.0.9003</h1>
 <ul>
 <li><p>Tidy up roxygen documentation. Now empty lines span 2 lines or less.</p></li>
-<li><p>Accept Rmarkdown in roxygen documentation. This allows lists to display nicely.</p></li>
+<li><p>Accept R markdown in roxygen documentation. This allows lists to display nicely.</p></li>
 <li><p>Solve warnings that result from empty descriptions.</p></li>
 </ul>
 </div>
