@@ -22,7 +22,7 @@ trees or stems}
 \item{mindbh}{the minimum diameter above which the counts are done; if NULL,
 all (living) are included}
 
-\item{dbhunit}{'cm'or 'mm', only used for basal area}
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
 
 \item{split1}{a vector of categories, one per individual}
 

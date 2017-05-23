@@ -22,7 +22,7 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 
 \item{modeltype}{form of probability distribution, matching what was used when fit was created by model.littleR.Gibbs}
 
-\item{xrange, }{yrange range of graph's x-axis and and y-axis}
+\item{xrange, yrange}{range of graph's x-axis and and y-axis}
 
 \item{minabund}{minimum abundance of species to be used in histogram of observed rates of population change}
 
@@ -30,9 +30,9 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 
 \item{returnextreme}{whether to print a list of the fastest increases and decreases in abundance to the screen}
 
-\item{xname, }{yname axis names}
+\item{xname, yname}{axis names}
 
-\item{ltype, }{lwidth, modelclr type, width, color of the line showing fitted distribution}
+\item{ltype, lwidth, modelclr}{type, width, color of the line showing fitted distribution}
 
 \item{bartype}{if TRUE, histogram is bar graph}
 

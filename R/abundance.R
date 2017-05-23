@@ -26,7 +26,7 @@
 #'   trees or stems
 #' @param mindbh the minimum diameter above which the counts are done; if NULL, 
 #'   all (living) are included
-#' @param dbhunit 'cm'or 'mm', only used for basal area
+#' @param dbhunit 'cm' or 'mm', only used for basal area
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual
 #'

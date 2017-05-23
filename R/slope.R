@@ -84,8 +84,8 @@
 #' The 4 slopes are averaged. Returns both the mean slope and the sqrt of the
 #' variance of the 4 different slopes.
 #'
-#' @param cornerelev: vector of 4 elevations 
-#' @param gridsize: the side of the square
+#' @param cornerelev vector of 4 elevations 
+#' @param gridsize the side of the square
 #'
 #' @seealso [calcslope()], [quadslope()]
 #'

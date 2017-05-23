@@ -13,7 +13,7 @@ imageJ.to.lxly(textfile = samplemapfile, delim = ",", lowerleft = "P2",
 
 \item{delim}{the delimiter used to separate the fields in the map files}
 
-\item{lowerleft, }{upperleft, upperright, lowerright the tags in each of the map files with the calibrated corners}
+\item{lowerleft, upperleft, upperright, lowerright}{the tags in each of the map files with the calibrated corners}
 
 \item{gridsize}{size of each individual map}
 }

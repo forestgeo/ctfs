@@ -13,7 +13,7 @@ image_dataframe(data, xcol = "x", ycol = "y", zcol = "z", breaks = NULL,
 \item{data}{A data frame with at least 3 columns, 2 of which are coordinates
 and one a numerical response at those coordinates}
 
-\item{xcol, }{ycol, zcol These allow the columns of data to carry non-standard
+\item{xcol, ycol, zcol}{These allow the columns of data to carry non-standard
 names}
 
 \item{ptsize}{Size of points to be drawn}

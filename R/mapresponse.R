@@ -98,7 +98,7 @@
 #' @param levels if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable; 
 #' can be NULL to let breaks control
 #' @param breaks if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks
-#' @param xname and yname names for the axes
+#' @param xname,yname names for the axes
 #' @param xrange if NULL, all x are included, otherwise, the graph will only include x inside xrange
 #' @param yrange likewise for y
 #' @param axisdiv the division between tick marks; must be a vector of 2, first for x ticks then for y ticks
@@ -106,10 +106,10 @@
 #' @param returnline TRUE or FALSE, whether to return the contour lines; see R's base function contourLines for details
 #' @param img TRUE or FALSE, whether to draw the color image
 #' @param cntrs TRUE or FALSE, whether to add contour lines; both img and cntrs can be TRUE
-#' @param filled; TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included
+#' @param filled TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included
 #' @param newgraph if FALSE, just graph to the screen and export is ignored; use TRUE to create a new plot window or export to a file
 #' @param plotsize size of graph's x-dimension in inches; ignored if newgraph=FALSE
-#' @param h, w height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches); 
+#' @param h,w height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches); 
 #' ignored if newgraph=FALSE
 #' @param export if newgraph=TRUE, this defines the graphics device; options include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not quoted!)
 #' @param graphfile the file name if export is pdf, png, jpeg, win.metafile, etc.
@@ -185,7 +185,7 @@
 #'
 #' @param data A data frame with at least 3 columns, 2 of which are coordinates
 #'   and one a numerical response at those coordinates
-#' @param xcol, ycol, zcol These allow the columns of data to carry non-standard
+#' @param xcol,ycol,zcol These allow the columns of data to carry non-standard
 #'   names
 #' @param ptsize Size of points to be drawn
 #'

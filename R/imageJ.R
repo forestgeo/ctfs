@@ -78,7 +78,7 @@
 #' intersection.of.lines=function(b1,m1,b2,m2)
 #'
 #' @param textfile the complete name of the textfile to convert, including the path
-#' @param lowerleft, upperleft, upperright, lowerright the tags in each of the map files with the calibrated corners
+#' @param lowerleft,upperleft,upperright,lowerright the tags in each of the map files with the calibrated corners
 #' @param delim the delimiter used to separate the fields in the map files
 #' @param gridsize size of each individual map
 #'

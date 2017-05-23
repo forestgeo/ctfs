@@ -9,7 +9,7 @@ ba(dbh, dbhunit = "mm")
 \arguments{
 \item{dbh}{DBH in mm of tree}
 
-\item{dbhunit}{'cm'or 'mm', only used for basal area}
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
 }
 \value{
 A vector of basal area values of same length as the submitted vector

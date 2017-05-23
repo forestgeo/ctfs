@@ -35,7 +35,7 @@
 #' Optionally, a table demog can be created separately and submitted. It must
 #' have columns N1, N2, S, time.
 #'
-#' @param cns1 and cns2 the two census R Analytical Tables, with earlier census
+#' @param cns1,cns2 The two census R Analytical Tables, with earlier census
 #'   first
 #' @param mindbh minimum dbh to be included; all trees smaller than mindbh are
 #'   excluded
@@ -48,7 +48,7 @@
 #'   rate, 2) SD of log(mortality), 3) center of distribution of little r, 4)
 #'   rate (or SD) of the distribution of little r; if an asymmetric model is
 #'   chosen, the latter is the initial value for both left and right rate
-#' @param modeltype, as listed above
+#' @param modeltype as listed above
 #' @param bad.modelparam name of a function which checks the model parameters
 #'   for bad values; for modeltype asymexp, must be bad.asymexp.param, for
 #'   modeltype asympower, must be bad.asympower.param
@@ -211,13 +211,13 @@
 #' @param div width of bins for histogram of observed rate of population change
 #' @param tinydiv width of bins used to draw the fitted distribution
 #' @param modeltype form of probability distribution, matching what was used when fit was created by model.littleR.Gibbs
-#' @param xrange, yrange range of graph's x-axis and and y-axis
+#' @param xrange,yrange range of graph's x-axis and and y-axis
 #' @param minabund minimum abundance of species to be used in histogram of observed rates of population change
 #' @param conf number of alternate fits to graph, as indication of confidence; if conf=NULL, no confidence lines are added
 #' @param returnextreme whether to print a list of the fastest increases and decreases in abundance to the screen
-#' @param xname, yname axis names
+#' @param xname,yname axis names
 #' @param graphit if set to false, 
-#' @param ltype, lwidth, modelclr type, width, color of the line showing fitted distribution
+#' @param ltype,lwidth,modelclr type, width, color of the line showing fitted distribution
 #' @param bartype if TRUE, histogram is bar graph
 #' @param addpts if TRUE, histogram is a point graph
 #' @param makeleg whether to add legend

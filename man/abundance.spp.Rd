@@ -15,7 +15,7 @@ stems or trees, respectively.}
 \item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
-\item{dbhunit}{'cm'or 'mm', only used for basal area}
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
 
 \item{alivecode}{character, codes of the variable \code{status} that indicate the
 tree is alive. The default 'A' is the standard CTFS designation for living

@@ -25,7 +25,22 @@ lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
 
 \item{model}{The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x.}
 
-\item{error}{A character variable with 6 possible values, Binom, NegBinom, Pois, Gauss, GaussMultResid, or Flat, with quote marks.}
+\item{error}{A character variable with 6 possible values: "Binom",
+"NegBinom", "Pois", "Gauss", "GaussMultResid", or "Flat".
+\itemize{
+\item 'Binom' uses binomial error for residuals
+\item NegBinom'uses negative binomial error for residuals; the SD is then the
+dispersion parameter (k) of the negative binomial
+\item 'Poisson'uses Poisson error for residuals
+\item 'Gauss'uses Gaussian error for residuals with constant standard deviation
+across groups
+\item 'GaussMultResid'uses Gaussian error for residuals, with standard
+deviation a constant fraction of the model's prediction (and thus only
+appropriate if predictions are strictly positive)
+\item Flat'is a trivial model where the same likelihood is returned regardless
+of parameters or data. It is for testing how parameter search behaves in
+absence of data, as for describing an implied prior.
+}}
 
 \item{includeCovar}{TRUE or FALSE, whether to fit the full covariance matrix, vs. variances alone.}
 
@@ -52,19 +67,6 @@ lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
 \item{...}{The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).}
 
 \item{ycol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
-
-\item{'Binom'uses}{binomial error for residuals}
-
-\item{'NegBinom'uses}{negative binomial error for residuals; the SD is then the dispersion parameter (k) of the negative binomial}
-
-\item{'Poisson'uses}{Poisson error for residuals}
-
-\item{'Gauss'uses}{Gaussian error for residuals with constant standard deviation across groups}
-
-\item{'GaussMultResid'uses}{Gaussian error for residuals, with standard deviation a constant fraction of the model's prediction
-(and thus only appropriate if predictions are strictly positive)}
-
-\item{'Flat'is}{a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior.}
 }
 \description{
 A Metropolis MCMC version of lmer. A single independent variable, y, can be fit against any number of predictors, x,

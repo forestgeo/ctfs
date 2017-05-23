@@ -48,15 +48,22 @@
 #' @param start Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect
 #' @param startSD A starting value for the error model; there must be as many startSD as parameters needed by sdfunc
 #' @param model The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
-#' @param error A character variable with 4 possible values, Binom, Pois, NegBinom, Flat, Gauss, or GaussMultResid, with quote marks. 
-#' @param 'Binom'uses binomial error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters
-#' @param 'Poisson'uses Poisson error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters
-#' @param 'NegBinom'uses negative binomial error, appropriate only for non-negative integer y; the clump parameter k of the negative binomial is also fitted, and can be modeled with sdfunc
-#' @param 'Gauss'uses Gaussian error, which can be a constant or modeled on the x's
-#' @param 'GaussMultResid'uses Gaussian error modeled as a fraction of the prediction at each x; again, it can be a constant fraction or a fraction modeled on x
-#'        (aappropriate only if predictions are strictly positive)
-#' @param 'Flat'is a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior. 
-#'
+#' @param error A character variable; either "Binom", "Pois", "NegBinom", 
+#'   "Flat", "Gauss", or "GaussMultResid".
+#'   - 'Binom' uses binomial error, appropriate only for non-negative integer y;
+#'   there are no error parameters for the binomial, so no resid parameters
+#'   - 'Poisson' uses Poisson error, appropriate only for non-negative integer 
+#'   y; there are no error parameters for the binomial, so no resid parameters
+#'    - 'NegBinom'uses negative binomial error, appropriate only for
+#'    non-negative integer y; the clump parameter k of the negative binomial is
+#'    also fitted, and can be modeled with sdfunc
+#'  - 'Gauss'uses Gaussian error, which can be a constant or modeled on the x's
+#'   - 'GaussMultResid'uses Gaussian error modeled as a fraction of the
+#'   prediction at each x; again, it can be a constant fraction or a fraction
+#'   modeled on x (aappropriate only if predictions are strictly positive)
+#'   - 'Flat' is a trivial model where the same likelihood is returned
+#'   regardless of parameters or data. It is for testing how parameter search
+#'   behaves in absence of data, as for describing an implied prior.
 #' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
 #' @param badparam The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.
 #' @param sdfunc The name of a function (unquoted) that models the error parameter as a function of the x's; the default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function.

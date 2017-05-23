@@ -8,10 +8,13 @@ mortality(census1, census2, alivecode = c("A", "AB", "AS"), split1 = NULL,
   split2 = NULL)
 }
 \arguments{
-\item{split1}{and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
-(or both can be NULL), for instance, species names, dbh categories, or quadrat numbers}
+\item{alivecode}{Generally, alivecode = "A" suffices, as this is the standard
+in CTFS data for a living tree; "AS" and "AB" are seldom used now}
 
-\item{Generally, }{alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now}
+\item{split1, split2}{Must both be vectors of character variables with exactly
+as many elements as there are rows in the tables census1 and census2 (or
+both can be NULL), for instance, species names, dbh categories, or quadrat
+numbers}
 }
 \description{
 Mortality is the main function, and is constructed like

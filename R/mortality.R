@@ -35,9 +35,12 @@
 #'
 #' Pass the list to assemble.demography (in utilities.r) with type="m" to convert the list a data.frame.
 #'
-#' @param Generally, alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now
-#' @param split1 and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
-#'(or both can be NULL), for instance, species names, dbh categories, or quadrat numbers
+#' @param alivecode Generally, alivecode = "A" suffices, as this is the standard
+#'   in CTFS data for a living tree; "AS" and "AB" are seldom used now
+#' @param split1,split2 Must both be vectors of character variables with exactly
+#'  as many elements as there are rows in the tables census1 and census2 (or
+#'  both can be NULL), for instance, species names, dbh categories, or quadrat
+#'  numbers
 #'
 #' @examples
 #' \dontrun{

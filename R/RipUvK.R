@@ -34,7 +34,7 @@
 #' @param plotdim The x and y dimensions of the plot. 
 #' @param rseq The distances defining intervals in which Ripley's statistic is calculated.
 #' @param mindbh the minimum dbh to include in results.
-#' @param xcol and ycol the names of the columns holding x and y coordinates.
+#' @param xcol,ycol the names of the columns holding x and y coordinates.
 #' @param debug TRUE or FALSE, calls browser during execution to pause program; only set TRUE to debug.
 #' @param show creates a graph to show one omega value for each species, as a way to track progress.
 #'

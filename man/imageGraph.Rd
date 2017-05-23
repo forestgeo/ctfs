@@ -19,7 +19,7 @@ can be NULL to let breaks control}
 
 \item{breaks}{if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks}
 
-\item{xname}{and yname names for the axes}
+\item{xname, yname}{names for the axes}
 
 \item{xrange}{if NULL, all x are included, otherwise, the graph will only include x inside xrange}
 
@@ -31,6 +31,8 @@ can be NULL to let breaks control}
 
 \item{cntrs}{TRUE or FALSE, whether to add contour lines; both img and cntrs can be TRUE}
 
+\item{filled}{TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included}
+
 \item{clrs}{colors for the image; if NULL, they are chosen by default, otherwise, must be 1 + the number of breaks}
 
 \item{returnline}{TRUE or FALSE, whether to return the contour lines; see R's base function contourLines for details}
@@ -39,14 +41,12 @@ can be NULL to let breaks control}
 
 \item{plotsize}{size of graph's x-dimension in inches; ignored if newgraph=FALSE}
 
-\item{h, }{w height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches);
+\item{h, w}{height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches);
 ignored if newgraph=FALSE}
 
 \item{export}{if newgraph=TRUE, this defines the graphics device; options include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not quoted!)}
 
 \item{graphfile}{the file name if export is pdf, png, jpeg, win.metafile, etc.}
-
-\item{filled;}{TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included}
 }
 \description{
 Maps a response variable with R's contour or image functions, or both, using the output of coldata.to.imagemat.

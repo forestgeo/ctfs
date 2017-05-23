@@ -75,15 +75,20 @@
 #' @param startSD A single starting value for the residual standard deviation, only used with Gaussian and Negative Binomial error models.
 #' @param startCov Starting values of the diagonal of the covariance matrix; ignored if a full matrix of start parameters is submitted. Required even if covariance matrix is not fitted, because needed as starting hyperSD.
 #' @param model The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
-#' @param error A character variable with 6 possible values, Binom, NegBinom, Pois, Gauss, GaussMultResid, or Flat, with quote marks. 
-#' @param 'Binom'uses binomial error for residuals
-#' @param 'NegBinom'uses negative binomial error for residuals; the SD is then the dispersion parameter (k) of the negative binomial
-#' @param 'Poisson'uses Poisson error for residuals
-#' @param 'Gauss'uses Gaussian error for residuals with constant standard deviation across groups
-#' @param 'GaussMultResid'uses Gaussian error for residuals, with standard deviation a constant fraction of the model's prediction
-#'        (and thus only appropriate if predictions are strictly positive)
-#' @param 'Flat'is a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior. 
-#'
+#' @param error A character variable with 6 possible values: "Binom",
+#'   "NegBinom", "Pois", "Gauss", "GaussMultResid", or "Flat".
+#'   - 'Binom' uses binomial error for residuals
+#'   - NegBinom'uses negative binomial error for residuals; the SD is then the
+#'   dispersion parameter (k) of the negative binomial
+#'   - 'Poisson'uses Poisson error for residuals
+#'   - 'Gauss'uses Gaussian error for residuals with constant standard deviation
+#'   across groups
+#'   - 'GaussMultResid'uses Gaussian error for residuals, with standard
+#'   deviation a constant fraction of the model's prediction (and thus only
+#'   appropriate if predictions are strictly positive)
+#'   - Flat'is a trivial model where the same likelihood is returned regardless
+#'   of parameters or data. It is for testing how parameter search behaves in
+#'   absence of data, as for describing an implied prior.
 #' @param includeCovar TRUE or FALSE, whether to fit the full covariance matrix, vs. variances alone.
 #' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
 #' @param badparam The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.

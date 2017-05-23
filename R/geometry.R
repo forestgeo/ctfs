@@ -247,14 +247,14 @@
 #'
 'ellipse'
 
-#' Creates a dataframe for a full ellipse.  @param x = input x coordin...
+#' Creates a dataframe for a full ellipse.
 #'
 #' @description
 #'
 #' Creates a dataframe for a full ellipse. 
 #'
-#' @param x = input x coordinates
-#' @param center = x-y coordinates of ellipse center (vector of 2)
+#' @param x input x coordinates
+#' @param center x-y coordinates of ellipse center (vector of 2)
 #'
 #'
 'fullellipse'
@@ -267,8 +267,8 @@
 #' returns a theta between -pi/2 and pi/2. Note that polar.to.cartesian may not return the starting x, y submitted
 #' to cartesian.to.polar due to problems with signs. It will work if theta is kept positive (ie, quadrant 1).
 #'
-#' @param x = input vector of x coordinates
-#' @param y = input vector of y coordinates (same length as x)
+#' @param x input vector of x coordinates
+#' @param y input vector of y coordinates (same length as x)
 #'
 #' @examples
 #' \dontrun{
@@ -283,8 +283,8 @@
 #'
 #' Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
 #'
-#' @param r = input vector of radii (distance from origin)
-#' @param theta = input vector of angle from horizontal (radians), same length as r
+#' @param r input vector of radii (distance from origin)
+#' @param theta input vector of angle from horizontal (radians), same length as r
 #'
 #' @examples
 #' \dontrun{
