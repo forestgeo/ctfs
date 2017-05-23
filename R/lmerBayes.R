@@ -38,33 +38,42 @@
 #'
 #'
 #' The return value is a list with several components:
-#' *  mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
-#' *  sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
-#' *  bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
-#' *  bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+#' *  mu: A 2D array with the entire chain of model parameters (ie, fixed
+#' effects) from the Gibbs sampler
+#' *  sigma: A 3D array with the entire chain of covariances from the Gibbs
+#' sampler; if includeCovar==FALSE, only the diagonal is non-zero
+#' *  bestmu: Best estimate of the model parameters for the entire data (ie,
+#' fixed effect)
+#' *  bestsigma: Best estimate of the covariance (ie, group-level variance or
+#' error)
 #' *  resid: The entire chain parameters for the model of residuals
 #' *  bestresid: The best estimate of parameters for the model of residuals
 #' *  CIresid: Credible intervals for the parameters for the model of residuals
 #' *  best: The best estimates of model parameters for each random effect
 #' *  lower: Lower credible intervals of model parameters for each random effect
-#' *  upper: Uower credible intervals of model parameters for each random effect      
+#' *  upper: Uower credible intervals of model parameters for each random effect
 #' *  burn: The burn-in
 #' *  llike: Full log-likelihood of the model at each step of the Gibbs'sampler
-#' *  bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+#' *  bestlike: The log-likelihood of the optimal parameter combination (means
+#' of the posterior distribution)
 #' *  DIC: Deviance information criterion of the model
 #' *  obs: The original y (dependent) variable, just as submitted
 #' *  data: The original x (independent) variables, just as submitted
-#' *  model: The model's predictions, as a list with one element per random effect
-#' *  randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
-#' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+#' *  model: The model's predictions, as a list with one element per random
+#' effect
+#' *  randlike: The log-likelihood of observations for each random effect given
+#' the optimal parameters (a vector, one per random effect)
+#' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of
+#' negative numbers
 #' *  start: The start parameters submitted
 #' *  randeffects: The names of all the random effects
 #' *  parnames: The names of the model parameters
-#' *  fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
+#' *  fullparam: A 3D array with all parameters of the Gibbs sampler; one
+#' dimension if for all the random effects, with each random effect having a
+#' matrix of model parameters for every step of the Gibbs's sampler
 #'
-#'
-#' Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
-#'(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
+#' Further details are given in the description of all the arguments and the
+#' sample here, plus a tutorial on [Mortality changes](https://goo.gl/KGJYQe)
 #' offers a worked example.
 #'
 #' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.

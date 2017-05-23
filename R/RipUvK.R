@@ -30,6 +30,7 @@
 #' *  omega is the omega-statistic, or O in each successive distance interval divided the plot-wide density; density is expressed per 10,000 square distance units, which means per hectare if units are meters.
 #' *  abund is a vector of species abundances, including individuals used in the calculation.
 #' *  midpts is a vector of the same length as rseq, giving the midpoint of each distance interval, for graphing purposes.
+#' 
 #' @param splitdata A complete CTFS plot dataset comprised of a list, each element having a dataframe for one species. There must be columns for x and y coordinates; the names of those two columns are passed as arguments (default is the CTFS standard gx, gy). 
 #' @param plotdim The x and y dimensions of the plot. 
 #' @param rseq The distances defining intervals in which Ripley's statistic is calculated.

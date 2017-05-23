@@ -32,7 +32,7 @@ metrop1step is called, and saving the adjusted value for the next call. Given ma
 scale must be stored separately for every one.
 
 Note the return value is a vector of 6:
-\enumerate{
+\itemize{
 \item the new parameter value;
 \item the new scale (step size);
 \item a zero or a one to keep track of the acceptance rate;

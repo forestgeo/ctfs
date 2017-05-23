@@ -7,23 +7,6 @@
 pop.change(census1, census2, type = "abund", dbhunit = "mm",
   alivecode = c("A"), mindbh = NULL, split1 = NULL, split2 = NULL)
 }
-\arguments{
-\item{N.1}{(or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2}
-
-\item{N.2}{(or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array}
-
-\item{date1}{mean date of first census in a matching array}
-
-\item{date2}{mean date of second census in a matching array}
-
-\item{interval}{the time interval in years in a matching array}
-
-\item{little.r}{the rate of population change in a matching array, (log(N2)-log(N1))/time
-
-This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
-
-See abundance()}
-}
 \description{
 Finds abundance, basal area, or agb in two censuses and the rate of change
 between them.
@@ -42,6 +25,18 @@ the date on which the quadrat they later appear in was censused in the first
 census. Plants dead in the second census get a census date equal to the date on which their quadrat was censused
 
 The return value is a list of 6 components:
+\itemize{
+\item N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2
+\item N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array
+\item date1 mean date of first census in a matching array
+\item date2 mean date of second census in a matching array
+\item interval the time interval in years in a matching array
+\item little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
+}
+
+This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
+
+See abundance()
 }
 \examples{
 \dontrun{

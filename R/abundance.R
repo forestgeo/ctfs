@@ -115,12 +115,12 @@
 #' census. Plants dead in the second census get a census date equal to the date on which their quadrat was censused 
 #'
 #' The return value is a list of 6 components:
-#' @param N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2
-#' @param N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array
-#' @param date1 mean date of first census in a matching array
-#' @param date2 mean date of second census in a matching array
-#' @param interval the time interval in years in a matching array
-#' @param little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
+#' - N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2
+#' - N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array
+#' - date1 mean date of first census in a matching array
+#' - date2 mean date of second census in a matching array
+#' - interval the time interval in years in a matching array
+#' - little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
 #'
 #'
 #' This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.

@@ -58,16 +58,16 @@
 #' Takes a table of survey sightings with columns of x and y locations...
 #'
 #' @description
+#' Takes a table of survey sightings with columns of x and y locations of two
+#' points, and converts it to the format required by solve_topo. The input table
+#' must have columns x1, y1, x2, and y2. The return value is a list consisting
+#' of two dataframes:
+#' - all points found in the input table, with an integer designation assigned
+#' to each. The designation is called pt.
+#' - the second table matches the input table, but instead of x-y coordinates
+#' for the two points, only columns pt1 and pt2 are included to indicate the two
+#' points between which a sighting was taken.
 #'
-#' Takes a table of survey sightings with columns of x and y locations of two points, and converts it to the format
-#' required by solve_topo. The input table must have columns x1, y1, x2, and y2. The return value is a list consisting of two dataframes: 
-#' @param all points found in the input table, with an integer designation assigned to each. The designation is called pt. 
-#' @param the second table matches the input table, 
-#' but instead of x-y coordinates for the two points, only columns pt1 and pt2 are included to 
-#' indicate the two points between which a sighting was taken. 
-#'
-#'
-
 'rearrangeSurveyData'
 
 # Source code and original documentation ----------------------------

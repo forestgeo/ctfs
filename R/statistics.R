@@ -341,12 +341,12 @@
 #' scale must be stored separately for every one.
 #'
 #' Note the return value is a vector of 6:
-#'1) the new parameter value;
-#'2) the new scale (step size);
-#'3) a zero or a one to keep track of the acceptance rate;
-#'4) the likelihood of original parameter (if rejected) or new parameter (if accepted)
-#'5) the likelihood of original parameter (if accepted) or new parameter (if rejected)
-#'6) the new parameter tested (whether accepted or not)
+#' - the new parameter value;
+#' - the new scale (step size);
+#' - a zero or a one to keep track of the acceptance rate;
+#' - the likelihood of original parameter (if rejected) or new parameter (if accepted)
+#' - the likelihood of original parameter (if accepted) or new parameter (if rejected)
+#' - the new parameter tested (whether accepted or not)
 'metrop1step'
 
 #' A version for metrop1step where the alternative values are characte...

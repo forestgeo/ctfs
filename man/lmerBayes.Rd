@@ -95,10 +95,14 @@ This is to reduce memory needs. The function summaryMCMC restores the parameters
 
 The return value is a list with several components:
 \itemize{
-\item mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
-\item sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
-\item bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect)
-\item bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+\item mu: A 2D array with the entire chain of model parameters (ie, fixed
+effects) from the Gibbs sampler
+\item sigma: A 3D array with the entire chain of covariances from the Gibbs
+sampler; if includeCovar==FALSE, only the diagonal is non-zero
+\item bestmu: Best estimate of the model parameters for the entire data (ie,
+fixed effect)
+\item bestsigma: Best estimate of the covariance (ie, group-level variance or
+error)
 \item resid: The entire chain parameters for the model of residuals
 \item bestresid: The best estimate of parameters for the model of residuals
 \item CIresid: Credible intervals for the parameters for the model of residuals
@@ -107,21 +111,27 @@ The return value is a list with several components:
 \item upper: Uower credible intervals of model parameters for each random effect
 \item burn: The burn-in
 \item llike: Full log-likelihood of the model at each step of the Gibbs'sampler
-\item bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+\item bestlike: The log-likelihood of the optimal parameter combination (means
+of the posterior distribution)
 \item DIC: Deviance information criterion of the model
 \item obs: The original y (dependent) variable, just as submitted
 \item data: The original x (independent) variables, just as submitted
-\item model: The model's predictions, as a list with one element per random effect
-\item randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
-\item keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers
+\item model: The model's predictions, as a list with one element per random
+effect
+\item randlike: The log-likelihood of observations for each random effect given
+the optimal parameters (a vector, one per random effect)
+\item keep: The steps of the Gibbs sampler after burn-in, as a vector of
+negative numbers
 \item start: The start parameters submitted
 \item randeffects: The names of all the random effects
 \item parnames: The names of the model parameters
-\item fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
+\item fullparam: A 3D array with all parameters of the Gibbs sampler; one
+dimension if for all the random effects, with each random effect having a
+matrix of model parameters for every step of the Gibbs's sampler
 }
 
-Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
-(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html)
+Further details are given in the description of all the arguments and the
+sample here, plus a tutorial on \href{https://goo.gl/KGJYQe}{Mortality changes}
 offers a worked example.
 }
 \examples{

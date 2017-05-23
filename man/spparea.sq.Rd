@@ -42,9 +42,10 @@ In addition, a graph of species vs. individuals in every quadrat is created as t
 This can also be used to calculate genus- or family-area curves with use of the spcolumn argument. The censdata table must have
 a new column added, for example the genus for every record, then spcolumn can be set to 'genus'.
 
-Note: randomly-placed quadrats produce statistically preferable species-area curves than checkerboards of non-overlapping quadrats. If
-required, though, the function abundanceperquad() in abundance.r offers a fast way to count the number of species in checkerboard-type
-quadrats of different sizes.
+Note: randomly-placed quadrats produce statistically preferable species-area
+curves than checkerboards of non-overlapping quadrats. If required, though,
+the function abundanceperquad() in abundance.r offers a fast way to count the
+number of species in checkerboard-type quadrats of different sizes.
 }
 \examples{
 \dontrun{

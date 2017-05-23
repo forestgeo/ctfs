@@ -34,12 +34,18 @@ rast1 = rasterize(
 Matteo Detto and Tania Brenes
 
 Output is a list containing a matrix with the raster data.
-
-x , y : x and y coordinates for the point pattern;
-z : marks for the marked point process, can be basal area, agb, etc. Needed only for type='marked';
-gridsize  (20 m): size of the quadrats for the rasterization, ;
-plotdim c(1000,500):  vector with plot x-y size;
-type ('point'): type of rasterization: 'point'runs a simple point pattern counting the number of individuals per quadrat; 'marked'does a marked point pattern, where a function (FUN) is applied to the variable z in each quadrat, for example a sum of basal areas;
-FUN (sum): function to apply to the point pattern when z is provided. By defult it sums the values of z per quadrat;
-graph (FALSE): logical, plot the heat map of raster data?;
+\itemize{
+\item x, y: x and y coordinates for the point pattern;
+\item z: marks for the marked point process, can be basal area, agb, etc. Needed
+only for type='marked';
+\item gridsize (20 m): size of the quadrats for the rasterization, ;
+\item plotdim c(1000,500):  vector with plot x-y size;
+\item type ('point'): type of rasterization: 'point'runs a simple point pattern
+counting the number of individuals per quadrat; 'marked'does a marked point
+pattern, where a function (FUN) is applied to the variable z in each quadrat,
+for example a sum of basal areas;
+\item FUN (sum): function to apply to the point pattern when z is provided. By
+defult it sums the values of z per quadrat;
+\item graph (FALSE): logical, plot the heat map of raster data?;
+}
 }
