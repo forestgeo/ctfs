@@ -83,33 +83,25 @@
     </div>
 
     
-    <p>Takes a table of survey sightings with columns of x and y locations of two points, and converts it to the format
-required by solve_topo. The input table must have columns x1, y1, x2, and y2. The return value is a list consisting of two dataframes:</p>
+    <p>Takes a table of survey sightings with columns of x and y locations of two
+points, and converts it to the format required by solve_topo. The input table
+must have columns x1, y1, x2, and y2. The return value is a list consisting
+of two dataframes:</p><ul>
+<li><p>all points found in the input table, with an integer designation assigned
+to each. The designation is called pt.</p></li>
+<li><p>the second table matches the input table, but instead of x-y coordinates
+for the two points, only columns pt1 and pt2 are included to indicate the two
+points between which a sighting was taken.</p></li>
+</ul>
     
 
     <pre class="usage"><span class='fu'>rearrangeSurveyData</span>(<span class='no'>inputtable</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>all</th>
-      <td><p>points found in the input table, with an integer designation assigned to each. The designation is called pt.</p></td>
-    </tr>
-    <tr>
-      <th>the</th>
-      <td><p>second table matches the input table,
-but instead of x-y coordinates for the two points, only columns pt1 and pt2 are included to
-indicate the two points between which a sighting was taken.</p></td>
-    </tr>
-    </table>
-    
+        
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

@@ -102,10 +102,14 @@ effects. The latter requires knowing in advance the names of all the random effe
 <p>There is a further complication included whose purpose is reducing memory demand in big models with many MCMC steps. option paramfile allows the full parameter matrix to be written into a text file every savestep steps, then erased from memory.</p>
 <p>This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array.</p>
 <p>The return value is a list with several components:</p><ul>
-<li><p>mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler</p></li>
-<li><p>sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero</p></li>
-<li><p>bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect)</p></li>
-<li><p>bestsigma: Best estimate of the covariance (ie, group-level variance or error)</p></li>
+<li><p>mu: A 2D array with the entire chain of model parameters (ie, fixed
+effects) from the Gibbs sampler</p></li>
+<li><p>sigma: A 3D array with the entire chain of covariances from the Gibbs
+sampler; if includeCovar==FALSE, only the diagonal is non-zero</p></li>
+<li><p>bestmu: Best estimate of the model parameters for the entire data (ie,
+fixed effect)</p></li>
+<li><p>bestsigma: Best estimate of the covariance (ie, group-level variance or
+error)</p></li>
 <li><p>resid: The entire chain parameters for the model of residuals</p></li>
 <li><p>bestresid: The best estimate of parameters for the model of residuals</p></li>
 <li><p>CIresid: Credible intervals for the parameters for the model of residuals</p></li>
@@ -114,21 +118,27 @@ effects. The latter requires knowing in advance the names of all the random effe
 <li><p>upper: Uower credible intervals of model parameters for each random effect</p></li>
 <li><p>burn: The burn-in</p></li>
 <li><p>llike: Full log-likelihood of the model at each step of the Gibbs'sampler</p></li>
-<li><p>bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)</p></li>
+<li><p>bestlike: The log-likelihood of the optimal parameter combination (means
+of the posterior distribution)</p></li>
 <li><p>DIC: Deviance information criterion of the model</p></li>
 <li><p>obs: The original y (dependent) variable, just as submitted</p></li>
 <li><p>data: The original x (independent) variables, just as submitted</p></li>
-<li><p>model: The model's predictions, as a list with one element per random effect</p></li>
-<li><p>randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)</p></li>
-<li><p>keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers</p></li>
+<li><p>model: The model's predictions, as a list with one element per random
+effect</p></li>
+<li><p>randlike: The log-likelihood of observations for each random effect given
+the optimal parameters (a vector, one per random effect)</p></li>
+<li><p>keep: The steps of the Gibbs sampler after burn-in, as a vector of
+negative numbers</p></li>
 <li><p>start: The start parameters submitted</p></li>
 <li><p>randeffects: The names of all the random effects</p></li>
 <li><p>parnames: The names of the model parameters</p></li>
-<li><p>fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler</p></li>
+<li><p>fullparam: A 3D array with all parameters of the Gibbs sampler; one
+dimension if for all the random effects, with each random effect having a
+matrix of model parameters for every step of the Gibbs's sampler</p></li>
 </ul>
 
-    <p>Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
-(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html)
+    <p>Further details are given in the description of all the arguments and the
+sample here, plus a tutorial on <a href = 'https://goo.gl/KGJYQe'>Mortality changes</a>
 offers a worked example.</p>
     
 
@@ -171,7 +181,21 @@ offers a worked example.</p>
     </tr>
     <tr>
       <th>error</th>
-      <td><p>A character variable with 6 possible values, Binom, NegBinom, Pois, Gauss, GaussMultResid, or Flat, with quote marks.</p></td>
+      <td><p>A character variable with 6 possible values: "Binom",
+"NegBinom", "Pois", "Gauss", "GaussMultResid", or "Flat".</p><ul>
+<li><p>'Binom' uses binomial error for residuals</p></li>
+<li><p>NegBinom'uses negative binomial error for residuals; the SD is then the
+dispersion parameter (k) of the negative binomial</p></li>
+<li><p>'Poisson'uses Poisson error for residuals</p></li>
+<li><p>'Gauss'uses Gaussian error for residuals with constant standard deviation
+across groups</p></li>
+<li><p>'GaussMultResid'uses Gaussian error for residuals, with standard
+deviation a constant fraction of the model's prediction (and thus only
+appropriate if predictions are strictly positive)</p></li>
+<li><p>Flat'is a trivial model where the same likelihood is returned regardless
+of parameters or data. It is for testing how parameter search behaves in
+absence of data, as for describing an implied prior.</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>includeCovar</th>
@@ -224,31 +248,6 @@ offers a worked example.</p>
     <tr>
       <th>ycol</th>
       <td><p>The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.</p></td>
-    </tr>
-    <tr>
-      <th>'Binom'uses</th>
-      <td><p>binomial error for residuals</p></td>
-    </tr>
-    <tr>
-      <th>'NegBinom'uses</th>
-      <td><p>negative binomial error for residuals; the SD is then the dispersion parameter (k) of the negative binomial</p></td>
-    </tr>
-    <tr>
-      <th>'Poisson'uses</th>
-      <td><p>Poisson error for residuals</p></td>
-    </tr>
-    <tr>
-      <th>'Gauss'uses</th>
-      <td><p>Gaussian error for residuals with constant standard deviation across groups</p></td>
-    </tr>
-    <tr>
-      <th>'GaussMultResid'uses</th>
-      <td><p>Gaussian error for residuals, with standard deviation a constant fraction of the model's prediction
-(and thus only appropriate if predictions are strictly positive)</p></td>
-    </tr>
-    <tr>
-      <th>'Flat'is</th>
-      <td><p>a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior.</p></td>
     </tr>
     </table>
     

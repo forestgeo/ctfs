@@ -112,8 +112,8 @@ can be NULL to let breaks control</p></td>
       <td><p>if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks</p></td>
     </tr>
     <tr>
-      <th>xname</th>
-      <td><p>and yname names for the axes</p></td>
+      <th>xname, yname</th>
+      <td><p>names for the axes</p></td>
     </tr>
     <tr>
       <th>xrange</th>
@@ -136,6 +136,10 @@ can be NULL to let breaks control</p></td>
       <td><p>TRUE or FALSE, whether to add contour lines; both img and cntrs can be TRUE</p></td>
     </tr>
     <tr>
+      <th>filled</th>
+      <td><p>TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included</p></td>
+    </tr>
+    <tr>
       <th>clrs</th>
       <td><p>colors for the image; if NULL, they are chosen by default, otherwise, must be 1 + the number of breaks</p></td>
     </tr>
@@ -152,8 +156,8 @@ can be NULL to let breaks control</p></td>
       <td><p>size of graph's x-dimension in inches; ignored if newgraph=FALSE</p></td>
     </tr>
     <tr>
-      <th>h, </th>
-      <td><p>w height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches);
+      <th>h, w</th>
+      <td><p>height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches);
 ignored if newgraph=FALSE</p></td>
     </tr>
     <tr>
@@ -163,10 +167,6 @@ ignored if newgraph=FALSE</p></td>
     <tr>
       <th>graphfile</th>
       <td><p>the file name if export is pdf, png, jpeg, win.metafile, etc.</p></td>
-    </tr>
-    <tr>
-      <th>filled;</th>
-      <td><p>TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included</p></td>
     </tr>
     </table>
     
