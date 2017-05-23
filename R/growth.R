@@ -1,61 +1,66 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
-#' The principle growth function, constructed like recruitment and mor...
+#' Annual Growth Rates by Categories.
 #'
 #' @description
+#' The principle growth function, constructed like recruitment and mortality. It
+#' requires two complete datasets, one per census, with dbh, pom, and date for 
+#' every individual of all species in at least 2 censuses (see Data Format).
 #'
-#' The principle growth function, constructed like
-#' recruitment and mortality. It requires two complete datasets, one per census,
-#' with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format). 
+#' @details
+#' It calculates the mean growth rate in one or more categories defined by the
+#' split variables, `split1` and `split2`. The column `date` is required for
+#' annualizing rates.
 #'
-#' It calculates the mean growth rate in one or more categories defined by the split variables, split1
-#' and split2. The column date is required for annualizing rates. 
+#' The columns `status` and `stemID` are both required, in order to determine
+#' which stems should have dbh change calculated.
 #'
-#' The columns status and stemID are both required, in order to determine which stems should have dbh change calculated. 
+#' The function [trim.growth()] handles all checks for trees to include;
+#' excluded are (a) cases where the `stemID` changes, (b) extreme values based
+#' on `err.limit` and `maxgrow`, (c) and trees below a minimum dbh in the first
+#' census.
+#' 
+#' @seealso [trim.growth()].
 #'
-#' The function trim.growth handles all
-#' checks for trees to include; excluded are cases where the stemID changes, extreme values
-#' based on err.limit and maxgrow, and trees below a minimum dbh in the
-#' first census. See the description of trim.growth for more information.
+#' Growth requires [fill.dimension()] in utilities.r. 
 #'
-#' Growth requires fill.dimension in utilities.r. 
+#' @return
+#' A list with components:
+#' * `rate`, the mean annualized growth rate per category selected, either dbh
+#'   increment, or relative growth
+#' * `N`, the number of individuals included in the mean (not counting any
+#'   excluded)
+#' * `clim`, width of confidence interval; add this number to the mean rate to get
+#'   upper confidence limit, substract to get lower
+#' * `dbhmean`, mean dbh in census 1 of individuals included
+#' * `time`, mean time interval in years
+#' * `date1`, mean date included individuals were measured in census 1, as julian
+#'   object (R displays as date, but treats as integer)
+#' * `date2`, mean date in census 2 
 #'
-#' Output of the growth function is a list with components:
-#' * rate, the mean annualized growth rate per category selected, either dbh increment, or relative growth  
-#' * N, the number of individuals included in the mean (not counting any excluded)
-#' * clim, width of confidence interval; add this number to the mean rate to get upper confidence limit, substract to get lower
-#' * dbhmean, mean dbh in census 1 of individuals included
-#' * time, mean time interval in years
-#' * date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
-#' * date2, mean date in census 2 
+#' Pass the list to [assemble.demography()] (in utilities.r) with type = "g" to 
+#' convert the list to a data.frame.
 #'
-#'
-#' Pass the list to assemble.demography (in utilities.r) with type="g" to convert the list to a data.frame.
-#'
-#' @param Usually use rounddown=FALSE; if TRUE, all dbh<55 are rounded down to the nearest multiple of 5
-#' @param With method='I', annual dbh increment is calculated, (dbh2-dbh1)/time; with method='E', relative growth rate, (log(dbh2)-log(dbh1))/time
-#' @param With stdev=FALSE, confidence limits are returned, otherwise the SD in growth rate per group 
-#' @param dbhunit must be 'mm'or 'cm'
-#' @param mindbh is the minimum dbh to include in results
-#' @param growthcol defines how growth is measured, either 'dbh'or 'agb'(agb=biomass)
-#' @param for err.limit and maxgrow, see trim.growth()
-#' @param split1 and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
-#'(or both can be NULL), for instance, species names, dbh categories, or quadrat numbers
+#' @inheritParams biomass.change
+#' @param rounddown If TRUE, all dbh < 55 are rounded down to the nearest
+#'   multiple of 5.
+#' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
+#' @param stdev Logical. Default (FALSE) returns confidence limits, otherwise
+#'   returns the SD in growth rate per group.
+#' @param growthcol defines how growth is measured, either 'dbh'or
+#'   'agb'(agb=biomass)
+#' 
 #'
 #' @examples
 #' \dontrun{
-#'
-#' CTFSplot("bci",56)
-#' growth.data=growth(bci.full5,bci.full6)
+#' CTFSplot("bci", 56)
+#' growth.data = growth(bci.full5, bci.full6)
 #' growth.data$rate
-#' growth.data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
+#' growth.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
 #' growth.data$rate
-#' assemble.demography(grow.data,type='g')}
-#'
+#' assemble.demography(grow.data, type = 'g')
+#' }
 #'
 'growth'
 
@@ -84,17 +89,21 @@
 #'
 'growth.eachspp'
 
-#' This calculates forest-wide growth in given dbh categories. Argumen...
+#' Calculates forest-wide growth in given dbh categories.
 #'
 #' @description
+#' This calculates forest-wide growth in given dbh categories.
 #'
-#' This calculates forest-wide growth in given dbh categories. Arguments as for growth().
+#' @inheritParams growth
+#'
+#' @return A list of arrays; values are provided for each DBH class.
 #'
 #' @examples
 #' \dontrun{
-#' growth.dbh=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))}
-#'
-#'
+#' growth.dbh <- growth.eachspp(
+#'   bci.full5, bci.full6,
+#'   classbreak = c(10, 50, 100, 300, 500))
+#' }
 'growth.dbh'
 
 #' This returns a complete table with growth rate of every individual,...

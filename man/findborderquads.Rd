@@ -2,9 +2,23 @@
 % Please edit documentation in R/quadfunc.R
 \name{findborderquads}
 \alias{findborderquads}
-\title{Calculate indices of neighboring quadrats, for a given quadrat inde...}
+\title{Given a quadrat index, calculate indices of neighboring quadrats.}
 \usage{
 findborderquads(index, dist = 20, gridsize = 20, plotdim = c(1000, 500))
+}
+\arguments{
+\item{index}{Quadrate number, between 0 and 1249 in the standard plot.}
+
+\item{dist}{Distance in m within which the neighboring quadrates are located.
+Distance is measured from any side of the index quadrate.}
+
+\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+}
+\value{
+A vector of numbers, the quadrate indices for all surrounding
+quadrates.
 }
 \description{
 Calculate indices of neighboring quadrats, for a given quadrat index.

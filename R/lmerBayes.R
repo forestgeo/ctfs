@@ -38,33 +38,42 @@
 #'
 #'
 #' The return value is a list with several components:
-#' *  mu: A 2D array with the entire chain of model parameters (ie, fixed effects) from the Gibbs sampler
-#' *  sigma: A 3D array with the entire chain of covariances from the Gibbs sampler; if includeCovar==FALSE, only the diagonal is non-zero
-#' *  bestmu: Best estimate of the model parameters for the entire data (ie, fixed effect) 
-#' *  bestsigma: Best estimate of the covariance (ie, group-level variance or error)
+#' *  mu: A 2D array with the entire chain of model parameters (ie, fixed
+#' effects) from the Gibbs sampler
+#' *  sigma: A 3D array with the entire chain of covariances from the Gibbs
+#' sampler; if includeCovar==FALSE, only the diagonal is non-zero
+#' *  bestmu: Best estimate of the model parameters for the entire data (ie,
+#' fixed effect)
+#' *  bestsigma: Best estimate of the covariance (ie, group-level variance or
+#' error)
 #' *  resid: The entire chain parameters for the model of residuals
 #' *  bestresid: The best estimate of parameters for the model of residuals
 #' *  CIresid: Credible intervals for the parameters for the model of residuals
 #' *  best: The best estimates of model parameters for each random effect
 #' *  lower: Lower credible intervals of model parameters for each random effect
-#' *  upper: Uower credible intervals of model parameters for each random effect      
+#' *  upper: Uower credible intervals of model parameters for each random effect
 #' *  burn: The burn-in
 #' *  llike: Full log-likelihood of the model at each step of the Gibbs'sampler
-#' *  bestlike: The log-likelihood of the optimal parameter combination (means of the posterior distribution)
+#' *  bestlike: The log-likelihood of the optimal parameter combination (means
+#' of the posterior distribution)
 #' *  DIC: Deviance information criterion of the model
 #' *  obs: The original y (dependent) variable, just as submitted
 #' *  data: The original x (independent) variables, just as submitted
-#' *  model: The model's predictions, as a list with one element per random effect
-#' *  randlike: The log-likelihood of observations for each random effect given the optimal parameters (a vector, one per random effect)
-#' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+#' *  model: The model's predictions, as a list with one element per random
+#' effect
+#' *  randlike: The log-likelihood of observations for each random effect given
+#' the optimal parameters (a vector, one per random effect)
+#' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of
+#' negative numbers
 #' *  start: The start parameters submitted
 #' *  randeffects: The names of all the random effects
 #' *  parnames: The names of the model parameters
-#' *  fullparam: A 3D array with all parameters of the Gibbs sampler; one dimension if for all the random effects, with each random effect having a matrix of model parameters for every step of the Gibbs's sampler
+#' *  fullparam: A 3D array with all parameters of the Gibbs sampler; one
+#' dimension if for all the random effects, with each random effect having a
+#' matrix of model parameters for every step of the Gibbs's sampler
 #'
-#'
-#' Further details are given in the description of all the arguments and the sample here, plus a tutorial on 'Mortality changes'
-#'(http://ctfs.arnarb.harvard.edu/Public/CTFSRPackage/index.php/web/tutorials/MortalityChange/index.html) 
+#' Further details are given in the description of all the arguments and the
+#' sample here, plus a tutorial on [Mortality changes](https://goo.gl/KGJYQe)
 #' offers a worked example.
 #'
 #' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
@@ -75,15 +84,20 @@
 #' @param startSD A single starting value for the residual standard deviation, only used with Gaussian and Negative Binomial error models.
 #' @param startCov Starting values of the diagonal of the covariance matrix; ignored if a full matrix of start parameters is submitted. Required even if covariance matrix is not fitted, because needed as starting hyperSD.
 #' @param model The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
-#' @param error A character variable with 6 possible values, Binom, NegBinom, Pois, Gauss, GaussMultResid, or Flat, with quote marks. 
-#' @param 'Binom'uses binomial error for residuals
-#' @param 'NegBinom'uses negative binomial error for residuals; the SD is then the dispersion parameter (k) of the negative binomial
-#' @param 'Poisson'uses Poisson error for residuals
-#' @param 'Gauss'uses Gaussian error for residuals with constant standard deviation across groups
-#' @param 'GaussMultResid'uses Gaussian error for residuals, with standard deviation a constant fraction of the model's prediction
-#'        (and thus only appropriate if predictions are strictly positive)
-#' @param 'Flat'is a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior. 
-#'
+#' @param error A character variable with 6 possible values: "Binom",
+#'   "NegBinom", "Pois", "Gauss", "GaussMultResid", or "Flat".
+#'   - 'Binom' uses binomial error for residuals
+#'   - NegBinom'uses negative binomial error for residuals; the SD is then the
+#'   dispersion parameter (k) of the negative binomial
+#'   - 'Poisson'uses Poisson error for residuals
+#'   - 'Gauss'uses Gaussian error for residuals with constant standard deviation
+#'   across groups
+#'   - 'GaussMultResid'uses Gaussian error for residuals, with standard
+#'   deviation a constant fraction of the model's prediction (and thus only
+#'   appropriate if predictions are strictly positive)
+#'   - Flat'is a trivial model where the same likelihood is returned regardless
+#'   of parameters or data. It is for testing how parameter search behaves in
+#'   absence of data, as for describing an implied prior.
 #' @param includeCovar TRUE or FALSE, whether to fit the full covariance matrix, vs. variances alone.
 #' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
 #' @param badparam The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.

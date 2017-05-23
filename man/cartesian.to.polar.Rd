@@ -7,9 +7,9 @@
 cartesian.to.polar(x, y)
 }
 \arguments{
-\item{x}{= input vector of x coordinates}
+\item{x}{input vector of x coordinates}
 
-\item{y}{= input vector of y coordinates (same length as x)}
+\item{y}{input vector of y coordinates (same length as x)}
 }
 \description{
 Convert Cartesian coordinates to polar. Returns a dataframe of two columns named r and theta. This always

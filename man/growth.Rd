@@ -2,69 +2,86 @@
 % Please edit documentation in R/growth.R
 \name{growth}
 \alias{growth}
-\title{The principle growth function, constructed like recruitment and mor...}
+\title{Annual Growth Rates by Categories.}
 \usage{
 growth(census1, census2, rounddown = FALSE, method = "I", stdev = FALSE,
   dbhunit = "mm", mindbh = 10, growthcol = "dbh", err.limit = 4,
   maxgrow = 75, split1 = NULL, split2 = NULL)
 }
 \arguments{
-\item{dbhunit}{must be 'mm'or 'cm'}
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
 
-\item{mindbh}{is the minimum dbh to include in results}
+\item{census2}{The matching R Analytical Table for a later census.}
 
-\item{growthcol}{defines how growth is measured, either 'dbh'or 'agb'(agb=biomass)}
+\item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
+multiple of 5.}
 
-\item{split1}{and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
-(or both can be NULL), for instance, species names, dbh categories, or quadrat numbers}
+\item{method}{Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.}
 
-\item{Usually}{use rounddown=FALSE; if TRUE, all dbh<55 are rounded down to the nearest multiple of 5}
+\item{stdev}{Logical. Default (FALSE) returns confidence limits, otherwise
+returns the SD in growth rate per group.}
 
-\item{With}{method='I', annual dbh increment is calculated, (dbh2-dbh1)/time; with method='E', relative growth rate, (log(dbh2)-log(dbh1))/time}
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
 
-\item{With}{stdev=FALSE, confidence limits are returned, otherwise the SD in growth rate per group}
+\item{growthcol}{defines how growth is measured, either 'dbh'or
+'agb'(agb=biomass)}
 
-\item{for}{err.limit and maxgrow, see trim.growth()}
+\item{split1}{a vector of categories, one per individual}
+
+\item{split2}{another vector of categories, one per individual}
+}
+\value{
+A list with components:
+\itemize{
+\item \code{rate}, the mean annualized growth rate per category selected, either dbh
+increment, or relative growth
+\item \code{N}, the number of individuals included in the mean (not counting any
+excluded)
+\item \code{clim}, width of confidence interval; add this number to the mean rate to get
+upper confidence limit, substract to get lower
+\item \code{dbhmean}, mean dbh in census 1 of individuals included
+\item \code{time}, mean time interval in years
+\item \code{date1}, mean date included individuals were measured in census 1, as julian
+object (R displays as date, but treats as integer)
+\item \code{date2}, mean date in census 2
+}
+
+Pass the list to \code{\link[=assemble.demography]{assemble.demography()}} (in utilities.r) with type = "g" to
+convert the list to a data.frame.
 }
 \description{
-The principle growth function, constructed like
-recruitment and mortality. It requires two complete datasets, one per census,
-with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format).
-
-It calculates the mean growth rate in one or more categories defined by the split variables, split1
-and split2. The column date is required for annualizing rates.
-
-The columns status and stemID are both required, in order to determine which stems should have dbh change calculated.
-
-The function trim.growth handles all
-checks for trees to include; excluded are cases where the stemID changes, extreme values
-based on err.limit and maxgrow, and trees below a minimum dbh in the
-first census. See the description of trim.growth for more information.
-
-Growth requires fill.dimension in utilities.r.
-
-Output of the growth function is a list with components:
-\itemize{
-\item rate, the mean annualized growth rate per category selected, either dbh increment, or relative growth
-\item N, the number of individuals included in the mean (not counting any excluded)
-\item clim, width of confidence interval; add this number to the mean rate to get upper confidence limit, substract to get lower
-\item dbhmean, mean dbh in census 1 of individuals included
-\item time, mean time interval in years
-\item date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
-\item date2, mean date in census 2
+The principle growth function, constructed like recruitment and mortality. It
+requires two complete datasets, one per census, with dbh, pom, and date for
+every individual of all species in at least 2 censuses (see Data Format).
 }
+\details{
+It calculates the mean growth rate in one or more categories defined by the
+split variables, \code{split1} and \code{split2}. The column \code{date} is required for
+annualizing rates.
 
-Pass the list to assemble.demography (in utilities.r) with type="g" to convert the list to a data.frame.
+The columns \code{status} and \code{stemID} are both required, in order to determine
+which stems should have dbh change calculated.
+
+The function \code{\link[=trim.growth]{trim.growth()}} handles all checks for trees to include;
+excluded are (a) cases where the \code{stemID} changes, (b) extreme values based
+on \code{err.limit} and \code{maxgrow}, (c) and trees below a minimum dbh in the first
+census.
 }
 \examples{
 \dontrun{
-
-CTFSplot("bci",56)
-growth.data=growth(bci.full5,bci.full6)
+CTFSplot("bci", 56)
+growth.data = growth(bci.full5, bci.full6)
 growth.data$rate
-growth.data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
+growth.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
 growth.data$rate
-assemble.demography(grow.data,type='g')}
+assemble.demography(grow.data, type = 'g')
+}
 
+}
+\seealso{
+\code{\link[=trim.growth]{trim.growth()}}.
 
+Growth requires \code{\link[=fill.dimension]{fill.dimension()}} in utilities.r.
 }

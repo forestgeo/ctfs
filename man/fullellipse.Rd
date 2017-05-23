@@ -2,14 +2,14 @@
 % Please edit documentation in R/geometry.R
 \name{fullellipse}
 \alias{fullellipse}
-\title{Creates a dataframe for a full ellipse.  @param x = input x coordin...}
+\title{Creates a dataframe for a full ellipse.}
 \usage{
 fullellipse(x, center = c(0, 0), radius = c(7, 5))
 }
 \arguments{
-\item{x}{= input x coordinates}
+\item{x}{input x coordinates}
 
-\item{center}{= x-y coordinates of ellipse center (vector of 2)}
+\item{center}{x-y coordinates of ellipse center (vector of 2)}
 }
 \description{
 Creates a dataframe for a full ellipse.

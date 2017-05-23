@@ -24,7 +24,8 @@ map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
 
 \item{plotdim}{The x and y dimensions of the plot. This is used often in R package. Note it assumes the starting coordinates are zero. If they are not, then xrange and yrange must be used.}
 
-\item{xrange}{and yrange Minimum and maximum x coordinates and y coordinates to map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+\item{xrange, yrange}{Minimum and maximum x coordinates and y coordinates
+to map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
 
 \item{elevdata}{Elevation data can be submitted, then a topo map is overlaid. Elevation data must be submitted as a matrix (as described in readelevdata in utilities.r).}
 
@@ -46,13 +47,13 @@ map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
 
 \item{symbols}{A vector of symbols, one per species. Can be anything accepted by R for pch (plot character in the function plot()). If NULL, defaults are assigned.}
 
-\item{addlegend, }{legpos, legsize For the species name, whether to include, where to place, and font size. Try the defaults first before fiddling, or just set addlegend=FALSE to remove.}
+\item{addlegend, legpos, legsize}{For the species name, whether to include, where to place, and font size. Try the defaults first before fiddling, or just set addlegend=FALSE to remove.}
 
 \item{labsize}{Size of axis labels.}
 
 \item{bty}{Type of box to appear around species name. The default, 'n', means no box; set to 'o'to see the box.}
 
-\item{ht, }{wd, plotside These are the height and width of the overall graph, and the vertical dimension (inches) of the map. The default work for pdf export or mapping to the screen, and ht and wd are inches. But if export is png, jpg, emf, height and width are pixels and need to be 500-1000.}
+\item{ht, wd, plotside}{These are the height and width of the overall graph, and the vertical dimension (inches) of the map. The default work for pdf export or mapping to the screen, and ht and wd are inches. But if export is png, jpg, emf, height and width are pixels and need to be 500-1000.}
 
 \item{axspos}{Distance between axis numbers and axis.}
 

@@ -235,57 +235,60 @@
 #'
 'predht.asym'
 
-#' Finds biomass in two censuses and change between them. The submitte...
+#' Finds biomass in two censuses and change between them.
 #'
 #' @description
+#' Finds biomass in two censuses and change between them. The submitted
+#' dataframes are exactly the standard CTFS R Analytical tables, with a column
+#' for biomass (agb) already calculated. Each dataframe has a record for every
+#' tree in a single census (or a stem table can be passed, with one record for
+#' each stem). Biomass for all living trees is summed over whatever grouping
+#' variables are submitted (split1 and split2) in both censuses, along with the
+#' annual rate of change in each category. 
 #'
-#' Finds biomass in two censuses and change between them. The submitted dataframes are exactly the standard CTFS R Analytical tables,
-#' with a column for biomass (agb) already calculated. Each dataframe has a record for every tree in a single census (or a stem
-#' table can be passed, with one record for each stem). Biomass for all living trees is summed over whatever grouping variables are 
-#' submitted (split1 and
-#' split2) in both censuses, along with the annual rate of change in each category. Returns a list with 6 components:
-#'
-#' N.1: Total biomass in first census submitted
-#'
-#' N.2: Total biomass in second census submitted
-#' date1: Mean date in first census
-#' date2: Mean date in second census
-#' interval: The mean census interval in years
-#' little.r: The rate of biomass change, or (log(N.2)-log(N.1))/interval
-#'
-#' If no split variables are submitted (split1=split2=NULL), each component of the list is a single number, for the entire plot. 
-#'
-#' If split1 is submitted but not split2, each component is a vector, one value for each category of split. If both splits are 
-#' submitted, each component of the list is a matrix. 
-#'
-#' Based closely on the function pop.change in abundance.r, and differs only in taking sum of agb instead of counting individuals.
-#'
-#' census1: The R Analytical Table for a single census, either tree or stem
-#' census2: The matching R Analytical Table for a later census
-#' alivecode: A vector of status codes that indicate a tree is alive (usually just "A" in most CTFS R tables)
-#' mindbh: The minimum dbh to include (if NULL, all dbhs included); biomass is summed in trees larger that this
-#' split1: A vector of exactly the same length as the number of rows in census1 and census2, with a grouping variable for each tree;
-#' a common use is the species name
-#' split2: Another split vector of the same length, for example a dbh category
-#'
+#' @details 
+#' Based closely on the function [pop.change()] in abundance.r, and differs only
+#' in taking sum of agb instead of counting individuals.
+#' 
+#' If no split variables are submitted (split1 = split2 = NULL), each component 
+#' of the returned list is a single number, for the entire plot. If split1 is
+#' submitted but not split2, each component is a vector, one value for each
+#' category of split. If both splits are submitted, each component of the list
+#' is a matrix.
+#' 
+#' @return 
+#' A list with 6 components:
+#' - N.1: Total biomass in first census submitted
+#' - N.2: Total biomass in second census submitted
+#' - date1: Mean date in first census
+#' - date2: Mean date in second census
+#' - interval: The mean census interval in years
+#' - little.r: The rate of biomass change, or (log(N.2) - log(N.1))/interval
+#' 
+#' @inheritParams abundance
+#' @param census1 The R Analytical Table for a single census, either tree or
+#'   stem.
+#' @param census2 The matching R Analytical Table for a later census.
+#' 
 #' @examples
 #' \dontrun{
 #'
-#' CTFSplot("bci","full",census=c(3,7))
+#' CTFSplot("bci", "full", census = c(3, 7))
 #'
-#' deltaAGB=biomass.change(bci.full3,bci.full7)
+#' deltaAGB = biomass.change(bci.full3, bci.full7)
 #'
-#' deltaAGB.spp=biomass.change(bci.full3,bci.full7,split1=bci.full3$sp)
+#' deltaAGB.spp = biomass.change(bci.full3, bci.full7, split1 = bci.full3$sp)
 #'
-#' deltaAGB.table=assemble.demography(deltaAGB.spp,type="a") 
+#' deltaAGB.table = assemble.demography(deltaAGB.spp, type = "a") 
 #'
-#' rate=deltaAGB.table$little.r
+#' rate = deltaAGB.table$little.r
 #'
-#' hist(rate,breaks=50)
+#' hist(rate, breaks = 50)
 #'
 #' summary(rate[is.finite(rate)])
 #'
-#' subset(deltaAGB.table,is.infinite(rate)) }
+#' subset(deltaAGB.table, is.infinite(rate))
+#' }
 #'
 #'
 'biomass.change'

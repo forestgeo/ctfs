@@ -7,9 +7,9 @@
 polar.to.cartesian(r, theta)
 }
 \arguments{
-\item{r}{= input vector of radii (distance from origin)}
+\item{r}{input vector of radii (distance from origin)}
 
-\item{theta}{= input vector of angle from horizontal (radians), same length as r}
+\item{theta}{input vector of angle from horizontal (radians), same length as r}
 }
 \description{
 Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.

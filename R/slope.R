@@ -18,19 +18,20 @@
 #'
 'readelevdata'
 
-#' A function which reads a dataframe with x,y,elevation for a given g...
+#' Convert a dataframe of coordinates and elevation into a list.
 #'
 #' @description
-#'
-#' A function which reads a dataframe with x,y,elevation for a given grid
-#' size and converts to a list
-#' note the names of the columns in the dataframe must be:
-#' x y elev
-#'
-#' object 1 in list is: the input dataframe
-#' object 2 in list is: matrix of elevation value sin the orientation of the plot
-#'
-#'
+#' Reads a dataframe with variable names `x` (coordinate), `y` (coordinate), 
+#' `elev` (elevation) for a given grid size and converts to a list.
+#' 
+#' @return 
+#' - object 1: the input dataframe
+#' - object 2: matrix of elevation value sin the orientation of the plot
+#' 
+#' @param elevfile A data frame with x, y coordinates and elevation, 
+#'   bcielev.info.
+#' @param gridsize scale of elevation values (m)
+#' 
 'elev.to.list'
 
 #' Calculates the slope of all quadrats in a plot.  @details `allquadr...
@@ -83,8 +84,8 @@
 #' The 4 slopes are averaged. Returns both the mean slope and the sqrt of the
 #' variance of the 4 different slopes.
 #'
-#' @param cornerelev: vector of 4 elevations 
-#' @param gridsize: the side of the square
+#' @param cornerelev vector of 4 elevations 
+#' @param gridsize the side of the square
 #'
 #' @seealso [calcslope()], [quadslope()]
 #'

@@ -8,19 +8,19 @@ graphFilledBand(x, y1, y2, fillcol = "gray", add = TRUE,
   linecol = "black", ltype = "solid", lwidth = 1)
 }
 \arguments{
-\item{x}{= The x axis values, as in any R graph}
+\item{x}{The x axis values, as in any R graph}
 
-\item{y1, }{y2 = Two sets of y axis values, each of exactly the same length as x}
+\item{y1, y2}{= Two sets of y axis values, each of exactly the same length as x}
 
-\item{fillcol}{= The color filling the area between the two curves}
+\item{fillcol}{The color filling the area between the two curves}
 
-\item{add}{= TRUE or FALSE, as in other R graphs; if TRUE, there must be an appropriate existing graph, otherwise, a new graph is drawn}
+\item{add}{TRUE or FALSE, as in other R graphs; if TRUE, there must be an appropriate existing graph, otherwise, a new graph is drawn}
 
-\item{linecol}{= If add==FALSE, lines drawn at y1 and y2 are this color; ignored if add==TRUE}
+\item{linecol}{If add==FALSE, lines drawn at y1 and y2 are this color; ignored if add==TRUE}
 
-\item{ltype}{= If add==FALSE, lines drawn at y1 and y2 are this type ('solid','dashed',etc);  ignored if add==TRUE}
+\item{ltype}{If add==FALSE, lines drawn at y1 and y2 are this type ('solid','dashed',etc);  ignored if add==TRUE}
 
-\item{lwidth}{= If add==FALSE, lines drawn at y1 and y2 are this thickness (a number);  ignored if add==TRUE}
+\item{lwidth}{If add==FALSE, lines drawn at y1 and y2 are this thickness (a number);  ignored if add==TRUE}
 }
 \description{
 Fill the area between two curves on a graph. Useful for confidence limits, for example.

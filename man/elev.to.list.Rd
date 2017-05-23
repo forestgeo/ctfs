@@ -2,16 +2,23 @@
 % Please edit documentation in R/slope.R
 \name{elev.to.list}
 \alias{elev.to.list}
-\title{A function which reads a dataframe with x,y,elevation for a given g...}
+\title{Convert a dataframe of coordinates and elevation into a list.}
 \usage{
 elev.to.list(elevfile, gridsize = 5)
 }
-\description{
-A function which reads a dataframe with x,y,elevation for a given grid
-size and converts to a list
-note the names of the columns in the dataframe must be:
-x y elev
+\arguments{
+\item{elevfile}{A data frame with x, y coordinates and elevation,
+bcielev.info.}
 
-object 1 in list is: the input dataframe
-object 2 in list is: matrix of elevation value sin the orientation of the plot
+\item{gridsize}{scale of elevation values (m)}
+}
+\value{
+\itemize{
+\item object 1: the input dataframe
+\item object 2: matrix of elevation value sin the orientation of the plot
+}
+}
+\description{
+Reads a dataframe with variable names \code{x} (coordinate), \code{y} (coordinate),
+\code{elev} (elevation) for a given grid size and converts to a list.
 }

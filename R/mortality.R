@@ -35,9 +35,12 @@
 #'
 #' Pass the list to assemble.demography (in utilities.r) with type="m" to convert the list a data.frame.
 #'
-#' @param Generally, alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now
-#' @param split1 and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
-#'(or both can be NULL), for instance, species names, dbh categories, or quadrat numbers
+#' @param alivecode Generally, alivecode = "A" suffices, as this is the standard
+#'   in CTFS data for a living tree; "AS" and "AB" are seldom used now
+#' @param split1,split2 Must both be vectors of character variables with exactly
+#'  as many elements as there are rows in the tables census1 and census2 (or
+#'  both can be NULL), for instance, species names, dbh categories, or quadrat
+#'  numbers
 #'
 #' @examples
 #' \dontrun{
@@ -99,25 +102,30 @@
 #'
 'mortality.calculation'
 
-#' Calculates confidence limits around a number of deaths, D, out of N...
+#' Calculate confidence limits around a number of deaths.
 #'
 #' @description
+#' Calculates confidence limits around a number of deaths, D, out of N 
+#' individuals.
+#' 
+#' @details 
+#' It uses the beta distribution as the conjugate of the binomial, so the beta
+#' is the posterior of the number dying. N and D can be vectors or matrices, but
+#' must have matching dimensions.
 #'
-#' Calculates confidence limits around a number of deaths, D, out of N individuals.
+#' @return Confidence limits for the given number of surviving trees.
 #'
-#' It uses the beta distribution as the conjugate of the binomial, so the beta is the posterior of the number
-#' dying. N and D can be vectors or matrices, but must have matching dimensions.
-#'
-#' @param N, number of individuals alive at the outset
-#' @param D, number of deaths by the end
-#' @param alpha, the critical probability (default alpha=0.05 gives 95\% confidence limits)
-#' @param kind, either "upper" or "lower"
+#' @param N The number of individuals alive at the outset.
+#' @param D The number of deaths by the end.
+#' @param alpha The critical probability. Defaults to 0.05, which gives 95\%
+#'   confidence limits.
+#' @param kind Either "upper" or "lower".
 #'
 #' @examples
 #' \dontrun{
-#' find.climits(10,5,kind='lower')}
+#' find.climits(10, 5, kind = 'lower')
+#' }
 #'
-
 'find.climits'
 
 # Source code and original documentation ----------------------------

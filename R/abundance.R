@@ -4,36 +4,37 @@
 #'
 #'
 
-#' Calculates total abundance or basal area, dividing data with 1 or 2...
-#'
+#' Abundance or basal area dividing data with 1 or 2 categorical variables
+#' 
 #' @description
-#'
-#' Calculates total abundance or basal area, dividing data with 1 or 2 categorical variables. 
-#'
-#' The categorical variables must be submitted as vectors whose length
-#' matches exactly as the number of rows in the plot data submitted (so one per tree or stem). 
-#'
-#' The first vector should be the one with the most categories
-#'(for instances, split1=species, split2=dbhcategory). 
-#'
-#' The mean measurement date for all individuals in each category is
-#' also calculated. 
-#'
-#' For abundance, set type='abund'(the default), for basal area, set type='ba'. Be sure to use the R Analytical
-#'
-#' Stem Table for basal area. For abundance, either the stem table or full table can be used, the former to count stems, the latter trees. 
-#'
-#' The object returned is a list, the first element named either abund or ba, the second named meandate. Each is an array of 
-#' one or two dimensions, depending on how many split variables were submitted:
-#' each of the dimensions of the array handles one of the categorical variables.  
-#'
-#' @param censdata an R Analytical Table for a full plot census, either full or stem
-#' @param type must be either 'abund', 'ba', or 'agb'
-#' @param alivecode all codes defining alive; the default 'A'is the standard CTFS designation for living trees or stems
-#' @param mindbh the minimum diameter above which the counts are done; if NULL, all (living) are included
-#' @param dbhunit 'cm'or 'mm', only used for basal area
+#' Calculates total abundance or basal area, dividing data with 1 or 2 
+#' categorical variables.
+#' 
+#' @details
+#' The categorical variables must be submitted as vectors whose length matches
+#' exactly as the number of rows in the plot data submitted (so one per tree or
+#' stem). The first vector should be the one with the most categories (for
+#' instances, `split1 = species`, `split2 = dbhcategory`).
+#' 
+#' @param censdata an R Analytical Table for a full plot census. For basal area 
+#'   use a stem table. For abundance, use either the stem or full table to count
+#'   stems or trees, respectively.
+#' @param type either 'abund' (default) for abundance, 'ba' for basal area, or
+#'   'agb'.
+#' @param alivecode character, codes of the variable `status` that indicate the 
+#'   tree is alive. The default 'A' is the standard CTFS designation for living 
+#'   trees or stems
+#' @param mindbh the minimum diameter above which the counts are done; if NULL, 
+#'   all (living) are included
+#' @param dbhunit 'cm' or 'mm', only used for basal area
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual
+#'
+#' @return a named list of two elements, either `abund` or `ba`, and meandate 
+#'   (mean measurement date for all individuals in each category). Each element 
+#'   of the list is an array of one or two dimensions, depending on how many 
+#'   split variables were submitted: each of the dimensions of the array handles
+#'   one of the categorical variables.
 #'
 #' @examples
 #' \dontrun{
@@ -78,15 +79,18 @@
 #'
 'abundanceperquad'
 
-#' A wrapper to calculate total abundance (or ba or agb) for each spec...
+#' Abundance of trees by species and DBH classes.
 #'
 #' @description
 #'
-#' A wrapper to calculate total abundance (or ba or agb) for each species in given dbh categories. The dbh categories
-#' are set with dbhbreaks. See abundance() for description of the other arguments and return value.
-#'
-#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last category will be >= the final division
-#'
+#' A wrapper to calculate total abundance (or ba or agb) for each species in
+#' given dbh categories. The dbh categories are set with `dbhbreaks`.
+#' 
+#' @return See [abundance()].
+#' @seealso [abundance()]
+#' @inheritParams abundance
+#' @param dbhbreaks a vector of dbhs to define divisions of categories; the last
+#'   category will be >= the final division
 #'
 'abundance.spp'
 
@@ -94,7 +98,8 @@
 #'
 #' @description
 #'
-#' Finds abundance, basal area, or agb in two censuses and the rate of change between them. 
+#' Finds abundance, basal area, or agb in two censuses and the rate of change
+#' between them.
 #'
 #' Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
 #'
@@ -110,12 +115,12 @@
 #' census. Plants dead in the second census get a census date equal to the date on which their quadrat was censused 
 #'
 #' The return value is a list of 6 components:
-#' @param N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2
-#' @param N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array
-#' @param date1 mean date of first census in a matching array
-#' @param date2 mean date of second census in a matching array
-#' @param interval the time interval in years in a matching array
-#' @param little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
+#' - N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2
+#' - N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array
+#' - date1 mean date of first census in a matching array
+#' - date2 mean date of second census in a matching array
+#' - interval the time interval in years in a matching array
+#' - little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
 #'
 #'
 #' This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
@@ -167,14 +172,15 @@
 #'
 'pop.change.dbh'
 
-#' Calculates the individual basal areas (in square meters) for all su...
+#' Basal area of trees.
 #'
-#' @description
-#'
-#' Calculates the individual basal areas (in square meters) for all submitted dbhs. The dbh units must be submitted, either
-#' cm'or 'millimeters'. The return value is a vector of basal area values of same length as the submitted vector of dbhs.
-#'
-#'
+#' @description 
+#' Calculates the individual basal areas (in square meters) for all submitted
+#' dbhs. The dbh units must be submitted, either cm'or 'millimeters'.
+#' @inheritParams abundance
+#' @param dbh DBH in mm of tree
+#' @return A vector of basal area values of same length as the submitted vector 
+#'   of dbhs.
 'ba'
 
 #' Returns the basal area summed over all submitted dbhs. NAs can be i...

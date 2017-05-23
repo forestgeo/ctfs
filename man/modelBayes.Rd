@@ -22,7 +22,24 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 
 \item{model}{The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x.}
 
-\item{error}{A character variable with 4 possible values, Binom, Pois, NegBinom, Flat, Gauss, or GaussMultResid, with quote marks.}
+\item{error}{A character variable; either "Binom", "Pois", "NegBinom",
+"Flat", "Gauss", or "GaussMultResid".
+\itemize{
+\item 'Binom' uses binomial error, appropriate only for non-negative integer y;
+there are no error parameters for the binomial, so no resid parameters
+\item 'Poisson' uses Poisson error, appropriate only for non-negative integer
+y; there are no error parameters for the binomial, so no resid parameters
+\item 'NegBinom'uses negative binomial error, appropriate only for
+non-negative integer y; the clump parameter k of the negative binomial is
+also fitted, and can be modeled with sdfunc
+\item 'Gauss'uses Gaussian error, which can be a constant or modeled on the x's
+\item 'GaussMultResid'uses Gaussian error modeled as a fraction of the
+prediction at each x; again, it can be a constant fraction or a fraction
+modeled on x (aappropriate only if predictions are strictly positive)
+\item 'Flat' is a trivial model where the same likelihood is returned
+regardless of parameters or data. It is for testing how parameter search
+behaves in absence of data, as for describing an implied prior.
+}}
 
 \item{update}{'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.}
 
@@ -41,19 +58,6 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 \item{debug}{TRUE or FALSE, whether to pause and debug; for advanced users and developers.}
 
 \item{...}{The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).}
-
-\item{'Binom'uses}{binomial error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters}
-
-\item{'Poisson'uses}{Poisson error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters}
-
-\item{'NegBinom'uses}{negative binomial error, appropriate only for non-negative integer y; the clump parameter k of the negative binomial is also fitted, and can be modeled with sdfunc}
-
-\item{'Gauss'uses}{Gaussian error, which can be a constant or modeled on the x's}
-
-\item{'GaussMultResid'uses}{Gaussian error modeled as a fraction of the prediction at each x; again, it can be a constant fraction or a fraction modeled on x
-(aappropriate only if predictions are strictly positive)}
-
-\item{'Flat'is}{a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior.}
 }
 \description{
 A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions

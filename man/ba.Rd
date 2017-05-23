@@ -2,11 +2,20 @@
 % Please edit documentation in R/abundance.R
 \name{ba}
 \alias{ba}
-\title{Calculates the individual basal areas (in square meters) for all su...}
+\title{Basal area of trees.}
 \usage{
 ba(dbh, dbhunit = "mm")
 }
+\arguments{
+\item{dbh}{DBH in mm of tree}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+}
+\value{
+A vector of basal area values of same length as the submitted vector
+of dbhs.
+}
 \description{
-Calculates the individual basal areas (in square meters) for all submitted dbhs. The dbh units must be submitted, either
-cm'or 'millimeters'. The return value is a vector of basal area values of same length as the submitted vector of dbhs.
+Calculates the individual basal areas (in square meters) for all submitted
+dbhs. The dbh units must be submitted, either cm'or 'millimeters'.
 }

@@ -2,25 +2,41 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{assemble.demography}
 \alias{assemble.demography}
-\title{Takes output of a demographic analysis (produced by functions growt...}
+\title{Reformat the output from demographic functions from list to dataframe.}
 \usage{
 assemble.demography(output, type = "g", whichdbhcat = 1,
   date1 = "1960-1-1")
 }
+\arguments{
+\item{output}{The results from one of the demographic functions}
+
+\item{type}{A character. Either \code{'g'} for growth, \code{'m'} for \code{mortality},
+\code{'ba'} for basal area, \code{'agb'} for biomass, \code{'r'} for recruitment, or
+\code{'a'} for abundance.}
+
+\item{whichdbhcat}{A number indicating how many dbh categories to include,
+cannot exceed the number of columns in output.}
+
+\item{date1}{date of first enumeration at site, format: yyyy-mm-dd.}
+}
+\value{
+A dataframe.
+}
 \description{
-Takes output of a demographic analysis (produced by functions growth, mortality, or pop.change)
-and converts into one dataframe. Only indicated dbh categories are included; be sure that whichdbhcat does
-not exceed the number of columns in the data submitted. Type is 'g'for growth, 'm'
-for mortality, 'ba'for basal area, 'agb'for biomass, 'r'for recruitment, and 'a'for abundance.
+Takes output of a demographic analysis (produced by functions growth,
+mortality, or pop.change) and converts into one dataframe. Only indicated dbh
+categories are included.
 }
 \examples{
 \dontrun{
 
-data=pop.change(bci.full5,bci.full6,split1=bci.full5$sp);
-result=assemble.demography(data,type='a',whichdbhcat=1)
-data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
-result=assemble.demography(data,type='g',whichdbhcat=1)
-data=mortality.eachspp(bci.full5,bci.full6,classbreak=c(10,100))
-result1=assemble.demography(data,type='m',whichdbhcat=1)
-result2=assemble.demography(data,type='m',whichdbhcat=2)}
+data = pop.change(bci.full5, bci.full6, split1 = bci.full5$sp)
+result = assemble.demography(data, type = 'a', whichdbhcat = 1)
+data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+result = assemble.demography(data, type = 'g', whichdbhcat = 1)
+data = mortality.eachspp(bci.full5, bci.full6, classbreak = c(10, 100))
+result1 = assemble.demography(data, type = 'm', whichdbhcat = 1)
+result2 = assemble.demography(data, type = 'm', whichdbhcat = 2)
+}
+
 }

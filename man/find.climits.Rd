@@ -2,27 +2,35 @@
 % Please edit documentation in R/mortality.R
 \name{find.climits}
 \alias{find.climits}
-\title{Calculates confidence limits around a number of deaths, D, out of N...}
+\title{Calculate confidence limits around a number of deaths.}
 \usage{
 find.climits(N, D, alpha = 0.05, kind = "upper")
 }
 \arguments{
-\item{N, }{number of individuals alive at the outset}
+\item{N}{The number of individuals alive at the outset.}
 
-\item{D, }{number of deaths by the end}
+\item{D}{The number of deaths by the end.}
 
-\item{alpha, }{the critical probability (default alpha=0.05 gives 95\% confidence limits)}
+\item{alpha}{The critical probability. Defaults to 0.05, which gives 95\%
+confidence limits.}
 
-\item{kind, }{either "upper" or "lower"}
+\item{kind}{Either "upper" or "lower".}
+}
+\value{
+Confidence limits for the given number of surviving trees.
 }
 \description{
-Calculates confidence limits around a number of deaths, D, out of N individuals.
-
-It uses the beta distribution as the conjugate of the binomial, so the beta is the posterior of the number
-dying. N and D can be vectors or matrices, but must have matching dimensions.
+Calculates confidence limits around a number of deaths, D, out of N
+individuals.
+}
+\details{
+It uses the beta distribution as the conjugate of the binomial, so the beta
+is the posterior of the number dying. N and D can be vectors or matrices, but
+must have matching dimensions.
 }
 \examples{
 \dontrun{
-find.climits(10,5,kind='lower')}
+find.climits(10, 5, kind = 'lower')
+}
 
 }

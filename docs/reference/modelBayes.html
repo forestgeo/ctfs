@@ -145,7 +145,23 @@ parameters required by the model.</p>
     </tr>
     <tr>
       <th>error</th>
-      <td><p>A character variable with 4 possible values, Binom, Pois, NegBinom, Flat, Gauss, or GaussMultResid, with quote marks.</p></td>
+      <td><p>A character variable; either "Binom", "Pois", "NegBinom",
+"Flat", "Gauss", or "GaussMultResid".</p><ul>
+<li><p>'Binom' uses binomial error, appropriate only for non-negative integer y;
+there are no error parameters for the binomial, so no resid parameters</p></li>
+<li><p>'Poisson' uses Poisson error, appropriate only for non-negative integer
+y; there are no error parameters for the binomial, so no resid parameters</p></li>
+<li><p>'NegBinom'uses negative binomial error, appropriate only for
+non-negative integer y; the clump parameter k of the negative binomial is
+also fitted, and can be modeled with sdfunc</p></li>
+<li><p>'Gauss'uses Gaussian error, which can be a constant or modeled on the x's</p></li>
+<li><p>'GaussMultResid'uses Gaussian error modeled as a fraction of the
+prediction at each x; again, it can be a constant fraction or a fraction
+modeled on x (aappropriate only if predictions are strictly positive)</p></li>
+<li><p>'Flat' is a trivial model where the same likelihood is returned
+regardless of parameters or data. It is for testing how parameter search
+behaves in absence of data, as for describing an implied prior.</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>update</th>
@@ -182,31 +198,6 @@ parameters required by the model.</p>
     <tr>
       <th>...</th>
       <td><p>The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).</p></td>
-    </tr>
-    <tr>
-      <th>'Binom'uses</th>
-      <td><p>binomial error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters</p></td>
-    </tr>
-    <tr>
-      <th>'Poisson'uses</th>
-      <td><p>Poisson error, appropriate only for non-negative integer y; there are no error parameters for the binomial, so no resid parameters</p></td>
-    </tr>
-    <tr>
-      <th>'NegBinom'uses</th>
-      <td><p>negative binomial error, appropriate only for non-negative integer y; the clump parameter k of the negative binomial is also fitted, and can be modeled with sdfunc</p></td>
-    </tr>
-    <tr>
-      <th>'Gauss'uses</th>
-      <td><p>Gaussian error, which can be a constant or modeled on the x's</p></td>
-    </tr>
-    <tr>
-      <th>'GaussMultResid'uses</th>
-      <td><p>Gaussian error modeled as a fraction of the prediction at each x; again, it can be a constant fraction or a fraction modeled on x
-(aappropriate only if predictions are strictly positive)</p></td>
-    </tr>
-    <tr>
-      <th>'Flat'is</th>
-      <td><p>a trivial model where the same likelihood is returned regardless of parameters or data. It is for testing how parameter search behaves in absence of data, as for describing an implied prior.</p></td>
     </tr>
     </table>
     

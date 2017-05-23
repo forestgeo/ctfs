@@ -16,7 +16,7 @@ RipUvK(splitdata, plotdim = c(1000, 500), rseq = c(5, 10, 20, 30, 40, 50),
 
 \item{mindbh}{the minimum dbh to include in results.}
 
-\item{xcol}{and ycol the names of the columns holding x and y coordinates.}
+\item{xcol, ycol}{the names of the columns holding x and y coordinates.}
 
 \item{debug}{TRUE or FALSE, calls browser during execution to pause program; only set TRUE to debug.}
 

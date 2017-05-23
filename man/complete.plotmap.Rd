@@ -12,35 +12,35 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
   outfile = "fullplotmap")
 }
 \arguments{
-\item{cns:}{a full census dataset (all species)}
+\item{cns}{a full census dataset (all species)}
 
-\item{spnames:}{names of species to map, using the mnemonic in the R tables}
+\item{spnames}{names of species to map, using the mnemonic in the R tables}
 
-\item{mindbh:}{smallest dbh to include}
+\item{mindbh}{smallest dbh to include}
 
-\item{export:}{set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)}
+\item{export}{set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)}
 
-\item{nospp:}{number of species to overlay; can be NULL or 0 for none}
+\item{nospp}{number of species to overlay; can be NULL or 0 for none}
 
-\item{plotdim:}{x and y plot dimensions}
+\item{plotdim}{x and y plot dimensions}
 
-\item{clrlist:}{colors to use for the species to be overlaid}
+\item{clrlist}{colors to use for the species to be overlaid}
 
-\item{ptsize:}{size of points, the first used for the background of all species, the second for the individual species}
+\item{ptsize}{size of points, the first used for the background of all species, the second for the individual species}
 
-\item{xrange:}{minimum and maximum x coordinates of area graphed}
+\item{xrange}{minimum and maximum x coordinates of area graphed}
 
-\item{yrange:}{minimum and maximum y coordinates of area graphed}
+\item{yrange}{minimum and maximum y coordinates of area graphed}
 
-\item{wd:}{graph width; see map() function}
+\item{wd}{graph width; see map() function}
 
-\item{ht:}{graph height, same units as wd}
+\item{ht}{graph height, same units as wd}
 
-\item{side:}{the side in inches of the graph; see map()}
+\item{side}{the side in inches of the graph; see map()}
 
-\item{filepath:}{folder to save output}
+\item{filepath}{folder to save output}
 
-\item{outfile:}{filename for output}
+\item{outfile}{filename for output}
 }
 \description{
 This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.

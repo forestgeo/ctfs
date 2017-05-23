@@ -113,13 +113,16 @@ since it's impossible to count them either as survivors or dead.</p>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>split1</th>
-      <td><p>and split2 must both be vectors of character variables with exactly as many elements as there are rows in the tables census1 and census2
-(or both can be NULL), for instance, species names, dbh categories, or quadrat numbers</p></td>
+      <th>alivecode</th>
+      <td><p>Generally, alivecode = "A" suffices, as this is the standard
+in CTFS data for a living tree; "AS" and "AB" are seldom used now</p></td>
     </tr>
     <tr>
-      <th>Generally, </th>
-      <td><p>alivecode="A" suffices, as this is the standard in CTFS data for a living tree; "AS" and "AB" are seldom used now</p></td>
+      <th>split1, split2</th>
+      <td><p>Must both be vectors of character variables with exactly
+as many elements as there are rows in the tables census1 and census2 (or
+both can be NULL), for instance, species names, dbh categories, or quadrat
+numbers</p></td>
     </tr>
     </table>
     

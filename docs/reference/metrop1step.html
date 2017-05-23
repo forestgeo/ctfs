@@ -98,14 +98,14 @@ is multiplied by (1/adjust); for every acceptance, by adjust^AdjExp, the latter 
 <p>The program calling metrop1step has to keep track of the scaling parameter: submitting it each time
 metrop1step is called, and saving the adjusted value for the next call. Given many parameters, a
 scale must be stored separately for every one.</p>
-<p>Note the return value is a vector of 6:</p><ol>
+<p>Note the return value is a vector of 6:</p><ul>
 <li><p>the new parameter value;</p></li>
 <li><p>the new scale (step size);</p></li>
 <li><p>a zero or a one to keep track of the acceptance rate;</p></li>
 <li><p>the likelihood of original parameter (if rejected) or new parameter (if accepted)</p></li>
 <li><p>the likelihood of original parameter (if accepted) or new parameter (if rejected)</p></li>
 <li><p>the new parameter tested (whether accepted or not)</p></li>
-</ol>
+</ul>
     
 
     <pre class="usage"><span class='fu'>metrop1step</span>(<span class='no'>func</span>, <span class='no'>start.param</span>, <span class='no'>scale.param</span>, <span class='no'>adjust</span>, <span class='no'>target</span>, <span class='no'>...</span>)</pre>

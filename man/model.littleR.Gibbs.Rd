@@ -11,7 +11,7 @@ model.littleR.Gibbs(cns1, cns2, mindbh, demog = NULL, sptable,
   showstep = 500, debug = FALSE)
 }
 \arguments{
-\item{cns1}{and cns2 the two census R Analytical Tables, with earlier census
+\item{cns1, cns2}{The two census R Analytical Tables, with earlier census
 first}
 
 \item{mindbh}{minimum dbh to be included; all trees smaller than mindbh are
@@ -29,7 +29,7 @@ rate, 2) SD of log(mortality), 3) center of distribution of little r, 4)
 rate (or SD) of the distribution of little r; if an asymmetric model is
 chosen, the latter is the initial value for both left and right rate}
 
-\item{modeltype, }{as listed above}
+\item{modeltype}{as listed above}
 
 \item{bad.modelparam}{name of a function which checks the model parameters
 for bad values; for modeltype asymexp, must be bad.asymexp.param, for
