@@ -1,8 +1,54 @@
 # forestr 0.0.0.9000
 
+Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation.
+
+Some limitations in merging documentation in forestr and CTFS-CRAN are:
+
+- the number of functions differ; there are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.
+
+- only 29 functions are named exactly the same in both packages; those functions are these:
+
+```R
+ [1] "abundance.Rd"            
+ [2] "abundance.spp.Rd"        
+ [3] "assemble.demography.Rd"  
+ [4] "ba.Rd"                   
+ [5] "biomass.change.Rd"       
+ [6] "elev.to.list.Rd"         
+ [7] "find.climits.Rd"         
+ [8] "findborderquads.Rd"      
+ [9] "growth.dbh.Rd"           
+[10] "growth.eachspp.Rd"       
+[11] "growth.indiv.Rd"         
+[12] "growth.Rd"               
+[13] "gxgy.to.hectindex.Rd"    
+[14] "gxgy.to.index.Rd"        
+[15] "gxgy.to.rowcol.Rd"       
+[16] "index.to.gxgy.Rd"        
+[17] "index.to.rowcol.Rd"      
+[18] "map.Rd"                  
+[19] "maptopo.Rd"              
+[20] "mortality.calculation.Rd"
+[21] "mortality.dbh.Rd"        
+[22] "mortality.eachspp.Rd"    
+[23] "mortality.Rd"            
+[24] "readelevdata.Rd"         
+[25] "recruitment.eachspp.Rd"  
+[26] "recruitment.Rd"          
+[27] "rowcol.to.index.Rd"      
+[28] "tojulian.Rd"             
+[29] "trim.growth.Rd"      
+```
+
+- although the 29 functions above have the same name, some differ in the source code, including arguments number and name, and the documentation.
+
+
+
+## Enhanced
+
+- To help users find the functions they need the online [functions' reference](https://forestgeo.github.io/forestr/reference/index.html) now gives more information about each function and better organized. Using the folder and file name where each function lived in the CTFSRPackage, I arranged the functions alphabetically by the name of folder, file and function. And I extracted text from the description of each function to give some indication of what each function does. I did all this pragmatically; it would improve with human curation.
+
 - Clone from ctfs 0.0.0.9005 ([advice](https://goo.gl/GhNLyz))
-
-
 
 # ctfs 0.0.0.9005
 

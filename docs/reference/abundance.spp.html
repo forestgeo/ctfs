@@ -94,6 +94,7 @@ given dbh categories. The dbh categories are set with <code>dbhbreaks</code>.</p
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+<<<<<<< HEAD
       <th>censdata</th>
       <td><p>an R Analytical Table for a full plot census. For basal area
 use a stem table. For abundance, use either the stem or full table to count
@@ -115,6 +116,30 @@ tree is alive. The default 'A' is the standard CTFS designation for living
 trees or stems</p></td>
     </tr>
     <tr>
+||||||| merged common ancestors
+=======
+      <th>censdata</th>
+      <td><p>an R Analytical Table for a full plot census. For basal area
+use a stem table. For abundance, use either the stem or full table to count
+stems or trees, respectively.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>either 'abund' (default) for abundance, 'ba' for basal area, or
+'agb'.</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
+      <th>alivecode</th>
+      <td><p>character, codes of the variable <code>status</code> that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems</p></td>
+    </tr>
+    <tr>
+>>>>>>> dev
       <th>dbhbreaks</th>
       <td><p>a vector of dbhs to define divisions of categories; the last
 category will be &gt;= the final division</p></td>

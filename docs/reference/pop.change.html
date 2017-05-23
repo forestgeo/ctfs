@@ -94,43 +94,22 @@ census date for all living individuals in that census, but the mean census
 date for all individuals alive in either census. Plants recruited between the two censuses get a first census date equal to
 the date on which the quadrat they later appear in was censused in the first
 census. Plants dead in the second census get a census date equal to the date on which their quadrat was censused</p>
-<p>The return value is a list of 6 components:</p>
+<p>The return value is a list of 6 components:</p><ul>
+<li><p>N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2</p></li>
+<li><p>N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array</p></li>
+<li><p>date1 mean date of first census in a matching array</p></li>
+<li><p>date2 mean date of second census in a matching array</p></li>
+<li><p>interval the time interval in years in a matching array</p></li>
+<li><p>little.r the rate of population change in a matching array, (log(N2)-log(N1))/time</p></li>
+</ul>
+
+    <p>This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.</p>
+<p>See abundance()</p>
     
 
     <pre class="usage"><span class='fu'>pop.change</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"abund"</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>,
   <span class='kw'>alivecode</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>), <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>split1</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>split2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>N.1</th>
-      <td><p>(or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2</p></td>
-    </tr>
-    <tr>
-      <th>N.2</th>
-      <td><p>(or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array</p></td>
-    </tr>
-    <tr>
-      <th>date1</th>
-      <td><p>mean date of first census in a matching array</p></td>
-    </tr>
-    <tr>
-      <th>date2</th>
-      <td><p>mean date of second census in a matching array</p></td>
-    </tr>
-    <tr>
-      <th>interval</th>
-      <td><p>the time interval in years in a matching array</p></td>
-    </tr>
-    <tr>
-      <th>little.r</th>
-      <td><p>the rate of population change in a matching array, (log(N2)-log(N1))/time</p>
-<p>This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.</p>
-<p>See abundance()</p></td>
-    </tr>
-    </table>
-    
+        
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
@@ -144,7 +123,6 @@ census. Plants dead in the second census get a census date equal to the date on 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
             
       <li><a href="#examples">Examples</a></li>
     </ul>
