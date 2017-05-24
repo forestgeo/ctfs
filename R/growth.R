@@ -42,10 +42,13 @@
 #' Pass the list to [assemble.demography()] (in utilities.r) with type = "g" to 
 #' convert the list to a data.frame.
 #'
+#' @inheritParams abundance
 #' @inheritParams biomass.change
+#' @inheritParams trim.growth
 #' @param rounddown If TRUE, all dbh < 55 are rounded down to the nearest
 #'   multiple of 5.
-#' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
+#' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
+#'   or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
 #' @param stdev Logical. Default (FALSE) returns confidence limits, otherwise
 #'   returns the SD in growth rate per group.
 #' @param growthcol defines how growth is measured, either 'dbh'or
@@ -122,33 +125,34 @@
 #'
 'growth.indiv'
 
-#' This is where growth rates are excluded. It is based on  a linear m...
+#' Exclude growth rates
 #'
 #' @description
+#' This is where growth rates are excluded. It is based on a linear model
+#' estimating the standard deviation of dbh measures (due to error, that is);
+#' the parameters slope and intercept define the linear relationship between 
+#' this error deviation and dbh. Any case where the second dbh measure is more
+#' than 4 standard deviations below the first is marked false, meaning it will
+#' be excluded from growth measurements. The default values of slope and
+#' intercept are based on dbh remeasure tests done in both 1995 and 2000 at BCI.
+#' A line was fitted through the absolute dbh errors as a function of dbh in
+#' both years; the average slope and intercept is used here. The function also
+#' excludes any growth rate > 75 mm per yr, cases where the stemID changes, and
+#' if the POM changes by more than 5%.
 #'
-#' This is where growth rates are excluded. It is based on 
-#' a linear model estimating the standard deviation of dbh measures (due to error, that
-#' is); the parameters slope and intercept define the linear relationship between
-#' this error deviation and dbh. Any case where the second dbh measure is more than
-#'4 standard deviations below the first is marked false, meaning it will be excluded from
-#' growth measurements. The default values of slope and intercept are based on dbh
-#' remeasure tests done in both 1995 and 2000 at BCI. A line was fitted through the absolute 
-#' dbh errors as a function of dbh in both years; the average slope and intercept is
-#' used here. The function also excludes any growth rate > 75 mm per yr, cases
-#' where the stemID changes, and if the POM changes by more than 5%. 
-#'
-#' All parameters for excluding growth measures based on error can be adjusted: 
-#' to include all measures, set maxgrow and err.limit to very high numbers, such as 10000;
-#' to include POM changes, set pomcut to a high number, such as 10;
-#' to include cases where stemID changed, set exclude.stem.change=FALSE.
-#'
-#' This function is usually only used inside the other growth functions. 
-#'
-#' With exclude.stem.change==FALSE, keep all cases where stem changes, regardless of growth (it does not make sense to exclude
-#' a record based on growth when the growth is based on different stems).
-#'
-#' Note that trees are exclude if cens1$dbh<mindbh, but not if cens2$dbh<mindbh. 
-#'
+#' @details
+#' This function is usually only used inside the other growth functions. Note 
+#' that trees are exclude if `cens1$dbh < mindbh`, but not if `cens2$dbh < 
+#' mindbh`. All parameters for excluding growth measures based on error can be
+#' adjusted.
+#' 
+#' @param maxgrow,err.limit A number. Numbers such as 10000 are high and will
+#'   return all measures
+#' @param pomcut A number. To include POM changes, set it to a high number, such
+#'   as 10
+#' @param exclude.stem.change Logical. FALSE includes cases where stemID 
+#'   changed, regardless of growth (it does not make sense to exclude a record
+#'   based on growth when the growth is based on different stems).
 #'
 'trim.growth'
 

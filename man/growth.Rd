@@ -17,16 +17,25 @@ stem.}
 \item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
 multiple of 5.}
 
-\item{method}{Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.}
+\item{method}{Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
+or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.}
 
 \item{stdev}{Logical. Default (FALSE) returns confidence limits, otherwise
 returns the SD in growth rate per group.}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
 
 \item{mindbh}{the minimum diameter above which the counts are done; if NULL,
 all (living) are included}
 
 \item{growthcol}{defines how growth is measured, either 'dbh'or
 'agb'(agb=biomass)}
+
+\item{err.limit}{A number. Numbers such as 10000 are high and will
+return all measures}
+
+\item{maxgrow}{A number. Numbers such as 10000 are high and will
+return all measures}
 
 \item{split1}{a vector of categories, one per individual}
 
