@@ -8,6 +8,15 @@ in_both
 
 
 
+
+library(dplyr)
+library(forestr)
+devtools::load_all()
+filter_args_by_fun("growth")
+
+
+
+
 #' @inheritParams biomass.change
 #' param mindbh is the minimum dbh to include in results
 #' param dbhunit Either 'mm'or 'cm'
