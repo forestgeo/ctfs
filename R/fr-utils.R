@@ -329,6 +329,87 @@ write_pkgdown_yml <- function(raw_strings) {
 
 
 
+# table params ------------------------------------------------------------
+
+# The goal is to know 
+# - what parameters are documented, 
+# - which parameters are documented in more than one function, 
+# - which parameters are named differently but their definition indicates they
+# should be named the same.
+
+# The taks is therefore to table documented parameters along with the
+# functions where they are documented.
+
+# The scope is the functions that come from ctfs; not new functions ones.
+
+
+
+# library(dplyr)
+# library(stringr)
+# library(tidyr)
+# load_all()
+
+
+
+# String to match functions used to split strings in by functions
+functions_splitter <- function() {
+  fff <- get_funs(raw_strings())
+  fff$fun <- paste0("[[:cntrl:]]'", fff$fun, "'", "[[:cntrl:]]")
+  paste0(fff$fun, collapse = "|")
+}
+
+# From functions in R/, subset those with documented parameters
+subset_fun_with_param <- function(string) {
+  splt <- string %>%
+    stringr::str_split(functions_splitter()) %>% 
+    unlist() 
+  only_uselesss_functions <- length(splt) == 1
+  splt_funs <- if (only_uselesss_functions) {
+    splt
+  } else {
+    splt[1:(length(splt) - 1)]
+  }
+  
+  if (string %>% get_funs() %>% nrow == 0) {
+      tibble::tibble(fun = NA_character_, splt_funs) %>% 
+        dplyr::filter(str_detect(splt_funs, "@param"))  # xxx no need?
+  } else {
+    cbind(
+      string %>% get_funs(),
+      tibble::tibble(splt_funs)
+    ) %>% 
+      dplyr::filter(str_detect(splt_funs, "@param"))
+  }
+}
+
+table_params <- function(string){
+  with_params <- subset_fun_with_param(string)
+  if (nrow(with_params) == 0) {
+    tibble::tibble(fun = NA_character_, definition = NA_character_)
+  } else {
+    with_params %>%
+      dplyr::group_by(fun, splt_funs) %>%
+      mutate(params = stringr::str_extract_all(splt_funs, "@param [^@]+")) %>%
+      dplyr::ungroup() %>%
+      dplyr::select(fun, params) %>%
+      tidyr::unnest() %>%
+      dplyr::mutate(
+        params = stringr::str_replace(params, "@param ", ""),
+        definition = stringr::str_replace(params, "^[^ ]+ ", ""),
+        params = stringr::str_extract(params, "^[^ ]+ ")
+      )
+  }
+}
+
+# Tables all documented parameters
+table_params_all <- function(string = raw_strings()) {
+  purrr::map_df(string, table_params) %>% 
+    dplyr::arrange(params, fun) %>% 
+    rm_na_row() %>% 
+    dplyr::filter(!is.na(fun))
+}
+
+
 
 
 
