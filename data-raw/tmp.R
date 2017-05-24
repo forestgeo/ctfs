@@ -1,15 +1,19 @@
 # Compare forestr and CTFS-CRAN -------------------------------------------
 
+library(dplyr)
 fr <- dir("man")
 cran <- dir("../CTFS-CRAN/man/")
 setdiff(cran, fr)
 in_both <- intersect(cran, fr)
-in_both
+in_both <- stringr::str_replace(in_both, ".Rd$", "")
+
+done <- c("abundance", "abundance.spp", "assemble.demography", "ba", 
+  "biomass.change", "elev.to.list", "findborderquads", "find.climits", 
+  "fgrowth.dbh", "growth", "growth.trim")
+
+setdiff(in_both, done) %>% sort()
 
 
-
-
-library(dplyr)
 library(forestr)
 devtools::load_all()
 filter_args_by_fun("growth")
@@ -17,15 +21,12 @@ filter_args_by_fun("growth")
 
 
 
-#' @inheritParams biomass.change
-#' param mindbh is the minimum dbh to include in results
-#' param dbhunit Either 'mm'or 'cm'
-#' param split1,split2 must both be vectors of character variables with exactly
-#'   as many elements as there are rows in the tables `census1` and `census2` 
-#'   (or both can be NULL), for instance, species names, dbh categories, or 
-#'   quadrat numbers.
-#' param err.limit See [trim.growth()].
-#' param maxgrow See [trim.growth()].
+
+
+
+
+
+
 
 
 
