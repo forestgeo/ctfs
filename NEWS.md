@@ -1,5 +1,7 @@
 # forestr 0.0.0.9000
 
+- Table documented parameters in each function from source code with internal function `table_params_all()`. A copy of the table is saved as [data-raw/params_table.csv](xxxaddlink).
+
 Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation.
 
 Some limitations in merging documentation in forestr and CTFS-CRAN are:
