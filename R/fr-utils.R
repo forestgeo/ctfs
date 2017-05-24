@@ -393,11 +393,16 @@ table_params <- function(string){
 }
 
 # Tables all documented parameters
-table_params_all <- function(string = raw_strings()) {
-  purrr::map_df(string, table_params) %>% 
+table_params_all <- function(string = raw_strings(), update = FALSE) {
+  if(!update) {
+    message("To update ./data-raw/params_table.csv, re-run with update = TRUE")
+  }
+  tab <- purrr::map_df(string, table_params) %>% 
     dplyr::arrange(params, fun) %>% 
     rm_na_row() %>% 
     dplyr::filter(!is.na(fun))
+  if(update) {readr::write_csv(tab, "./data-raw/params_table.csv")}
+  tab
 }
 
 
