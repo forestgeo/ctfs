@@ -331,15 +331,13 @@ write_pkgdown_yml <- function(raw_strings) {
 
 # table params ------------------------------------------------------------
 
-# The goal is to know 
-# - what parameters are documented, 
-# - which parameters are documented in more than one function, 
+# The goal is to know
+# - what parameters are documented,
+# - which parameters are documented in more than one function,
 # - which parameters are named differently but their definition indicates they
 # should be named the same.
-
 # The taks is therefore to table documented parameters along with the
 # functions where they are documented.
-
 # The scope is the functions that come from ctfs; not new functions ones.
 
 

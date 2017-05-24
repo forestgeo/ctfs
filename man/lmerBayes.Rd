@@ -64,7 +64,7 @@ absence of data, as for describing an implied prior.
 
 \item{debug}{TRUE or FALSE, whether to pause and debug; for advanced users and developers.}
 
-\item{...}{The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).}
+\item{...}{The typical R means for submitting additional parameters for various functions used in the model (\code{model}, \code{sdfunc}, \code{badparam}, \code{badSDparam}).}
 
 \item{ycol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
 }
