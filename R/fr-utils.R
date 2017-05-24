@@ -380,14 +380,15 @@ table_params <- function(string){
   } else {
     with_params %>%
       dplyr::group_by(fun, splt_funs) %>%
-      mutate(params = stringr::str_extract_all(splt_funs, "@param [^@]+")) %>%
+      mutate(params = stringr::str_extract_all(splt_funs, "@param [^@]+")) %>% 
       dplyr::ungroup() %>%
       dplyr::select(fun, params) %>%
       tidyr::unnest() %>%
       dplyr::mutate(
         params = stringr::str_replace(params, "@param ", ""),
         definition = stringr::str_replace(params, "^[^ ]+ ", ""),
-        params = stringr::str_extract(params, "^[^ ]+ ")
+        params = stringr::str_extract(params, "^[^ ]+ "),
+        params = stringr::str_trim(params)
       )
   }
 }
@@ -402,6 +403,7 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
     rm_na_row() %>% 
     dplyr::filter(!is.na(fun))
   if(update) {
+    devtools::use_data(params_table, overwrite = TRUE, internal = TRUE)
     readr::write_csv(params_table, "./data-raw/params_table.csv")
     message("Writting (or rewritting) to './data-raw/params_table.csv'"
     )
@@ -409,6 +411,11 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
   params_table
 }
 
+filter_args_by_fun <- function(funname) {
+  par <- names(formals(funname))
+  params_table %>%  # must be in ".R/sysdata.rda"
+    dplyr::filter(params %in% par)
+}
 
 
 

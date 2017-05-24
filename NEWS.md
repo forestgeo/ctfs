@@ -1,14 +1,39 @@
 # forestr 0.0.0.9000
 
 
-## Paramenters documentation
+## Reduce duplicated paramenters-documentation
 
-* Table documented parameters in each function from source code with internal function `table_params_all()`. A copy of the table is saved as [data-raw/params_table.csv](https://goo.gl/PAGjYi). The goal is to know, for example:
+Ideally, each parameter should be documented once and all functions using it should inherit that parameter. This makes it easier to maintain documentation because when a definition changes it needs to be updated in only one place.
 
-    - what parameters are documented, 
-    - which parameters are documented in more than one function,
-    - which parameters are named differently but their definition indicates they
-should be named the same.
+The goal is to know, for example, which parameters are documented in more than one function and have multiple definitions. 
+
+Now we can get this information with the internal function `table_params_all()` and `filter_args_by_fun()`, with which we can get a table like this:
+
+```R
+> filter_args_by_fun("growth")
+# A tibble: 15 x 3
+                   fun    params                               definition
+                 <chr>     <chr>                                    <chr>
+ 1      biomass.change   census1 The R Analytical Table for a single c...
+ 2      biomass.change   census2 The matching R Analytical Table for a...
+ 3           abundance   dbhunit 'cm' or 'mm', only used for basal are...
+ 4              growth growthcol defines how growth is measured, eithe...
+ 5              growth    method Use 'I' to calculate annual dbh incre...
+ 6           abundance    mindbh the minimum diameter above which the ...
+ 7    complete.plotmap    mindbh         "smallest dbh to include\r\n#' "
+ 8 model.littleR.Gibbs    mindbh minimum dbh to be included; all trees...
+ 9   NeighborDensities    mindbh (10) minimum size of neighbors to be ...
+10              RipUvK    mindbh the minimum dbh to include in results...
+11          spparea.sq    mindbh        "the minimum dbh included\r\n#' "
+12              growth rounddown If TRUE, all dbh < 55 are rounded dow...
+13           abundance    split1 a vector of categories, one per indiv...
+14           abundance    split2 another vector of categories, one per...
+15              growth     stdev Logical. Default (FALSE) returns conf...
+```
+
+Note for example that `mindbh` is duplicated.
+
+* Table documented parameters in each function from source code with internal function `table_params_all()`. A copy of the table is saved as [data-raw/params_table.csv](https://goo.gl/PAGjYi).
 
 * Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation. Some limitations in merging documentation in forestr and CTFS-CRAN are:
 
