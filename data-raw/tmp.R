@@ -32,9 +32,14 @@ subset_fun_with_param <- function(string) {
   splt <- string %>%
     stringr::str_split(functions_splitter()) %>% 
     unlist() 
-  splt_funs <- ifelse(length(splt) == 1, splt, splt[1:(length(splt) - 1)])
+  only_uselesss_functions <- length(splt) == 1
+  splt_funs <- if (only_uselesss_functions) {
+    splt
+  } else {
+    splt[1:(length(splt) - 1)]
+  }
   
-  if (string %>% get_funs() %>% nrow() == 0) {
+  if (string %>% get_funs() %>% nrow == 0) {
       tibble(fun = NA_character_, splt_funs) %>% 
         filter(str_detect(splt_funs, "@param"))
   } else {
@@ -49,21 +54,43 @@ subset_fun_with_param <- function(string) {
 
 
 table_params <- function(string){
-subset_fun_with_param(string) %>% 
-  group_by(fun) %>% 
-  mutate(params = str_extract_all(splt_funs, "@param [^@]+")) %>% 
-  ungroup() %>% 
-  select(fun, params) %>% 
-  unnest() %>% 
-  mutate(
-    params = str_replace(params, "@param ", ""),
-    definition = str_replace(params, "^[^ ]+ ", ""),
-    params = str_extract(params, "^[^ ]+ ")
-  ) %>% 
-    arrange(params, fun)
+  with_params <- subset_fun_with_param(string)
+  if (nrow(with_params) == 0) {
+    tibble(fun = NA_character_, splt_funs = NA_character_)
+  } else {
+    with_params %>% 
+      group_by(fun, splt_funs) %>% 
+      mutate(params = str_extract_all(splt_funs, "@param [^@]+")) %>% 
+      ungroup() %>% 
+      select(fun, params) %>% 
+      unnest() %>% 
+      mutate(
+        params = str_replace(params, "@param ", ""),
+        definition = str_replace(params, "^[^ ]+ ", ""),
+        params = str_extract(params, "^[^ ]+ ")
+      ) %>% 
+      arrange(params, fun)
+  }
 }
 
-table_params(raw_strings())  # xxxcont. solve problem. each parameter seems to be repeates for each function
+
+
+# implement ----
+
+purrr::map_df(raw_strings(), table_params)
+
+
+
+# Test cases ----
+
+for (i in seq_along(raw_strings())) {
+  table_params(raw_strings()[[i]])
+  print(i)
+}
+
+raw_strings()[4] %>% table_params()
+raw_strings()[10] %>% table_params()
+
 
 
 
