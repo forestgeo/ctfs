@@ -1,14 +1,20 @@
 # forestr 0.0.0.9000
 
-- Table documented parameters in each function from source code with internal function `table_params_all()`. A copy of the table is saved as [data-raw/params_table.csv](xxxaddlink).
 
-Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation.
+## Paramenters documentation
 
-Some limitations in merging documentation in forestr and CTFS-CRAN are:
+* Table documented parameters in each function from source code with internal function `table_params_all()`. A copy of the table is saved as [data-raw/params_table.csv](https://goo.gl/PAGjYi). The goal is to know, for example:
 
-- the number of functions differ; there are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.
+    - what parameters are documented, 
+    - which parameters are documented in more than one function,
+    - which parameters are named differently but their definition indicates they
+should be named the same.
 
-- only 29 functions are named exactly the same in both packages; those functions are these:
+* Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation. Some limitations in merging documentation in forestr and CTFS-CRAN are:
+
+    - the number of functions differ; there are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.
+
+    - only 29 functions are named exactly the same in both packages; those functions are these:
 
 ```R
  [1] "abundance.Rd"            
@@ -42,7 +48,7 @@ Some limitations in merging documentation in forestr and CTFS-CRAN are:
 [29] "trim.growth.Rd"      
 ```
 
-- although the 29 functions above have the same name, some differ in the source code, including arguments number and name, and the documentation.
+NOTE: although the 29 functions above have the same name, some differ in the source code, including arguments number and name, and the documentation.
 
 
 
