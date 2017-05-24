@@ -32,38 +32,78 @@ subset_fun_with_param <- function(string) {
   splt <- string %>%
     stringr::str_split(functions_splitter()) %>% 
     unlist() 
-  splt_funs <- ifelse(length(splt) == 1, splt, splt[1:(length(splt) - 1)])
+  only_uselesss_functions <- length(splt) == 1
+  splt_funs <- if (only_uselesss_functions) {
+    splt
+  } else {
+    splt[1:(length(splt) - 1)]
+  }
   
-  if (string %>% get_funs() %>% nrow() == 0) {
-      tibble(fun = NA_character_, splt_funs) %>% 
-        filter(str_detect(splt_funs, "@param"))
+  if (string %>% get_funs() %>% nrow == 0) {
+      tibble::tibble(fun = NA_character_, splt_funs) %>% 
+        dplyr::filter(str_detect(splt_funs, "@param"))
   } else {
     cbind(
       string %>% get_funs(),
-      tibble(splt_funs)
+      tibble::tibble(splt_funs)
     ) %>% 
-      filter(str_detect(splt_funs, "@param"))
+      dplyr::filter(str_detect(splt_funs, "@param"))
+  }
+}
+
+table_params <- function(string){
+  with_params <- subset_fun_with_param(string)
+  if (nrow(with_params) == 0) {
+    tibble::tibble(fun = NA_character_, definition = NA_character_)
+  } else {
+    with_params %>%
+      dplyr::group_by(fun, splt_funs) %>%
+      mutate(params = stringr::str_extract_all(splt_funs, "@param [^@]+")) %>%
+      dplyr::ungroup() %>%
+      dplyr::select(fun, params) %>%
+      tidyr::unnest() %>%
+      dplyr::mutate(
+        params = stringr::str_replace(params, "@param ", ""),
+        definition = stringr::str_replace(params, "^[^ ]+ ", ""),
+        params = stringr::str_extract(params, "^[^ ]+ ")
+      )
   }
 }
 
 
 
-table_params <- function(string){
-subset_fun_with_param(string) %>% 
-  group_by(fun) %>% 
-  mutate(params = str_extract_all(splt_funs, "@param [^@]+")) %>% 
-  ungroup() %>% 
-  select(fun, params) %>% 
-  unnest() %>% 
-  mutate(
-    params = str_replace(params, "@param ", ""),
-    definition = str_replace(params, "^[^ ]+ ", ""),
-    params = str_extract(params, "^[^ ]+ ")
-  ) %>% 
-    arrange(params, fun)
+# implement ----
+# Tables all documented parameters
+table_params_all <- function(string = raw_strings()) {
+  purrr::map_df(string, table_params)
 }
 
-table_params(raw_strings())  # xxxcont. solve problem. each parameter seems to be repeates for each function
+table_params_all() %>% View()
+
+
+
+
+# Test cases ----
+
+# has content
+table_params(raw_strings()[4])
+# all na
+table_params(raw_strings()[5])
+
+
+
+
+
+
+
+
+for (i in seq_along(raw_strings())) {
+  print(ncol(table_params(raw_strings()[[i]])))
+}
+
+raw_strings()[4] %>% table_params()
+raw_strings()[10] %>% table_params()
+
 
 
 
