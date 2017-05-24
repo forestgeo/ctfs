@@ -75,7 +75,7 @@ table_params <- function(string){
 # implement ----
 # Tables all documented parameters
 table_params_all <- function(string = raw_strings()) {
-  purrr::map_df(string, table_params)
+  purrr::map_df(string, table_params) %>% arrange(params, fun) %>% rm_na_row()
 }
 
 table_params_all() %>% View()
@@ -89,13 +89,6 @@ table_params_all() %>% View()
 table_params(raw_strings()[4])
 # all na
 table_params(raw_strings()[5])
-
-
-
-
-
-
-
 
 for (i in seq_along(raw_strings())) {
   print(ncol(table_params(raw_strings()[[i]])))
