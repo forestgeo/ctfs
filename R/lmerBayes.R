@@ -109,7 +109,7 @@
 #' @param showstep Information is printed to the screen every showstep steps.
 #' @param burnin The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.
 #' @param debug TRUE or FALSE, whether to pause and debug; for advanced users and developers.
-#' @param ... The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).
+#' @param ... The typical R means for submitting additional parameters for various functions used in the model (`model`, `sdfunc`, `badparam`, `badSDparam`).
 #'
 #' @examples
 #' \dontrun{
