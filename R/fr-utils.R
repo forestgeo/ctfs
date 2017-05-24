@@ -403,7 +403,8 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
     dplyr::filter(!is.na(fun))
   if(update) {
     readr::write_csv(params_table, "./data-raw/params_table.csv")
-    devtools::use_data(params_table, overwrite = TRUE, internal = TRUE)
+    message("Writting (or rewritting) to './data-raw/params_table.csv'"
+    )
     }
   params_table
 }
