@@ -344,13 +344,6 @@ write_pkgdown_yml <- function(raw_strings) {
 
 
 
-# library(dplyr)
-# library(stringr)
-# library(tidyr)
-# load_all()
-
-
-
 # String to match functions used to split strings in by functions
 functions_splitter <- function() {
   fff <- get_funs(raw_strings())
@@ -372,13 +365,13 @@ subset_fun_with_param <- function(string) {
   
   if (string %>% get_funs() %>% nrow == 0) {
       tibble::tibble(fun = NA_character_, splt_funs) %>% 
-        dplyr::filter(str_detect(splt_funs, "@param"))  # xxx no need?
+        dplyr::filter(stringr::str_detect(splt_funs, "@param"))  # xxx no need?
   } else {
     cbind(
       string %>% get_funs(),
       tibble::tibble(splt_funs)
     ) %>% 
-      dplyr::filter(str_detect(splt_funs, "@param"))
+      dplyr::filter(stringr::str_detect(splt_funs, "@param"))
   }
 }
 
