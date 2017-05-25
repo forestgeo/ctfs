@@ -422,5 +422,72 @@ filter_args_by_fun <- function(funname) {
 
 
 
+# Find undocumented arguments ------------------------------------------------
+
+# Find arguments that are undocumented, considering that some arguments are
+# formatted as argument1,argument2,argument3
+
+# Helpers
+
+# e.g. args_of("growth.eachspp")
+args_of <- function(x) {names(formals(x))}
+
+args_undocumented <- function(fun) {
+  valid_functions <- unique(get_funs(raw_strings())$fun)
+  stopifnot(fun %in% valid_functions)
+  
+  not_explicitely_documented <- setdiff(
+    names(formals(fun)),
+    filter_args_by_fun(fun)$params
+  )
+  setdiff(
+    not_explicitely_documented,
+    unique(params_table$params)
+  )
+}
+
+args_multi_documented <- function(args) {
+  patt <- "@param [A-z0-9_\\.]+,[A-z0-9_\\.]+"
+  stringr::str_extract_all(raw_strings(), patt) %>% 
+    tibble() %>% 
+    tidyr::unnest() %>% 
+    setNames("fun") %>% 
+    mutate(fun = stringr::str_replace(fun, "@param ", "")) %>% 
+    dplyr::filter(stringr::str_detect(fun, args))
+}
+
+
+
+# Implementation (wrapper)
+
+undocumented_args <- function(fun) {
+  undoc <- args_undocumented(fun)
+  multi_documented_args <- args_multi_documented(undoc)$fun %>% 
+    stringr::str_split(",") %>% 
+    unlist()
+  setdiff(undoc, multi_documented_args)
+}
+
+
+
+# Example
+#' \dontrun{
+#' args_of("growth.eachspp")
+#' 
+#' # Arguments of growth.eachspp are documented elsewhere, and inherited
+#' filter_args_by_fun("growth.eachspp")
+#' 
+#' # But mabe not all. 
+#' # `undocumented_args()` considers that some arguments are documented as
+#' # arg1,arg2,arg3,
+#' undocumented_args("growth.eachspp")
+#' }
+
+
+
+
+
+
+
 # end ---------------------------------------------------------------------
 
