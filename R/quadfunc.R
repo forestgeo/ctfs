@@ -52,12 +52,15 @@
 #'
 'convert.rowcol'
 
-#' Assign any location(s) a single index identifying the quadrat. The ...
+#' Assign any location(s) a single index identifying the quadrat.
 #'
 #' @description
 #'
-#' Assign any location(s) a single index identifying the quadrat. The index runs from 1 to the number of quadrats. 
+#' Assign any location(s) a single index identifying the quadrat. The index runs
+#' from 1 to the number of quadrats.
 #'
+#' @inheritParams gxgy.to.hectindex
+#' @inheritParams findborderquads
 #'
 'gxgy.to.index'
 
@@ -88,11 +91,14 @@
 #'
 'gxgy.to.rowcol'
 
-#' gxgy.to.hectindex gxgy.to.lxly  Given global coordinates and quadra...
-#'
+#' Converts GX GY Coordinates to a Hectare Number. 
 #' 
-#'
-#'
+#' @description
+#' Takes an x, y plot location and identifies the hectare number.
+#' 
+#' @inheritParams findborderquads
+#' @param gx,gy Tree x and y coordinate.
+#' 
 'gxgy.to.hectindex'
 
 #' Given global coordinates and quadrat and plot dimensions, calculate...

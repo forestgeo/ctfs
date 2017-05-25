@@ -253,6 +253,8 @@ growth,growthcol,"defines how growth is measured, either 'dbh'or
 #' 
 #'
 #' "
+gxgy.to.hectindex,"gx,gy","Tree x and y coordinate.
+#' "
 imageGraph,"h,w","height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches); 
 #' ignored if newgraph=FALSE
 #' "

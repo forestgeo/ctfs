@@ -2,10 +2,15 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.hectindex}
 \alias{gxgy.to.hectindex}
-\title{gxgy.to.hectindex gxgy.to.lxly  Given global coordinates and quadra...}
+\title{Converts GX GY Coordinates to a Hectare Number.}
 \usage{
 gxgy.to.hectindex(gx, gy, plotdim = c(1000, 500))
 }
+\arguments{
+\item{gx, gy}{Tree x and y coordinate.}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+}
 \description{
-gxgy.to.hectindex gxgy.to.lxly  Given global coordinates and quadra...
+Takes an x, y plot location and identifies the hectare number.
 }
