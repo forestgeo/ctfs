@@ -166,6 +166,9 @@ map,elevdata,"Elevation data can be submitted, then a topo map is overlaid. Elev
 elev.to.list,elevfile,"A data frame with x, y coordinates and elevation, 
 #'   bcielev.info.
 #' "
+trim.growth,"err.limit,maxgrow","A number. Numbers such as 10000 are high and will
+#'   return all measures
+#' "
 lmerBayes,error,"A character variable with 6 possible values: ""Binom"",
 #'   ""NegBinom"", ""Pois"", ""Gauss"", ""GaussMultResid"", or ""Flat"".
 #'   - 'Binom' uses binomial error for residuals
@@ -297,9 +300,6 @@ map,maintitle,"A title to appear at the top of the page, above the species name.
 graph.abundmodel,makeleg,"whether to add legend
 #' "
 imageGraph,matrixdata,"a list having components x, y, and mat, exactly the output of coldata.to.imagemat
-#' "
-trim.growth,"maxgrow,err.limit","A number. Numbers such as 10000 are high and will
-#'   return all measures
 #' "
 growth,method,"Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
 #'   or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
