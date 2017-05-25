@@ -117,19 +117,25 @@
 #' }
 'growth.dbh'
 
-#' This returns a complete table with growth rate of every individual,...
+#' Table growth rate of every individual both relative and dbh-increment.
 #'
 #' @description
-#'
-#' This returns a complete table with growth rate of every individual, both relative and dbh-increment. The table
-#' also includes most other key pieces of information for every individual: species, dbh, coordinates. Growth is trimmed with trim.growth,
-#' and growth is returned as NA if the individual is excluded; note, though, that every individual tree is always included in the table, even
-#' if growth=NA. Arguments are the same as in growth().
+#' Table growth rate of every individual both relative and dbh-increment.
+#' 
+#' @inheritParams growth
+#' 
+#' @return
+#' This returns a complete table with growth rate of every individual, both 
+#' relative and dbh-increment. The table also includes most other key pieces of 
+#' information for every individual: species, dbh, coordinates. Growth is 
+#' trimmed with [trim.growth()], and growth is returned as NA if the individual
+#' is excluded; note, though, that every individual tree is always included in
+#' the table, even if growth = NA. Arguments are the same as in [growth()].
 #'
 #' @examples
 #' \dontrun{
-#' growth.table=growth.indiv(bci.full5,bci.full6)}
-#'
+#' growth.table = growth.indiv(bci.full5, bci.full6)
+#' }
 #'
 'growth.indiv'
 
