@@ -411,7 +411,7 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
   params_table
 }
 
-filter_args_by_fun <- function(funname) {
+args_filter_by_fun <- function(funname) {
   par <- names(formals(funname))
   params_table %>%  # must be in ".R/sysdata.rda"
     dplyr::filter(params %in% par)
@@ -438,7 +438,7 @@ args_undocumented <- function(fun) {
   
   not_explicitely_documented <- setdiff(
     names(formals(fun)),
-    filter_args_by_fun(fun)$params
+    args_filter_by_fun(fun)$params
   )
   setdiff(
     not_explicitely_documented,
@@ -475,7 +475,7 @@ undocumented_args <- function(fun) {
 #' args_of("growth.eachspp")
 #' 
 #' # Arguments of growth.eachspp are documented elsewhere, and inherited
-#' filter_args_by_fun("growth.eachspp")
+#' args_filter_by_fun("growth.eachspp")
 #' 
 #' # But mabe not all. 
 #' # `undocumented_args()` considers that some arguments are documented as
