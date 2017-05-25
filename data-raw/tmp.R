@@ -1,30 +1,31 @@
 # Compare forestr and CTFS-CRAN -------------------------------------------
 
+
+
+# setup -------------------------------------------------------------------
+
 library(dplyr)
+library(forestr)
+devtools::load_all()
+
 fr <- dir("man")
 cran <- dir("../CTFS-CRAN/man/")
 setdiff(cran, fr)
 in_both <- intersect(cran, fr)
 in_both <- stringr::str_replace(in_both, ".Rd$", "")
 
+# record ------------------------------------------------------------------
+
 done <- c("abundance", "abundance.spp", "assemble.demography", "ba", 
   "biomass.change", "elev.to.list", "findborderquads", "find.climits", 
-  "fgrowth.dbh", "growth", "growth.trim")
+  "growth.dbh", "growth", "trim.growth")
 
 setdiff(in_both, done) %>% sort()
 
+# next --------------------------------------------------------------------
 
-library(forestr)
-devtools::load_all()
+filter_args_by_fun("growth.eachspp")
 filter_args_by_fun("growth")
-
-
-
-
-
-
-
-
 
 
 
