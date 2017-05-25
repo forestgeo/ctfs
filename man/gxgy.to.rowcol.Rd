@@ -2,10 +2,20 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.rowcol}
 \alias{gxgy.to.rowcol}
-\title{Returns row and column for any set of coordinates. Rows and columns...}
+\title{Returns row and column for any set of coordinates.}
 \usage{
 gxgy.to.rowcol(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 }
+\arguments{
+\item{gx}{Tree x and y coordinate.}
+
+\item{gy}{Tree x and y coordinate.}
+
+\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+}
 \description{
-Returns row and column for any set of coordinates. Rows and columns both start at 1, not 0.
+Returns row and column for any set of coordinates. Rows and columns both
+start at 1, not 0.
 }

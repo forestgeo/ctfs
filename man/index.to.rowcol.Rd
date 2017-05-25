@@ -2,10 +2,16 @@
 % Please edit documentation in R/quadfunc.R
 \name{index.to.rowcol}
 \alias{index.to.rowcol}
-\title{Calculate the row and column given the quadrat index, as calculated...}
+\title{Calculate the row and column given the quadrat index.}
 \usage{
 index.to.rowcol(index, gridsize = 20, plotdim = c(1000, 500))
 }
+\arguments{
+\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+}
 \description{
-Calculate the row and column given the quadrat index, as calculated in gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming.
+Calculate the row and column given the quadrat index, as calculated in
+gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming.
 }

@@ -64,12 +64,13 @@
 #'
 'gxgy.to.index'
 
-#' Calculate the row and column given the quadrat index, as calculated...
+#' Calculate the row and column given the quadrat index.
 #'
 #' @description
+#' Calculate the row and column given the quadrat index, as calculated in
+#' gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming.
 #'
-#' Calculate the row and column given the quadrat index, as calculated in gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming. 
-#'
+#' @inheritParams gxgy.to.index
 #'
 'index.to.rowcol'
 
@@ -82,13 +83,14 @@
 #'
 'index.to.gxgy'
 
-#' Returns row and column for any set of coordinates. Rows and columns...
-#'
+#' Returns row and column for any set of coordinates.
+#' 
 #' @description
-#'
-#' Returns row and column for any set of coordinates. Rows and columns both start at 1, not 0. 
-#'
-#'
+#' Returns row and column for any set of coordinates. Rows and columns both
+#' start at 1, not 0.
+#' 
+#' @inheritParams gxgy.to.index
+#' 
 'gxgy.to.rowcol'
 
 #' Converts GX GY Coordinates to a Hectare Number. 

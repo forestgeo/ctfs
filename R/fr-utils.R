@@ -468,6 +468,16 @@ undocumented_args <- function(fun) {
   setdiff(undoc, multi_documented_args)
 }
 
+# Wrap multiple functions to explore arguments documentation
+args_expore <- function(x) {
+  list(
+    of = args_of(x),
+    by_fun = args_filter_by_fun(x),
+    undoc = undocumented_args(x)
+  )
+}
+
+
 
 
 # Example
