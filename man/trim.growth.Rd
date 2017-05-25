@@ -9,7 +9,7 @@ trim.growth(cens1, cens2, time, slope = 0.006214, intercept = 0.9036,
   dbhunit = "mm", exclude.stem.change = TRUE)
 }
 \arguments{
-\item{maxgrow, err.limit}{A number. Numbers such as 10000 are high and will
+\item{err.limit, maxgrow}{A number. Numbers such as 10000 are high and will
 return all measures}
 
 \item{pomcut}{A number. To include POM changes, set it to a high number, such

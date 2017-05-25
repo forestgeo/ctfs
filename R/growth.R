@@ -78,17 +78,25 @@
 #'
 'biomass.growth'
 
-#' This calculates growth for each species in given dbh categories. It...
+#' Calculate growth for each species in given dbh categories.
 #'
 #' @description
-#'
-#' This calculates growth for each species in given dbh categories. It creates the split
-#' variables then uses growth(). Other arguments are as in growth().
+#' Calculates growth for each species in given dbh categories. It creates
+#' the split variables then uses `growth()`.
+#' 
+#' @inheritParams growth
+#' @inheritParams abundance
+#' 
+#' @seealso [growth()] and [abundance()]
 #'
 #' @examples
 #' \dontrun{
-#' growth.result=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))}
-#'
+#' growth.result <- growth.eachspp(
+#'   bci12full5, 
+#'   bci12full6, 
+#'   classbreak = c(10, 50, 100, 300, 500)
+#' )
+#' }
 #'
 'growth.eachspp'
 
@@ -146,7 +154,7 @@
 #' mindbh`. All parameters for excluding growth measures based on error can be
 #' adjusted.
 #' 
-#' @param maxgrow,err.limit A number. Numbers such as 10000 are high and will
+#' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
 #'   return all measures
 #' @param pomcut A number. To include POM changes, set it to a high number, such
 #'   as 10
