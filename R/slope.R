@@ -16,6 +16,8 @@
 #' @inheritParams elev.to.list
 #' @param text Logical. Defaults to read from a datatrame. Set to TRUE to read a
 #'   text table.
+#'  
+#'  @seealso [bci::bci_elevation].
 #'
 'readelevdata'
 

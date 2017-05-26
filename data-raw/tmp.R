@@ -35,7 +35,11 @@ done <- c("abundance", "abundance.spp", "assemble.demography", "ba",
   "maptopo",
   "mortality",
   "mortality.calculation",
-  "mortality.dbh"
+  "mortality.dbh",
+  "mortality.eachspp",
+  "readelevdata",
+  "recruitment",
+  "recruitment.eachspp"
 )
 
 setdiff(in_both, done) %>% sort()
@@ -43,10 +47,7 @@ setdiff(in_both, done) %>% sort()
 # next --------------------------------------------------------------------
 
 
-args_explore("mortality.eachspp")
-
-
-elevmat, cran
+args_explore("recruitment")
 
 
 

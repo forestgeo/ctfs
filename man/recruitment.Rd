@@ -2,30 +2,48 @@
 % Please edit documentation in R/recruitment.R
 \name{recruitment}
 \alias{recruitment}
-\title{Functions for calculating recruitment rates. Recruitment is the mai...}
+\title{Calculate recruitment rates.}
 \usage{
 recruitment(census1, census2, mindbh = 10, alivecode = c("A", "AB", "AS"),
   split1 = NULL, split2 = NULL)
 }
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
+
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems}
+
+\item{split1}{a vector of categories, one per individual}
+
+\item{split2}{another vector of categories, one per individual}
+}
 \description{
-Functions for calculating recruitment rates.
+Recruitment is the main function for calculating recruitment rates. It is
+constructed like \code{\link[=growth]{growth()}} and \code{\link[=mortality]{mortality()}}. It requires two complete
+datasets, one per census, with dbh, pom, and date for every individual of all
+species in at least 2 censuses.
 
-Recruitment is the main function, and is constructed like
-growth and mortality. It requires two complete datasets, one per census,
-with dbh, pom, and date for every individual of all species in at least 2 censuses.
+It can then calculate mortality based on up to user-submitted factors. The
+two datasets have exactly the same individuals, in exactly the same order,
+one individual per row.
+}
+\details{
+Recruitment is based on status and dbh. Any status indicating a live tree can
+be submitted in the variable \code{alivecode}. Survivors are all individuals alive
+in both censuses, with \code{status == A} in the first census, and larger than the
+minimum dbh in the first census. The total population in the second census
+includes all those alive, above the minimum dbh, plus any other survivors.
 
-It can then calculate mortality based on up to user-submitted factors. The two
-datasets have exactly the same individuals, in exactly the same order, one
-individual per row.
-
-Recruitment is based on status and dbh. Any status indicating a live tree can be submitted
-in the variable alivecode. Survivors are all individuals alive in both censuses,
-with status==A in the first census, and larger than the minimum dbh in the first
-census. The total population in the second census includes all those alive,
-above the minimum dbh, plus any other survivors.
-
-As in mortality, individuals whose status is NA in either census are deleted
-from all calculations.
-
-Requires fill.dimension and climit function in utilities.r.
+As in \code{\link[=mortality]{mortality()}}, individuals whose status is NA in either census are
+deleted from all calculations.
+}
+\seealso{
+\code{\link[=fill.dimension]{fill.dimension()}} and \code{\link[=climit]{climit()}}.
 }

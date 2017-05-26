@@ -2,11 +2,27 @@
 % Please edit documentation in R/recruitment.R
 \name{recruitment.eachspp}
 \alias{recruitment.eachspp}
-\title{A wrapper to calculate recruitment for each species.recruitment.eac...}
+\title{A wrapper to calculate recruitment for each species.}
 \usage{
 recruitment.eachspp(census1, census2, mindbh = 10, alivecode = c("A", "AB",
   "AS"))
 }
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
+
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems}
+}
 \description{
 A wrapper to calculate recruitment for each species.
+}
+\seealso{
+\code{\link[=recruitment]{recruitment()}}
 }
