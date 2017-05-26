@@ -462,10 +462,14 @@ args_multi_documented <- function(args) {
 
 args_undoc <- function(fun) {
   undoc <- args_undoc_one(fun)
-  multi_documented_args <- args_multi_documented(undoc)$fun %>% 
-    stringr::str_split(",") %>% 
-    unlist()
-  setdiff(undoc, multi_documented_args)
+  if (length(undoc) == 0) {
+    message("All arguments are documented somewhere.")
+  } else {
+    multi_documented_args <- args_multi_documented(undoc)$fun %>% 
+      stringr::str_split(",") %>% 
+      unlist()
+    setdiff(undoc, multi_documented_args)
+  }
 }
 
 # Wrap multiple functions to explore arguments documentation
@@ -473,7 +477,11 @@ args_explore <- function(x) {
   list(
     of = args_of(x),
     by_fun = args_filter_by_fun(x),
-    undoc = args_undoc(x)
+    undoc = if (length(args_undoc_one(x) == 0)) {
+      args_undoc_one(x)
+    } else {
+      args_undoc(x)
+    }
   )
 }
 
