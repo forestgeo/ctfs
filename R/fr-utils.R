@@ -432,7 +432,7 @@ args_filter_by_fun <- function(funname) {
 # e.g. args_of("growth.eachspp")
 args_of <- function(x) {names(formals(x))}
 
-args_undocumented <- function(fun) {
+args_undoc_one <- function(fun) {
   valid_functions <- unique(get_funs(raw_strings())$fun)
   stopifnot(fun %in% valid_functions)
   
@@ -460,8 +460,8 @@ args_multi_documented <- function(args) {
 
 # Implementation (wrapper)
 
-undocumented_args <- function(fun) {
-  undoc <- args_undocumented(fun)
+args_undoc <- function(fun) {
+  undoc <- args_undoc_one(fun)
   multi_documented_args <- args_multi_documented(undoc)$fun %>% 
     stringr::str_split(",") %>% 
     unlist()
@@ -473,7 +473,7 @@ args_expore <- function(x) {
   list(
     of = args_of(x),
     by_fun = args_filter_by_fun(x),
-    undoc = undocumented_args(x)
+    undoc = args_undoc(x)
   )
 }
 
@@ -488,9 +488,9 @@ args_expore <- function(x) {
 #' args_filter_by_fun("growth.eachspp")
 #' 
 #' # But mabe not all. 
-#' # `undocumented_args()` considers that some arguments are documented as
+#' # `args_undoc()` considers that some arguments are documented as
 #' # arg1,arg2,arg3,
-#' undocumented_args("growth.eachspp")
+#' args_undoc("growth.eachspp")
 #' }
 
 
