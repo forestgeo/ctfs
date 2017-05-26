@@ -29,17 +29,37 @@ done <- c("abundance", "abundance.spp", "assemble.demography", "ba",
   "gxgy.to.index", 
   "index.to.rowcol",
   "gxgy.to.rowcol",
-  "findborderquads"
+  "findborderquads",
+  "index.to.gxgy",
+  "map",
+  "maptopo",
+  "mortality",
+  "mortality.calculation",
+  "mortality.dbh"
 )
 
 setdiff(in_both, done) %>% sort()
 
 # next --------------------------------------------------------------------
-x <- "index.to.gxgy"
+
+
+args_explore("mortality.eachspp")
+
+
+elevmat, cran
+
+
+
+find_xxxdocparam()
+
+
+
+
+
+x <- "mortality"
 args_of(x)
 args_filter_by_fun(x)
 args_undoc(x)
-
 
 
 

@@ -51,23 +51,27 @@
 #'
 'mortality'
 
-#' Calculate mortality for each species in given dbh categories. It se...
+#' Calculate mortality for each species in given dbh categories.
 #'
 #' @description
+#' Calculate mortality for each species in given dbh categories. It sets the
+#' split variables using the species name and submitted dbh `classbreaks` and then
+#' uses mortality to do the calculation. 
+#' 
+#' @return
+#' The list from [mortality()], which can be passed to [assemble.demography()]
+#' for a convenient format.
 #'
-#' Calculate mortality for each species in given dbh categories. It sets the split variables using the species name and
-#' submitted dbh classbreaks and then uses mortality to do the calculation. See argument descriptions for mortality. Return object
-#' is the list from mortality and can be passed to assemble.demography for a convenient format. 
+#' @inheritParams mortality.dbh
 #'
 #' @examples
 #' \dontrun{
-#'
-#' CTFSplot("bci",5:6)
-#' mort.data=mortality.eachspp(bci.full5,bci.full6)
-#' mort.table1=assemble.demography(mort.data,type="m",whichdbhcat=1)
-#' mort.table2=assemble.demography(mort.data,type="m",whichdbhcat=2)
-#' mort.table3=assemble.demography(mort.data,type="m",whichdbhcat=3)}
-#'
+#' CTFSplot("bci", 5:6)
+#' mort.data = mortality.eachspp(bci.full5, bci.full6)
+#' mort.table1 = assemble.demography(mort.data, type = "m", whichdbhcat = 1)
+#' mort.table2 = assemble.demography(mort.data, type = "m", whichdbhcat = 2)
+#' mort.table3 = assemble.demography(mort.data, type = "m", whichdbhcat = 3)
+#' }
 #'
 'mortality.eachspp'
 

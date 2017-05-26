@@ -13,6 +13,8 @@ stem.}
 
 \item{census2}{The matching R Analytical Table for a later census.}
 
+\item{classbreak}{xxxdocparam}
+
 \item{alivecode}{character, codes of the variable \code{status} that indicate the
 tree is alive. The default 'A' is the standard CTFS designation for living
 trees or stems}

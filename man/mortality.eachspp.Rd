@@ -2,24 +2,39 @@
 % Please edit documentation in R/mortality.R
 \name{mortality.eachspp}
 \alias{mortality.eachspp}
-\title{Calculate mortality for each species in given dbh categories. It se...}
+\title{Calculate mortality for each species in given dbh categories.}
 \usage{
 mortality.eachspp(census1, census2, classbreak = c(10, 100, 300),
   alivecode = c("A", "AB", "AS"))
 }
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
+\item{classbreak}{xxxdocparam}
+
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems}
+}
+\value{
+The list from \code{\link[=mortality]{mortality()}}, which can be passed to \code{\link[=assemble.demography]{assemble.demography()}}
+for a convenient format.
+}
 \description{
-Calculate mortality for each species in given dbh categories. It sets the split variables using the species name and
-submitted dbh classbreaks and then uses mortality to do the calculation. See argument descriptions for mortality. Return object
-is the list from mortality and can be passed to assemble.demography for a convenient format.
+Calculate mortality for each species in given dbh categories. It sets the
+split variables using the species name and submitted dbh \code{classbreaks} and then
+uses mortality to do the calculation.
 }
 \examples{
 \dontrun{
-
-CTFSplot("bci",5:6)
-mort.data=mortality.eachspp(bci.full5,bci.full6)
-mort.table1=assemble.demography(mort.data,type="m",whichdbhcat=1)
-mort.table2=assemble.demography(mort.data,type="m",whichdbhcat=2)
-mort.table3=assemble.demography(mort.data,type="m",whichdbhcat=3)}
-
+CTFSplot("bci", 5:6)
+mort.data = mortality.eachspp(bci.full5, bci.full6)
+mort.table1 = assemble.demography(mort.data, type = "m", whichdbhcat = 1)
+mort.table2 = assemble.demography(mort.data, type = "m", whichdbhcat = 2)
+mort.table3 = assemble.demography(mort.data, type = "m", whichdbhcat = 3)
+}
 
 }
