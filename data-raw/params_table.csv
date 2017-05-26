@@ -9,20 +9,19 @@ model.littleR.Gibbs,abundrange,"the default includes every species, but this can
 #'   a minimum and maximum abundance (first census); species with abundances
 #'   outside the range are excluded
 #' "
-graph.abundmodel,add,"just like all R graphs, whether to add points or line to an existing graph
+graphFilledBand,add,"Logical. Whether to add points or line to an existing graph. if 
+#'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
+#'   is drawn
 #' "
-graphFilledBand,add,"TRUE or FALSE, as in other R graphs; if TRUE, there must be an appropriate existing graph, otherwise, a new graph is drawn
-#' "
-map,"addlegend,legpos,legsize","For the species name, whether to include, where to place, and font size. Try the defaults first before fiddling, or just set addlegend=FALSE to remove.
+map,"addlegend,legpos,legsize","For the species name, whether to include,
+#'   where to place, and font size. Try the defaults first before fiddling, or
+#'   just set addlegend=FALSE to remove.
 #' "
 graph.abundmodel,addpts,"if TRUE, histogram is a point graph
 #' "
 abundance,alivecode,"character, codes of the variable `status` that indicate the 
 #'   tree is alive. The default 'A' is the standard CTFS designation for living 
 #'   trees or stems
-#' "
-mortality,alivecode,"Generally, alivecode = ""A"" suffices, as this is the standard
-#'   in CTFS data for a living tree; ""AS"" and ""AB"" are seldom used now
 #' "
 find.climits,alpha,"The critical probability. Defaults to 0.05, which gives 95\%
 #'   confidence limits.
@@ -47,11 +46,13 @@ modelBayes,badSDparam,"The name of a function which tests for invalid parameters
 #' "
 graph.abundmodel,bartype,"if TRUE, histogram is bar graph
 #' "
-map,bgcolor,"The background color. Defaults to white. For presentation exports, try bgcolor=""transparent"".
+map,bgcolor,"The background color. Defaults to white. For presentation
+#'   exports, try bgcolor=""transparent"".
 #' "
 imageGraph,breaks,"if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks
 #' "
-map,bty,"Type of box to appear around species name. The default, 'n', means no box; set to 'o'to see the box.
+map,bty,"Type of box to appear around species name. The default, 'n', means
+#'   no box; set to 'o'to see the box.
 #' "
 model.littleR.Gibbs,burn,"number of steps of sampler to exclude as burn-in
 #' "
@@ -86,11 +87,18 @@ biomass.change,census2,"The matching R Analytical Table for a later census.
 fullellipse,center,"x-y coordinates of ellipse center (vector of 2)
 #'
 #'"
+mortality.dbh,classbreak,"xxxdocparam
+#'
+#' "
+maptopo,clr,"xxxdocparam
+#' 
+#' "
 complete.plotmap,clrlist,"colors to use for the species to be overlaid
 #' "
 imageGraph,clrs,"colors for the image; if NULL, they are chosen by default, otherwise, must be 1 + the number of breaks
 #' "
-map,clrs,"A vector of color names, one for each species. If set to NULL, default values are assigned. See bw.
+map,clrs,"A vector of color names, one for each species. If set to NULL,
+#'   default values are assigned. See bw.
 #' "
 complete.plotmap,cns,"a full census dataset (all species)
 #' "
@@ -102,9 +110,12 @@ individual_grow.table,cnsdata,"A list of census data sets, for example:
 #' "
 imageGraph,cntrs,"TRUE or FALSE, whether to add contour lines; both img and cntrs can be TRUE
 #' "
+rowcol.to.index,colno,"Column number.
+#'"
 fullplot.imageJ,colrange,"specifies the range of the columns, found as the first two digits of the quadrat name
 #' "
-graph.abundmodel,conf,"number of alternate fits to graph, as indication of confidence; if conf=NULL, no confidence lines are added
+graph.abundmodel,conf,"number of alternate fits to graph, as indication of confidence;
+#'   if conf = NULL, no confidence lines are added
 #' "
 quadslope,cornerelev,"vector of 4 elevations 
 #' "
@@ -127,6 +138,10 @@ graph.abundmodel,datafile,"optional name of file where the fitted result is save
 #' "
 assemble.demography,date1,"date of first enumeration at site, format: yyyy-mm-dd.
 #' "
+tojulian,dateform,"Format for calendar date, see [base::strptime()] for format
+#'   information.
+#'   
+#' "
 ba,dbh,"DBH in mm of tree
 #' "
 abundance.spp,dbhbreaks,"a vector of dbhs to define divisions of categories; the last
@@ -134,11 +149,12 @@ abundance.spp,dbhbreaks,"a vector of dbhs to define divisions of categories; the
 #'"
 abundance,dbhunit,"'cm' or 'mm', only used for basal area
 #' "
-map,deadtree,"Set NULL to map all trees, alive and dead; TRUE for dead only, FALSE for live only (relies on status in the R table).
+map,deadtree,"Set NULL to map all trees, alive and dead; TRUE for dead
+#'   only, FALSE for live only (relies on status in the R table).
 #' "
 graph.abundmodel,debug,"if TRUE, call browser to debug
-#'
-#'"
+#' 
+#' "
 lmerBayes,debug,"TRUE or FALSE, whether to pause and debug; for advanced users and developers.
 #' "
 model.littleR.Gibbs,debug,"set to TRUE to call browser within the function
@@ -161,10 +177,14 @@ findborderquads,dist,"Distance in m within which the neighboring quadrates are l
 #' "
 graph.abundmodel,div,"width of bins for histogram of observed rate of population change
 #' "
-map,elevdata,"Elevation data can be submitted, then a topo map is overlaid. Elevation data must be submitted as a matrix (as described in readelevdata in utilities.r).
+map,elevdata,"Elevation data can be submitted, then a topo map is overlaid.
+#'   Elevation data must be submitted as a matrix (as described in readelevdata
+#'   in utilities.r).
 #' "
 elev.to.list,elevfile,"A data frame with x, y coordinates and elevation, 
 #'   bcielev.info.
+#' "
+maptopo,elevmat,"Matrix of elevation data (see ?[bci::bci_elevation]).
 #' "
 trim.growth,"err.limit,maxgrow","A number. Numbers such as 10000 are high and will
 #'   return all measures
@@ -224,7 +244,7 @@ graph.abundmodel,fit,"result of model.littleR.Gibbs
 imageGraph,graphfile,"the file name if export is pdf, png, jpeg, win.metafile, etc.
 #'
 #' "
-graph.abundmodel,graphit,"if set to false, 
+graph.abundmodel,graphit,"if set to false,
 #' "
 selectrandomquad,graphit,"whether to graph the locations of the chosen quadrats on a
 #'   plot map
@@ -260,7 +280,10 @@ imageGraph,"h,w","height and width of graph window in units which depend on the 
 #' "
 complete.plotmap,ht,"graph height, same units as wd
 #' "
-map,"ht,wd,plotside","These are the height and width of the overall graph, and the vertical dimension (inches) of the map. The default work for pdf export or mapping to the screen, and ht and wd are inches. But if export is png, jpg, emf, height and width are pixels and need to be 500-1000.
+map,"ht,wd,plotside","These are the height and width of the overall graph,
+#'   and the vertical dimension (inches) of the map. The default work for pdf
+#'   export or mapping to the screen, and ht and wd are inches. But if export is
+#'   png, jpg, emf, height and width are pixels and need to be 500-1000.
 #' "
 imageGraph,img,"TRUE or FALSE, whether to draw the color image
 #' "
@@ -276,26 +299,34 @@ CTFSplot,includespp,"can be set to FALSE if the species table is not available
 #' "
 findborderquads,index,"Quadrate number, between 0 and 1249 in the standard plot.
 #' "
-map,It,"can be set to NULL if not available, then only the species code (as submitted) appears on the map.
+maptopo,interval,"Contour line intervals.
+#' "
+fromjulian,j,"Julian dates, given as a vector or array.
 #' "
 find.climits,kind,"Either ""upper"" or ""lower"".
 #'
+#' "
+maptopo,labelsize,"xxxdocparam
 #' "
 map,labsize,"Size of axis labels.
 #' "
 imageGraph,levels,"if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable; 
 #' can be NULL to let breaks control
 #' "
-graphFilledBand,linecol,"If add==FALSE, lines drawn at y1 and y2 are this color; ignored if add==TRUE
+graphFilledBand,linecol,"If add == FALSE, lines drawn at y1 and y2 are this color; 
+#'   ignored if add == TRUE
 #' "
 imageJ.to.lxly,"lowerleft,upperleft,upperright,lowerright","the tags in each of the map files with the calibrated corners
 #' "
-graphFilledBand,ltype,"If add==FALSE, lines drawn at y1 and y2 are this type ('solid','dashed',etc);  ignored if add==TRUE
+graphFilledBand,ltype,"If add == FALSE, lines drawn at y1 and y2 are this type 
+#'   ('solid','dashed',etc);  ignored if add==TRUE
 #' "
-graph.abundmodel,"ltype,lwidth,modelclr","type, width, color of the line showing fitted distribution
+graph.abundmodel,"ltype,lwidth,modelclr","type, width, color of the line showing fitted
+#'   distribution
 #' "
-graphFilledBand,lwidth,"If add==FALSE, lines drawn at y1 and y2 are this thickness (a number);  ignored if add==TRUE
-#'
+graphFilledBand,lwidth,"If add == FALSE, lines drawn at y1 and y2 are this thickness (a
+#'   number);  ignored if add==TRUE
+#'   
 #' "
 map,maintitle,"A title to appear at the top of the page, above the species name.
 #' "
@@ -303,10 +334,14 @@ graph.abundmodel,makeleg,"whether to add legend
 #' "
 imageGraph,matrixdata,"a list having components x, y, and mat, exactly the output of coldata.to.imagemat
 #' "
+mortality.calculation,meantime,"xxxdocparam
+#' 
+#' "
 growth,method,"Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
 #'   or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
 #' "
-graph.abundmodel,minabund,"minimum abundance of species to be used in histogram of observed rates of population change
+graph.abundmodel,minabund,"minimum abundance of species to be used in histogram of
+#'   observed rates of population change
 #' "
 abundance,mindbh,"the minimum diameter above which the counts are done; if NULL, 
 #'   all (living) are included
@@ -326,13 +361,17 @@ lmerBayes,model,"The function name holding the model describing y's relationship
 #' "
 modelBayes,model,"The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
 #' "
-graph.abundmodel,modeltype,"form of probability distribution, matching what was used when fit was created by model.littleR.Gibbs
+graph.abundmodel,modeltype,"form of probability distribution, matching what was used
+#'   when fit was created by model.littleR.Gibbs
 #' "
 model.littleR.Gibbs,modeltype,"as listed above
 #' "
-graph.abundmodel,mortcorr,"whether to graph the correlation between mortality and population change across species
+graph.abundmodel,mortcorr,"whether to graph the correlation between mortality and 
+#'   population change across species
 #' "
 find.climits,N,"The number of individuals alive at the outset.
+#' "
+maptopo,new,"See [graphics::par()].
 #' "
 imageGraph,newgraph,"if FALSE, just graph to the screen and export is ignored; use TRUE to create a new plot window or export to a file
 #' "
@@ -345,7 +384,6 @@ fullplot.imageJ,outfile,"the name of the text file where the results will be sav
 #' the results will not be written to a file.
 #' "
 map,outfile,"The name of the file to export to.
-#'
 #' "
 assemble.demography,output,"The results from one of the demographic functions
 #' "
@@ -364,7 +402,9 @@ complete.plotmap,plotdim,"x and y plot dimensions
 #' "
 findborderquads,plotdim,"Dimensions of the plot: east-west 1000m and north-south 500m
 #'"
-map,plotdim,"The x and y dimensions of the plot. This is used often in R package. Note it assumes the starting coordinates are zero. If they are not, then xrange and yrange must be used.
+map,plotdim,"The x and y dimensions of the plot. This is used often in R
+#'   package. Note it assumes the starting coordinates are zero. If they are
+#'   not, then xrange and yrange must be used.
 #' "
 NDcount,plotdim," (c(1000,500))  vector with two numbers indicating the xy-plot size;
 #'
@@ -414,7 +454,8 @@ selectrandomquad,rep,"the number of random quadrats to create, of each size
 #' "
 spparea.sq,replicates,"the number of random quadrats to create, of each size
 #' "
-graph.abundmodel,returnextreme,"whether to print a list of the fastest increases and decreases in abundance to the screen
+graph.abundmodel,returnextreme,"whether to print a list of the fastest increases and
+#'   decreases in abundance to the screen
 #' "
 imageGraph,returnline,"TRUE or FALSE, whether to return the contour lines; see R's base function contourLines for details
 #' "
@@ -427,9 +468,13 @@ individual_grow.table,rnd,"used to rounddown dbhs for certain intervals. This ar
 growth,rounddown,"If TRUE, all dbh < 55 are rounded down to the nearest
 #'   multiple of 5.
 #' "
+rowcol.to.index,rowno,"Row number.
+#' "
 fullplot.imageJ,rowrange,"specifies the range of the rows, found in the last two digits of the quadrat name
 #' "
 RipUvK,rseq,"The distances defining intervals in which Ripley's statistic is calculated.
+#' "
+mortality.calculation,S,"Number of survivors
 #' "
 lmerBayes,savestep,"Parameters are appended to paramfile every savestep steps; must be < steps.
 #' "
@@ -452,7 +497,10 @@ modelBayes,showstep,"Information is printed to the screen every showstep steps.
 #' "
 complete.plotmap,side,"the side in inches of the graph; see map()
 #' "
-map,size,"The size of plotting points, to match the number of diameter breaks. If NULL, a default set is assigned. This can require fiddling, as big points do not work for really abundant species, and small points for rare species.
+map,size,"The size of plotting points, to match the number of diameter
+#'   breaks. If NULL, a default set is assigned. This can require fiddling, as
+#'   big points do not work for really abundant species, and small points for
+#'   rare species.
 #' "
 selectrandomquad,size,"a vector of quadrat sizes, referring to the x-dimension of a
 #'   rectangular quadrat
@@ -467,22 +515,20 @@ map,species,"One or more species codes to be mapped.
 #' "
 abundance,split1,"a vector of categories, one per individual
 #' "
-mortality,"split1,split2","Must both be vectors of character variables with exactly
-#'  as many elements as there are rows in the tables census1 and census2 (or
-#'  both can be NULL), for instance, species names, dbh categories, or quadrat
-#'  numbers
-#'
-#' "
 abundance,split2,"another vector of categories, one per individual
 #'
 #' "
 RipUvK,splitdata,"A complete CTFS plot dataset comprised of a list, each element having a dataframe for one species. There must be columns for x and y coordinates; the names of those two columns are passed as arguments (default is the CTFS standard gx, gy). 
 #' "
-map,splitdatafile,"A full plot dataset in list format (see `?split_data`)
+map,splitdatafile,"A full plot dataset in list format (see `?split_data`).
 #' "
 complete.plotmap,spnames,"names of species to map, using the mnemonic in the R tables
 #' "
-map,spplist,"A table with species codes and Latin names can be submitted as well, so that the full genus-species is added to plot. This must have species codes as row names. It should be the CTFS R format species table (eg, bci.spptable).
+map,spplist,"A table with species codes and Latin names can be submitted as
+#'   well, so that the full genus-species is added to plot. This must have
+#'   species codes as row names. It should be the CTFS R format species table
+#'   (eg, bci.spptable). It can be set to NULL if not available, then only the
+#'   species code (as submitted) appears on the map.
 #' "
 lmerBayes,start,"Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect
 #' "
@@ -517,8 +563,14 @@ SectionCorrection,subquadratsuffix,"the suffixes used to indicate what section o
 #'"
 fullplot.imageJ,suffix,"the extension used for the map files. The imageJ default is "".txt"".
 #' "
-map,symbols,"A vector of symbols, one per species. Can be anything accepted by R for pch (plot character in the function plot()). If NULL, defaults are assigned.
+map,symbols,"A vector of symbols, one per species. Can be anything accepted
+#'   by R for pch (plot character in the function plot()). If NULL, defaults are
+#'   assigned.
 #' "
+readelevdata,text,"Logical. Defaults to read from a datatrame. Set to TRUE to read a
+#'   text table.
+#'  
+#'  "
 imageJ.to.lxly,textfile,"the complete name of the textfile to convert, including the path
 #' "
 polar.to.cartesian,theta,"input vector of angle from horizontal (radians), same length as r
@@ -526,7 +578,9 @@ polar.to.cartesian,theta,"input vector of angle from horizontal (radians), same 
 #' "
 graph.abundmodel,tinydiv,"width of bins used to draw the fitted distribution
 #' "
-map,titlepos,"The position to place the title. The default is above the center of the plot, higher than the species name. It may require some fiddling on different screens to get it the right distance above.
+map,titlepos,"The position to place the title. The default is above the
+#'   center of the plot, higher than the species name. It may require some
+#'   fiddling on different screens to get it the right distance above.
 #' "
 map,topoclr,"Color of topolines.
 #' "
@@ -567,6 +621,10 @@ graphFilledBand,x,"The x axis values, as in any R graph
 #' "
 plot_wavelet,x,"Output for wavelet.allsp
 #'"
+tojulian,x," A character representation of a date.
+#' "
+maptopo,xaxis,"xxxdocparam
+#' "
 modelBayes,xcol,"The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
 #' "
 RipUvK,"xcol,ycol","the names of the columns holding x and y coordinates.
@@ -584,8 +642,8 @@ imageGraph,xrange,"if NULL, all x are included, otherwise, the graph will only i
 #' "
 graph.abundmodel,"xrange,yrange","range of graph's x-axis and and y-axis
 #' "
-map,"xrange,yrange","Minimum and maximum x coordinates and y coordinates
-#'   to map. Allows a portion of plot to be drawn. Defaults to the entire plot.
+map,"xrange,yrange","Minimum and maximum x coordinates and y coordinates to
+#'   map. Allows a portion of plot to be drawn. Defaults to the entire plot.
 #' "
 cartesian.to.polar,y,"input vector of y coordinates (same length as x)
 #'
@@ -595,7 +653,10 @@ coldata.to.imagemat,y,"The map coordinates of each row in the matrix, and the va
 #' "
 make.CredIntervalVect,y,"must be a vector of length 3, not a matrix. 
 #' "
-graphFilledBand,"y1,y2","= Two sets of y axis values, each of exactly the same length as x
+graphFilledBand,"y1,y2","= Two sets of y axis values, each of exactly the same length as 
+#'   `x`
+#' "
+maptopo,yaxis,"xxxdocparam
 #' "
 lmerBayes,ycol,"The name of the column holding the y variable, with quote marks; this variable must be numeric.
 #' "
