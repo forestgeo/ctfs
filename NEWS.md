@@ -1,5 +1,6 @@
 # forestr 0.0.0.9000
 
+- Define tag xxxdocparam to tag undocumented parameters. Fin them with `find_xxxdocparam()`.
 
 ## Reduce duplicated paramenters-documentation
 

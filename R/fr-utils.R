@@ -469,7 +469,7 @@ args_undoc <- function(fun) {
 }
 
 # Wrap multiple functions to explore arguments documentation
-args_expore <- function(x) {
+args_explore <- function(x) {
   list(
     of = args_of(x),
     by_fun = args_filter_by_fun(x),
@@ -494,6 +494,12 @@ args_expore <- function(x) {
 #' }
 
 
+
+# Find the pattern xxxdocparam to documente parameters (then ctr + shift + f).
+find_xxxdocparam <- function() {
+  stringr::str_extract_all(raw_strings(), "#' @param [^ ]+ xxxdocparam") %>% 
+    purrr::flatten_chr()
+}
 
 
 
