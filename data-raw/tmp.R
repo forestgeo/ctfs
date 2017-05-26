@@ -39,7 +39,8 @@ done <- c("abundance", "abundance.spp", "assemble.demography", "ba",
   "mortality.eachspp",
   "readelevdata",
   "recruitment",
-  "recruitment.eachspp"
+  "recruitment.eachspp",
+  "rowcol.to.index"
 )
 
 setdiff(in_both, done) %>% sort()
@@ -47,7 +48,7 @@ setdiff(in_both, done) %>% sort()
 # next --------------------------------------------------------------------
 
 
-args_explore("recruitment")
+args_explore("tojulian")
 
 
 

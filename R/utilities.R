@@ -1,20 +1,25 @@
 
 # Roxygen documentation generated programatically -------------------
-#' Accepts any character representation of a date and a description of...
+
+#' Converts calendar dates to Julian dates.
 #'
 #' @description
+#' Accepts any character representation of a date and a description of the
+#' format. The submitted dates can be a vector or a matrix.
 #'
-#' Accepts any character representation of a date and a description of the format. The submitted dates can
-#' be a vector or a matrix. See strptime for details about the format. 
-#'
-#' Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such, 
-#' though it displays as a date.
+#' @return A julian date, the number of days since 1 Jan 1960; a julian is an 
+#'   integer and can be graphed or operated as such, though it displays as a
+#'   date.
+#' @param x  A character representation of a date.
+#' @param dateform Format for calendar date, see [base::strptime()] for format
+#'   information.
+#'   
+#' @seealso [base::strptime()], [base::julian()].
 #'
 #' @examples
 #' \dontrun{
-#'
-#' tojulian(c('23Oct2010','29Mar1956'),'%d%b%Y')}
-#'
+#' tojulian(c('23Oct2010','29Mar1956'),'%d%b%Y')
+#' }
 #'
 'tojulian'
 

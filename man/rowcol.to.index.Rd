@@ -2,10 +2,22 @@
 % Please edit documentation in R/quadfunc.R
 \name{rowcol.to.index}
 \alias{rowcol.to.index}
-\title{None given.rowcol.to.index gxgy.to.quad  Calculate a quadrat name (...}
+\title{Takes row and column numbers and identifies the quadrate number (index).}
 \usage{
 rowcol.to.index(rowno, colno, gridsize = 20, plotdim = c(1000, 500))
 }
+\arguments{
+\item{rowno}{Row number.}
+
+\item{colno}{Column number.}
+
+\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+}
 \description{
-None given.
+Takes row and column numbers and identifies the quadrate number (index). The
+row and column numbers are based on a \code{gridsize} that by default divides the
+plot into 20 by 20 m squares. The g\code{ridsize} can be defined by the user so
+other quadrate sizes can be used.
 }

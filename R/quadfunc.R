@@ -15,12 +15,17 @@
 #'
 'quad.to.gxgy'
 
-#' None given.rowcol.to.index gxgy.to.quad  Calculate a quadrat name (...
+#' Takes row and column numbers and identifies the quadrate number (index).
 #'
 #' @description
-#'
-#' None given.
-#'
+#' Takes row and column numbers and identifies the quadrate number (index). The 
+#' row and column numbers are based on a `gridsize` that by default divides the 
+#' plot into 20 by 20 m squares. The g`ridsize` can be defined by the user so 
+#' other quadrate sizes can be used.
+#' 
+#' @inheritParams findborderquads
+#' @param rowno Row number.
+#' @param colno Column number.
 #'
 'rowcol.to.index'
 

@@ -2,21 +2,31 @@
 % Please edit documentation in R/utilities.R
 \name{tojulian}
 \alias{tojulian}
-\title{Accepts any character representation of a date and a description of...}
+\title{Converts calendar dates to Julian dates.}
 \usage{
 tojulian(x, dateform = "\%m/\%d/\%Y")
 }
-\description{
-Accepts any character representation of a date and a description of the format. The submitted dates can
-be a vector or a matrix. See strptime for details about the format.
+\arguments{
+\item{x}{A character representation of a date.}
 
-Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such,
-though it displays as a date.
+\item{dateform}{Format for calendar date, see \code{\link[base:strptime]{base::strptime()}} for format
+information.}
+}
+\value{
+A julian date, the number of days since 1 Jan 1960; a julian is an
+integer and can be graphed or operated as such, though it displays as a
+date.
+}
+\description{
+Accepts any character representation of a date and a description of the
+format. The submitted dates can be a vector or a matrix.
 }
 \examples{
 \dontrun{
+tojulian(c('23Oct2010','29Mar1956'),'\%d\%b\%Y')
+}
 
-tojulian(c('23Oct2010','29Mar1956'),'\%d\%b\%Y')}
-
-
+}
+\seealso{
+\code{\link[base:strptime]{base::strptime()}}, \code{\link[base:julian]{base::julian()}}.
 }
