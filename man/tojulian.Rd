@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{tojulian}
 \alias{tojulian}
-\title{Converts calendar dates to Julian dates.}
+\title{Convert calendar dates to Julian dates.}
 \usage{
 tojulian(x, dateform = "\%m/\%d/\%Y")
 }

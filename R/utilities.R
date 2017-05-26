@@ -1,7 +1,7 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#' Converts calendar dates to Julian dates.
+#' Convert calendar dates to Julian dates.
 #'
 #' @description
 #' Accepts any character representation of a date and a description of the
@@ -23,18 +23,21 @@
 #'
 'tojulian'
 
-#' Accepts a julian date and returns a character representation of dat...
+#' Convert calendar dates from julian dates.
 #'
 #' @description
-#'
-#' Accepts a julian date and returns a character representation of date. See tojulian(). The input
-#' can be vector or array. 
+#' Convert calendar dates from julian dates.
+#' 
+#' @return A character representation of a date. 
+#' 
+#' @inheritParams tojulian
+#' @param j Julian dates, given as a vector or array.
+#' @seealso [tojulian()]
 #'
 #' @examples
 #' \dontrun{
-#'
-#' fromjulian(1000,'%d%B%Y')}
-#'
+#' fromjulian(1000,'%d%B%Y')
+#' }
 #'
 'fromjulian'
 
