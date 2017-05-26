@@ -185,18 +185,20 @@
 #'
 'get.filename'
 
-#' Draws contours on a plot map. Elevmat has elevation data in matrix ...
-#'
+#' Draws contours on a plot map.
+#' 
 #' @description
-#'
 #' Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
-#' dimensions are not needed, instead it calculates them from elevmat and the
-#' gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new screen window is created.
+#' dimensions are not needed, instead it calculates them from elevmat and the 
+#' gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
+#' screen window is created.
 #'
-#' This is called by map(), and see the description of map() for the other arguments. It can be used
-#' on its own though. 
-#'
-#'
+#' @details 
+#' This is called by `map()`, and see the description of `map()` for the other
+#' arguments. It can be used on its own though.
+#' 
+#' @inheritParams map
+#' 
 'maptopo'
 
 #' This does the mapping for a single species, called from map() but a...

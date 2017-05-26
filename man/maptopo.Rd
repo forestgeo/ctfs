@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{maptopo}
 \alias{maptopo}
-\title{Draws contours on a plot map. Elevmat has elevation data in matrix ...}
+\title{Draws contours on a plot map.}
 \usage{
 maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
   interval = 0, xrange = NULL, yrange = NULL, xaxis = TRUE,
@@ -10,11 +10,50 @@ maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
   ht = 6, wd = 9, plotside = 4.5, filepath = "", clr = "black",
   bgcolor = "transparent")
 }
+\arguments{
+\item{plotdim}{The x and y dimensions of the plot. This is used often in R
+package. Note it assumes the starting coordinates are zero. If they are
+not, then xrange and yrange must be used.}
+
+\item{export}{See function define.graphwindow.}
+
+\item{xrange}{Minimum and maximum x coordinates and y coordinates to
+map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+
+\item{yrange}{Minimum and maximum x coordinates and y coordinates to
+map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+
+\item{axspos}{Distance between axis numbers and axis.}
+
+\item{maintitle}{A title to appear at the top of the page, above the species name.}
+
+\item{ht}{These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.}
+
+\item{wd}{These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.}
+
+\item{plotside}{These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.}
+
+\item{filepath}{The folder to which map will be exported.}
+
+\item{bgcolor}{The background color. Defaults to white. For presentation
+exports, try bgcolor="transparent".}
+}
 \description{
 Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
 dimensions are not needed, instead it calculates them from elevmat and the
-gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new screen window is created.
-
-This is called by map(), and see the description of map() for the other arguments. It can be used
-on its own though.
+gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
+screen window is created.
+}
+\details{
+This is called by \code{map()}, and see the description of \code{map()} for the other
+arguments. It can be used on its own though.
 }

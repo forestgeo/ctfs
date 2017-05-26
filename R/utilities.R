@@ -525,29 +525,39 @@
 #'
 'countUnique'
 
-#' Fill the area between two curves on a graph. Useful for confidence ...
+#' Fill the area between two curves on a graph.
 #'
 #' @description
-#'
-#' Fill the area between two curves on a graph. Useful for confidence limits, for example. 
-#'
-#' Typical use is to draw a graph first with some central y values, then add a confidence band by filling the area between upper and lower confidence limits
-#'(designated by variables lower.y and upper.y in the example below). The central line should then be redrawn over the filled area.
-#'
+#' Fill the area between two curves on a graph. Useful for confidence limits,
+#' for example.
+#' 
+#' Typical use is to draw a graph first with some central y values, then add a 
+#' confidence band by filling the area between upper and lower confidence limits
+#' (designated by variables lower.y and upper.y in the example below). The 
+#' central line should then be redrawn over the filled area.
+#' 
 #' @param x The x axis values, as in any R graph
-#' @param y1,y2 = Two sets of y axis values, each of exactly the same length as x
+#' @param y1,y2 = Two sets of y axis values, each of exactly the same length as 
+#'   `x`
 #' @param fillcol The color filling the area between the two curves
-#' @param add TRUE or FALSE, as in other R graphs; if TRUE, there must be an appropriate existing graph, otherwise, a new graph is drawn
-#' @param linecol If add==FALSE, lines drawn at y1 and y2 are this color; ignored if add==TRUE
-#' @param ltype If add==FALSE, lines drawn at y1 and y2 are this type ('solid','dashed',etc);  ignored if add==TRUE
-#' @param lwidth If add==FALSE, lines drawn at y1 and y2 are this thickness (a number);  ignored if add==TRUE
-#'
+#' @param add Logical. Whether to add points or line to an existing graph. if 
+#'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
+#'   is drawn
+#' @param linecol If add == FALSE, lines drawn at y1 and y2 are this color; 
+#'   ignored if add == TRUE
+#' @param ltype If add == FALSE, lines drawn at y1 and y2 are this type 
+#'   ('solid','dashed',etc);  ignored if add==TRUE
+#' @param lwidth If add == FALSE, lines drawn at y1 and y2 are this thickness (a
+#'   number);  ignored if add==TRUE
+#'   
+#' @seealso ?[graphics::plot()], ?[graphics::par()]
+#'  
 #' @examples
 #' \dontrun{
-#' plot(x,y,type='l')
-#' graphFilledBand(x,lower.y,upper.y)
-#' lines(x,y)}
-#'
+#' plot(x, y, type = 'l')
+#' graphFilledBand(x, lower.y, upper.y)
+#' lines(x, y)
+#' }
 #'
 'graphFilledBand'
 
