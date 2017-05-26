@@ -8,7 +8,7 @@
 
 # rm_na_row ---------------------------------------------------------------
 
-#' Detect rows in a data frame full of NA (accross columns)
+#' Detect rows in a data frame full of NA (accross columns).
 #'
 #' @param .data A non empty matrix or data frame
 #' @return A logical vector of length equal to number of rows in data.
@@ -34,7 +34,7 @@ is_na_row <- function(.data) {
   apply(.data, 1, is_na_vector)
 }
 
-#' Remove rows from data frame or matrix full of NA
+#' Remove rows from data frame or matrix full of NA.
 #' 
 #' @param .data A data frame or matrix.
 #' @return Output and `.data`. have the same type.
@@ -479,26 +479,11 @@ args_explore <- function(x) {
 
 
 
-
-# Example
-#' \dontrun{
-#' args_of("growth.eachspp")
-#' 
-#' # Arguments of growth.eachspp are documented elsewhere, and inherited
-#' args_filter_by_fun("growth.eachspp")
-#' 
-#' # But mabe not all. 
-#' # `args_undoc()` considers that some arguments are documented as
-#' # arg1,arg2,arg3,
-#' args_undoc("growth.eachspp")
-#' }
-
-
-
 # Find the pattern xxxdocparam to documente parameters (then ctr + shift + f).
 find_xxxdocparam <- function() {
-  stringr::str_extract_all(raw_strings(), "#' @param [^ ]+ xxxdocparam") %>% 
-    purrr::flatten_chr()
+  purrr::flatten_chr(
+    stringr::str_extract_all(raw_strings(), "#\' @param [^ ]+ xxxdocparam")
+  )
 }
 
 
