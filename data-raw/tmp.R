@@ -18,23 +18,28 @@ in_both <- stringr::str_replace(in_both, ".Rd$", "")
 
 done <- c("abundance", "abundance.spp", "assemble.demography", "ba", 
   "biomass.change", "elev.to.list", "findborderquads", "find.climits", 
-  "growth.dbh", "growth", "trim.growth", "growth.eachspp", "growth.indiv",
-  "gxgy.to.hectindex", "gxgy.to.index", "index.to.rowcol"
+  
+  "growth", 
+  "growth.dbh", 
+  "growth.eachspp", 
+  "growth.indiv",
+  "trim.growth", 
+  
+  "gxgy.to.hectindex", 
+  "gxgy.to.index", 
+  "index.to.rowcol",
+  "gxgy.to.rowcol",
+  "findborderquads"
 )
 
 setdiff(in_both, done) %>% sort()
 
 # next --------------------------------------------------------------------
+x <- "index.to.gxgy"
+args_of(x)
+args_filter_by_fun(x)
+args_undoc(x)
 
-args_expore("gxgy.to.rowcol")
-
-
-
-
-
-
-
-args_filter_by_fun
 
 
 
