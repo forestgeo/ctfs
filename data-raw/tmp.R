@@ -16,15 +16,20 @@ in_both <- stringr::str_replace(in_both, ".Rd$", "")
 
 # record ------------------------------------------------------------------
 
-done <- c("abundance", "abundance.spp", "assemble.demography", "ba", 
-  "biomass.change", "elev.to.list", "findborderquads", "find.climits", 
-  
+done <- c(
+  "abundance", 
+  "abundance.spp", 
+  "assemble.demography", 
+  "ba", 
+  "biomass.change", 
+  "elev.to.list", 
+  "findborderquads", 
+  "find.climits", 
   "growth", 
   "growth.dbh", 
   "growth.eachspp", 
   "growth.indiv",
   "trim.growth", 
-  
   "gxgy.to.hectindex", 
   "gxgy.to.index", 
   "index.to.rowcol",
@@ -40,7 +45,8 @@ done <- c("abundance", "abundance.spp", "assemble.demography", "ba",
   "readelevdata",
   "recruitment",
   "recruitment.eachspp",
-  "rowcol.to.index"
+  "rowcol.to.index",
+  "tojulian"
 )
 
 setdiff(in_both, done) %>% sort()
@@ -48,7 +54,7 @@ setdiff(in_both, done) %>% sort()
 # next --------------------------------------------------------------------
 
 
-args_explore("tojulian")
+args_explore("fromjulian")
 
 
 
