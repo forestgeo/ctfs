@@ -193,11 +193,18 @@
 #' gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
 #' screen window is created.
 #'
-#' @details 
-#' This is called by `map()`, and see the description of `map()` for the other
-#' arguments. It can be used on its own though.
 #' 
 #' @inheritParams map
+#' @inheritParams graphFilledBand
+#' @param elevmat Matrix of elevation data (see ?[bci::bci_elevation]).
+#' @param new See [graphics::par()].
+#' @param interval Contour line intervals.
+#' @param xaxis xxxdocparam
+#' @param yaxis xxxdocparam
+#' @param labelsize xxxdocparam
+#' @param clr xxxdocparam
+#' 
+#' @seealso [map()], [bci::bci_elevation].
 #' 
 'maptopo'
 

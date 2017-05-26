@@ -11,11 +11,21 @@ maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
   bgcolor = "transparent")
 }
 \arguments{
+\item{elevmat}{Matrix of elevation data (see ?\link[bci:bci_elevation]{bci::bci_elevation}).}
+
 \item{plotdim}{The x and y dimensions of the plot. This is used often in R
 package. Note it assumes the starting coordinates are zero. If they are
 not, then xrange and yrange must be used.}
 
+\item{add}{Logical. Whether to add points or line to an existing graph. if
+TRUE, there must be an appropriate existing graph, otherwise, a new graph
+is drawn}
+
+\item{new}{See \code{\link[graphics:par]{graphics::par()}}.}
+
 \item{export}{See function define.graphwindow.}
+
+\item{interval}{Contour line intervals.}
 
 \item{xrange}{Minimum and maximum x coordinates and y coordinates to
 map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
@@ -23,7 +33,13 @@ map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
 \item{yrange}{Minimum and maximum x coordinates and y coordinates to
 map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
 
+\item{xaxis}{xxxdocparam}
+
+\item{yaxis}{xxxdocparam}
+
 \item{axspos}{Distance between axis numbers and axis.}
+
+\item{labelsize}{xxxdocparam}
 
 \item{maintitle}{A title to appear at the top of the page, above the species name.}
 
@@ -44,6 +60,8 @@ png, jpg, emf, height and width are pixels and need to be 500-1000.}
 
 \item{filepath}{The folder to which map will be exported.}
 
+\item{clr}{xxxdocparam}
+
 \item{bgcolor}{The background color. Defaults to white. For presentation
 exports, try bgcolor="transparent".}
 }
@@ -53,7 +71,6 @@ dimensions are not needed, instead it calculates them from elevmat and the
 gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
 screen window is created.
 }
-\details{
-This is called by \code{map()}, and see the description of \code{map()} for the other
-arguments. It can be used on its own though.
+\seealso{
+\code{\link[=map]{map()}}, \link[bci:bci_elevation]{bci::bci_elevation}.
 }
