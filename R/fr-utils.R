@@ -419,7 +419,9 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
 args_filter_by_fun <- function(funname) {
   par <- names(formals(funname))
   params_table %>%  # must be in ".R/sysdata.rda"
-    dplyr::filter(params %in% par)
+    dplyr::filter(params %in% par) %>% 
+    dplyr::select(fun, params, definition)
+    
 }
 
 
@@ -479,15 +481,17 @@ args_undoc <- function(fun) {
 
 # Wrap multiple functions to explore arguments documentation
 args_explore <- function(x) {
-  list(
-    of = args_of(x),
-    by_fun = args_filter_by_fun(x),
-    undoc = if (length(args_undoc_one(x) == 0)) {
-      args_undoc_one(x)
+  of <- tibble::tibble(arguments = args_of(x))
+  by_fun <- args_filter_by_fun(x) %>% 
+    mutate(definition = stringr::str_trunc(definition, 40))
+  undoc <- if (length(args_undoc_one(x) == 0)) {
+    args_undoc_one(x)
     } else {
       args_undoc(x)
     }
-  )
+  
+  list(args_of = of, args_by_fun = by_fun, args_undoc = undoc)
+  # list(of = of, by_fun = by_fun, undoc = undoc)
 }
 
 

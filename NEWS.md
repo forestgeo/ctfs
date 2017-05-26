@@ -4,24 +4,92 @@
 
 
 
-Lower the number of undocumented arguments by aprox. 100 (from 1,150 to 1,036)
+## Lower the number of undocumented arguments by aprox. 100 (from 1,150 to 1,036)
+
+Before
 
 ```R
 Undocumented arguments in documentation object 'AGB.dbtable'
   'df' 'dbname' 'plot' 'code' 'censusno'
-
 Undocumented arguments in documentation object 'AGB.ind'
   'df' 'dbhunit' 'plot' 'wsgdata' 'forest' 'ht.param' 'htmodel'
+...(about 1,150 more)
+```
 
-Undocumented arguments in documentation object 'AGB.tree'
+Now
+
+```R
+Undocumented arguments in documentation object 'AGB.dbtable'
+  'df' 'dbname' 'plot' 'code' 'censusno'
+Undocumented arguments in documentation object 'AGB.ind'
   'df' 'dbhunit' 'plot' 'wsgdata' 'forest' 'ht.param' 'htmodel'
-
 ...(1,036 more)
 ```
 
 
+Document arguments in ~30 functions from _forestr_ which name is exactly the same as in CTFS-CRAN. Some arguments remain undocumented; they can be found with:
 
-- Define tag xxxdocparam to tag undocumented parameters. Fin them with `find_xxxdocparam()`.
+```R
+> find_xxxdocparam()
+[1] "#' @param xaxis xxxdocparam"     
+[2] "#' @param yaxis xxxdocparam"     
+[3] "#' @param labelsize xxxdocparam" 
+[4] "#' @param clr xxxdocparam"       
+[5] "#' @param classbreak xxxdocparam"
+[6] "#' @param meantime xxxdocparam"
+```
+
+For any function, its arguments documentation can be explored with `args_explore("function_name")`
+
+```R
+> args_explore("growth")
+All arguments are documented somewhere.
+$args_of
+# A tibble: 12 x 1
+   arguments
+       <chr>
+ 1   census1
+ 2   census2
+ 3 rounddown
+ 4    method
+ 5     stdev
+ 6   dbhunit
+ 7    mindbh
+ 8 growthcol
+ 9 err.limit
+10   maxgrow
+11    split1
+12    split2
+
+$args_by_fun
+# A tibble: 17 x 3
+                   fun    params                               definition
+                 <chr>     <chr>                                    <chr>
+ 1      biomass.change   census1 The R Analytical Table for a single c...
+ 2      biomass.change   census2 The matching R Analytical Table for a...
+ 3           abundance   dbhunit 'cm' or 'mm', only used for basal are...
+ 4         trim.growth err.limit A number. Numbers such as 10000 are h...
+ 5         trim.growth   maxgrow A number. Numbers such as 10000 are h...
+ 6              growth growthcol defines how growth is measured, eithe...
+ 7              growth    method Use 'I' to calculate annual dbh incre...
+ 8           abundance    mindbh the minimum diameter above which the ...
+ 9    complete.plotmap    mindbh         "smallest dbh to include\r\n#' "
+10 model.littleR.Gibbs    mindbh minimum dbh to be included; all trees...
+11   NeighborDensities    mindbh (10) minimum size of neighbors to be ...
+12              RipUvK    mindbh the minimum dbh to include in results...
+13          spparea.sq    mindbh        "the minimum dbh included\r\n#' "
+14              growth rounddown If TRUE, all dbh < 55 are rounded dow...
+15           abundance    split1 a vector of categories, one per indiv...
+16           abundance    split2 another vector of categories, one per...
+17              growth     stdev Logical. Default (FALSE) returns conf...
+
+$args_undoc
+NULL
+```
+
+
+
+
 
 ## Reduce duplicated paramenters-documentation
 
