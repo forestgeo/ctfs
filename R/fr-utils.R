@@ -393,6 +393,8 @@ table_params <- function(string){
   }
 }
 
+args_unstick <- function(string) {unlist(stringr::str_split(string, ","))}
+
 # Tables all documented parameters
 table_params_all <- function(string = raw_strings(), update = FALSE) {
   if(!update) {
@@ -401,7 +403,10 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
   params_table <- purrr::map_df(string, table_params) %>% 
     dplyr::arrange(params, fun) %>% 
     rm_na_row() %>% 
-    dplyr::filter(!is.na(fun))
+    dplyr::filter(!is.na(fun)) %>% 
+    dplyr::mutate(params = params %>% purrr::map(args_unstick)) %>% 
+    tidyr::unnest()
+    
   if(update) {
     devtools::use_data(params_table, overwrite = TRUE, internal = TRUE)
     readr::write_csv(params_table, "./data-raw/params_table.csv")
