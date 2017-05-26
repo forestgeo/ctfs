@@ -74,13 +74,14 @@
 #'
 'index.to.rowcol'
 
-#' Calculate the x and y coordinates given the quadrat index, as calcu...
-#'
+#' Calculate the x and y coordinates given the quadrat index.
+#' 
 #' @description
-#'
-#' Calculate the x and y coordinates given the quadrat index, as calculated in gygy.to.index.
-#'
-#'
+#' Calculate the x and y coordinates given the quadrat index, as calculated in
+#' gygy.to.index.
+#' 
+#' @inheritParams findborderquads
+#' 
 'index.to.gxgy'
 
 #' Returns row and column for any set of coordinates.

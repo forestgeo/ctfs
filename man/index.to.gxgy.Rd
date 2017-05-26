@@ -2,10 +2,18 @@
 % Please edit documentation in R/quadfunc.R
 \name{index.to.gxgy}
 \alias{index.to.gxgy}
-\title{Calculate the x and y coordinates given the quadrat index, as calcu...}
+\title{Calculate the x and y coordinates given the quadrat index.}
 \usage{
 index.to.gxgy(index, gridsize = 20, plotdim = c(1000, 500))
 }
+\arguments{
+\item{index}{Quadrate number, between 0 and 1249 in the standard plot.}
+
+\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+}
 \description{
-Calculate the x and y coordinates given the quadrat index, as calculated in gygy.to.index.
+Calculate the x and y coordinates given the quadrat index, as calculated in
+gygy.to.index.
 }
