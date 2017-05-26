@@ -71,12 +71,17 @@
 #'
 'mortality.eachspp'
 
-#' Calculate forest-wide mortality in given dbh categories. See mortal...
+#' Calculate forest-wide mortality in given dbh categories.
 #'
 #' @description
 #'
-#' Calculate forest-wide mortality in given dbh categories. See mortality and mortality.eachspp, which have same arguments and same output format.
+#' Calculate forest-wide mortality in given dbh categories. See mortality and
+#' mortality.eachspp, which have same arguments and same output format.
 #'
+#' @inheritParams mortality
+#' @param classbreak xxxdocparam
+#'
+#' @seealso [mortality()], [mortality.eachspp()]
 #'
 'mortality.dbh'
 
