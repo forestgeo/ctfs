@@ -1,57 +1,53 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
-#' Mortality is the main function, and is constructed like  growth and...
+#' Mortality, forest-wide or based on one or two categories.
 #'
 #' @description
+#' Calculate mortality for the entire forest, or based on one or two 
+#' user-submitted factors.
+#' 
+#' @details
+#' Mortality is the main function, and is constructed like growth and
+#' recruitment. It requires two complete datasets, one per census, with dbh,
+#' pom, and date for every individual of all species in at least 2 censuses (see
+#' Data Format).
 #'
-#' Mortality is the main function, and is constructed like 
-#' growth and recruitment. It requires two complete datasets, one per census,
-#' with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format). 
-#'
-#' It can then calculate mortality for the entire forest, or based on one or two user-submitted factors. 
-#'
-#' Mortality is based on only on the column status: any tree without an alivecode in census 2 is considered dead.  
-#'
-#' Individuals whose status is NA in either census are deleted from all counts,
-#' since it's impossible to count them either as survivors or dead.
-#'
-#' It requires fill.dimension and climits in utilities.r.
-#'
+#' Mortality is based on only on the column status: any tree without an 
+#' alivecode in census 2 is considered dead. Individuals whose status is NA in
+#' either census are deleted from all counts, since it's impossible to count
+#' them either as survivors or dead.
+#' 
+#' @return
 #' Output of the mortality function is a list with components:
 #' * N, the number of individuals alive in the census 1 per category selected
 #' * D, the number of individuals no longer alive in census 2
-#' * rate, the mean annualized mortality rate constant per category selected, calculated as (log(N)-log(S))/time 
+#' * rate, the mean annualized mortality rate constant per category selected,
+#' calculated as (log(N)-log(S))/time
 #' * upper, upper confidence limit of mean rate
 #' * lower, lower confidence limit of mean rate
 #' * time, mean time interval in years
-#' * date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)
+#' * date1, mean date included individuals were measured in census 1, as julian
+#' object (R displays as date, but treats as integer)
 #' * date2, mean date in census 2 
 #' * dbhmean, mean dbh in census 1 of individuals included
+#' 
+#' Pass the list to [assemble.demography()] with `type = "m"` to convert the list a
+#' data.frame.
 #'
-#'
-#' Pass the list to assemble.demography (in utilities.r) with type="m" to convert the list a data.frame.
-#'
-#' @param alivecode Generally, alivecode = "A" suffices, as this is the standard
-#'   in CTFS data for a living tree; "AS" and "AB" are seldom used now
-#' @param split1,split2 Must both be vectors of character variables with exactly
-#'  as many elements as there are rows in the tables census1 and census2 (or
-#'  both can be NULL), for instance, species names, dbh categories, or quadrat
-#'  numbers
+#' @inheritParams abundance
+#' @inheritParams biomass.change
 #'
 #' @examples
 #' \dontrun{
 #'
-#' CTFSplot("bci",56)
-#' mort.data=mortality(bci.full5,bci.full6)
+#' CTFSplot("bci", 56)
+#' mort.data = mortality(bci.full5, bci.full6)
 #' mort.data$rate
-#' mort.data=growth(bci.full5,bci.full6,split1=bci.full5$sp)
+#' mort.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
 #' mort.data$rate
-#' assemble.demography(mort.data,type='m')}
-#'
+#' assemble.demography(mort.data, type = 'm')
+#' }
 #'
 'mortality'
 
@@ -84,21 +80,28 @@
 #'
 'mortality.dbh'
 
-#' This is the calculation of mortality rate and confidence limits, gi...
+#' Calculate mortality rate and confidence limits.
 #'
 #' @description
-#'
-#' This is the calculation of mortality rate and confidence limits, given N 
-#'(number alive at the outset), S (number of survivors), and time (time interval).
-#'
-#' All three can be arrays, vectors, or scalars, but all three must be identical size. 
-#'
-#' It relies on find.climits. Used by mortality function, but can be used alone.
+#' This is the calculation of mortality rate and confidence limits, given `N` 
+#' (number alive at the outset), `S` (number of survivors), and time (time 
+#' interval). All three can be arrays, vectors, or scalars, but all three must
+#' be identical size.
+#' 
+#' @inheritParams find.climits
+#' @param S Number of survivors
+#' @param meantime xxxdocparam
+#' 
+#' @seealso [find.climits()].
 #'
 #' @examples
 #' \dontrun{
-#' mortality.calculation(N=c(100,1000),S=c(75,750),meantime=c(5.1,5.1))}
-#'
+#' mortality.calculation(
+#'   N = c(100, 1000),
+#'   S = c(75, 750),
+#'   meantime = c(5.1, 5.1)
+#' )
+#' }
 #'
 'mortality.calculation'
 
