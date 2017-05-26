@@ -27,7 +27,7 @@
 #' deleted from all calculations.
 #'
 #' @inheritParams biomass.change
-#' @seealso [fill.dimension()] and [climit()].
+#' @seealso [fill.dimension()] and [find.climit()].
 #'
 'recruitment'
 

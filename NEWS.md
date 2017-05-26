@@ -1,5 +1,26 @@
 # forestr 0.0.0.9000
 
+
+
+
+
+Lower the number of undocumented arguments by aprox. 100 (from 1,150 to 1,036)
+
+```R
+Undocumented arguments in documentation object 'AGB.dbtable'
+  'df' 'dbname' 'plot' 'code' 'censusno'
+
+Undocumented arguments in documentation object 'AGB.ind'
+  'df' 'dbhunit' 'plot' 'wsgdata' 'forest' 'ht.param' 'htmodel'
+
+Undocumented arguments in documentation object 'AGB.tree'
+  'df' 'dbhunit' 'plot' 'wsgdata' 'forest' 'ht.param' 'htmodel'
+
+...(1,036 more)
+```
+
+
+
 - Define tag xxxdocparam to tag undocumented parameters. Fin them with `find_xxxdocparam()`.
 
 ## Reduce duplicated paramenters-documentation
