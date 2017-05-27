@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This is the calculation of mortality rate and confidence limits, gi... — mortality.calculation â€¢ forestr</title>
+<title>Calculate mortality rate and confidence limits. — mortality.calculation â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,28 +79,56 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This is the calculation of mortality rate and confidence limits, gi...</h1>
+    <h1>Calculate mortality rate and confidence limits.</h1>
     </div>
 
     
-    <p>This is the calculation of mortality rate and confidence limits, given N
-(number alive at the outset), S (number of survivors), and time (time interval).</p>
-<p>All three can be arrays, vectors, or scalars, but all three must be identical size.</p>
-<p>It relies on find.climits. Used by mortality function, but can be used alone.</p>
+    <p>This is the calculation of mortality rate and confidence limits, given <code>N</code>
+(number alive at the outset), <code>S</code> (number of survivors), and time (time
+interval). All three can be arrays, vectors, or scalars, but all three must
+be identical size.</p>
     
 
     <pre class="usage"><span class='fu'>mortality.calculation</span>(<span class='no'>N</span>, <span class='no'>S</span>, <span class='no'>meantime</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>N</th>
+      <td><p>The number of individuals alive at the outset.</p></td>
+    </tr>
+    <tr>
+      <th>S</th>
+      <td><p>Number of survivors</p></td>
+    </tr>
+    <tr>
+      <th>meantime</th>
+      <td><p>xxxdocparam</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='find.climits.html'>find.climits()</a></code>.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='fu'>mortality.calculation</span>(<span class='kw'>N</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>100</span>,<span class='fl'>1000</span>),<span class='kw'>S</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>75</span>,<span class='fl'>750</span>),<span class='kw'>meantime</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>5.1</span>,<span class='fl'>5.1</span>))
+  <span class='fu'>mortality.calculation</span>(
+    <span class='kw'>N</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>100</span>, <span class='fl'>1000</span>),
+    <span class='kw'>S</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>75</span>, <span class='fl'>750</span>),
+    <span class='kw'>meantime</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>5.1</span>, <span class='fl'>5.1</span>)
+  )
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

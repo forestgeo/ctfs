@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Output histograms of little.r across species, observed and fitted, ... — graph.abundmodel â€¢ forestr</title>
+<title>Output histograms of little.r across species, observed and fitted. — graph.abundmodel â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,16 +79,17 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Output histograms of little.r across species, observed and fitted, ...</h1>
+    <h1>Output histograms of little.r across species, observed and fitted.</h1>
     </div>
 
     
     <p>Output histograms of little.r across species, observed and fitted, using the
-result of model.littleR.Gibbs. The histogram of black points is all species,
-blue points only those starting with N &gt;= minabund. If the argument
-mortcorr=TRUE, a graph of mortality rate vs. population change for every
-species is also produced. Otherwise, a table of the species with biggest
-increases and biggest decreases in abundance is printed to the screen.</p>
+result of <code><a href='model.littleR.Gibbs.html'>model.littleR.Gibbs()</a></code>. The histogram of black points is all
+species, blue points only those starting with <code>N &gt;= minabund</code>. If the
+argument <code>mortcorr = TRUE</code>, a graph of mortality rate vs. population change
+for every species is also produced. Otherwise, a table of the species with
+biggest increases and biggest decreases in abundance is printed to the
+screen.</p>
     
 
     <pre class="usage"><span class='fu'>graph.abundmodel</span>(<span class='no'>fit</span>, <span class='kw'>datafile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>div</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>tinydiv</span> <span class='kw'>=</span> <span class='fl'>0.001</span>,
@@ -119,7 +120,8 @@ increases and biggest decreases in abundance is printed to the screen.</p>
     </tr>
     <tr>
       <th>modeltype</th>
-      <td><p>form of probability distribution, matching what was used when fit was created by model.littleR.Gibbs</p></td>
+      <td><p>form of probability distribution, matching what was used
+when fit was created by model.littleR.Gibbs</p></td>
     </tr>
     <tr>
       <th>xrange, yrange</th>
@@ -127,15 +129,18 @@ increases and biggest decreases in abundance is printed to the screen.</p>
     </tr>
     <tr>
       <th>minabund</th>
-      <td><p>minimum abundance of species to be used in histogram of observed rates of population change</p></td>
+      <td><p>minimum abundance of species to be used in histogram of
+observed rates of population change</p></td>
     </tr>
     <tr>
       <th>conf</th>
-      <td><p>number of alternate fits to graph, as indication of confidence; if conf=NULL, no confidence lines are added</p></td>
+      <td><p>number of alternate fits to graph, as indication of confidence;
+if conf = NULL, no confidence lines are added</p></td>
     </tr>
     <tr>
       <th>returnextreme</th>
-      <td><p>whether to print a list of the fastest increases and decreases in abundance to the screen</p></td>
+      <td><p>whether to print a list of the fastest increases and
+decreases in abundance to the screen</p></td>
     </tr>
     <tr>
       <th>xname, yname</th>
@@ -143,7 +148,8 @@ increases and biggest decreases in abundance is printed to the screen.</p>
     </tr>
     <tr>
       <th>ltype, lwidth, modelclr</th>
-      <td><p>type, width, color of the line showing fitted distribution</p></td>
+      <td><p>type, width, color of the line showing fitted
+distribution</p></td>
     </tr>
     <tr>
       <th>bartype</th>
@@ -159,7 +165,9 @@ increases and biggest decreases in abundance is printed to the screen.</p>
     </tr>
     <tr>
       <th>add</th>
-      <td><p>just like all R graphs, whether to add points or line to an existing graph</p></td>
+      <td><p>Logical. Whether to add points or line to an existing graph. if
+TRUE, there must be an appropriate existing graph, otherwise, a new graph
+is drawn</p></td>
     </tr>
     <tr>
       <th>ax</th>
@@ -167,7 +175,8 @@ increases and biggest decreases in abundance is printed to the screen.</p>
     </tr>
     <tr>
       <th>mortcorr</th>
-      <td><p>whether to graph the correlation between mortality and population change across species</p></td>
+      <td><p>whether to graph the correlation between mortality and
+population change across species</p></td>
     </tr>
     <tr>
       <th>debug</th>
@@ -181,10 +190,14 @@ increases and biggest decreases in abundance is printed to the screen.</p>
     
     <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
 
+    <p>If you use the argument datafile, beware that it uses
+<code>attach()</code>. After use you should remove the attached object from the serach
+path. See <em>Good practice</em> in <code>?attach()</code>. This argument may be deprecated
+in future versions.</p>
     
-    <p>If you use the argument datafile, beware that it uses <code>attach()</code>. After use
-you should remove the attached object from the serach path. See <em>Good
-practice</em> in <code>?attach()</code>. This argument may be deprecated in future versions.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p>?<code><a href='http://www.rdocumentation.org/packages/graphics/topics/plot'>graphics::plot()</a></code>, ?<code><a href='http://www.rdocumentation.org/packages/graphics/topics/par'>graphics::par()</a></code>.</p>
     
 
   </div>
@@ -194,6 +207,8 @@ practice</em> in <code>?attach()</code>. This argument may be deprecated in futu
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#warning">Warning</a></li>
+
+      <li><a href="#see-also">See also</a></li>
           </ul>
 
   </div>

@@ -87,12 +87,12 @@
     <div id="forestr-0-0-0-9000" class="section level1">
 <h1 class="hasAnchor">
 <a href="#forestr-0-0-0-9000" class="anchor"></a>forestr 0.0.0.9000</h1>
-<p>Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters’ documentation) and as a source of information to rewrite forestr’s documentation.</p>
-<p>Some limitations in merging documentation in forestr and CTFS-CRAN are:</p>
-<ul>
-<li><p>the number of functions differ; there are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.</p></li>
-<li><p>only 29 functions are named exactly the same in both packages; those functions are these:</p></li>
-</ul>
+<div id="improved-arguments-documentation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#improved-arguments-documentation" class="anchor"></a>Improved arguments documentation</h2>
+<p>A large problem of forestr is that many function arguments are undocumented. This problem can in part be solved by re-using arguments shared across multiple functions, when the arguments are documented in one but not all of those functions. This also reduces duplication, which makes easier to maintain documentation (see <a href="http://r-pkgs.had.co.nz/man.html">Inheriting parameters from other functions</a>, by Hadley Wickham).</p>
+<p>This week I reduced the number of undocumented arguments by approx. 120 (from 1,150 to 1,036), by reviewing only ~30 functions from <em>forestr</em> which name is exactly the same as in CTFS-CRAN.</p>
+<p>Those functions are these:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> [<span class="dv">1</span>] <span class="st">"abundance.Rd"</span>            
  [<span class="dv">2</span>] <span class="st">"abundance.spp.Rd"</span>        
  [<span class="dv">3</span>] <span class="st">"assemble.demography.Rd"</span>  
@@ -122,9 +122,74 @@
 [<span class="dv">27</span>] <span class="st">"rowcol.to.index.Rd"</span>      
 [<span class="dv">28</span>] <span class="st">"tojulian.Rd"</span>             
 [<span class="dv">29</span>] <span class="st">"trim.growth.Rd"</span>      </code></pre></div>
+<p>Notes</p>
 <ul>
-<li>although the 29 functions above have the same name, some differ in the source code, including arguments number and name, and the documentation.</li>
+<li><p>Although the 29 functions above have the same name, some differ in the source code, including arguments number, name, and definition.</p></li>
+<li><p>There are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.</p></li>
+<li><p>Some arguments remain undocumented, and they can be found with the internal function <code>find_xxxdocparam()</code>:</p></li>
 </ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">find_xxxdocparam</span>()
+[<span class="dv">1</span>] <span class="st">"#' @param cens1,cens2 xxxdocparam"</span>
+[<span class="dv">2</span>] <span class="st">"#' @param time xxxdocparam"</span>       
+[<span class="dv">3</span>] <span class="st">"#' @param xaxis xxxdocparam"</span>      
+[<span class="dv">4</span>] <span class="st">"#' @param yaxis xxxdocparam"</span>      
+[<span class="dv">5</span>] <span class="st">"#' @param labelsize xxxdocparam"</span>  
+[<span class="dv">6</span>] <span class="st">"#' @param clr xxxdocparam"</span>        
+[<span class="dv">7</span>] <span class="st">"#' @param classbreak xxxdocparam"</span> 
+[<span class="dv">8</span>] <span class="st">"#' @param meantime xxxdocparam"</span>  </code></pre></div>
+<p>I tried to use documentation in forestr exclusively and used documentation from CTFS-CRAN only to fill gaps (most often missing parameters’ documentation) and as a source of information to rewrite forestr’s documentation. Some limitations in merging documentation in forestr and CTFS-CRAN are:</p>
+</div>
+<div id="future-improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#future-improvements" class="anchor"></a>Future improvements</h2>
+<p>Further improving documentation is much easier now than before. For any function, its arguments documentation can now be explored with <code>args_explore("function_name")</code>, for example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">args_explore</span>(<span class="st">"growth"</span>)
+All arguments are documented somewhere.
+$args_of
+<span class="co"># A tibble: 12 x 1</span>
+   arguments
+       &lt;chr&gt;
+<span class="st"> </span><span class="dv">1</span>   census1
+ <span class="dv">2</span>   census2
+ <span class="dv">3</span> rounddown
+ <span class="dv">4</span>    method
+ <span class="dv">5</span>     stdev
+ <span class="dv">6</span>   dbhunit
+ <span class="dv">7</span>    mindbh
+ <span class="dv">8</span> growthcol
+ <span class="dv">9</span> err.limit
+<span class="dv">10</span>   maxgrow
+<span class="dv">11</span>    split1
+<span class="dv">12</span>    split2
+
+$args_by_fun
+<span class="co"># A tibble: 17 x 3</span>
+                   fun    params                               definition
+                 &lt;chr&gt;<span class="st">     </span><span class="er">&lt;</span>chr&gt;<span class="st">                                    </span><span class="er">&lt;</span>chr&gt;
+<span class="st"> </span><span class="dv">1</span>      biomass.change   census1 The R Analytical Table for a single c...
+ <span class="dv">2</span>      biomass.change   census2 The matching R Analytical Table for a...
+ <span class="dv">3</span>           abundance   dbhunit <span class="st">'cm'</span> or <span class="st">'mm'</span>, only used for basal are...
+ <span class="dv">4</span>         trim.growth err.limit A number. Numbers such as <span class="dv">10000</span> are h...
+ <span class="dv">5</span>         trim.growth   maxgrow A number. Numbers such as <span class="dv">10000</span> are h...
+ <span class="dv">6</span>              growth growthcol defines how growth is measured, eithe...
+ <span class="dv">7</span>              growth    method Use <span class="st">'I'</span> to calculate annual dbh incre...
+ <span class="dv">8</span>           abundance    mindbh the minimum diameter above which the ...
+ <span class="dv">9</span>    complete.plotmap    mindbh         <span class="st">"smallest dbh to include</span><span class="ch">\r\n</span><span class="st">#' "</span>
+<span class="dv">10</span> model.littleR.Gibbs    mindbh minimum dbh to be included; all trees...
+<span class="dv">11</span>   NeighborDensities    <span class="kw">mindbh</span> (<span class="dv">10</span>) minimum size of neighbors to be ...
+<span class="dv">12</span>              RipUvK    mindbh the minimum dbh to include in results...
+<span class="dv">13</span>          spparea.sq    mindbh        <span class="st">"the minimum dbh included</span><span class="ch">\r\n</span><span class="st">#' "</span>
+<span class="dv">14</span>              growth rounddown If <span class="ot">TRUE</span>, all dbh &lt;<span class="st"> </span><span class="dv">55</span> are rounded dow...
+<span class="dv">15</span>           abundance    split1 a vector of categories, one per indiv...
+<span class="dv">16</span>           abundance    split2 another vector of categories, one per...
+<span class="dv">17</span>              growth     stdev Logical. <span class="kw">Default</span> (<span class="ot">FALSE</span>) returns conf...
+
+$args_undoc
+<span class="ot">NULL</span></code></pre></div>
+<ul>
+<li>To see all documented parameters use the internal function <code>table_params_all()</code> or the internal object <code>params_table</code> (<a href="https://goo.gl/PAGjYi">see it online</a>).</li>
+</ul>
+</div>
 <div id="enhanced" class="section level2">
 <h2 class="hasAnchor">
 <a href="#enhanced" class="anchor"></a>Enhanced</h2>

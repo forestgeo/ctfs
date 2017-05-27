@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A function to read a table of elevation data into a matrix appropri... — readelevdata â€¢ forestr</title>
+<title>Read a table of elevation data into a matrix appropriate for mapping. — readelevdata â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,25 +79,50 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A function to read a table of elevation data into a matrix appropri...</h1>
+    <h1>Read a table of elevation data into a matrix appropriate for mapping.</h1>
     </div>
 
     
     <p>A function to read a table of elevation data into a matrix appropriate for
-mapping. It can read a text table (if text==TRUE) or a dataframe.</p>
-<p>In either case, there must be x then y coordinates, followed by elevation,
-at every corner across the plot, using grid of gridsize. The output is
-a matrix, as needed for R's contour function.</p>
+mapping. The table must have x then y coordinates, followed by elevation, at
+every corner across the plot, using grid of <code>gridsize</code>.</p>
     
 
     <pre class="usage"><span class='fu'>readelevdata</span>(<span class='no'>elevfile</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>elevfile</th>
+      <td><p>A data frame with x, y coordinates and elevation,
+bcielev.info.</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>scale of elevation values (m)</p></td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td><p>Logical. Defaults to read from a datatrame. Set to TRUE to read a
+text table.</p>
+<p>@seealso <a href='http://www.rdocumentation.org/packages/bci/topics/bci_elevation'>bci::bci_elevation</a>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A matrix, as needed for R's contour function.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function to draw map of one or more species from one plot. Must giv... — map â€¢ forestr</title>
+<title>Draw map of one or more species from one plot. — map â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function to draw map of one or more species from one plot. Must giv...</h1>
+    <h1>Draw map of one or more species from one plot.</h1>
     </div>
 
     
@@ -88,11 +88,6 @@ complete plot dataset, in split format (list of one dataframe per species),
 and one or more species code. Other arguments are optional, however, many
 defaults can be adjusted to get a good map on the screen or exported. This
 calls the functions maptopo() and map1species() for the actual mapping.</p>
-<p>A common problem is graph size, leading to an error message "Plot region too
-large". This happens if the export="no" option is used with the option
-plotside too large for the default graph size (usually 7 inches). If you use
-the option export="Windows", "Mac", or "Unix", then height and width can be
-set with arguments ht, wd, and plotside can be as large as you please.</p>
     
 
     <pre class="usage"><span class='fu'>map</span>(<span class='no'>splitdatafile</span>, <span class='no'>species</span>, <span class='kw'>spplist</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>),
@@ -111,7 +106,7 @@ set with arguments ht, wd, and plotside can be as large as you please.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>splitdatafile</th>
-      <td><p>A full plot dataset in list format (see <code>?split_data</code>)</p></td>
+      <td><p>A full plot dataset in list format (see <code>?split_data</code>).</p></td>
     </tr>
     <tr>
       <th>species</th>
@@ -119,20 +114,28 @@ set with arguments ht, wd, and plotside can be as large as you please.</p>
     </tr>
     <tr>
       <th>spplist</th>
-      <td><p>A table with species codes and Latin names can be submitted as well, so that the full genus-species is added to plot. This must have species codes as row names. It should be the CTFS R format species table (eg, bci.spptable).</p></td>
+      <td><p>A table with species codes and Latin names can be submitted as
+well, so that the full genus-species is added to plot. This must have
+species codes as row names. It should be the CTFS R format species table
+(eg, bci.spptable). It can be set to NULL if not available, then only the
+species code (as submitted) appears on the map.</p></td>
     </tr>
     <tr>
       <th>plotdim</th>
-      <td><p>The x and y dimensions of the plot. This is used often in R package. Note it assumes the starting coordinates are zero. If they are not, then xrange and yrange must be used.</p></td>
+      <td><p>The x and y dimensions of the plot. This is used often in R
+package. Note it assumes the starting coordinates are zero. If they are
+not, then xrange and yrange must be used.</p></td>
     </tr>
     <tr>
       <th>xrange, yrange</th>
-      <td><p>Minimum and maximum x coordinates and y coordinates
-to map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></td>
+      <td><p>Minimum and maximum x coordinates and y coordinates to
+map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></td>
     </tr>
     <tr>
       <th>elevdata</th>
-      <td><p>Elevation data can be submitted, then a topo map is overlaid. Elevation data must be submitted as a matrix (as described in readelevdata in utilities.r).</p></td>
+      <td><p>Elevation data can be submitted, then a topo map is overlaid.
+Elevation data must be submitted as a matrix (as described in readelevdata
+in utilities.r).</p></td>
     </tr>
     <tr>
       <th>cutoff</th>
@@ -140,11 +143,15 @@ to map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></
     </tr>
     <tr>
       <th>size</th>
-      <td><p>The size of plotting points, to match the number of diameter breaks. If NULL, a default set is assigned. This can require fiddling, as big points do not work for really abundant species, and small points for rare species.</p></td>
+      <td><p>The size of plotting points, to match the number of diameter
+breaks. If NULL, a default set is assigned. This can require fiddling, as
+big points do not work for really abundant species, and small points for
+rare species.</p></td>
     </tr>
     <tr>
       <th>deadtree</th>
-      <td><p>Set NULL to map all trees, alive and dead; TRUE for dead only, FALSE for live only (relies on status in the R table).</p></td>
+      <td><p>Set NULL to map all trees, alive and dead; TRUE for dead
+only, FALSE for live only (relies on status in the R table).</p></td>
     </tr>
     <tr>
       <th>maintitle</th>
@@ -152,11 +159,14 @@ to map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></
     </tr>
     <tr>
       <th>titlepos</th>
-      <td><p>The position to place the title. The default is above the center of the plot, higher than the species name. It may require some fiddling on different screens to get it the right distance above.</p></td>
+      <td><p>The position to place the title. The default is above the
+center of the plot, higher than the species name. It may require some
+fiddling on different screens to get it the right distance above.</p></td>
     </tr>
     <tr>
       <th>clrs</th>
-      <td><p>A vector of color names, one for each species. If set to NULL, default values are assigned. See bw.</p></td>
+      <td><p>A vector of color names, one for each species. If set to NULL,
+default values are assigned. See bw.</p></td>
     </tr>
     <tr>
       <th>bw</th>
@@ -164,27 +174,40 @@ to map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></
     </tr>
     <tr>
       <th>bgcolor</th>
-      <td><p>The background color. Defaults to white. For presentation exports, try bgcolor="transparent".</p></td>
+      <td><p>The background color. Defaults to white. For presentation
+exports, try bgcolor="transparent".</p></td>
     </tr>
     <tr>
       <th>symbols</th>
-      <td><p>A vector of symbols, one per species. Can be anything accepted by R for pch (plot character in the function plot()). If NULL, defaults are assigned.</p></td>
+      <td><p>A vector of symbols, one per species. Can be anything accepted
+by R for pch (plot character in the function plot()). If NULL, defaults are
+assigned.</p></td>
     </tr>
     <tr>
       <th>addlegend, legpos, legsize</th>
-      <td><p>For the species name, whether to include, where to place, and font size. Try the defaults first before fiddling, or just set addlegend=FALSE to remove.</p></td>
+      <td><p>For the species name, whether to include,
+where to place, and font size. Try the defaults first before fiddling, or
+just set addlegend=FALSE to remove.</p></td>
     </tr>
     <tr>
       <th>labsize</th>
       <td><p>Size of axis labels.</p></td>
     </tr>
     <tr>
+      <th>axisdiv</th>
+      <td><p>the division between tick marks; must be a vector of 2, first for x ticks then for y ticks</p></td>
+    </tr>
+    <tr>
       <th>bty</th>
-      <td><p>Type of box to appear around species name. The default, 'n', means no box; set to 'o'to see the box.</p></td>
+      <td><p>Type of box to appear around species name. The default, 'n', means
+no box; set to 'o'to see the box.</p></td>
     </tr>
     <tr>
       <th>ht, wd, plotside</th>
-      <td><p>These are the height and width of the overall graph, and the vertical dimension (inches) of the map. The default work for pdf export or mapping to the screen, and ht and wd are inches. But if export is png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
+      <td><p>These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
     </tr>
     <tr>
       <th>axspos</th>
@@ -210,11 +233,15 @@ to map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></
       <th>outfile</th>
       <td><p>The name of the file to export to.</p></td>
     </tr>
-    <tr>
-      <th>It</th>
-      <td><p>can be set to NULL if not available, then only the species code (as submitted) appears on the map.</p></td>
-    </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>A common problem is graph size, leading to an error message "Plot region too
+large". This happens if the export="no" option is used with the option
+plotside too large for the default graph size (usually 7 inches). If you use
+the option export="Windows", "Mac", or "Unix", then height and width can be
+set with arguments ht, wd, and plotside can be as large as you please.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -254,7 +281,9 @@ to map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

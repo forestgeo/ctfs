@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mortality is the main function, and is constructed like  growth and... — mortality â€¢ forestr</title>
+<title>Mortality, forest-wide or based on one or two categories. — mortality â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,31 +79,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Mortality is the main function, and is constructed like  growth and...</h1>
+    <h1>Mortality, forest-wide or based on one or two categories.</h1>
     </div>
 
     
-    <p>Mortality is the main function, and is constructed like
-growth and recruitment. It requires two complete datasets, one per census,
-with dbh, pom, and date for every individual of all species in at least 2 censuses (see Data Format).</p>
-<p>It can then calculate mortality for the entire forest, or based on one or two user-submitted factors.</p>
-<p>Mortality is based on only on the column status: any tree without an alivecode in census 2 is considered dead.</p>
-<p>Individuals whose status is NA in either census are deleted from all counts,
-since it's impossible to count them either as survivors or dead.</p>
-<p>It requires fill.dimension and climits in utilities.r.</p>
-<p>Output of the mortality function is a list with components:</p><ul>
-<li><p>N, the number of individuals alive in the census 1 per category selected</p></li>
-<li><p>D, the number of individuals no longer alive in census 2</p></li>
-<li><p>rate, the mean annualized mortality rate constant per category selected, calculated as (log(N)-log(S))/time</p></li>
-<li><p>upper, upper confidence limit of mean rate</p></li>
-<li><p>lower, lower confidence limit of mean rate</p></li>
-<li><p>time, mean time interval in years</p></li>
-<li><p>date1, mean date included individuals were measured in census 1, as julian object (R displays as date, but treats as integer)</p></li>
-<li><p>date2, mean date in census 2</p></li>
-<li><p>dbhmean, mean dbh in census 1 of individuals included</p></li>
-</ul>
-
-    <p>Pass the list to assemble.demography (in utilities.r) with type="m" to convert the list a data.frame.</p>
+    <p>Calculate mortality for the entire forest, or based on one or two
+user-submitted factors.</p>
     
 
     <pre class="usage"><span class='fu'>mortality</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>alivecode</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"AB"</span>, <span class='st'>"AS"</span>), <span class='kw'>split1</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -113,36 +94,81 @@ since it's impossible to count them either as survivors or dead.</p>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>alivecode</th>
-      <td><p>Generally, alivecode = "A" suffices, as this is the standard
-in CTFS data for a living tree; "AS" and "AB" are seldom used now</p></td>
+      <th>census1</th>
+      <td><p>The R Analytical Table for a single census, either tree or
+stem.</p></td>
     </tr>
     <tr>
-      <th>split1, split2</th>
-      <td><p>Must both be vectors of character variables with exactly
-as many elements as there are rows in the tables census1 and census2 (or
-both can be NULL), for instance, species names, dbh categories, or quadrat
-numbers</p></td>
+      <th>census2</th>
+      <td><p>The matching R Analytical Table for a later census.</p></td>
+    </tr>
+    <tr>
+      <th>alivecode</th>
+      <td><p>character, codes of the variable <code>status</code> that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems</p></td>
+    </tr>
+    <tr>
+      <th>split1</th>
+      <td><p>a vector of categories, one per individual</p></td>
+    </tr>
+    <tr>
+      <th>split2</th>
+      <td><p>another vector of categories, one per individual</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Output of the mortality function is a list with components:</p><ul>
+<li><p>N, the number of individuals alive in the census 1 per category selected</p></li>
+<li><p>D, the number of individuals no longer alive in census 2</p></li>
+<li><p>rate, the mean annualized mortality rate constant per category selected,
+calculated as (log(N)-log(S))/time</p></li>
+<li><p>upper, upper confidence limit of mean rate</p></li>
+<li><p>lower, lower confidence limit of mean rate</p></li>
+<li><p>time, mean time interval in years</p></li>
+<li><p>date1, mean date included individuals were measured in census 1, as julian
+object (R displays as date, but treats as integer)</p></li>
+<li><p>date2, mean date in census 2</p></li>
+<li><p>dbhmean, mean dbh in census 1 of individuals included</p></li>
+</ul>
+
+<p>Pass the list to <code><a href='assemble.demography.html'>assemble.demography()</a></code> with <code>type = "m"</code> to convert the list a
+data.frame.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Mortality is the main function, and is constructed like growth and
+recruitment. It requires two complete datasets, one per census, with dbh,
+pom, and date for every individual of all species in at least 2 censuses (see
+Data Format).</p>
+<p>Mortality is based on only on the column status: any tree without an
+alivecode in census 2 is considered dead. Individuals whose status is NA in
+either census are deleted from all counts, since it's impossible to count
+them either as survivors or dead.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
 
-  <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>"bci"</span>,<span class='fl'>56</span>)
-  <span class='no'>mort.data</span><span class='kw'>=</span><span class='fu'>mortality</span>(<span class='no'>bci.full5</span>,<span class='no'>bci.full6</span>)
+  <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>"bci"</span>, <span class='fl'>56</span>)
+  <span class='no'>mort.data</span> <span class='kw'>=</span> <span class='fu'>mortality</span>(<span class='no'>bci.full5</span>, <span class='no'>bci.full6</span>)
   <span class='no'>mort.data</span>$<span class='no'>rate</span>
-  <span class='no'>mort.data</span><span class='kw'>=</span><span class='fu'><a href='growth.html'>growth</a></span>(<span class='no'>bci.full5</span>,<span class='no'>bci.full6</span>,<span class='kw'>split1</span><span class='kw'>=</span><span class='no'>bci.full5</span>$<span class='no'>sp</span>)
+  <span class='no'>mort.data</span> <span class='kw'>=</span> <span class='fu'><a href='growth.html'>growth</a></span>(<span class='no'>bci.full5</span>, <span class='no'>bci.full6</span>, <span class='kw'>split1</span> <span class='kw'>=</span> <span class='no'>bci.full5</span>$<span class='no'>sp</span>)
   <span class='no'>mort.data</span>$<span class='no'>rate</span>
-  <span class='fu'><a href='assemble.demography.html'>assemble.demography</a></span>(<span class='no'>mort.data</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'m'</span>)
+  <span class='fu'><a href='assemble.demography.html'>assemble.demography</a></span>(<span class='no'>mort.data</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'m'</span>)
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
