@@ -103,9 +103,23 @@ stem.</p></td>
       <td><p>The matching R Analytical Table for a later census.</p></td>
     </tr>
     <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
       <th>growthcol</th>
       <td><p>defines how growth is measured, either 'dbh'or
 'agb'(agb=biomass)</p></td>
+    </tr>
+    <tr>
+      <th>err.limit</th>
+      <td><p>A number. Numbers such as 10000 are high and will
+return all measures.</p></td>
+    </tr>
+    <tr>
+      <th>maxgrow</th>
+      <td><p>A number. Numbers such as 10000 are high and will
+return all measures.</p></td>
     </tr>
     <tr>
       <th>rounddown</th>
@@ -114,7 +128,8 @@ multiple of 5.</p></td>
     </tr>
     <tr>
       <th>method</th>
-      <td><p>Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.</p></td>
+      <td><p>Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
+or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.</p></td>
     </tr>
     <tr>
       <th>stdev</th>

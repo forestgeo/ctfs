@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate forest-wide mortality in given dbh categories. See mortal... — mortality.dbh â€¢ forestr</title>
+<title>Calculate forest-wide mortality in given dbh categories. — mortality.dbh â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,22 +79,54 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate forest-wide mortality in given dbh categories. See mortal...</h1>
+    <h1>Calculate forest-wide mortality in given dbh categories.</h1>
     </div>
 
     
-    <p>Calculate forest-wide mortality in given dbh categories. See mortality and mortality.eachspp, which have same arguments and same output format.</p>
+    <p>Calculate forest-wide mortality in given dbh categories. See mortality and
+mortality.eachspp, which have same arguments and same output format.</p>
     
 
     <pre class="usage"><span class='fu'>mortality.dbh</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>classbreak</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>300</span>),
   <span class='kw'>alivecode</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"AB"</span>, <span class='st'>"AS"</span>))</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>census1</th>
+      <td><p>The R Analytical Table for a single census, either tree or
+stem.</p></td>
+    </tr>
+    <tr>
+      <th>census2</th>
+      <td><p>The matching R Analytical Table for a later census.</p></td>
+    </tr>
+    <tr>
+      <th>classbreak</th>
+      <td><p>xxxdocparam</p></td>
+    </tr>
+    <tr>
+      <th>alivecode</th>
+      <td><p>character, codes of the variable <code>status</code> that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='mortality.html'>mortality()</a></code>, <code><a href='mortality.eachspp.html'>mortality.eachspp()</a></code></p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This returns a complete table with growth rate of every individual,... — growth.indiv â€¢ forestr</title>
+<title>Table growth rate of every individual both relative and dbh-increment. — growth.indiv â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,29 +79,76 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This returns a complete table with growth rate of every individual,...</h1>
+    <h1>Table growth rate of every individual both relative and dbh-increment.</h1>
     </div>
 
     
-    <p>This returns a complete table with growth rate of every individual, both relative and dbh-increment. The table
-also includes most other key pieces of information for every individual: species, dbh, coordinates. Growth is trimmed with trim.growth,
-and growth is returned as NA if the individual is excluded; note, though, that every individual tree is always included in the table, even
-if growth=NA. Arguments are the same as in growth().</p>
+    <p>Table growth rate of every individual both relative and dbh-increment.</p>
     
 
     <pre class="usage"><span class='fu'>growth.indiv</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>,
   <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>, <span class='kw'>err.limit</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>maxgrow</span> <span class='kw'>=</span> <span class='fl'>75</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>census1</th>
+      <td><p>The R Analytical Table for a single census, either tree or
+stem.</p></td>
+    </tr>
+    <tr>
+      <th>census2</th>
+      <td><p>The matching R Analytical Table for a later census.</p></td>
+    </tr>
+    <tr>
+      <th>rounddown</th>
+      <td><p>If TRUE, all dbh &lt; 55 are rounded down to the nearest
+multiple of 5.</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>the minimum diameter above which the counts are done; if NULL,
+all (living) are included</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
+      <th>err.limit</th>
+      <td><p>A number. Numbers such as 10000 are high and will
+return all measures.</p></td>
+    </tr>
+    <tr>
+      <th>maxgrow</th>
+      <td><p>A number. Numbers such as 10000 are high and will
+return all measures.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>This returns a complete table with growth rate of every individual, both
+relative and dbh-increment. The table also includes most other key pieces of
+information for every individual: species, dbh, coordinates. Growth is
+trimmed with <code><a href='trim.growth.html'>trim.growth()</a></code>, and growth is returned as NA if the individual
+is excluded; note, though, that every individual tree is always included in
+the table, even if growth = NA. Arguments are the same as in <code><a href='growth.html'>growth()</a></code>.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>growth.table</span><span class='kw'>=</span><span class='fu'>growth.indiv</span>(<span class='no'>bci.full5</span>,<span class='no'>bci.full6</span>)
+  <span class='no'>growth.table</span> <span class='kw'>=</span> <span class='fu'>growth.indiv</span>(<span class='no'>bci.full5</span>, <span class='no'>bci.full6</span>)
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
