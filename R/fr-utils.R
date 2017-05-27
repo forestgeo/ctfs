@@ -8,7 +8,7 @@
 
 # rm_na_row ---------------------------------------------------------------
 
-#' Detect rows in a data frame full of NA (accross columns)
+#' Detect rows in a data frame full of NA (accross columns).
 #'
 #' @param .data A non empty matrix or data frame
 #' @return A logical vector of length equal to number of rows in data.
@@ -34,7 +34,7 @@ is_na_row <- function(.data) {
   apply(.data, 1, is_na_vector)
 }
 
-#' Remove rows from data frame or matrix full of NA
+#' Remove rows from data frame or matrix full of NA.
 #' 
 #' @param .data A data frame or matrix.
 #' @return Output and `.data`. have the same type.
@@ -393,6 +393,8 @@ table_params <- function(string){
   }
 }
 
+args_unstick <- function(string) {unlist(stringr::str_split(string, ","))}
+
 # Tables all documented parameters
 table_params_all <- function(string = raw_strings(), update = FALSE) {
   if(!update) {
@@ -401,7 +403,10 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
   params_table <- purrr::map_df(string, table_params) %>% 
     dplyr::arrange(params, fun) %>% 
     rm_na_row() %>% 
-    dplyr::filter(!is.na(fun))
+    dplyr::filter(!is.na(fun)) %>% 
+    dplyr::mutate(params = params %>% purrr::map(args_unstick)) %>% 
+    tidyr::unnest()
+    
   if(update) {
     devtools::use_data(params_table, overwrite = TRUE, internal = TRUE)
     readr::write_csv(params_table, "./data-raw/params_table.csv")
@@ -411,12 +416,92 @@ table_params_all <- function(string = raw_strings(), update = FALSE) {
   params_table
 }
 
-filter_args_by_fun <- function(funname) {
+args_filter_by_fun <- function(funname) {
   par <- names(formals(funname))
   params_table %>%  # must be in ".R/sysdata.rda"
-    dplyr::filter(params %in% par)
+    dplyr::filter(params %in% par) %>% 
+    dplyr::select(fun, params, definition)
+    
 }
 
+
+
+
+
+
+# Find undocumented arguments ------------------------------------------------
+
+# Find arguments that are undocumented, considering that some arguments are
+# formatted as argument1,argument2,argument3
+
+# Helpers
+
+# e.g. args_of("growth.eachspp")
+args_of <- function(x) {names(formals(x))}
+
+args_undoc_one <- function(fun) {
+  valid_functions <- unique(get_funs(raw_strings())$fun)
+  stopifnot(fun %in% valid_functions)
+  
+  not_explicitely_documented <- setdiff(
+    names(formals(fun)),
+    args_filter_by_fun(fun)$params
+  )
+  setdiff(
+    not_explicitely_documented,
+    unique(params_table$params)
+  )
+}
+
+args_multi_documented <- function(args) {
+  patt <- "@param [A-z0-9_\\.]+,[A-z0-9_\\.]+"
+  stringr::str_extract_all(raw_strings(), patt) %>% 
+    tibble() %>% 
+    tidyr::unnest() %>% 
+    setNames("fun") %>% 
+    mutate(fun = stringr::str_replace(fun, "@param ", "")) %>% 
+    dplyr::filter(stringr::str_detect(fun, args))
+}
+
+
+
+# Implementation (wrapper)
+
+args_undoc <- function(fun) {
+  undoc <- args_undoc_one(fun)
+  if (length(undoc) == 0) {
+    message("All arguments are documented somewhere.")
+  } else {
+    multi_documented_args <- args_multi_documented(undoc)$fun %>% 
+      stringr::str_split(",") %>% 
+      unlist()
+    setdiff(undoc, multi_documented_args)
+  }
+}
+
+# Wrap multiple functions to explore arguments documentation
+args_explore <- function(x) {
+  of <- tibble::tibble(arguments = args_of(x))
+  by_fun <- args_filter_by_fun(x) %>% 
+    mutate(definition = stringr::str_trunc(definition, 40))
+  undoc <- if (length(args_undoc_one(x) == 0)) {
+    args_undoc_one(x)
+    } else {
+      args_undoc(x)
+    }
+  
+  list(args_of = of, args_by_fun = by_fun, args_undoc = undoc)
+  # list(of = of, by_fun = by_fun, undoc = undoc)
+}
+
+
+
+# Find the pattern xxxdocparam to documente parameters (then ctr + shift + f).
+find_xxxdocparam <- function() {
+  purrr::flatten_chr(
+    stringr::str_extract_all(raw_strings(), "#\' @param [^ ]+ xxxdocparam")
+  )
+}
 
 
 

@@ -2,10 +2,20 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.index}
 \alias{gxgy.to.index}
-\title{Assign any location(s) a single index identifying the quadrat. The ...}
+\title{Assign any location(s) a single index identifying the quadrat.}
 \usage{
 gxgy.to.index(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 }
+\arguments{
+\item{gx}{Tree x and y coordinate.}
+
+\item{gy}{Tree x and y coordinate.}
+
+\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+}
 \description{
-Assign any location(s) a single index identifying the quadrat. The index runs from 1 to the number of quadrats.
+Assign any location(s) a single index identifying the quadrat. The index runs
+from 1 to the number of quadrats.
 }

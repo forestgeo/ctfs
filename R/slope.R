@@ -4,17 +4,20 @@
 #'
 #'
 
-#' A function to read a table of elevation data into a matrix appropri...
+#' Read a table of elevation data into a matrix appropriate for mapping.
 #'
 #' @description
+#' A function to read a table of elevation data into a matrix appropriate for 
+#' mapping. The table must have x then y coordinates, followed by elevation, at
+#' every corner across the plot, using grid of `gridsize`.
+#' 
+#' @return A matrix, as needed for R's contour function.
 #'
-#' A function to read a table of elevation data into a matrix appropriate for
-#' mapping. It can read a text table (if text==TRUE) or a dataframe. 
-#'
-#' In either case, there must be x then y coordinates, followed by elevation, 
-#' at every corner across the plot, using grid of gridsize. The output is
-#' a matrix, as needed for R's contour function.
-#'
+#' @inheritParams elev.to.list
+#' @param text Logical. Defaults to read from a datatrame. Set to TRUE to read a
+#'   text table.
+#'  
+#'  @seealso [bci::bci_elevation].
 #'
 'readelevdata'
 

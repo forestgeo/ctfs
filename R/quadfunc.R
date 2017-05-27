@@ -15,12 +15,17 @@
 #'
 'quad.to.gxgy'
 
-#' None given.rowcol.to.index gxgy.to.quad  Calculate a quadrat name (...
+#' Takes row and column numbers and identifies the quadrate number (index).
 #'
 #' @description
-#'
-#' None given.
-#'
+#' Takes row and column numbers and identifies the quadrate number (index). The 
+#' row and column numbers are based on a `gridsize` that by default divides the 
+#' plot into 20 by 20 m squares. The g`ridsize` can be defined by the user so 
+#' other quadrate sizes can be used.
+#' 
+#' @inheritParams findborderquads
+#' @param rowno Row number.
+#' @param colno Column number.
 #'
 'rowcol.to.index'
 
@@ -52,47 +57,56 @@
 #'
 'convert.rowcol'
 
-#' Assign any location(s) a single index identifying the quadrat. The ...
+#' Assign any location(s) a single index identifying the quadrat.
 #'
 #' @description
 #'
-#' Assign any location(s) a single index identifying the quadrat. The index runs from 1 to the number of quadrats. 
+#' Assign any location(s) a single index identifying the quadrat. The index runs
+#' from 1 to the number of quadrats.
 #'
+#' @inheritParams gxgy.to.hectindex
+#' @inheritParams findborderquads
 #'
 'gxgy.to.index'
 
-#' Calculate the row and column given the quadrat index, as calculated...
+#' Calculate the row and column given the quadrat index.
 #'
 #' @description
+#' Calculate the row and column given the quadrat index, as calculated in
+#' gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming.
 #'
-#' Calculate the row and column given the quadrat index, as calculated in gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming. 
-#'
+#' @inheritParams gxgy.to.index
 #'
 'index.to.rowcol'
 
-#' Calculate the x and y coordinates given the quadrat index, as calcu...
-#'
+#' Calculate the x and y coordinates given the quadrat index.
+#' 
 #' @description
-#'
-#' Calculate the x and y coordinates given the quadrat index, as calculated in gygy.to.index.
-#'
-#'
+#' Calculate the x and y coordinates given the quadrat index, as calculated in
+#' gygy.to.index.
+#' 
+#' @inheritParams findborderquads
+#' 
 'index.to.gxgy'
 
-#' Returns row and column for any set of coordinates. Rows and columns...
-#'
+#' Returns row and column for any set of coordinates.
+#' 
 #' @description
-#'
-#' Returns row and column for any set of coordinates. Rows and columns both start at 1, not 0. 
-#'
-#'
+#' Returns row and column for any set of coordinates. Rows and columns both
+#' start at 1, not 0.
+#' 
+#' @inheritParams gxgy.to.index
+#' 
 'gxgy.to.rowcol'
 
-#' gxgy.to.hectindex gxgy.to.lxly  Given global coordinates and quadra...
-#'
+#' Converts GX GY Coordinates to a Hectare Number. 
 #' 
-#'
-#'
+#' @description
+#' Takes an x, y plot location and identifies the hectare number.
+#' 
+#' @inheritParams findborderquads
+#' @param gx,gy Tree x and y coordinate.
+#' 
 'gxgy.to.hectindex'
 
 #' Given global coordinates and quadrat and plot dimensions, calculate...

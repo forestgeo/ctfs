@@ -78,17 +78,25 @@
 #'
 'biomass.growth'
 
-#' This calculates growth for each species in given dbh categories. It...
+#' Calculate growth for each species in given dbh categories.
 #'
 #' @description
-#'
-#' This calculates growth for each species in given dbh categories. It creates the split
-#' variables then uses growth(). Other arguments are as in growth().
+#' Calculates growth for each species in given dbh categories. It creates
+#' the split variables then uses `growth()`.
+#' 
+#' @inheritParams growth
+#' @inheritParams abundance
+#' 
+#' @seealso [growth()] and [abundance()]
 #'
 #' @examples
 #' \dontrun{
-#' growth.result=growth.eachspp(bci.full5,bci.full6,classbreak=c(10,50,100,300,500))}
-#'
+#' growth.result <- growth.eachspp(
+#'   bci12full5, 
+#'   bci12full6, 
+#'   classbreak = c(10, 50, 100, 300, 500)
+#' )
+#' }
 #'
 'growth.eachspp'
 
@@ -109,19 +117,25 @@
 #' }
 'growth.dbh'
 
-#' This returns a complete table with growth rate of every individual,...
+#' Table growth rate of every individual both relative and dbh-increment.
 #'
 #' @description
-#'
-#' This returns a complete table with growth rate of every individual, both relative and dbh-increment. The table
-#' also includes most other key pieces of information for every individual: species, dbh, coordinates. Growth is trimmed with trim.growth,
-#' and growth is returned as NA if the individual is excluded; note, though, that every individual tree is always included in the table, even
-#' if growth=NA. Arguments are the same as in growth().
+#' Table growth rate of every individual both relative and dbh-increment.
+#' 
+#' @inheritParams growth
+#' 
+#' @return
+#' This returns a complete table with growth rate of every individual, both 
+#' relative and dbh-increment. The table also includes most other key pieces of 
+#' information for every individual: species, dbh, coordinates. Growth is 
+#' trimmed with [trim.growth()], and growth is returned as NA if the individual
+#' is excluded; note, though, that every individual tree is always included in
+#' the table, even if growth = NA. Arguments are the same as in [growth()].
 #'
 #' @examples
 #' \dontrun{
-#' growth.table=growth.indiv(bci.full5,bci.full6)}
-#'
+#' growth.table = growth.indiv(bci.full5, bci.full6)
+#' }
 #'
 'growth.indiv'
 
@@ -146,13 +160,18 @@
 #' mindbh`. All parameters for excluding growth measures based on error can be
 #' adjusted.
 #' 
-#' @param maxgrow,err.limit A number. Numbers such as 10000 are high and will
-#'   return all measures
+#' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
+#'   return all measures.
 #' @param pomcut A number. To include POM changes, set it to a high number, such
-#'   as 10
+#'   as 10.
 #' @param exclude.stem.change Logical. FALSE includes cases where stemID 
 #'   changed, regardless of growth (it does not make sense to exclude a record
 #'   based on growth when the growth is based on different stems).
+#' @param cens1,cens2 xxxdocparam See `census1` and `census2` in
+#'   [biomass.change()].
+#' @param time xxxdocparam Years between censuses.
+#' @param slope Slope of error of measurement line.
+#' @param intercept Intercept of error of measurement line.
 #'
 'trim.growth'
 

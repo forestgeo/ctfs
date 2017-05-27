@@ -1,34 +1,83 @@
 # Compare forestr and CTFS-CRAN -------------------------------------------
 
-fr <- dir("man")
-cran <- dir("../CTFS-CRAN/man/")
-setdiff(cran, fr)
-in_both <- intersect(cran, fr)
-in_both
 
 
-
+# setup -------------------------------------------------------------------
 
 library(dplyr)
 library(forestr)
 devtools::load_all()
-filter_args_by_fun("growth")
+
+fr <- dir("man")
+cran <- dir("../CTFS-CRAN/man/")
+setdiff(cran, fr)
+in_both <- intersect(cran, fr)
+in_both <- stringr::str_replace(in_both, ".Rd$", "")
+
+# record ------------------------------------------------------------------
+
+done <- c(
+  "abundance", 
+  "abundance.spp", 
+  "assemble.demography", 
+  "ba", 
+  "biomass.change", 
+  "elev.to.list", 
+  "findborderquads", 
+  "find.climits", 
+  "growth", 
+  "growth.dbh", 
+  "growth.eachspp", 
+  "growth.indiv",
+  "trim.growth", 
+  "gxgy.to.hectindex", 
+  "gxgy.to.index", 
+  "index.to.rowcol",
+  "gxgy.to.rowcol",
+  "findborderquads",
+  "index.to.gxgy",
+  "map",
+  "maptopo",
+  "mortality",
+  "mortality.calculation",
+  "mortality.dbh",
+  "mortality.eachspp",
+  "readelevdata",
+  "recruitment",
+  "recruitment.eachspp",
+  "rowcol.to.index",
+  "tojulian"
+)
+
+setdiff(in_both, done) %>% sort()
+
+# next --------------------------------------------------------------------
+
+
+args_explore("fromjulian")
+
+params_table %>% filter(grepl(params, "maxgrow"))
 
 
 
-
-#' @inheritParams biomass.change
-#' param mindbh is the minimum dbh to include in results
-#' param dbhunit Either 'mm'or 'cm'
-#' param split1,split2 must both be vectors of character variables with exactly
-#'   as many elements as there are rows in the tables `census1` and `census2` 
-#'   (or both can be NULL), for instance, species names, dbh categories, or 
-#'   quadrat numbers.
-#' param err.limit See [trim.growth()].
-#' param maxgrow See [trim.growth()].
+x <- "mortality"
+args_of(x)
+args_filter_by_fun(x)
+args_undoc(x)
 
 
+tp <- table_params_all()
 
+
+string <- "addlegend,legpos,legsize"
+
+args_unstick <- function(string) {unlist(stringr::str_split(string, ","))}
+
+tp %>% 
+  # group_by(param) %>% 
+  mutate(params = params %>% purrr::map(args_unstick)) %>% 
+  tidyr::unnest() %>% 
+  filter(fun == "map") %>% View
 
 
 

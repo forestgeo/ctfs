@@ -2,7 +2,7 @@
 % Please edit documentation in R/fr-utils.R
 \name{is_na_row}
 \alias{is_na_row}
-\title{Detect rows in a data frame full of NA (accross columns)}
+\title{Detect rows in a data frame full of NA (accross columns).}
 \usage{
 is_na_row(.data)
 }
@@ -13,7 +13,7 @@ is_na_row(.data)
 A logical vector of length equal to number of rows in data.
 }
 \description{
-Detect rows in a data frame full of NA (accross columns)
+Detect rows in a data frame full of NA (accross columns).
 }
 \examples{
 library(tibble)

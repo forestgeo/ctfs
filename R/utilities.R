@@ -1,35 +1,43 @@
 
 # Roxygen documentation generated programatically -------------------
-#' Accepts any character representation of a date and a description of...
+
+#' Convert calendar dates to Julian dates.
 #'
 #' @description
+#' Accepts any character representation of a date and a description of the
+#' format. The submitted dates can be a vector or a matrix.
 #'
-#' Accepts any character representation of a date and a description of the format. The submitted dates can
-#' be a vector or a matrix. See strptime for details about the format. 
-#'
-#' Returns a julian date, the number of days since 1 Jan 1960; a julian is an integer and can be graphed or operated as such, 
-#' though it displays as a date.
+#' @return A julian date, the number of days since 1 Jan 1960; a julian is an 
+#'   integer and can be graphed or operated as such, though it displays as a
+#'   date.
+#' @param x  A character representation of a date.
+#' @param dateform Format for calendar date, see [base::strptime()] for format
+#'   information.
+#'   
+#' @seealso [base::strptime()], [base::julian()].
 #'
 #' @examples
 #' \dontrun{
-#'
-#' tojulian(c('23Oct2010','29Mar1956'),'%d%b%Y')}
-#'
+#' tojulian(c('23Oct2010','29Mar1956'),'%d%b%Y')
+#' }
 #'
 'tojulian'
 
-#' Accepts a julian date and returns a character representation of dat...
+#' Convert calendar dates from julian dates.
 #'
 #' @description
-#'
-#' Accepts a julian date and returns a character representation of date. See tojulian(). The input
-#' can be vector or array. 
+#' Convert calendar dates from julian dates.
+#' 
+#' @return A character representation of a date. 
+#' 
+#' @inheritParams tojulian
+#' @param j Julian dates, given as a vector or array.
+#' @seealso [tojulian()]
 #'
 #' @examples
 #' \dontrun{
-#'
-#' fromjulian(1000,'%d%B%Y')}
-#'
+#' fromjulian(1000,'%d%B%Y')
+#' }
 #'
 'fromjulian'
 
@@ -525,29 +533,39 @@
 #'
 'countUnique'
 
-#' Fill the area between two curves on a graph. Useful for confidence ...
+#' Fill the area between two curves on a graph.
 #'
 #' @description
-#'
-#' Fill the area between two curves on a graph. Useful for confidence limits, for example. 
-#'
-#' Typical use is to draw a graph first with some central y values, then add a confidence band by filling the area between upper and lower confidence limits
-#'(designated by variables lower.y and upper.y in the example below). The central line should then be redrawn over the filled area.
-#'
+#' Fill the area between two curves on a graph. Useful for confidence limits,
+#' for example.
+#' 
+#' Typical use is to draw a graph first with some central y values, then add a 
+#' confidence band by filling the area between upper and lower confidence limits
+#' (designated by variables lower.y and upper.y in the example below). The 
+#' central line should then be redrawn over the filled area.
+#' 
 #' @param x The x axis values, as in any R graph
-#' @param y1,y2 = Two sets of y axis values, each of exactly the same length as x
+#' @param y1,y2 = Two sets of y axis values, each of exactly the same length as 
+#'   `x`
 #' @param fillcol The color filling the area between the two curves
-#' @param add TRUE or FALSE, as in other R graphs; if TRUE, there must be an appropriate existing graph, otherwise, a new graph is drawn
-#' @param linecol If add==FALSE, lines drawn at y1 and y2 are this color; ignored if add==TRUE
-#' @param ltype If add==FALSE, lines drawn at y1 and y2 are this type ('solid','dashed',etc);  ignored if add==TRUE
-#' @param lwidth If add==FALSE, lines drawn at y1 and y2 are this thickness (a number);  ignored if add==TRUE
-#'
+#' @param add Logical. Whether to add points or line to an existing graph. if 
+#'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
+#'   is drawn
+#' @param linecol If add == FALSE, lines drawn at y1 and y2 are this color; 
+#'   ignored if add == TRUE
+#' @param ltype If add == FALSE, lines drawn at y1 and y2 are this type 
+#'   ('solid','dashed',etc);  ignored if add==TRUE
+#' @param lwidth If add == FALSE, lines drawn at y1 and y2 are this thickness (a
+#'   number);  ignored if add==TRUE
+#'   
+#' @seealso ?[graphics::plot()], ?[graphics::par()]
+#'  
 #' @examples
 #' \dontrun{
-#' plot(x,y,type='l')
-#' graphFilledBand(x,lower.y,upper.y)
-#' lines(x,y)}
-#'
+#' plot(x, y, type = 'l')
+#' graphFilledBand(x, lower.y, upper.y)
+#' lines(x, y)
+#' }
 #'
 'graphFilledBand'
 

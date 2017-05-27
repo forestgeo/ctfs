@@ -2,11 +2,27 @@
 % Please edit documentation in R/mortality.R
 \name{mortality.dbh}
 \alias{mortality.dbh}
-\title{Calculate forest-wide mortality in given dbh categories. See mortal...}
+\title{Calculate forest-wide mortality in given dbh categories.}
 \usage{
 mortality.dbh(census1, census2, classbreak = c(10, 100, 300),
   alivecode = c("A", "AB", "AS"))
 }
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
+\item{classbreak}{xxxdocparam}
+
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems}
+}
 \description{
-Calculate forest-wide mortality in given dbh categories. See mortality and mortality.eachspp, which have same arguments and same output format.
+Calculate forest-wide mortality in given dbh categories. See mortality and
+mortality.eachspp, which have same arguments and same output format.
+}
+\seealso{
+\code{\link[=mortality]{mortality()}}, \code{\link[=mortality.eachspp]{mortality.eachspp()}}
 }
