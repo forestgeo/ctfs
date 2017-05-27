@@ -161,12 +161,17 @@
 #' adjusted.
 #' 
 #' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
-#'   return all measures
+#'   return all measures.
 #' @param pomcut A number. To include POM changes, set it to a high number, such
-#'   as 10
+#'   as 10.
 #' @param exclude.stem.change Logical. FALSE includes cases where stemID 
 #'   changed, regardless of growth (it does not make sense to exclude a record
 #'   based on growth when the growth is based on different stems).
+#' @param cens1,cens2 xxxdocparam See `census1` and `census2` in
+#'   [biomass.change()].
+#' @param time xxxdocparam Years between censuses.
+#' @param slope Slope of error of measurement line.
+#' @param intercept Intercept of error of measurement line.
 #'
 'trim.growth'
 

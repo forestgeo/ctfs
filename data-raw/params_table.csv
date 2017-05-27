@@ -70,6 +70,12 @@ modelBayes,"The number of steps to remove as burn-in before calculating posterio
 #' ",burnin
 map,"If TRUE, only black, white, and grays are used.
 #' ",bw
+trim.growth,"xxxdocparam See `census1` and `census2` in
+#'   [biomass.change()].
+#' ",cens1
+trim.growth,"xxxdocparam See `census1` and `census2` in
+#'   [biomass.change()].
+#' ",cens2
 abundance,"an R Analytical Table for a full plot census. For basal area 
 #'   use a stem table. For abundance, use either the stem or full table to count
 #'   stems or trees, respectively.
@@ -198,10 +204,10 @@ elev.to.list,"A data frame with x, y coordinates and elevation,
 maptopo,"Matrix of elevation data (see ?[bci::bci_elevation]).
 #' ",elevmat
 trim.growth,"A number. Numbers such as 10000 are high and will
-#'   return all measures
+#'   return all measures.
 #' ",err.limit
 trim.growth,"A number. Numbers such as 10000 are high and will
-#'   return all measures
+#'   return all measures.
 #' ",maxgrow
 lmerBayes,"A character variable with 6 possible values: ""Binom"",
 #'   ""NegBinom"", ""Pois"", ""Gauss"", ""GaussMultResid"", or ""Flat"".
@@ -238,7 +244,7 @@ modelBayes,"A character variable; either ""Binom"", ""Pois"", ""NegBinom"",
 trim.growth,"Logical. FALSE includes cases where stemID 
 #'   changed, regardless of growth (it does not make sense to exclude a record
 #'   based on growth when the growth is based on different stems).
-#'",exclude.stem.change
+#' ",exclude.stem.change
 complete.plotmap,"set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)
 #' ",export
 imageGraph,"if newgraph=TRUE, this defines the graphics device; options include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not quoted!)
@@ -328,6 +334,8 @@ CTFSplot,"can be set to FALSE if the species table is not available
 #' ",includespp
 findborderquads,"Quadrate number, between 0 and 1249 in the standard plot.
 #' ",index
+trim.growth,"Intercept of error of measurement line.
+#'",intercept
 maptopo,"Contour line intervals.
 #' ",interval
 fromjulian,"Julian dates, given as a vector or array.
@@ -466,7 +474,7 @@ coldata.to.imagemat,"The minimum plot x and y coordinates; in CTFS plots, these 
 imageGraph,"size of graph's x-dimension in inches; ignored if newgraph=FALSE
 #' ",plotsize
 trim.growth,"A number. To include POM changes, set it to a high number, such
-#'   as 10
+#'   as 10.
 #' ",pomcut
 fullplot.imageJ,"the prefix used for all the map files before the quadrat name
 #' ",prefix
@@ -548,6 +556,8 @@ selectrandomquad,"a vector of quadrat sizes, referring to the x-dimension of a
 #' ",size
 spparea.sq,"a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
 #' ",size
+trim.growth,"Slope of error of measurement line.
+#' ",slope
 spparea.sq,"name of the column in the table having the species; defaults to 'sp', but can be set to 'genus'for 'family'if desired
 #' ",spcolumn
 Annuli,"A single dataframe with x-y coordinates of individuals. 
@@ -617,6 +627,8 @@ imageJ.to.lxly,"the complete name of the textfile to convert, including the path
 polar.to.cartesian,"input vector of angle from horizontal (radians), same length as r
 #'
 #' ",theta
+trim.growth,"xxxdocparam Years between censuses.
+#' ",time
 graph.abundmodel,"width of bins used to draw the fitted distribution
 #' ",tinydiv
 map,"The position to place the title. The default is above the

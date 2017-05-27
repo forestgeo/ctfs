@@ -23,10 +23,10 @@ all (living) are included}
 'agb'(agb=biomass)}
 
 \item{err.limit}{A number. Numbers such as 10000 are high and will
-return all measures}
+return all measures.}
 
 \item{maxgrow}{A number. Numbers such as 10000 are high and will
-return all measures}
+return all measures.}
 
 \item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
 multiple of 5.}

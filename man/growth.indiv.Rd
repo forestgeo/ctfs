@@ -22,10 +22,10 @@ all (living) are included}
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
 \item{err.limit}{A number. Numbers such as 10000 are high and will
-return all measures}
+return all measures.}
 
 \item{maxgrow}{A number. Numbers such as 10000 are high and will
-return all measures}
+return all measures.}
 }
 \value{
 This returns a complete table with growth rate of every individual, both

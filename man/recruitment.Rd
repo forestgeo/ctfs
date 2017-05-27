@@ -45,5 +45,5 @@ As in \code{\link[=mortality]{mortality()}}, individuals whose status is NA in e
 deleted from all calculations.
 }
 \seealso{
-\code{\link[=fill.dimension]{fill.dimension()}} and \code{\link[=climit]{climit()}}.
+\code{\link[=fill.dimension]{fill.dimension()}} and \code{\link[=find.climit]{find.climit()}}.
 }
