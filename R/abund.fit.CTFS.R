@@ -191,41 +191,49 @@
 #'
 'fitSeveralAbundModel'
 
-#' Output histograms of little.r across species, observed and fitted, ...
+#' Output histograms of little.r across species, observed and fitted.
 #'
 #' @description
-#' Output histograms of little.r across species, observed and fitted, using the
-#' result of model.littleR.Gibbs. The histogram of black points is all species,
-#' blue points only those starting with N >= minabund. If the argument
-#' mortcorr=TRUE, a graph of mortality rate vs. population change for every
-#' species is also produced. Otherwise, a table of the species with biggest
-#' increases and biggest decreases in abundance is printed to the screen.
+#' Output histograms of little.r across species, observed and fitted, using the 
+#' result of [model.littleR.Gibbs()]. The histogram of black points is all
+#' species, blue points only those starting with `N >= minabund`. If the
+#' argument `mortcorr = TRUE`, a graph of mortality rate vs. population change
+#' for every species is also produced. Otherwise, a table of the species with
+#' biggest increases and biggest decreases in abundance is printed to the
+#' screen.
 #' 
-#' @section Warning:
-#' If you use the argument datafile, beware that it uses `attach()`. After use 
-#' you should remove the attached object from the serach path. See _Good
-#' practice_ in `?attach()`. This argument may be deprecated in future versions.
+#' @section Warning: If you use the argument datafile, beware that it uses
+#'   `attach()`. After use you should remove the attached object from the serach
+#'   path. See _Good practice_ in `?attach()`. This argument may be deprecated
+#'   in future versions.
 #'
+#' @inheritParams graphFilledBand
 #' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
 #' @param div width of bins for histogram of observed rate of population change
 #' @param tinydiv width of bins used to draw the fitted distribution
-#' @param modeltype form of probability distribution, matching what was used when fit was created by model.littleR.Gibbs
+#' @param modeltype form of probability distribution, matching what was used
+#'   when fit was created by model.littleR.Gibbs
 #' @param xrange,yrange range of graph's x-axis and and y-axis
-#' @param minabund minimum abundance of species to be used in histogram of observed rates of population change
-#' @param conf number of alternate fits to graph, as indication of confidence; if conf=NULL, no confidence lines are added
-#' @param returnextreme whether to print a list of the fastest increases and decreases in abundance to the screen
+#' @param minabund minimum abundance of species to be used in histogram of
+#'   observed rates of population change
+#' @param conf number of alternate fits to graph, as indication of confidence;
+#'   if conf = NULL, no confidence lines are added
+#' @param returnextreme whether to print a list of the fastest increases and
+#'   decreases in abundance to the screen
 #' @param xname,yname axis names
-#' @param graphit if set to false, 
-#' @param ltype,lwidth,modelclr type, width, color of the line showing fitted distribution
+#' @param graphit if set to false,
+#' @param ltype,lwidth,modelclr type, width, color of the line showing fitted
+#'   distribution
 #' @param bartype if TRUE, histogram is bar graph
 #' @param addpts if TRUE, histogram is a point graph
 #' @param makeleg whether to add legend
-#' @param add just like all R graphs, whether to add points or line to an existing graph
 #' @param ax if FALSE, the axes are not added
-#' @param mortcorr whether to graph the correlation between mortality and population change across species
+#' @param mortcorr whether to graph the correlation between mortality and 
+#'   population change across species
 #' @param debug if TRUE, call browser to debug
-#'
+#' 
+#' @seealso ?[graphics::plot()], ?[graphics::par()].
 #'
 'graph.abundmodel'
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{graph.abundmodel}
 \alias{graph.abundmodel}
-\title{Output histograms of little.r across species, observed and fitted, ...}
+\title{Output histograms of little.r across species, observed and fitted.}
 \usage{
 graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
   modeltype = "asympower", xrange = NULL, yrange = NULL, minabund = 50,
@@ -20,19 +20,24 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 
 \item{tinydiv}{width of bins used to draw the fitted distribution}
 
-\item{modeltype}{form of probability distribution, matching what was used when fit was created by model.littleR.Gibbs}
+\item{modeltype}{form of probability distribution, matching what was used
+when fit was created by model.littleR.Gibbs}
 
 \item{xrange, yrange}{range of graph's x-axis and and y-axis}
 
-\item{minabund}{minimum abundance of species to be used in histogram of observed rates of population change}
+\item{minabund}{minimum abundance of species to be used in histogram of
+observed rates of population change}
 
-\item{conf}{number of alternate fits to graph, as indication of confidence; if conf=NULL, no confidence lines are added}
+\item{conf}{number of alternate fits to graph, as indication of confidence;
+if conf = NULL, no confidence lines are added}
 
-\item{returnextreme}{whether to print a list of the fastest increases and decreases in abundance to the screen}
+\item{returnextreme}{whether to print a list of the fastest increases and
+decreases in abundance to the screen}
 
 \item{xname, yname}{axis names}
 
-\item{ltype, lwidth, modelclr}{type, width, color of the line showing fitted distribution}
+\item{ltype, lwidth, modelclr}{type, width, color of the line showing fitted
+distribution}
 
 \item{bartype}{if TRUE, histogram is bar graph}
 
@@ -40,11 +45,14 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 
 \item{makeleg}{whether to add legend}
 
-\item{add}{just like all R graphs, whether to add points or line to an existing graph}
+\item{add}{Logical. Whether to add points or line to an existing graph. if
+TRUE, there must be an appropriate existing graph, otherwise, a new graph
+is drawn}
 
 \item{ax}{if FALSE, the axes are not added}
 
-\item{mortcorr}{whether to graph the correlation between mortality and population change across species}
+\item{mortcorr}{whether to graph the correlation between mortality and
+population change across species}
 
 \item{debug}{if TRUE, call browser to debug}
 
@@ -52,16 +60,20 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 }
 \description{
 Output histograms of little.r across species, observed and fitted, using the
-result of model.littleR.Gibbs. The histogram of black points is all species,
-blue points only those starting with N >= minabund. If the argument
-mortcorr=TRUE, a graph of mortality rate vs. population change for every
-species is also produced. Otherwise, a table of the species with biggest
-increases and biggest decreases in abundance is printed to the screen.
+result of \code{\link[=model.littleR.Gibbs]{model.littleR.Gibbs()}}. The histogram of black points is all
+species, blue points only those starting with \code{N >= minabund}. If the
+argument \code{mortcorr = TRUE}, a graph of mortality rate vs. population change
+for every species is also produced. Otherwise, a table of the species with
+biggest increases and biggest decreases in abundance is printed to the
+screen.
 }
 \section{Warning}{
-
-If you use the argument datafile, beware that it uses \code{attach()}. After use
-you should remove the attached object from the serach path. See \emph{Good
-practice} in \code{?attach()}. This argument may be deprecated in future versions.
+ If you use the argument datafile, beware that it uses
+\code{attach()}. After use you should remove the attached object from the serach
+path. See \emph{Good practice} in \code{?attach()}. This argument may be deprecated
+in future versions.
 }
 
+\seealso{
+?\code{\link[graphics:plot]{graphics::plot()}}, ?\code{\link[graphics:par]{graphics::par()}}.
+}

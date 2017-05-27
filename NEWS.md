@@ -1,20 +1,12 @@
 # forestr 0.0.0.9000
 
+## Improved arguments documentation
 
-## Paramenters documentation
+A large problem of forestr is that many function arguments are undocumented. This problem can in part be solved by re-using arguments shared across multiple functions, when the arguments are documented in one but not all of those functions. This also reduces duplication, which makes easier to maintain documentation (see [Inheriting parameters from other functions](http://r-pkgs.had.co.nz/man.html), by Hadley Wickham).
 
-* Table documented parameters in each function from source code with internal function `table_params_all()`. A copy of the table is saved as [data-raw/params_table.csv](https://goo.gl/PAGjYi). The goal is to know, for example:
+This week I reduced the number of undocumented arguments by approx. 120 (from 1,150 to 1,036), by reviewing only ~30 functions from _forestr_ which name is exactly the same as in CTFS-CRAN. 
 
-    - what parameters are documented, 
-    - which parameters are documented in more than one function,
-    - which parameters are named differently but their definition indicates they
-should be named the same.
-
-* Improve documentation in forestr by incorporating documentation in CTFS-CRAN where appropriate. Where possible, I use documentation in forestr exclusively; documentation from CTFS-CRAN is only used to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation. Some limitations in merging documentation in forestr and CTFS-CRAN are:
-
-    - the number of functions differ; there are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.
-
-    - only 29 functions are named exactly the same in both packages; those functions are these:
+Those functions are these:
 
 ```R
  [1] "abundance.Rd"            
@@ -48,9 +40,80 @@ should be named the same.
 [29] "trim.growth.Rd"      
 ```
 
-NOTE: although the 29 functions above have the same name, some differ in the source code, including arguments number and name, and the documentation.
+Notes
+
+* Although the 29 functions above have the same name, some differ in the source code, including arguments number, name, and definition.
+
+* There are approximately 377 functions in forestr versus only 88 in CTFS-CRAN.
+
+* Some arguments remain undocumented, and they can be found with the internal function `find_xxxdocparam()`:
+
+```R
+> find_xxxdocparam()
+[1] "#' @param cens1,cens2 xxxdocparam"
+[2] "#' @param time xxxdocparam"       
+[3] "#' @param xaxis xxxdocparam"      
+[4] "#' @param yaxis xxxdocparam"      
+[5] "#' @param labelsize xxxdocparam"  
+[6] "#' @param clr xxxdocparam"        
+[7] "#' @param classbreak xxxdocparam" 
+[8] "#' @param meantime xxxdocparam"  
+```
+
+I tried to use documentation in forestr exclusively and used documentation from CTFS-CRAN only to fill gaps (most often missing parameters' documentation) and as a source of information to rewrite forestr's documentation. Some limitations in merging documentation in forestr and CTFS-CRAN are:
 
 
+## Future improvements
+
+Further improving documentation is much easier now than before. For any function, its arguments documentation can now be explored with `args_explore("function_name")`, for example:
+
+```R
+> args_explore("growth")
+All arguments are documented somewhere.
+$args_of
+# A tibble: 12 x 1
+   arguments
+       <chr>
+ 1   census1
+ 2   census2
+ 3 rounddown
+ 4    method
+ 5     stdev
+ 6   dbhunit
+ 7    mindbh
+ 8 growthcol
+ 9 err.limit
+10   maxgrow
+11    split1
+12    split2
+
+$args_by_fun
+# A tibble: 17 x 3
+                   fun    params                               definition
+                 <chr>     <chr>                                    <chr>
+ 1      biomass.change   census1 The R Analytical Table for a single c...
+ 2      biomass.change   census2 The matching R Analytical Table for a...
+ 3           abundance   dbhunit 'cm' or 'mm', only used for basal are...
+ 4         trim.growth err.limit A number. Numbers such as 10000 are h...
+ 5         trim.growth   maxgrow A number. Numbers such as 10000 are h...
+ 6              growth growthcol defines how growth is measured, eithe...
+ 7              growth    method Use 'I' to calculate annual dbh incre...
+ 8           abundance    mindbh the minimum diameter above which the ...
+ 9    complete.plotmap    mindbh         "smallest dbh to include\r\n#' "
+10 model.littleR.Gibbs    mindbh minimum dbh to be included; all trees...
+11   NeighborDensities    mindbh (10) minimum size of neighbors to be ...
+12              RipUvK    mindbh the minimum dbh to include in results...
+13          spparea.sq    mindbh        "the minimum dbh included\r\n#' "
+14              growth rounddown If TRUE, all dbh < 55 are rounded dow...
+15           abundance    split1 a vector of categories, one per indiv...
+16           abundance    split2 another vector of categories, one per...
+17              growth     stdev Logical. Default (FALSE) returns conf...
+
+$args_undoc
+NULL
+```
+
+* To see all documented parameters use the internal function `table_params_all()` or the internal object `params_table` ([see it online](https://goo.gl/PAGjYi)).
 
 ## Enhanced
 

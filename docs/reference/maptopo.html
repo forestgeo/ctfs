@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Draws contours on a plot map. Elevmat has elevation data in matrix ... — maptopo â€¢ forestr</title>
+<title>Draws contours on a plot map. — maptopo â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,15 +79,14 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Draws contours on a plot map. Elevmat has elevation data in matrix ...</h1>
+    <h1>Draws contours on a plot map.</h1>
     </div>
 
     
     <p>Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
 dimensions are not needed, instead it calculates them from elevmat and the
-gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new screen window is created.</p>
-<p>This is called by map(), and see the description of map() for the other arguments. It can be used
-on its own though.</p>
+gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
+screen window is created.</p>
     
 
     <pre class="usage"><span class='fu'>maptopo</span>(<span class='no'>elevmat</span>, <span class='no'>plotdim</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>new</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>export</span> <span class='kw'>=</span> <span class='st'>"no"</span>,
@@ -95,13 +94,117 @@ on its own though.</p>
   <span class='kw'>yaxis</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>axspos</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>labelsize</span> <span class='kw'>=</span> <span class='fl'>1.15</span>, <span class='kw'>maintitle</span> <span class='kw'>=</span> <span class='st'>""</span>,
   <span class='kw'>ht</span> <span class='kw'>=</span> <span class='fl'>6</span>, <span class='kw'>wd</span> <span class='kw'>=</span> <span class='fl'>9</span>, <span class='kw'>plotside</span> <span class='kw'>=</span> <span class='fl'>4.5</span>, <span class='kw'>filepath</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>clr</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
   <span class='kw'>bgcolor</span> <span class='kw'>=</span> <span class='st'>"transparent"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>elevmat</th>
+      <td><p>Matrix of elevation data (see ?<a href='http://www.rdocumentation.org/packages/bci/topics/bci_elevation'>bci::bci_elevation</a>).</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot. This is used often in R
+package. Note it assumes the starting coordinates are zero. If they are
+not, then xrange and yrange must be used.</p></td>
+    </tr>
+    <tr>
+      <th>add</th>
+      <td><p>Logical. Whether to add points or line to an existing graph. if
+TRUE, there must be an appropriate existing graph, otherwise, a new graph
+is drawn</p></td>
+    </tr>
+    <tr>
+      <th>new</th>
+      <td><p>See <code><a href='http://www.rdocumentation.org/packages/graphics/topics/par'>graphics::par()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>export</th>
+      <td><p>See function define.graphwindow.</p></td>
+    </tr>
+    <tr>
+      <th>interval</th>
+      <td><p>Contour line intervals.</p></td>
+    </tr>
+    <tr>
+      <th>xrange</th>
+      <td><p>Minimum and maximum x coordinates and y coordinates to
+map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></td>
+    </tr>
+    <tr>
+      <th>yrange</th>
+      <td><p>Minimum and maximum x coordinates and y coordinates to
+map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></td>
+    </tr>
+    <tr>
+      <th>xaxis</th>
+      <td><p>xxxdocparam</p></td>
+    </tr>
+    <tr>
+      <th>yaxis</th>
+      <td><p>xxxdocparam</p></td>
+    </tr>
+    <tr>
+      <th>axspos</th>
+      <td><p>Distance between axis numbers and axis.</p></td>
+    </tr>
+    <tr>
+      <th>labelsize</th>
+      <td><p>xxxdocparam</p></td>
+    </tr>
+    <tr>
+      <th>maintitle</th>
+      <td><p>A title to appear at the top of the page, above the species name.</p></td>
+    </tr>
+    <tr>
+      <th>ht</th>
+      <td><p>These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
+    </tr>
+    <tr>
+      <th>wd</th>
+      <td><p>These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
+    </tr>
+    <tr>
+      <th>plotside</th>
+      <td><p>These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
+    </tr>
+    <tr>
+      <th>filepath</th>
+      <td><p>The folder to which map will be exported.</p></td>
+    </tr>
+    <tr>
+      <th>clr</th>
+      <td><p>xxxdocparam</p></td>
+    </tr>
+    <tr>
+      <th>bgcolor</th>
+      <td><p>The background color. Defaults to white. For presentation
+exports, try bgcolor="transparent".</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='map.html'>map()</a></code>, <a href='http://www.rdocumentation.org/packages/bci/topics/bci_elevation'>bci::bci_elevation</a>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

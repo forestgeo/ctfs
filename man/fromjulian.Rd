@@ -2,18 +2,28 @@
 % Please edit documentation in R/utilities.R
 \name{fromjulian}
 \alias{fromjulian}
-\title{Accepts a julian date and returns a character representation of dat...}
+\title{Convert calendar dates from julian dates.}
 \usage{
 fromjulian(j, dateform = "\%m/\%d/\%Y")
 }
+\arguments{
+\item{j}{Julian dates, given as a vector or array.}
+
+\item{dateform}{Format for calendar date, see \code{\link[base:strptime]{base::strptime()}} for format
+information.}
+}
+\value{
+A character representation of a date.
+}
 \description{
-Accepts a julian date and returns a character representation of date. See tojulian(). The input
-can be vector or array.
+Convert calendar dates from julian dates.
 }
 \examples{
 \dontrun{
+fromjulian(1000,'\%d\%B\%Y')
+}
 
-fromjulian(1000,'\%d\%B\%Y')}
-
-
+}
+\seealso{
+\code{\link[=tojulian]{tojulian()}}
 }

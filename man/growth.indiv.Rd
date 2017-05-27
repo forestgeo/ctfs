@@ -2,20 +2,45 @@
 % Please edit documentation in R/growth.R
 \name{growth.indiv}
 \alias{growth.indiv}
-\title{This returns a complete table with growth rate of every individual,...}
+\title{Table growth rate of every individual both relative and dbh-increment.}
 \usage{
 growth.indiv(census1, census2, rounddown = FALSE, mindbh = 10,
   dbhunit = "mm", err.limit = 4, maxgrow = 75)
 }
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
+\item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
+multiple of 5.}
+
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+
+\item{err.limit}{A number. Numbers such as 10000 are high and will
+return all measures.}
+
+\item{maxgrow}{A number. Numbers such as 10000 are high and will
+return all measures.}
+}
+\value{
+This returns a complete table with growth rate of every individual, both
+relative and dbh-increment. The table also includes most other key pieces of
+information for every individual: species, dbh, coordinates. Growth is
+trimmed with \code{\link[=trim.growth]{trim.growth()}}, and growth is returned as NA if the individual
+is excluded; note, though, that every individual tree is always included in
+the table, even if growth = NA. Arguments are the same as in \code{\link[=growth]{growth()}}.
+}
 \description{
-This returns a complete table with growth rate of every individual, both relative and dbh-increment. The table
-also includes most other key pieces of information for every individual: species, dbh, coordinates. Growth is trimmed with trim.growth,
-and growth is returned as NA if the individual is excluded; note, though, that every individual tree is always included in the table, even
-if growth=NA. Arguments are the same as in growth().
+Table growth rate of every individual both relative and dbh-increment.
 }
 \examples{
 \dontrun{
-growth.table=growth.indiv(bci.full5,bci.full6)}
-
+growth.table = growth.indiv(bci.full5, bci.full6)
+}
 
 }

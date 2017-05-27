@@ -111,12 +111,17 @@ multiple of 5.</p></td>
     </tr>
     <tr>
       <th>method</th>
-      <td><p>Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time, or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.</p></td>
+      <td><p>Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
+or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.</p></td>
     </tr>
     <tr>
       <th>stdev</th>
       <td><p>Logical. Default (FALSE) returns confidence limits, otherwise
 returns the SD in growth rate per group.</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
     </tr>
     <tr>
       <th>mindbh</th>
@@ -127,6 +132,16 @@ all (living) are included</p></td>
       <th>growthcol</th>
       <td><p>defines how growth is measured, either 'dbh'or
 'agb'(agb=biomass)</p></td>
+    </tr>
+    <tr>
+      <th>err.limit</th>
+      <td><p>A number. Numbers such as 10000 are high and will
+return all measures.</p></td>
+    </tr>
+    <tr>
+      <th>maxgrow</th>
+      <td><p>A number. Numbers such as 10000 are high and will
+return all measures.</p></td>
     </tr>
     <tr>
       <th>split1</th>

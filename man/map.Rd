@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{map}
 \alias{map}
-\title{Function to draw map of one or more species from one plot. Must giv...}
+\title{Draw map of one or more species from one plot.}
 \usage{
 map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
   xrange = c(0, plotdim[1]), yrange = c(0, plotdim[2]), elevdata = NULL,
@@ -16,44 +16,70 @@ map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
   outfile = NULL)
 }
 \arguments{
-\item{splitdatafile}{A full plot dataset in list format (see \code{?split_data})}
+\item{splitdatafile}{A full plot dataset in list format (see \code{?split_data}).}
 
 \item{species}{One or more species codes to be mapped.}
 
-\item{spplist}{A table with species codes and Latin names can be submitted as well, so that the full genus-species is added to plot. This must have species codes as row names. It should be the CTFS R format species table (eg, bci.spptable).}
+\item{spplist}{A table with species codes and Latin names can be submitted as
+well, so that the full genus-species is added to plot. This must have
+species codes as row names. It should be the CTFS R format species table
+(eg, bci.spptable). It can be set to NULL if not available, then only the
+species code (as submitted) appears on the map.}
 
-\item{plotdim}{The x and y dimensions of the plot. This is used often in R package. Note it assumes the starting coordinates are zero. If they are not, then xrange and yrange must be used.}
+\item{plotdim}{The x and y dimensions of the plot. This is used often in R
+package. Note it assumes the starting coordinates are zero. If they are
+not, then xrange and yrange must be used.}
 
-\item{xrange, yrange}{Minimum and maximum x coordinates and y coordinates
-to map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+\item{xrange, yrange}{Minimum and maximum x coordinates and y coordinates to
+map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
 
-\item{elevdata}{Elevation data can be submitted, then a topo map is overlaid. Elevation data must be submitted as a matrix (as described in readelevdata in utilities.r).}
+\item{elevdata}{Elevation data can be submitted, then a topo map is overlaid.
+Elevation data must be submitted as a matrix (as described in readelevdata
+in utilities.r).}
 
 \item{cutoff}{Diameter breaks for changing size of plotting points.}
 
-\item{size}{The size of plotting points, to match the number of diameter breaks. If NULL, a default set is assigned. This can require fiddling, as big points do not work for really abundant species, and small points for rare species.}
+\item{size}{The size of plotting points, to match the number of diameter
+breaks. If NULL, a default set is assigned. This can require fiddling, as
+big points do not work for really abundant species, and small points for
+rare species.}
 
-\item{deadtree}{Set NULL to map all trees, alive and dead; TRUE for dead only, FALSE for live only (relies on status in the R table).}
+\item{deadtree}{Set NULL to map all trees, alive and dead; TRUE for dead
+only, FALSE for live only (relies on status in the R table).}
 
 \item{maintitle}{A title to appear at the top of the page, above the species name.}
 
-\item{titlepos}{The position to place the title. The default is above the center of the plot, higher than the species name. It may require some fiddling on different screens to get it the right distance above.}
+\item{titlepos}{The position to place the title. The default is above the
+center of the plot, higher than the species name. It may require some
+fiddling on different screens to get it the right distance above.}
 
-\item{clrs}{A vector of color names, one for each species. If set to NULL, default values are assigned. See bw.}
+\item{clrs}{A vector of color names, one for each species. If set to NULL,
+default values are assigned. See bw.}
 
 \item{bw}{If TRUE, only black, white, and grays are used.}
 
-\item{bgcolor}{The background color. Defaults to white. For presentation exports, try bgcolor="transparent".}
+\item{bgcolor}{The background color. Defaults to white. For presentation
+exports, try bgcolor="transparent".}
 
-\item{symbols}{A vector of symbols, one per species. Can be anything accepted by R for pch (plot character in the function plot()). If NULL, defaults are assigned.}
+\item{symbols}{A vector of symbols, one per species. Can be anything accepted
+by R for pch (plot character in the function plot()). If NULL, defaults are
+assigned.}
 
-\item{addlegend, legpos, legsize}{For the species name, whether to include, where to place, and font size. Try the defaults first before fiddling, or just set addlegend=FALSE to remove.}
+\item{addlegend, legpos, legsize}{For the species name, whether to include,
+where to place, and font size. Try the defaults first before fiddling, or
+just set addlegend=FALSE to remove.}
 
 \item{labsize}{Size of axis labels.}
 
-\item{bty}{Type of box to appear around species name. The default, 'n', means no box; set to 'o'to see the box.}
+\item{axisdiv}{the division between tick marks; must be a vector of 2, first for x ticks then for y ticks}
 
-\item{ht, wd, plotside}{These are the height and width of the overall graph, and the vertical dimension (inches) of the map. The default work for pdf export or mapping to the screen, and ht and wd are inches. But if export is png, jpg, emf, height and width are pixels and need to be 500-1000.}
+\item{bty}{Type of box to appear around species name. The default, 'n', means
+no box; set to 'o'to see the box.}
+
+\item{ht, wd, plotside}{These are the height and width of the overall graph,
+and the vertical dimension (inches) of the map. The default work for pdf
+export or mapping to the screen, and ht and wd are inches. But if export is
+png, jpg, emf, height and width are pixels and need to be 500-1000.}
 
 \item{axspos}{Distance between axis numbers and axis.}
 
@@ -66,8 +92,6 @@ to map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
 \item{filepath}{The folder to which map will be exported.}
 
 \item{outfile}{The name of the file to export to.}
-
-\item{It}{can be set to NULL if not available, then only the species code (as submitted) appears on the map.}
 }
 \description{
 Function to draw map of one or more species from one plot. Must give the
@@ -75,7 +99,8 @@ complete plot dataset, in split format (list of one dataframe per species),
 and one or more species code. Other arguments are optional, however, many
 defaults can be adjusted to get a good map on the screen or exported. This
 calls the functions maptopo() and map1species() for the actual mapping.
-
+}
+\details{
 A common problem is graph size, leading to an error message "Plot region too
 large". This happens if the export="no" option is used with the option
 plotside too large for the default graph size (usually 7 inches). If you use
@@ -114,6 +139,5 @@ map(
 map(splitdatafile = bci.split6,
   species = c('guatdu', 'poular'))
 }
-
 
 }
