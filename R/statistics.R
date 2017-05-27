@@ -93,7 +93,7 @@
 #'(and squared).
 #'
 #'
-'se.skewness'
+'majoraxisreg'
 
 #' The sum of squares used by majoraxisreg.minum.perpdist majoraxisreg...
 #'
