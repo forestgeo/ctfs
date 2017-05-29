@@ -57,11 +57,12 @@ done <- c(
 # Find functions in forestr that are similar to functions in CTFS-CRAN
 similar <- tibble::tribble(
   ~fr, ~cran,
-  "pop.change", "abundance.change"
+  "pop.change", "abundance.change",
+  "pop.change.dbh", "abundance.change.dbh"
 )
 
 # What functions remain to explore?
-setdiff(strip_rd(cran), c(done, similar$fr)) %>% sort()
+setdiff(strip_rd(cran), c(done, similar$cran)) %>% sort()
 
 
 # next --------------------------------------------------------------------

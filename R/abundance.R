@@ -54,28 +54,43 @@
 #'
 'abundance'
 
-#' Finds abundance, basal area, or agb of every species per square qua...
+#' Abundance, basal area, or agb of every species by quadrat.
 #'
 #' @description
+#' Finds abundance, basal area, or agb of every species per square quadrat of
+#' any size; plotdim is the x dimension then y dimension of the plot and must be
+#' set correctly; gridsize is the quadrat dimension. The plot is divided into a
+#' checkerboard of non-overlapping, space-filling squares.
 #'
-#' Finds abundance, basal area, or agb of every species per square quadrat of any size; plotdim is the x dimension then y dimension of the plot and
-#' must be set correctly; gridsize is the quadrat dimension. The plot is divided into a checkerboard of non-overlapping, space-filling squares.
+#' @details
+#' If the plot dimensions is not an exact multiple of the quadrat size, then a 
+#' strip at the upper edge of the plot (north and east if plot is on cardinal 
+#' directions) is omitted. For example, if `gridsize = 40` and `plotdim = 500`,
+#' then there are an extra 20 meters at the upper boundary omitted from the 
+#' calculations.
 #'
-#' If the plot dimensions is not an exact multiple of the quadrat size, then a strip at the upper edge of the plot (north and east if plot
-#' is on cardinal directions) is omitted. For example, if gridsize=40 and plotdim=500, then there are an extra 20 meters at the upper boundary
-#' omitted from the calculations. 
-#'
-#' See abundance() for description of the other arguments and return value. The array of abundances per quadrat is useful for similarity, counting
+#' The array of abundances per quadrat is useful for similarity, counting
 #' species and stems per quadrat, etc.
+#' 
+#' @inheritParams abundance
+#' @inheritParams findborderquads
+#' 
+#' @seealso [abundance()]
+#' 
+#' @return See [abundance()].
 #'
 #' @examples
 #' \dontrun{
-#'
-#' Nperquad=abundanceperquad(bci.full6,plotdim=c(1000,500),gridsize=100,type='abund')
+#' Nperquad = abundanceperquad(
+#'   bci.full6,
+#'   plotdim = c(1000, 500),
+#'   gridsize = 100,
+#'   type = 'abund'
+#' )
 #' colSums(Nperquad$abund)
-#' apply(Nperquad$abund,2,countspp)
-#' plot(colSums(Nperquad$abund),apply(Nperquad$abund,2,countspp))}
-#'
+#' apply(Nperquad$abund, 2, countspp)
+#' plot(colSums(Nperquad$abund), apply / (Nperquad$abund, 2, countspp))
+#' }
 #'
 'abundanceperquad'
 
@@ -151,35 +166,45 @@
 #'
 'pop.change'
 
-#' Finds abundance or basal area in two censuses and the rate of chang...
+#' Change between two censuses in abundance or basal area.
 #'
 #' @description
+#' Finds abundance or basal area in two censuses and the rate of change between
+#' them, in several dbh categories.
 #'
-#' Finds abundance or basal area in two censuses and the rate of change between them, in several dbh categories. 
+#' @details
+#' Accepts two dataframes, each an R Analytical Table for one census, the
+#' earlier census first. Only one additional splitting variable (other than dbh
+#' category) is allowed. Typically, this is species, but genus or quadrat are
+#' other examples.
 #'
-#' Accepts two dataframes, each an R Analytical Table for one census, the earlier census first. 
+#' @inheritParams abundance
+#' @inheritParams mortality.dbh
+#' @param split A vector of categorical values of the same length as census
+#'   which groups trees into classes of interest for which abundance values are
+#'   computed. This vector can be composed of characters or numbers.
 #'
-#' Only one additional splitting variable (other than dbh category) is allowed. Typically, this is species, but genus or quadrat are other examples.
-#'
-#' The return value is a list of two elements, one name abund (or ba) and the other meandate, just as other abundance results. 
-#'
-#' Each is a table having
-#' one pair of columns for every dbh category: the first for census 1, the second for census 2. So if
-#' there are 3 dbh categories, the table has 6 columns. The rows of the table are the splitting variable (eg, species). 
-#'
-#'
-#' See abundance()
+#' @seealso [abundance()]
+#' 
+#' @return
+#' The return value is a list of two elements, one name abund (or ba) and the 
+#' other meandate, just as other abundance results. Each is a table having one
+#' pair of columns for every dbh category: the first for census 1, the second
+#' for census 2. So if there are 3 dbh categories, the table has 6 columns. The
+#' rows of the table are the splitting variable (eg, species).
 #'
 #' @examples
 #' \dontrun{
-#'
-#' Nchange=pop.change.dbh(bci.full5,bci.full6,classbreak=c(10,100,300))
-#'
+#' Nchange = pop.change.dbh(bci.full5, bci.full6, classbreak = c(10, 100, 300))
 #' Nchange$abund
 #'
-#' BAchangePerSpp=pop.change.dbh(bci.full5,bci.full6,classbreak=c(10,100),split=bci.full5$sp)
+#' BAchangePerSpp <- pop.change.dbh(
+#'   bci.full5,
+#'   bci.full6,
+#'   classbreak = c(10, 100),
+#'   split = bci.full5$sp
+#' )
 #' head(BAchangePerSpp$ba)}
-#'
 #'
 'pop.change.dbh'
 
