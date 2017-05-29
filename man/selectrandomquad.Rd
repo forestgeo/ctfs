@@ -19,8 +19,6 @@ default) for squares}
 
 \item{graphit}{whether to graph the locations of the chosen quadrats on a
 plot map}
-
-\item{censdata}{one R Analytical Table, either full or stem}
 }
 \description{
 Draws rectangular quadrats in a plot at random. Returns a dataframe of

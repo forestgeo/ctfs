@@ -6,6 +6,20 @@
 \usage{
 selectrandomquad3(size, shape, rep, plotdim = c(1000, 500), graphit = FALSE)
 }
+\arguments{
+\item{size}{a vector of quadrat sizes, referring to the x-dimension of a
+rectangular quadrat}
+
+\item{shape}{the ratio of y to x dimensions of the rectangles; rectdim=1 (the
+default) for squares}
+
+\item{rep}{the number of random quadrats to create, of each size}
+
+\item{plotdim}{the x and y dimensions of the entire plot}
+
+\item{graphit}{whether to graph the locations of the chosen quadrats on a
+plot map}
+}
 \description{
 Creates randomly drawn quadrats, using same arguments and producing same return value as selectrandomquad, but using a different algorithm.
 

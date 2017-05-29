@@ -8,18 +8,23 @@ library(dplyr)
 library(forestr)
 devtools::load_all()
 
-fr <- dir("man")
-cran <- dir("../CTFS-CRAN/man/")
+lower_strip_rd <- function(string) {
+  tolower(
+    stringr::str_replace(string, ".Rd$|.rd$", "")
+  )
+}
+fr <- lower_strip_rd(dir("man"))
+cran <- lower_strip_rd(dir("../CTFS-CRAN/man/"))
 setdiff(cran, fr)
-in_both <- intersect(tolower(cran), tolower(fr))
+in_both <- intersect(cran, fr)
 
-strip_rd <- function(string) {stringr::str_replace(string, ".Rd$|.rd$", "")}
-in_both <- strip_rd(in_both)
 
 
 # record ------------------------------------------------------------------
 
-done <- c(
+# Same names
+
+done <- tolower(c(
   "abundance", 
   "abundance.spp", 
   "assemble.demography", 
@@ -49,35 +54,33 @@ done <- c(
   "recruitment",
   "recruitment.eachspp",
   "rowcol.to.index",
-  "tojulian"
-)
-
-setdiff(in_both, done)
-
-
-
-
-
-
-# What functions have the same name but differ only in case?
-intersect(tolower(remain), tolower(strip_rd(fr)))
+  "tojulian",
+  "AGB.ind"
+))
+done <- tolower(done)
+setdiff(in_both, done)  # differ only in case
+# Because they seem useless, I intentionally decided not to work on these
+# functions:
+excluded_useless <- "TextToRdata"
 
 
 
+# Similar names 
 
 # Find functions in forestr that are similar to functions in CTFS-CRAN
 similar <- tibble::tribble(
   ~fr, ~cran,
   "pop.change", "abundance.change",
   "pop.change.dbh", "abundance.change.dbh",
-  "abundanceperquad", "abundance.quad"
+  "abundanceperquad", "abundance.quad",
+  "biomass.change", "biomass"
 )
 
-
 # What functions remain to explore?
-remain <- setdiff(strip_rd(cran), c(done, similar$cran)) %>% sort()
+remain <- setdiff(cran, c(done, similar$cran)) %>% sort()
 remain
 length(remain)
+
 
 
 # next --------------------------------------------------------------------
