@@ -2,23 +2,32 @@
 % Please edit documentation in R/utilities.R
 \name{split_data}
 \alias{split_data}
-\title{Converts a big dataframe into a list of smaller dataframes, grouped...}
+\title{Split a dataframe into a list by any vector.}
 \usage{
 split_data(censdata, splitcol = "sp", keepsplitcol = FALSE,
   allsplit = NULL, showOutput = NULL)
 }
+\arguments{
+\item{censdata}{A dataframe (any).}
+
+\item{splitcol}{The name of any variable in \code{censdata}.}
+
+\item{keepsplitcol}{Can be set to TRUE in order to retain in the new
+dataframes the column on which the data are grouped; otherwise, that column
+is removed.}
+
+\item{allsplit}{Can be set to a vector of data sections to be included; if
+allsplit includes values not in the data, empty elements are included in
+the list, but if allsplit includes fewer values than found in the data,
+then missing elements are omitted.}
+
+\item{showOutput}{xxxdocparam}
+}
 \description{
 Converts a big dataframe into a list of smaller dataframes, grouped using any
-column in the database, or any external vector. The variable allsplit can be
-set to a vector of data sections to be included; if allsplit includes values
-not in the data, empty elements are included in the list, but if allsplit
-includes fewer values than found in the data, then missing elements are
-omitted.
-
-The option keepsplitcol can be set to TRUE in order to retain in the new
-dataframes the column on which the data are grouped; otherwise, that column
-is removed.
+column in the database, or any external vector.
 }
 \details{
-Name split.data clashed with an S3 method, so it was replaced by split_data.
+The old name split.data clashed with an S3 method, so it was replaced by
+split_data.
 }

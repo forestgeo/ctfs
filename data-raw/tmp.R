@@ -73,7 +73,9 @@ similar <- tibble::tribble(
   "pop.change", "abundance.change",
   "pop.change.dbh", "abundance.change.dbh",
   "abundanceperquad", "abundance.quad",
-  "biomass.change", "biomass"
+  "biomass.change", "biomass",
+  "selectrandquad", "select.randquad",
+  "split_data", "splitdata"
 )
 
 # What functions remain to explore?
@@ -83,33 +85,29 @@ length(remain)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # next --------------------------------------------------------------------
 
 
-args_explore("fromjulian")
-
-params_table %>% filter(grepl(params, "maxgrow"))
 
 
 
-x <- "mortality"
-args_of(x)
-args_filter_by_fun(x)
-args_undoc(x)
 
 
-tp <- table_params_all()
 
 
-string <- "addlegend,legpos,legsize"
 
-args_unstick <- function(string) {unlist(stringr::str_split(string, ","))}
 
-tp %>% 
-  # group_by(param) %>% 
-  mutate(params = params %>% purrr::map(args_unstick)) %>% 
-  tidyr::unnest() %>% 
-  filter(fun == "map") %>% View
 
 
 

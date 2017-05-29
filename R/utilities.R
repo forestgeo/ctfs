@@ -127,22 +127,26 @@
 #'
 'convert.factor'
 
-#' Converts a big dataframe into a list of smaller dataframes, grouped...
+#' Split a dataframe into a list by any vector.
 #'
 #' @description
 #' Converts a big dataframe into a list of smaller dataframes, grouped using any
-#' column in the database, or any external vector. The variable allsplit can be
-#' set to a vector of data sections to be included; if allsplit includes values
-#' not in the data, empty elements are included in the list, but if allsplit
-#' includes fewer values than found in the data, then missing elements are
-#' omitted.
-#'
-#' The option keepsplitcol can be set to TRUE in order to retain in the new 
-#' dataframes the column on which the data are grouped; otherwise, that column 
-#' is removed.
+#' column in the database, or any external vector.
+#' 
+#' @param censdata A dataframe (any).
+#' @param splitcol The name of any variable in `censdata`.
+#' @param keepsplitcol Can be set to TRUE in order to retain in the new 
+#'   dataframes the column on which the data are grouped; otherwise, that column
+#'   is removed.
+#' @param allsplit Can be set to a vector of data sections to be included; if
+#'   allsplit includes values not in the data, empty elements are included in
+#'   the list, but if allsplit includes fewer values than found in the data,
+#'   then missing elements are omitted.
+#' @param showOutput xxxdocparam
 #'
 #' @details
-#' Name split.data clashed with an S3 method, so it was replaced by split_data.
+#' The old name split.data clashed with an S3 method, so it was replaced by
+#' split_data.
 #'
 'split_data'
 
