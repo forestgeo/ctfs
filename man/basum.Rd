@@ -2,10 +2,19 @@
 % Please edit documentation in R/abundance.R
 \name{basum}
 \alias{basum}
-\title{Returns the basal area summed over all submitted dbhs. NAs can be i...}
+\title{Returns the basal area summed over all submitted dbhs.}
 \usage{
 basum(dbh, mindbh = 10, dbhunit = "mm")
 }
+\arguments{
+\item{dbh}{DBH in mm of tree}
+
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+}
 \description{
-Returns the basal area summed over all submitted dbhs. NAs can be included, as sum will be completed with na.rm=TRUE.
+Returns the basal area summed over all submitted dbhs. NAs can be included,
+as sum will be completed with \code{na.rm = TRUE}.
 }

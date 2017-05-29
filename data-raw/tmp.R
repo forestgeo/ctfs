@@ -11,9 +11,9 @@ devtools::load_all()
 fr <- dir("man")
 cran <- dir("../CTFS-CRAN/man/")
 setdiff(cran, fr)
-in_both <- intersect(cran, fr)
+in_both <- intersect(tolower(cran), tolower(fr))
 
-strip_rd <- function(string) {stringr::str_replace(string, ".Rd$", "")}
+strip_rd <- function(string) {stringr::str_replace(string, ".Rd$|.rd$", "")}
 in_both <- strip_rd(in_both)
 
 
@@ -52,6 +52,17 @@ done <- c(
   "tojulian"
 )
 
+setdiff(in_both, done)
+
+
+
+
+
+
+# What functions have the same name but differ only in case?
+intersect(tolower(remain), tolower(strip_rd(fr)))
+
+
 
 
 # Find functions in forestr that are similar to functions in CTFS-CRAN
@@ -62,12 +73,11 @@ similar <- tibble::tribble(
   "abundanceperquad", "abundance.quad"
 )
 
+
 # What functions remain to explore?
 remain <- setdiff(strip_rd(cran), c(done, similar$cran)) %>% sort()
 remain
 length(remain)
-
-
 
 
 # next --------------------------------------------------------------------
