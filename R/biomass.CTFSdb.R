@@ -114,7 +114,7 @@
 #' @return A vector of biomass in kg for every individual in the submitted table
 #'   `df`.
 #'
-#' @seealso [density_in]; Chave (Oecologia, 2005).
+#' @seealso [density_ind()]; Chave (Oecologia, 2005).
 #'
 #' @examples
 #' \dontrun{

@@ -42,5 +42,5 @@ sum(biomass, na.rm = TRUE) / 50
 
 }
 \seealso{
-\link{density_in}; Chave (Oecologia, 2005).
+\code{\link[=density_ind]{density_ind()}}; Chave (Oecologia, 2005).
 }
