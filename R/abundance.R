@@ -219,12 +219,14 @@
 #'   of dbhs.
 'ba'
 
-#' Returns the basal area summed over all submitted dbhs. NAs can be i...
+#' Returns the basal area summed over all submitted dbhs.
 #'
 #' @description
+#' Returns the basal area summed over all submitted dbhs. NAs can be included,
+#' as sum will be completed with `na.rm = TRUE`.
 #'
-#' Returns the basal area summed over all submitted dbhs. NAs can be included, as sum will be completed with na.rm=TRUE.
-#'
+#' @inheritParams ba
+#' @inheritParams abundance
 #'
 'basum'
 

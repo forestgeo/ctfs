@@ -58,11 +58,16 @@ done <- c(
 similar <- tibble::tribble(
   ~fr, ~cran,
   "pop.change", "abundance.change",
-  "pop.change.dbh", "abundance.change.dbh"
+  "pop.change.dbh", "abundance.change.dbh",
+  "abundanceperquad", "abundance.quad"
 )
 
 # What functions remain to explore?
-setdiff(strip_rd(cran), c(done, similar$cran)) %>% sort()
+remain <- setdiff(strip_rd(cran), c(done, similar$cran)) %>% sort()
+remain
+length(remain)
+
+
 
 
 # next --------------------------------------------------------------------
