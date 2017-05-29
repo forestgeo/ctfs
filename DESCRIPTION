@@ -30,6 +30,7 @@ Imports: assertive,
     stats,
     utils
 Suggests: bci, 
+    devtools,
     dplyr,
     ggplot2,
     knitr,
