@@ -2,50 +2,84 @@
 % Please edit documentation in R/abundance.R
 \name{pop.change}
 \alias{pop.change}
-\title{Finds abundance, basal area, or agb in two censuses and the rate of...}
+\title{Change in abundance, basal area, or agb in two censuses.}
 \usage{
 pop.change(census1, census2, type = "abund", dbhunit = "mm",
   alivecode = c("A"), mindbh = NULL, split1 = NULL, split2 = NULL)
 }
-\description{
-Finds abundance, basal area, or agb in two censuses and the rate of change
-between them.
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
 
-Accepts two dataframes, each an R Analytical Table for one census, the earlier census first.
+\item{census2}{The matching R Analytical Table for a later census.}
 
-Do not use this function with diameter categories as a split variable! The results won't make sense.
+\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+'agb'.}
 
-The categories need to be permanent attributes, such as species, genus, quadrat. Use instead pop.change.dbh to
-find population change of dbh categories.
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-Mean census date for a species is not the mean
-census date for all living individuals in that census, but the mean census
-date for all individuals alive in either census. Plants recruited between the two censuses get a first census date equal to
-the date on which the quadrat they later appear in was censused in the first
-census. Plants dead in the second census get a census date equal to the date on which their quadrat was censused
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
+trees or stems}
 
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
+
+\item{split1}{a vector of categories, one per individual}
+
+\item{split2}{another vector of categories, one per individual}
+}
+\value{
 The return value is a list of 6 components:
 \itemize{
-\item N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the first census; one dimension of the array for split1, the second for split2
-\item N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second census in a matching array
+\item N.1 (or BA.1 or AGB.1) an array of abundance (or basal area or agb) in the
+first census; one dimension of the array for split1, the second for split2
+\item N.2 (or BA.2 or AGB.2) abundance (or basal area  or agb) in the second
+census in a matching array
 \item date1 mean date of first census in a matching array
 \item date2 mean date of second census in a matching array
 \item interval the time interval in years in a matching array
-\item little.r the rate of population change in a matching array, (log(N2)-log(N1))/time
+\item little.r the rate of population change in a matching array,
+\code{(log(N2) - log(N1))/time}
 }
 
-This list can be submitted to assemble.demography (topic utilitiesCTFS) to convert into a convenient table.
+This list can be submitted to \code{\link[=assemble.demography]{assemble.demography()}} (topic utilitiesCTFS)
+to convert into a convenient table.
+}
+\description{
+Finds abundance, basal area, or agb in two censuses and the rate of change
+between them. Accepts two dataframes, each an R Analytical Table for one
+census, the earlier census first.
+}
+\details{
+Do not use this function with diameter categories as a split variable! The
+results won't make sense. The categories need to be permanent attributes,
+such as species, genus, quadrat. To find population change of dbh categories
+use instead \code{\link[=pop.change.dbh]{pop.change.dbh()}}
 
-See abundance()
+Mean census date for a species is not the mean census date for all living
+individuals in that census, but the mean census date for all individuals
+alive in either census. Plants recruited between the two censuses get a first
+census date equal to the date on which the quadrat they later appear in was
+censused in the first census. Plants dead in the second census get a census
+date equal to the date on which their quadrat was censused
 }
 \examples{
 \dontrun{
-bcichange=pop.change(bci.full5,bci.full6,type='abund',split1=bci.full5$sp,mindbh=10)
+bcichange = pop.change(
+  bci.full5,
+  bci.full6,
+  type = 'abund',
+  split1 = bci.full5$sp,
+  mindbh = 10
+)
 str(bcichange)
 head(bcichange$N.1)
-change.table=assemble.demography(bcichange,type='a')
-head(change.table)}
+change.table = assemble.demography(bcichange, type = 'a')
+head(change.table)
+}
 
-
-
+}
+\seealso{
+\code{\link[=abundance]{abundance()}}, \code{\link[=assemble.demography]{assemble.demography()}}
 }

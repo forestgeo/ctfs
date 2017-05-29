@@ -12,7 +12,10 @@ fr <- dir("man")
 cran <- dir("../CTFS-CRAN/man/")
 setdiff(cran, fr)
 in_both <- intersect(cran, fr)
-in_both <- stringr::str_replace(in_both, ".Rd$", "")
+
+strip_rd <- function(string) {stringr::str_replace(string, ".Rd$", "")}
+in_both <- strip_rd(in_both)
+
 
 # record ------------------------------------------------------------------
 
@@ -49,7 +52,17 @@ done <- c(
   "tojulian"
 )
 
-setdiff(in_both, done) %>% sort()
+
+
+# Find functions in forestr that are similar to functions in CTFS-CRAN
+similar <- tibble::tribble(
+  ~fr, ~cran,
+  "pop.change", "abundance.change"
+)
+
+# What functions remain to explore?
+setdiff(strip_rd(cran), c(done, similar$fr)) %>% sort()
+
 
 # next --------------------------------------------------------------------
 
