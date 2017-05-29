@@ -94,31 +94,34 @@
 #'
 'density_ind'
 
-#'
-#' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) m...
+#' Above ground biomass (agb) based on one of the Chave (Oecologia, 2005).
 #'
 #' @description
+#' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for
+#' tropical forest types.
+#' 
+#' @inheritParams abundance
+#' @inheritParams CTFSplot
+#' @param df A table with dbh and species names
+#' @param wsgdata A wood-density table, see [density_ind()] and [wsgdata_dummy].
+#' @param forest A forest type (for most lowland tropical plots, the default
+#'   "moist" is recommended.)
+#' @param ht.param Height parameters to calculate height from diameter for every
+#'   tree, using the Chave model with height passed to `htmodel`. If NULL
+#'   (defauld) `AGB.ind()` uses Chave equations without height.
+#' @param htmodel Height model to use with a non-NULL `ht.param`.
+#' 
+#' @return A vector of biomass in kg for every individual in the submitted table
+#'   `df`.
 #'
-#' Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types. 
-#'
-#' Requires a table (df) with dbh and species names, a wood-density table (described under density_ind), a plot name, 
-#' dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
-#'
-#' The height parameters default to NULL, and the Chave equations without height are then used. Alternatively, height parameters
-#' and a height function can be supplied, the latter to calculate height from diameter for every tree, in which case the
-#'
-#' Chave model with height is used. Returns a vector of biomass in kg for every individual in the submitted table df. 
-#'
-#' This is called by AGB.tree in the standard calculation of biomass for CTFS R tables. 
+#' @seealso [density_ind()]; Chave (Oecologia, 2005).
 #'
 #' @examples
 #' \dontrun{
-#' biomass=AGB.ind(df=bci.full1)
-#'
-#' hist(log(biomass),breaks=100)
-#'
-#' sum(biomass,na.rm=TRUE)/50}
-#'
+#' biomass <- AGB.ind(df = bci.full1)
+#' hist(log(biomass), breaks = 100)
+#' sum(biomass, na.rm = TRUE) / 50
+#' }
 #'
 'AGB.ind'
 

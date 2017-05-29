@@ -70,5 +70,4 @@ genusPerArea = spparea.sq(
 )
 }
 
-
 }

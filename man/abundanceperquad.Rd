@@ -2,29 +2,61 @@
 % Please edit documentation in R/abundance.R
 \name{abundanceperquad}
 \alias{abundanceperquad}
-\title{Finds abundance, basal area, or agb of every species per square qua...}
+\title{Abundance, basal area, or agb of every species by quadrat.}
 \usage{
 abundanceperquad(censdata, mindbh = 10, plotdim = c(1000, 500),
   gridsize = 100, type = "abund", dbhunit = "mm")
 }
+\arguments{
+\item{censdata}{an R Analytical Table for a full plot census. For basal area
+use a stem table. For abundance, use either the stem or full table to count
+stems or trees, respectively.}
+
+\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
+all (living) are included}
+
+\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+
+\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+
+\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+'agb'.}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+}
+\value{
+See \code{\link[=abundance]{abundance()}}.
+}
 \description{
-Finds abundance, basal area, or agb of every species per square quadrat of any size; plotdim is the x dimension then y dimension of the plot and
-must be set correctly; gridsize is the quadrat dimension. The plot is divided into a checkerboard of non-overlapping, space-filling squares.
+Finds abundance, basal area, or agb of every species per square quadrat of
+any size; plotdim is the x dimension then y dimension of the plot and must be
+set correctly; gridsize is the quadrat dimension. The plot is divided into a
+checkerboard of non-overlapping, space-filling squares.
+}
+\details{
+If the plot dimensions is not an exact multiple of the quadrat size, then a
+strip at the upper edge of the plot (north and east if plot is on cardinal
+directions) is omitted. For example, if \code{gridsize = 40} and \code{plotdim = 500},
+then there are an extra 20 meters at the upper boundary omitted from the
+calculations.
 
-If the plot dimensions is not an exact multiple of the quadrat size, then a strip at the upper edge of the plot (north and east if plot
-is on cardinal directions) is omitted. For example, if gridsize=40 and plotdim=500, then there are an extra 20 meters at the upper boundary
-omitted from the calculations.
-
-See abundance() for description of the other arguments and return value. The array of abundances per quadrat is useful for similarity, counting
+The array of abundances per quadrat is useful for similarity, counting
 species and stems per quadrat, etc.
 }
 \examples{
 \dontrun{
-
-Nperquad=abundanceperquad(bci.full6,plotdim=c(1000,500),gridsize=100,type='abund')
+Nperquad = abundanceperquad(
+  bci.full6,
+  plotdim = c(1000, 500),
+  gridsize = 100,
+  type = 'abund'
+)
 colSums(Nperquad$abund)
-apply(Nperquad$abund,2,countspp)
-plot(colSums(Nperquad$abund),apply(Nperquad$abund,2,countspp))}
+apply(Nperquad$abund, 2, countspp)
+plot(colSums(Nperquad$abund), apply / (Nperquad$abund, 2, countspp))
+}
 
-
+}
+\seealso{
+\code{\link[=abundance]{abundance()}}
 }

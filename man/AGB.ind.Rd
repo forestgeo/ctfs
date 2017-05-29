@@ -2,31 +2,45 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{AGB.ind}
 \alias{AGB.ind}
-\title{Compute biomass (agb) based on one of the Chave (Oecologia, 2005) m...}
+\title{Above ground biomass (agb) based on one of the Chave (Oecologia, 2005).}
 \usage{
 AGB.ind(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
   forest = "moist", ht.param = NULL, htmodel = predht.asym)
 }
+\arguments{
+\item{df}{A table with dbh and species names}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+
+\item{plot}{Name of plot as it appears in the names of the R Analytical Tables, in quote marks}
+
+\item{wsgdata}{A wood-density table, see \code{\link[=density_ind]{density_ind()}} and \link{wsgdata_dummy}.}
+
+\item{forest}{A forest type (for most lowland tropical plots, the default
+"moist" is recommended.)}
+
+\item{ht.param}{Height parameters to calculate height from diameter for every
+tree, using the Chave model with height passed to \code{htmodel}. If NULL
+(defauld) \code{AGB.ind()} uses Chave equations without height.}
+
+\item{htmodel}{Height model to use with a non-NULL \code{ht.param}.}
+}
+\value{
+A vector of biomass in kg for every individual in the submitted table
+\code{df}.
+}
 \description{
-Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types.
-
-Requires a table (df) with dbh and species names, a wood-density table (described under density_ind), a plot name,
-dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)
-
-The height parameters default to NULL, and the Chave equations without height are then used. Alternatively, height parameters
-and a height function can be supplied, the latter to calculate height from diameter for every tree, in which case the
-
-Chave model with height is used. Returns a vector of biomass in kg for every individual in the submitted table df.
-
-This is called by AGB.tree in the standard calculation of biomass for CTFS R tables.
+Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for
+tropical forest types.
 }
 \examples{
 \dontrun{
-biomass=AGB.ind(df=bci.full1)
+biomass <- AGB.ind(df = bci.full1)
+hist(log(biomass), breaks = 100)
+sum(biomass, na.rm = TRUE) / 50
+}
 
-hist(log(biomass),breaks=100)
-
-sum(biomass,na.rm=TRUE)/50}
-
-
+}
+\seealso{
+\code{\link[=density_ind]{density_ind()}}; Chave (Oecologia, 2005).
 }

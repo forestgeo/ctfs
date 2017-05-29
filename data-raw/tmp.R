@@ -8,15 +8,23 @@ library(dplyr)
 library(forestr)
 devtools::load_all()
 
-fr <- dir("man")
-cran <- dir("../CTFS-CRAN/man/")
+lower_strip_rd <- function(string) {
+  tolower(
+    stringr::str_replace(string, ".Rd$|.rd$", "")
+  )
+}
+fr <- lower_strip_rd(dir("man"))
+cran <- lower_strip_rd(dir("../CTFS-CRAN/man/"))
 setdiff(cran, fr)
 in_both <- intersect(cran, fr)
-in_both <- stringr::str_replace(in_both, ".Rd$", "")
+
+
 
 # record ------------------------------------------------------------------
 
-done <- c(
+# Same names
+
+done <- tolower(c(
   "abundance", 
   "abundance.spp", 
   "assemble.demography", 
@@ -46,38 +54,60 @@ done <- c(
   "recruitment",
   "recruitment.eachspp",
   "rowcol.to.index",
-  "tojulian"
+  "tojulian",
+  "AGB.ind"
+))
+done <- tolower(done)
+setdiff(in_both, done)  # differ only in case
+# Because they seem useless, I intentionally decided not to work on these
+# functions:
+excluded_useless <- "TextToRdata"
+
+
+
+# Similar names 
+
+# Find functions in forestr that are similar to functions in CTFS-CRAN
+similar <- tibble::tribble(
+  ~fr, ~cran,
+  "pop.change", "abundance.change",
+  "pop.change.dbh", "abundance.change.dbh",
+  "abundanceperquad", "abundance.quad",
+  "biomass.change", "biomass",
+  "selectrandquad", "select.randquad",
+  "split_data", "splitdata"
 )
 
-setdiff(in_both, done) %>% sort()
+# What functions remain to explore?
+remain <- setdiff(cran, c(done, similar$cran)) %>% sort()
+remain
+length(remain)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # next --------------------------------------------------------------------
 
 
-args_explore("fromjulian")
-
-params_table %>% filter(grepl(params, "maxgrow"))
 
 
 
-x <- "mortality"
-args_of(x)
-args_filter_by_fun(x)
-args_undoc(x)
 
 
-tp <- table_params_all()
 
 
-string <- "addlegend,legpos,legsize"
 
-args_unstick <- function(string) {unlist(stringr::str_split(string, ","))}
 
-tp %>% 
-  # group_by(param) %>% 
-  mutate(params = params %>% purrr::map(args_unstick)) %>% 
-  tidyr::unnest() %>% 
-  filter(fun == "map") %>% View
 
 
 

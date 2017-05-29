@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Finds abundance, basal area, or agb of every species per square qua... — abundanceperquad â€¢ forestr</title>
+<title>Abundance, basal area, or agb of every species by quadrat. — abundanceperquad â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,36 +79,100 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Finds abundance, basal area, or agb of every species per square qua...</h1>
+    <h1>Abundance, basal area, or agb of every species by quadrat.</h1>
     </div>
 
     
-    <p>Finds abundance, basal area, or agb of every species per square quadrat of any size; plotdim is the x dimension then y dimension of the plot and
-must be set correctly; gridsize is the quadrat dimension. The plot is divided into a checkerboard of non-overlapping, space-filling squares.</p>
-<p>If the plot dimensions is not an exact multiple of the quadrat size, then a strip at the upper edge of the plot (north and east if plot
-is on cardinal directions) is omitted. For example, if gridsize=40 and plotdim=500, then there are an extra 20 meters at the upper boundary
-omitted from the calculations.</p>
-<p>See abundance() for description of the other arguments and return value. The array of abundances per quadrat is useful for similarity, counting
-species and stems per quadrat, etc.</p>
+    <p>Finds abundance, basal area, or agb of every species per square quadrat of
+any size; plotdim is the x dimension then y dimension of the plot and must be
+set correctly; gridsize is the quadrat dimension. The plot is divided into a
+checkerboard of non-overlapping, space-filling squares.</p>
     
 
     <pre class="usage"><span class='fu'>abundanceperquad</span>(<span class='no'>censdata</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>),
   <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"abund"</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>censdata</th>
+      <td><p>an R Analytical Table for a full plot census. For basal area
+use a stem table. For abundance, use either the stem or full table to count
+stems or trees, respectively.</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>the minimum diameter above which the counts are done; if NULL,
+all (living) are included</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>Dimensions of the plot: east-west 1000m and north-south 500m</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>Side of the square quadrate, 20 x 20m by default.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>either 'abund' (default) for abundance, 'ba' for basal area, or
+'agb'.</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>See <code><a href='abundance.html'>abundance()</a></code>.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If the plot dimensions is not an exact multiple of the quadrat size, then a
+strip at the upper edge of the plot (north and east if plot is on cardinal
+directions) is omitted. For example, if <code>gridsize = 40</code> and <code>plotdim = 500</code>,
+then there are an extra 20 meters at the upper boundary omitted from the
+calculations.</p>
+<p>The array of abundances per quadrat is useful for similarity, counting
+species and stems per quadrat, etc.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='abundance.html'>abundance()</a></code></p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+    <pre class="examples"><div class='input'>not_run({
+  Nperquad = abundanceperquad(
+    bci.full6,
+    plotdim = c(1000, 500),
+    gridsize = 100,
+    type = 'abund'
+  )
+  colSums(Nperquad$abund)
+  apply(Nperquad$abund, 2, countspp)
+  plot(colSums(Nperquad$abund), apply / (Nperquad$abund, 2, countspp))
+})
 
-  <span class='no'>Nperquad</span><span class='kw'>=</span><span class='fu'>abundanceperquad</span>(<span class='no'>bci.full6</span>,<span class='kw'>plotdim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>1000</span>,<span class='fl'>500</span>),<span class='kw'>gridsize</span><span class='kw'>=</span><span class='fl'>100</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'abund'</span>)
-  <span class='fu'>colSums</span>(<span class='no'>Nperquad</span>$<span class='no'>abund</span>)
-  <span class='fu'>apply</span>(<span class='no'>Nperquad</span>$<span class='no'>abund</span>,<span class='fl'>2</span>,<span class='no'>countspp</span>)
-  <span class='fu'>plot</span>(<span class='fu'>colSums</span>(<span class='no'>Nperquad</span>$<span class='no'>abund</span>),<span class='fu'>apply</span>(<span class='no'>Nperquad</span>$<span class='no'>abund</span>,<span class='fl'>2</span>,<span class='no'>countspp</span>))
-})</div></pre>
+</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:10:56: unexpected ','</span>
+#&gt; <span class='error'>9:   apply(Nperquad$abund, 2, countspp)</span>
+#&gt; <span class='error'>10:   plot(colSums(Nperquad$abund), apply / (Nperquad$abund,</span>
+#&gt; <span class='error'>                                                           ^</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

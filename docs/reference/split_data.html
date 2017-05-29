@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Converts a big dataframe into a list of smaller dataframes, grouped... — split_data â€¢ forestr</title>
+<title>Split a dataframe into a list by any vector. — split_data â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,33 +79,58 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Converts a big dataframe into a list of smaller dataframes, grouped...</h1>
+    <h1>Split a dataframe into a list by any vector.</h1>
     </div>
 
     
     <p>Converts a big dataframe into a list of smaller dataframes, grouped using any
-column in the database, or any external vector. The variable allsplit can be
-set to a vector of data sections to be included; if allsplit includes values
-not in the data, empty elements are included in the list, but if allsplit
-includes fewer values than found in the data, then missing elements are
-omitted.</p>
-<p>The option keepsplitcol can be set to TRUE in order to retain in the new
-dataframes the column on which the data are grouped; otherwise, that column
-is removed.</p>
+column in the database, or any external vector.</p>
     
 
     <pre class="usage"><span class='fu'>split_data</span>(<span class='no'>censdata</span>, <span class='kw'>splitcol</span> <span class='kw'>=</span> <span class='st'>"sp"</span>, <span class='kw'>keepsplitcol</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>allsplit</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>showOutput</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>censdata</th>
+      <td><p>A dataframe (any).</p></td>
+    </tr>
+    <tr>
+      <th>splitcol</th>
+      <td><p>The name of any variable in <code>censdata</code>.</p></td>
+    </tr>
+    <tr>
+      <th>keepsplitcol</th>
+      <td><p>Can be set to TRUE in order to retain in the new
+dataframes the column on which the data are grouped; otherwise, that column
+is removed.</p></td>
+    </tr>
+    <tr>
+      <th>allsplit</th>
+      <td><p>Can be set to a vector of data sections to be included; if
+allsplit includes values not in the data, empty elements are included in
+the list, but if allsplit includes fewer values than found in the data,
+then missing elements are omitted.</p></td>
+    </tr>
+    <tr>
+      <th>showOutput</th>
+      <td><p>xxxdocparam</p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Name split.data clashed with an S3 method, so it was replaced by split_data.</p>
+    <p>The old name split.data clashed with an S3 method, so it was replaced by
+split_data.</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
           </ul>
