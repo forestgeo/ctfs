@@ -61,24 +61,26 @@
 #' )
 #' }
 #'
-#'
 'spparea.sq'
+
+
 
 #' Draws rectangular quadrats in a plot at random.
 #'
 #' @description
-#'
-#' Draws rectangular quadrats in a plot at random. Returns a dataframe of
+#' Draw rectangular quadrats in a plot at random. Returns a dataframe of
 #' coordinates defining the corners of all the quadrats.
 #'
+#' @details
 #' Quadrats are chosen simply: a point is chosen by randomly drawing one x and 
 #' one y coordinates to serve as the lower-left corner. The `x` is chosen from a
 #' uniform distribution between 0 and `plotdim[1]-size`; `y` is chosen
 #' similarly.
 #'
-#' All 3 algorithms for creating random quadrats under sample the plot corners. 
-#' See `?selectrandomquad2` and `?selectrandomquad3`, alternative intended to 
-#' overcome the bias (but neither does).
+#' All 3 algorithms ([selectrandomquad()], [selectrandomquad2()] and
+#' [selectrandomquad3()]) under sample the plot corners. That bias,
+#' [selectrandomquad2()] and [selectrandomquad3()] intended to overcome; but
+#' neither does.
 #'
 #' @param size A vector of quadrat sizes, referring to the x-dimension of a
 #'   rectangular quadrat
@@ -90,48 +92,31 @@
 #' @param graphit whether to graph the locations of the chosen quadrats on a
 #'   plot map
 #'
+#' @aliases selectrandomquad2 selectrandomquad3
 'selectrandomquad'
 
-#' Creates randomly drawn quadrats.
+#' @describeIn selectrandomquad Its algorithm aims at capturing corners. The
+#'   result, however, is not to capture corners any better than
+#'   [selectrandomquad()] does.
 #'
-#' @description
-#' Creates randomly drawn quadrats, using same arguments and producing same
-#' return value as [selectrandomquad()], but using a different algorithm.
-#'
-#' The lower left x, y coordinates are drawn at random from a range extending
-#' outside the plot dimensions, then quadrats are used only if all 4 corners
-#' fall inside the plot.
-#'
-#' @inheritParams selectrandomquad
-#' @seealso selectrandomquad
-#'
-'selectrandomquad3'
-
-#' Creates randomly drawn quadrats.
-#'
-#' @description
-#' Creates randomly drawn quadrats, using same arguments and producing same 
-#' return value as selectrandomquad, but using a different algorithm aimed at 
-#' capturing corners. The result, however, is not to capture corners any better 
-#' than selectrandomquad() does.
-#'
-#' @details 
 #' Imagine a line running vertically at `x = 0` from `y = 0` to 
 #' `y = plotdim[2] - size`, then continues at `x = 1` from 0 to 
 #' `plotdim[2] - size`, etc. It's wrapping analogous to the way quadrat indices
 #' wrap (see `?gxgy.to.index`). This line has length 
-#' `(plotdim[1] - size) * (plotdim[2] - size)`.
-#'
-#' Draw a random number on that line, and place the lower left corner of random
-#' square at that point.
-#'
-#' A position `x` on the line is converted to plot coordinates `gx`, `gy` using
-#' function `index.to.gxgy()` with `grid = 1`
+#' `(plotdim[1] - size) * (plotdim[2] - size)`. Draw a random number on that
+#' line, and place the lower left corner of random square at that point. A
+#' position `x` on the line is converted to plot coordinates `gx`, `gy` using
+#' function `index.to.gxgy()` with `grid = 1`.
 #' 
-#' @inheritParams selectrandomquad
-#' @seealso [selectrandomquad()]
-#'
 'selectrandomquad2'
+
+#' @describeIn selectrandomquad The lower left x, y coordinates are drawn at
+#'   random from a range extending outside the plot dimensions, then quadrats
+#'   are used only if all 4 corners fall inside the plot.
+#'
+'selectrandomquad3'
+
+
 
 #' Make a graph of a series of quadrats whose corners are given by the...
 #'
