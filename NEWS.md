@@ -1,5 +1,11 @@
 # forestr 0.0.0.9000
 
+* 2017-05-29 Undocumented arguments = 1,008. After documenting arguments in functions with similar names between forestr and CTFS-CRAN. Those from functions which names match exactly had already been documented.
+
+
+
+
+
 ## Improved arguments documentation
 
 A large problem of forestr is that many function arguments are undocumented. This problem can in part be solved by re-using arguments shared across multiple functions, when the arguments are documented in one but not all of those functions. This also reduces duplication, which makes easier to maintain documentation (see [Inheriting parameters from other functions](http://r-pkgs.had.co.nz/man.html), by Hadley Wickham).
