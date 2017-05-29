@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Returns the basal area summed over all submitted dbhs. NAs can be i... — basum â€¢ forestr</title>
+<title>Returns the basal area summed over all submitted dbhs. — basum â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,20 +79,40 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Returns the basal area summed over all submitted dbhs. NAs can be i...</h1>
+    <h1>Returns the basal area summed over all submitted dbhs.</h1>
     </div>
 
     
-    <p>Returns the basal area summed over all submitted dbhs. NAs can be included, as sum will be completed with na.rm=TRUE.</p>
+    <p>Returns the basal area summed over all submitted dbhs. NAs can be included,
+as sum will be completed with <code>na.rm = TRUE</code>.</p>
     
 
     <pre class="usage"><span class='fu'>basum</span>(<span class='no'>dbh</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>dbh</th>
+      <td><p>DBH in mm of tree</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>the minimum diameter above which the counts are done; if NULL,
+all (living) are included</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compute biomass (agb) based on one of the Chave (Oecologia, 2005) m... — AGB.ind â€¢ forestr</title>
+<title>Above ground biomass (agb) based on one of the Chave (Oecologia, 2005). — AGB.ind â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,36 +79,79 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Compute biomass (agb) based on one of the Chave (Oecologia, 2005) m...</h1>
+    <h1>Above ground biomass (agb) based on one of the Chave (Oecologia, 2005).</h1>
     </div>
 
     
-    <p>Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for tropical forest types.</p>
-<p>Requires a table (df) with dbh and species names, a wood-density table (described under density_ind), a plot name,
-dbh units, and a forest type (for most lowland tropical plots, the default moist is recommended.)</p>
-<p>The height parameters default to NULL, and the Chave equations without height are then used. Alternatively, height parameters
-and a height function can be supplied, the latter to calculate height from diameter for every tree, in which case the</p>
-<p>Chave model with height is used. Returns a vector of biomass in kg for every individual in the submitted table df.</p>
-<p>This is called by AGB.tree in the standard calculation of biomass for CTFS R tables.</p>
+    <p>Compute biomass (agb) based on one of the Chave (Oecologia, 2005) models for
+tropical forest types.</p>
     
 
     <pre class="usage"><span class='fu'>AGB.ind</span>(<span class='no'>df</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='st'>"bci"</span>, <span class='kw'>wsgdata</span> <span class='kw'>=</span> <span class='no'>wsg.ctfs2</span>,
   <span class='kw'>forest</span> <span class='kw'>=</span> <span class='st'>"moist"</span>, <span class='kw'>ht.param</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>htmodel</span> <span class='kw'>=</span> <span class='no'>predht.asym</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>df</th>
+      <td><p>A table with dbh and species names</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
+      <th>plot</th>
+      <td><p>Name of plot as it appears in the names of the R Analytical Tables, in quote marks</p></td>
+    </tr>
+    <tr>
+      <th>wsgdata</th>
+      <td><p>A wood-density table, see <code><a href='density_ind.html'>density_ind()</a></code> and <a href='wsgdata_dummy.html'>wsgdata_dummy</a>.</p></td>
+    </tr>
+    <tr>
+      <th>forest</th>
+      <td><p>A forest type (for most lowland tropical plots, the default
+"moist" is recommended.)</p></td>
+    </tr>
+    <tr>
+      <th>ht.param</th>
+      <td><p>Height parameters to calculate height from diameter for every
+tree, using the Chave model with height passed to <code>htmodel</code>. If NULL
+(defauld) <code>AGB.ind()</code> uses Chave equations without height.</p></td>
+    </tr>
+    <tr>
+      <th>htmodel</th>
+      <td><p>Height model to use with a non-NULL <code>ht.param</code>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A vector of biomass in kg for every individual in the submitted table
+<code>df</code>.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='density_ind.html'>density_ind()</a></code>; Chave (Oecologia, 2005).</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>biomass</span><span class='kw'>=</span><span class='fu'>AGB.ind</span>(<span class='kw'>df</span><span class='kw'>=</span><span class='no'>bci.full1</span>)
-
-  <span class='fu'>hist</span>(<span class='fu'>log</span>(<span class='no'>biomass</span>),<span class='kw'>breaks</span><span class='kw'>=</span><span class='fl'>100</span>)
-
-  <span class='fu'>sum</span>(<span class='no'>biomass</span>,<span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>)/<span class='fl'>50</span>
+  <span class='no'>biomass</span> <span class='kw'>&lt;-</span> <span class='fu'>AGB.ind</span>(<span class='kw'>df</span> <span class='kw'>=</span> <span class='no'>bci.full1</span>)
+  <span class='fu'>hist</span>(<span class='fu'>log</span>(<span class='no'>biomass</span>), <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+  <span class='fu'>sum</span>(<span class='no'>biomass</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) / <span class='fl'>50</span>
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
