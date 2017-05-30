@@ -14,7 +14,7 @@ Distance is measured from any side of the index quadrate.}
 
 \item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
 
-\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+\item{plotdim}{The x and y dimensions of the plot.}
 }
 \value{
 A vector of numbers, the quadrate indices for all surrounding
@@ -22,4 +22,7 @@ quadrates.
 }
 \description{
 Calculate indices of neighboring quadrats, for a given quadrat index.
+}
+\details{
+\code{plotdim} Starndard plot dimensions: east-west 1000m and north-south 500m.
 }

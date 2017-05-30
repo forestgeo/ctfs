@@ -19,7 +19,11 @@
 #' plotside too large for the default graph size (usually 7 inches). If you use
 #' the option export="Windows", "Mac", or "Unix", then height and width can be
 #' set with arguments ht, wd, and plotside can be as large as you please.
+#' 
+#' `plotdim` assumes the starting coordinates are zero. If they are not, then
+#' xrange and yrange must be used.
 #'
+#' @template plotdim
 #' @param splitdatafile A full plot dataset in list format (see `?split_data`).
 #' @param species One or more species codes to be mapped.
 #' @param spplist A table with species codes and Latin names can be submitted as
@@ -29,9 +33,6 @@
 #'   species code (as submitted) appears on the map.
 #' @param xrange,yrange Minimum and maximum x coordinates and y coordinates to
 #'   map. Allows a portion of plot to be drawn. Defaults to the entire plot.
-#' @param plotdim The x and y dimensions of the plot. This is used often in R
-#'   package. Note it assumes the starting coordinates are zero. If they are
-#'   not, then xrange and yrange must be used.
 #' @param elevdata Elevation data can be submitted, then a topo map is overlaid.
 #'   Elevation data must be submitted as a matrix (as described in readelevdata
 #'   in utilities.r).
@@ -141,12 +142,12 @@
 #' On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
 #' are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp. 
 #'
+#' @template plotdim
 #' @param cns a full census dataset (all species)
 #' @param spnames names of species to map, using the mnemonic in the R tables
 #' @param mindbh smallest dbh to include
 #' @param export set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)
 #' @param nospp number of species to overlay; can be NULL or 0 for none
-#' @param plotdim x and y plot dimensions
 #' @param clrlist colors to use for the species to be overlaid
 #' @param ptsize size of points, the first used for the background of all species, the second for the individual species
 #' @param xrange minimum and maximum x coordinates of area graphed

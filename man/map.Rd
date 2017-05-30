@@ -26,9 +26,7 @@ species codes as row names. It should be the CTFS R format species table
 (eg, bci.spptable). It can be set to NULL if not available, then only the
 species code (as submitted) appears on the map.}
 
-\item{plotdim}{The x and y dimensions of the plot. This is used often in R
-package. Note it assumes the starting coordinates are zero. If they are
-not, then xrange and yrange must be used.}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{xrange, yrange}{Minimum and maximum x coordinates and y coordinates to
 map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
@@ -106,6 +104,9 @@ large". This happens if the export="no" option is used with the option
 plotside too large for the default graph size (usually 7 inches). If you use
 the option export="Windows", "Mac", or "Unix", then height and width can be
 set with arguments ht, wd, and plotside can be as large as you please.
+
+\code{plotdim} assumes the starting coordinates are zero. If they are not, then
+xrange and yrange must be used.
 }
 \examples{
 \dontrun{

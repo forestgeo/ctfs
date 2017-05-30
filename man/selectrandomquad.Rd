@@ -24,7 +24,7 @@ rectangular quadrat}
 \item{rep}{The number of replicated random quadrats (per dimension submitted)
 to create.}
 
-\item{plotdim}{the x and y dimensions of the entire plot}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{graphit}{whether to graph the locations of the chosen quadrats on a
 plot map}

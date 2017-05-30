@@ -22,7 +22,7 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
 
 \item{nospp}{number of species to overlay; can be NULL or 0 for none}
 
-\item{plotdim}{x and y plot dimensions}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{clrlist}{colors to use for the species to be overlaid}
 

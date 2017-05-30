@@ -4,40 +4,52 @@
 #'
 #'
 
-#'
-#' Ripleys K using splancs. Computes the univariate Ripleys K for a li...
+#' Ripleys K using splancs.
 #'
 #' @description
-#'
-#' Ripley's K using splancs. Computes the univariate Ripley's K for a list of species (all species at a site 
-#' is the default). Also calculates the O-ring statistic, or density (per area) of
-#' conspecifics in a series of annuli defined by rseq, and the omega statistic,
-#' which is O-ring divided by overall density.
-#'
-#' Works through all the elements of a split datafile, each of which must have gx, gy
-#' coordinates, a status code, and dbh. This would usually be species, but could
-#' be any other division of the data. RipUvK always performs calculations on each element of the
-#' splitdata list submitted.
-#'
-#' If the data have no status field, all records are included. If there is a status field, only "A"
-#' values are included. If mindbh is set to 0, all records are
-#' included and no dbh field is consulted. But if mindbh is set, there must be a dbh field, and records
-#' are excluded if smaller.
+#' Ripley's K using splancs. Computes the univariate Ripley's K for a list of
+#' species (all species at a site is the default). Also calculates the O-ring
+#' statistic, or density (per area) of conspecifics in a series of annuli
+#' defined by rseq, and the omega statistic, which is O-ring divided by overall
+#' density.
+#' 
+#' Works through all the elements of a split datafile, each of which must have
+#' gx, gy coordinates, a status code, and dbh. This would usually be species,
+#' but could be any other division of the data. RipUvK always performs
+#' calculations on each element of the splitdata list submitted.
+#' 
+#' If the data have no status field, all records are included. If there is a
+#' status field, only "A" values are included. If mindbh is set to 0, all
+#' records are included and no dbh field is consulted. But if mindbh is set,
+#' there must be a dbh field, and records are excluded if smaller.
 #'
 #' The output is a list of 5 components.
-#' *  K is the Ripley's K object produced by the khat function in the splancs package; please see help for that package for details.
-#' *  O is the mean density of neighbors in each successive distance interval; it is a list of vectors, one per species, each vector of length matching length of rseq.
-#' *  omega is the omega-statistic, or O in each successive distance interval divided the plot-wide density; density is expressed per 10,000 square distance units, which means per hectare if units are meters.
-#' *  abund is a vector of species abundances, including individuals used in the calculation.
-#' *  midpts is a vector of the same length as rseq, giving the midpoint of each distance interval, for graphing purposes.
+#' *  K is the Ripley's K object produced by the khat function in the splancs
+#' package; please see help for that package for details.
+#' *  O is the mean density of neighbors in each successive distance interval;
+#' it is a list of vectors, one per species, each vector of length matching
+#' length of rseq.
+#' *  omega is the omega-statistic, or O in each successive distance interval
+#' divided the plot-wide density; density is expressed per 10,000 square
+#' distance units, which means per hectare if units are meters.
+#' *  abund is a vector of species abundances, including individuals used in the
+#' calculation.
+#' *  midpts is a vector of the same length as rseq, giving the midpoint of each
+#' distance interval, for graphing purposes.
 #' 
-#' @param splitdata A complete CTFS plot dataset comprised of a list, each element having a dataframe for one species. There must be columns for x and y coordinates; the names of those two columns are passed as arguments (default is the CTFS standard gx, gy). 
-#' @param plotdim The x and y dimensions of the plot. 
-#' @param rseq The distances defining intervals in which Ripley's statistic is calculated.
+#' @template plotdim
+#' @param splitdata A complete CTFS plot dataset comprised of a list, each
+#'   element having a dataframe for one species. There must be columns for x and
+#'   y coordinates; the names of those two columns are passed as arguments
+#'   (default is the CTFS standard gx, gy).
+#' @param rseq The distances defining intervals in which Ripley's statistic is
+#'   calculated.
 #' @param mindbh the minimum dbh to include in results.
 #' @param xcol,ycol the names of the columns holding x and y coordinates.
-#' @param debug TRUE or FALSE, calls browser during execution to pause program; only set TRUE to debug.
-#' @param show creates a graph to show one omega value for each species, as a way to track progress.
+#' @param debug TRUE or FALSE, calls browser during execution to pause program;
+#'   only set TRUE to debug.
+#' @param show creates a graph to show one omega value for each species, as a
+#'   way to track progress.
 #'
 #' @examples
 #' \dontrun{
@@ -74,7 +86,6 @@
 #' # distances of rseq
 #' }
 #'
-#'
 'RipUvK'
 
 #'
@@ -89,9 +100,8 @@
 #'
 #' @param spdata A single dataframe with x-y coordinates of individuals. 
 #' @param r A vector of distances defining the successive annuli.
-#' @param plotdim The x and y dimensions of the plot in which the individuals are mapped. 
-#'
-#'
+#' @template plotdim
+#' 
 'Annuli'
 
 #'
@@ -283,7 +293,7 @@ poly=splancs::spoints(c(0,0,plotdim[1],0,plotdim[1],plotdim[2],0,plotdim[2]))
 # <source>
 #' @export
 
-Annuli=function(spdata,r,plotdim)
+  Annuli=function(spdata,r,plotdim)
 {
  TotalAreaPerRing=numeric()
  AreaPerCircle=matrix(nrow=dim(spdata)[1],ncol=length(r)+1)

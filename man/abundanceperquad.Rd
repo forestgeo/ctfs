@@ -15,7 +15,7 @@ stems or trees, respectively.}
 \item{mindbh}{the minimum diameter above which the counts are done; if NULL,
 all (living) are included}
 
-\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
 

@@ -1,5 +1,11 @@
 # forestr 0.0.0.9000
 
+DOING
+
+* Document in templates the most commonly used arguments.
+
+DONE
+
 * 2017-05-29 Undocumented arguments = 1,008. After documenting arguments in functions with similar names between forestr and CTFS-CRAN. Those from functions which names match exactly had already been documented.
 
 

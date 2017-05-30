@@ -13,9 +13,7 @@ maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
 \arguments{
 \item{elevmat}{Matrix of elevation data (see ?\link[bci:bci_elevation]{bci::bci_elevation}).}
 
-\item{plotdim}{The x and y dimensions of the plot. This is used often in R
-package. Note it assumes the starting coordinates are zero. If they are
-not, then xrange and yrange must be used.}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{add}{Logical. Whether to add points or line to an existing graph. if
 TRUE, there must be an appropriate existing graph, otherwise, a new graph

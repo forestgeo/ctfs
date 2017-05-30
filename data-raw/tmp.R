@@ -101,6 +101,18 @@ length(remain)
 
 
 
+# Explore what arguments are most duplicated. Work on those to maximize benefit
+# from effort unit
+
+params_table %>% 
+  count(params) %>% 
+  left_join(params_table) %>% 
+  arrange(desc(n), params, fun) %>% 
+  View
+
+
+
+
 
 
 

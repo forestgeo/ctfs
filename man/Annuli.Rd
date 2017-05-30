@@ -11,7 +11,7 @@ Annuli(spdata, r, plotdim)
 
 \item{r}{A vector of distances defining the successive annuli.}
 
-\item{plotdim}{The x and y dimensions of the plot in which the individuals are mapped.}
+\item{plotdim}{The x and y dimensions of the plot.}
 }
 \description{
 Calculates the total area in a series of annuli, summed over all individuals in the

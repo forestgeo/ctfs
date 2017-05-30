@@ -2,7 +2,7 @@
 % Please edit documentation in R/NeighborDensityFun.R
 \name{NDcount}
 \alias{NDcount}
-\title{Calculates the count of neighbors within radius r with edge effect ...}
+\title{Count of neighbors within radius r with edge effect correction.}
 \usage{
 NDcount(censdata, r = 20, plotdim = c(1000, 500))
 }
@@ -11,14 +11,18 @@ NDcount(censdata, r = 20, plotdim = c(1000, 500))
 
 \item{r}{(20) radius}
 
-\item{plotdim}{(c(1000,500))  vector with two numbers indicating the xy-plot size;}
+\item{plotdim}{The x and y dimensions of the plot.}
+}
+\value{
+A single vector with neighbor counts within radius r for each
+individual in censdata.
 }
 \description{
-Calculates the count of neighbors within radius r with edge effect correction. Is a quick version of NeighborDensities with limited capabilities.
+Calculates the count of neighbors within radius r with edge effect
+correction. Is a quick version of NeighborDensities with limited
+capabilities.
 
 Dependencies: CalcRingArea from the CTFS package and splancs.
-
-Output: a single vector with neighbor counts within radius r for each individual in censdata.
 }
 \examples{
 \dontrun{

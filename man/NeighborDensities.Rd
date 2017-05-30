@@ -14,7 +14,7 @@ NeighborDensities(censdata, censdata2 = NULL, r = 20, plotdim = c(1000,
 
 \item{r}{(20) radius to count neighbors}
 
-\item{plotdim}{(c(1000,500))  vector with two numbers indicating the xy-plot size;}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{mindbh}{(10) minimum size of neighbors to be counted}
 
@@ -40,7 +40,8 @@ neighbor.counts <- NeighborDensities(bci.full7, r=20, type='count')
 
 sum consp and hetsp neighbors for only one species: 
 one.sp = subset(bci.full7, sp=="quaras") 
-neighbor.counts <- NeighborDensities(bci.full7, one.sp, type='count') }
+neighbor.counts <- NeighborDensities(bci.full7, one.sp, type='count')
+}
 
 
 }
