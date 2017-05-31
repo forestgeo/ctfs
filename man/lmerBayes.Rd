@@ -13,9 +13,12 @@ lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
 \arguments{
 \item{data}{The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.}
 
-\item{ycol}{The name of the column holding the y variable, with quote marks; this variable must be numeric.}
+\item{ycol}{Chareacter string giving the name of a column in `data` that
+holds the y (numeric) variable.}
 
 \item{randcol}{The name of one column holding the random variable; must be a character variable.}
+
+\item{xcol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
 
 \item{start}{Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect}
 
@@ -65,8 +68,6 @@ absence of data, as for describing an implied prior.
 \item{debug}{Logical. If TRUE, call browser to debug.}
 
 \item{...}{The typical R means for submitting additional parameters for various functions used in the model (\code{model}, \code{sdfunc}, \code{badparam}, \code{badSDparam}).}
-
-\item{ycol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
 }
 \description{
 A Metropolis MCMC version of lmer. A single independent variable, y, can be fit against any number of predictors, x,

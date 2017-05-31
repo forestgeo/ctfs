@@ -46,8 +46,7 @@
 #'   (default is the CTFS standard gx, gy).
 #' @param rseq The distances defining intervals in which Ripley's statistic is
 #'   calculated.
-#' @param xcol,ycol the names of the columns holding x and y coordinates.
-#'   only set TRUE to debug.
+#' @param xcol,ycol The names of the columns holding x and y coordinates.
 #' @param show creates a graph to show one omega value for each species, as a
 #'   way to track progress.
 #'

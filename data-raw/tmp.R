@@ -98,8 +98,11 @@ length(remain)
 
 # next --------------------------------------------------------------------
 
+table_params_all(update = T)
 
+# commit
 
+devtools::load_all()
 
 # Explore what arguments are most duplicated. Work on those to maximize benefit
 # from effort unit

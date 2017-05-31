@@ -12,7 +12,8 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 \arguments{
 \item{data}{The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.}
 
-\item{ycol}{The name of the column holding the y variable, with quote marks; this variable must be numeric.}
+\item{ycol}{Chareacter string giving the name of a column in `data` that
+holds the y (numeric) variable.}
 
 \item{xcol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
 

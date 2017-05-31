@@ -22,8 +22,7 @@ calculated.}
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
-\item{xcol, ycol}{the names of the columns holding x and y coordinates.
-only set TRUE to debug.}
+\item{xcol, ycol}{The names of the columns holding x and y coordinates.}
 
 \item{debug}{Logical. If TRUE, call browser to debug.}
 

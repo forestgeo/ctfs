@@ -77,9 +77,9 @@
 #' offers a worked example.
 #'
 #' @template debug
+#' @template ycol
 #' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
-#' @param ycol The name of the column holding the y variable, with quote marks; this variable must be numeric.
-#' @param ycol The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
+#' @param xcol The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
 #' @param randcol The name of one column holding the random variable; must be a character variable.
 #' @param start Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect
 #' @param startSD A single starting value for the residual standard deviation, only used with Gaussian and Negative Binomial error models.

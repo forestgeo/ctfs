@@ -166,19 +166,6 @@ abundance,"'cm' or 'mm', only used for basal area
 map,"Set NULL to map all trees, alive and dead; TRUE for dead
 #'   only, FALSE for live only (relies on status in the R table).
 #' ",deadtree
-graph.abundmodel,"if TRUE, call browser to debug
-#' 
-#' ",debug
-lmerBayes,"TRUE or FALSE, whether to pause and debug; for advanced users and developers.
-#' ",debug
-model.littleR.Gibbs,"set to TRUE to call browser within the function
-#'
-#' ",debug
-modelBayes,"TRUE or FALSE, whether to pause and debug; for advanced users and developers.
-#' ",debug
-RipUvK,"TRUE or FALSE, calls browser during execution to pause program;
-#'   only set TRUE to debug.
-#' ",debug
 imageJ.to.lxly,"the delimiter used to separate the fields in the map files
 #' ",delim
 model.littleR.Gibbs,"optional, must match exactly the table created within the
@@ -403,6 +390,7 @@ model.littleR.Gibbs,"as listed above
 #' ",modeltype
 graph.abundmodel,"whether to graph the correlation between mortality and 
 #'   population change across species
+#' 
 #' ",mortcorr
 find.climits,"The number of individuals alive at the outset.
 #' ",N
@@ -515,6 +503,7 @@ lmerBayes,"Information is printed to the screen every showstep steps.
 #' ",showstep
 model.littleR.Gibbs,"print hyperparameters and likelihood to the screen every
 #'   showstep steps
+#'
 #' ",showstep
 modelBayes,"Information is printed to the screen every showstep steps.
 #' ",showstep
@@ -667,11 +656,13 @@ tojulian," A character representation of a date.
 #' ",x
 maptopo,"xxxdocparam
 #' ",xaxis
+lmerBayes,"The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
+#' ",xcol
 modelBayes,"The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
 #' ",xcol
-RipUvK,"the names of the columns holding x and y coordinates.
+RipUvK,"The names of the columns holding x and y coordinates.
 #' ",xcol
-RipUvK,"the names of the columns holding x and y coordinates.
+RipUvK,"The names of the columns holding x and y coordinates.
 #' ",ycol
 image_dataframe,"These allow the columns of data to carry non-standard
 #'   names
@@ -721,12 +712,6 @@ graphFilledBand,"= Two sets of y axis values, each of exactly the same length as
 #' ",y2
 maptopo,"xxxdocparam
 #' ",yaxis
-lmerBayes,"The name of the column holding the y variable, with quote marks; this variable must be numeric.
-#' ",ycol
-lmerBayes,"The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
-#' ",ycol
-modelBayes,"The name of the column holding the y variable, with quote marks; this variable must be numeric.
-#' ",ycol
 complete.plotmap,"minimum and maximum y coordinates of area graphed
 #' ",yrange
 imageGraph,"likewise for y
