@@ -11,7 +11,7 @@ rowcol.to.index(rowno, colno, gridsize = 20, plotdim = c(1000, 500))
 
 \item{colno}{Column number.}
 
-\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+\item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 }

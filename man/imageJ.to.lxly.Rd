@@ -15,7 +15,7 @@ imageJ.to.lxly(textfile = samplemapfile, delim = ",", lowerleft = "P2",
 
 \item{lowerleft, upperleft, upperright, lowerright}{the tags in each of the map files with the calibrated corners}
 
-\item{gridsize}{size of each individual map}
+\item{gridsize}{Size of each individual map.}
 }
 \description{
 Convert map pixels from digitzing program to plot coordinates. Uses 2 functions from geometry.r:

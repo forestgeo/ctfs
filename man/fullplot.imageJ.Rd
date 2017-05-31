@@ -30,7 +30,7 @@ These tags must be the same in each and every map file.}
 
 \item{suffix}{the extension used for the map files. The imageJ default is ".txt".}
 
-\item{gridsize}{size of each individual map}
+\item{gridsize}{Size of each individual map.}
 
 \item{subquadratsuffix}{used for map files that are smaller than 20x20m (i.e. 10x10m). They should be named clockwise from the lower left subquadrat.}
 }

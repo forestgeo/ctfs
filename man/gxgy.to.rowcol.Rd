@@ -11,7 +11,7 @@ gxgy.to.rowcol(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 
 \item{gy}{Tree x and y coordinate.}
 
-\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+\item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 }

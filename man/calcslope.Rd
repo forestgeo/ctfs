@@ -9,7 +9,7 @@ calcslope(z, gridsize = 20)
 \arguments{
 \item{z}{numeric vector of length 3}
 
-\item{gridsize}{numeric scalar}
+\item{gridsize}{Side of the square quadrate.}
 }
 \description{
 Given the z-coordinate of 3 points in 3D space whose x-y coordinates are

@@ -12,7 +12,7 @@ findborderquads(index, dist = 20, gridsize = 20, plotdim = c(1000, 500))
 \item{dist}{Distance in m within which the neighboring quadrates are located.
 Distance is measured from any side of the index quadrate.}
 
-\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+\item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 }
@@ -24,5 +24,6 @@ quadrates.
 Calculate indices of neighboring quadrats, for a given quadrat index.
 }
 \details{
-\code{plotdim} Starndard plot dimensions: east-west 1000m and north-south 500m.
+Standard \code{plotdim} dimensions is : east-west 1000m and north-south 500m, and
+standard \code{gridsize} is 20 x 20m by default.
 }

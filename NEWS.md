@@ -2,7 +2,55 @@
 
 DOING
 
-* Document in templates the most commonly used arguments.
+* Remove duplicated arguments documentation (via roxygen2 @templates). Forty three arguments are repeated multiple times (n) (), which complicates maintainance. If they mean the same, arguments should be documented only once and every function should refer to that unique documentation.
+
+```R
+             params     n
+              <chr> <int>
+ 0          plotdim     9
+ 1         gridsize     8
+ 2           mindbh     6
+ 3                x     6
+ 4         censdata     5
+ 5            debug     5
+ 6             ycol     5
+ 7                r     4
+ 8             type     4
+ 9           xrange     4
+10           yrange     4
+11             data     3
+12           export     3
+13          outfile     3
+14         showstep     3
+15             size     3
+16            steps     3
+17             xcol     3
+18                y     3
+19              ...     2
+20         badparam     2
+21       badSDparam     2
+22           burnin     2
+23             clrs     2
+24            error     2
+25         filepath     2
+26          graphit     2
+27               ht     2
+28            ltype     2
+29           lwidth     2
+30            model     2
+31        modeltype     2
+32             path     2
+33           ptsize     2
+34           sdfunc     2
+35            start     2
+36          startSD     2
+37 subquadratsuffix     2
+38           update     2
+39               wd     2
+40            xname     2
+41            yname     2
+42                z     2
+```
 
 DONE
 

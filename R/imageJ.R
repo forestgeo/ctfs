@@ -14,6 +14,7 @@
 #' have 4 digits. If there are subquadrats, the names should end with the same consistent suffixes. Only those files with this 
 #' specific naming convention are read and converted. Updated Aug 2014 to handle files with no trees (just 4 corner labels). 
 #'
+#' @template gridsize_map
 #' @param path the complete path name where the map files to be converted are found
 #' @param include.subdir whether the subfolders are to be searched for map files also
 #' @param outfile the name of the text file where the results will be saved. This file will be saved in the folder specified by the path. If outfile=NULL, 
@@ -26,7 +27,6 @@
 #' @param prefix the prefix used for all the map files before the quadrat name
 #' @param suffix the extension used for the map files. The imageJ default is ".txt".
 #' @param subquadratsuffix used for map files that are smaller than 20x20m (i.e. 10x10m). They should be named clockwise from the lower left subquadrat.
-#' @param gridsize size of each individual map
 #'
 #' @examples
 #' \dontrun{
@@ -62,7 +62,7 @@
 #'
 #' @param pts the coordinates to be corrected
 #' @param subquad the subquadrat to be corrected
-#' @param gridsize size of each individual map
+#' @template gridsize_map
 #' @param subquadratsuffix the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.
 #'
 #'
@@ -80,7 +80,7 @@
 #' @param textfile the complete name of the textfile to convert, including the path
 #' @param lowerleft,upperleft,upperright,lowerright the tags in each of the map files with the calibrated corners
 #' @param delim the delimiter used to separate the fields in the map files
-#' @param gridsize size of each individual map
+#' @template gridsize_map
 #'
 #'
 'imageJ.to.lxly'

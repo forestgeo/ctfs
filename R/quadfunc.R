@@ -133,16 +133,17 @@
 #' Calculate indices of neighboring quadrats, for a given quadrat index.
 #' 
 #' @details
-#' `plotdim` Starndard plot dimensions: east-west 1000m and north-south 500m.
+#' Standard `plotdim` dimensions is : east-west 1000m and north-south 500m, and
+#' standard `gridsize` is 20 x 20m by default.
 #' 
 #' @return A vector of numbers, the quadrate indices for all surrounding
 #'   quadrates.
-#'   
+#'
+#' @template gridsize_side
+#' @template plotdim
 #' @param index Quadrate number, between 0 and 1249 in the standard plot.
 #' @param dist Distance in m within which the neighboring quadrates are located.
 #'   Distance is measured from any side of the index quadrate.
-#' @param gridsize Side of the square quadrate, 20 x 20m by default.
-#' @template plotdim
 #'
 'findborderquads'
 

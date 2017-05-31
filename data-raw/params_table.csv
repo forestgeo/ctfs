@@ -140,6 +140,7 @@ graph.abundmodel,"number of alternate fits to graph, as indication of confidence
 #'   if conf = NULL, no confidence lines are added
 #' ",conf
 quadslope,"vector of 4 elevations 
+#'
 #' ",cornerelev
 fullplot.imageJ,"specify the tags used for the map corners used for calibration. They must be named in a clockwise direction starting with the lower left corner. 
 #'
@@ -199,7 +200,7 @@ make.CredIntervalVect,"number of decimal places in result, first for the mean, t
 #' ",digits
 findborderquads,"Distance in m within which the neighboring quadrates are located.
 #'   Distance is measured from any side of the index quadrate.
-#' ",dist
+#'",dist
 graph.abundmodel,"width of bins for histogram of observed rate of population change
 #' ",div
 map,"Elevation data can be submitted, then a topo map is overlaid.
@@ -281,25 +282,8 @@ selectrandomquad,"whether to graph the locations of the chosen quadrats on a
 #'   plot map
 #'
 #' ",graphit
-calcslope,"numeric scalar
-#'",gridsize
-coldata.to.imagemat,"Size of quadrats into which the map is divided; must be square quadrats. This cannot be NULL.  
-#' ",gridsize
-elev.to.list,"scale of elevation values (m)
+elev.to.list,"xxxdocparam scale of elevation values (m)
 #' ",gridsize
-findborderquads,"Side of the square quadrate, 20 x 20m by default.
-#' ",gridsize
-fullplot.imageJ,"size of each individual map
-#'
-#' ",gridsize
-imageJ.to.lxly,"size of each individual map
-#'
-#'",gridsize
-quadslope,"the side of the square
-#'
-#' ",gridsize
-SectionCorrection,"size of each individual map
-#' ",gridsize
 growth,"defines how growth is measured, either 'dbh'or
 #'   'agb'(agb=biomass)
 #' 
@@ -467,10 +451,12 @@ fullplot.imageJ,"the complete path name where the map files to be converted are 
 #' ",path
 CTFSplot,"Name of plot as it appears in the names of the R Analytical Tables, in quote marks
 #' ",plot
-coldata.to.imagemat,"Maximum plot x and y coordinates. The default, 1000,500, is typical CTFS 50-ha plot. Ignored if x and y are submitted.
-#'
+coldata.to.imagemat,"Maximum plot x and y coordinates. The default, 1000,500, is
+#'   typical CTFS 50-ha plot. Ignored if x and y are submitted.
+#'   
 #' ",plotmax
-coldata.to.imagemat,"The minimum plot x and y coordinates; in CTFS plots, these are always 0,0. Ignored if x and y are submitted.
+coldata.to.imagemat,"The minimum plot x and y coordinates; in CTFS plots, these are
+#'   always 0,0. Ignored if x and y are submitted.
 #' ",plotmin
 imageGraph,"size of graph's x-dimension in inches; ignored if newgraph=FALSE
 #' ",plotsize
@@ -629,6 +615,7 @@ modelBayes,"The number of steps to run the Gibbs sampler.
 SectionCorrection,"the subquadrat to be corrected
 #' ",subquad
 fullplot.imageJ,"used for map files that are smaller than 20x20m (i.e. 10x10m). They should be named clockwise from the lower left subquadrat.
+#'
 #' ",subquadratsuffix
 SectionCorrection,"the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.
 #'
@@ -688,9 +675,10 @@ AGB.ind,"A wood-density table, see [density_ind()] and [wsgdata_dummy].
 #' ",wsgdata
 cartesian.to.polar,"input vector of x coordinates
 #' ",x
-coldata.to.imagemat,"The map coordinates of each column in the matrix, and the values with which the x-axis of the map will be numbered.
-#'
-#' The number of columns of z, dim(z)\[2], must be exactly length(x). If x is NULL, then it is calculated using plotmax.
+coldata.to.imagemat,"The map coordinates of each column in the matrix, and the values 
+#'   with which the x-axis of the map will be numbered. The number of columns of
+#'   z, dim(z)\[2], must be exactly length(x). If x is NULL, then it is
+#'   calculated using plotmax.
 #' ",x
 fullellipse,"input x coordinates
 #' ",x
@@ -742,8 +730,9 @@ map,"Minimum and maximum x coordinates and y coordinates to
 cartesian.to.polar,"input vector of y coordinates (same length as x)
 #'
 #' ",y
-coldata.to.imagemat,"The map coordinates of each row in the matrix, and the values with which the y-axis of the map will be numbered; 
-#' dim(z)\[1] must be exactly length(y). If y is NULL, then it is calculated using plotmax.
+coldata.to.imagemat,"The map coordinates of each row in the matrix, and the values with
+#'   which the y-axis of the map will be numbered; dim(z)\[1] must be exactly
+#'   length(y). If y is NULL, then it is calculated using plotmax.
 #' ",y
 make.CredIntervalVect,"must be a vector of length 3, not a matrix. 
 #' ",y
@@ -766,6 +755,7 @@ complete.plotmap,"minimum and maximum y coordinates of area graphed
 imageGraph,"likewise for y
 #' ",yrange
 calcslope,"numeric vector of length 3 
-#' ",z
-coldata.to.imagemat,"A numeric vector of responses, which means an attribute which has map coordinates.
+#'",z
+coldata.to.imagemat,"A numeric vector of responses, which means an attribute which has
+#'   map coordinates.
 #' ",z

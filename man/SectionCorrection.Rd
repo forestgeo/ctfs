@@ -11,7 +11,7 @@ SectionCorrection(pts, subquad, gridsize, subquadsuffix)
 
 \item{subquad}{the subquadrat to be corrected}
 
-\item{gridsize}{size of each individual map}
+\item{gridsize}{Size of each individual map.}
 
 \item{subquadratsuffix}{the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.}
 }
