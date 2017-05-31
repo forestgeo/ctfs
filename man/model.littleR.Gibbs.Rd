@@ -43,7 +43,7 @@ modeltype asympower, must be bad.asympower.param}
 \item{showstep}{print hyperparameters and likelihood to the screen every
 showstep steps}
 
-\item{debug}{set to TRUE to call browser within the function}
+\item{debug}{Logical. If TRUE, call browser to debug.}
 }
 \description{
 The main function for fitting the probability distribution of population

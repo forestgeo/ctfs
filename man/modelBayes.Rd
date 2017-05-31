@@ -55,7 +55,7 @@ behaves in absence of data, as for describing an implied prior.
 
 \item{burnin}{The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.}
 
-\item{debug}{TRUE or FALSE, whether to pause and debug; for advanced users and developers.}
+\item{debug}{Logical. If TRUE, call browser to debug.}
 
 \item{...}{The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).}
 }

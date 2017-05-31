@@ -22,10 +22,10 @@ calculated.}
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
-\item{xcol, ycol}{the names of the columns holding x and y coordinates.}
-
-\item{debug}{TRUE or FALSE, calls browser during execution to pause program;
+\item{xcol, ycol}{the names of the columns holding x and y coordinates.
 only set TRUE to debug.}
+
+\item{debug}{Logical. If TRUE, call browser to debug.}
 
 \item{show}{creates a graph to show one omega value for each species, as a
 way to track progress.}

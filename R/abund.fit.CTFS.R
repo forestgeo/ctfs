@@ -36,6 +36,7 @@
 #' have columns N1, N2, S, time.
 #'
 #' @template mindbh
+#' @template debug
 #' @param cns1,cns2 The two census R Analytical Tables, with earlier census
 #'   first
 #' @param demog optional, must match exactly the table created within the
@@ -55,7 +56,6 @@
 #' @param burn number of steps of sampler to exclude as burn-in
 #' @param showstep print hyperparameters and likelihood to the screen every
 #'   showstep steps
-#' @param debug set to TRUE to call browser within the function
 #'
 #' @examples
 #' \dontrun{
@@ -206,6 +206,7 @@
 #'   path. See _Good practice_ in `?attach()`. This argument may be deprecated
 #'   in future versions.
 #'
+#' @template debug
 #' @inheritParams graphFilledBand
 #' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
@@ -230,7 +231,6 @@
 #' @param ax if FALSE, the axes are not added
 #' @param mortcorr whether to graph the correlation between mortality and 
 #'   population change across species
-#' @param debug if TRUE, call browser to debug
 #' 
 #' @seealso ?[graphics::plot()], ?[graphics::par()].
 #'

@@ -76,6 +76,7 @@
 #' sample here, plus a tutorial on [Mortality changes](https://goo.gl/KGJYQe)
 #' offers a worked example.
 #'
+#' @template debug
 #' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
 #' @param ycol The name of the column holding the y variable, with quote marks; this variable must be numeric.
 #' @param ycol The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
@@ -108,7 +109,6 @@
 #' @param steps The number of steps to run the Gibbs sampler.
 #' @param showstep Information is printed to the screen every showstep steps.
 #' @param burnin The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.
-#' @param debug TRUE or FALSE, whether to pause and debug; for advanced users and developers.
 #' @param ... The typical R means for submitting additional parameters for various functions used in the model (`model`, `sdfunc`, `badparam`, `badSDparam`).
 #'
 #' @examples

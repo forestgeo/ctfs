@@ -39,6 +39,7 @@
 #' 
 #' @template plotdim
 #' @template mindbh
+#' @template debug
 #' @param splitdata A complete CTFS plot dataset comprised of a list, each
 #'   element having a dataframe for one species. There must be columns for x and
 #'   y coordinates; the names of those two columns are passed as arguments
@@ -46,7 +47,6 @@
 #' @param rseq The distances defining intervals in which Ripley's statistic is
 #'   calculated.
 #' @param xcol,ycol the names of the columns holding x and y coordinates.
-#' @param debug TRUE or FALSE, calls browser during execution to pause program;
 #'   only set TRUE to debug.
 #' @param show creates a graph to show one omega value for each species, as a
 #'   way to track progress.

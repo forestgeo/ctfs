@@ -54,7 +54,7 @@ is drawn}
 \item{mortcorr}{whether to graph the correlation between mortality and
 population change across species}
 
-\item{debug}{if TRUE, call browser to debug}
+\item{debug}{Logical. If TRUE, call browser to debug.}
 
 \item{graphit}{if set to false,}
 }
