@@ -52,7 +52,7 @@ newgraph=FALSE}
 
 \item{h, w}{height and width of graph window in units which depend on the
 export device chosen (some are pixels, some are inches); ignored if
-newgraph=FALSE}
+newgraph = FALSE.}
 
 \item{export}{if newgraph=TRUE, this defines the graphics device; options
 include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not

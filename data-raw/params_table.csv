@@ -12,16 +12,16 @@ graphFilledBand,"Logical. Whether to add points or line to an existing graph. if
 #'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
 #'   is drawn
 #' ",add
-map,"For the species name, whether to include,
-#'   where to place, and font size. Try the defaults first before fiddling, or
+map,"For the species name, whether to include, 
+#'   where to place, and font size. Try the defaults first before fiddling, or 
 #'   just set addlegend=FALSE to remove.
 #' ",addlegend
-map,"For the species name, whether to include,
-#'   where to place, and font size. Try the defaults first before fiddling, or
+map,"For the species name, whether to include, 
+#'   where to place, and font size. Try the defaults first before fiddling, or 
 #'   just set addlegend=FALSE to remove.
 #' ",legpos
-map,"For the species name, whether to include,
-#'   where to place, and font size. Try the defaults first before fiddling, or
+map,"For the species name, whether to include, 
+#'   where to place, and font size. Try the defaults first before fiddling, or 
 #'   just set addlegend=FALSE to remove.
 #' ",legsize
 graph.abundmodel,"if TRUE, histogram is a point graph
@@ -60,7 +60,7 @@ lmerBayes,"The name of a function which tests for invalid parameters
 #' ",badSDparam
 graph.abundmodel,"if TRUE, histogram is bar graph
 #' ",bartype
-map,"The background color. Defaults to white. For presentation
+map,"The background color. Defaults to white. For presentation 
 #'   exports, try bgcolor=""transparent"".
 #' ",bgcolor
 imageGraph,"if set, a vector of breaks for the image colors and the contour
@@ -110,7 +110,7 @@ complete.plotmap,"colors to use for the species to be overlaid
 imageGraph,"colors for the image; if NULL, they are chosen by default,
 #'   otherwise, must be 1 + the number of breaks
 #' ",clrs
-map,"A vector of color names, one for each species. If set to NULL,
+map,"A vector of color names, one for each species. If set to NULL, 
 #'   default values are assigned. See bw.
 #' ",clrs
 complete.plotmap,"a full census dataset (all species)
@@ -167,7 +167,7 @@ abundance.spp,"a vector of dbhs to define divisions of categories; the last
 #'",dbhbreaks
 abundance,"'cm' or 'mm', only used for basal area
 #' ",dbhunit
-map,"Set NULL to map all trees, alive and dead; TRUE for dead
+map,"Set NULL to map all trees, alive and dead; TRUE for dead 
 #'   only, FALSE for live only (relies on status in the R table).
 #' ",deadtree
 imageJ.to.lxly,"the delimiter used to separate the fields in the map files
@@ -186,7 +186,7 @@ findborderquads,"Distance in m within which the neighboring quadrates are locate
 graph.abundmodel,"width of bins for histogram of observed rate of population change
 #' ",div
 map,"Elevation data can be submitted, then a topo map is overlaid.
-#'   Elevation data must be submitted as a matrix (as described in readelevdata
+#'   Elevation data must be submitted as a matrix (as described in readelevdata 
 #'   in utilities.r).
 #' ",elevdata
 elev.to.list,"A data frame with x, y coordinates and elevation, 
@@ -219,17 +219,10 @@ trim.growth,"Logical. FALSE includes cases where stemID
 #'   changed, regardless of growth (it does not make sense to exclude a record
 #'   based on growth when the growth is based on different stems).
 #' ",exclude.stem.change
-complete.plotmap,"set to 'no'to graph to screen, 'pdf'to export to pdf (see
-#'   define.graphwindow function)
-#' ",export
 imageGraph,"if newgraph=TRUE, this defines the graphics device; options
 #'   include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
 #'   quoted!)
 #' ",export
-map,"See function define.graphwindow. 
-#' ",export
-complete.plotmap,"folder to save output
-#'",filepath
 map,"The folder to which map will be exported.
 #'
 #' ",filepath
@@ -247,10 +240,10 @@ imageGraph,"the file name if export is pdf, png, jpeg, win.metafile,
 #'   etc.
 #'   
 #' ",graphfile
-graph.abundmodel,"if set to false,
+graph.abundmodel,"xxxdocparam if set to false,
 #' ",graphit
-selectrandomquad,"whether to graph the locations of the chosen quadrats on a
-#'   plot map
+selectrandomquad,"Whether to graph the locations of the chosen quadrats on a
+#'   plot map.
 #'
 #' ",graphit
 elev.to.list,"xxxdocparam scale of elevation values (m)
@@ -264,31 +257,18 @@ gxgy.to.hectindex,"Tree x and y coordinate.
 #' ",gx
 gxgy.to.hectindex,"Tree x and y coordinate.
 #' ",gy
+define.graphwindow,"Size and width
+#'",h
+define.graphwindow,"Size and width
+#'",w
 imageGraph,"height and width of graph window in units which depend on the
 #'   export device chosen (some are pixels, some are inches); ignored if
-#'   newgraph=FALSE
+#'   newgraph = FALSE.
 #' ",h
 imageGraph,"height and width of graph window in units which depend on the
 #'   export device chosen (some are pixels, some are inches); ignored if
-#'   newgraph=FALSE
+#'   newgraph = FALSE.
 #' ",w
-complete.plotmap,"graph height, same units as wd
-#' ",ht
-map,"These are the height and width of the overall graph,
-#'   and the vertical dimension (inches) of the map. The default work for pdf
-#'   export or mapping to the screen, and ht and wd are inches. But if export is
-#'   png, jpg, emf, height and width are pixels and need to be 500-1000.
-#' ",ht
-map,"These are the height and width of the overall graph,
-#'   and the vertical dimension (inches) of the map. The default work for pdf
-#'   export or mapping to the screen, and ht and wd are inches. But if export is
-#'   png, jpg, emf, height and width are pixels and need to be 500-1000.
-#' ",wd
-map,"These are the height and width of the overall graph,
-#'   and the vertical dimension (inches) of the map. The default work for pdf
-#'   export or mapping to the screen, and ht and wd are inches. But if export is
-#'   png, jpg, emf, height and width are pixels and need to be 500-1000.
-#' ",plotside
 AGB.ind,"Height parameters to calculate height from diameter for every
 #'   tree, using the Chave model with height passed to `htmodel`. If NULL
 #'   (defauld) `AGB.ind()` uses Chave equations without height.
@@ -361,7 +341,8 @@ graphFilledBand,"If add == FALSE, lines drawn at y1 and y2 are this thickness (a
 #'   number);  ignored if add==TRUE
 #'   
 #' ",lwidth
-map,"A title to appear at the top of the page, above the species name.
+map,"A title to appear at the top of the page, above the species
+#'   name.
 #' ",maintitle
 graph.abundmodel,"whether to add legend
 #' ",makeleg
@@ -426,6 +407,8 @@ coldata.to.imagemat,"Maximum plot x and y coordinates. The default, 1000,500, is
 coldata.to.imagemat,"The minimum plot x and y coordinates; in CTFS plots, these are
 #'   always 0,0. Ignored if x and y are submitted.
 #' ",plotmin
+map,"The vertical dimension (inches) of the map.
+#' ",plotside
 imageGraph,"size of graph's x-dimension in inches; ignored if
 #'   newgraph=FALSE
 #' ",plotsize
@@ -498,7 +481,7 @@ modelBayes,"The name of a function (unquoted) that models the error
 #'   Parameters for this function are estimated, just as parameters for the
 #'   model function.
 #'",sdfunc
-selectrandomquad,"the ratio of y to x dimensions of the rectangles; `rectdim = 1` 
+selectrandomquad,"The ratio of y to x dimensions of the rectangles; `rectdim = 1` 
 #'   (the default) for squares.
 #' ",shape
 RipUvK,"creates a graph to show one omega value for each species, as a
@@ -515,17 +498,11 @@ model.littleR.Gibbs,"print hyperparameters and likelihood to the screen every
 #'
 #' ",showstep
 complete.plotmap,"the side in inches of the graph; see map()
-#' ",side
-map,"The size of plotting points, to match the number of diameter
-#'   breaks. If NULL, a default set is assigned. This can require fiddling, as
-#'   big points do not work for really abundant species, and small points for
+#'",side
+map,"The size of plotting points, to match the number of diameter 
+#'   breaks. If NULL, a default set is assigned. This can require fiddling, as 
+#'   big points do not work for really abundant species, and small points for 
 #'   rare species.
-#' ",size
-selectrandomquad,"A vector of quadrat sizes, referring to the x-dimension of a
-#'   rectangular quadrat
-#' ",size
-spparea.sq,"a vector of quadrat sizes, referring to the x-dimension of a
-#'   rectangular quadrat
 #' ",size
 trim.growth,"Slope of error of measurement line.
 #' ",slope
@@ -558,9 +535,9 @@ map,"A full plot dataset in list format (see `?split_data`).
 complete.plotmap,"names of species to map, using the mnemonic in the R tables
 #' ",spnames
 map,"A table with species codes and Latin names can be submitted as
-#'   well, so that the full genus-species is added to plot. This must have
-#'   species codes as row names. It should be the CTFS R format species table
-#'   (eg, bci.spptable). It can be set to NULL if not available, then only the
+#'   well, so that the full genus-species is added to plot. This must have 
+#'   species codes as row names. It should be the CTFS R format species table 
+#'   (eg, bci.spptable). It can be set to NULL if not available, then only the 
 #'   species code (as submitted) appears on the map.
 #' ",spplist
 lmerBayes,"Starting parameter values, either a vector with as many
@@ -616,8 +593,8 @@ trim.growth,"xxxdocparam Years between censuses.
 #' ",time
 graph.abundmodel,"width of bins used to draw the fitted distribution
 #' ",tinydiv
-map,"The position to place the title. The default is above the
-#'   center of the plot, higher than the species name. It may require some
+map,"The position to place the title. The default is above the 
+#'   center of the plot, higher than the species name. It may require some 
 #'   fiddling on different screens to get it the right distance above.
 #' ",titlepos
 map,"Color of topolines.
@@ -645,8 +622,6 @@ lmerBayes,"'conjugate' or 'metropolis', whether to use inverse-gamma (or
 #'   inverse-Wishart for full covariance) vs. metropolis steps for updating
 #'   covariances.
 #' ",update
-complete.plotmap,"graph width; see map() function
-#' ",wd
 assemble.demography,"A number indicating how many dbh categories to include,
 #'   cannot exceed the number of columns in output.
 #' ",whichdbhcat

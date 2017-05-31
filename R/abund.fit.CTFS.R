@@ -222,7 +222,7 @@
 #' @param returnextreme whether to print a list of the fastest increases and
 #'   decreases in abundance to the screen
 #' @param xname,yname axis names
-#' @param graphit if set to false,
+#' @param graphit xxxdocparam if set to false,
 #' @param ltype,lwidth,modelclr type, width, color of the line showing fitted
 #'   distribution
 #' @param bartype if TRUE, histogram is bar graph

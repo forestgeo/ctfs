@@ -20,8 +20,14 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
-\item{export}{set to 'no'to graph to screen, 'pdf'to export to pdf (see
-define.graphwindow function)}
+\item{export}{* If `export = "no"`, does nothing, so the next graph uses the default R
+device. With this option, the size of the graph cannot have been set larger
+than the default size, which is usually 7 inches. 
+* If `export = "unix"`, a new graphics window in unix, size `h` and width `w`,
+will be opened allowing you to alter the size of the output. To do the same
+in Windows, set `export = "windows"`, or for Mac, `export = "mac"`.
+* To export the graph to a file, export can be "pdf", "png", "jpg", "bmp",
+"emf".}
 
 \item{nospp}{number of species to overlay; can be NULL or 0 for none}
 
@@ -32,15 +38,28 @@ define.graphwindow function)}
 \item{ptsize}{size of points, the first used for the background of all
 species, the second for the individual species}
 
-\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
 
-\item{wd}{graph width; see map() function}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
-\item{ht}{graph height, same units as wd}
+\item{wd}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
+
+\item{ht}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
 
 \item{side}{the side in inches of the graph; see map()}
 
-\item{filepath}{folder to save output}
+\item{labsize}{Size of axis labels.}
+
+\item{axisdiv}{the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks}
+
+\item{filepath}{The folder to which map will be exported.}
 
 \item{outfile}{Filename for output.}
 }

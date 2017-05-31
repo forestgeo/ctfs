@@ -14,8 +14,8 @@ spparea.sq(censdata, spcolumn = "sp", size, rectdim = 1, mindbh = NULL,
 \item{spcolumn}{name of the column in the table having the species; defaults
 to 'sp', but can be set to 'genus'for 'family'if desired}
 
-\item{size}{a vector of quadrat sizes, referring to the x-dimension of a
-rectangular quadrat}
+\item{size}{A vector of quadrat sizes, referring to the x-dimension of a
+rectangular quadrat.}
 
 \item{rectdim}{the ratio of y to x dimensions of the rectangles; rectdim=1
 (the default) for squares}

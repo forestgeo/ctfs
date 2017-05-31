@@ -44,7 +44,8 @@ rare species.}
 \item{deadtree}{Set NULL to map all trees, alive and dead; TRUE for dead
 only, FALSE for live only (relies on status in the R table).}
 
-\item{maintitle}{A title to appear at the top of the page, above the species name.}
+\item{maintitle}{A title to appear at the top of the page, above the species
+name.}
 
 \item{titlepos}{The position to place the title. The default is above the
 center of the plot, higher than the species name. It may require some
@@ -74,10 +75,12 @@ for x ticks then for y ticks}
 \item{bty}{Type of box to appear around species name. The default, 'n', means
 no box; set to 'o'to see the box.}
 
-\item{ht, wd, plotside}{These are the height and width of the overall graph,
-and the vertical dimension (inches) of the map. The default work for pdf
-export or mapping to the screen, and ht and wd are inches. But if export is
-png, jpg, emf, height and width are pixels and need to be 500-1000.}
+\item{ht, wd}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
+
+\item{plotside}{The vertical dimension (inches) of the map.}
 
 \item{axspos}{Distance between axis numbers and axis.}
 
@@ -85,7 +88,14 @@ png, jpg, emf, height and width are pixels and need to be 500-1000.}
 
 \item{topoint}{Interval for topolines, if elevdata are submitted.}
 
-\item{export}{See function define.graphwindow.}
+\item{export}{* If `export = "no"`, does nothing, so the next graph uses the default R
+device. With this option, the size of the graph cannot have been set larger
+than the default size, which is usually 7 inches. 
+* If `export = "unix"`, a new graphics window in unix, size `h` and width `w`,
+will be opened allowing you to alter the size of the output. To do the same
+in Windows, set `export = "windows"`, or for Mac, `export = "mac"`.
+* To export the graph to a file, export can be "pdf", "png", "jpg", "bmp",
+"emf".}
 
 \item{filepath}{The folder to which map will be exported.}
 

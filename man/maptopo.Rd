@@ -21,7 +21,14 @@ is drawn}
 
 \item{new}{See \code{\link[graphics:par]{graphics::par()}}.}
 
-\item{export}{See function define.graphwindow.}
+\item{export}{* If `export = "no"`, does nothing, so the next graph uses the default R
+device. With this option, the size of the graph cannot have been set larger
+than the default size, which is usually 7 inches. 
+* If `export = "unix"`, a new graphics window in unix, size `h` and width `w`,
+will be opened allowing you to alter the size of the output. To do the same
+in Windows, set `export = "windows"`, or for Mac, `export = "mac"`.
+* To export the graph to a file, export can be "pdf", "png", "jpg", "bmp",
+"emf".}
 
 \item{interval}{Contour line intervals.}
 
@@ -37,22 +44,20 @@ is drawn}
 
 \item{labelsize}{xxxdocparam}
 
-\item{maintitle}{A title to appear at the top of the page, above the species name.}
+\item{maintitle}{A title to appear at the top of the page, above the species
+name.}
 
-\item{ht}{These are the height and width of the overall graph,
-and the vertical dimension (inches) of the map. The default work for pdf
-export or mapping to the screen, and ht and wd are inches. But if export is
-png, jpg, emf, height and width are pixels and need to be 500-1000.}
+\item{ht}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
 
-\item{wd}{These are the height and width of the overall graph,
-and the vertical dimension (inches) of the map. The default work for pdf
-export or mapping to the screen, and ht and wd are inches. But if export is
-png, jpg, emf, height and width are pixels and need to be 500-1000.}
+\item{wd}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
 
-\item{plotside}{These are the height and width of the overall graph,
-and the vertical dimension (inches) of the map. The default work for pdf
-export or mapping to the screen, and ht and wd are inches. But if export is
-png, jpg, emf, height and width are pixels and need to be 500-1000.}
+\item{plotside}{The vertical dimension (inches) of the map.}
 
 \item{filepath}{The folder to which map will be exported.}
 

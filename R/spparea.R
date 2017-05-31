@@ -40,10 +40,9 @@
 #' @template plotdim
 #' @template mindbh
 #' @template censdata
+#' @template size
 #' @param spcolumn name of the column in the table having the species; defaults
 #'   to 'sp', but can be set to 'genus'for 'family'if desired
-#' @param size a vector of quadrat sizes, referring to the x-dimension of a
-#'   rectangular quadrat
 #' @param rectdim the ratio of y to x dimensions of the rectangles; rectdim=1
 #'   (the default) for squares
 #' @param replicates the number of random quadrats to create, of each size
@@ -95,14 +94,13 @@
 #' neither does.
 #'
 #' @template plotdim
-#' @param size A vector of quadrat sizes, referring to the x-dimension of a
-#'   rectangular quadrat
-#' @param shape the ratio of y to x dimensions of the rectangles; `rectdim = 1` 
+#' @template size
+#' @param shape The ratio of y to x dimensions of the rectangles; `rectdim = 1` 
 #'   (the default) for squares.
 #' @param rep The number of replicated random quadrats (per dimension submitted)
 #'   to create.
-#' @param graphit whether to graph the locations of the chosen quadrats on a
-#'   plot map
+#' @param graphit Whether to graph the locations of the chosen quadrats on a
+#'   plot map.
 #'
 #' @aliases selectrandomquad2 selectrandomquad3
 'selectrandomquad'
@@ -125,7 +123,7 @@
 #' @describeIn selectrandomquad The lower left x, y coordinates are drawn at
 #'   random from a range extending outside the plot dimensions, then quadrats
 #'   are used only if all 4 corners fall inside the plot.
-#'
+#'   
 'selectrandomquad3'
 
 
