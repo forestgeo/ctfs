@@ -16,7 +16,9 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
 
 \item{spnames}{names of species to map, using the mnemonic in the R tables}
 
-\item{mindbh}{smallest dbh to include}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{export}{set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)}
 

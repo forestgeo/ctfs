@@ -35,10 +35,9 @@
 #' Optionally, a table demog can be created separately and submitted. It must
 #' have columns N1, N2, S, time.
 #'
+#' @template mindbh
 #' @param cns1,cns2 The two census R Analytical Tables, with earlier census
 #'   first
-#' @param mindbh minimum dbh to be included; all trees smaller than mindbh are
-#'   excluded
 #' @param demog optional, must match exactly the table created within the
 #'   function
 #' @param abundrange the default includes every species, but this can be set to

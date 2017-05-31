@@ -18,7 +18,9 @@ y coordinates; the names of those two columns are passed as arguments
 \item{rseq}{The distances defining intervals in which Ripley's statistic is
 calculated.}
 
-\item{mindbh}{the minimum dbh to include in results.}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{xcol, ycol}{the names of the columns holding x and y coordinates.}
 

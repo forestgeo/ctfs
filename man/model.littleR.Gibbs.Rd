@@ -14,8 +14,9 @@ model.littleR.Gibbs(cns1, cns2, mindbh, demog = NULL, sptable,
 \item{cns1, cns2}{The two census R Analytical Tables, with earlier census
 first}
 
-\item{mindbh}{minimum dbh to be included; all trees smaller than mindbh are
-excluded}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{demog}{optional, must match exactly the table created within the
 function}

@@ -38,13 +38,13 @@
 #' distance interval, for graphing purposes.
 #' 
 #' @template plotdim
+#' @template mindbh
 #' @param splitdata A complete CTFS plot dataset comprised of a list, each
 #'   element having a dataframe for one species. There must be columns for x and
 #'   y coordinates; the names of those two columns are passed as arguments
 #'   (default is the CTFS standard gx, gy).
 #' @param rseq The distances defining intervals in which Ripley's statistic is
 #'   calculated.
-#' @param mindbh the minimum dbh to include in results.
 #' @param xcol,ycol the names of the columns holding x and y coordinates.
 #' @param debug TRUE or FALSE, calls browser during execution to pause program;
 #'   only set TRUE to debug.

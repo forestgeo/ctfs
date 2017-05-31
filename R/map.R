@@ -143,9 +143,9 @@
 #' are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp. 
 #'
 #' @template plotdim
+#' @template mindbh
 #' @param cns a full census dataset (all species)
 #' @param spnames names of species to map, using the mnemonic in the R tables
-#' @param mindbh smallest dbh to include
 #' @param export set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)
 #' @param nospp number of species to overlay; can be NULL or 0 for none
 #' @param clrlist colors to use for the species to be overlaid

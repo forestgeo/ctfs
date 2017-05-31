@@ -20,7 +20,9 @@ rectangular quadrat}
 \item{rectdim}{the ratio of y to x dimensions of the rectangles; rectdim=1
 (the default) for squares}
 
-\item{mindbh}{the minimum dbh included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 

@@ -16,6 +16,7 @@
 #' stem). The first vector should be the one with the most categories (for
 #' instances, `split1 = species`, `split2 = dbhcategory`).
 #' 
+#' @template mindbh
 #' @param censdata an R Analytical Table for a full plot census. For basal area 
 #'   use a stem table. For abundance, use either the stem or full table to count
 #'   stems or trees, respectively.
@@ -24,8 +25,6 @@
 #' @param alivecode character, codes of the variable `status` that indicate the 
 #'   tree is alive. The default 'A' is the standard CTFS designation for living 
 #'   trees or stems
-#' @param mindbh the minimum diameter above which the counts are done; if NULL, 
-#'   all (living) are included
 #' @param dbhunit 'cm' or 'mm', only used for basal area
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual

@@ -34,6 +34,7 @@
 #' number of species in checkerboard-type quadrats of different sizes.
 #' 
 #' @template plotdim
+#' @template mindbh
 #' @param censdata one R Analytical Table, either full or stem
 #' @param spcolumn name of the column in the table having the species; defaults
 #'   to 'sp', but can be set to 'genus'for 'family'if desired
@@ -41,7 +42,6 @@
 #'   rectangular quadrat
 #' @param rectdim the ratio of y to x dimensions of the rectangles; rectdim=1
 #'   (the default) for squares
-#' @param mindbh the minimum dbh included
 #' @param replicates the number of random quadrats to create, of each size
 #' @param unidennames a vector of species names that should not be included in
 #'   species counts (see the function unidentified.species()

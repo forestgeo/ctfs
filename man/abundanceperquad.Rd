@@ -12,8 +12,9 @@ abundanceperquad(censdata, mindbh = 10, plotdim = c(1000, 500),
 use a stem table. For abundance, use either the stem or full table to count
 stems or trees, respectively.}
 
-\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
-all (living) are included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
