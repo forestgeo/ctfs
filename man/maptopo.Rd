@@ -17,7 +17,7 @@ maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
 
 \item{add}{Logical. Whether to add points or line to an existing graph. if
 TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn}
+is drawn.}
 
 \item{new}{See \code{\link[graphics:par]{graphics::par()}}.}
 

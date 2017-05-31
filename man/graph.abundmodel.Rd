@@ -36,8 +36,10 @@ decreases in abundance to the screen}
 
 \item{xname, yname}{axis names}
 
-\item{ltype, lwidth, modelclr}{type, width, color of the line showing fitted
-distribution}
+\item{ltype, lwidth}{Line type (`ltype`) and width (`width`); see
+?[graphics::par()].}
+
+\item{modelclr}{Line color; see ?\code{\link[graphics:par]{graphics::par()}}.}
 
 \item{bartype}{if TRUE, histogram is bar graph}
 
@@ -47,7 +49,7 @@ distribution}
 
 \item{add}{Logical. Whether to add points or line to an existing graph. if
 TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn}
+is drawn.}
 
 \item{ax}{if FALSE, the axes are not added}
 

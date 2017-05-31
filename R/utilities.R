@@ -543,26 +543,26 @@
 #' Fill the area between two curves on a graph. Useful for confidence limits,
 #' for example.
 #' 
+#' @details
 #' Typical use is to draw a graph first with some central y values, then add a 
 #' confidence band by filling the area between upper and lower confidence limits
 #' (designated by variables lower.y and upper.y in the example below). The 
 #' central line should then be redrawn over the filled area.
 #' 
+#' @section Customizing plot lines:
+#' If `add == TRUE`, `linecol`, `ltype` and `lwidth` are ignored.
+#' 
+#' @template ltype_lwidth
 #' @param x The x axis values.
-#' @param y1,y2 = Two sets of y axis values, each of exactly the same length as 
-#'   `x`
-#' @param fillcol The color filling the area between the two curves
+#' @param y1,y2 Two sets of y axis values, each of exactly the same length as 
+#'   `x`.
+#' @param fillcol The color filling the area between the two curves.
 #' @param add Logical. Whether to add points or line to an existing graph. if 
 #'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
-#'   is drawn
-#' @param linecol If add == FALSE, lines drawn at y1 and y2 are this color; 
-#'   ignored if add == TRUE
-#' @param ltype If add == FALSE, lines drawn at y1 and y2 are this type 
-#'   ('solid','dashed',etc);  ignored if add==TRUE
-#' @param lwidth If add == FALSE, lines drawn at y1 and y2 are this thickness (a
-#'   number);  ignored if add==TRUE
-#'   
-#' @seealso ?[graphics::plot()], ?[graphics::par()]
+#'   is drawn.
+#' @param linecol Line colour.
+#'
+#' @seealso ?[graphics::plot()], ?[graphics::par()].
 #'  
 #' @examples
 #' \dontrun{

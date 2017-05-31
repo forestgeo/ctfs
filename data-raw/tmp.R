@@ -112,11 +112,14 @@ params_table %>%
   count(params) %>% 
   left_join(params_table) %>% 
   arrange(desc(n), params, fun) %>% 
-  View
+  # select(params, n) %>% 
+  # filter(n > 1) %>%
+  unique() %>% 
+  View()
 
 
 
-
+# xxxcont. h
 
 
 

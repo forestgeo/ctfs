@@ -206,8 +206,9 @@
 #'   path. See _Good practice_ in `?attach()`. This argument may be deprecated
 #'   in future versions.
 #'
-#' @template debug
 #' @inheritParams graphFilledBand
+#' @template debug
+#' @template ltype_lwidth
 #' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
 #' @param div width of bins for histogram of observed rate of population change
@@ -223,8 +224,7 @@
 #'   decreases in abundance to the screen
 #' @param xname,yname axis names
 #' @param graphit xxxdocparam if set to false,
-#' @param ltype,lwidth,modelclr type, width, color of the line showing fitted
-#'   distribution
+#' @param modelclr Line color; see ?[graphics::par()].
 #' @param bartype if TRUE, histogram is bar graph
 #' @param addpts if TRUE, histogram is a point graph
 #' @param makeleg whether to add legend

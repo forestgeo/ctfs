@@ -10,7 +10,7 @@ model.littleR.Gibbs,"the default includes every species, but this can be set to
 #' ",abundrange
 graphFilledBand,"Logical. Whether to add points or line to an existing graph. if 
 #'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
-#'   is drawn
+#'   is drawn.
 #' ",add
 map,"For the species name, whether to include, 
 #'   where to place, and font size. Try the defaults first before fiddling, or 
@@ -226,7 +226,7 @@ imageGraph,"if newgraph=TRUE, this defines the graphics device; options
 map,"The folder to which map will be exported.
 #'
 #' ",filepath
-graphFilledBand,"The color filling the area between the two curves
+graphFilledBand,"The color filling the area between the two curves.
 #' ",fillcol
 imageGraph,"TRUE or FALSE, whether to draw filled contours; if TRUE,
 #'   neither image or standard contours are included
@@ -314,8 +314,8 @@ imageGraph,"if set, then contours are drawn (or colors assigned) to breaks
 #'   are at levels equally-spaced divisions of the response variable; can be
 #'   NULL to let breaks control
 #' ",levels
-graphFilledBand,"If add == FALSE, lines drawn at y1 and y2 are this color; 
-#'   ignored if add == TRUE
+graphFilledBand,"Line colour.
+#'
 #' ",linecol
 imageJ.to.lxly,"the tags in each of the map files with the calibrated corners
 #' ",lowerleft
@@ -325,22 +325,6 @@ imageJ.to.lxly,"the tags in each of the map files with the calibrated corners
 #' ",upperright
 imageJ.to.lxly,"the tags in each of the map files with the calibrated corners
 #' ",lowerright
-graphFilledBand,"If add == FALSE, lines drawn at y1 and y2 are this type 
-#'   ('solid','dashed',etc);  ignored if add==TRUE
-#' ",ltype
-graph.abundmodel,"type, width, color of the line showing fitted
-#'   distribution
-#' ",ltype
-graph.abundmodel,"type, width, color of the line showing fitted
-#'   distribution
-#' ",lwidth
-graph.abundmodel,"type, width, color of the line showing fitted
-#'   distribution
-#' ",modelclr
-graphFilledBand,"If add == FALSE, lines drawn at y1 and y2 are this thickness (a
-#'   number);  ignored if add==TRUE
-#'   
-#' ",lwidth
 map,"A title to appear at the top of the page, above the species
 #'   name.
 #' ",maintitle
@@ -366,6 +350,8 @@ lmerBayes,"The function name holding the model describing y's relationship
 #'   must match the number given as start parameters. The return value must be a
 #'   numeric vector with the same size as x.
 #' ",model
+graph.abundmodel,"Line color; see ?[graphics::par()].
+#' ",modelclr
 graph.abundmodel,"form of probability distribution, matching what was used
 #'   when fit was created by model.littleR.Gibbs
 #' ",modeltype
@@ -680,11 +666,11 @@ coldata.to.imagemat,"The map coordinates of each row in the matrix, and the valu
 #' ",y
 make.CredIntervalVect,"must be a vector of length 3, not a matrix. 
 #' ",y
-graphFilledBand,"= Two sets of y axis values, each of exactly the same length as 
-#'   `x`
+graphFilledBand,"Two sets of y axis values, each of exactly the same length as 
+#'   `x`.
 #' ",y1
-graphFilledBand,"= Two sets of y axis values, each of exactly the same length as 
-#'   `x`
+graphFilledBand,"Two sets of y axis values, each of exactly the same length as 
+#'   `x`.
 #' ",y2
 maptopo,"xxxdocparam
 #' ",yaxis

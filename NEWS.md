@@ -2,7 +2,7 @@
 
 DOING
 
-* Remove duplicated arguments documentation (via roxygen2 @templates). Forty three arguments are repeated multiple times (n) (), which complicates maintainance. If they mean the same, arguments should be documented only once and every function should refer to that unique documentation.
+* Reduce duplicated instances of arguments documentation from XXX to YYY, mostly via roxygen2 @templates and @inheritParams. Forty three arguments were repeated multiple times (see `n` in table below), which complicates maintainance. If they mean the same, arguments in multiple function should point to a single source of documentation.
 
 ```R
              params     n
