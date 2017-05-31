@@ -31,6 +31,11 @@ abundance,"character, codes of the variable `status` that indicate the
 #'   tree is alive. The default 'A' is the standard CTFS designation for living 
 #'   trees or stems
 #' ",alivecode
+split_data,"Can be set to a vector of data sections to be included; if
+#'   allsplit includes values not in the data, empty elements are included in
+#'   the list, but if allsplit includes fewer values than found in the data,
+#'   then missing elements are omitted.
+#' ",allsplit
 find.climits,"The critical probability. Defaults to 0.05, which gives 95\%
 #'   confidence limits.
 #' ",alpha
@@ -84,7 +89,7 @@ NDcount,"Is the coordinates dataset, should have the coordinates (gx, gy)
 #' ",censdata
 NeighborDensities,"should have the coordinates (gx, gy), species id (sp), status, tag and dbh. It counts neighbors for each of the individuals in censdata.
 #' ",censdata
-selectrandomquad,"one R Analytical Table, either full or stem
+split_data,"A dataframe (any).
 #' ",censdata
 spparea.sq,"one R Analytical Table, either full or stem
 #' ",censdata
@@ -179,13 +184,16 @@ model.littleR.Gibbs,"set to TRUE to call browser within the function
 #' ",debug
 modelBayes,"TRUE or FALSE, whether to pause and debug; for advanced users and developers.
 #' ",debug
-RipUvK,"TRUE or FALSE, calls browser during execution to pause program; only set TRUE to debug.
+RipUvK,"TRUE or FALSE, calls browser during execution to pause program;
+#'   only set TRUE to debug.
 #' ",debug
 imageJ.to.lxly,"the delimiter used to separate the fields in the map files
 #' ",delim
 model.littleR.Gibbs,"optional, must match exactly the table created within the
 #'   function
 #' ",demog
+AGB.ind,"A table with dbh and species names
+#' ",df
 make.CredIntervalVect,"number of decimal places in result, first for the mean, then the two credible limits
 #'
 #' ",digits
@@ -261,6 +269,9 @@ imageGraph,"TRUE or FALSE, whether to draw filled contours; if TRUE, neither ima
 #' ",filled
 graph.abundmodel,"result of model.littleR.Gibbs
 #' ",fit
+AGB.ind,"A forest type (for most lowland tropical plots, the default
+#'   ""moist"" is recommended.)
+#' ",forest
 imageGraph,"the file name if export is pdf, png, jpeg, win.metafile, etc.
 #'
 #' ",graphfile
@@ -268,7 +279,8 @@ graph.abundmodel,"if set to false,
 #' ",graphit
 selectrandomquad,"whether to graph the locations of the chosen quadrats on a
 #'   plot map
-#'",graphit
+#'
+#' ",graphit
 calcslope,"numeric scalar
 #'",gridsize
 coldata.to.imagemat,"Size of quadrats into which the map is divided; must be square quadrats. This cannot be NULL.  
@@ -320,6 +332,13 @@ map,"These are the height and width of the overall graph,
 #'   export or mapping to the screen, and ht and wd are inches. But if export is
 #'   png, jpg, emf, height and width are pixels and need to be 500-1000.
 #' ",plotside
+AGB.ind,"Height parameters to calculate height from diameter for every
+#'   tree, using the Chave model with height passed to `htmodel`. If NULL
+#'   (defauld) `AGB.ind()` uses Chave equations without height.
+#' ",ht.param
+AGB.ind,"Height model to use with a non-NULL `ht.param`.
+#' 
+#' ",htmodel
 imageGraph,"TRUE or FALSE, whether to draw the color image
 #' ",img
 NeighborDensities,"(c(""A"")) a vector of status to include in the neighbors, by default it counts only alive individuals, for all status use c(""A"",""P"",""D"",""M"").
@@ -340,6 +359,10 @@ maptopo,"Contour line intervals.
 #' ",interval
 fromjulian,"Julian dates, given as a vector or array.
 #' ",j
+split_data,"Can be set to TRUE in order to retain in the new 
+#'   dataframes the column on which the data are grouped; otherwise, that column
+#'   is removed.
+#' ",keepsplitcol
 find.climits,"Either ""upper"" or ""lower"".
 #'
 #' ",kind
@@ -444,28 +467,6 @@ fullplot.imageJ,"the complete path name where the map files to be converted are 
 #' ",path
 CTFSplot,"Name of plot as it appears in the names of the R Analytical Tables, in quote marks
 #' ",plot
-Annuli,"The x and y dimensions of the plot in which the individuals are mapped. 
-#'
-#'",plotdim
-complete.plotmap,"x and y plot dimensions
-#' ",plotdim
-findborderquads,"Dimensions of the plot: east-west 1000m and north-south 500m
-#'",plotdim
-map,"The x and y dimensions of the plot. This is used often in R
-#'   package. Note it assumes the starting coordinates are zero. If they are
-#'   not, then xrange and yrange must be used.
-#' ",plotdim
-NDcount," (c(1000,500))  vector with two numbers indicating the xy-plot size;
-#'
-#' ",plotdim
-NeighborDensities," (c(1000,500))  vector with two numbers indicating the xy-plot size;
-#' ",plotdim
-RipUvK,"The x and y dimensions of the plot. 
-#' ",plotdim
-selectrandomquad,"the x and y dimensions of the entire plot
-#' ",plotdim
-spparea.sq,"the x and y dimensions of the entire plot
-#' ",plotdim
 coldata.to.imagemat,"Maximum plot x and y coordinates. The default, 1000,500, is typical CTFS 50-ha plot. Ignored if x and y are submitted.
 #'
 #' ",plotmax
@@ -488,6 +489,7 @@ image_dataframe,"Size of points to be drawn
 Annuli,"A vector of distances defining the successive annuli.
 #' ",r
 NDcount,"(20) radius 
+#'
 #' ",r
 NeighborDensities,"(20) radius to count neighbors
 #' ",r
@@ -495,11 +497,13 @@ polar.to.cartesian,"input vector of radii (distance from origin)
 #' ",r
 lmerBayes,"The name of one column holding the random variable; must be a character variable.
 #' ",randcol
-spparea.sq,"the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares
+spparea.sq,"the ratio of y to x dimensions of the rectangles; rectdim=1
+#'   (the default) for squares
 #' ",rectdim
 CTFSplot,"if TRUE, the tables are detached, otherwise they are attached
 #' ",remove
-selectrandomquad,"the number of random quadrats to create, of each size
+selectrandomquad,"The number of replicated random quadrats (per dimension submitted)
+#'   to create.
 #' ",rep
 spparea.sq,"the number of random quadrats to create, of each size
 #' ",replicates
@@ -521,7 +525,8 @@ rowcol.to.index,"Row number.
 #' ",rowno
 fullplot.imageJ,"specifies the range of the rows, found in the last two digits of the quadrat name
 #' ",rowrange
-RipUvK,"The distances defining intervals in which Ripley's statistic is calculated.
+RipUvK,"The distances defining intervals in which Ripley's statistic is
+#'   calculated.
 #' ",rseq
 mortality.calculation,"Number of survivors
 #' ",S
@@ -531,12 +536,16 @@ lmerBayes,"The name of a function (unquoted) that models the residual standard d
 #' ",sdfunc
 modelBayes,"The name of a function (unquoted) that models the error parameter as a function of the x's; the default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function.
 #' ",sdfunc
-selectrandomquad,"the ratio of y to x dimensions of the rectangles; rectdim=1 (the
-#'   default) for squares
+selectrandomquad,"the ratio of y to x dimensions of the rectangles; `rectdim = 1` 
+#'   (the default) for squares.
 #' ",shape
-RipUvK,"creates a graph to show one omega value for each species, as a way to track progress.
+RipUvK,"creates a graph to show one omega value for each species, as a
+#'   way to track progress.
 #'
 #' ",show
+split_data,"xxxdocparam
+#'
+#' ",showOutput
 lmerBayes,"Information is printed to the screen every showstep steps.
 #' ",showstep
 model.littleR.Gibbs,"print hyperparameters and likelihood to the screen every
@@ -551,25 +560,37 @@ map,"The size of plotting points, to match the number of diameter
 #'   big points do not work for really abundant species, and small points for
 #'   rare species.
 #' ",size
-selectrandomquad,"a vector of quadrat sizes, referring to the x-dimension of a
+selectrandomquad,"A vector of quadrat sizes, referring to the x-dimension of a
 #'   rectangular quadrat
 #' ",size
-spparea.sq,"a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
+spparea.sq,"a vector of quadrat sizes, referring to the x-dimension of a
+#'   rectangular quadrat
 #' ",size
 trim.growth,"Slope of error of measurement line.
 #' ",slope
-spparea.sq,"name of the column in the table having the species; defaults to 'sp', but can be set to 'genus'for 'family'if desired
+spparea.sq,"name of the column in the table having the species; defaults
+#'   to 'sp', but can be set to 'genus'for 'family'if desired
 #' ",spcolumn
 Annuli,"A single dataframe with x-y coordinates of individuals. 
 #' ",spdata
 map,"One or more species codes to be mapped.
 #' ",species
+pop.change.dbh,"A vector of categorical values of the same length as census
+#'   which groups trees into classes of interest for which abundance values are
+#'   computed. This vector can be composed of characters or numbers.
+#'
+#' ",split
 abundance,"a vector of categories, one per individual
 #' ",split1
 abundance,"another vector of categories, one per individual
 #'
 #' ",split2
-RipUvK,"A complete CTFS plot dataset comprised of a list, each element having a dataframe for one species. There must be columns for x and y coordinates; the names of those two columns are passed as arguments (default is the CTFS standard gx, gy). 
+split_data,"The name of any variable in `censdata`.
+#' ",splitcol
+RipUvK,"A complete CTFS plot dataset comprised of a list, each
+#'   element having a dataframe for one species. There must be columns for x and
+#'   y coordinates; the names of those two columns are passed as arguments
+#'   (default is the CTFS standard gx, gy).
 #' ",splitdata
 map,"A full plot dataset in list format (see `?split_data`).
 #' ",splitdatafile
@@ -650,7 +671,8 @@ CTFSplot,"either full or stem, in quote marks
 #' ",type
 NeighborDensities,"(count) calculates count of stems ('count') or sum of basal areas ('basal'). Note that for the sum of basal areas is better to use the plot stem table, otherwise only one stem per tree will be included .
 #' ",type
-spparea.sq,"a vector of species names that should not be included in species counts (see the function unidentified.species()
+spparea.sq,"a vector of species names that should not be included in
+#'   species counts (see the function unidentified.species()
 #'
 #' ",unidennames
 lmerBayes,"'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
@@ -662,6 +684,8 @@ complete.plotmap,"graph width; see map() function
 assemble.demography,"A number indicating how many dbh categories to include,
 #'   cannot exceed the number of columns in output.
 #' ",whichdbhcat
+AGB.ind,"A wood-density table, see [density_ind()] and [wsgdata_dummy].
+#' ",wsgdata
 cartesian.to.polar,"input vector of x coordinates
 #' ",x
 coldata.to.imagemat,"The map coordinates of each column in the matrix, and the values with which the x-axis of the map will be numbered.
