@@ -20,8 +20,16 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 
 \item{tinydiv}{width of bins used to draw the fitted distribution}
 
-\item{modeltype}{form of probability distribution, matching what was used
-when fit was created by model.littleR.Gibbs}
+\item{modeltype}{Functional forms to fit to the distribution; it can be:
+* Gaussian `modeltype = "norm"`, with the quotes
+* Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) `modeltype = "asymnorm"`, with the quotes
+* Laplace (exponential distribution, with mirror image for negative values)
+`modeltype = "symexp"`, with the quotes
+* Asymmetric Laplace (different rate constant for left and right of the
+center) `modeltype = "asymexp"`, with the quotes
+* Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.}
 
 \item{xrange, yrange}{Range of graph's x-axis (or y-axis).}
 

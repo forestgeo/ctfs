@@ -16,7 +16,7 @@ and one a numerical response at those coordinates}
 \item{xcol, ycol, zcol}{These allow the columns of data to carry non-standard
 names}
 
-\item{ptsize}{Size of points to be drawn}
+\item{ptsize}{Size of points to be drawn.}
 }
 \description{
 Creates a color response map based on columnar data, not a matrix as used by

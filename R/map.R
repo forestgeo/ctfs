@@ -151,8 +151,9 @@
 #' @param spnames names of species to map, using the mnemonic in the R tables
 #' @param nospp number of species to overlay; can be NULL or 0 for none
 #' @param clrlist colors to use for the species to be overlaid
-#' @param ptsize size of points, the first used for the background of all
-#'   species, the second for the individual species
+#' @param ptsize A vector of two numbers giving the point size for the 
+#'   background of all species (first one) and for the individual species
+#'   (second one).
 #' @param side the side in inches of the graph; see map()
 #'
 'complete.plotmap'

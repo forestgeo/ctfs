@@ -129,7 +129,8 @@ imageGraph,"TRUE or FALSE, whether to add contour lines; both img and cntrs
 #' ",cntrs
 rowcol.to.index,"Column number.
 #'",colno
-fullplot.imageJ,"specifies the range of the columns, found as the first two digits of the quadrat name
+fullplot.imageJ,"specifies the range of the columns, found as the first two
+#'   digits of the quadrat name
 #' ",colrange
 graph.abundmodel,"number of alternate fits to graph, as indication of confidence;
 #'   if conf = NULL, no confidence lines are added
@@ -137,9 +138,9 @@ graph.abundmodel,"number of alternate fits to graph, as indication of confidence
 quadslope,"vector of 4 elevations 
 #'
 #' ",cornerelev
-fullplot.imageJ,"specify the tags used for the map corners used for calibration. They must be named in a clockwise direction starting with the lower left corner. 
-#'
-#' These tags must be the same in each and every map file.
+fullplot.imageJ,"specify the tags used for the map corners used for
+#'   calibration. They must be named in a clockwise direction starting with the
+#'   lower left corner. These tags must be the same in each and every map file.
 #' ",corners
 map,"Diameter breaks for changing size of plotting points.
 #' ",cutoff
@@ -283,7 +284,8 @@ NeighborDensities,"(c(""A"")) a vector of status to include in the neighbors, by
 #'   c(""A"",""P"",""D"",""M"").
 #'
 #' ",include
-fullplot.imageJ,"whether the subfolders are to be searched for map files also
+fullplot.imageJ,"whether the subfolders are to be searched for map files
+#'   also
 #' ",include.subdir
 lmerBayes,"TRUE or FALSE, whether to fit the full covariance matrix,
 #'   vs. variances alone.
@@ -365,8 +367,9 @@ imageGraph,"if FALSE, just graph to the screen and export is ignored; use
 #' ",newgraph
 complete.plotmap,"number of species to overlay; can be NULL or 0 for none
 #' ",nospp
-fullplot.imageJ,"the name of the text file where the results will be saved. This file will be saved in the folder specified by the path. If outfile=NULL, 
-#' the results will not be written to a file.
+fullplot.imageJ,"the name of the text file where the results will be saved.
+#'   This file will be saved in the folder specified by the path. If
+#'   `outfile = NULL`, the results will not be written to a file.
 #' ",outfile
 assemble.demography,"The results from one of the demographic functions
 #' ",output
@@ -377,7 +380,8 @@ lmerBayes,"The name of a file where the entire MCMC chain of parameter
 #' ",paramfile
 CTFSplot,"the name of the folder in which the tables are stored, defaults to CTFSRPackage
 #' ",path
-fullplot.imageJ,"the complete path name where the map files to be converted are found
+fullplot.imageJ,"The complete path name where the map files to be converted are
+#'   found.
 #' ",path
 CTFSplot,"Name of plot as it appears in the names of the R Analytical Tables, in quote marks
 #' ",plot
@@ -400,10 +404,11 @@ fullplot.imageJ,"the prefix used for all the map files before the quadrat name
 #' ",prefix
 SectionCorrection,"the coordinates to be corrected
 #' ",pts
-complete.plotmap,"size of points, the first used for the background of all
-#'   species, the second for the individual species
+complete.plotmap,"A vector of two numbers giving the point size for the 
+#'   background of all species (first one) and for the individual species
+#'   (second one).
 #' ",ptsize
-image_dataframe,"Size of points to be drawn
+image_dataframe,"Size of points to be drawn.
 #'
 #' ",ptsize
 Annuli,"A vector of distances defining the successive annuli.
@@ -440,7 +445,8 @@ growth,"If TRUE, all dbh < 55 are rounded down to the nearest
 #' ",rounddown
 rowcol.to.index,"Row number.
 #' ",rowno
-fullplot.imageJ,"specifies the range of the rows, found in the last two digits of the quadrat name
+fullplot.imageJ,"specifies the range of the rows, found in the last two digits
+#'   of the quadrat name
 #' ",rowrange
 RipUvK,"The distances defining intervals in which Ripley's statistic is
 #'   calculated.
@@ -549,13 +555,15 @@ model.littleR.Gibbs,"number of steps to run the Gibbs sampler
 #' ",steps
 SectionCorrection,"the subquadrat to be corrected
 #' ",subquad
-fullplot.imageJ,"used for map files that are smaller than 20x20m (i.e. 10x10m). They should be named clockwise from the lower left subquadrat.
+fullplot.imageJ,"used for map files that are smaller than 20x20m (i.e.
+#'   10x10m). They should be named clockwise from the lower left subquadrat.
 #'
 #' ",subquadratsuffix
 SectionCorrection,"the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.
 #'
 #'",subquadratsuffix
-fullplot.imageJ,"the extension used for the map files. The imageJ default is "".txt"".
+fullplot.imageJ,"the extension used for the map files. The imageJ default is
+#'   "".txt"".
 #' ",suffix
 map,"A vector of symbols, one per species. Can be anything accepted
 #'   by R for pch (plot character in the function plot()). If NULL, defaults are

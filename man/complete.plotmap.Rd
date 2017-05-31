@@ -35,8 +35,9 @@ in Windows, set `export = "windows"`, or for Mac, `export = "mac"`.
 
 \item{clrlist}{colors to use for the species to be overlaid}
 
-\item{ptsize}{size of points, the first used for the background of all
-species, the second for the individual species}
+\item{ptsize}{A vector of two numbers giving the point size for the
+background of all species (first one) and for the individual species
+(second one).}
 
 \item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
 

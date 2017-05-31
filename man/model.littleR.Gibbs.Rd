@@ -30,7 +30,16 @@ rate, 2) SD of log(mortality), 3) center of distribution of little r, 4)
 rate (or SD) of the distribution of little r; if an asymmetric model is
 chosen, the latter is the initial value for both left and right rate}
 
-\item{modeltype}{as listed above}
+\item{modeltype}{Functional forms to fit to the distribution; it can be:
+* Gaussian `modeltype = "norm"`, with the quotes
+* Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) `modeltype = "asymnorm"`, with the quotes
+* Laplace (exponential distribution, with mirror image for negative values)
+`modeltype = "symexp"`, with the quotes
+* Asymmetric Laplace (different rate constant for left and right of the
+center) `modeltype = "asymexp"`, with the quotes
+* Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.}
 
 \item{bad.modelparam}{name of a function which checks the model parameters
 for bad values; for modeltype asymexp, must be bad.asymexp.param, for
@@ -48,20 +57,6 @@ showstep steps}
 \description{
 The main function for fitting the probability distribution of population
 growth rates. Accepts any two full census R Analytical Tables.
-
-Five different functional forms to the distribution can be fitted, as chosen
-with the argument modeltype:
-\itemize{
-\item Gaussian \code{modeltype = "norm"}, with the quotes
-\item Asymmetric Gaussian (a different standard deviation on left and right of
-the mode) \code{modeltype = "asymnorm"}, with the quotes
-\item Laplace (exponential distribution, with mirror image for negative values)
-\code{modeltype = "symexp"}, with the quotes
-\item Asymmetric Laplace (different rate constant for left and right of the
-center) \code{modeltype = "asymexp"}, with the quotes
-\item Asymmetric power distribution (different rate constant for left and right
-of the center) `modeltype = "asympower", with the quotes
-}
 
 A Gibbs sampler is used to fit the parameter, with a hierarchical component
 for the distribution of species'mortality rates (mu) and species'rates of

@@ -213,7 +213,7 @@
 #'   and one a numerical response at those coordinates
 #' @param xcol,ycol,zcol These allow the columns of data to carry non-standard
 #'   names
-#' @param ptsize Size of points to be drawn
+#' @param ptsize Size of points to be drawn.
 #'
 #' @details
 #' Other arguments are the same as imageGraph().
