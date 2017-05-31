@@ -132,8 +132,8 @@
 #' @description
 #' Converts a big dataframe into a list of smaller dataframes, grouped using any
 #' column in the database, or any external vector.
-#' 
-#' @param censdata A dataframe (any).
+#'
+#' @template censdata
 #' @param splitcol The name of any variable in `censdata`.
 #' @param keepsplitcol Can be set to TRUE in order to retain in the new 
 #'   dataframes the column on which the data are grouped; otherwise, that column
@@ -548,7 +548,7 @@
 #' (designated by variables lower.y and upper.y in the example below). The 
 #' central line should then be redrawn over the filled area.
 #' 
-#' @param x The x axis values, as in any R graph
+#' @param x The x axis values.
 #' @param y1,y2 = Two sets of y axis values, each of exactly the same length as 
 #'   `x`
 #' @param fillcol The color filling the area between the two curves

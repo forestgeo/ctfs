@@ -8,9 +8,7 @@ abundance.spp(censdata, type = "abund", dbhunit = "mm",
   alivecode = c("A"), dbhbreaks = c(10, 100, 300))
 }
 \arguments{
-\item{censdata}{an R Analytical Table for a full plot census. For basal area
-use a stem table. For abundance, use either the stem or full table to count
-stems or trees, respectively.}
+\item{censdata}{A table of plot census data.}
 
 \item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}

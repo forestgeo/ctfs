@@ -7,7 +7,7 @@
 cartesian.to.polar(x, y)
 }
 \arguments{
-\item{x}{input vector of x coordinates}
+\item{x}{Coordinates.}
 
 \item{y}{input vector of y coordinates (same length as x)}
 }

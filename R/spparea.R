@@ -16,26 +16,30 @@
 #' Table; unidentified species are not counted, based on a default unidennames;
 #' see the function unidentified.species in utilitiesCTFS.r.
 #' 
-#' The return value is a list of two components. The first is a table giving the
-#' mean number (and SD) of individuals and species in all quadrat sizes
-#' submitted. The second is a table giving the number of individuals and species
-#' in every random quadrat created.
+#' @return 
+#' A list of two components. The first is a table giving the mean number (and
+#' SD) of individuals and species in all quadrat sizes submitted. The second is
+#' a table giving the number of individuals and species in every random quadrat
+#' created.
 #' 
-#' In addition, a graph of species vs. individuals in every quadrat is created
-#' as the program runs.
+#' In addition, a graph of species vs. individuals in every quadrat is created 
+#' as the program runs.  This can also be used to calculate genus- or
+#' family-area curves with use of the spcolumn argument. The censdata table must
+#' have a new column added, for example the genus for every record, then
+#' spcolumn can be set to 'genus'.
 #' 
-#' This can also be used to calculate genus- or family-area curves with use of
-#' the spcolumn argument. The censdata table must have a new column added, for
-#' example the genus for every record, then spcolumn can be set to 'genus'.
+#' @section Note:
+#' Randomly-placed quadrats produce statistically preferable species-area curves
+#' than checkerboards of non-overlapping quadrats. If required, though, the
+#' function [abundanceperquad()] offers a fast way to count the number of
+#' species in checkerboard-type quadrats of different sizes.
 #' 
-#' Note: randomly-placed quadrats produce statistically preferable species-area 
-#' curves than checkerboards of non-overlapping quadrats. If required, though, 
-#' the function abundanceperquad() in abundance.r offers a fast way to count the
-#' number of species in checkerboard-type quadrats of different sizes.
+#' @details
+#' `censdata` can be either full or stem
 #' 
 #' @template plotdim
 #' @template mindbh
-#' @param censdata one R Analytical Table, either full or stem
+#' @template censdata
 #' @param spcolumn name of the column in the table having the species; defaults
 #'   to 'sp', but can be set to 'genus'for 'family'if desired
 #' @param size a vector of quadrat sizes, referring to the x-dimension of a

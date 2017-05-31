@@ -8,9 +8,7 @@ abundanceperquad(censdata, mindbh = 10, plotdim = c(1000, 500),
   gridsize = 100, type = "abund", dbhunit = "mm")
 }
 \arguments{
-\item{censdata}{an R Analytical Table for a full plot census. For basal area
-use a stem table. For abundance, use either the stem or full table to count
-stems or trees, respectively.}
+\item{censdata}{A table of plot census data.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
 smaller than `mindbh` are excluded. If `NULL`, all living trees are

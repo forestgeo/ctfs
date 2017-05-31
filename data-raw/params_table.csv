@@ -81,19 +81,11 @@ trim.growth,"xxxdocparam See `census1` and `census2` in
 trim.growth,"xxxdocparam See `census1` and `census2` in
 #'   [biomass.change()].
 #' ",cens2
-abundance,"an R Analytical Table for a full plot census. For basal area 
-#'   use a stem table. For abundance, use either the stem or full table to count
-#'   stems or trees, respectively.
-#' ",censdata
-NDcount,"Is the coordinates dataset, should have the coordinates (gx, gy)
-#' ",censdata
-NeighborDensities,"should have the coordinates (gx, gy), species id (sp), status, tag and dbh. It counts neighbors for each of the individuals in censdata.
-#' ",censdata
-split_data,"A dataframe (any).
-#' ",censdata
-spparea.sq,"one R Analytical Table, either full or stem
-#' ",censdata
-NeighborDensities,"(NULL) an optional dataset for focal individuals, for example a subset of only one species or a list of seedling coordinates that are not part of census data. It must contain coordinates (gx,gy), species id (sp) and tag. It will count the neighbors in censdata but only for these focal coordinates.
+NeighborDensities,"(NULL) an optional dataset for focal individuals, for
+#'   example a subset of only one species or a list of seedling coordinates that
+#'   are not part of census data. It must contain coordinates (gx,gy), species
+#'   id (sp) and tag. It will count the neighbors in censdata but only for these
+#'   focal coordinates.
 #' ",censdata2
 CTFSplot,"census numbers as they appear in the names of the R Analytical Tables; can be a vector
 #' ",census
@@ -104,7 +96,6 @@ biomass.change,"The matching R Analytical Table for a later census.
 #' 
 #' ",census2
 fullellipse,"x-y coordinates of ellipse center (vector of 2)
-#'
 #'",center
 mortality.dbh,"xxxdocparam
 #'
@@ -325,7 +316,9 @@ AGB.ind,"Height model to use with a non-NULL `ht.param`.
 #' ",htmodel
 imageGraph,"TRUE or FALSE, whether to draw the color image
 #' ",img
-NeighborDensities,"(c(""A"")) a vector of status to include in the neighbors, by default it counts only alive individuals, for all status use c(""A"",""P"",""D"",""M"").
+NeighborDensities,"(c(""A"")) a vector of status to include in the neighbors, by
+#'   default it counts only alive individuals, for all status use
+#'   c(""A"",""P"",""D"",""M"").
 #'
 #' ",include
 fullplot.imageJ,"whether the subfolders are to be searched for map files also
@@ -399,20 +392,6 @@ growth,"Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
 graph.abundmodel,"minimum abundance of species to be used in histogram of
 #'   observed rates of population change
 #' ",minabund
-abundance,"the minimum diameter above which the counts are done; if NULL, 
-#'   all (living) are included
-#' ",mindbh
-complete.plotmap,"smallest dbh to include
-#' ",mindbh
-model.littleR.Gibbs,"minimum dbh to be included; all trees smaller than mindbh are
-#'   excluded
-#' ",mindbh
-NeighborDensities,"(10) minimum size of neighbors to be counted
-#' ",mindbh
-RipUvK,"the minimum dbh to include in results.
-#' ",mindbh
-spparea.sq,"the minimum dbh included
-#' ",mindbh
 lmerBayes,"The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
 #' ",model
 modelBayes,"The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
@@ -474,10 +453,10 @@ image_dataframe,"Size of points to be drawn
 #' ",ptsize
 Annuli,"A vector of distances defining the successive annuli.
 #' ",r
-NDcount,"(20) radius 
+NDcount,"Radius 
 #'
 #' ",r
-NeighborDensities,"(20) radius to count neighbors
+NeighborDensities,"radius to count neighbors
 #' ",r
 polar.to.cartesian,"input vector of radii (distance from origin)
 #' ",r
@@ -656,7 +635,9 @@ assemble.demography,"A character. Either `'g'` for growth, `'m'` for `mortality`
 #' ",type
 CTFSplot,"either full or stem, in quote marks
 #' ",type
-NeighborDensities,"(count) calculates count of stems ('count') or sum of basal areas ('basal'). Note that for the sum of basal areas is better to use the plot stem table, otherwise only one stem per tree will be included .
+NeighborDensities,"(count) calculates count of stems ('count') or sum of basal areas
+#'   ('basal'). Note that for the sum of basal areas is better to use the plot
+#'   stem table, otherwise only one stem per tree will be included .
 #' ",type
 spparea.sq,"a vector of species names that should not be included in
 #'   species counts (see the function unidentified.species()
@@ -673,16 +654,12 @@ assemble.demography,"A number indicating how many dbh categories to include,
 #' ",whichdbhcat
 AGB.ind,"A wood-density table, see [density_ind()] and [wsgdata_dummy].
 #' ",wsgdata
-cartesian.to.polar,"input vector of x coordinates
-#' ",x
 coldata.to.imagemat,"The map coordinates of each column in the matrix, and the values 
 #'   with which the x-axis of the map will be numbered. The number of columns of
-#'   z, dim(z)\[2], must be exactly length(x). If x is NULL, then it is
-#'   calculated using plotmax.
+#'   `z`, `dim(z)\[2]`, must be exactly `length(x)`. If `x` is `NULL`, then it
+#'   is calculated using [plotmax()].
 #' ",x
-fullellipse,"input x coordinates
-#' ",x
-graphFilledBand,"The x axis values, as in any R graph
+graphFilledBand,"The x axis values.
 #' ",x
 plot_wavelet,"Output for wavelet.allsp
 #'",x

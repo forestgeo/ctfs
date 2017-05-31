@@ -253,9 +253,8 @@
 #'
 #' Creates a dataframe for a full ellipse. 
 #'
-#' @param x input x coordinates
+#' @template x_coordinates
 #' @param center x-y coordinates of ellipse center (vector of 2)
-#'
 #'
 'fullellipse'
 
@@ -267,7 +266,7 @@
 #' returns a theta between -pi/2 and pi/2. Note that polar.to.cartesian may not return the starting x, y submitted
 #' to cartesian.to.polar due to problems with signs. It will work if theta is kept positive (ie, quadrant 1).
 #'
-#' @param x input vector of x coordinates
+#' @template x_coordinates
 #' @param y input vector of y coordinates (same length as x)
 #'
 #' @examples

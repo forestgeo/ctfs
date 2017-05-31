@@ -8,9 +8,7 @@ NeighborDensities(censdata, censdata2 = NULL, r = 20, plotdim = c(1000,
   500), mindbh = 10, type = "count", include = c("A"))
 }
 \arguments{
-\item{censdata}{should have the coordinates (gx, gy), species id (sp),
-status, tag and dbh. It counts neighbors for each of the individuals in
-censdata.}
+\item{censdata}{A table of plot census data.}
 
 \item{censdata2}{(NULL) an optional dataset for focal individuals, for
 example a subset of only one species or a list of seedling coordinates that
@@ -48,8 +46,12 @@ Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs
 package.
 }
 \details{
-\code{mindbh} refers to \emph{neighbors}, so here it is the minimum size of neighbors
+\itemize{
+\item \code{mindbh} refers to \emph{neighbors}, so here it is the minimum size of neighbors
 to be counted.
+\item \code{censdata} should have the coordinates (gx, gy), species id (sp), status,
+tag and dbh. It counts neighbors for each of the individuals in censdata.
+}
 }
 \examples{
 \dontrun{

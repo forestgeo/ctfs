@@ -7,9 +7,9 @@
 NDcount(censdata, r = 20, plotdim = c(1000, 500))
 }
 \arguments{
-\item{censdata}{Is the coordinates dataset, should have the coordinates (gx, gy)}
+\item{censdata}{A table of plot census data.}
 
-\item{r}{(20) radius}
+\item{r}{Radius}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 }
@@ -19,17 +19,18 @@ individual in censdata.
 }
 \description{
 Calculates the count of neighbors within radius r with edge effect
-correction. Is a quick version of NeighborDensities with limited
+correction. Is a quick version of \code{\link[=NeighborDensities]{NeighborDensities()}} with limited
 capabilities.
-
-Dependencies: CalcRingArea from the CTFS package and splancs.
+}
+\details{
+\code{censdata} should have the coordinates \code{gx}, \code{gy}.
 }
 \examples{
 \dontrun{
-
-count all the consp neighbors of one species 
-one.sp = subset(bci.full7, sp=="ingasa" & status=="A")
-neighbor.counts <- NDcount(one.sp)}
+# Count all the consp neighbors of one species 
+one.sp = subset(bci.full7, sp == "ingasa" & status == "A")
+neighbor.counts <- NDcount(one.sp)
+}
 
 }
 \author{

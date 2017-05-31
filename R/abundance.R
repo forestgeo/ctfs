@@ -16,10 +16,11 @@
 #' stem). The first vector should be the one with the most categories (for
 #' instances, `split1 = species`, `split2 = dbhcategory`).
 #' 
+#' For basal area, pass a stem table to `censdata`; For abundance, use either
+#' the stem or full table to count stems or trees, respectively.
+#' 
 #' @template mindbh
-#' @param censdata an R Analytical Table for a full plot census. For basal area 
-#'   use a stem table. For abundance, use either the stem or full table to count
-#'   stems or trees, respectively.
+#' @template censdata
 #' @param type either 'abund' (default) for abundance, 'ba' for basal area, or
 #'   'agb'.
 #' @param alivecode character, codes of the variable `status` that indicate the 

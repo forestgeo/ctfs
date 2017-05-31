@@ -61,8 +61,8 @@
 #'   map coordinates.
 #' @param x The map coordinates of each column in the matrix, and the values 
 #'   with which the x-axis of the map will be numbered. The number of columns of
-#'   z, dim(z)\[2], must be exactly length(x). If x is NULL, then it is
-#'   calculated using plotmax.
+#'   `z`, `dim(z)\[2]`, must be exactly `length(x)`. If `x` is `NULL`, then it
+#'   is calculated using [plotmax()].
 #' @param y The map coordinates of each row in the matrix, and the values with
 #'   which the y-axis of the map will be numbered; dim(z)\[1] must be exactly
 #'   length(y). If y is NULL, then it is calculated using plotmax.

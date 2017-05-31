@@ -19,16 +19,16 @@
 #' if it is present.
 #' 
 #' @details 
-#' `mindbh` refers to *neighbors*, so here it is the minimum size of neighbors 
+#' * `mindbh` refers to *neighbors*, so here it is the minimum size of neighbors
 #' to be counted.
+#' * `censdata` should have the coordinates (gx, gy), species id (sp), status,
+#' tag and dbh. It counts neighbors for each of the individuals in censdata.
 #'
 #' @author Tania Brenes 
 #'
 #' @template plotdim
 #' @template mindbh
-#' @param censdata should have the coordinates (gx, gy), species id (sp),
-#'   status, tag and dbh. It counts neighbors for each of the individuals in
-#'   censdata.
+#' @template censdata
 #' @param censdata2 (NULL) an optional dataset for focal individuals, for
 #'   example a subset of only one species or a list of seedling coordinates that
 #'   are not part of census data. It must contain coordinates (gx,gy), species
@@ -62,27 +62,28 @@
 #'
 #' @description
 #' Calculates the count of neighbors within radius r with edge effect
-#' correction. Is a quick version of NeighborDensities with limited
+#' correction. Is a quick version of [NeighborDensities()] with limited
 #' capabilities.
 #'
-#' Dependencies: CalcRingArea from the CTFS package and splancs. 
+#' @details 
+#' `censdata` should have the coordinates `gx`, `gy`.
 #'
-#' @return A single vector with neighbor counts within radius r for each
-#'   individual in censdata.
+#' @return A single vector with neighbor counts within radius r for each 
+#' individual in censdata.
+#' 
 #' @author Tania Brenes
 #'
 #' @template plotdim
-#' @param censdata Is the coordinates dataset, should have the coordinates (gx, gy)
-#' @param r (20) radius 
+#' @template censdata
+#' @param r Radius 
 #'
 #' @examples
 #' \dontrun{
+#' # Count all the consp neighbors of one species 
+#' one.sp = subset(bci.full7, sp == "ingasa" & status == "A")
+#' neighbor.counts <- NDcount(one.sp)
+#' }
 #'
-#' count all the consp neighbors of one species 
-#' one.sp = subset(bci.full7, sp=="ingasa" & status=="A")
-#' neighbor.counts <- NDcount(one.sp)}
-#'
-
 'NDcount'
 
 # Source code and original documentation ----------------------------

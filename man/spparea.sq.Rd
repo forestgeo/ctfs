@@ -9,7 +9,7 @@ spparea.sq(censdata, spcolumn = "sp", size, rectdim = 1, mindbh = NULL,
   "uniden", "UNIDEN"))
 }
 \arguments{
-\item{censdata}{one R Analytical Table, either full or stem}
+\item{censdata}{A table of plot census data.}
 
 \item{spcolumn}{name of the column in the table having the species; defaults
 to 'sp', but can be set to 'genus'for 'family'if desired}
@@ -31,6 +31,18 @@ included.}
 \item{unidennames}{a vector of species names that should not be included in
 species counts (see the function unidentified.species()}
 }
+\value{
+A list of two components. The first is a table giving the mean number (and
+SD) of individuals and species in all quadrat sizes submitted. The second is
+a table giving the number of individuals and species in every random quadrat
+created.
+
+In addition, a graph of species vs. individuals in every quadrat is created
+as the program runs.  This can also be used to calculate genus- or
+family-area curves with use of the spcolumn argument. The censdata table must
+have a new column added, for example the genus for every record, then
+spcolumn can be set to 'genus'.
+}
 \description{
 Function for calculating the number of species in replicated, randomly-placed
 quadrats of various areas. The variable size refers to the dimension (side)
@@ -40,24 +52,18 @@ per dimension. Full plot data are submitted as censdata.
 Species are counted as the number of unique values of sp in the R Analytical
 Table; unidentified species are not counted, based on a default unidennames;
 see the function unidentified.species in utilitiesCTFS.r.
-
-The return value is a list of two components. The first is a table giving the
-mean number (and SD) of individuals and species in all quadrat sizes
-submitted. The second is a table giving the number of individuals and species
-in every random quadrat created.
-
-In addition, a graph of species vs. individuals in every quadrat is created
-as the program runs.
-
-This can also be used to calculate genus- or family-area curves with use of
-the spcolumn argument. The censdata table must have a new column added, for
-example the genus for every record, then spcolumn can be set to 'genus'.
-
-Note: randomly-placed quadrats produce statistically preferable species-area
-curves than checkerboards of non-overlapping quadrats. If required, though,
-the function abundanceperquad() in abundance.r offers a fast way to count the
-number of species in checkerboard-type quadrats of different sizes.
 }
+\details{
+\code{censdata} can be either full or stem
+}
+\section{Note}{
+
+Randomly-placed quadrats produce statistically preferable species-area curves
+than checkerboards of non-overlapping quadrats. If required, though, the
+function \code{\link[=abundanceperquad]{abundanceperquad()}} offers a fast way to count the number of
+species in checkerboard-type quadrats of different sizes.
+}
+
 \examples{
 \dontrun{
 speciesPerArea = spparea.sq(

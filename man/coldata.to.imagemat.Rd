@@ -13,8 +13,8 @@ map coordinates.}
 
 \item{x}{The map coordinates of each column in the matrix, and the values
 with which the x-axis of the map will be numbered. The number of columns of
-z, dim(z)[2], must be exactly length(x). If x is NULL, then it is
-calculated using plotmax.}
+\code{z}, \code{dim(z)\[2]}, must be exactly \code{length(x)}. If \code{x} is \code{NULL}, then it
+is calculated using \code{\link[=plotmax]{plotmax()}}.}
 
 \item{y}{The map coordinates of each row in the matrix, and the values with
 which the y-axis of the map will be numbered; dim(z)[1] must be exactly

@@ -8,7 +8,7 @@ graphFilledBand(x, y1, y2, fillcol = "gray", add = TRUE,
   linecol = "black", ltype = "solid", lwidth = 1)
 }
 \arguments{
-\item{x}{The x axis values, as in any R graph}
+\item{x}{The x axis values.}
 
 \item{y1, y2}{= Two sets of y axis values, each of exactly the same length as
 \code{x}}
