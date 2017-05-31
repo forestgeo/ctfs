@@ -219,7 +219,8 @@ trim.growth,"Logical. FALSE includes cases where stemID
 #'   changed, regardless of growth (it does not make sense to exclude a record
 #'   based on growth when the growth is based on different stems).
 #' ",exclude.stem.change
-complete.plotmap,"set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)
+complete.plotmap,"set to 'no'to graph to screen, 'pdf'to export to pdf (see
+#'   define.graphwindow function)
 #' ",export
 imageGraph,"if newgraph=TRUE, this defines the graphics device; options
 #'   include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
@@ -228,8 +229,9 @@ imageGraph,"if newgraph=TRUE, this defines the graphics device; options
 map,"See function define.graphwindow. 
 #' ",export
 complete.plotmap,"folder to save output
-#' ",filepath
+#'",filepath
 map,"The folder to which map will be exported.
+#'
 #' ",filepath
 graphFilledBand,"The color filling the area between the two curves
 #' ",fillcol
@@ -401,13 +403,8 @@ imageGraph,"if FALSE, just graph to the screen and export is ignored; use
 #' ",newgraph
 complete.plotmap,"number of species to overlay; can be NULL or 0 for none
 #' ",nospp
-complete.plotmap,"filename for output
-#'
-#'",outfile
 fullplot.imageJ,"the name of the text file where the results will be saved. This file will be saved in the folder specified by the path. If outfile=NULL, 
 #' the results will not be written to a file.
-#' ",outfile
-map,"The name of the file to export to.
 #' ",outfile
 assemble.demography,"The results from one of the demographic functions
 #' ",output
@@ -439,7 +436,8 @@ fullplot.imageJ,"the prefix used for all the map files before the quadrat name
 #' ",prefix
 SectionCorrection,"the coordinates to be corrected
 #' ",pts
-complete.plotmap,"size of points, the first used for the background of all species, the second for the individual species
+complete.plotmap,"size of points, the first used for the background of all
+#'   species, the second for the individual species
 #' ",ptsize
 image_dataframe,"Size of points to be drawn
 #'

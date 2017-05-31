@@ -25,8 +25,10 @@
 #' * `xrange`, `yrange` allows a portion of plot to be drawn. Defaults to the
 #' entire plot.
 #'
+#' @inheritParams imageGraph
 #' @template plotdim
 #' @template xrange_yrange
+#' @template outfile
 #' @param splitdatafile A full plot dataset in list format (see `?split_data`).
 #' @param species One or more species codes to be mapped.
 #' @param spplist A table with species codes and Latin names can be submitted as
@@ -71,8 +73,6 @@
 #' @param topoclr Color of topolines.
 #' @param export See function define.graphwindow. 
 #' @param filepath The folder to which map will be exported.
-#' @param outfile The name of the file to export to.
-#' @inheritParams imageGraph
 #'
 #' @examples
 #' \dontrun{
@@ -134,30 +134,34 @@
 #'
 'png.allplot'
 
-#' This creates a map with every individual shown. The area to be mapp...
+#' Map every individual.
 #'
 #' @description
-#'
-#' This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.
-#'
-#' On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
-#' are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp. 
+#' This creates a map with every individual shown. The area to be mapped can be
+#' chosen, allowing maps of small areas.
+#' 
+#' @details
+#' On top of the map of every individual, individual species can be overlaid in
+#' different colors. If nospp is set NULL, no species are added. If spnames is
+#' set NULL, then the most abundant species in the plot are chosen, up to the
+#' number nospp.
 #'
 #' @template plotdim
 #' @template mindbh
 #' @template xrange_yrange
+#' @template outfile
 #' @param cns a full census dataset (all species)
 #' @param spnames names of species to map, using the mnemonic in the R tables
-#' @param export set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)
+#' @param export set to 'no'to graph to screen, 'pdf'to export to pdf (see
+#'   define.graphwindow function)
 #' @param nospp number of species to overlay; can be NULL or 0 for none
 #' @param clrlist colors to use for the species to be overlaid
-#' @param ptsize size of points, the first used for the background of all species, the second for the individual species
+#' @param ptsize size of points, the first used for the background of all
+#'   species, the second for the individual species
 #' @param wd graph width; see map() function
 #' @param ht graph height, same units as wd
 #' @param side the side in inches of the graph; see map()
 #' @param filepath folder to save output
-#' @param outfile filename for output
-#'
 #'
 'complete.plotmap'
 

@@ -89,7 +89,7 @@ png, jpg, emf, height and width are pixels and need to be 500-1000.}
 
 \item{filepath}{The folder to which map will be exported.}
 
-\item{outfile}{The name of the file to export to.}
+\item{outfile}{Filename for output.}
 }
 \description{
 Function to draw map of one or more species from one plot. Must give the

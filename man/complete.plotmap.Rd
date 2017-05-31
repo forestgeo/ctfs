@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{complete.plotmap}
 \alias{complete.plotmap}
-\title{This creates a map with every individual shown. The area to be mapp...}
+\title{Map every individual.}
 \usage{
 complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
   export = "no", nospp = 3, plotdim = c(1000, 500), clrlist = c("blue",
@@ -20,7 +20,8 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
-\item{export}{set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)}
+\item{export}{set to 'no'to graph to screen, 'pdf'to export to pdf (see
+define.graphwindow function)}
 
 \item{nospp}{number of species to overlay; can be NULL or 0 for none}
 
@@ -28,7 +29,8 @@ included.}
 
 \item{clrlist}{colors to use for the species to be overlaid}
 
-\item{ptsize}{size of points, the first used for the background of all species, the second for the individual species}
+\item{ptsize}{size of points, the first used for the background of all
+species, the second for the individual species}
 
 \item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
@@ -40,11 +42,15 @@ included.}
 
 \item{filepath}{folder to save output}
 
-\item{outfile}{filename for output}
+\item{outfile}{Filename for output.}
 }
 \description{
-This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.
-
-On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
-are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp.
+This creates a map with every individual shown. The area to be mapped can be
+chosen, allowing maps of small areas.
+}
+\details{
+On top of the map of every individual, individual species can be overlaid in
+different colors. If nospp is set NULL, no species are added. If spnames is
+set NULL, then the most abundant species in the plot are chosen, up to the
+number nospp.
 }
