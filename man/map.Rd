@@ -28,8 +28,7 @@ species code (as submitted) appears on the map.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{xrange, yrange}{Minimum and maximum x coordinates and y coordinates to
-map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
 \item{elevdata}{Elevation data can be submitted, then a topo map is overlaid.
 Elevation data must be submitted as a matrix (as described in readelevdata
@@ -69,7 +68,8 @@ just set addlegend=FALSE to remove.}
 
 \item{labsize}{Size of axis labels.}
 
-\item{axisdiv}{the division between tick marks; must be a vector of 2, first for x ticks then for y ticks}
+\item{axisdiv}{the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks}
 
 \item{bty}{Type of box to appear around species name. The default, 'n', means
 no box; set to 'o'to see the box.}
@@ -104,9 +104,12 @@ large". This happens if the export="no" option is used with the option
 plotside too large for the default graph size (usually 7 inches). If you use
 the option export="Windows", "Mac", or "Unix", then height and width can be
 set with arguments ht, wd, and plotside can be as large as you please.
-
-\code{plotdim} assumes the starting coordinates are zero. If they are not, then
+\itemize{
+\item \code{plotdim} assumes the starting coordinates are zero. If they are not, then
 xrange and yrange must be used.
+\item \code{xrange}, \code{yrange} allows a portion of plot to be drawn. Defaults to the
+entire plot.
+}
 }
 \examples{
 \dontrun{

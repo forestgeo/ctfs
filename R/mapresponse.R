@@ -98,36 +98,48 @@
 #'
 'coldata.to.imagemat'
 
-#' Maps a response variable with Rs contour or image functions, or bot...
+#' Maps a response variable with Rs contour or image functions, or both.
 #'
 #' @description
-#'
-#' Maps a response variable with R's contour or image functions, or both, using the output of coldata.to.imagemat.
-#'
-#' Also can return contours as vector data, using R's contourLines. The graph can be sent to the screen or exported.
-#'
-#' There are many options for tweaking the graph, explained with the arguments.
-#'
-#' @param matrixdata a list having components x, y, and mat, exactly the output of coldata.to.imagemat
-#' @param levels if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable; 
-#' can be NULL to let breaks control
-#' @param breaks if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks
+#' Maps a response variable with R's contour or image functions, or both, using 
+#' the output of [coldata.to.imagemat()]. Also can return contours as vector 
+#' data, using R's contourLines. The graph can be sent to the screen or 
+#' exported.
+#' 
+#' @param matrixdata a list having components x, y, and mat, exactly the output
+#'   of coldata.to.imagemat
+#' @param levels if set, then contours are drawn (or colors assigned) to breaks 
+#'   are at levels equally-spaced divisions of the response variable; can be
+#'   NULL to let breaks control
+#' @param breaks if set, a vector of breaks for the image colors and the contour
+#'   lines; if NULL, levels controls the breaks
 #' @param xname,yname names for the axes
-#' @param xrange if NULL, all x are included, otherwise, the graph will only include x inside xrange
-#' @param yrange likewise for y
-#' @param axisdiv the division between tick marks; must be a vector of 2, first for x ticks then for y ticks
-#' @param clrs colors for the image; if NULL, they are chosen by default, otherwise, must be 1 + the number of breaks
-#' @param returnline TRUE or FALSE, whether to return the contour lines; see R's base function contourLines for details
+#' @param xrange,yrange if `NULL`, all `x` (or `y`) are included, otherwise, the
+#'   graph will only include `x` (or `y`) inside `xrange` or (`yrange`)
+#' @param axisdiv the division between tick marks; must be a vector of 2, first
+#'   for x ticks then for y ticks
+#' @param clrs colors for the image; if NULL, they are chosen by default,
+#'   otherwise, must be 1 + the number of breaks
+#' @param returnline TRUE or FALSE, whether to return the contour lines; see R's
+#'   base function contourLines for details
 #' @param img TRUE or FALSE, whether to draw the color image
-#' @param cntrs TRUE or FALSE, whether to add contour lines; both img and cntrs can be TRUE
-#' @param filled TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included
-#' @param newgraph if FALSE, just graph to the screen and export is ignored; use TRUE to create a new plot window or export to a file
-#' @param plotsize size of graph's x-dimension in inches; ignored if newgraph=FALSE
-#' @param h,w height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches); 
-#' ignored if newgraph=FALSE
-#' @param export if newgraph=TRUE, this defines the graphics device; options include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not quoted!)
-#' @param graphfile the file name if export is pdf, png, jpeg, win.metafile, etc.
-#'
+#' @param cntrs TRUE or FALSE, whether to add contour lines; both img and cntrs
+#'   can be TRUE
+#' @param filled TRUE or FALSE, whether to draw filled contours; if TRUE,
+#'   neither image or standard contours are included
+#' @param newgraph if FALSE, just graph to the screen and export is ignored; use
+#'   TRUE to create a new plot window or export to a file
+#' @param plotsize size of graph's x-dimension in inches; ignored if
+#'   newgraph=FALSE
+#' @param h,w height and width of graph window in units which depend on the
+#'   export device chosen (some are pixels, some are inches); ignored if
+#'   newgraph=FALSE
+#' @param export if newgraph=TRUE, this defines the graphics device; options
+#'   include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
+#'   quoted!)
+#' @param graphfile the file name if export is pdf, png, jpeg, win.metafile,
+#'   etc.
+#'   
 #' @examples
 #' \dontrun{
 #'

@@ -23,7 +23,7 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 \item{modeltype}{form of probability distribution, matching what was used
 when fit was created by model.littleR.Gibbs}
 
-\item{xrange, yrange}{range of graph's x-axis and and y-axis}
+\item{xrange, yrange}{Range of graph's x-axis (or y-axis).}
 
 \item{minabund}{minimum abundance of species to be used in histogram of
 observed rates of population change}

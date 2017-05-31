@@ -43,7 +43,8 @@ find.climits,"The critical probability. Defaults to 0.05, which gives 95\%
 #' ",alpha
 graph.abundmodel,"if FALSE, the axes are not added
 #' ",ax
-imageGraph,"the division between tick marks; must be a vector of 2, first for x ticks then for y ticks
+imageGraph,"the division between tick marks; must be a vector of 2, first
+#'   for x ticks then for y ticks
 #' ",axisdiv
 map,"Distance between axis numbers and axis.
 #' ",axspos
@@ -74,7 +75,8 @@ graph.abundmodel,"if TRUE, histogram is bar graph
 map,"The background color. Defaults to white. For presentation
 #'   exports, try bgcolor=""transparent"".
 #' ",bgcolor
-imageGraph,"if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks
+imageGraph,"if set, a vector of breaks for the image colors and the contour
+#'   lines; if NULL, levels controls the breaks
 #' ",breaks
 map,"Type of box to appear around species name. The default, 'n', means
 #'   no box; set to 'o'to see the box.
@@ -121,7 +123,8 @@ maptopo,"xxxdocparam
 #' ",clr
 complete.plotmap,"colors to use for the species to be overlaid
 #' ",clrlist
-imageGraph,"colors for the image; if NULL, they are chosen by default, otherwise, must be 1 + the number of breaks
+imageGraph,"colors for the image; if NULL, they are chosen by default,
+#'   otherwise, must be 1 + the number of breaks
 #' ",clrs
 map,"A vector of color names, one for each species. If set to NULL,
 #'   default values are assigned. See bw.
@@ -137,7 +140,8 @@ model.littleR.Gibbs,"The two census R Analytical Tables, with earlier census
 individual_grow.table,"A list of census data sets, for example: 
 #'   `list(bci::bci12full1, bci::bci12full2, bci::bci12full3)`.
 #' ",cnsdata
-imageGraph,"TRUE or FALSE, whether to add contour lines; both img and cntrs can be TRUE
+imageGraph,"TRUE or FALSE, whether to add contour lines; both img and cntrs
+#'   can be TRUE
 #' ",cntrs
 rowcol.to.index,"Column number.
 #'",colno
@@ -252,7 +256,9 @@ trim.growth,"Logical. FALSE includes cases where stemID
 #' ",exclude.stem.change
 complete.plotmap,"set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)
 #' ",export
-imageGraph,"if newgraph=TRUE, this defines the graphics device; options include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not quoted!)
+imageGraph,"if newgraph=TRUE, this defines the graphics device; options
+#'   include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
+#'   quoted!)
 #' ",export
 map,"See function define.graphwindow. 
 #' ",export
@@ -262,15 +268,17 @@ map,"The folder to which map will be exported.
 #' ",filepath
 graphFilledBand,"The color filling the area between the two curves
 #' ",fillcol
-imageGraph,"TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included
+imageGraph,"TRUE or FALSE, whether to draw filled contours; if TRUE,
+#'   neither image or standard contours are included
 #' ",filled
 graph.abundmodel,"result of model.littleR.Gibbs
 #' ",fit
 AGB.ind,"A forest type (for most lowland tropical plots, the default
 #'   ""moist"" is recommended.)
 #' ",forest
-imageGraph,"the file name if export is pdf, png, jpeg, win.metafile, etc.
-#'
+imageGraph,"the file name if export is pdf, png, jpeg, win.metafile,
+#'   etc.
+#'   
 #' ",graphfile
 graph.abundmodel,"if set to false,
 #' ",graphit
@@ -289,11 +297,13 @@ gxgy.to.hectindex,"Tree x and y coordinate.
 #' ",gx
 gxgy.to.hectindex,"Tree x and y coordinate.
 #' ",gy
-imageGraph,"height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches); 
-#' ignored if newgraph=FALSE
+imageGraph,"height and width of graph window in units which depend on the
+#'   export device chosen (some are pixels, some are inches); ignored if
+#'   newgraph=FALSE
 #' ",h
-imageGraph,"height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches); 
-#' ignored if newgraph=FALSE
+imageGraph,"height and width of graph window in units which depend on the
+#'   export device chosen (some are pixels, some are inches); ignored if
+#'   newgraph=FALSE
 #' ",w
 complete.plotmap,"graph height, same units as wd
 #' ",ht
@@ -353,8 +363,9 @@ maptopo,"xxxdocparam
 #' ",labelsize
 map,"Size of axis labels.
 #' ",labsize
-imageGraph,"if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable; 
-#' can be NULL to let breaks control
+imageGraph,"if set, then contours are drawn (or colors assigned) to breaks 
+#'   are at levels equally-spaced divisions of the response variable; can be
+#'   NULL to let breaks control
 #' ",levels
 graphFilledBand,"If add == FALSE, lines drawn at y1 and y2 are this color; 
 #'   ignored if add == TRUE
@@ -387,7 +398,8 @@ map,"A title to appear at the top of the page, above the species name.
 #' ",maintitle
 graph.abundmodel,"whether to add legend
 #' ",makeleg
-imageGraph,"a list having components x, y, and mat, exactly the output of coldata.to.imagemat
+imageGraph,"a list having components x, y, and mat, exactly the output
+#'   of coldata.to.imagemat
 #' ",matrixdata
 mortality.calculation,"xxxdocparam
 #' 
@@ -427,7 +439,8 @@ find.climits,"The number of individuals alive at the outset.
 #' ",N
 maptopo,"See [graphics::par()].
 #' ",new
-imageGraph,"if FALSE, just graph to the screen and export is ignored; use TRUE to create a new plot window or export to a file
+imageGraph,"if FALSE, just graph to the screen and export is ignored; use
+#'   TRUE to create a new plot window or export to a file
 #' ",newgraph
 complete.plotmap,"number of species to overlay; can be NULL or 0 for none
 #' ",nospp
@@ -459,7 +472,8 @@ coldata.to.imagemat,"Maximum plot x and y coordinates. The default, 1000,500, is
 coldata.to.imagemat,"The minimum plot x and y coordinates; in CTFS plots, these are
 #'   always 0,0. Ignored if x and y are submitted.
 #' ",plotmin
-imageGraph,"size of graph's x-dimension in inches; ignored if newgraph=FALSE
+imageGraph,"size of graph's x-dimension in inches; ignored if
+#'   newgraph=FALSE
 #' ",plotsize
 trim.growth,"A number. To include POM changes, set it to a high number, such
 #'   as 10.
@@ -493,7 +507,8 @@ spparea.sq,"the number of random quadrats to create, of each size
 graph.abundmodel,"whether to print a list of the fastest increases and
 #'   decreases in abundance to the screen
 #' ",returnextreme
-imageGraph,"TRUE or FALSE, whether to return the contour lines; see R's base function contourLines for details
+imageGraph,"TRUE or FALSE, whether to return the contour lines; see R's
+#'   base function contourLines for details
 #' ",returnline
 individual_grow.table,"used to rounddown dbhs for certain intervals. This argument
 #'   indicates that dbhs<50 mm are rounded down to 5-mm, necessary because
@@ -728,19 +743,15 @@ imageGraph,"names for the axes
 #' ",xname
 imageGraph,"names for the axes
 #' ",yname
-complete.plotmap,"minimum and maximum x coordinates of area graphed
+graph.abundmodel,"Range of graph's x-axis (or y-axis).
 #' ",xrange
-imageGraph,"if NULL, all x are included, otherwise, the graph will only include x inside xrange
-#' ",xrange
-graph.abundmodel,"range of graph's x-axis and and y-axis
-#' ",xrange
-graph.abundmodel,"range of graph's x-axis and and y-axis
+graph.abundmodel,"Range of graph's x-axis (or y-axis).
 #' ",yrange
-map,"Minimum and maximum x coordinates and y coordinates to
-#'   map. Allows a portion of plot to be drawn. Defaults to the entire plot.
+imageGraph,"if `NULL`, all `x` (or `y`) are included, otherwise, the
+#'   graph will only include `x` (or `y`) inside `xrange` or (`yrange`)
 #' ",xrange
-map,"Minimum and maximum x coordinates and y coordinates to
-#'   map. Allows a portion of plot to be drawn. Defaults to the entire plot.
+imageGraph,"if `NULL`, all `x` (or `y`) are included, otherwise, the
+#'   graph will only include `x` (or `y`) inside `xrange` or (`yrange`)
 #' ",yrange
 cartesian.to.polar,"input vector of y coordinates (same length as x)
 #'
@@ -759,10 +770,6 @@ graphFilledBand,"= Two sets of y axis values, each of exactly the same length as
 #' ",y2
 maptopo,"xxxdocparam
 #' ",yaxis
-complete.plotmap,"minimum and maximum y coordinates of area graphed
-#' ",yrange
-imageGraph,"likewise for y
-#' ",yrange
 calcslope,"numeric vector of length 3 
 #'",z
 coldata.to.imagemat,"A numeric vector of responses, which means an attribute which has

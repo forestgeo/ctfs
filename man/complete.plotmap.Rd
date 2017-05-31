@@ -30,9 +30,7 @@ included.}
 
 \item{ptsize}{size of points, the first used for the background of all species, the second for the individual species}
 
-\item{xrange}{minimum and maximum x coordinates of area graphed}
-
-\item{yrange}{minimum and maximum y coordinates of area graphed}
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
 \item{wd}{graph width; see map() function}
 

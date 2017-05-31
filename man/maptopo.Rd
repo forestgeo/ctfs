@@ -25,11 +25,9 @@ is drawn}
 
 \item{interval}{Contour line intervals.}
 
-\item{xrange}{Minimum and maximum x coordinates and y coordinates to
-map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
 
-\item{yrange}{Minimum and maximum x coordinates and y coordinates to
-map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
 \item{xaxis}{xxxdocparam}
 

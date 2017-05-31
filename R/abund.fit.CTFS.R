@@ -214,7 +214,7 @@
 #' @param tinydiv width of bins used to draw the fitted distribution
 #' @param modeltype form of probability distribution, matching what was used
 #'   when fit was created by model.littleR.Gibbs
-#' @param xrange,yrange range of graph's x-axis and and y-axis
+#' @param xrange,yrange Range of graph's x-axis (or y-axis).
 #' @param minabund minimum abundance of species to be used in histogram of
 #'   observed rates of population change
 #' @param conf number of alternate fits to graph, as indication of confidence;
