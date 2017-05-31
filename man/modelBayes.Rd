@@ -14,7 +14,10 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 modeled (dependent variable, y), one or more predictors (independent
 variables, x), and one random effect, using any column names.}
 
-\item{xcol, ycol}{Chareacter string giving the name of a column in `data` that
+\item{ycol}{Chareacter string giving the name of a column in `data` that
+holds the x and y (numeric) variable.}
+
+\item{xcol}{Chareacter string giving the name of a column in `data` that
 holds the x and y (numeric) variable.}
 
 \item{start}{Starting parameter values, either a vector with as many
@@ -27,31 +30,29 @@ startSD as parameters needed by sdfunc}
 \item{model}{The function name holding the model describing y's relationship
 to all the x's, without quote marks. The first argument of the function
 must be named x, the second param, with additional arguments allowed. The
-model may accept x either a vector or a matrix, the latter for a multiple
-regression. There can be any number of parameters, but the number must
-match the number given as start parameters. The return value must be a
+model may accept as x either a vector or a matrix, the latter for a
+multiple regression. There can be any number of parameters, but the number
+must match the number given as start parameters. The return value must be a
 numeric vector with the same size as x.}
 
-\item{error}{A character variable; either "Binom", "Pois", "NegBinom",
-"Flat", "Gauss", or "GaussMultResid".
+\item{error}{A character variable with 6 possible values: "Binom", "NgBinom",
+"Pois", "Gauss", "GaussMultResid", or "Flat".
 \itemize{
-\item 'Binom' uses binomial error, appropriate only for non-negative integer y;
-there are no error parameters for the binomial, so no resid parameters
-\item 'Poisson' uses Poisson error, appropriate only for non-negative integer
-y; there are no error parameters for the binomial, so no resid parameters
-\item 'NegBinom'uses negative binomial error, appropriate only for
-non-negative integer y; the clump parameter k of the negative binomial is
-also fitted, and can be modeled with sdfunc
-\item 'Gauss'uses Gaussian error, which can be a constant or modeled on the x's
-\item 'GaussMultResid'uses Gaussian error modeled as a fraction of the
-prediction at each x; again, it can be a constant fraction or a fraction
-modeled on x (aappropriate only if predictions are strictly positive)
-\item 'Flat' is a trivial model where the same likelihood is returned
+\item "Binom" uses binomial error for residuals - NegBinom'uses negative
+binomial error for residuals; the SD is then the dispersion parameter (k)
+of the negative binomial.
+\item "Poisson" uses Poisson error for residuals.
+\item "Gauss" uses Gaussian error for residuals with constant standard
+deviation across groups.
+\item "GaussMultResid" uses Gaussian error for residuals, with standard
+deviation a constant fraction of the model's prediction (and thus only
+appropriate if predictions are strictly positive).
+\item "Flat" is a trivial model where the same likelihood is returned
 regardless of parameters or data. It is for testing how parameter search
 behaves in absence of data, as for describing an implied prior.
 }}
 
-\item{update}{'conjugate'or 'metropolis', whether to use inverse-gamma (or
+\item{update}{'conjugate' or 'metropolis', whether to use inverse-gamma (or
 inverse-Wishart for full covariance) vs. metropolis steps for updating
 covariances.}
 
@@ -81,7 +82,8 @@ regardless.}
 \item{debug}{Logical. If TRUE, call browser to debug.}
 
 \item{...}{The typical R means for submitting additional parameters for
-various functions used in the model (model, sdfunc, badparam, badSDparam).}
+various functions used in the model (\code{model}, \code{sdfunc}, \code{badparam},
+\code{badSDparam}).}
 }
 \description{
 A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions

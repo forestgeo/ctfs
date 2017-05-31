@@ -40,23 +40,27 @@ multiple regression. There can be any number of parameters, but the number
 must match the number given as start parameters. The return value must be a
 numeric vector with the same size as x.}
 
-\item{error}{A character variable with 6 possible values: "Binom",
-"NegBinom", "Pois", "Gauss", "GaussMultResid", or "Flat". - 'Binom' uses
-binomial error for residuals - NegBinom'uses negative binomial error for
-residuals; the SD is then the dispersion parameter (k) of the negative
-binomial - 'Poisson'uses Poisson error for residuals - 'Gauss'uses Gaussian
-error for residuals with constant standard deviation across groups -
-'GaussMultResid'uses Gaussian error for residuals, with standard deviation
-a constant fraction of the model's prediction (and thus only appropriate if
-predictions are strictly positive) - Flat'is a trivial model where the same
-likelihood is returned regardless of parameters or data. It is for testing
-how parameter search behaves in absence of data, as for describing an
-implied prior.}
+\item{error}{A character variable with 6 possible values: "Binom", "NgBinom",
+"Pois", "Gauss", "GaussMultResid", or "Flat".
+\itemize{
+\item "Binom" uses binomial error for residuals - NegBinom'uses negative
+binomial error for residuals; the SD is then the dispersion parameter (k)
+of the negative binomial.
+\item "Poisson" uses Poisson error for residuals.
+\item "Gauss" uses Gaussian error for residuals with constant standard
+deviation across groups.
+\item "GaussMultResid" uses Gaussian error for residuals, with standard
+deviation a constant fraction of the model's prediction (and thus only
+appropriate if predictions are strictly positive).
+\item "Flat" is a trivial model where the same likelihood is returned
+regardless of parameters or data. It is for testing how parameter search
+behaves in absence of data, as for describing an implied prior.
+}}
 
 \item{includeCovar}{TRUE or FALSE, whether to fit the full covariance matrix,
 vs. variances alone.}
 
-\item{update}{'conjugate'or 'metropolis', whether to use inverse-gamma (or
+\item{update}{'conjugate' or 'metropolis', whether to use inverse-gamma (or
 inverse-Wishart for full covariance) vs. metropolis steps for updating
 covariances.}
 
