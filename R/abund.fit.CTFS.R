@@ -11,18 +11,6 @@
 #' The main function for fitting the probability distribution of population
 #' growth rates. Accepts any two full census R Analytical Tables.
 #'
-#' Five different functional forms to the distribution can be fitted, as chosen
-#' with the argument modeltype:
-#' * Gaussian `modeltype = "norm"`, with the quotes
-#' * Asymmetric Gaussian (a different standard deviation on left and right of
-#' the mode) `modeltype = "asymnorm"`, with the quotes
-#' * Laplace (exponential distribution, with mirror image for negative values)
-#' `modeltype = "symexp"`, with the quotes
-#' * Asymmetric Laplace (different rate constant for left and right of the
-#' center) `modeltype = "asymexp"`, with the quotes
-#' * Asymmetric power distribution (different rate constant for left and right
-#' of the center) `modeltype = "asympower", with the quotes
-#'
 #' A Gibbs sampler is used to fit the parameter, with a hierarchical component
 #' for the distribution of species'mortality rates (mu) and species'rates of
 #' population change (r). and be sure to set mindbh. Other parameters can be
@@ -37,6 +25,7 @@
 #'
 #' @template mindbh
 #' @template debug
+#' @template modeltype
 #' @param cns1,cns2 The two census R Analytical Tables, with earlier census
 #'   first
 #' @param demog optional, must match exactly the table created within the
@@ -48,7 +37,6 @@
 #'   rate, 2) SD of log(mortality), 3) center of distribution of little r, 4)
 #'   rate (or SD) of the distribution of little r; if an asymmetric model is
 #'   chosen, the latter is the initial value for both left and right rate
-#' @param modeltype as listed above
 #' @param bad.modelparam name of a function which checks the model parameters
 #'   for bad values; for modeltype asymexp, must be bad.asymexp.param, for
 #'   modeltype asympower, must be bad.asympower.param
@@ -209,12 +197,11 @@
 #' @inheritParams graphFilledBand
 #' @template debug
 #' @template ltype_lwidth
+#' @template modeltype
 #' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
 #' @param div width of bins for histogram of observed rate of population change
 #' @param tinydiv width of bins used to draw the fitted distribution
-#' @param modeltype form of probability distribution, matching what was used
-#'   when fit was created by model.littleR.Gibbs
 #' @param xrange,yrange Range of graph's x-axis (or y-axis).
 #' @param minabund minimum abundance of species to be used in histogram of
 #'   observed rates of population change

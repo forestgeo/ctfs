@@ -352,11 +352,6 @@ lmerBayes,"The function name holding the model describing y's relationship
 #' ",model
 graph.abundmodel,"Line color; see ?[graphics::par()].
 #' ",modelclr
-graph.abundmodel,"form of probability distribution, matching what was used
-#'   when fit was created by model.littleR.Gibbs
-#' ",modeltype
-model.littleR.Gibbs,"as listed above
-#' ",modeltype
 graph.abundmodel,"whether to graph the correlation between mortality and 
 #'   population change across species
 #' 
