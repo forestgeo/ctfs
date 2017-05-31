@@ -1,29 +1,28 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
 #' Total number or basal area of conspecific and heterospecific neighbors.
 #'
-#' @description Calculates the total number or basal area of conspecific and
-#' heterospecific neighbors at a radius r with edge effect correction. Most
-#' arguments aim to describe the type of neighbors to count
+#' @description Calculates the total number or basal area of conspecific and 
+#' heterospecific neighbors at a radius r with edge effect correction. Most 
+#' arguments aim to describe the type of neighbors to count.
+#' [NeighborDensities()] counts neighbors for each of the individuals in
+#' censdata.
 #' 
-#' Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs
-#' package.
 #' 
 #' @return
 #' A data.frame with two columns listing the density of consp and hetsp, and
 #' rows equal to the size of censdata if `censdata2` is absent, or `censdata2` 
 #' if it is present.
 #' 
-#' @details 
-#' * `mindbh` refers to *neighbors*, so here it is the minimum size of neighbors
-#' to be counted.
-#' * `censdata` should have the coordinates (gx, gy), species id (sp), status,
-#' tag and dbh. It counts neighbors for each of the individuals in censdata.
+#' @details
+#' * Arguments `mindbh` and `r` refer to neighbours
+#' * `censdata` should have the coordinates gx, gy, species id `sp`, `status`,
+#' `tag` and `dbh`. 
 #'
+#' Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs 
+#' package.
+#' 
 #' @author Tania Brenes 
 #'
 #' @template plotdim
@@ -34,7 +33,7 @@
 #'   are not part of census data. It must contain coordinates (gx,gy), species
 #'   id (sp) and tag. It will count the neighbors in censdata but only for these
 #'   focal coordinates.
-#' @param r radius to count neighbors
+#' @template r
 #' @param type (count) calculates count of stems ('count') or sum of basal areas
 #'   ('basal'). Note that for the sum of basal areas is better to use the plot
 #'   stem table, otherwise only one stem per tree will be included .
@@ -57,11 +56,10 @@
 #'
 'NeighborDensities'
 
-#'
 #' Count of neighbors within radius r with edge effect correction.
 #'
 #' @description
-#' Calculates the count of neighbors within radius r with edge effect
+#' Calculates the count of neighbors within radius `r` with edge effect
 #' correction. Is a quick version of [NeighborDensities()] with limited
 #' capabilities.
 #'
@@ -75,7 +73,7 @@
 #'
 #' @template plotdim
 #' @template censdata
-#' @param r Radius 
+#' @template r
 #'
 #' @examples
 #' \dontrun{

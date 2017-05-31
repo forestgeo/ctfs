@@ -87,19 +87,18 @@
 #'
 'RipUvK'
 
-#'
-#' Calculates the total area in a series of annuli, summed over all in...
+#' Total area in a series of annuli, summed over all individuals in a dataset. 
 #'
 #' @description
-#'
-#' Calculates the total area in a series of annuli, summed over all individuals in the
-#' submitted dataset. Calls CalcRingArea to do the calculations for the area within
-#' a distance r of every individual, then subtracts successive areas to get 
-#' the area within annuli. This is ordinarily only used as a subroutine of RipUvK.
-#'
-#' @param spdata A single dataframe with x-y coordinates of individuals. 
-#' @param r A vector of distances defining the successive annuli.
+#' Calculates the total area in a series of annuli, summed over all individuals
+#' in the submitted dataset. Calls CalcRingArea to do the calculations for the
+#' area within a distance r of every individual, then subtracts successive areas
+#' to get the area within annuli. This is ordinarily only used as a subroutine
+#' of RipUvK.
+#' 
 #' @template plotdim
+#' @param spdata A single dataframe with x-y coordinates of individuals.
+#' @param r A vector of distances defining the successive annuli.
 #' 
 'Annuli'
 

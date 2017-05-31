@@ -9,7 +9,7 @@ NDcount(censdata, r = 20, plotdim = c(1000, 500))
 \arguments{
 \item{censdata}{A table of plot census data.}
 
-\item{r}{Radius}
+\item{r}{Radius.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 }
@@ -18,7 +18,7 @@ A single vector with neighbor counts within radius r for each
 individual in censdata.
 }
 \description{
-Calculates the count of neighbors within radius r with edge effect
+Calculates the count of neighbors within radius \code{r} with edge effect
 correction. Is a quick version of \code{\link[=NeighborDensities]{NeighborDensities()}} with limited
 capabilities.
 }

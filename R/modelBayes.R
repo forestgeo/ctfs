@@ -43,12 +43,22 @@
 #' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
 #'
 #' @template debug
-#' @template ycol
-#' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
-#' @param xcol The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
-#' @param start Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect
-#' @param startSD A starting value for the error model; there must be as many startSD as parameters needed by sdfunc
-#' @param model The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
+#' @template xcol_ycol
+#' @param data The table of data, in lmer-style, including one column to be
+#'   modeled (dependent variable, y), one or more predictors (independent
+#'   variables, x), and one random effect, using any column names.
+#' @param start Starting parameter values, either a vector with as many
+#'   parameters as the model needs, or a matrix of such vectors, one per random
+#'   effect
+#' @param startSD A starting value for the error model; there must be as many
+#'   startSD as parameters needed by sdfunc
+#' @param model The function name holding the model describing y's relationship
+#'   to all the x's, without quote marks. The first argument of the function
+#'   must be named x, the second param, with additional arguments allowed. The
+#'   model may accept x either a vector or a matrix, the latter for a multiple
+#'   regression. There can be any number of parameters, but the number must
+#'   match the number given as start parameters. The return value must be a
+#'   numeric vector with the same size as x.
 #' @param error A character variable; either "Binom", "Pois", "NegBinom", 
 #'   "Flat", "Gauss", or "GaussMultResid".
 #'   - 'Binom' uses binomial error, appropriate only for non-negative integer y;
@@ -65,15 +75,28 @@
 #'   - 'Flat' is a trivial model where the same likelihood is returned
 #'   regardless of parameters or data. It is for testing how parameter search
 #'   behaves in absence of data, as for describing an implied prior.
-#' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
-#' @param badparam The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.
-#' @param sdfunc The name of a function (unquoted) that models the error parameter as a function of the x's; the default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function.
-#' @param badSDparam The name of a function which tests for invalid parameters for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple version is provided, called badSD, which rejects a single parameter if it is < 0. 
+#' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or
+#'   inverse-Wishart for full covariance) vs. metropolis steps for updating
+#'   covariances.
+#' @param badparam The name of a function (unquoted) that tests a set of model
+#'   parameters for validity; must return TRUE if parameters are valid,
+#'   otherwise FALSE.
+#' @param sdfunc The name of a function (unquoted) that models the error
+#'   parameter as a function of the x's; the default uses the function named
+#'   constant, meaning the standard deviation is the same for all values of x.
+#'   Parameters for this function are estimated, just as parameters for the
+#'   model function.
+#' @param badSDparam The name of a function which tests for invalid parameters
+#'   for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple
+#'   version is provided, called badSD, which rejects a single parameter if it
+#'   is < 0.
 #' @param steps The number of steps to run the Gibbs sampler.
 #' @param showstep Information is printed to the screen every showstep steps.
-#' @param burnin The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.
-#' @param ... The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).
-#'
+#' @param burnin The number of steps to remove as burn-in before calculating
+#'   posterior distributions; not that all parameters are saved and returned
+#'   regardless.
+#' @param ... The typical R means for submitting additional parameters for
+#'   various functions used in the model (model, sdfunc, badparam, badSDparam).
 #'
 'modelBayes'
 

@@ -276,21 +276,21 @@
 #'
 'cartesian.to.polar'
 
-#' Convert polar coordinates to Cartesian. Returns a dataframe of two ...
+#' Convert polar coordinates to Cartesian.
 #'
 #' @description
+#' Convert polar coordinates to Cartesian. 
+#' 
+#' @return
+#' A dataframe of two columns named x and y.
 #'
-#' Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
-#'
-#' @param r input vector of radii (distance from origin)
+#' @param r A vector of radii (distance from origin).
 #' @param theta input vector of angle from horizontal (radians), same length as r
 #'
 #' @examples
 #' \dontrun{
-#' polar.to.cartesian(2,pi/3)}
-#'
-#'
-#'
+#' polar.to.cartesian(2, pi / 3)
+#' }
 #'
 'polar.to.cartesian'
 

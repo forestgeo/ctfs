@@ -4,40 +4,54 @@
 #'
 #'
 
-#' A Metropolis MCMC version of lmer. A single independent variable, y...
+#' A Metropolis MCMC version of lmer.
 #'
-#' @description
+#' @description 
+#' A Metropolis MCMC version of lmer. A single independent variable, y, can be
+#' fit against any number of predictors, x, with one random effect. Like lmer,
+#' the model error can be binomial or Gaussian, but there are two alternatives
+#' for the Gaussian (described below). Relative to lmer, the key advantage
+#' offered is that y can be any function of the x. A second advantage is that
+#' the MCMC produces posterior distributions on every parameter, so full
+#' confidence limits are available. The principal limitation relative to lmer is
+#' that only one random effect is allowed. In addition, the Bayesian MCMC
+#' approach is quite a bit slower.
+#' 
+#' @details
+#' Data are submitted the way lm or lmer require, with one single table, one row
+#' per observation; the random effects are in one column. The formula, however, 
+#' is not submitted using the R-style 'squiggle'~. Rather, the names of x, y,
+#' and random columns, are given. The model describing y's function of the x's
+#' is passed, and must be provided by the user (several are available within the
+#' CTFS R Package, though, in the Utilities topic). Examples below will serve to
+#' explain.
+#' 
+#' As in lmer, all parameters of the model follow a Gaussian hyperdistribution 
+#' across the random effects. There is an option to include a full covariance 
+#' matrix as the hyperdistribution, otherwise, only the variances are fit (ie, 
+#' the covariance matrix has only zeroes off-diagonal). There is also an option 
+#' to use the conjugate inverse-gamma or inverse-wishart for the variances and 
+#' covariances; otherwise, Metropolis steps are used.
+#' 
+#' A starting set of parameters for the model must be submitted. It can be a 
+#' vector as long as the number of parameters required by the model, or it can
+#' be a full matrix, with one row of parameters for each of the random effects.
+#' The latter requires knowing in advance the names of all the random effects.
+#' 
+#' There is a further complication included whose purpose is reducing memory 
+#' demand in big models with many MCMC steps. option paramfile allows the full 
+#' parameter matrix to be written into a text file every savestep steps, then 
+#' erased from memory.
 #'
-#' A Metropolis MCMC version of lmer. A single independent variable, y, can be fit against any number of predictors, x, 
-#' with one random effect. Like lmer, the model error can be binomial or Gaussian, 
-#' but there are two alternatives for the Gaussian (described below). Relative to lmer, the key advantage offered is that 
-#' y can be any function of the x. A second advantage is that the MCMC produces 
-#' posterior distributions on every parameter, so full confidence limits are available. The principal limitation relative to lmer is 
-#' that only one random effect is allowed. In addition, the Bayesian MCMC approach is quite a bit slower.
+#' This is to reduce memory needs. The function summaryMCMC restores the
+#' parameters from the text file into an giant R array.
 #'
+#' Further details are given in the description of all the arguments and the
+#' sample here, plus a tutorial on [Mortality changes](https://goo.gl/KGJYQe)
+#' offers a worked example.
 #'
-#' Data are submitted the way lm or lmer require, with one single table, one row per observation; the random effects 
-#' are in one column. The formula, however, is not submitted using the R-style 'squiggle'~. Rather, the names of x, y, and 
-#' random columns, are given. The model describing y's function of the x's is passed, and must be provided by the user 
-#'(several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
-#'
-#'
-#' As in lmer, all parameters of the model follow a Gaussian hyperdistribution across the random effects. There is an 
-#' option to include a full covariance matrix as the hyperdistribution, otherwise, only the variances are fit (ie, the
-#' covariance matrix has only zeroes off-diagonal). There is also an option to use the conjugate inverse-gamma or inverse-wishart for the variances and covariances; otherwise, Metropolis steps are used.
-#'
-#'
-#' A starting set of parameters for the model must be submitted. It can be a vector as long as the number of
-#' parameters required by the model, or it can be a full matrix, with one row of parameters for each of the random
-#' effects. The latter requires knowing in advance the names of all the random effects. 
-#'
-#'
-#' There is a further complication included whose purpose is reducing memory demand in big models with many MCMC steps. option paramfile allows the full parameter matrix to be written into a text file every savestep steps, then erased from memory. 
-#'
-#' This is to reduce memory needs. The function summaryMCMC restores the parameters from the text file into an giant R array. 
-#'
-#'
-#' The return value is a list with several components:
+#' @return 
+#' A list with several components:
 #' *  mu: A 2D array with the entire chain of model parameters (ie, fixed
 #' effects) from the Gibbs sampler
 #' *  sigma: A 3D array with the entire chain of covariances from the Gibbs
@@ -72,44 +86,71 @@
 #' dimension if for all the random effects, with each random effect having a
 #' matrix of model parameters for every step of the Gibbs's sampler
 #'
-#' Further details are given in the description of all the arguments and the
-#' sample here, plus a tutorial on [Mortality changes](https://goo.gl/KGJYQe)
-#' offers a worked example.
-#'
 #' @template debug
-#' @template ycol
-#' @param data The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
-#' @param xcol The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
-#' @param randcol The name of one column holding the random variable; must be a character variable.
-#' @param start Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect
-#' @param startSD A single starting value for the residual standard deviation, only used with Gaussian and Negative Binomial error models.
-#' @param startCov Starting values of the diagonal of the covariance matrix; ignored if a full matrix of start parameters is submitted. Required even if covariance matrix is not fitted, because needed as starting hyperSD.
-#' @param model The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
-#' @param error A character variable with 6 possible values: "Binom",
-#'   "NegBinom", "Pois", "Gauss", "GaussMultResid", or "Flat".
-#'   - 'Binom' uses binomial error for residuals
-#'   - NegBinom'uses negative binomial error for residuals; the SD is then the
-#'   dispersion parameter (k) of the negative binomial
-#'   - 'Poisson'uses Poisson error for residuals
-#'   - 'Gauss'uses Gaussian error for residuals with constant standard deviation
-#'   across groups
-#'   - 'GaussMultResid'uses Gaussian error for residuals, with standard
-#'   deviation a constant fraction of the model's prediction (and thus only
-#'   appropriate if predictions are strictly positive)
-#'   - Flat'is a trivial model where the same likelihood is returned regardless
-#'   of parameters or data. It is for testing how parameter search behaves in
-#'   absence of data, as for describing an implied prior.
-#' @param includeCovar TRUE or FALSE, whether to fit the full covariance matrix, vs. variances alone.
-#' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
-#' @param badparam The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.
-#' @param sdfunc The name of a function (unquoted) that models the residual standard deviation as a function of the x's, just like the model function. The default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function are.
-#' @param badSDparam The name of a function which tests for invalid parameters for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple version is provided, called badSD, which rejects a single parameter if it is < 0. 
-#' @param paramfile The name of a file where the entire MCMC chain of parameter values is stored at regular intervals; when parameters are written to the file, they are erased from memory, thus removing the need for the entire chain of all parameters being stored at once while the model is running.
-#' @param savestep Parameters are appended to paramfile every savestep steps; must be < steps.
+#' @template xcol_ycol
+#' @param data The table of data, in lmer-style, including one column to be 
+#'   modeled (dependent variable, y), one or more predictors (independent 
+#'   variables, x), and one random effect, using any column names.
+#' @param randcol The name of one column holding the random variable; must be a
+#'   character variable.
+#' @param start Starting parameter values, either a vector with as many
+#'   parameters as the model needs, or a matrix of such vectors, one per random
+#'   effect
+#' @param startSD A single starting value for the residual standard deviation,
+#'   only used with Gaussian and Negative Binomial error models.
+#' @param startCov Starting values of the diagonal of the covariance matrix;
+#'   ignored if a full matrix of start parameters is submitted. Required even if
+#'   covariance matrix is not fitted, because needed as starting hyperSD.
+#' @param model The function name holding the model describing y's relationship
+#'   to all the x's, without quote marks. The first argument of the function
+#'   must be named x, the second param, with additional arguments allowed. The
+#'   model may accept as x either a vector or a matrix, the latter for a
+#'   multiple regression. There can be any number of parameters, but the number
+#'   must match the number given as start parameters. The return value must be a
+#'   numeric vector with the same size as x.
+#' @param error A character variable with 6 possible values: "Binom", 
+#'   "NegBinom", "Pois", "Gauss", "GaussMultResid", or "Flat". - 'Binom' uses
+#'   binomial error for residuals - NegBinom'uses negative binomial error for
+#'   residuals; the SD is then the dispersion parameter (k) of the negative
+#'   binomial - 'Poisson'uses Poisson error for residuals - 'Gauss'uses Gaussian
+#'   error for residuals with constant standard deviation across groups -
+#'   'GaussMultResid'uses Gaussian error for residuals, with standard deviation
+#'   a constant fraction of the model's prediction (and thus only appropriate if
+#'   predictions are strictly positive) - Flat'is a trivial model where the same
+#'   likelihood is returned regardless of parameters or data. It is for testing
+#'   how parameter search behaves in absence of data, as for describing an
+#'   implied prior.
+#' @param includeCovar TRUE or FALSE, whether to fit the full covariance matrix,
+#'   vs. variances alone.
+#' @param update 'conjugate'or 'metropolis', whether to use inverse-gamma (or
+#'   inverse-Wishart for full covariance) vs. metropolis steps for updating
+#'   covariances.
+#' @param badparam The name of a function (unquoted) that tests a set of model
+#'   parameters for validity; must return TRUE if parameters are valid,
+#'   otherwise FALSE.
+#' @param sdfunc The name of a function (unquoted) that models the residual
+#'   standard deviation as a function of the x's, just like the model function.
+#'   The default uses the function named constant, meaning the standard
+#'   deviation is the same for all values of x. Parameters for this function are
+#'   estimated, just as parameters for the model function are.
+#' @param badSDparam The name of a function which tests for invalid parameters
+#'   for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple
+#'   version is provided, called badSD, which rejects a single parameter if it
+#'   is < 0.
+#' @param paramfile The name of a file where the entire MCMC chain of parameter
+#'   values is stored at regular intervals; when parameters are written to the
+#'   file, they are erased from memory, thus removing the need for the entire
+#'   chain of all parameters being stored at once while the model is running.
+#' @param savestep Parameters are appended to paramfile every savestep steps;
+#'   must be < steps.
 #' @param steps The number of steps to run the Gibbs sampler.
 #' @param showstep Information is printed to the screen every showstep steps.
-#' @param burnin The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.
-#' @param ... The typical R means for submitting additional parameters for various functions used in the model (`model`, `sdfunc`, `badparam`, `badSDparam`).
+#' @param burnin The number of steps to remove as burn-in before calculating
+#'   posterior distributions; not that all parameters are saved and returned
+#'   regardless.
+#' @param ... The typical R means for submitting additional parameters for
+#'   various functions used in the model (`model`, `sdfunc`, `badparam`,
+#'   `badSDparam`).
 #'
 #' @examples
 #' \dontrun{
@@ -155,7 +196,6 @@
 #' mod$best
 #' names(mod)
 #' }
-#'
 #'
 'lmerBayes'
 

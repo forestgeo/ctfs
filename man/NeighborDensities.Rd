@@ -16,7 +16,7 @@ are not part of census data. It must contain coordinates (gx,gy), species
 id (sp) and tag. It will count the neighbors in censdata but only for these
 focal coordinates.}
 
-\item{r}{radius to count neighbors}
+\item{r}{Radius.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
@@ -40,18 +40,19 @@ if it is present.
 \description{
 Calculates the total number or basal area of conspecific and
 heterospecific neighbors at a radius r with edge effect correction. Most
-arguments aim to describe the type of neighbors to count
-
-Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs
-package.
+arguments aim to describe the type of neighbors to count.
+\code{\link[=NeighborDensities]{NeighborDensities()}} counts neighbors for each of the individuals in
+censdata.
 }
 \details{
 \itemize{
-\item \code{mindbh} refers to \emph{neighbors}, so here it is the minimum size of neighbors
-to be counted.
-\item \code{censdata} should have the coordinates (gx, gy), species id (sp), status,
-tag and dbh. It counts neighbors for each of the individuals in censdata.
+\item Arguments \code{mindbh} and \code{r} refer to neighbours
+\item \code{censdata} should have the coordinates gx, gy, species id \code{sp}, \code{status},
+\code{tag} and \code{dbh}.
 }
+
+Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs
+package.
 }
 \examples{
 \dontrun{

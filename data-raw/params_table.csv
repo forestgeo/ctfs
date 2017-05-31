@@ -1,9 +1,11 @@
 fun,definition,params
-lmerBayes,"The typical R means for submitting additional parameters for various functions used in the model (`model`, `sdfunc`, `badparam`, `badSDparam`).
+lmerBayes,"The typical R means for submitting additional parameters for
+#'   various functions used in the model (`model`, `sdfunc`, `badparam`,
+#'   `badSDparam`).
 #'
 #' ",...
-modelBayes,"The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).
-#'
+modelBayes,"The typical R means for submitting additional parameters for
+#'   various functions used in the model (model, sdfunc, badparam, badSDparam).
 #'",...
 model.littleR.Gibbs,"the default includes every species, but this can be set to
 #'   a minimum and maximum abundance (first census); species with abundances
@@ -49,13 +51,23 @@ model.littleR.Gibbs,"name of a function which checks the model parameters
 #'   for bad values; for modeltype asymexp, must be bad.asymexp.param, for
 #'   modeltype asympower, must be bad.asympower.param
 #' ",bad.modelparam
-lmerBayes,"The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.
+lmerBayes,"The name of a function (unquoted) that tests a set of model
+#'   parameters for validity; must return TRUE if parameters are valid,
+#'   otherwise FALSE.
 #' ",badparam
-modelBayes,"The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.
+modelBayes,"The name of a function (unquoted) that tests a set of model
+#'   parameters for validity; must return TRUE if parameters are valid,
+#'   otherwise FALSE.
 #' ",badparam
-lmerBayes,"The name of a function which tests for invalid parameters for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple version is provided, called badSD, which rejects a single parameter if it is < 0. 
+lmerBayes,"The name of a function which tests for invalid parameters
+#'   for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple
+#'   version is provided, called badSD, which rejects a single parameter if it
+#'   is < 0.
 #' ",badSDparam
-modelBayes,"The name of a function which tests for invalid parameters for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple version is provided, called badSD, which rejects a single parameter if it is < 0. 
+modelBayes,"The name of a function which tests for invalid parameters
+#'   for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple
+#'   version is provided, called badSD, which rejects a single parameter if it
+#'   is < 0.
 #' ",badSDparam
 graph.abundmodel,"if TRUE, histogram is bar graph
 #' ",bartype
@@ -69,9 +81,13 @@ map,"Type of box to appear around species name. The default, 'n', means
 #' ",bty
 model.littleR.Gibbs,"number of steps of sampler to exclude as burn-in
 #' ",burn
-lmerBayes,"The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.
+lmerBayes,"The number of steps to remove as burn-in before calculating
+#'   posterior distributions; not that all parameters are saved and returned
+#'   regardless.
 #' ",burnin
-modelBayes,"The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.
+modelBayes,"The number of steps to remove as burn-in before calculating
+#'   posterior distributions; not that all parameters are saved and returned
+#'   regardless.
 #' ",burnin
 map,"If TRUE, only black, white, and grays are used.
 #' ",bw
@@ -144,9 +160,13 @@ find.climits,"The number of deaths by the end.
 image_dataframe,"A data frame with at least 3 columns, 2 of which are coordinates
 #'   and one a numerical response at those coordinates
 #' ",data
-lmerBayes,"The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
+lmerBayes,"The table of data, in lmer-style, including one column to be 
+#'   modeled (dependent variable, y), one or more predictors (independent 
+#'   variables, x), and one random effect, using any column names.
 #' ",data
-modelBayes,"The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.
+modelBayes,"The table of data, in lmer-style, including one column to be
+#'   modeled (dependent variable, y), one or more predictors (independent
+#'   variables, x), and one random effect, using any column names.
 #' ",data
 graph.abundmodel,"optional name of file where the fitted result is saved
 #' ",datafile
@@ -196,20 +216,18 @@ trim.growth,"A number. Numbers such as 10000 are high and will
 trim.growth,"A number. Numbers such as 10000 are high and will
 #'   return all measures.
 #' ",maxgrow
-lmerBayes,"A character variable with 6 possible values: ""Binom"",
-#'   ""NegBinom"", ""Pois"", ""Gauss"", ""GaussMultResid"", or ""Flat"".
-#'   - 'Binom' uses binomial error for residuals
-#'   - NegBinom'uses negative binomial error for residuals; the SD is then the
-#'   dispersion parameter (k) of the negative binomial
-#'   - 'Poisson'uses Poisson error for residuals
-#'   - 'Gauss'uses Gaussian error for residuals with constant standard deviation
-#'   across groups
-#'   - 'GaussMultResid'uses Gaussian error for residuals, with standard
-#'   deviation a constant fraction of the model's prediction (and thus only
-#'   appropriate if predictions are strictly positive)
-#'   - Flat'is a trivial model where the same likelihood is returned regardless
-#'   of parameters or data. It is for testing how parameter search behaves in
-#'   absence of data, as for describing an implied prior.
+lmerBayes,"A character variable with 6 possible values: ""Binom"", 
+#'   ""NegBinom"", ""Pois"", ""Gauss"", ""GaussMultResid"", or ""Flat"". - 'Binom' uses
+#'   binomial error for residuals - NegBinom'uses negative binomial error for
+#'   residuals; the SD is then the dispersion parameter (k) of the negative
+#'   binomial - 'Poisson'uses Poisson error for residuals - 'Gauss'uses Gaussian
+#'   error for residuals with constant standard deviation across groups -
+#'   'GaussMultResid'uses Gaussian error for residuals, with standard deviation
+#'   a constant fraction of the model's prediction (and thus only appropriate if
+#'   predictions are strictly positive) - Flat'is a trivial model where the same
+#'   likelihood is returned regardless of parameters or data. It is for testing
+#'   how parameter search behaves in absence of data, as for describing an
+#'   implied prior.
 #' ",error
 modelBayes,"A character variable; either ""Binom"", ""Pois"", ""NegBinom"", 
 #'   ""Flat"", ""Gauss"", or ""GaussMultResid"".
@@ -310,7 +328,8 @@ NeighborDensities,"(c(""A"")) a vector of status to include in the neighbors, by
 #' ",include
 fullplot.imageJ,"whether the subfolders are to be searched for map files also
 #' ",include.subdir
-lmerBayes,"TRUE or FALSE, whether to fit the full covariance matrix, vs. variances alone.
+lmerBayes,"TRUE or FALSE, whether to fit the full covariance matrix,
+#'   vs. variances alone.
 #' ",includeCovar
 CTFSplot,"can be set to FALSE if the species table is not available
 #'
@@ -379,9 +398,21 @@ growth,"Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
 graph.abundmodel,"minimum abundance of species to be used in histogram of
 #'   observed rates of population change
 #' ",minabund
-lmerBayes,"The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept as x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
+lmerBayes,"The function name holding the model describing y's relationship
+#'   to all the x's, without quote marks. The first argument of the function
+#'   must be named x, the second param, with additional arguments allowed. The
+#'   model may accept as x either a vector or a matrix, the latter for a
+#'   multiple regression. There can be any number of parameters, but the number
+#'   must match the number given as start parameters. The return value must be a
+#'   numeric vector with the same size as x.
 #' ",model
-modelBayes,"The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x. 
+modelBayes,"The function name holding the model describing y's relationship
+#'   to all the x's, without quote marks. The first argument of the function
+#'   must be named x, the second param, with additional arguments allowed. The
+#'   model may accept x either a vector or a matrix, the latter for a multiple
+#'   regression. There can be any number of parameters, but the number must
+#'   match the number given as start parameters. The return value must be a
+#'   numeric vector with the same size as x.
 #' ",model
 graph.abundmodel,"form of probability distribution, matching what was used
 #'   when fit was created by model.littleR.Gibbs
@@ -410,7 +441,10 @@ map,"The name of the file to export to.
 #' ",outfile
 assemble.demography,"The results from one of the demographic functions
 #' ",output
-lmerBayes,"The name of a file where the entire MCMC chain of parameter values is stored at regular intervals; when parameters are written to the file, they are erased from memory, thus removing the need for the entire chain of all parameters being stored at once while the model is running.
+lmerBayes,"The name of a file where the entire MCMC chain of parameter
+#'   values is stored at regular intervals; when parameters are written to the
+#'   file, they are erased from memory, thus removing the need for the entire
+#'   chain of all parameters being stored at once while the model is running.
 #' ",paramfile
 CTFSplot,"the name of the folder in which the tables are stored, defaults to CTFSRPackage
 #' ",path
@@ -440,15 +474,11 @@ image_dataframe,"Size of points to be drawn
 #'
 #' ",ptsize
 Annuli,"A vector of distances defining the successive annuli.
+#' ",r
+polar.to.cartesian,"A vector of radii (distance from origin).
 #' ",r
-NDcount,"Radius 
-#'
-#' ",r
-NeighborDensities,"radius to count neighbors
-#' ",r
-polar.to.cartesian,"input vector of radii (distance from origin)
-#' ",r
-lmerBayes,"The name of one column holding the random variable; must be a character variable.
+lmerBayes,"The name of one column holding the random variable; must be a
+#'   character variable.
 #' ",randcol
 spparea.sq,"the ratio of y to x dimensions of the rectangles; rectdim=1
 #'   (the default) for squares
@@ -483,11 +513,20 @@ RipUvK,"The distances defining intervals in which Ripley's statistic is
 #' ",rseq
 mortality.calculation,"Number of survivors
 #' ",S
-lmerBayes,"Parameters are appended to paramfile every savestep steps; must be < steps.
+lmerBayes,"Parameters are appended to paramfile every savestep steps;
+#'   must be < steps.
 #' ",savestep
-lmerBayes,"The name of a function (unquoted) that models the residual standard deviation as a function of the x's, just like the model function. The default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function are.
+lmerBayes,"The name of a function (unquoted) that models the residual
+#'   standard deviation as a function of the x's, just like the model function.
+#'   The default uses the function named constant, meaning the standard
+#'   deviation is the same for all values of x. Parameters for this function are
+#'   estimated, just as parameters for the model function are.
 #' ",sdfunc
-modelBayes,"The name of a function (unquoted) that models the error parameter as a function of the x's; the default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function.
+modelBayes,"The name of a function (unquoted) that models the error
+#'   parameter as a function of the x's; the default uses the function named
+#'   constant, meaning the standard deviation is the same for all values of x.
+#'   Parameters for this function are estimated, just as parameters for the
+#'   model function.
 #' ",sdfunc
 selectrandomquad,"the ratio of y to x dimensions of the rectangles; `rectdim = 1` 
 #'   (the default) for squares.
@@ -525,7 +564,7 @@ trim.growth,"Slope of error of measurement line.
 spparea.sq,"name of the column in the table having the species; defaults
 #'   to 'sp', but can be set to 'genus'for 'family'if desired
 #' ",spcolumn
-Annuli,"A single dataframe with x-y coordinates of individuals. 
+Annuli,"A single dataframe with x-y coordinates of individuals.
 #' ",spdata
 map,"One or more species codes to be mapped.
 #' ",species
@@ -556,20 +595,28 @@ map,"A table with species codes and Latin names can be submitted as
 #'   (eg, bci.spptable). It can be set to NULL if not available, then only the
 #'   species code (as submitted) appears on the map.
 #' ",spplist
-lmerBayes,"Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect
+lmerBayes,"Starting parameter values, either a vector with as many
+#'   parameters as the model needs, or a matrix of such vectors, one per random
+#'   effect
 #' ",start
-modelBayes,"Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect
+modelBayes,"Starting parameter values, either a vector with as many
+#'   parameters as the model needs, or a matrix of such vectors, one per random
+#'   effect
 #' ",start
 model.littleR.Gibbs,"parameter values at the outset, 1) mean of log(mortality)
 #'   rate, 2) SD of log(mortality), 3) center of distribution of little r, 4)
 #'   rate (or SD) of the distribution of little r; if an asymmetric model is
 #'   chosen, the latter is the initial value for both left and right rate
 #' ",start.param
-lmerBayes,"Starting values of the diagonal of the covariance matrix; ignored if a full matrix of start parameters is submitted. Required even if covariance matrix is not fitted, because needed as starting hyperSD.
+lmerBayes,"Starting values of the diagonal of the covariance matrix;
+#'   ignored if a full matrix of start parameters is submitted. Required even if
+#'   covariance matrix is not fitted, because needed as starting hyperSD.
 #' ",startCov
-lmerBayes,"A single starting value for the residual standard deviation, only used with Gaussian and Negative Binomial error models.
+lmerBayes,"A single starting value for the residual standard deviation,
+#'   only used with Gaussian and Negative Binomial error models.
 #' ",startSD
-modelBayes,"A starting value for the error model; there must be as many startSD as parameters needed by sdfunc
+modelBayes,"A starting value for the error model; there must be as many
+#'   startSD as parameters needed by sdfunc
 #' ",startSD
 growth,"Logical. Default (FALSE) returns confidence limits, otherwise
 #'   returns the SD in growth rate per group.
@@ -632,9 +679,13 @@ spparea.sq,"a vector of species names that should not be included in
 #'   species counts (see the function unidentified.species()
 #'
 #' ",unidennames
-lmerBayes,"'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
+lmerBayes,"'conjugate'or 'metropolis', whether to use inverse-gamma (or
+#'   inverse-Wishart for full covariance) vs. metropolis steps for updating
+#'   covariances.
 #' ",update
-modelBayes,"'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.
+modelBayes,"'conjugate'or 'metropolis', whether to use inverse-gamma (or
+#'   inverse-Wishart for full covariance) vs. metropolis steps for updating
+#'   covariances.
 #' ",update
 complete.plotmap,"graph width; see map() function
 #' ",wd
@@ -656,10 +707,6 @@ tojulian," A character representation of a date.
 #' ",x
 maptopo,"xxxdocparam
 #' ",xaxis
-lmerBayes,"The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
-#' ",xcol
-modelBayes,"The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.
-#' ",xcol
 RipUvK,"The names of the columns holding x and y coordinates.
 #' ",xcol
 RipUvK,"The names of the columns holding x and y coordinates.
