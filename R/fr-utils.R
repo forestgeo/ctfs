@@ -507,5 +507,37 @@ find_xxxdocparam <- function() {
 
 
 
+
+
+
+# Which arguments are documented and which aren't? ------------------------
+
+strip_rd <- function(string) {stringr::str_replace(string, ".Rd$|.rd$", "")}
+
+args_in_man <- function(file_now) {
+  read_lines(file_now) %>%
+    stringr::str_subset(stringr::fixed("\\item{")) %>% 
+    stringr::str_replace(stringr::fixed("\\item{"), "") %>%
+    stringr::str_replace("^([^\\}]+)\\}.*$", "\\1")
+}
+
+table_args_in_man <- function() {
+  path <- "./man/"
+  files_in_man <- tibble::tibble(
+    file = dir(path),
+    path = paste0(path, file)
+  )
+  
+  # If NA, not documented
+  files_in_man %>% 
+    dplyr::mutate(params = purrr::map(path, args_in_man)) %>%
+    tidyr::unnest() %>% 
+    dplyr::right_join(files_in_man) %>% 
+    dplyr::mutate(fun = strip_rd(file)) %>% 
+    dplyr::select(fun, params)
+}
+
+
+
 # end ---------------------------------------------------------------------
 

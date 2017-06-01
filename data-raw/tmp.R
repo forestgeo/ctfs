@@ -1,12 +1,9 @@
 
-# Compare forestr and CTFS-CRAN -------------------------------------------
-
-
-
 # setup -------------------------------------------------------------------
 
-library(dplyr)
-library(forestr)
+library(tidyverse)
+library(stringr)
+
 devtools::load_all()
 
 lower_strip_rd <- function(string) {
@@ -14,6 +11,71 @@ lower_strip_rd <- function(string) {
     stringr::str_replace(string, ".Rd$|.rd$", "")
   )
 }
+
+
+
+# Which arguments are documented and which aren't? ------------------------
+
+# The goal is to reduce the number of undocumented arguments ASAP; this can be
+# done by identifying which arguments are most commonly needed and which are or
+# aren't documented. The fastest strategy should be to start documenting those 
+# that are formals in the higher number of function but are documented the
+# smaller number of functions.
+
+library(tidyverse)
+devtools::load_all()
+
+args_in_man <- table_args_in_man() %>% 
+  count(params) %>% 
+  rename(n_man = n) %>% 
+  right_join(table_args_in_man()) %>% 
+  arrange(n_man, params, fun) %>% 
+  left_join(params_table)
+
+# Exclude items that are not functions
+not_a_function <- c("forestr", "MONTHNAMES")
+args_in_man <- args_in_man %>% filter(! fun %in% not_a_function)
+
+args_formals <- args_in_man %>% 
+  mutate(formals = purrr::map(fun, args_of)) %>% 
+  unnest()
+
+
+
+
+
+
+
+
+
+args_formals %>% 
+  count(formals) %>% 
+  rename(n_frml = n) %>% 
+  rename(params = formals) %>% 
+  right_join(args_formals) %>% 
+  arrange(desc(n_frml), params, n_man, fun) %>% 
+  View()
+
+# xxxcont. now go off and document!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Compare params in forestr versus CTFS'CRAN ------------------------------
+
 fr <- lower_strip_rd(dir("man"))
 cran <- lower_strip_rd(dir("../CTFS-CRAN/man/"))
 setdiff(cran, fr)
@@ -84,20 +146,7 @@ remain <- setdiff(cran, c(done, similar$cran)) %>% sort()
 remain
 length(remain)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# next --------------------------------------------------------------------
+# Find duplicated params --------------------------------------------------
 
 table_params_all(update = T)
 
@@ -124,6 +173,26 @@ library(stringr)
 read_lines("string.R") %>% 
   str_replace("^.*([0-9])$", "\\1") %>% 
   as.numeric() %>% sum()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
