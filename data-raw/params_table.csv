@@ -70,6 +70,7 @@ map,"Type of box to appear around species name. The default, 'n', means
 #'   no box; set to 'o'to see the box.
 #' ",bty
 model.littleR.Gibbs,"number of steps of sampler to exclude as burn-in
+#'
 #' ",burn
 lmerBayes,"The number of steps to remove as burn-in before calculating
 #'   posterior distributions; not that all parameters are saved and returned
@@ -478,12 +479,6 @@ RipUvK,"creates a graph to show one omega value for each species, as a
 split_data,"xxxdocparam
 #'
 #' ",showOutput
-lmerBayes,"Information is printed to the screen every showstep steps.
-#' ",showstep
-model.littleR.Gibbs,"print hyperparameters and likelihood to the screen every
-#'   showstep steps
-#'
-#' ",showstep
 complete.plotmap,"the side in inches of the graph; see map()
 #'",side
 map,"The size of plotting points, to match the number of diameter 
@@ -549,21 +544,11 @@ modelBayes,"A starting value for the error model; there must be as many
 growth,"Logical. Default (FALSE) returns confidence limits, otherwise
 #'   returns the SD in growth rate per group.
 #' ",stdev
-lmerBayes,"The number of steps to run the Gibbs sampler.
-#' ",steps
-model.littleR.Gibbs,"number of steps to run the Gibbs sampler
-#' ",steps
 SectionCorrection,"the subquadrat to be corrected
-#' ",subquad
-fullplot.imageJ,"used for map files that are smaller than 20x20m (i.e.
-#'   10x10m). They should be named clockwise from the lower left subquadrat.
-#'
-#' ",subquadratsuffix
-SectionCorrection,"the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.
-#'
-#'",subquadratsuffix
+#'",subquad
 fullplot.imageJ,"the extension used for the map files. The imageJ default is
 #'   "".txt"".
+#'
 #' ",suffix
 map,"A vector of symbols, one per species. Can be anything accepted
 #'   by R for pch (plot character in the function plot()). If NULL, defaults are
@@ -642,14 +627,6 @@ image_dataframe,"These allow the columns of data to carry non-standard
 image_dataframe,"These allow the columns of data to carry non-standard
 #'   names
 #' ",zcol
-graph.abundmodel,"axis names
-#' ",xname
-graph.abundmodel,"axis names
-#' ",yname
-imageGraph,"names for the axes
-#' ",xname
-imageGraph,"names for the axes
-#' ",yname
 graph.abundmodel,"Range of graph's x-axis (or y-axis).
 #' ",xrange
 graph.abundmodel,"Range of graph's x-axis (or y-axis).

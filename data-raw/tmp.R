@@ -113,7 +113,7 @@ params_table %>%
   left_join(params_table) %>% 
   arrange(desc(n), params, fun) %>% 
   # select(params, n) %>% 
-  # filter(n > 1) %>%
+  filter(n > 1) %>%
   unique() %>% 
   View()
 

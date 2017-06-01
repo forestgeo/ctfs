@@ -185,7 +185,6 @@ offers a worked example.
 }
 \examples{
 \dontrun{
-
 # Assume two plot datasets from BCI are attached, bci.full6 and bci.full7.
 # Subset to trees above 10 cm dbh and just 10 species for illustration (the
 # model will run much faster). The fixed effect, species - level variation

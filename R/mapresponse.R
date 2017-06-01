@@ -106,6 +106,7 @@
 #' data, using R's contourLines. The graph can be sent to the screen or 
 #' exported.
 #' 
+#' @template xname_yname
 #' @param matrixdata a list having components x, y, and mat, exactly the output
 #'   of coldata.to.imagemat
 #' @param levels if set, then contours are drawn (or colors assigned) to breaks 
@@ -113,7 +114,6 @@
 #'   NULL to let breaks control
 #' @param breaks if set, a vector of breaks for the image colors and the contour
 #'   lines; if NULL, levels controls the breaks
-#' @param xname,yname names for the axes
 #' @param xrange,yrange if `NULL`, all `x` (or `y`) are included, otherwise, the
 #'   graph will only include `x` (or `y`) inside `xrange` or (`yrange`)
 #' @param axisdiv the division between tick marks; must be a vector of 2, first

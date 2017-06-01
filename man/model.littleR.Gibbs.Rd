@@ -45,12 +45,11 @@ of the center) `modeltype = "asympower", with the quotes.}
 for bad values; for modeltype asymexp, must be bad.asymexp.param, for
 modeltype asympower, must be bad.asympower.param}
 
-\item{steps}{number of steps to run the Gibbs sampler}
+\item{steps}{The number of steps to run the Gibbs sampler.}
 
 \item{burn}{number of steps of sampler to exclude as burn-in}
 
-\item{showstep}{print hyperparameters and likelihood to the screen every
-showstep steps}
+\item{showstep}{Information is printed to the screen every showstep steps.}
 
 \item{debug}{Logical. If TRUE, call browser to debug.}
 }

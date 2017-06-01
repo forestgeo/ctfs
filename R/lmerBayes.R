@@ -88,6 +88,7 @@
 #'
 #' @template debug
 #' @template xcol_ycol
+#' @template steps_showstep
 #' @param data The table of data, in lmer-style, including one column to be 
 #'   modeled (dependent variable, y), one or more predictors (independent 
 #'   variables, x), and one random effect, using any column names.
@@ -145,8 +146,6 @@
 #'   chain of all parameters being stored at once while the model is running.
 #' @param savestep Parameters are appended to paramfile every savestep steps;
 #'   must be < steps.
-#' @param steps The number of steps to run the Gibbs sampler.
-#' @param showstep Information is printed to the screen every showstep steps.
 #' @param burnin The number of steps to remove as burn-in before calculating
 #'   posterior distributions; not that all parameters are saved and returned
 #'   regardless.
@@ -156,7 +155,6 @@
 #'
 #' @examples
 #' \dontrun{
-#'
 #' # Assume two plot datasets from BCI are attached, bci.full6 and bci.full7.
 #' # Subset to trees above 10 cm dbh and just 10 species for illustration (the
 #' # model will run much faster). The fixed effect, species - level variation

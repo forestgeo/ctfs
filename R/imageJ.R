@@ -15,6 +15,7 @@
 #' Updated Aug 2014 to handle files with no trees (just 4 corner labels).
 #' 
 #' @template gridsize_map
+#' @template subquadratsuffix
 #' @param path The complete path name where the map files to be converted are
 #'   found.
 #' @param include.subdir whether the subfolders are to be searched for map files
@@ -32,8 +33,6 @@
 #' @param prefix the prefix used for all the map files before the quadrat name
 #' @param suffix the extension used for the map files. The imageJ default is
 #'   ".txt".
-#' @param subquadratsuffix used for map files that are smaller than 20x20m (i.e.
-#'   10x10m). They should be named clockwise from the lower left subquadrat.
 #'
 #' @examples
 #' \dontrun{
@@ -58,19 +57,17 @@
 #'
 'fullplot.imageJ'
 
-#'
-#' This function is called by fullplot.imageJ in the case that the map...
+#' Correct coordinates, making them from 0 to 20.
 #'
 #' @description
+#' This function is called by fullplot.imageJ in the case that the maps are
+#' subquadrats to correct the coordinates and make them from 0 to 20 depending
+#' on what section of the map the subquadrat belongs to.
 #'
-#' This function is called by fullplot.imageJ in the case that the maps are subquadrats to correct the coordinates and make them from 0 to 20 depending on
-#' what section of the map the subquadrat belongs to.
-#'
+#' @template gridsize_map
+#' @template subquadratsuffix
 #' @param pts the coordinates to be corrected
 #' @param subquad the subquadrat to be corrected
-#' @template gridsize_map
-#' @param subquadratsuffix the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.
-#'
 #'
 'SectionCorrection'
 

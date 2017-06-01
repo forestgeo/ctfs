@@ -26,6 +26,7 @@
 #' @template mindbh
 #' @template debug
 #' @template modeltype
+#' @template steps_showstep
 #' @param cns1,cns2 The two census R Analytical Tables, with earlier census
 #'   first
 #' @param demog optional, must match exactly the table created within the
@@ -40,10 +41,7 @@
 #' @param bad.modelparam name of a function which checks the model parameters
 #'   for bad values; for modeltype asymexp, must be bad.asymexp.param, for
 #'   modeltype asympower, must be bad.asympower.param
-#' @param steps number of steps to run the Gibbs sampler
 #' @param burn number of steps of sampler to exclude as burn-in
-#' @param showstep print hyperparameters and likelihood to the screen every
-#'   showstep steps
 #'
 #' @examples
 #' \dontrun{
@@ -198,6 +196,7 @@
 #' @template debug
 #' @template ltype_lwidth
 #' @template modeltype
+#' @template xname_yname
 #' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
 #' @param div width of bins for histogram of observed rate of population change
@@ -209,7 +208,6 @@
 #'   if conf = NULL, no confidence lines are added
 #' @param returnextreme whether to print a list of the fastest increases and
 #'   decreases in abundance to the screen
-#' @param xname,yname axis names
 #' @param graphit xxxdocparam if set to false,
 #' @param modelclr Line color; see ?[graphics::par()].
 #' @param bartype if TRUE, histogram is bar graph
