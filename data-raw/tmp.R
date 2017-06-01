@@ -115,15 +115,15 @@ params_table %>%
   # select(params, n) %>% 
   filter(n > 1) %>%
   unique() %>% 
-  View()
+  summarise(sum(n))
 
 
 
-# xxxcont. sdfunc
-
-
-
-
+library(readr)
+library(stringr)
+read_lines("string.R") %>% 
+  str_replace("^.*([0-9])$", "\\1") %>% 
+  as.numeric() %>% sum()
 
 
 

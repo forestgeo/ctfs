@@ -1,8 +1,14 @@
 # forestr 0.0.0.9000
 
-DOING
+TODO
 
-* Reduce duplicated instances of arguments documentation from XXX to YYY, mostly via roxygen2 @templates and @inheritParams. Forty three arguments were repeated multiple times (see `n` in table below), which complicates maintainance. If they mean the same, arguments in multiple function should point to a single source of documentation.
+Write a function to search in section usage of man/ for arguments that are documented elsewhere. Start with those that are most commonly used. By unit of effort, documenting those should reduce fastest the number of undocumented arguments.
+
+DONE
+
+* Reduce duplicated instances of arguments documentation from 132 to 41, mostly via roxygen2 @templates and @inheritParams. Duplicated arguments documentation complicates maintainance. If they mean the same, arguments in multiple function should point to a single source of documentation. Many arguments still remain that have the same name, however, they either don't mean the same in different fuctions or, rarely, if they mean the same or not is unclear.
+
+BEFORE: 43 arguments were repeated multiple times (see `n` in table below), adding up to 132 duplicated instances.
 
 ```R
              params     n
@@ -50,7 +56,40 @@ DOING
 40            xname     2
 41            yname     2
 42                z     2
+-------------------------
+sum(n)                132
 ```
+
+
+
+AFTER: 18 arguments remain that have the same name in two or more functions, adding up to 41 instances. These instances of arguments with thae same name either mean different things in different fuctions or, rarely, if they mean the same or not is unclear.
+
+```R
+    params     n
+     <chr> <int>
+ 1    type     4
+ 2       x     4
+ 3       y     3
+ 4    clrs     2
+ 5    data     2
+ 6 graphit     2
+ 7       h     2
+ 8    path     2
+ 9  ptsize     2
+10       r     2
+11  sdfunc     2
+12 startSD     2
+13       w     2
+14    xcol     2
+15  xrange     2
+16    ycol     2
+17  yrange     2
+18       z     2
+----------------
+sum(n)        41
+```
+
+
 
 DONE
 
