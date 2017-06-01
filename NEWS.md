@@ -1,5 +1,98 @@
 # forestr 0.0.0.9000
 
+TODO
+
+Write a function to search in section usage of man/ for arguments that are documented elsewhere. Start with those that are most commonly used. By unit of effort, documenting those should reduce fastest the number of undocumented arguments.
+
+DONE
+
+* Reduce duplicated instances of arguments documentation from 132 to 41, mostly via roxygen2 @templates and @inheritParams. Duplicated arguments documentation complicates maintainance. If they mean the same, arguments in multiple function should point to a single source of documentation. Many arguments still remain that have the same name, however, they either don't mean the same in different fuctions or, rarely, if they mean the same or not is unclear.
+
+BEFORE: 43 arguments were repeated multiple times (see `n` in table below), adding up to 132 duplicated instances.
+
+```R
+             params     n
+              <chr> <int>
+ 0          plotdim     9
+ 1         gridsize     8
+ 2           mindbh     6
+ 3                x     6
+ 4         censdata     5
+ 5            debug     5
+ 6             ycol     5
+ 7                r     4
+ 8             type     4
+ 9           xrange     4
+10           yrange     4
+11             data     3
+12           export     3
+13          outfile     3
+14         showstep     3
+15             size     3
+16            steps     3
+17             xcol     3
+18                y     3
+19              ...     2
+20         badparam     2
+21       badSDparam     2
+22           burnin     2
+23             clrs     2
+24            error     2
+25         filepath     2
+26          graphit     2
+27               ht     2
+28            ltype     2
+29           lwidth     2
+30            model     2
+31        modeltype     2
+32             path     2
+33           ptsize     2
+34           sdfunc     2
+35            start     2
+36          startSD     2
+37 subquadratsuffix     2
+38           update     2
+39               wd     2
+40            xname     2
+41            yname     2
+42                z     2
+-------------------------
+sum(n)                132
+```
+
+
+
+AFTER: 18 arguments remain that have the same name in two or more functions, adding up to 41 instances. These instances of arguments with thae same name either mean different things in different fuctions or, rarely, if they mean the same or not is unclear.
+
+```R
+    params     n
+     <chr> <int>
+ 1    type     4
+ 2       x     4
+ 3       y     3
+ 4    clrs     2
+ 5    data     2
+ 6 graphit     2
+ 7       h     2
+ 8    path     2
+ 9  ptsize     2
+10       r     2
+11  sdfunc     2
+12 startSD     2
+13       w     2
+14    xcol     2
+15  xrange     2
+16    ycol     2
+17  yrange     2
+18       z     2
+----------------
+sum(n)        41
+```
+
+
+
+DONE
+
 * 2017-05-29 Undocumented arguments = 1,008. After documenting arguments in functions with similar names between forestr and CTFS-CRAN. Those from functions which names match exactly had already been documented.
 
 

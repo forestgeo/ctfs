@@ -1,3 +1,4 @@
+
 # Compare forestr and CTFS-CRAN -------------------------------------------
 
 
@@ -98,13 +99,31 @@ length(remain)
 
 # next --------------------------------------------------------------------
 
+table_params_all(update = T)
+
+# commit
+
+devtools::load_all()
+
+# Explore what arguments are most duplicated. Work on those to maximize benefit
+# from effort unit
+
+params_table %>% 
+  count(params) %>% 
+  left_join(params_table) %>% 
+  arrange(desc(n), params, fun) %>% 
+  # select(params, n) %>% 
+  filter(n > 1) %>%
+  unique() %>% 
+  summarise(sum(n))
 
 
 
-
-
-
-
+library(readr)
+library(stringr)
+read_lines("string.R") %>% 
+  str_replace("^.*([0-9])$", "\\1") %>% 
+  as.numeric() %>% sum()
 
 
 

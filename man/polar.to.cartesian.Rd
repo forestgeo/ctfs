@@ -2,23 +2,24 @@
 % Please edit documentation in R/geometry.R
 \name{polar.to.cartesian}
 \alias{polar.to.cartesian}
-\title{Convert polar coordinates to Cartesian. Returns a dataframe of two ...}
+\title{Convert polar coordinates to Cartesian.}
 \usage{
 polar.to.cartesian(r, theta)
 }
 \arguments{
-\item{r}{input vector of radii (distance from origin)}
+\item{r}{A vector of radii (distance from origin).}
 
 \item{theta}{input vector of angle from horizontal (radians), same length as r}
 }
+\value{
+A dataframe of two columns named x and y.
+}
 \description{
-Convert polar coordinates to Cartesian. Returns a dataframe of two columns named x and y.
+Convert polar coordinates to Cartesian.
 }
 \examples{
 \dontrun{
-polar.to.cartesian(2,pi/3)}
-
-
-
+polar.to.cartesian(2, pi / 3)
+}
 
 }

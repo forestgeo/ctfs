@@ -20,10 +20,18 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 
 \item{tinydiv}{width of bins used to draw the fitted distribution}
 
-\item{modeltype}{form of probability distribution, matching what was used
-when fit was created by model.littleR.Gibbs}
+\item{modeltype}{Functional forms to fit to the distribution; it can be:
+* Gaussian `modeltype = "norm"`, with the quotes
+* Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) `modeltype = "asymnorm"`, with the quotes
+* Laplace (exponential distribution, with mirror image for negative values)
+`modeltype = "symexp"`, with the quotes
+* Asymmetric Laplace (different rate constant for left and right of the
+center) `modeltype = "asymexp"`, with the quotes
+* Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.}
 
-\item{xrange, yrange}{range of graph's x-axis and and y-axis}
+\item{xrange, yrange}{Range of graph's x-axis (or y-axis).}
 
 \item{minabund}{minimum abundance of species to be used in histogram of
 observed rates of population change}
@@ -36,8 +44,10 @@ decreases in abundance to the screen}
 
 \item{xname, yname}{axis names}
 
-\item{ltype, lwidth, modelclr}{type, width, color of the line showing fitted
-distribution}
+\item{ltype, lwidth}{Line type (`ltype`) and width (`width`); see
+?[graphics::par()].}
+
+\item{modelclr}{Line color; see ?\code{\link[graphics:par]{graphics::par()}}.}
 
 \item{bartype}{if TRUE, histogram is bar graph}
 
@@ -47,16 +57,16 @@ distribution}
 
 \item{add}{Logical. Whether to add points or line to an existing graph. if
 TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn}
+is drawn.}
 
 \item{ax}{if FALSE, the axes are not added}
 
 \item{mortcorr}{whether to graph the correlation between mortality and
 population change across species}
 
-\item{debug}{if TRUE, call browser to debug}
+\item{debug}{Logical. If TRUE, call browser to debug.}
 
-\item{graphit}{if set to false,}
+\item{graphit}{xxxdocparam if set to false,}
 }
 \description{
 Output histograms of little.r across species, observed and fitted, using the

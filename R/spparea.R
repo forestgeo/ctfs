@@ -4,39 +4,50 @@
 #'
 #'
 
-#' Function for calculating the number of species in replicated, rando...
+#' Number of species in replicated, randomly-placed quadrats of various areas.
 #'
 #' @description
-#'
 #' Function for calculating the number of species in replicated, randomly-placed
-#' quadrats of various areas. The variable size refers to the dimension (side)
-#' of the square, and can be a vector; replicates is the
-#' number of random draws per dimension. Full plot data are submitted as censdata.
-#'
-#' Species are counted as the number of unique values of sp in the R Analytical Table; unidentified species are not counted,
-#' based on a default unidennames; see the function unidentified.species in utilitiesCTFS.r.
-#'
-#' The return value is a list of two components. The first is a table giving the mean number (and SD) of individuals and species
-#' in all quadrat sizes submitted. The second is a table giving the number of individuals and species in every random quadrat created.
-#'
-#' In addition, a graph of species vs. individuals in every quadrat is created as the program runs. 
-#'
-#' This can also be used to calculate genus- or family-area curves with use of the spcolumn argument. The censdata table must have
-#' a new column added, for example the genus for every record, then spcolumn can be set to 'genus'. 
-#'
-#' Note: randomly-placed quadrats produce statistically preferable species-area
-#' curves than checkerboards of non-overlapping quadrats. If required, though,
-#' the function abundanceperquad() in abundance.r offers a fast way to count the
-#' number of species in checkerboard-type quadrats of different sizes.
+#' quadrats of various areas. The variable size refers to the dimension (side) 
+#' of the square, and can be a vector; replicates is the number of random draws
+#' per dimension. Full plot data are submitted as censdata.
 #' 
-#' @param censdata one R Analytical Table, either full or stem
-#' @param spcolumn name of the column in the table having the species; defaults to 'sp', but can be set to 'genus'for 'family'if desired
-#' @param size a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat
-#' @param rectdim the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares
-#' @param mindbh the minimum dbh included
-#' @param plotdim the x and y dimensions of the entire plot
+#' Species are counted as the number of unique values of sp in the R Analytical
+#' Table; unidentified species are not counted, based on a default unidennames;
+#' see the function unidentified.species in utilitiesCTFS.r.
+#' 
+#' @return 
+#' A list of two components. The first is a table giving the mean number (and
+#' SD) of individuals and species in all quadrat sizes submitted. The second is
+#' a table giving the number of individuals and species in every random quadrat
+#' created.
+#' 
+#' In addition, a graph of species vs. individuals in every quadrat is created 
+#' as the program runs.  This can also be used to calculate genus- or
+#' family-area curves with use of the spcolumn argument. The censdata table must
+#' have a new column added, for example the genus for every record, then
+#' spcolumn can be set to 'genus'.
+#' 
+#' @section Note:
+#' Randomly-placed quadrats produce statistically preferable species-area curves
+#' than checkerboards of non-overlapping quadrats. If required, though, the
+#' function [abundanceperquad()] offers a fast way to count the number of
+#' species in checkerboard-type quadrats of different sizes.
+#' 
+#' @details
+#' `censdata` can be either full or stem
+#' 
+#' @template plotdim
+#' @template mindbh
+#' @template censdata
+#' @template size
+#' @param spcolumn name of the column in the table having the species; defaults
+#'   to 'sp', but can be set to 'genus'for 'family'if desired
+#' @param rectdim the ratio of y to x dimensions of the rectangles; rectdim=1
+#'   (the default) for squares
 #' @param replicates the number of random quadrats to create, of each size
-#' @param unidennames a vector of species names that should not be included in species counts (see the function unidentified.species()
+#' @param unidennames a vector of species names that should not be included in
+#'   species counts (see the function unidentified.species()
 #'
 #' @examples
 #' \dontrun{
@@ -82,15 +93,14 @@
 #' [selectrandomquad2()] and [selectrandomquad3()] intended to overcome; but
 #' neither does.
 #'
-#' @param size A vector of quadrat sizes, referring to the x-dimension of a
-#'   rectangular quadrat
-#' @param shape the ratio of y to x dimensions of the rectangles; `rectdim = 1` 
+#' @template plotdim
+#' @template size
+#' @param shape The ratio of y to x dimensions of the rectangles; `rectdim = 1` 
 #'   (the default) for squares.
-#' @param plotdim the x and y dimensions of the entire plot
 #' @param rep The number of replicated random quadrats (per dimension submitted)
 #'   to create.
-#' @param graphit whether to graph the locations of the chosen quadrats on a
-#'   plot map
+#' @param graphit Whether to graph the locations of the chosen quadrats on a
+#'   plot map.
 #'
 #' @aliases selectrandomquad2 selectrandomquad3
 'selectrandomquad'
@@ -113,7 +123,7 @@
 #' @describeIn selectrandomquad The lower left x, y coordinates are drawn at
 #'   random from a range extending outside the plot dimensions, then quadrats
 #'   are used only if all 4 corners fall inside the plot.
-#'
+#'   
 'selectrandomquad3'
 
 

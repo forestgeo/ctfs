@@ -26,12 +26,9 @@ species codes as row names. It should be the CTFS R format species table
 (eg, bci.spptable). It can be set to NULL if not available, then only the
 species code (as submitted) appears on the map.}
 
-\item{plotdim}{The x and y dimensions of the plot. This is used often in R
-package. Note it assumes the starting coordinates are zero. If they are
-not, then xrange and yrange must be used.}
+\item{plotdim}{The x and y dimensions of the plot.}
 
-\item{xrange, yrange}{Minimum and maximum x coordinates and y coordinates to
-map. Allows a portion of plot to be drawn. Defaults to the entire plot.}
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
 \item{elevdata}{Elevation data can be submitted, then a topo map is overlaid.
 Elevation data must be submitted as a matrix (as described in readelevdata
@@ -47,7 +44,8 @@ rare species.}
 \item{deadtree}{Set NULL to map all trees, alive and dead; TRUE for dead
 only, FALSE for live only (relies on status in the R table).}
 
-\item{maintitle}{A title to appear at the top of the page, above the species name.}
+\item{maintitle}{A title to appear at the top of the page, above the species
+name.}
 
 \item{titlepos}{The position to place the title. The default is above the
 center of the plot, higher than the species name. It may require some
@@ -71,15 +69,18 @@ just set addlegend=FALSE to remove.}
 
 \item{labsize}{Size of axis labels.}
 
-\item{axisdiv}{the division between tick marks; must be a vector of 2, first for x ticks then for y ticks}
+\item{axisdiv}{the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks}
 
 \item{bty}{Type of box to appear around species name. The default, 'n', means
 no box; set to 'o'to see the box.}
 
-\item{ht, wd, plotside}{These are the height and width of the overall graph,
-and the vertical dimension (inches) of the map. The default work for pdf
-export or mapping to the screen, and ht and wd are inches. But if export is
-png, jpg, emf, height and width are pixels and need to be 500-1000.}
+\item{ht, wd}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
+
+\item{plotside}{The vertical dimension (inches) of the map.}
 
 \item{axspos}{Distance between axis numbers and axis.}
 
@@ -87,11 +88,18 @@ png, jpg, emf, height and width are pixels and need to be 500-1000.}
 
 \item{topoint}{Interval for topolines, if elevdata are submitted.}
 
-\item{export}{See function define.graphwindow.}
+\item{export}{* If `export = "no"`, does nothing, so the next graph uses the default R
+device. With this option, the size of the graph cannot have been set larger
+than the default size, which is usually 7 inches. 
+* If `export = "unix"`, a new graphics window in unix, size `h` and width `w`,
+will be opened allowing you to alter the size of the output. To do the same
+in Windows, set `export = "windows"`, or for Mac, `export = "mac"`.
+* To export the graph to a file, export can be "pdf", "png", "jpg", "bmp",
+"emf".}
 
 \item{filepath}{The folder to which map will be exported.}
 
-\item{outfile}{The name of the file to export to.}
+\item{outfile}{Filename for output.}
 }
 \description{
 Function to draw map of one or more species from one plot. Must give the
@@ -106,6 +114,12 @@ large". This happens if the export="no" option is used with the option
 plotside too large for the default graph size (usually 7 inches). If you use
 the option export="Windows", "Mac", or "Unix", then height and width can be
 set with arguments ht, wd, and plotside can be as large as you please.
+\itemize{
+\item \code{plotdim} assumes the starting coordinates are zero. If they are not, then
+xrange and yrange must be used.
+\item \code{xrange}, \code{yrange} allows a portion of plot to be drawn. Defaults to the
+entire plot.
+}
 }
 \examples{
 \dontrun{

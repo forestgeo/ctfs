@@ -10,7 +10,7 @@ elev.to.list(elevfile, gridsize = 5)
 \item{elevfile}{A data frame with x, y coordinates and elevation,
 bcielev.info.}
 
-\item{gridsize}{scale of elevation values (m)}
+\item{gridsize}{xxxdocparam scale of elevation values (m)}
 }
 \value{
 \itemize{

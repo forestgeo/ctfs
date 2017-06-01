@@ -11,9 +11,9 @@ gxgy.to.index(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 
 \item{gy}{Tree x and y coordinate.}
 
-\item{gridsize}{Side of the square quadrate, 20 x 20m by default.}
+\item{gridsize}{Side of the square quadrate.}
 
-\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+\item{plotdim}{The x and y dimensions of the plot.}
 }
 \description{
 Assign any location(s) a single index identifying the quadrat. The index runs

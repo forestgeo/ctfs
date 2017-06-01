@@ -2,7 +2,7 @@
 % Please edit documentation in R/imageJ.R
 \name{SectionCorrection}
 \alias{SectionCorrection}
-\title{This function is called by fullplot.imageJ in the case that the map...}
+\title{Correct coordinates, making them from 0 to 20.}
 \usage{
 SectionCorrection(pts, subquad, gridsize, subquadsuffix)
 }
@@ -11,11 +11,14 @@ SectionCorrection(pts, subquad, gridsize, subquadsuffix)
 
 \item{subquad}{the subquadrat to be corrected}
 
-\item{gridsize}{size of each individual map}
+\item{gridsize}{Size of each individual map.}
 
-\item{subquadratsuffix}{the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.}
+\item{subquadratsuffix}{Suffixes used to indicate what section of the map the
+subquadrat refers to. They should be named clockwise from the lower left.
+It can be used for map files that are smaller than 20x20m (i.e. 10x10m).}
 }
 \description{
-This function is called by fullplot.imageJ in the case that the maps are subquadrats to correct the coordinates and make them from 0 to 20 depending on
-what section of the map the subquadrat belongs to.
+This function is called by fullplot.imageJ in the case that the maps are
+subquadrats to correct the coordinates and make them from 0 to 20 depending
+on what section of the map the subquadrat belongs to.
 }
