@@ -423,17 +423,18 @@
 #'
 #' A trivial function to test whether numbers (scalar or vector) are odd. 
 #'
-#'
 'is.odd'
 
-#' Returns distance from a point to the nearest boundary of a rectangl...
+#' Distance from a point to the nearest boundary of a rectangle (plot).
 #'
 #' @description
-#'
-#' Returns distance from a point to the nearest boundary of a rectangle (plot). Accepts either separate
-#' x-y coordinates, or an object where x is first column, y is second. The lower left corner of the plot is
-#' assumed to be 0,0. 
-#'
+#' Returns distance from a point to the nearest boundary of a rectangle (plot).
+#' Accepts either separate x-y coordinates, or an object where x is first
+#' column, y is second. The lower left corner of the plot is assumed to be 0,0.
+#' 
+#' @template plotdim
+#' @template x_coordinates
+#' @template y_coordinates
 #'
 'border.distance'
 

@@ -106,13 +106,15 @@
 #' Given a dataframe that includes gx, gy coordinates, and a single va...
 #'
 #' @description
-#'
-#' Given a dataframe that includes gx, gy coordinates, and a single value radius,
-#' finds the area within radius from all points (summed). In the 
-#' absence of edge corrections, this would be simply N*pi*radius^2, where N is the
+#' Given a dataframe that includes gx, gy coordinates, and a single value
+#' radius, finds the area within radius from all points (summed). In the absence
+#' of edge corrections, this would be simply N*pi*radius^2, where N is the 
 #' number of points. But this uses the function partialcirclearea to do the edge
 #' correction. This is ordinarily only used as a subroutine for RipUvK.
-#'
+#' 
+#' @template plotdim
+#' @data A dataframe with gx and gy coordinates
+#' @param radius A number, a single value radius.
 #'
 'CalcRingArea'
 
