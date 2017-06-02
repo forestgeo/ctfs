@@ -666,5 +666,23 @@ args_count_formals_man <- function() {
     unique() %>% 
     dplyr::arrange(desc(frml_n), man_n)
 }
+
+
+
+# Find similar functions, which args may share a definition ---------------
+
+# Find commonalities among functions
+filter_fun_family <- function(funs) {
+  tab <- tibble_folder_file_fun(raw_strings())
+  filtered_file_fun <- tab %>% 
+    dplyr::filter(.data$fun %in% !!funs)
+  files_of_funs <- filtered_file_fun %>% 
+    dplyr::pull(.data$file)
+  tab %>%
+    filter(.data$file %in% !!files_of_funs)
+}
+
+
+
 # end ---------------------------------------------------------------------
 

@@ -20,8 +20,8 @@ devtools::load_all()
 # documented
 
 args_count_formals_man()
-
-
+funs <- c("bad.asympower.param", "cartesian.to.polar")
+filter_fun_family(funs)
 
 # xxxcont. now go off and document!
 
