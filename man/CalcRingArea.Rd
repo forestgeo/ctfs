@@ -7,6 +7,8 @@
 CalcRingArea(data, radius, plotdim)
 }
 \arguments{
+\item{data}{A dataframe with gx and gy coordinates}
+
 \item{radius}{A number, a single value radius.}
 
 \item{plotdim}{The x and y dimensions of the plot.}

@@ -113,7 +113,7 @@
 #' correction. This is ordinarily only used as a subroutine for RipUvK.
 #' 
 #' @template plotdim
-#' @data A dataframe with gx and gy coordinates
+#' @param data A dataframe with gx and gy coordinates
 #' @param radius A number, a single value radius.
 #'
 'CalcRingArea'

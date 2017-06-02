@@ -35,6 +35,8 @@ args_count_formals_man() %>%
 # this shows that allquadratslopes is a good function to focus, because it's not
 # in man
 
+
+
 # work on plotdim
 args_pull_definitions("plotdim")[[2]]
 # cool, there is a single definition
