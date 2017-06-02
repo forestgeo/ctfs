@@ -88,14 +88,14 @@ need to be 500-1000.}
 
 \item{topoint}{Interval for topolines, if elevdata are submitted.}
 
-\item{export}{* If `export = "no"`, does nothing, so the next graph uses the default R
-device. With this option, the size of the graph cannot have been set larger
-than the default size, which is usually 7 inches. 
-* If `export = "unix"`, a new graphics window in unix, size `h` and width `w`,
-will be opened allowing you to alter the size of the output. To do the same
-in Windows, set `export = "windows"`, or for Mac, `export = "mac"`.
-* To export the graph to a file, export can be "pdf", "png", "jpg", "bmp",
-"emf".}
+\item{export}{`export = "no"`, does nothing, so the next graph uses the
+default R device. With this option, the size of the graph cannot have been
+set larger than the default size, which is usually 7 inches. `export =
+"unix"`, a new graphics window in unix, size `h` and width `w`, will be
+opened allowing you to alter the size of the output. `export = "windows"`,
+or `export = "mac"` are similar to `export = "unix"` but for windows and
+mac. `export = format` exports the graph to a specific file format: "pdf",
+"png", "jpg", "bmp", "emf".}
 
 \item{filepath}{The folder to which map will be exported.}
 

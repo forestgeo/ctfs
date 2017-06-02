@@ -25,6 +25,7 @@
 #' NA, "c",    NA
 #' )
 #' is_na_row(df)
+
 is_na_row <- function(.data) {
   assertive::assert_is_non_empty(.data)
   assertive::assert_any_are_true(
@@ -62,6 +63,45 @@ rm_na_row <- function(.data) {
 
 
 
+# Point to files in directories -------------------------------------------
+
+#' Remove ending .Rd or .rd.
+#'
+#' @param string A string
+#'
+#' @return The string with the .Rd or .rd extension removed.
+#' @export
+#' @keywords internal
+strip_rd <- function(string) {stringr::str_replace(string, ".Rd$|.rd$", "")}
+
+#' Paste the path with the content of a directory.
+#'
+#' @param path_to_dir A string such as "R" or "man-roxygen".
+#'
+#' @return The string "path_to_dir/directory_content.extension".
+#' @export
+#' @keywords internal
+#' @examples
+#' paste_path("R")
+paste_path <- function(path_to_dir) {
+  paste0(path_to_dir, "/", dir(path_to_dir))
+}
+
+#' Stip the bare file name when its sorrounded by references of its path.
+#' 
+#' In a way, this is a kind of reverse of path_to_dir.
+#'
+#' @param path A string of the form "path/file.extention".
+#'
+#' @return The bare file name.
+#' @keywords internal
+#' @export
+#'
+#' @examples
+#' strip_path("man-roxygen/plotdim.R")
+strip_path <- function(path) {
+  stringr::str_replace(path, "^.*\\/(.*)\\.R", "\\1")
+}
 
 
 # write_pkgdown_yml -------------------------------------------------------
@@ -177,8 +217,8 @@ pkgdown_doc_nms <- function(raw_strings) {
 
 # List internal functions
 
-list_internal_funs <- function(raw_strings) {
-raw_strings %>% 
+list_internal_funs <- function() {
+raw_strings() %>% 
   stringr::str_subset("@keywords internal") %>%
   stringr::str_split("\n\r") %>% 
   tibble::tibble() %>% 
@@ -507,5 +547,124 @@ find_xxxdocparam <- function() {
 
 
 
+
+
+
+# Which arguments are documented and which aren't? ------------------------
+
+# Show documented arguments, either directly of via templates.
+
+args_in_man_one <- function(file_now) {
+  # Shows arguments in one file in man/; includes args via templates.
+  read_lines(file_now) %>%
+    stringr::str_subset(stringr::fixed("\\item{")) %>% 
+    stringr::str_replace(stringr::fixed("\\item{"), "") %>%
+    stringr::str_replace("^([^\\}]+)\\}.*$", "\\1")
+}
+
+args_in_man <- function() {
+  # Shows arguments in all files in man/; includes args via templates.
+  files_in_man <- tibble::tibble(file = dir("man"), path = paste_path("man"))
+  files_in_man %>% 
+    dplyr::mutate(params = purrr::map(path, args_in_man_one)) %>%
+    tidyr::unnest() %>% 
+    dplyr::right_join(files_in_man) %>% 
+    dplyr::mutate(fun = strip_rd(file)) %>% 
+    dplyr::select(fun, params) %>% 
+    dplyr::mutate(
+      params = stringr::str_replace_all(params, " ", ""), 
+      params = purrr::map(params, args_unstick)
+    ) %>%  
+    unnest()
+}
+
+
+
+# Show argumentes in templates. E.g. args_in_templates()
+args_in_templates_one <- function(path_now) {
+  path_now %>% 
+    readr::read_file() %>% 
+    stringr::str_extract_all("@param.*") %>% 
+    purrr::set_names(strip_path(path_now)) %>% 
+    tibble::enframe() %>% 
+    tidyr::unnest() %>% 
+    rename(template = name, params = value) %>% 
+    dplyr::mutate(
+      definition = stringr::str_replace(params, ".*@param [^ ]+ (.*)", "\\1"),
+      params = stringr::str_replace(params, ".*@param ([^ ]+) .*", "\\1"),
+      params = purrr::map(params, args_unstick)
+    ) %>% 
+    unnest()
+}
+args_in_templates <- function() {
+  purrr::map_df(paste_path("man-roxygen"), args_in_templates_one) %>% 
+    dplyr::select(template, params, definition)
+}
+
+# Filter arguments everywhere
+args_filter_templates <- function(args) {
+  args_in_templates() %>% dplyr::filter(params %in% args)
+}
+args_filter_params_table <- function(args) {
+  params_table %>% dplyr::filter(params %in% args)
+}
+args_filter_man <- function(args) {
+  args_in_man() %>% dplyr::filter(params %in% args)
+}
+
+args_filter_everywhere <- function(.args) {
+  list(
+    params_table = args_filter_params_table(.args),
+    templates = args_filter_templates(.args),
+    man = args_filter_man(.args)
+  ) %>% 
+    purrr::map(arrange, desc(params)) %>% 
+    purrr::map(select, params, everything())
+}
+
+
+# How many formal arguments are documented? -------------------------------
+
+# Count documented arguments, documented either directly in funs directly or via
+# templates.
+args_count_man <- function() {
+  args_in_man() %>% 
+    dplyr::count(params, sort = TRUE) %>% 
+    dplyr::left_join(args_in_man()) %>% 
+    dplyr::arrange(n, params) %>% 
+    dplyr::rename(man_n = n)
+}
+
+# Count all formal arguments of all functions
+args_formals <- function() {
+  message("On failure check if not_a_function is updated.")
+  # Fails if item is not a function
+  not_a_function <- c(
+    "forestr", 
+    "MONTHNAMES"
+  )
+  funs_all <- setdiff(strip_rd(dir("man")), not_a_function)
+  purrr::map(funs_all, args_of) %>% 
+    purrr::set_names(funs_all) %>% 
+    tibble::enframe() %>% 
+    tidyr::unnest() %>% 
+    dplyr::rename(fun = name, params = value)
+}
+args_count_formals <- function(){
+  args_formals() %>% 
+    dplyr::count(params) %>% 
+    dplyr::rename(frml_n = n) %>% 
+    dplyr::right_join(args_formals())
+}
+
+args_count_formals_man <- function() {
+  dplyr::left_join(
+    args_count_formals(),
+    args_count_man()
+  ) %>% 
+    dplyr::select(params, fun, frml_n, man_n, everything()) %>% 
+    unique() %>% 
+    dplyr::arrange(desc(frml_n), man_n)
+}
 # end ---------------------------------------------------------------------
 

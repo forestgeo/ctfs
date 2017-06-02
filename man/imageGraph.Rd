@@ -22,7 +22,7 @@ NULL to let breaks control}
 \item{breaks}{if set, a vector of breaks for the image colors and the contour
 lines; if NULL, levels controls the breaks}
 
-\item{xname, yname}{names for the axes}
+\item{xname, yname}{axis names}
 
 \item{xrange, yrange}{if \code{NULL}, all \code{x} (or \code{y}) are included, otherwise, the
 graph will only include \code{x} (or \code{y}) inside \code{xrange} or (\code{yrange})}

@@ -1,19 +1,113 @@
 
-# Compare forestr and CTFS-CRAN -------------------------------------------
-
-
-
 # setup -------------------------------------------------------------------
 
-library(dplyr)
-library(forestr)
+library(tidyverse)
+library(stringr)
+
 devtools::load_all()
+
+
+
+# Which arguments are documented and which aren't? ------------------------
+
+# The goal is to reduce the number of undocumented arguments ASAP; this can be
+# done by identifying which arguments are most commonly needed and which are or
+# aren't documented. The fastest strategy should be to start documenting those 
+# that are formals in the higher number of function but are documented the
+# smaller number of functions.
+
+# I am interested in the difference between arguments needed minus arguments
+# documented
+
+args_count_formals_man()
+
+
+
+# xxxcont. now go off and document!
+
+
+
+
+
+
+
+
+
+
+# Arguments that are documented directly as @params in functions documentation
+args_count_in_funs <- function() {
+    params_table %>% 
+    dplyr::count(params, sort = TRUE) %>% 
+    dplyr::left_join(params_table) %>% 
+    dplyr::arrange(desc(n), params, fun) %>% 
+    dplyr::rename(funs_n = n) %>% 
+    dplyr::select(params, funs_n, fun) %>% 
+    dplyr::group_by(params) %>% 
+    dplyr::mutate(funs_doc = paste(fun, collapse = ", ")) %>%
+    dplyr::ungroup() %>% 
+    dplyr::select(-fun) %>% 
+    unique()
+}
+args_count_in_funs()
+
+# Args documented in templates
+
+args_count_in_templates <- function() {
+  args_in_templates() %>% 
+    dplyr::count(params, sort = TRUE) %>% 
+    dplyr::left_join(args_in_templates()) %>% 
+    dplyr::arrange(n, params) %>% 
+    dplyr::rename(tmplt_n = n) %>% 
+    dplyr::select(params, tmplt_n, template) %>% 
+    unique()
+}
+
+
+
+
+
+
+args_count_in_templates() %>% right_join(args_count_in_funs())
+
+
+
+args_count_in_man <- args_in_man() %>% 
+  count(params, sort = TRUE) %>% 
+  left_join(args_in_man()) %>% 
+  arrange(n, params, fun) %>% 
+  rename(n_in_man = n)
+args_count_in_man
+
+
+args_filter_everywhere("x")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 lower_strip_rd <- function(string) {
   tolower(
     stringr::str_replace(string, ".Rd$|.rd$", "")
   )
 }
+
+
+
+# Compare params in forestr versus CTFS'CRAN ------------------------------
+
 fr <- lower_strip_rd(dir("man"))
 cran <- lower_strip_rd(dir("../CTFS-CRAN/man/"))
 setdiff(cran, fr)
@@ -87,43 +181,6 @@ length(remain)
 
 
 
-
-
-
-
-
-
-
-
-
-
-# next --------------------------------------------------------------------
-
-table_params_all(update = T)
-
-# commit
-
-devtools::load_all()
-
-# Explore what arguments are most duplicated. Work on those to maximize benefit
-# from effort unit
-
-params_table %>% 
-  count(params) %>% 
-  left_join(params_table) %>% 
-  arrange(desc(n), params, fun) %>% 
-  # select(params, n) %>% 
-  filter(n > 1) %>%
-  unique() %>% 
-  summarise(sum(n))
-
-
-
-library(readr)
-library(stringr)
-read_lines("string.R") %>% 
-  str_replace("^.*([0-9])$", "\\1") %>% 
-  as.numeric() %>% sum()
 
 
 
