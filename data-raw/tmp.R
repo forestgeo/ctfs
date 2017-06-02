@@ -16,73 +16,74 @@ devtools::load_all()
 # that are formals in the higher number of function but are documented the
 # smaller number of functions.
 
-# Arguments that are documented directly as @params in functions documentation
-args_doc_in_fun <- params_table %>% 
-  count(params, sort = TRUE) %>% 
-  left_join(params_table) %>% 
-  arrange(desc(n), params, fun) %>% 
-  rename(n_doc = n)
-args_doc_in_fun
+# I am interested in the difference between arguments needed minus arguments
+# documented
+
+args_count_formals_man()
 
 
-
-# Filter arguments everywhere
-args_filter_templates <- function(args) {
-  args_in_templates() %>% dplyr::filter(params %in% args)
-}
-args_filter_params_table <- function(args) {
-  params_table %>% dplyr::filter(params %in% args)
-}
-args_in_man() <- function(args) {
-  params_table %>% dplyr::filter(params %in% args)
-}
-
-params_table = args_filter_params_table(c("debug", "ht"))
-templates = args_filter_templates(c("debug", "ht"))
-
-
-args_filter_templates(c("debug", "ht"))
-
-
-
-
-
-
-# Arguments that should be documented
-
-
-args_in_man() %>% 
-  count(params) %>% 
-  rename(n_man = n) %>% 
-  right_join(table_args_in_man()) %>% 
-  arrange(n_man, params, fun) %>% 
-  left_join(params_table)
-
-# Exclude items that are not functions
-not_a_function <- c("forestr", "MONTHNAMES")
-args_in_man <- args_in_man %>% filter(! fun %in% not_a_function)
-
-args_formals <- args_in_man %>% 
-  mutate(formals = purrr::map(fun, args_of)) %>% 
-  unnest()
-
-
-
-
-
-
-
-
-
-args_formals %>% 
-  count(formals) %>% 
-  rename(n_frml = n) %>% 
-  rename(params = formals) %>% 
-  right_join(args_formals) %>% 
-  arrange(desc(n_frml), params, n_man, fun) %>% 
-  View()
 
 # xxxcont. now go off and document!
+
+
+
+
+
+
+
+
+
+
+# Arguments that are documented directly as @params in functions documentation
+args_count_in_funs <- function() {
+    params_table %>% 
+    dplyr::count(params, sort = TRUE) %>% 
+    dplyr::left_join(params_table) %>% 
+    dplyr::arrange(desc(n), params, fun) %>% 
+    dplyr::rename(funs_n = n) %>% 
+    dplyr::select(params, funs_n, fun) %>% 
+    dplyr::group_by(params) %>% 
+    dplyr::mutate(funs_doc = paste(fun, collapse = ", ")) %>%
+    dplyr::ungroup() %>% 
+    dplyr::select(-fun) %>% 
+    unique()
+}
+args_count_in_funs()
+
+# Args documented in templates
+
+args_count_in_templates <- function() {
+  args_in_templates() %>% 
+    dplyr::count(params, sort = TRUE) %>% 
+    dplyr::left_join(args_in_templates()) %>% 
+    dplyr::arrange(n, params) %>% 
+    dplyr::rename(tmplt_n = n) %>% 
+    dplyr::select(params, tmplt_n, template) %>% 
+    unique()
+}
+
+
+
+
+
+
+args_count_in_templates() %>% right_join(args_count_in_funs())
+
+
+
+args_count_in_man <- args_in_man() %>% 
+  count(params, sort = TRUE) %>% 
+  left_join(args_in_man()) %>% 
+  arrange(n, params, fun) %>% 
+  rename(n_in_man = n)
+args_count_in_man
+
+
+args_filter_everywhere("x")
+
+
+
+
 
 
 
