@@ -19,14 +19,37 @@ devtools::load_all()
 # I am interested in the difference between arguments needed minus arguments
 # documented
 
-args_count_formals_man()
+
+
+
+# For now, let's try to inherit, so let's skip arguments:
+#    - x and y because they are too generic
+#    - nowhere in man because there is no example to inherit.
+args_count_formals_man() %>% 
+    filter(params != "x", params != "y", !is.na(man_n))
+# This shows that plotdim is a good argument to documetn
+
+args_count_formals_man() %>% 
+  filter(params == "plotdim") %>% 
+  print_all()
+# this shows that allquadratslopes is a good function to focus, because it's not
+# in man
+
+# work on plotdim
+args_pull_definitions("plotdim")[[2]]
+
+
+
 
 funs <- "abundmodel.fit"
 fun_family(funs)
 
-args_pull_definitions("x", 10)
 
-# xxxcont. now go off and document!
+
+
+
+
+
 
 
 

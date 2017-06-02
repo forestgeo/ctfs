@@ -698,5 +698,12 @@ args_pull_definitions <- function(arg) {
     dplyr::rename(where = name, definition = value)
 }
 
+
+
+
+# misc --------------------------------------------------------------------
+
+print_all <- function(x) {x %>% print(n = nrow(x))}
+
 # end ---------------------------------------------------------------------
 
