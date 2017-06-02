@@ -7,6 +7,13 @@
 gxgy.to.quad(gx, gy, gridsize = 20, plotdim = c(1000, 500), digits = 2,
   start = "zero")
 }
+\arguments{
+\item{gridsize}{Side of the square quadrate.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+}
 \description{
-Calculate a quadrat name (column number then row number, as a 4-digit character string) from gy-gy. If start is set to zero, quadrats start with 0000, otherwise, 0101.
+Calculate a quadrat name (column number then row number, as a 4-digit
+character string) from gy-gy. If start is set to zero, quadrats start with
+0000, otherwise, 0101.
 }

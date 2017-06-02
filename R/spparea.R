@@ -131,10 +131,11 @@
 #' Make a graph of a series of quadrats whose corners are given by the...
 #'
 #' @description
-#'
-#' Make a graph of a series of quadrats whose corners are given by the rows of coord: xlo, ylo, xhi, yhi. This is used in illustrating
-#' randomly selected quadrats. 
-#'
+#' Make a graph of a series of quadrats whose corners are given by the rows of
+#' coord: xlo, ylo, xhi, yhi. This is used in illustrating randomly selected
+#' quadrats.
+#' 
+#' @template plotdim
 #'
 'graph.quadrats'
 
