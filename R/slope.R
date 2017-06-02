@@ -30,7 +30,6 @@
 #' @return 
 #' * object 1: the input dataframe
 #' * object 2: matrix of elevation value sin the orientation of the plot
-#' 
 #' @param elevfile A data frame with x, y coordinates and elevation, 
 #'   bcielev.info.
 #' @param gridsize xxxdocparam scale of elevation values (m)
@@ -49,7 +48,10 @@
 #' elevation of one 20x20 m quadrat relative (minus) the mean of its immediate
 #' neighbors.
 #'
-#' Helene Muller-Landau added a section to correct convexity in edge quadrats
+#' Helene Muller-Landau added a section to correct convexity in edge quadrats.
+#' 
+#' @template plotdim
+#' @template gridsize_side
 #' 
 #' @seealso [calcslope()], [quadslope()]
 #' @examples

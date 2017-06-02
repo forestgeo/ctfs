@@ -37,15 +37,12 @@ args_count_formals_man() %>%
 
 # work on plotdim
 args_pull_definitions("plotdim")[[2]]
+# cool, there is a single definition
 
+fun_family("allquadratslopes") %>% filter(params == "plotdim")
+# There is no other function too closetly related
 
-
-
-funs <- "abundmodel.fit"
-fun_family(funs)
-
-
-
+# 
 
 
 

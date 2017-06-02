@@ -7,6 +7,11 @@
 allquadratslopes(elev, gridsize = 20, plotdim = c(1000, 500),
   edgecorrect = TRUE)
 }
+\arguments{
+\item{gridsize}{Side of the square quadrate.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+}
 \description{
 Calculates the slope of all quadrats in a plot.
 }
@@ -16,7 +21,7 @@ the slope, mean elevation, and convexity of each. Convexity is the mean
 elevation of one 20x20 m quadrat relative (minus) the mean of its immediate
 neighbors.
 
-Helene Muller-Landau added a section to correct convexity in edge quadrats
+Helene Muller-Landau added a section to correct convexity in edge quadrats.
 }
 \examples{
 \dontrun{
