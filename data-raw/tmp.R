@@ -20,10 +20,31 @@ devtools::load_all()
 # documented
 
 args_count_formals_man()
-funs <- c("bad.asympower.param", "cartesian.to.polar")
-filter_fun_family(funs)
+
+funs <- "abundmodel.fit"
+fun_family(funs)
+
+args_pull_definitions("x", 10)
 
 # xxxcont. now go off and document!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
