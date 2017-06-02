@@ -25,6 +25,7 @@
 #' NA, "c",    NA
 #' )
 #' is_na_row(df)
+
 is_na_row <- function(.data) {
   assertive::assert_is_non_empty(.data)
   assertive::assert_any_are_true(
@@ -62,6 +63,47 @@ rm_na_row <- function(.data) {
 
 
 
+# Point to files in directories -------------------------------------------
+
+#' Remove ending .Rd or .rd.
+#'
+#' @param string A string
+#'
+#' @return The string with the .Rd or .rd extension removed.
+#' @export
+#' @keywords internal
+#'
+#' @examples
+strip_rd <- function(string) {stringr::str_replace(string, ".Rd$|.rd$", "")}
+
+#' Paste the path with the content of a directory.
+#'
+#' @param path_to_dir A string such as "R" or "man-roxygen".
+#'
+#' @return The string "path_to_dir/directory_content.extension".
+#' @export
+#' @keywords internal
+#' @examples
+#' paste_path("R")
+paste_path <- function(path_to_dir) {
+  paste0(path_to_dir, "/", dir(path_to_dir))
+}
+
+#' Stip the bare file name when its sorrounded by references of its path.
+#' 
+#' In a way, this is a kind of reverse of path_to_dir.
+#'
+#' @param path A string of the form "path/file.extention".
+#'
+#' @return The bare file name.
+#' @keywords internal
+#' @export
+#'
+#' @examples
+#' strip_path("man-roxygen/plotdim.R")
+strip_path <- function(path) {
+  stringr::str_replace(path, "^.*\\/(.*)\\.R", "\\1")
+}
 
 
 # write_pkgdown_yml -------------------------------------------------------
@@ -177,8 +219,8 @@ pkgdown_doc_nms <- function(raw_strings) {
 
 # List internal functions
 
-list_internal_funs <- function(raw_strings) {
-raw_strings %>% 
+list_internal_funs <- function() {
+raw_strings() %>% 
   stringr::str_subset("@keywords internal") %>%
   stringr::str_split("\n\r") %>% 
   tibble::tibble() %>% 
@@ -512,32 +554,43 @@ find_xxxdocparam <- function() {
 
 # Which arguments are documented and which aren't? ------------------------
 
-strip_rd <- function(string) {stringr::str_replace(string, ".Rd$|.rd$", "")}
-
-args_in_man <- function(file_now) {
+args_in_man_one <- function(file_now) {
   read_lines(file_now) %>%
     stringr::str_subset(stringr::fixed("\\item{")) %>% 
     stringr::str_replace(stringr::fixed("\\item{"), "") %>%
     stringr::str_replace("^([^\\}]+)\\}.*$", "\\1")
 }
 
-table_args_in_man <- function() {
-  path <- "./man/"
-  files_in_man <- tibble::tibble(
-    file = dir(path),
-    path = paste0(path, file)
-  )
-  
-  # If NA, not documented
+args_in_man <- function() {
+  files_in_man <- tibble::tibble(file = dir("man"), path = paste_path("man"))
   files_in_man %>% 
-    dplyr::mutate(params = purrr::map(path, args_in_man)) %>%
+    dplyr::mutate(params = purrr::map(path, args_in_man_one)) %>%
     tidyr::unnest() %>% 
     dplyr::right_join(files_in_man) %>% 
     dplyr::mutate(fun = strip_rd(file)) %>% 
     dplyr::select(fun, params)
 }
 
-
+# Show argumentes in templates. E.g. args_in_templates()
+args_in_templates_one <- function(path_now) {
+  path_now %>% 
+    readr::read_file() %>% 
+    stringr::str_extract_all("@param.*") %>% 
+    purrr::set_names(strip_path(path_now)) %>% 
+    tibble::enframe() %>% 
+    tidyr::unnest() %>% 
+    rename(template = name, params = value) %>% 
+    dplyr::mutate(
+      definition = stringr::str_replace(params, ".*@param [^ ]+ (.*)", "\\1"),
+      params = stringr::str_replace(params, ".*@param ([^ ]+) .*", "\\1"),
+      params = purrr::map(params, args_unstick)
+    ) %>% 
+    unnest()
+}
+args_in_templates <- function() {
+  purrr::map_df(paste_path("man-roxygen"), args_in_templates_one) %>% 
+    dplyr::select(template, params, definition)
+}
 
 # end ---------------------------------------------------------------------
 

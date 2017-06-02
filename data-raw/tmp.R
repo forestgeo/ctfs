@@ -6,12 +6,6 @@ library(stringr)
 
 devtools::load_all()
 
-lower_strip_rd <- function(string) {
-  tolower(
-    stringr::str_replace(string, ".Rd$|.rd$", "")
-  )
-}
-
 
 
 # Which arguments are documented and which aren't? ------------------------
@@ -22,10 +16,42 @@ lower_strip_rd <- function(string) {
 # that are formals in the higher number of function but are documented the
 # smaller number of functions.
 
-library(tidyverse)
-devtools::load_all()
+# Arguments that are documented directly as @params in functions documentation
+args_doc_in_fun <- params_table %>% 
+  count(params, sort = TRUE) %>% 
+  left_join(params_table) %>% 
+  arrange(desc(n), params, fun) %>% 
+  rename(n_doc = n)
+args_doc_in_fun
 
-args_in_man <- table_args_in_man() %>% 
+
+
+# Filter arguments everywhere
+args_filter_templates <- function(args) {
+  args_in_templates() %>% dplyr::filter(params %in% args)
+}
+args_filter_params_table <- function(args) {
+  params_table %>% dplyr::filter(params %in% args)
+}
+args_in_man() <- function(args) {
+  params_table %>% dplyr::filter(params %in% args)
+}
+
+params_table = args_filter_params_table(c("debug", "ht"))
+templates = args_filter_templates(c("debug", "ht"))
+
+
+args_filter_templates(c("debug", "ht"))
+
+
+
+
+
+
+# Arguments that should be documented
+
+
+args_in_man() %>% 
   count(params) %>% 
   rename(n_man = n) %>% 
   right_join(table_args_in_man()) %>% 
@@ -71,6 +97,11 @@ args_formals %>%
 
 
 
+lower_strip_rd <- function(string) {
+  tolower(
+    stringr::str_replace(string, ".Rd$|.rd$", "")
+  )
+}
 
 
 
@@ -145,50 +176,6 @@ similar <- tibble::tribble(
 remain <- setdiff(cran, c(done, similar$cran)) %>% sort()
 remain
 length(remain)
-
-# Find duplicated params --------------------------------------------------
-
-table_params_all(update = T)
-
-# commit
-
-devtools::load_all()
-
-# Explore what arguments are most duplicated. Work on those to maximize benefit
-# from effort unit
-
-params_table %>% 
-  count(params) %>% 
-  left_join(params_table) %>% 
-  arrange(desc(n), params, fun) %>% 
-  # select(params, n) %>% 
-  filter(n > 1) %>%
-  unique() %>% 
-  summarise(sum(n))
-
-
-
-library(readr)
-library(stringr)
-read_lines("string.R") %>% 
-  str_replace("^.*([0-9])$", "\\1") %>% 
-  as.numeric() %>% sum()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
