@@ -85,10 +85,6 @@
     
     <p>Fill the area between two curves on a graph. Useful for confidence limits,
 for example.</p>
-<p>Typical use is to draw a graph first with some central y values, then add a
-confidence band by filling the area between upper and lower confidence limits
-(designated by variables lower.y and upper.y in the example below). The
-central line should then be redrawn over the filled area.</p>
     
 
     <pre class="usage"><span class='fu'>graphFilledBand</span>(<span class='no'>x</span>, <span class='no'>y1</span>, <span class='no'>y2</span>, <span class='kw'>fillcol</span> <span class='kw'>=</span> <span class='st'>"gray"</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
@@ -99,43 +95,49 @@ central line should then be redrawn over the filled area.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The x axis values, as in any R graph</p></td>
+      <td><p>The x axis values.</p></td>
     </tr>
     <tr>
       <th>y1, y2</th>
-      <td><p>= Two sets of y axis values, each of exactly the same length as
-<code>x</code></p></td>
+      <td><p>Two sets of y axis values, each of exactly the same length as
+<code>x</code>.</p></td>
     </tr>
     <tr>
       <th>fillcol</th>
-      <td><p>The color filling the area between the two curves</p></td>
+      <td><p>The color filling the area between the two curves.</p></td>
     </tr>
     <tr>
       <th>add</th>
       <td><p>Logical. Whether to add points or line to an existing graph. if
 TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn</p></td>
+is drawn.</p></td>
     </tr>
     <tr>
       <th>linecol</th>
-      <td><p>If add == FALSE, lines drawn at y1 and y2 are this color;
-ignored if add == TRUE</p></td>
+      <td><p>Line colour.</p></td>
     </tr>
     <tr>
-      <th>ltype</th>
-      <td><p>If add == FALSE, lines drawn at y1 and y2 are this type
-('solid','dashed',etc);  ignored if add==TRUE</p></td>
-    </tr>
-    <tr>
-      <th>lwidth</th>
-      <td><p>If add == FALSE, lines drawn at y1 and y2 are this thickness (a
-number);  ignored if add==TRUE</p></td>
+      <th>ltype, lwidth</th>
+      <td><p>Line type (`ltype`) and width (`width`); see
+?[graphics::par()].</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Typical use is to draw a graph first with some central y values, then add a
+confidence band by filling the area between upper and lower confidence limits
+(designated by variables lower.y and upper.y in the example below). The
+central line should then be redrawn over the filled area.</p>
+    
+    <h2 class="hasAnchor" id="customizing-plot-lines"><a class="anchor" href="#customizing-plot-lines"></a>Customizing plot lines</h2>
+
+    
+    <p>If <code>add == TRUE</code>, <code>linecol</code>, <code>ltype</code> and <code>lwidth</code> are ignored.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>?<code><a href='http://www.rdocumentation.org/packages/graphics/topics/plot'>graphics::plot()</a></code>, ?<code><a href='http://www.rdocumentation.org/packages/graphics/topics/par'>graphics::par()</a></code></p>
+    <p>?<code><a href='http://www.rdocumentation.org/packages/graphics/topics/plot'>graphics::plot()</a></code>, ?<code><a href='http://www.rdocumentation.org/packages/graphics/topics/par'>graphics::par()</a></code>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -150,6 +152,10 @@ number);  ignored if add==TRUE</p></td>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#customizing-plot-lines">Customizing plot lines</a></li>
+
       <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This function is called by fullplot.imageJ in the case that the map... — SectionCorrection â€¢ forestr</title>
+<title>Correct coordinates, making them from 0 to 20. — SectionCorrection â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,12 +79,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This function is called by fullplot.imageJ in the case that the map...</h1>
+    <h1>Correct coordinates, making them from 0 to 20.</h1>
     </div>
 
     
-    <p>This function is called by fullplot.imageJ in the case that the maps are subquadrats to correct the coordinates and make them from 0 to 20 depending on
-what section of the map the subquadrat belongs to.</p>
+    <p>This function is called by fullplot.imageJ in the case that the maps are
+subquadrats to correct the coordinates and make them from 0 to 20 depending
+on what section of the map the subquadrat belongs to.</p>
     
 
     <pre class="usage"><span class='fu'>SectionCorrection</span>(<span class='no'>pts</span>, <span class='no'>subquad</span>, <span class='no'>gridsize</span>, <span class='no'>subquadsuffix</span>)</pre>
@@ -102,11 +103,13 @@ what section of the map the subquadrat belongs to.</p>
     </tr>
     <tr>
       <th>gridsize</th>
-      <td><p>size of each individual map</p></td>
+      <td><p>Size of each individual map.</p></td>
     </tr>
     <tr>
       <th>subquadratsuffix</th>
-      <td><p>the suffixes used to indicate what section of the map the subquadrat refers to. They should be named clockwise from the lower left.</p></td>
+      <td><p>Suffixes used to indicate what section of the map the
+subquadrat refers to. They should be named clockwise from the lower left.
+It can be used for map files that are smaller than 20x20m (i.e. 10x10m).</p></td>
     </tr>
     </table>
     

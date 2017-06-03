@@ -88,14 +88,27 @@
 
     <pre class="usage"><span class='fu'>allquadratslopes</span>(<span class='no'>elev</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>),
   <span class='kw'>edgecorrect</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>gridsize</th>
+      <td><p>Side of the square quadrate.</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>allquadratslopes()</code> goes through all 20x20 m quadrats in a plot and finds
 the slope, mean elevation, and convexity of each. Convexity is the mean
 elevation of one 20x20 m quadrat relative (minus) the mean of its immediate
 neighbors.</p>
-<p>Helene Muller-Landau added a section to correct convexity in edge quadrats</p>
+<p>Helene Muller-Landau added a section to correct convexity in edge quadrats.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -123,6 +136,7 @@ neighbors.</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
 

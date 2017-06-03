@@ -1,6 +1,5 @@
 # forestr 0.0.0.9000
 
-
 ## Improved arguments documentation
 
 > Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.
@@ -56,7 +55,7 @@ args_count_formals_man() %>%
 # ... with 27 more rows
 ```
 
-### Reduced duplicated arguments documentation
+### Reduced duplicated instances of arguments documentation
 
 * Reduced duplicated instances of arguments documentation from 132 to 41, mostly via roxygen2 @templates and @inheritParams.
 
