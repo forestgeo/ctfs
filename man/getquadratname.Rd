@@ -2,10 +2,18 @@
 % Please edit documentation in R/quadfunc.R
 \name{getquadratname}
 \alias{getquadratname}
-\title{Convert x, y coordinates and plot dimensions into 4-character quadr...}
+\title{Convert x, y coordinates and plot dimensions into 4-character quadrat names.}
 \usage{
 getquadratname(x, y, plotdim)
 }
+\arguments{
+\item{x}{Coordinates.}
+
+\item{y}{Coordinates.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+}
 \description{
-Convert x, y coordinates and plot dimensions into 4-character quadrat names. If x or y are missing, the quadrat=9999.
+Convert x, y coordinates and plot dimensions into 4-character quadrat names.
+If x or y are missing, the quadrat=9999.
 }

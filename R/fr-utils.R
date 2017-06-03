@@ -666,5 +666,44 @@ args_count_formals_man <- function() {
     unique() %>% 
     dplyr::arrange(desc(frml_n), man_n)
 }
+
+
+
+# Find similar functions, which args may share a definition ---------------
+
+# Find commonalities among functions
+filter_fun_family <- function(funs) {
+  tab <- tibble_folder_file_fun(raw_strings())
+  filtered_file_fun <- tab[tab$fun %in% funs, ]
+  files_of_funs <- filtered_file_fun$file
+  tab[tab$file %in% files_of_funs, ]
+}
+
+# Find candidate functions to share args definitions
+fun_family <- function(funs) {
+  fmly <- filter_fun_family(funs)
+  fmly <- fmly$fun
+  cnt_for_man <- args_count_formals_man()
+  cnt_for_man[cnt_for_man$fun %in% fmly, ] %>% dplyr::arrange(desc(frml_n))
+}
+
+args_pull_definitions <- function(arg) {
+  # ... passed to str_trunc; use width if necessary
+  list(
+    templates = args_filter_everywhere(arg)$templates$definition,
+    params_table = args_filter_everywhere(arg)$params_table$definition
+  ) %>% 
+    tibble::enframe() %>% 
+    tidyr::unnest() %>% 
+    dplyr::rename(where = name, definition = value)
+}
+
+
+
+
+# misc --------------------------------------------------------------------
+
+print_all <- function(x) {x %>% print(n = nrow(x))}
+
 # end ---------------------------------------------------------------------
 

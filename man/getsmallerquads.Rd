@@ -2,13 +2,17 @@
 % Please edit documentation in R/quadfunc.R
 \name{getsmallerquads}
 \alias{getsmallerquads}
-\title{Takes a vector of indices for a larger quadrat dimension, as create...}
+\title{Convert indices from larger to smaller quadrats.}
 \usage{
 getsmallerquads(index, gridlarge, gridsmall, plotdim)
 }
+\arguments{
+\item{plotdim}{The x and y dimensions of the plot.}
+}
 \description{
-Takes a vector of indices for a larger quadrat dimension, as created by gxgy.to.index, and for
-each returns a vector of indices of smaller quadrats that would fit completely
-within. Both larger and smaller quadrats must be square. Returns a matrix, each row being a
-vector of smaller quadrats inside a single larger quadrat.
+Takes a vector of indices for a larger quadrat dimension, as created by
+gxgy.to.index, and for each returns a vector of indices of smaller quadrats
+that would fit completely within. Both larger and smaller quadrats must be
+square. Returns a matrix, each row being a vector of smaller quadrats inside
+a single larger quadrat.
 }

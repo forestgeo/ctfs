@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculates the total number or basal area of conspecific and hetero... — NeighborDensities â€¢ forestr</title>
+<title>Total number or basal area of conspecific and heterospecific neighbors. — NeighborDensities â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,14 +79,15 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculates the total number or basal area of conspecific and hetero...</h1>
+    <h1>Total number or basal area of conspecific and heterospecific neighbors.</h1>
     </div>
 
     
-    <p>Calculates the total number or basal area of conspecific and heterospecific neighbors at a radius r
-with edge effect correction. Most arguments aim to describe the type of neighbors to count</p>
-<p>Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs package.</p>
-<p>Output: a data.frame with two columns listing the density of consp and hetsp, and rows equal to the size of censdata if censdata2 is absent, or censdata2 if it is present.</p>
+    <p>Calculates the total number or basal area of conspecific and
+heterospecific neighbors at a radius r with edge effect correction. Most
+arguments aim to describe the type of neighbors to count.
+<code>NeighborDensities()</code> counts neighbors for each of the individuals in
+censdata.</p>
     
 
     <pre class="usage"><span class='fu'>NeighborDensities</span>(<span class='no'>censdata</span>, <span class='kw'>censdata2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>r</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>,
@@ -97,33 +98,59 @@ with edge effect correction. Most arguments aim to describe the type of neighbor
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>censdata</th>
-      <td><p>should have the coordinates (gx, gy), species id (sp), status, tag and dbh. It counts neighbors for each of the individuals in censdata.</p></td>
+      <td><p>A table of plot census data.</p></td>
     </tr>
     <tr>
       <th>censdata2</th>
-      <td><p>(NULL) an optional dataset for focal individuals, for example a subset of only one species or a list of seedling coordinates that are not part of census data. It must contain coordinates (gx,gy), species id (sp) and tag. It will count the neighbors in censdata but only for these focal coordinates.</p></td>
+      <td><p>(NULL) an optional dataset for focal individuals, for
+example a subset of only one species or a list of seedling coordinates that
+are not part of census data. It must contain coordinates (gx,gy), species
+id (sp) and tag. It will count the neighbors in censdata but only for these
+focal coordinates.</p></td>
     </tr>
     <tr>
       <th>r</th>
-      <td><p>(20) radius to count neighbors</p></td>
+      <td><p>Radius.</p></td>
     </tr>
     <tr>
       <th>plotdim</th>
-      <td><p>(c(1000,500))  vector with two numbers indicating the xy-plot size;</p></td>
+      <td><p>The x and y dimensions of the plot.</p></td>
     </tr>
     <tr>
       <th>mindbh</th>
-      <td><p>(10) minimum size of neighbors to be counted</p></td>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>(count) calculates count of stems ('count') or sum of basal areas ('basal'). Note that for the sum of basal areas is better to use the plot stem table, otherwise only one stem per tree will be included .</p></td>
+      <td><p>(count) calculates count of stems ('count') or sum of basal areas
+('basal'). Note that for the sum of basal areas is better to use the plot
+stem table, otherwise only one stem per tree will be included .</p></td>
     </tr>
     <tr>
       <th>include</th>
-      <td><p>(c("A")) a vector of status to include in the neighbors, by default it counts only alive individuals, for all status use c("A","P","D","M").</p></td>
+      <td><p>(c("A")) a vector of status to include in the neighbors, by
+default it counts only alive individuals, for all status use
+c("A","P","D","M").</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data.frame with two columns listing the density of consp and hetsp, and
+rows equal to the size of censdata if <code>censdata2</code> is absent, or <code>censdata2</code>
+if it is present.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <ul>
+<li><p>Arguments <code>mindbh</code> and <code>r</code> refer to neighbours</p></li>
+<li><p><code>censdata</code> should have the coordinates gx, gy, species id <code>sp</code>, <code>status</code>,
+<code>tag</code> and <code>dbh</code>.</p></li>
+</ul>
+    <p>Dependencies: CalcRingArea and circlearea from the CTFS package, and splancs
+package.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -136,9 +163,8 @@ with edge effect correction. Most arguments aim to describe the type of neighbor
   
   sum consp and hetsp neighbors for only one species: 
   one.sp = subset(bci.full7, sp=="quaras") 
-  neighbor.counts <- NeighborDensities(bci.full7, one.sp, type='count') 
+  neighbor.counts <- NeighborDensities(bci.full7, one.sp, type='count')
 })
-
 
 </div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:5:7: unexpected symbol</span>
 #&gt; <span class='error'>4:   </span>
@@ -149,7 +175,11 @@ with edge effect correction. Most arguments aim to describe the type of neighbor
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

@@ -6,7 +6,11 @@
 \usage{
 graph.quadrats(coord, plotdim = c(1000, 500), clr = "black", add = FALSE)
 }
+\arguments{
+\item{plotdim}{The x and y dimensions of the plot.}
+}
 \description{
-Make a graph of a series of quadrats whose corners are given by the rows of coord: xlo, ylo, xhi, yhi. This is used in illustrating
-randomly selected quadrats.
+Make a graph of a series of quadrats whose corners are given by the rows of
+coord: xlo, ylo, xhi, yhi. This is used in illustrating randomly selected
+quadrats.
 }

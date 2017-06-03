@@ -131,27 +131,33 @@
 #' Make a graph of a series of quadrats whose corners are given by the...
 #'
 #' @description
-#'
-#' Make a graph of a series of quadrats whose corners are given by the rows of coord: xlo, ylo, xhi, yhi. This is used in illustrating
-#' randomly selected quadrats. 
-#'
+#' Make a graph of a series of quadrats whose corners are given by the rows of
+#' coord: xlo, ylo, xhi, yhi. This is used in illustrating randomly selected
+#' quadrats.
+#' 
+#' @template plotdim
 #'
 'graph.quadrats'
 
-#' Draws a diagonal across a plot, from lower left to upper right (if ...
+#' Draws a diagonal across a plot.
 #'
 #' @description
-#'
-#' Draws a diagonal across a plot, from lower left to upper right (if slope==1), upper left to lower right (if slope==-1),
-#' or straight across the middle (if slope==0).
-#' and determines for every point along the diagonal what fraction of a series of quadrats it is inside.
-#'
-#' The quadrats are defined by their four corners in randomquads: xlo, ylo, xhi, yhi.
-#'
-#' This is only used in testing how well random quadrat draws include corners and edges of a plot.
-#'
-#'
-
+#' Draws a diagonal across a plot, and determines for every point along the
+#' diagonal what fraction of a series of quadrats it is inside.
+#' 
+#' @details
+#' This is only used in testing how well random quadrat draws include corners 
+#' and edges of a plot.
+#' 
+#' @template plotdim
+#' @param slope A number that controls the direction of the diagonal drawn
+#'   accross the plot. To draw the diagonal
+#' * from lower left to upper right, use 1;
+#' * from upper left to lower right, use -1;
+#' * straight across the middle, use 0.
+#' @param randomquads: Defines the four corners of the quadrats in xlo, ylo,
+#'   xhi, yhi.
+#' 
 'coverage.diag'
 
 # Source code and original documentation ----------------------------

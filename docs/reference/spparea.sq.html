@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function for calculating the number of species in replicated, rando... — spparea.sq â€¢ forestr</title>
+<title>Number of species in replicated, randomly-placed quadrats of various areas. — spparea.sq â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,25 +79,17 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function for calculating the number of species in replicated, rando...</h1>
+    <h1>Number of species in replicated, randomly-placed quadrats of various areas.</h1>
     </div>
 
     
     <p>Function for calculating the number of species in replicated, randomly-placed
 quadrats of various areas. The variable size refers to the dimension (side)
-of the square, and can be a vector; replicates is the
-number of random draws per dimension. Full plot data are submitted as censdata.</p>
-<p>Species are counted as the number of unique values of sp in the R Analytical Table; unidentified species are not counted,
-based on a default unidennames; see the function unidentified.species in utilitiesCTFS.r.</p>
-<p>The return value is a list of two components. The first is a table giving the mean number (and SD) of individuals and species
-in all quadrat sizes submitted. The second is a table giving the number of individuals and species in every random quadrat created.</p>
-<p>In addition, a graph of species vs. individuals in every quadrat is created as the program runs.</p>
-<p>This can also be used to calculate genus- or family-area curves with use of the spcolumn argument. The censdata table must have
-a new column added, for example the genus for every record, then spcolumn can be set to 'genus'.</p>
-<p>Note: randomly-placed quadrats produce statistically preferable species-area
-curves than checkerboards of non-overlapping quadrats. If required, though,
-the function abundanceperquad() in abundance.r offers a fast way to count the
-number of species in checkerboard-type quadrats of different sizes.</p>
+of the square, and can be a vector; replicates is the number of random draws
+per dimension. Full plot data are submitted as censdata.</p>
+<p>Species are counted as the number of unique values of sp in the R Analytical
+Table; unidentified species are not counted, based on a default unidennames;
+see the function unidentified.species in utilitiesCTFS.r.</p>
     
 
     <pre class="usage"><span class='fu'>spparea.sq</span>(<span class='no'>censdata</span>, <span class='kw'>spcolumn</span> <span class='kw'>=</span> <span class='st'>"sp"</span>, <span class='no'>size</span>, <span class='kw'>rectdim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -109,27 +101,32 @@ number of species in checkerboard-type quadrats of different sizes.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>censdata</th>
-      <td><p>one R Analytical Table, either full or stem</p></td>
+      <td><p>A table of plot census data.</p></td>
     </tr>
     <tr>
       <th>spcolumn</th>
-      <td><p>name of the column in the table having the species; defaults to 'sp', but can be set to 'genus'for 'family'if desired</p></td>
+      <td><p>name of the column in the table having the species; defaults
+to 'sp', but can be set to 'genus'for 'family'if desired</p></td>
     </tr>
     <tr>
       <th>size</th>
-      <td><p>a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat</p></td>
+      <td><p>A vector of quadrat sizes, referring to the x-dimension of a
+rectangular quadrat.</p></td>
     </tr>
     <tr>
       <th>rectdim</th>
-      <td><p>the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares</p></td>
+      <td><p>the ratio of y to x dimensions of the rectangles; rectdim=1
+(the default) for squares</p></td>
     </tr>
     <tr>
       <th>mindbh</th>
-      <td><p>the minimum dbh included</p></td>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
     </tr>
     <tr>
       <th>plotdim</th>
-      <td><p>the x and y dimensions of the entire plot</p></td>
+      <td><p>The x and y dimensions of the plot.</p></td>
     </tr>
     <tr>
       <th>replicates</th>
@@ -137,9 +134,34 @@ number of species in checkerboard-type quadrats of different sizes.</p>
     </tr>
     <tr>
       <th>unidennames</th>
-      <td><p>a vector of species names that should not be included in species counts (see the function unidentified.species()</p></td>
+      <td><p>a vector of species names that should not be included in
+species counts (see the function unidentified.species()</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list of two components. The first is a table giving the mean number (and
+SD) of individuals and species in all quadrat sizes submitted. The second is
+a table giving the number of individuals and species in every random quadrat
+created.</p>
+<p>In addition, a graph of species vs. individuals in every quadrat is created
+as the program runs.  This can also be used to calculate genus- or
+family-area curves with use of the spcolumn argument. The censdata table must
+have a new column added, for example the genus for every record, then
+spcolumn can be set to 'genus'.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>censdata</code> can be either full or stem</p>
+    
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    
+    <p>Randomly-placed quadrats produce statistically preferable species-area curves
+than checkerboards of non-overlapping quadrats. If required, though, the
+function <code><a href='abundanceperquad.html'>abundanceperquad()</a></code> offers a fast way to count the number of
+species in checkerboard-type quadrats of different sizes.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -169,7 +191,13 @@ number of species in checkerboard-type quadrats of different sizes.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#note">Note</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

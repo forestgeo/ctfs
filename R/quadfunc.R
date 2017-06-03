@@ -32,27 +32,32 @@
 #' Calculate a quadrat name (column number then row number, as a 4-dig...
 #'
 #' @description
-#'
-#' Calculate a quadrat name (column number then row number, as a 4-digit character string) from gy-gy. If start is set to zero, quadrats start with 0000, otherwise, 0101.
-#'
-#'
+#' Calculate a quadrat name (column number then row number, as a 4-digit
+#' character string) from gy-gy. If start is set to zero, quadrats start with
+#' 0000, otherwise, 0101.
+#' 
+#' @template plotdim
+#' @template gridsize_side
+#' 
 'gxgy.to.quad'
 
-#' Convert x, y coordinates and plot dimensions into 4-character quadr...
+#' Convert x, y coordinates and plot dimensions into 4-character quadrat names.
 #'
 #' @description
+#' Convert x, y coordinates and plot dimensions into 4-character quadrat names.
+#' If x or y are missing, the quadrat=9999.
 #'
-#' Convert x, y coordinates and plot dimensions into 4-character quadrat names. If x or y are missing, the quadrat=9999.
-#'
+#' @template plotdim
+#' @template x_coordinates
+#' @template y_coordinates
 #'
 'getquadratname'
 
 #' Convert an integer to a character, with a single leading zero if th...
 #'
 #' @description
-#'
-#' Convert an integer to a character, with a single leading zero if the integer is < 10. Does
-#' not handle integers >99
+#' Convert an integer to a character, with a single leading zero if the integer
+#' is < 10. Does not handle integers >99
 #'
 #'
 'convert.rowcol'
@@ -109,12 +114,14 @@
 #' 
 'gxgy.to.hectindex'
 
-#' Given global coordinates and quadrat and plot dimensions, calculate...
+#' Calculate local x and y coordinates from global coordinates.
 #'
 #' @description
-#'
-#' Given global coordinates and quadrat and plot dimensions, calculate local x and y, the within-quadrat coordinates
-#'
+#' Given global coordinates and quadrat and plot dimensions, calculate local x
+#' and y, the within-quadrat coordinates.
+#' 
+#' @template plotdim
+#' @template gridsize_side
 #'
 'gxgy.to.lxly'
 
@@ -158,13 +165,15 @@
 #'
 'create.neighbordata'
 
-#' For every quadrat, finds neighboring quadrats and then returns a ve...
+#' For every quadrat, finds neighboring quadrats and returns their abundance.
 #'
 #' @description
+#' For every quadrat, finds neighboring quadrats and then returns a vector of
+#' abundances in those neighbors, as well as the number of neighboring quadrats.
+#' A subroutine used by create.neighbordata.
 #'
-#' For every quadrat, finds neighboring quadrats and then returns a vector of abundances in those
-#' neighbors, as well as the number of neighboring quadrats. A subroutine used by create.neighbordata.
-#'
+#' @template gridsize_side
+#' @template plotdim
 #'
 'findneighborabund'
 
@@ -192,16 +201,17 @@
 #'
 'torus.shift'
 
-#' Takes a vector of indices for a larger quadrat dimension, as create...
+#' Convert indices from larger to smaller quadrats.
 #'
 #' @description
-#'
-#' Takes a vector of indices for a larger quadrat dimension, as created by gxgy.to.index, and for
-#' each returns a vector of indices of smaller quadrats that would fit completely
-#' within. Both larger and smaller quadrats must be square. Returns a matrix, each row being a 
-#' vector of smaller quadrats inside a single larger quadrat.
-#'
-#'
+#' Takes a vector of indices for a larger quadrat dimension, as created by
+#' gxgy.to.index, and for each returns a vector of indices of smaller quadrats
+#' that would fit completely within. Both larger and smaller quadrats must be
+#' square. Returns a matrix, each row being a vector of smaller quadrats inside
+#' a single larger quadrat.
+#' 
+#' @template plotdim
+#' 
 'getsmallerquads'
 
 #' Create a complete of points x-y, given the sequence of unique x and...
@@ -214,18 +224,22 @@
 #'
 'full.xygrid'
 
-#' Calculates the distance from one quadrat to a second quadrat, where...
+#' Distance from one quadrat to a second quadrat.
 #'
 #' @description
-#'
-#' Calculates the distance from one quadrat to a second quadrat, where quadrats are designated by their indices, as
-#' created by gxgy.to.index. The two quadrats can be vectors, but must be of the same length (or one of the two can be atomic). 
-#'
-#' Returns a vector of distances same length as input vectors. 
+#' Calculates the distance from one quadrat to a second quadrat, where quadrats
+#' are designated by their indices, as created by gxgy.to.index. The two
+#' quadrats can be vectors, but must be of the same length (or one of the two
+#' can be atomic).
+#' 
+#' @return 
+#' A vector of distances same length as input vectors.
+#' 
+#' @template plotdim
+#' @template gridsize_side
 #'
 #' @examples
 #' \dontrun{
-#'
 #' bad1=pt1$gx<0 | pt1$gy<0 
 #' bad2=pt2$gx<0 | pt2$gy<0
 #' xdist=pt1$gx-pt2$gx
@@ -236,7 +250,6 @@
 #' dist[bad1]=(-1)
 #' dist[bad2]=(-1)
 #' return(dist)
-#'
 #' }
 'distance'
 

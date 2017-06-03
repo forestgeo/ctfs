@@ -2,11 +2,17 @@
 % Please edit documentation in R/quadfunc.R
 \name{findneighborabund}
 \alias{findneighborabund}
-\title{For every quadrat, finds neighboring quadrats and then returns a ve...}
+\title{For every quadrat, finds neighboring quadrats and returns their abundance.}
 \usage{
 findneighborabund(abundvect, gridsize = 20, plotdim = c(1000, 500))
 }
+\arguments{
+\item{gridsize}{Side of the square quadrate.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+}
 \description{
-For every quadrat, finds neighboring quadrats and then returns a vector of abundances in those
-neighbors, as well as the number of neighboring quadrats. A subroutine used by create.neighbordata.
+For every quadrat, finds neighboring quadrats and then returns a vector of
+abundances in those neighbors, as well as the number of neighboring quadrats.
+A subroutine used by create.neighbordata.
 }

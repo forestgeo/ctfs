@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Abundance of trees by species and DBH classes. — abundance.spp â€¢ forestr</title>
+<title>Remove ending .Rd or .rd. — strip_rd â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,53 +79,27 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Abundance of trees by species and DBH classes.</h1>
+    <h1>Remove ending .Rd or .rd.</h1>
     </div>
 
     
-    <p>A wrapper to calculate total abundance (or ba or agb) for each species in
-given dbh categories. The dbh categories are set with <code>dbhbreaks</code>.</p>
+    <p>Remove ending .Rd or .rd.</p>
     
 
-    <pre class="usage"><span class='fu'>abundance.spp</span>(<span class='no'>censdata</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"abund"</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>,
-  <span class='kw'>alivecode</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>), <span class='kw'>dbhbreaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>300</span>))</pre>
+    <pre class="usage"><span class='fu'>strip_rd</span>(<span class='no'>string</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>censdata</th>
-      <td><p>A table of plot census data.</p></td>
-    </tr>
-    <tr>
-      <th>type</th>
-      <td><p>either 'abund' (default) for abundance, 'ba' for basal area, or
-'agb'.</p></td>
-    </tr>
-    <tr>
-      <th>dbhunit</th>
-      <td><p>'cm' or 'mm', only used for basal area</p></td>
-    </tr>
-    <tr>
-      <th>alivecode</th>
-      <td><p>character, codes of the variable <code>status</code> that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
-trees or stems</p></td>
-    </tr>
-    <tr>
-      <th>dbhbreaks</th>
-      <td><p>a vector of dbhs to define divisions of categories; the last
-category will be &gt;= the final division</p></td>
+      <th>string</th>
+      <td><p>A string</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>See <code><a href='abundance.html'>abundance()</a></code>.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <p><code><a href='abundance.html'>abundance()</a></code></p>
+    <p>The string with the .Rd or .rd extension removed.</p>
     
 
   </div>
@@ -135,8 +109,6 @@ category will be &gt;= the final division</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
           </ul>
 
   </div>

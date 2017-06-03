@@ -90,8 +90,143 @@
 <div id="improved-arguments-documentation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#improved-arguments-documentation" class="anchor"></a>Improved arguments documentation</h2>
-<p>A large problem of forestr is that many function arguments are undocumented. This problem can in part be solved by re-using arguments shared across multiple functions, when the arguments are documented in one but not all of those functions. This also reduces duplication, which makes easier to maintain documentation (see <a href="http://r-pkgs.had.co.nz/man.html">Inheriting parameters from other functions</a>, by Hadley Wickham).</p>
-<p>This week I reduced the number of undocumented arguments by approx. 120 (from 1,150 to 1,036), by reviewing only ~30 functions from <em>forestr</em> which name is exactly the same as in CTFS-CRAN.</p>
+<blockquote>
+<p>Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.</p>
+</blockquote>
+<p>– <a href="http://r-pkgs.had.co.nz/man.html" class="uri">http://r-pkgs.had.co.nz/man.html</a></p>
+<p>Documentation of forestr has two large problems: the arguments of many function are undocumented, and many arguments that mean the same accross multiple functions are documented in multiple places. Those problems can in part be solved by re-using arguments shared across multiple functions, when the arguments are documented in one but not all of those functions. This also reduces duplication, which makes easier to maintain documentation (see <a href="http://r-pkgs.had.co.nz/man.html">Inheriting parameters from other functions</a>, by Hadley Wickham).</p>
+<div id="where-to-start-from" class="section level3">
+<h3 class="hasAnchor">
+<a href="#where-to-start-from" class="anchor"></a>Where to start from?</h3>
+<ul>
+<li>(Comes after item below), identified what arguments should be documented with highest priority, to maximize the positive impact by unit of effort. I wrote functions to identify what arguments are most commonly used in forestr functions, but less commonly documented.</li>
+</ul>
+<p>Example 1: The list below shows that the argument <code>x</code> is used 130 times (by functions including <code>border.distance</code>, <code>cartesian.to.polar</code>, etc.), but <code>x</code> is only documented 8 times.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">args_count_formals_man</span>()
+<span class="co"># A tibble: 1,758 x 4</span>
+   params                 fun frml_n man_n
+    &lt;chr&gt;<span class="st">               </span><span class="er">&lt;</span>chr&gt;<span class="st">  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
+<span class="st"> </span><span class="dv">1</span>      x     border.distance    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">2</span>      x  cartesian.to.polar    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">3</span>      x coldata.to.imagemat    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">4</span>      x         fullellipse    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">5</span>      x      getquadratname    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">6</span>      x     graphFilledBand    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">7</span>      x        plot_wavelet    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">8</span>      x            tojulian    <span class="dv">130</span>     <span class="dv">8</span>
+ <span class="dv">9</span>      x      abundmodel.fit    <span class="dv">130</span>    <span class="ot">NA</span>
+<span class="dv">10</span>      x         addBinParam    <span class="dv">130</span>    <span class="ot">NA</span>
+<span class="co"># ... with 1,748 more rows</span></code></pre></div>
+<p>Note: unfortunately, <code>x</code> is used with very different meaning in different functions, so it is not a great candidate to improve documentation fast. Other arguments are better candidates.</p>
+<p>Example 2: The argument <code>plotdim</code> is a good candidate to improve documentation fast. It is needed by 37 functions but is documented in only 29. Its meaning is very consistent accross functions, so it can be documented in one place via \@templates and then re-used from the functions that need it (they all point to the same tamplate).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args_count_formals_man</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(params ==<span class="st"> "plotdim"</span>) 
+<span class="co"># A tibble: 37 x 4</span>
+    params               fun frml_n man_n
+     &lt;chr&gt;<span class="st">             </span><span class="er">&lt;</span>chr&gt;<span class="st">  </span><span class="er">&lt;</span>int&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
+<span class="st"> </span><span class="dv">1</span> plotdim  abundanceperquad     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">2</span> plotdim  allquadratslopes     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">3</span> plotdim            Annuli     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">4</span> plotdim   border.distance     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">5</span> plotdim      CalcRingArea     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">6</span> plotdim  complete.plotmap     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">7</span> plotdim     coverage.diag     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">8</span> plotdim          distance     <span class="dv">37</span>    <span class="dv">29</span>
+ <span class="dv">9</span> plotdim   findborderquads     <span class="dv">37</span>    <span class="dv">29</span>
+<span class="dv">10</span> plotdim findneighborabund     <span class="dv">37</span>    <span class="dv">29</span>
+<span class="co"># ... with 27 more rows</span></code></pre></div>
+</div>
+<div id="reduced-duplicated-arguments-documentation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#reduced-duplicated-arguments-documentation" class="anchor"></a>Reduced duplicated arguments documentation</h3>
+<ul>
+<li>Reduced duplicated instances of arguments documentation from 132 to 41, mostly via roxygen2 @templates and @inheritParams.</li>
+</ul>
+<p>BEFORE: 43 arguments were repeated multiple times (see <code>n</code> in table below), adding up to 132 duplicated instances.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">             params     n
+              &lt;chr&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
+<span class="st"> </span><span class="dv">0</span>          plotdim     <span class="dv">9</span>
+ <span class="dv">1</span>         gridsize     <span class="dv">8</span>
+ <span class="dv">2</span>           mindbh     <span class="dv">6</span>
+ <span class="dv">3</span>                x     <span class="dv">6</span>
+ <span class="dv">4</span>         censdata     <span class="dv">5</span>
+ <span class="dv">5</span>            debug     <span class="dv">5</span>
+ <span class="dv">6</span>             ycol     <span class="dv">5</span>
+ <span class="dv">7</span>                r     <span class="dv">4</span>
+ <span class="dv">8</span>             type     <span class="dv">4</span>
+ <span class="dv">9</span>           xrange     <span class="dv">4</span>
+<span class="dv">10</span>           yrange     <span class="dv">4</span>
+<span class="dv">11</span>             data     <span class="dv">3</span>
+<span class="dv">12</span>           export     <span class="dv">3</span>
+<span class="dv">13</span>          outfile     <span class="dv">3</span>
+<span class="dv">14</span>         showstep     <span class="dv">3</span>
+<span class="dv">15</span>             size     <span class="dv">3</span>
+<span class="dv">16</span>            steps     <span class="dv">3</span>
+<span class="dv">17</span>             xcol     <span class="dv">3</span>
+<span class="dv">18</span>                y     <span class="dv">3</span>
+<span class="dv">19</span>              ...     <span class="dv">2</span>
+<span class="dv">20</span>         badparam     <span class="dv">2</span>
+<span class="dv">21</span>       badSDparam     <span class="dv">2</span>
+<span class="dv">22</span>           burnin     <span class="dv">2</span>
+<span class="dv">23</span>             clrs     <span class="dv">2</span>
+<span class="dv">24</span>            error     <span class="dv">2</span>
+<span class="dv">25</span>         filepath     <span class="dv">2</span>
+<span class="dv">26</span>          graphit     <span class="dv">2</span>
+<span class="dv">27</span>               ht     <span class="dv">2</span>
+<span class="dv">28</span>            ltype     <span class="dv">2</span>
+<span class="dv">29</span>           lwidth     <span class="dv">2</span>
+<span class="dv">30</span>            model     <span class="dv">2</span>
+<span class="dv">31</span>        modeltype     <span class="dv">2</span>
+<span class="dv">32</span>             path     <span class="dv">2</span>
+<span class="dv">33</span>           ptsize     <span class="dv">2</span>
+<span class="dv">34</span>           sdfunc     <span class="dv">2</span>
+<span class="dv">35</span>            start     <span class="dv">2</span>
+<span class="dv">36</span>          startSD     <span class="dv">2</span>
+<span class="dv">37</span> subquadratsuffix     <span class="dv">2</span>
+<span class="dv">38</span>           update     <span class="dv">2</span>
+<span class="dv">39</span>               wd     <span class="dv">2</span>
+<span class="dv">40</span>            xname     <span class="dv">2</span>
+<span class="dv">41</span>            yname     <span class="dv">2</span>
+<span class="dv">42</span>                z     <span class="dv">2</span>
+-------------------------
+<span class="kw">sum</span>(n)                <span class="dv">132</span></code></pre></div>
+<p>AFTER: 18 arguments remain that have the same name in two or more functions, adding up to 41 instances. These instances of arguments with thae same name either mean different things in different fuctions or, rarely, if they mean the same or not is unclear.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    params     n
+     &lt;chr&gt;<span class="st"> </span><span class="er">&lt;</span>int&gt;
+<span class="st"> </span><span class="dv">1</span>    type     <span class="dv">4</span>
+ <span class="dv">2</span>       x     <span class="dv">4</span>
+ <span class="dv">3</span>       y     <span class="dv">3</span>
+ <span class="dv">4</span>    clrs     <span class="dv">2</span>
+ <span class="dv">5</span>    data     <span class="dv">2</span>
+ <span class="dv">6</span> graphit     <span class="dv">2</span>
+ <span class="dv">7</span>       h     <span class="dv">2</span>
+ <span class="dv">8</span>    path     <span class="dv">2</span>
+ <span class="dv">9</span>  ptsize     <span class="dv">2</span>
+<span class="dv">10</span>       r     <span class="dv">2</span>
+<span class="dv">11</span>  sdfunc     <span class="dv">2</span>
+<span class="dv">12</span> startSD     <span class="dv">2</span>
+<span class="dv">13</span>       w     <span class="dv">2</span>
+<span class="dv">14</span>    xcol     <span class="dv">2</span>
+<span class="dv">15</span>  xrange     <span class="dv">2</span>
+<span class="dv">16</span>    ycol     <span class="dv">2</span>
+<span class="dv">17</span>  yrange     <span class="dv">2</span>
+<span class="dv">18</span>       z     <span class="dv">2</span>
+----------------
+<span class="kw">sum</span>(n)        <span class="dv">41</span></code></pre></div>
+</div>
+<div id="documented-arguments-which-functions-names-are-similar-in-ctfs-cran" class="section level3">
+<h3 class="hasAnchor">
+<a href="#documented-arguments-which-functions-names-are-similar-in-ctfs-cran" class="anchor"></a>Documented arguments which functions names are similar in CTFS-CRAN</h3>
+<ul>
+<li>Documented arguments from functions of forestr which function names are similar to functions from CTFS-CRAN. After working on the item below, I documented functions which name is not exactly the same but similar, suggesting that those functions from forestr and CTFS-CRAN have a lot in common and therefore the information from CTFS-CRAN helped fill a few more gaps in the documentation of forestr.</li>
+</ul>
+</div>
+<div id="documented-arguments-which-functions-names-match-exactly-function-names-in-ctfs-cran" class="section level3">
+<h3 class="hasAnchor">
+<a href="#documented-arguments-which-functions-names-match-exactly-function-names-in-ctfs-cran" class="anchor"></a>Documented arguments which functions names match exactly function names in CTFS-CRAN</h3>
+<ul>
+<li>Documented arguments by reviewing only ~30 functions from <em>forestr</em> which name is exactly the same as in CTFS-CRAN (see list below). This match helped document arguments which meaning was unclear from only one source of information. Undocumented arguments reduced by approx. 120 (from 1,150 to 1,036).</li>
+</ul>
 <p>Those functions are these:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> [<span class="dv">1</span>] <span class="st">"abundance.Rd"</span>            
  [<span class="dv">2</span>] <span class="st">"abundance.spp.Rd"</span>        
@@ -138,6 +273,7 @@
 [<span class="dv">7</span>] <span class="st">"#' @param classbreak xxxdocparam"</span> 
 [<span class="dv">8</span>] <span class="st">"#' @param meantime xxxdocparam"</span>  </code></pre></div>
 <p>I tried to use documentation in forestr exclusively and used documentation from CTFS-CRAN only to fill gaps (most often missing parameters’ documentation) and as a source of information to rewrite forestr’s documentation. Some limitations in merging documentation in forestr and CTFS-CRAN are:</p>
+</div>
 </div>
 <div id="future-improvements" class="section level2">
 <h2 class="hasAnchor">

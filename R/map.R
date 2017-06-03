@@ -202,14 +202,16 @@
 #' 
 'maptopo'
 
-#' This does the mapping for a single species, called from map() but a...
+#' Map a single species.
 #'
 #' @description
+#' This does the mapping for a single species, called from map() but also useful
+#' on its own.
 #'
-#' This does the mapping for a single species, called from map() but also useful on its own.
-#'
-#' With add=TRUE, points are added to an existing map. All other parameters are described with map(). 
-#'
+#' @seealso [map()].
+#' 
+#' @inheritParams map
+#' @param add Logical. Use `add = TRUE ` to add points to an existing map.
 #'
 'map1species'
 
