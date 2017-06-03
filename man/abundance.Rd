@@ -8,9 +8,7 @@ abundance(censdata, type = "abund", alivecode = c("A"), mindbh = NULL,
   dbhunit = "mm", split1 = NULL, split2 = NULL)
 }
 \arguments{
-\item{censdata}{an R Analytical Table for a full plot census. For basal area
-use a stem table. For abundance, use either the stem or full table to count
-stems or trees, respectively.}
+\item{censdata}{A table of plot census data.}
 
 \item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
@@ -19,8 +17,9 @@ stems or trees, respectively.}
 tree is alive. The default 'A' is the standard CTFS designation for living
 trees or stems}
 
-\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
-all (living) are included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
@@ -44,6 +43,9 @@ The categorical variables must be submitted as vectors whose length matches
 exactly as the number of rows in the plot data submitted (so one per tree or
 stem). The first vector should be the one with the most categories (for
 instances, \code{split1 = species}, \code{split2 = dbhcategory}).
+
+For basal area, pass a stem table to \code{censdata}; For abundance, use either
+the stem or full table to count stems or trees, respectively.
 }
 \examples{
 \dontrun{

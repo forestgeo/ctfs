@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Returns distance from a point to the nearest boundary of a rectangl... — border.distance â€¢ forestr</title>
+<title>Distance from a point to the nearest boundary of a rectangle (plot). — border.distance â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,22 +79,40 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Returns distance from a point to the nearest boundary of a rectangl...</h1>
+    <h1>Distance from a point to the nearest boundary of a rectangle (plot).</h1>
     </div>
 
     
-    <p>Returns distance from a point to the nearest boundary of a rectangle (plot). Accepts either separate
-x-y coordinates, or an object where x is first column, y is second. The lower left corner of the plot is
-assumed to be 0,0.</p>
+    <p>Returns distance from a point to the nearest boundary of a rectangle (plot).
+Accepts either separate x-y coordinates, or an object where x is first
+column, y is second. The lower left corner of the plot is assumed to be 0,0.</p>
     
 
     <pre class="usage"><span class='fu'>border.distance</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>), <span class='kw'>pt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>Coordinates.</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>Coordinates.</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

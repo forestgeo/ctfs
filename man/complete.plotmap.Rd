@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{complete.plotmap}
 \alias{complete.plotmap}
-\title{This creates a map with every individual shown. The area to be mapp...}
+\title{Map every individual.}
 \usage{
 complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
   export = "no", nospp = 3, plotdim = c(1000, 500), clrlist = c("blue",
@@ -16,35 +16,61 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
 
 \item{spnames}{names of species to map, using the mnemonic in the R tables}
 
-\item{mindbh}{smallest dbh to include}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
-\item{export}{set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)}
+\item{export}{`export = "no"`, does nothing, so the next graph uses the
+default R device. With this option, the size of the graph cannot have been
+set larger than the default size, which is usually 7 inches. `export =
+"unix"`, a new graphics window in unix, size `h` and width `w`, will be
+opened allowing you to alter the size of the output. `export = "windows"`,
+or `export = "mac"` are similar to `export = "unix"` but for windows and
+mac. `export = format` exports the graph to a specific file format: "pdf",
+"png", "jpg", "bmp", "emf".}
 
 \item{nospp}{number of species to overlay; can be NULL or 0 for none}
 
-\item{plotdim}{x and y plot dimensions}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{clrlist}{colors to use for the species to be overlaid}
 
-\item{ptsize}{size of points, the first used for the background of all species, the second for the individual species}
+\item{ptsize}{A vector of two numbers giving the point size for the
+background of all species (first one) and for the individual species
+(second one).}
 
-\item{xrange}{minimum and maximum x coordinates of area graphed}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
 
-\item{yrange}{minimum and maximum y coordinates of area graphed}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
-\item{wd}{graph width; see map() function}
+\item{wd}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
 
-\item{ht}{graph height, same units as wd}
+\item{ht}{Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.}
 
 \item{side}{the side in inches of the graph; see map()}
 
-\item{filepath}{folder to save output}
+\item{labsize}{Size of axis labels.}
 
-\item{outfile}{filename for output}
+\item{axisdiv}{the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks}
+
+\item{filepath}{The folder to which map will be exported.}
+
+\item{outfile}{Filename for output.}
 }
 \description{
-This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.
-
-On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
-are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp.
+This creates a map with every individual shown. The area to be mapped can be
+chosen, allowing maps of small areas.
+}
+\details{
+On top of the map of every individual, individual species can be overlaid in
+different colors. If nospp is set NULL, no species are added. If spnames is
+set NULL, then the most abundant species in the plot are chosen, up to the
+number nospp.
 }

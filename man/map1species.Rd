@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{map1species}
 \alias{map1species}
-\title{This does the mapping for a single species, called from map() but a...}
+\title{Map a single species.}
 \usage{
 map1species(sppdata, plotdim = c(1000, 500), xrange = c(0, plotdim[1]),
   yrange = c(0, plotdim[2]), color = "black", bgcolor = "white",
@@ -10,8 +10,38 @@ map1species(sppdata, plotdim = c(1000, 500), xrange = c(0, plotdim[1]),
   size = rep(-1, 3), cutoff = c(10, 100, 300, 3000), axisdiv = 100,
   labsize = 1.75, plotside = 4, add = FALSE)
 }
-\description{
-This does the mapping for a single species, called from map() but also useful on its own.
+\arguments{
+\item{plotdim}{The x and y dimensions of the plot.}
 
-With add=TRUE, points are added to an existing map. All other parameters are described with map().
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
+
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
+
+\item{bgcolor}{The background color. Defaults to white. For presentation
+exports, try bgcolor="transparent".}
+
+\item{axspos}{Distance between axis numbers and axis.}
+
+\item{size}{The size of plotting points, to match the number of diameter
+breaks. If NULL, a default set is assigned. This can require fiddling, as
+big points do not work for really abundant species, and small points for
+rare species.}
+
+\item{cutoff}{Diameter breaks for changing size of plotting points.}
+
+\item{axisdiv}{the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks}
+
+\item{labsize}{Size of axis labels.}
+
+\item{plotside}{The vertical dimension (inches) of the map.}
+
+\item{add}{Logical. Use \code{add = TRUE} to add points to an existing map.}
+}
+\description{
+This does the mapping for a single species, called from map() but also useful
+on its own.
+}
+\seealso{
+\code{\link[=map]{map()}}.
 }

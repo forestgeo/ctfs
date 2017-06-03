@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This defines an export device for a graph, based on the argument ex... — define.graphwindow â€¢ forestr</title>
+<title>Define an export device for a graph, based on the argument export. — define.graphwindow â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,24 +79,41 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This defines an export device for a graph, based on the argument ex...</h1>
+    <h1>Define an export device for a graph, based on the argument export.</h1>
     </div>
 
     
-    <p>This defines an export device for a graph, based on the argument export. The default, export='no', does nothing, so
-the next graph uses the default R device. With this option, the size of the graph cannot have been set larger than
-the default size, which is usually 7 inches. If export="unix", a new graphics window in unix, size h and width w, will be opened
-allowing you to alter the size of the output. To do the same in Windows, set export="windows", or for Mac, export="mac".</p>
-<p>To export the graph to a file, export can be "pdf", "png", "jpg", "bmp", "emf". In all cases, it is quoted.</p>
+    <p>This defines an export device for a graph, based on the argument export.</p>
     
 
     <pre class="usage"><span class='fu'>define.graphwindow</span>(<span class='kw'>export</span> <span class='kw'>=</span> <span class='st'>"no"</span>, <span class='no'>w</span>, <span class='no'>h</span>, <span class='no'>file</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>export</th>
+      <td><p>`export = "no"`, does nothing, so the next graph uses the
+default R device. With this option, the size of the graph cannot have been
+set larger than the default size, which is usually 7 inches. `export =
+"unix"`, a new graphics window in unix, size `h` and width `w`, will be
+opened allowing you to alter the size of the output. `export = "windows"`,
+or `export = "mac"` are similar to `export = "unix"` but for windows and
+mac. `export = format` exports the graph to a specific file format: "pdf",
+"png", "jpg", "bmp", "emf".</p></td>
+    </tr>
+    <tr>
+      <th>h, w</th>
+      <td><p>Size and width</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

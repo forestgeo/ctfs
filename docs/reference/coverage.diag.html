@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Draws a diagonal across a plot, from lower left to upper right (if ... — coverage.diag â€¢ forestr</title>
+<title>Draws a diagonal across a plot. — coverage.diag â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,26 +79,54 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Draws a diagonal across a plot, from lower left to upper right (if ...</h1>
+    <h1>Draws a diagonal across a plot.</h1>
     </div>
 
     
-    <p>Draws a diagonal across a plot, from lower left to upper right (if slope==1), upper left to lower right (if slope==-1),
-or straight across the middle (if slope==0).
-and determines for every point along the diagonal what fraction of a series of quadrats it is inside.</p>
-<p>The quadrats are defined by their four corners in randomquads: xlo, ylo, xhi, yhi.</p>
-<p>This is only used in testing how well random quadrat draws include corners and edges of a plot.</p>
+    <p>Draws a diagonal across a plot, and determines for every point along the
+diagonal what fraction of a series of quadrats it is inside.</p>
     
 
     <pre class="usage"><span class='fu'>coverage.diag</span>(<span class='no'>randomquads</span>, <span class='kw'>slope</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>),
   <span class='kw'>graphit</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>slope</th>
+      <td><p>A number that controls the direction of the diagonal drawn
+accross the plot. To draw the diagonal</p><ul>
+<li><p>from lower left to upper right, use 1;</p></li>
+<li><p>from upper left to lower right, use -1;</p></li>
+<li><p>straight across the middle, use 0.</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>randomquads:</th>
+      <td><p>Defines the four corners of the quadrats in xlo, ylo,
+xhi, yhi.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This is only used in testing how well random quadrat draws include corners
+and edges of a plot.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

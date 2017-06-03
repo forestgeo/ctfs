@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculates the count of neighbors within radius r with edge effect ... — NDcount â€¢ forestr</title>
+<title>Count of neighbors within radius r with edge effect correction. — NDcount â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,13 +79,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculates the count of neighbors within radius r with edge effect ...</h1>
+    <h1>Count of neighbors within radius r with edge effect correction.</h1>
     </div>
 
     
-    <p>Calculates the count of neighbors within radius r with edge effect correction. Is a quick version of NeighborDensities with limited capabilities.</p>
-<p>Dependencies: CalcRingArea from the CTFS package and splancs.</p>
-<p>Output: a single vector with neighbor counts within radius r for each individual in censdata.</p>
+    <p>Calculates the count of neighbors within radius <code>r</code> with edge effect
+correction. Is a quick version of <code><a href='NeighborDensities.html'>NeighborDensities()</a></code> with limited
+capabilities.</p>
     
 
     <pre class="usage"><span class='fu'>NDcount</span>(<span class='no'>censdata</span>, <span class='kw'>r</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>))</pre>
@@ -95,37 +95,44 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>censdata</th>
-      <td><p>Is the coordinates dataset, should have the coordinates (gx, gy)</p></td>
+      <td><p>A table of plot census data.</p></td>
     </tr>
     <tr>
       <th>r</th>
-      <td><p>(20) radius</p></td>
+      <td><p>Radius.</p></td>
     </tr>
     <tr>
       <th>plotdim</th>
-      <td><p>(c(1000,500))  vector with two numbers indicating the xy-plot size;</p></td>
+      <td><p>The x and y dimensions of the plot.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A single vector with neighbor counts within radius r for each
+individual in censdata.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>censdata</code> should have the coordinates <code>gx</code>, <code>gy</code>.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>not_run({
-  
-  count all the consp neighbors of one species 
-  one.sp = subset(bci.full7, sp=="ingasa" & status=="A")
-  neighbor.counts <- NDcount(one.sp)
-})
-
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:3:9: unexpected symbol</span>
-#&gt; <span class='error'>2:   </span>
-#&gt; <span class='error'>3:   count all</span>
-#&gt; <span class='error'>           ^</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='co'># Count all the consp neighbors of one species </span>
+  <span class='no'>one.sp</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='no'>bci.full7</span>, <span class='no'>sp</span> <span class='kw'>==</span> <span class='st'>"ingasa"</span> <span class='kw'>&amp;</span> <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>"A"</span>)
+  <span class='no'>neighbor.counts</span> <span class='kw'>&lt;-</span> <span class='fu'>NDcount</span>(<span class='no'>one.sp</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

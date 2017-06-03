@@ -19,58 +19,59 @@
 #' plotside too large for the default graph size (usually 7 inches). If you use
 #' the option export="Windows", "Mac", or "Unix", then height and width can be
 #' set with arguments ht, wd, and plotside can be as large as you please.
+#' 
+#' * `plotdim` assumes the starting coordinates are zero. If they are not, then
+#' xrange and yrange must be used.
+#' * `xrange`, `yrange` allows a portion of plot to be drawn. Defaults to the
+#' entire plot.
 #'
+#' @inheritParams imageGraph
+#' @template plotdim
+#' @template xrange_yrange
+#' @template outfile
+#' @template export
+#' @template ht_wt
 #' @param splitdatafile A full plot dataset in list format (see `?split_data`).
 #' @param species One or more species codes to be mapped.
 #' @param spplist A table with species codes and Latin names can be submitted as
-#'   well, so that the full genus-species is added to plot. This must have
-#'   species codes as row names. It should be the CTFS R format species table
-#'   (eg, bci.spptable). It can be set to NULL if not available, then only the
+#'   well, so that the full genus-species is added to plot. This must have 
+#'   species codes as row names. It should be the CTFS R format species table 
+#'   (eg, bci.spptable). It can be set to NULL if not available, then only the 
 #'   species code (as submitted) appears on the map.
-#' @param xrange,yrange Minimum and maximum x coordinates and y coordinates to
-#'   map. Allows a portion of plot to be drawn. Defaults to the entire plot.
-#' @param plotdim The x and y dimensions of the plot. This is used often in R
-#'   package. Note it assumes the starting coordinates are zero. If they are
-#'   not, then xrange and yrange must be used.
 #' @param elevdata Elevation data can be submitted, then a topo map is overlaid.
-#'   Elevation data must be submitted as a matrix (as described in readelevdata
+#'   Elevation data must be submitted as a matrix (as described in readelevdata 
 #'   in utilities.r).
 #' @param cutoff Diameter breaks for changing size of plotting points.
-#' @param size The size of plotting points, to match the number of diameter
-#'   breaks. If NULL, a default set is assigned. This can require fiddling, as
-#'   big points do not work for really abundant species, and small points for
+#' @param size The size of plotting points, to match the number of diameter 
+#'   breaks. If NULL, a default set is assigned. This can require fiddling, as 
+#'   big points do not work for really abundant species, and small points for 
 #'   rare species.
-#' @param deadtree Set NULL to map all trees, alive and dead; TRUE for dead
+#' @param deadtree Set NULL to map all trees, alive and dead; TRUE for dead 
 #'   only, FALSE for live only (relies on status in the R table).
-#' @param maintitle A title to appear at the top of the page, above the species name.
-#' @param titlepos The position to place the title. The default is above the
-#'   center of the plot, higher than the species name. It may require some
+#' @param maintitle A title to appear at the top of the page, above the species
+#'   name.
+#' @param titlepos The position to place the title. The default is above the 
+#'   center of the plot, higher than the species name. It may require some 
 #'   fiddling on different screens to get it the right distance above.
-#' @param clrs A vector of color names, one for each species. If set to NULL,
+#' @param clrs A vector of color names, one for each species. If set to NULL, 
 #'   default values are assigned. See bw.
 #' @param bw If TRUE, only black, white, and grays are used.
-#' @param bgcolor The background color. Defaults to white. For presentation
+#' @param bgcolor The background color. Defaults to white. For presentation 
 #'   exports, try bgcolor="transparent".
 #' @param symbols A vector of symbols, one per species. Can be anything accepted
 #'   by R for pch (plot character in the function plot()). If NULL, defaults are
 #'   assigned.
-#' @param addlegend,legpos,legsize For the species name, whether to include,
-#'   where to place, and font size. Try the defaults first before fiddling, or
+#' @param addlegend,legpos,legsize For the species name, whether to include, 
+#'   where to place, and font size. Try the defaults first before fiddling, or 
 #'   just set addlegend=FALSE to remove.
-#' @param ht,wd,plotside These are the height and width of the overall graph,
-#'   and the vertical dimension (inches) of the map. The default work for pdf
-#'   export or mapping to the screen, and ht and wd are inches. But if export is
-#'   png, jpg, emf, height and width are pixels and need to be 500-1000.
+#' @param plotside The vertical dimension (inches) of the map.
 #' @param labsize Size of axis labels.
 #' @param bty Type of box to appear around species name. The default, 'n', means
 #'   no box; set to 'o'to see the box.
 #' @param axspos Distance between axis numbers and axis.
 #' @param topoint Interval for topolines, if elevdata are submitted.
 #' @param topoclr Color of topolines.
-#' @param export See function define.graphwindow. 
 #' @param filepath The folder to which map will be exported.
-#' @param outfile The name of the file to export to.
-#' @inheritParams imageGraph
 #'
 #' @examples
 #' \dontrun{
@@ -132,45 +133,38 @@
 #'
 'png.allplot'
 
-#' This creates a map with every individual shown. The area to be mapp...
+#' Map every individual.
 #'
 #' @description
+#' This creates a map with every individual shown. The area to be mapped can be
+#' chosen, allowing maps of small areas.
+#' 
+#' @details
+#' On top of the map of every individual, individual species can be overlaid in
+#' different colors. If nospp is set NULL, no species are added. If spnames is
+#' set NULL, then the most abundant species in the plot are chosen, up to the
+#' number nospp.
 #'
-#' This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.
-#'
-#' On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
-#' are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp. 
-#'
+#' @inheritParams map
+#' @template mindbh
 #' @param cns a full census dataset (all species)
 #' @param spnames names of species to map, using the mnemonic in the R tables
-#' @param mindbh smallest dbh to include
-#' @param export set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)
 #' @param nospp number of species to overlay; can be NULL or 0 for none
-#' @param plotdim x and y plot dimensions
 #' @param clrlist colors to use for the species to be overlaid
-#' @param ptsize size of points, the first used for the background of all species, the second for the individual species
-#' @param xrange minimum and maximum x coordinates of area graphed
-#' @param yrange minimum and maximum y coordinates of area graphed
-#' @param wd graph width; see map() function
-#' @param ht graph height, same units as wd
+#' @param ptsize A vector of two numbers giving the point size for the 
+#'   background of all species (first one) and for the individual species
+#'   (second one).
 #' @param side the side in inches of the graph; see map()
-#' @param filepath folder to save output
-#' @param outfile filename for output
-#'
 #'
 'complete.plotmap'
 
-#' This defines an export device for a graph, based on the argument ex...
+#' Define an export device for a graph, based on the argument export.
 #'
 #' @description
-#'
-#' This defines an export device for a graph, based on the argument export. The default, export='no', does nothing, so
-#' the next graph uses the default R device. With this option, the size of the graph cannot have been set larger than
-#' the default size, which is usually 7 inches. If export="unix", a new graphics window in unix, size h and width w, will be opened
-#' allowing you to alter the size of the output. To do the same in Windows, set export="windows", or for Mac, export="mac". 
-#'
-#' To export the graph to a file, export can be "pdf", "png", "jpg", "bmp", "emf". In all cases, it is quoted. 
-#'
+#' This defines an export device for a graph, based on the argument export.
+#' 
+#' @template export
+#' @param h,w Size and width
 #'
 'define.graphwindow'
 
@@ -208,14 +202,16 @@
 #' 
 'maptopo'
 
-#' This does the mapping for a single species, called from map() but a...
+#' Map a single species.
 #'
 #' @description
+#' This does the mapping for a single species, called from map() but also useful
+#' on its own.
 #'
-#' This does the mapping for a single species, called from map() but also useful on its own.
-#'
-#' With add=TRUE, points are added to an existing map. All other parameters are described with map(). 
-#'
+#' @seealso [map()].
+#' 
+#' @inheritParams map
+#' @param add Logical. Use `add = TRUE ` to add points to an existing map.
 #'
 'map1species'
 

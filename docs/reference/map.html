@@ -122,14 +122,11 @@ species code (as submitted) appears on the map.</p></td>
     </tr>
     <tr>
       <th>plotdim</th>
-      <td><p>The x and y dimensions of the plot. This is used often in R
-package. Note it assumes the starting coordinates are zero. If they are
-not, then xrange and yrange must be used.</p></td>
+      <td><p>The x and y dimensions of the plot.</p></td>
     </tr>
     <tr>
       <th>xrange, yrange</th>
-      <td><p>Minimum and maximum x coordinates and y coordinates to
-map. Allows a portion of plot to be drawn. Defaults to the entire plot.</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
     </tr>
     <tr>
       <th>elevdata</th>
@@ -155,7 +152,8 @@ only, FALSE for live only (relies on status in the R table).</p></td>
     </tr>
     <tr>
       <th>maintitle</th>
-      <td><p>A title to appear at the top of the page, above the species name.</p></td>
+      <td><p>A title to appear at the top of the page, above the species
+name.</p></td>
     </tr>
     <tr>
       <th>titlepos</th>
@@ -195,7 +193,8 @@ just set addlegend=FALSE to remove.</p></td>
     </tr>
     <tr>
       <th>axisdiv</th>
-      <td><p>the division between tick marks; must be a vector of 2, first for x ticks then for y ticks</p></td>
+      <td><p>the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks</p></td>
     </tr>
     <tr>
       <th>bty</th>
@@ -203,11 +202,15 @@ just set addlegend=FALSE to remove.</p></td>
 no box; set to 'o'to see the box.</p></td>
     </tr>
     <tr>
-      <th>ht, wd, plotside</th>
-      <td><p>These are the height and width of the overall graph,
-and the vertical dimension (inches) of the map. The default work for pdf
-export or mapping to the screen, and ht and wd are inches. But if export is
-png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
+      <th>ht, wd</th>
+      <td><p>Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.</p></td>
+    </tr>
+    <tr>
+      <th>plotside</th>
+      <td><p>The vertical dimension (inches) of the map.</p></td>
     </tr>
     <tr>
       <th>axspos</th>
@@ -223,7 +226,14 @@ png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
     </tr>
     <tr>
       <th>export</th>
-      <td><p>See function define.graphwindow.</p></td>
+      <td><p>`export = "no"`, does nothing, so the next graph uses the
+default R device. With this option, the size of the graph cannot have been
+set larger than the default size, which is usually 7 inches. `export =
+"unix"`, a new graphics window in unix, size `h` and width `w`, will be
+opened allowing you to alter the size of the output. `export = "windows"`,
+or `export = "mac"` are similar to `export = "unix"` but for windows and
+mac. `export = format` exports the graph to a specific file format: "pdf",
+"png", "jpg", "bmp", "emf".</p></td>
     </tr>
     <tr>
       <th>filepath</th>
@@ -231,7 +241,7 @@ png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
     </tr>
     <tr>
       <th>outfile</th>
-      <td><p>The name of the file to export to.</p></td>
+      <td><p>Filename for output.</p></td>
     </tr>
     </table>
     
@@ -241,7 +251,12 @@ png, jpg, emf, height and width are pixels and need to be 500-1000.</p></td>
 large". This happens if the export="no" option is used with the option
 plotside too large for the default graph size (usually 7 inches). If you use
 the option export="Windows", "Mac", or "Unix", then height and width can be
-set with arguments ht, wd, and plotside can be as large as you please.</p>
+set with arguments ht, wd, and plotside can be as large as you please.</p><ul>
+<li><p><code>plotdim</code> assumes the starting coordinates are zero. If they are not, then
+xrange and yrange must be used.</p></li>
+<li><p><code>xrange</code>, <code>yrange</code> allows a portion of plot to be drawn. Defaults to the
+entire plot.</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

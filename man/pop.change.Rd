@@ -22,8 +22,9 @@ stem.}
 tree is alive. The default 'A' is the standard CTFS designation for living
 trees or stems}
 
-\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
-all (living) are included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{split1}{a vector of categories, one per individual}
 

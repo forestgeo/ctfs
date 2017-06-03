@@ -10,7 +10,7 @@ readelevdata(elevfile, gridsize = 5, text = FALSE)
 \item{elevfile}{A data frame with x, y coordinates and elevation,
 bcielev.info.}
 
-\item{gridsize}{scale of elevation values (m)}
+\item{gridsize}{xxxdocparam scale of elevation values (m)}
 
 \item{text}{Logical. Defaults to read from a datatrame. Set to TRUE to read a
 text table.
