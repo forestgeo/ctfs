@@ -93,57 +93,69 @@
 #'
 'rasterize'
 
-#' Function to calculate the univariate wavelet variance using furier ...
+#' Univariate wavelet variance using furier transforms.
 #'
 #' @description
-#'
-#' Function to calculate the univariate wavelet variance using furier transforms. 
-#'
-#' It accepts a raster data or a point pattern, which is the default if raster is not provided.  
-#'
-#' The wavelet variance describes the spatial autocorrelation or aggregation of tree distribution.
-#'
-#' A wavelet variance greater than 1 indicates scales at which individuals 
-#' are aggregated. A wavelet variance less than 1, indicates scales at which 
-#' individuals are dis-aggregated. A wavelet variance equal to 1, indicates scales 
-#' at which individuals are randomply distribuited (as Poisson process).  
-#'
-#' A graphical test is implemented on the null hypothesis of complete randomness. 
-#'
-#' If the wavelet variance is out of the conf bounds the tree distribution 
-#' is significantly different from a random process.  
-#'
-#'
+#' Function to calculate the univariate wavelet variance using furier 
+#' transforms.
+#' 
+#' @details
+#' It accepts a raster data or a point pattern, which is the default if raster
+#' is not provided.
+#' 
+#' The wavelet variance describes the spatial autocorrelation or aggregation of
+#' tree distribution.
+#' 
+#' A wavelet variance greater than 1 indicates scales at which individuals are
+#' aggregated. A wavelet variance less than 1, indicates scales at which 
+#' individuals are dis-aggregated. A wavelet variance equal to 1, indicates
+#' scales at which individuals are randomply distribuited (as Poisson process).
+#' 
+#' A graphical test is implemented on the null hypothesis of complete
+#' randomness.
+#' 
+#' If the wavelet variance is out of the conf bounds the tree distribution is
+#' significantly different from a random process.
+#' 
 #' Dependencies: needs the package 'spatstat'and the CTFSRpackage
 #'
+#' @section Parameter details:
+#' - FUN If not specified (default) it counts points. E.g. can be used to sum
+#' the basal areas or above graound biomass.
+#' 
+#' @author Matteo Detto and Tania Brenes
 #'
-#' Authors: Matteo Detto and Tania Brenes  
-#'
-#'
-#' Output: a list containing vectors for the wavelet variance, the scale of the wavelet variance, the normalized variance, and the confidence intervals. 
-#'
-#' raster (NULL): used if data is entered already as a raster matrix
-#' coords  (): an alternate to a raster table, a table with two (or three) columns giving coordinates x, y (and an optional mark) in that order. This is used to calculate a raster;  
-#' gridsize : is the quadrat size of the rasterization;
-#' plotdim (c(1000,500)): the dimensions of the plot;
-#'
-#' FUN (NULL): function to apply to the marked point pattern, if function is not specified (default) it counts points. E.g. can be used to sum the basal areas or above graound biomass
-#' k0 (8): numeric. smoothing parameter of the wavelet filter (k0 between 5.5-15), lower values of k0 produce a smoother wavelet variance; 
-#' dj  (0.15):  numeric. discretization of the scale axis; 
-#' graph (FALSE): logical. If TRUE, plots the wavelet variace as a function of scale 
-#'
+#' @return
+#' A list containing vectors for the wavelet variance, the scale of the
+#' wavelet variance, the normalized variance, and the confidence intervals.
+#' 
+#' @inheritParams wavelet.bivariate
+#' @param raster Used if data is entered already as a raster matrix.
+#' @param coords An alternate to a raster table, a table with two (or three)
+#'   columns giving coordinates x, y (and an optional mark) in that order. This
+#'   is used to calculate a raster.
+#' @seealso [wavelet.bivariate()]
+#' 
 #' @examples
 #' \dontrun{
 #' load("bci.full1.rdata") 
-#' rast1 = rasterize(, gridsize=5, plotdim=c(100,500), graph=TRUE)
-#' wv = wavelet.univariate(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
-#' plots the scale of aggregation}
-#'
+#' rast1 = rasterize(,
+#'   gridsize = 5,
+#'   plotdim = c(100, 500),
+#'   graph = TRUE)
+#' wv = wavelet.univariate(
+#'   coords = bci.full1[, c("gx", "gy")],
+#'   k0 = 8,
+#'   dj = 0.15,
+#'   graph = TRUE
+#'   )
+#' # plots the scale of aggregation
+#' }
 #'
 'wavelet.univariate'
 
-#' Wavelet variance (evaluate the associations with furier transforms).
-#'
+#' Bivariate wavelet variance using furier transforms.
+#' 
 #' @description
 #' Function to calculate the wavelet variance to evaluate the association 
 #' between two point patterns using furier transforms.
