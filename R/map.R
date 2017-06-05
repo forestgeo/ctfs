@@ -108,28 +108,32 @@
 #'
 'map'
 
-#' Export a pdf with one or more species maps. If singlefile=TRUE,  al...
+#' Export a pdf with one or more species maps.
 #'
 #' @description
-#'
-#' Export a pdf with one or more species maps. If singlefile=TRUE, 
-#' all maps will be in one big pdf, otherwise, a pdf for every species is created. The file exported will be named with Map.pdf
-#' in the path name given.  
-#'
-#' This calls the map() function for all species
-#' in the splitdata list; it is designed for all species from a plot (default is all species from the BCI plot).
-#'
-#' See description of map() for details. 
-#'
+#' Export a pdf with one or more species maps. If singlefile=TRUE, all maps will
+#' be in one big pdf, otherwise, a pdf for every species is created. The file
+#' exported will be named with Map.pdf in the path name given.
+#' 
+#' This calls the map() function for all species in the splitdata list; it is
+#' designed for all species from a plot (default is all species from the BCI
+#' plot).
+#' 
+#' @inheritParams map
+#' 
+#' @seealso [map()]
 #'
 'pdf.allplot'
 
-#' Export species maps as png. There will be one for every species cho...
+#' Export species maps as png.
 #'
 #' @description
-#'
-#' Export species maps as png. There will be one for every species chosen. See pdf.allplot. 
-#'
+#' Export species maps as png. There will be one for every species chosen. See
+#' pdf.allplot.
+#' 
+#' @inheritParams map
+#' 
+#' @seealso [map()].
 #'
 'png.allplot'
 
