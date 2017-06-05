@@ -51,33 +51,33 @@
 #'
 'plot_wavelet'
 
-#' Function to calculate the count (type=point), basal area or agb (ty...
+#' Calculate count, basal area or agb per quadrat.
 #'
 #' @description
-#' Function to calculate the count (type='point'), basal area or agb
-#' (type='marked') per quadrat by selecting quadrats of variable sizes.
+#' Function to calculate the count, basal area or agb per quadrat by selecting
+#' quadrats of variable sizes.
 #' 
 #' @author Matteo Detto and Tania Brenes  
 #'
-#' Output is a list containing a matrix with the raster data.
-#' - x, y: x and y coordinates for the point pattern;  
-#' - z: marks for the marked point process, can be basal area, agb, etc. Needed
-#' only for type='marked';
-#' - gridsize (20 m): size of the quadrats for the rasterization, ;
-#' - plotdim c(1000,500):  vector with plot x-y size; 
-#' - type ('point'): type of rasterization: 'point'runs a simple point pattern 
-#' counting the number of individuals per quadrat; 'marked'does a marked point 
-#' pattern, where a function (FUN) is applied to the variable z in each quadrat,
-#' for example a sum of basal areas;
-#' - FUN (sum): function to apply to the point pattern when z is provided. By
-#' defult it sums the values of z per quadrat;
-#' - graph (FALSE): logical, plot the heat map of raster data?; 
+#' @return A list containing a matrix with the raster data.
+#' 
+#' @template gridsize_side
+#' @template plotdim
+#' @param x,y Coordinates for the point pattern.
+#' @param z Marks for the marked point process, can be basal area, agb, etc.
+#'   Needed only for `type = "marked"`.
+#' @param type Type of rasterization. `"point"` runs a simple point pattern
+#'   counting the number of individuals per quadrat; `"marked"` does a marked
+#'   point pattern, where a function (`FUN`) is applied to the variable `z` in
+#'   each quadrat, for example a sum of basal areas.
+#' @param FUN Function to apply to the point pattern when `z` is provided. By 
+#'   defult it sums the values of z per quadrat.
+#' @param graph Logical. If `TRUE` plots the heat map of raster data. 
 #'
 #' @examples
 #' \dontrun{
-#' load("bci.full1.rdata") 
-#' attach("/home/brenest/Documents/Windocs/WorkFiles/R/Functions/CTFSRPackage.rdata")   
-#' onesp = subset(bci.full1, sp=="rinosy")  
+#' load("bci::bci12full1") 
+#' onesp = subset(bci::bci12full1, sp == "rinosy")  
 #'
 #' # plots the density of the sp in the plot  
 #' rast1 = rasterize(
@@ -89,7 +89,6 @@
 #'   graph = TRUE
 #' )
 #' }
-#'
 #'
 'rasterize'
 

@@ -2,20 +2,42 @@
 % Please edit documentation in R/block.analysis.R
 \name{rasterize}
 \alias{rasterize}
-\title{Function to calculate the count (type=point), basal area or agb (ty...}
+\title{Calculate count, basal area or agb per quadrat.}
 \usage{
 rasterize(x, y, z = NULL, gridsize = 20, plotdim = c(1000, 500),
   FUN = sum, graph = FALSE)
 }
+\arguments{
+\item{x, y}{Coordinates for the point pattern.}
+
+\item{z}{Marks for the marked point process, can be basal area, agb, etc.
+Needed only for \code{type = "marked"}.}
+
+\item{gridsize}{Side of the square quadrate.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+
+\item{FUN}{Function to apply to the point pattern when \code{z} is provided. By
+defult it sums the values of z per quadrat.}
+
+\item{graph}{Logical. If \code{TRUE} plots the heat map of raster data.}
+
+\item{type}{Type of rasterization. \code{"point"} runs a simple point pattern
+counting the number of individuals per quadrat; \code{"marked"} does a marked
+point pattern, where a function (\code{FUN}) is applied to the variable \code{z} in
+each quadrat, for example a sum of basal areas.}
+}
+\value{
+A list containing a matrix with the raster data.
+}
 \description{
-Function to calculate the count (type='point'), basal area or agb
-(type='marked') per quadrat by selecting quadrats of variable sizes.
+Function to calculate the count, basal area or agb per quadrat by selecting
+quadrats of variable sizes.
 }
 \examples{
 \dontrun{
-load("bci.full1.rdata") 
-attach("/home/brenest/Documents/Windocs/WorkFiles/R/Functions/CTFSRPackage.rdata")   
-onesp = subset(bci.full1, sp=="rinosy")  
+load("bci::bci12full1") 
+onesp = subset(bci::bci12full1, sp == "rinosy")  
 
 # plots the density of the sp in the plot  
 rast1 = rasterize(
@@ -28,24 +50,7 @@ rast1 = rasterize(
 )
 }
 
-
 }
 \author{
 Matteo Detto and Tania Brenes
-
-Output is a list containing a matrix with the raster data.
-\itemize{
-\item x, y: x and y coordinates for the point pattern;
-\item z: marks for the marked point process, can be basal area, agb, etc. Needed
-only for type='marked';
-\item gridsize (20 m): size of the quadrats for the rasterization, ;
-\item plotdim c(1000,500):  vector with plot x-y size;
-\item type ('point'): type of rasterization: 'point'runs a simple point pattern
-counting the number of individuals per quadrat; 'marked'does a marked point
-pattern, where a function (FUN) is applied to the variable z in each quadrat,
-for example a sum of basal areas;
-\item FUN (sum): function to apply to the point pattern when z is provided. By
-defult it sums the values of z per quadrat;
-\item graph (FALSE): logical, plot the heat map of raster data?;
-}
 }

@@ -188,18 +188,21 @@
 #'
 'neighbors'
 
-#' Creates a torus-shifted quadrat topographic dataset. It accepts a q...
+#' Creates a torus-shifted quadrat topographic dataset.
 #'
 #' @description
-#'
-#' Creates a torus-shifted quadrat topographic dataset. It accepts a quadrat dataset
-#' with elevation, convexity, and slope for each 20x20 m quadrat in a plot. It returns a parallel
-#' dataset that is torus shifted, slip.horiz quadrats left-right and slip.vert quadrats up-down. 
-#'
-#' That is, in the new dataset, the topographic information of each quadrat comes from a quadrat
-#' displaced by slip.horiz and slip.vert units away in the original dataset.
-#'
-#'
+#' Creates a torus-shifted quadrat topographic dataset. It accepts a quadrat
+#' dataset with elevation, convexity, and slope for each 20x20 m quadrat in a
+#' plot. It returns a parallel dataset that is torus shifted, slip.horiz
+#' quadrats left-right and slip.vert quadrats up-down.
+#' 
+#' That is, in the new dataset, the topographic information of each quadrat
+#' comes from a quadrat displaced by slip.horiz and slip.vert units away in the
+#' original dataset.
+#' 
+#' @template plotdim
+#' @template gridsize_side
+#' 
 'torus.shift'
 
 #' Convert indices from larger to smaller quadrats.
