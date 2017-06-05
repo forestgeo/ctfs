@@ -177,13 +177,14 @@
 #'
 'findneighborabund'
 
-#' Finds proportion of neighboring quadrats in which a species is pres...
+#' Find proportion of neighboring quadrats in which a species is present.
 #'
 #' @description
-#'
-#' Finds proportion of neighboring quadrats in which a species is present. The input vector
-#' is presence-absence for every quadrat. It returns a vector of the same length.
-#'
+#' Finds proportion of neighboring quadrats in which a species is present. The
+#' input vector is presence-absence for every quadrat. It returns a vector of
+#' the same length.
+#' 
+#' @template plotdim
 #'
 'neighbors'
 
