@@ -2,48 +2,65 @@
 % Please edit documentation in R/block.analysis.R
 \name{wavelet.bivariate}
 \alias{wavelet.bivariate}
-\title{Function to calculate the wavelet variance to evaluate the associat...}
+\title{Wavelet variance (evaluate the associations with furier transforms).}
 \usage{
 wavelet.bivariate(raster1 = NULL, raster2 = NULL, coords1, coords2,
   gridsize = 1, plotdim = c(1000, 500), FUN = NULL, k0 = 8, dj = 0.15,
   graph = TRUE)
 }
+\arguments{
+\item{coords1}{A matrix with raster data OR a table with two or three columns
+that can be used to calculate a raster, the first two columns are the
+coordinates and the third is the mark. Type must be specified.}
+
+\item{coords2}{Second dataset for the bivariate analyisis.}
+
+\item{gridsize}{Side of the square quadrate.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+
+\item{FUN}{Function to apply to the marked point pattern, by default it sums
+the values as would be used for sum of basal areas or sum of above graound
+biomass}
+
+\item{k0}{Numeric. Smoothing parameter of the wavelet filter. (k0 between
+5.5-15), lower values of k0 produce a smoother wavelet variance.}
+
+\item{dj}{Numeric. Discretization of the scale axis.}
+
+\item{graph}{Logical. If TRUE plot the wavelet variace.}
+
+\item{type}{Type of data entered, 'raster'if a raster matrix, 'point'for a
+point pattern, or 'marked'for a marked point pattern;}
+
+\item{gridsize}{The quadrat size of the rasterization.}
+}
+\value{
+A list containing vectors for the wavelet variance, the scale of the wavelet
+variance, and the normalized variance.
+}
 \description{
 Function to calculate the wavelet variance to evaluate the association
 between two point patterns using furier transforms.
-
+}
+\details{
 It accepts a raster data or a point pattern, but the type of data entered has
 to be specified in the argument type (xxx see section Warning).
 
-The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.
+The wavelet variance describes the spatial autocorrelation or aggregation of
+point distribution.
 
-A wavelet variance greater than 1 indicates scales at which individuals
-are aggregated. A wavelet variance less than 1, indicates scales at which
-individuals are dis-aggregated. A wavelet variance equal to 1, indicates scales
-at which individuals are randomply distribuited (as Poisson process).
+A wavelet variance greater than 1 indicates scales at which individuals are
+aggregated. A wavelet variance less than 1, indicates scales at which
+individuals are dis-aggregated. A wavelet variance equal to 1, indicates
+scales at which individuals are randomply distribuited (as Poisson process).
 
 A graphical test is implemented on the null hypothesis of comple randomness.
 
-If the wavelet variance is out of the conf bounds the point distribution
-is significantly different from a random process.
+If the wavelet variance is out of the conf bounds the point distribution is
+significantly different from a random process.
 
 Dependencies: needs the package 'spatstat'and the CTFSRpackage
-
-Authors: Matteo Detto and Tania Brenes
-
-Output: a list containing vectors for the wavelet variance, the scale of the wavelet variance, and the normalized variance.
-
-coords1  (): a matrix with raster data OR a table with two or three columns that can be used to calculate a raster, the first two columns are the coordinates and the third is the mark. Type must be specified ;
-coords2 (): 2nd dataset for the bivariate analyisis;
-type ('raster'): the type of data entered, 'raster'if a raster matrix, 'point'for a point pattern, or 'marked'for a marked point pattern;
-gridsize : is the quadrat size of the rasterization;
-plotdim (c(1000,500)): the dimensions of the plot;
-
-FUN ('sum'): function to apply to the marked point pattern, by default it sums the values as would be used for sum of basal areas or sum of above graound biomass
-k0 (8): numeric. smoothing parameter of the wavelet filter (k0 between 5.5-15),
-lower values of k0 produce a smoother wavelet variance;
-dj  (0.15):  numeric. discretization of the scale axis;
-graph (TRUE): logical. plot the wavelet variace ?
 }
 \section{Warning}{
 
@@ -71,4 +88,7 @@ wv = wavelet.bivariate(
 # plots the scale of aggregation
 }
 
+}
+\author{
+Matteo Detto and Tania Brenes
 }

@@ -1,5 +1,14 @@
 # forestr 0.0.0.9000
 
+## 2017-06-05 (week starting on)
+
+- Use tag xxx_amend_doc to tag documentation that I need to amend later. Find these tags with `shift + f`.
+
+
+
+
+
+
 ## Improved arguments documentation
 
 > Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.

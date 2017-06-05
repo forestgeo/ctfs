@@ -547,9 +547,6 @@ find_xxxdocparam <- function() {
 
 
 
-
-
-
 # Which arguments are documented and which aren't? ------------------------
 
 # Show documented arguments, either directly of via templates.

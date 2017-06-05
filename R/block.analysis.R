@@ -1,38 +1,39 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
-#' Function to calculate the wavelet variance curves for all species i...
+#' Wavelet variance curves for all species in one plot.
 #'
 #' @description
-#'
-#' Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.
+#' Function to calculate the wavelet variance curves for all species in one plot
+#' using quadrat indexation from CTFS package.
 #'
 #' @author Matteo Detto and Tania Brenes  
 #'
-#'
+#' @return
+#' xxx_amend_doc This list confuses output with arguments.
 #' Output is a matrix with:   
-#' scale: vector with scale of the analysis in meters; 
-#' variance: matrix with the normalized variance at each scale (columns) for each species (rows); 
-#' density: matrix with the density per area and abundance for each species in the plot; 
-#' plotdim: plot dimentions parameter used; 
-#' gridsize: grid size parameter used; 
+#' - scale: vector with scale of the analysis in meters; 
+#' - variance: matrix with the normalized variance at each scale (columns) for
+#' each species (rows);
+#' density: matrix with the density per area and abundance for each species in
+#' the plot;
+#' - gridsize: grid size parameter used; 
+#' - UCL: vector with the upper confidence limit for the null hypothesis; 
+#' - LCL: vector with the lower confidence limit for the null hypothesis.
+#' - censdata (): census data for the plot containing the variables gx, gy, dbh,
+#' status, and sp code;
+#' - plotdim c(1000,500):  vector with two numbers indicating the plot size; 
+#' - gridsize (2.5): gives the size of the quadrats for the rasterization mindbh
+#' - (NULL): if analysis is to be done at different size  classes
 #'
-#' UCL: vector with the upper confidence limit for the null hypothesis; 
-#'
-#' LCL: vector with the lower confidence limit for the null hypothesis.
-#'  censdata (): census data for the plot containing the variables gx, gy, dbh, status, and sp code; 
-#'  plotdim c(1000,500):  vector with two numbers indicating the plot size; 
-#'  gridsize (2.5): gives the size of the quadrats for the rasterization
-#'  mindbh (NULL): if analysis is to be done at different size  classes
-#'
+#' @template plotdim
+#' @template censdata
+#' 
 #' @examples
 #' \dontrun{
 #' load("bci.full1.rdata") 
-#' wavelet.variances = wavelet.allsp(censdata, plotdim=c(1000,500))}
-#'
+#' wavelet.variances = wavelet.allsp(censdata, plotdim = c(1000, 500))
+#' }
 #'
 'wavelet.allsp'
 
@@ -141,45 +142,53 @@
 #'
 'wavelet.univariate'
 
-#' Function to calculate the wavelet variance to evaluate the associat...
+#' Wavelet variance (evaluate the associations with furier transforms).
 #'
 #' @description
-#'
-#' Function to calculate the wavelet variance to evaluate the association
+#' Function to calculate the wavelet variance to evaluate the association 
 #' between two point patterns using furier transforms.
-#'
+#' 
+#' @details
 #' It accepts a raster data or a point pattern, but the type of data entered has
 #' to be specified in the argument type (xxx see section Warning).
-#'
-#' The wavelet variance describes the spatial autocorrelation or aggregation of point distribution.
-#'
-#' A wavelet variance greater than 1 indicates scales at which individuals 
-#' are aggregated. A wavelet variance less than 1, indicates scales at which 
-#' individuals are dis-aggregated. A wavelet variance equal to 1, indicates scales 
-#' at which individuals are randomply distribuited (as Poisson process).  
-#'
-#' A graphical test is implemented on the null hypothesis of comple randomness. 
-#'
-#' If the wavelet variance is out of the conf bounds the point distribution 
-#' is significantly different from a random process.  
+#' 
+#' The wavelet variance describes the spatial autocorrelation or aggregation of
+#' point distribution.
+#' 
+#' A wavelet variance greater than 1 indicates scales at which individuals are
+#' aggregated. A wavelet variance less than 1, indicates scales at which 
+#' individuals are dis-aggregated. A wavelet variance equal to 1, indicates
+#' scales at which individuals are randomply distribuited (as Poisson process).
+#' 
+#' A graphical test is implemented on the null hypothesis of comple randomness.
+#' 
+#' If the wavelet variance is out of the conf bounds the point distribution is
+#' significantly different from a random process.
 #'
 #' Dependencies: needs the package 'spatstat'and the CTFSRpackage 
 #'
-#' Authors: Matteo Detto and Tania Brenes  
+#' @author Matteo Detto and Tania Brenes  
 #'
-#' Output: a list containing vectors for the wavelet variance, the scale of the wavelet variance, and the normalized variance. 
+#' @return 
+#' A list containing vectors for the wavelet variance, the scale of the wavelet
+#' variance, and the normalized variance.
 #'
-#' coords1  (): a matrix with raster data OR a table with two or three columns that can be used to calculate a raster, the first two columns are the coordinates and the third is the mark. Type must be specified ;  
-#' coords2 (): 2nd dataset for the bivariate analyisis; 
-#' type ('raster'): the type of data entered, 'raster'if a raster matrix, 'point'for a point pattern, or 'marked'for a marked point pattern;
-#' gridsize : is the quadrat size of the rasterization;
-#' plotdim (c(1000,500)): the dimensions of the plot;
-#'
-#' FUN ('sum'): function to apply to the marked point pattern, by default it sums the values as would be used for sum of basal areas or sum of above graound biomass
-#' k0 (8): numeric. smoothing parameter of the wavelet filter (k0 between 5.5-15), 
-#' lower values of k0 produce a smoother wavelet variance; 
-#' dj  (0.15):  numeric. discretization of the scale axis; 
-#' graph (TRUE): logical. plot the wavelet variace ? 
+#' @template plotdim
+#' @template gridsize_side
+#' @param coords1 A matrix with raster data OR a table with two or three columns
+#'   that can be used to calculate a raster, the first two columns are the 
+#'   coordinates and the third is the mark. Type must be specified.
+#' @param coords2 Second dataset for the bivariate analyisis.
+#' @param type Type of data entered, 'raster'if a raster matrix, 'point'for a 
+#'   point pattern, or 'marked'for a marked point pattern;
+#' @param gridsize  The quadrat size of the rasterization.
+#' @param FUN Function to apply to the marked point pattern, by default it sums
+#'   the values as would be used for sum of basal areas or sum of above graound
+#'   biomass
+#' @param k0 Numeric. Smoothing parameter of the wavelet filter. (k0 between
+#'   5.5-15), lower values of k0 produce a smoother wavelet variance.
+#' @param dj Numeric. Discretization of the scale axis.
+#' @param graph Logical. If TRUE plot the wavelet variace.
 #'
 #' @section Warning:
 #' If the argument type is ignored the function works. But one issue with this
