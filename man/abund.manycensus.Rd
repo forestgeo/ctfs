@@ -2,19 +2,30 @@
 % Please edit documentation in R/abundance.R
 \name{abund.manycensus}
 \alias{abund.manycensus}
-\title{Collect abundances of all species across several censuses. The full...}
+\title{Collect abundances of all species across several censuses.}
 \usage{
 abund.manycensus(allcns = list(bci.full1, bci.full2, bci.full3), mindbh,
   dbhunit = "mm", type = "abund", excludespp = NULL,
   excludestatus = NULL)
 }
-\description{
-Collect abundances of all species across several censuses. The full R census tables are submitted as a list, as many as desired. The
-argument type can be used to choose basal area or agb, or the default for number of individuals. The mindbh to include must be given
-as an argument, but it can be NULL. If the latter, trees are counted if they have no dbh, as long as status=A. By default, any tree
-ever given code M is not counted in any census, but set excludestatus=NULL to include them.
+\arguments{
+\item{allcns}{Full R census, submitted as a list (as many as desired).}
 
-A character vector of species codes can be submitted as excludespp, for instance those for unidentified trees.
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
+
+\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+'agb'.}
+
+\item{excludespp}{A character vector of species codes can be submitted as
+\code{excludespp}, for instance those for unidentified trees.}
+
+\item{excludestatus}{By default, any tree ever given code M is not counted in
+any census, but set \code{excludestatus = NULL} to include them.}
+}
+\description{
+Collect abundances of all species across several censuses.
 }
 \examples{
 \dontrun{

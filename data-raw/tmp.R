@@ -28,8 +28,9 @@ devtools::load_all()
 #    - arguments that are all NA, so there is no reference of what they mean.
 avoid <- c(
   "x", "y",  # too generic; definition changes from fun to fun
+  "...",  # too variable
   "plotdim",  # done
-  "..."  # too variable
+  "gridsize"
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%

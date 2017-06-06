@@ -13,7 +13,7 @@
 #' If the first row and column are 00, set start = 0, etc. 
 #' 
 #' @template gridsize_side
-#' @param A character giving the quadrat name to convert to x-y coordinates.D
+#' @param A character giving the quadrat name to convert to x-y coordinates.
 #'
 'quad.to.gxgy'
 

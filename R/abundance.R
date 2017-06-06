@@ -21,8 +21,7 @@
 #' 
 #' @template mindbh
 #' @template censdata
-#' @param type either 'abund' (default) for abundance, 'ba' for basal area, or
-#'   'agb'.
+#' @template type
 #' @param alivecode character, codes of the variable `status` that indicate the 
 #'   tree is alive. The default 'A' is the standard CTFS designation for living 
 #'   trees or stems
@@ -230,16 +229,18 @@
 #'
 'basum'
 
-#' Collect abundances of all species across several censuses. The full...
+#' Collect abundances of all species across several censuses.
 #'
 #' @description
-#'
-#' Collect abundances of all species across several censuses. The full R census tables are submitted as a list, as many as desired. The
-#' argument type can be used to choose basal area or agb, or the default for number of individuals. The mindbh to include must be given
-#' as an argument, but it can be NULL. If the latter, trees are counted if they have no dbh, as long as status=A. By default, any tree
-#' ever given code M is not counted in any census, but set excludestatus=NULL to include them.
-#'
-#' A character vector of species codes can be submitted as excludespp, for instance those for unidentified trees. 
+#' Collect abundances of all species across several censuses. 
+#' 
+#' @template mindbh
+#' @template type
+#' @param allcns Full R census, submitted as a list (as many as desired).
+#' @param excludestatus By default, any tree ever given code M is not counted in
+#'   any census, but set `excludestatus = NULL` to include them.
+#' @param excludespp A character vector of species codes can be submitted as
+#'   `excludespp`, for instance those for unidentified trees.
 #'
 #' @examples
 #' \dontrun{

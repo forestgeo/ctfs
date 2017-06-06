@@ -27,8 +27,8 @@ the plot;
 \item censdata (): census data for the plot containing the variables gx, gy, dbh,
 status, and sp code;
 \item plotdim c(1000,500):  vector with two numbers indicating the plot size;
-\item gridsize (2.5): gives the size of the quadrats for the rasterization mindbh
-\item (NULL): if analysis is to be done at different size  classes
+\item gridsize (2.5): gives the size of the quadrats for the rasterization
+\item mindbh (NULL): if analysis is to be done at different size  classes.
 }
 }
 \description{
