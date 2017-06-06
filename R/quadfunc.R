@@ -4,14 +4,16 @@
 #'
 #'
 
-#' Convert quadrat names into x-y coordinates, assuming the first 2 di...
+#' Convert quadrat names into x-y coordinates.
 #'
 #' @description
+#' Convert quadrat names into x-y coordinates, assuming the first 2 digits are
+#' the column and the second two the row. Quad is a character.
 #'
-#' Convert quadrat names into x-y coordinates, assuming the first 2 digits are the column and the second two the row. Quad is a character. 
-#'
-#' If the first row and column are 00, set start=0, etc. 
-#'
+#' If the first row and column are 00, set start = 0, etc. 
+#' 
+#' @template gridsize_side
+#' @param A character giving the quadrat name to convert to x-y coordinates.D
 #'
 'quad.to.gxgy'
 
@@ -24,6 +26,7 @@
 #' other quadrate sizes can be used.
 #' 
 #' @inheritParams findborderquads
+#' @template gridsize_side
 #' @param rowno Row number.
 #' @param colno Column number.
 #'
