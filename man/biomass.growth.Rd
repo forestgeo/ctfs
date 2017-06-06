@@ -2,13 +2,14 @@
 % Please edit documentation in R/growth.R
 \name{biomass.growth}
 \alias{biomass.growth}
-\title{Like growth(), but calculates change in biomass (agb) instead of db...}
+\title{Calculate change in biomass (agb).}
 \usage{
 biomass.growth(census1, census2, rounddown = FALSE, stdev = FALSE,
   mindbh = 10, split1 = NULL, split2 = NULL)
 }
 \description{
-Like growth(), but calculates change in biomass (agb) instead of dbh. The census tables must have a column
-called agb. There is no trimming done at all -- every tree is included, and its entire biomass (the agb column in the
+Like \code{\link[=growth]{growth()}}, but calculates change in biomass (agb) instead of dbh. The
+census tables must have a column called agb. There is no trimming done at all
+-- every tree is included, and its entire biomass (the agb column in the
 standard CTFS data object has total agb, all stems included.)
 }

@@ -25,7 +25,7 @@
 #' @param alivecode character, codes of the variable `status` that indicate the 
 #'   tree is alive. The default 'A' is the standard CTFS designation for living 
 #'   trees or stems
-#' @param dbhunit 'cm' or 'mm', only used for basal area
+#' @template dbhunit
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual
 #'

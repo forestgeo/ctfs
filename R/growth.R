@@ -45,6 +45,8 @@
 #' @inheritParams abundance
 #' @inheritParams biomass.change
 #' @inheritParams trim.growth
+#' @template census1_census2
+#' @template mindbh
 #' @param rounddown If TRUE, all dbh < 55 are rounded down to the nearest
 #'   multiple of 5.
 #' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
@@ -67,14 +69,13 @@
 #'
 'growth'
 
-#' Like growth(), but calculates change in biomass (agb) instead of db...
+#' Calculate change in biomass (agb).
 #'
 #' @description
-#'
-#' Like growth(), but calculates change in biomass (agb) instead of dbh. The census tables must have a column
-#' called agb. There is no trimming done at all -- every tree is included, and its entire biomass (the agb column in the
+#' Like [growth()], but calculates change in biomass (agb) instead of dbh. The
+#' census tables must have a column called agb. There is no trimming done at all
+#' -- every tree is included, and its entire biomass (the agb column in the 
 #' standard CTFS data object has total agb, all stems included.)
-#'
 #'
 'biomass.growth'
 

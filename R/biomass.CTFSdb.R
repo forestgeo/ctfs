@@ -269,9 +269,8 @@
 #' - little.r: The rate of biomass change, or (log(N.2) - log(N.1))/interval
 #' 
 #' @inheritParams abundance
-#' @param census1 The R Analytical Table for a single census, either tree or
-#'   stem.
-#' @param census2 The matching R Analytical Table for a later census.
+#' @template census1_census2
+#' @template dbhunit
 #' 
 #' @examples
 #' \dontrun{
