@@ -697,10 +697,42 @@ args_pull_definitions <- function(arg) {
 
 
 
-
 # misc --------------------------------------------------------------------
 
+#' Print all rows of a tibble or tbl_df.
+#'
+#' @param x 
+#'
+#' @return All rows of a tibble.
+#' @export
+#' @keywords internal
+#'
+#' @examples
+#' x <- tibble(long = 1:30)
+#' x  # prints 10 rows
+#' x %>% print_all()  # prints all rows
 print_all <- function(x) {x %>% print(n = nrow(x))}
+
+#' Predicate to determine if some but not all elements of a vector are NA.
+#'
+#' @param x Vector
+#'
+#' @return A single locical.
+#' @export
+#' @keywords internal
+#'
+#' @examples
+#' x <- c(1:3, NA)
+#' some_but_not_all_is_na(x)
+#' x <- c(NA, NA)
+#' some_but_not_all_is_na(x)
+#' x <- c(1:3)
+#' some_but_not_all_is_na(x)
+some_but_not_all_is_na <- function(x) {
+  some_is_na <- purrr::some(x, is.na)
+  all_is_na <- all(is.na(x))
+  all(c(some_is_na, !all_is_na))
+}
 
 # end ---------------------------------------------------------------------
 

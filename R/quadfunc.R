@@ -125,13 +125,16 @@
 #'
 'gxgy.to.lxly'
 
-#' Given local, or  within-quadrat, coordinates for a 20-m quadrat, re...
+#' Calculate p5x5 from local or within-quadrat coordinates for a 20-m quadrat.
 #'
 #' @description
-#'
-#' Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the p5x5; lx and ly must be vectors of equal length. Any values outside [0,20) are returned p5=NA.
-#'
-#'
+#' Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the
+#' p5x5;
+#' 
+#' @template gridsize_side
+#' @param lx,ly Must be vectors of equal length. Any values outside [0,20) are
+#'   returned `p5 = NA`.
+#' 
 'lxly.to.p5'
 
 #' Given a quadrat index, calculate indices of neighboring quadrats.

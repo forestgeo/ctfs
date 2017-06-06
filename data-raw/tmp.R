@@ -23,17 +23,24 @@ devtools::load_all()
 
 
 # For now, let's try to inherit, so let's skip arguments:
-#    - x and y because they are too generic
-#    - nowhere in man because there is no example to inherit.
-args_count_formals_man() %>% 
-    filter(params != "x", params != "y", !is.na(man_n))
-# This shows that plotdim is a good argument to documetn
+#    - x and y because they are too generic,
+#    - arguments I already worked on,
+#    - arguments that are all NA, so there is no reference of what they mean.
+avoid <- c(
+  "x", "y",  # too generic; definition changes from fun to fun
+  "plotdim",  # done
+  "..."  # too variable
+)
+x <- args_count_formals_man() %>% 
+  filter(!params %in% avoid) %>%
+  group_by(params) %>% 
+  mutate(some_but_not_all_is_na = some_but_not_all_is_na(man_n)) %>% 
+  filter(some_but_not_all_is_na)
+print(x, n = x$frml_n[[1]])
 
-args_count_formals_man() %>% 
-  filter(params == "plotdim") %>% 
-  print_all()
-# this shows that allquadratslopes is a good function to focus, because it's not
-# in man
+
+
+
 
 
 
