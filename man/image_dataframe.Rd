@@ -2,7 +2,7 @@
 % Please edit documentation in R/mapresponse.R
 \name{image_dataframe}
 \alias{image_dataframe}
-\title{Creates a color response map based on columnar data, not a matrix a...}
+\title{Creates a color response map based on columnar data.}
 \usage{
 image_dataframe(data, xcol = "x", ycol = "y", zcol = "z", breaks = NULL,
   div = NULL, colors = NULL, xname = "x", yname = "y", xrange = NULL,
@@ -15,6 +15,8 @@ and one a numerical response at those coordinates}
 
 \item{xcol, ycol, zcol}{These allow the columns of data to carry non-standard
 names}
+
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.}
 
 \item{ptsize}{Size of points to be drawn.}
 }

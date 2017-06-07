@@ -245,13 +245,11 @@
 #'
 'fitnorm'
 
-#' Fit a random variable x to any submitted probability distribution. ...
+#' Fit a random variable x to any submitted probability distribution.
 #'
 #' @description
-#'
-#' Fit a random variable x to any submitted probability distribution. The number of start parameters
-#' must match what the pdf needs.
-#'
+#' Fit a random variable x to any submitted probability distribution. The number
+#' of start parameters must match what the pdf needs.
 #'
 'fit.pdf'
 

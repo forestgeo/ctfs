@@ -196,7 +196,7 @@
 #'
 'draw.axes'
 
-#' Creates a color response map based on columnar data, not a matrix a...
+#' Creates a color response map based on columnar data.
 #'
 #' @description
 #'
@@ -210,6 +210,7 @@
 #' coloring points by the concentration of one nutrient. Another, illustrated
 #' below, would be to color tree locations according to dbh.
 #'
+#' @template xrange_yrange
 #' @param data A data frame with at least 3 columns, 2 of which are coordinates
 #'   and one a numerical response at those coordinates
 #' @param xcol,ycol,zcol These allow the columns of data to carry non-standard

@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{graph.growthmodel.spp}
 \alias{graph.growthmodel.spp}
-\title{Use output of growth.flexbin to graph observed growth and predictio...}
+\title{Use output of growth.flexbin to graph observed growth and predictions.}
 \usage{
 graph.growthmodel.spp(fit, jiggle = 0.001, whichpred = "pred",
   xrange = NULL, yrange = NULL, xtitle = NULL, ytitle = NULL,
@@ -11,9 +11,12 @@ graph.growthmodel.spp(fit, jiggle = 0.001, whichpred = "pred",
   addpts = TRUE, maintitle = NULL, conf = 0)
 }
 \description{
-Use output of growth.flexbin to graph observed growth and predictions. With conf>0, random draws from posterior parameters
-are used to make predictions and overlay with gray lines, and mean predicted value at each x is calculated.
+Use output of growth.flexbin to graph observed growth and predictions. With
+conf > 0, random draws from posterior parameters are used to make predictions
+and overlay with gray lines, and mean predicted value at each x is
+calculated.
 
-The option whichpred determines whether to graph the fitted values based on the median parameters of the Gibbs sampler, or
-the mean fitted value of all the steps in the Gibbs sampler.
+The option whichpred determines whether to graph the fitted values based on
+the median parameters of the Gibbs sampler, or the mean fitted value of all
+the steps in the Gibbs sampler.
 }
