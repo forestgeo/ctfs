@@ -106,6 +106,7 @@
 #' data, using R's contourLines. The graph can be sent to the screen or 
 #' exported.
 #' 
+#' @template xrange_yrange
 #' @template xname_yname
 #' @param matrixdata a list having components x, y, and mat, exactly the output
 #'   of coldata.to.imagemat
@@ -114,8 +115,6 @@
 #'   NULL to let breaks control
 #' @param breaks if set, a vector of breaks for the image colors and the contour
 #'   lines; if NULL, levels controls the breaks
-#' @param xrange,yrange if `NULL`, all `x` (or `y`) are included, otherwise, the
-#'   graph will only include `x` (or `y`) inside `xrange` or (`yrange`)
 #' @param axisdiv the division between tick marks; must be a vector of 2, first
 #'   for x ticks then for y ticks
 #' @param clrs colors for the image; if NULL, they are chosen by default,
@@ -181,8 +180,8 @@
 #'   h = 11,
 #'   w = 11,
 #'   plotsize = 8
-#' )}
-#'
+#' )
+#' }
 #'
 'imageGraph'
 
@@ -210,6 +209,7 @@
 #' coloring points by the concentration of one nutrient. Another, illustrated
 #' below, would be to color tree locations according to dbh.
 #'
+#' @inheritParams imageGraph
 #' @template xrange_yrange
 #' @param data A data frame with at least 3 columns, 2 of which are coordinates
 #'   and one a numerical response at those coordinates

@@ -7,11 +7,11 @@
 draw.axes(whichaxs = 1:4, xrange, yrange, div, whichbox = 1:4)
 }
 \arguments{
-\item{xrange}{if \code{NULL}, all \code{x} (or \code{y}) are included, otherwise, the
-graph will only include \code{x} (or \code{y}) inside \code{xrange} or (\code{yrange})}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
-\item{yrange}{if \code{NULL}, all \code{x} (or \code{y}) are included, otherwise, the
-graph will only include \code{x} (or \code{y}) inside \code{xrange} or (\code{yrange})}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 }
 \description{
 Add axes to a graph, with ticks spaced by the vector div. This is a
