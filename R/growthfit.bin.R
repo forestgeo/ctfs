@@ -1,18 +1,21 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
-#' Extract data for growth rates from plot databases and 2 censuses in...
+#' Extract growth rates from plot databases and 2 censuses.
 #'
 #' @description
-#'
-#' Extract data for growth rates from plot databases and 2 censuses in CTFS R format. Returns a table with 
-#' growth, size (ie dbh), and species name. Default is to return log-transformed growth, with negative and zero
-#' growth set to a mingrow, but with logit=TRUE, growth and dbh are not log-transformed.
-#'
-#'
+#' Extract data for growth rates from plot databases and 2 censuses in CTFS R
+#' format.
+#' 
+#' @return
+#' Returns a table with growth, size (ie dbh), and species name. 
+#' 
+#' @template mindbh
+#' @template dbhunit
+#' @param logit Defaults to return log-transformed growth, with negative and
+#'   zero growth set to a mingrow, but with `logit = TRUE`, growth and dbh are
+#'   not log-transformed.
+#'   
 'extract.growthdata'
 
 #' Run the model to fit growth rate in bins for many species, 1-4 bins...

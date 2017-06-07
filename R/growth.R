@@ -76,6 +76,8 @@
 #' census tables must have a column called agb. There is no trimming done at all
 #' -- every tree is included, and its entire biomass (the agb column in the 
 #' standard CTFS data object has total agb, all stems included.)
+#' 
+#' @inheritParams growth
 #'
 'biomass.growth'
 
