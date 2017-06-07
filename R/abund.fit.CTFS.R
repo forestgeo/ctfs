@@ -229,9 +229,11 @@
 #' Given an abundance fit and x axis range and divisions, return a seq...
 #'
 #' @description
-#'
-#' Given an abundance fit and x axis range and divisions, return a sequence of x values for drawing the histogram. Used as a subroutine inside graph.abundmodel.
-#'
+#' Given an abundance fit and x axis range and divisions, return a sequence of x
+#' values for drawing the histogram. Used as a subroutine inside
+#' graph.abundmodel.
+#' 
+#' @inheritParams graph.abundmodel
 #'
 'find.xaxis.hist'
 

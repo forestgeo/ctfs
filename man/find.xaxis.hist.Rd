@@ -6,6 +6,15 @@
 \usage{
 find.xaxis.hist(fit, tinydiv = 0.001, xrange)
 }
+\arguments{
+\item{fit}{result of model.littleR.Gibbs}
+
+\item{tinydiv}{width of bins used to draw the fitted distribution}
+
+\item{xrange}{Range of graph's x-axis (or y-axis).}
+}
 \description{
-Given an abundance fit and x axis range and divisions, return a sequence of x values for drawing the histogram. Used as a subroutine inside graph.abundmodel.
+Given an abundance fit and x axis range and divisions, return a sequence of x
+values for drawing the histogram. Used as a subroutine inside
+graph.abundmodel.
 }
