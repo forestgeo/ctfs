@@ -19,6 +19,8 @@
 #' In the latter, negative growths are transformed to negative, so do not need
 #' to be corrected.
 #' 
+#' @template mindbh
+#' @template debug
 #' @param cnsdata A list of census data sets, for example: 
 #'   `list(bci::bci12full1, bci::bci12full2, bci::bci12full3)`.
 #' @param rnd used to rounddown dbhs for certain intervals. This argument
