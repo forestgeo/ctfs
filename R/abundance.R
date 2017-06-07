@@ -236,7 +236,7 @@
 #' 
 #' @template mindbh
 #' @template type
-#' @param allcns Full R census, submitted as a list (as many as desired).
+#' @template allcns
 #' @param excludestatus By default, any tree ever given code M is not counted in
 #'   any census, but set `excludestatus = NULL` to include them.
 #' @param excludespp A character vector of species codes can be submitted as

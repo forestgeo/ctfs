@@ -704,11 +704,9 @@ args_pull_definitions <- function(arg) {
 #' @param x 
 #'
 #' @return All rows of a tibble.
-#' @export
-#' @keywords internal
 #'
 #' @examples
-#' x <- tibble(long = 1:30)
+#' x <- tibble::tibble(long = 1:30)
 #' x  # prints 10 rows
 #' x %>% print_all()  # prints all rows
 print_all <- function(x) {x %>% print(n = nrow(x))}

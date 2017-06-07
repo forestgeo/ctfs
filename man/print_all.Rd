@@ -16,8 +16,7 @@ All rows of a tibble.
 Print all rows of a tibble or tbl_df.
 }
 \examples{
-x <- tibble(long = 1:30)
+x <- tibble::tibble(long = 1:30)
 x  # prints 10 rows
 x \%>\% print_all()  # prints all rows
 }
-\keyword{internal}
