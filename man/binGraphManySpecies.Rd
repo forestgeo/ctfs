@@ -2,13 +2,14 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{binGraphManySpecies}
 \alias{binGraphManySpecies}
-\title{Make a graph of AGB growth and model fit of many species overlaid, ...}
+\title{Graph AGB growth and model fit of many species overlaid.}
 \usage{
 binGraphManySpecies(fulldataname, darken = 8, xrange = c(-3, 3),
   yrange = c(0, 0.1), xtitle = NULL, ytitle = NULL, export = pdf,
   outfile = "growth/linearbin.multi.pdf", h = 8, w = 10)
 }
 \description{
-Make a graph of AGB growth and model fit of many species overlaid, predicted functions only. Must submit name of data objects
-(not the object, just the name in quote marks!).
+Make a graph of AGB growth and model fit of many species overlaid, predicted
+functions only. Must submit name of data objects (not the object, just the
+name in quote marks!).
 }

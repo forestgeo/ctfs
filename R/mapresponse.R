@@ -186,12 +186,13 @@
 #'
 'imageGraph'
 
-#' Add axes to a graph, with ticks spaced by the vector div. This is a...
+#' Add axes to a graph, with ticks spaced by the vector div.
 #'
 #' @description
-#'
-#' Add axes to a graph, with ticks spaced by the vector div. This is a subroutine used in imageGraph().
-#'
+#' Add axes to a graph, with ticks spaced by the vector div. This is a
+#' subroutine used in [imageGraph()].
+#' 
+#' @inheritParams imageGraph
 #'
 'draw.axes'
 

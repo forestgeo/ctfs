@@ -25,12 +25,9 @@
 #' PDF of a function formed by adding a gamma distribution to a symmet...
 #'
 #' @description
-#'
-#' PDF of a function formed by adding a gamma distribution to a symmetrical exponential 
-#' distribution. This means simply adding a PDF for a gamma minus an exponential to the
-#'
-#' PDF for a gamma plus an exponential.
-#'
+#' PDF of a function formed by adding a gamma distribution to a symmetrical 
+#' exponential distribution. This means simply adding a PDF for a gamma minus an
+#' exponential to the PDF for a gamma plus an exponential.
 #'
 'dgammadexp'
 

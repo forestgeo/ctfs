@@ -139,8 +139,9 @@
 #'
 #' @description
 #'
-#' Make a graph, 4 panels, of AGB growth and model fit of many species overlaid, predicted functions only. Must submit names of four data objects 
-#'(not the object, just the name in quote marks!).
+#'Make a graph, 4 panels, of AGB growth and model fit of many species overlaid,
+#'predicted functions only. Must submit names of four data objects (not the
+#'object, just the name in quote marks!).
 #'
 #' @examples
 #' \dontrun{
@@ -161,15 +162,13 @@
 #'
 'binGraphManySpecies.Panel'
 
-#' Make a graph of AGB growth and model fit of many species overlaid, ...
+#' Graph AGB growth and model fit of many species overlaid.
 #'
 #' @description
+#' Make a graph of AGB growth and model fit of many species overlaid, predicted
+#' functions only. Must submit name of data objects (not the object, just the
+#' name in quote marks!).
 #'
-#' Make a graph of AGB growth and model fit of many species overlaid, predicted functions only. Must submit name of data objects 
-#'(not the object, just the name in quote marks!).
-#'
-#'
-
 'binGraphManySpecies'
 
 # Source code and original documentation ----------------------------

@@ -9,8 +9,9 @@ binGraphManySpecies.Panel(fulldataname, sitename, darken = 8, xrange = c(-3,
   outfile = "growth/linearbin.multi.pdf", h = 8, w = 10)
 }
 \description{
-Make a graph, 4 panels, of AGB growth and model fit of many species overlaid, predicted functions only. Must submit names of four data objects
-(not the object, just the name in quote marks!).
+Make a graph, 4 panels, of AGB growth and model fit of many species overlaid,
+predicted functions only. Must submit names of four data objects (not the
+object, just the name in quote marks!).
 }
 \examples{
 \dontrun{
