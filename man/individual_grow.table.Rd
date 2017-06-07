@@ -13,9 +13,15 @@ individual_grow.table(cnsdata, powertransformation = 0.45, rnd = c(FALSE,
 \code{list(bci::bci12full1, bci::bci12full2, bci::bci12full3)}.}
 
 \item{rnd}{used to rounddown dbhs for certain intervals. This argument
-indicates that dbhs<50 mm are rounded down to 5-mm, necessary because
+indicates that dbhs < 50 mm are rounded down to 5-mm, necessary because
 saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
 growth functions in the CTFS R Package handle this.}
+
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
+
+\item{debug}{Logical. If TRUE, call browser to debug.}
 }
 \value{
 A data frame where each row gives data from one individual, including:

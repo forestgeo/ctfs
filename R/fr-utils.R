@@ -701,15 +701,15 @@ args_pull_definitions <- function(arg) {
 
 #' Print all rows of a tibble or tbl_df.
 #'
-#' @param x 
+#' @param x A tibble or tbl_df.
 #'
 #' @return All rows of a tibble.
-#'
+#' @export
 #' @examples
 #' x <- tibble::tibble(long = 1:30)
 #' x  # prints 10 rows
-#' x %>% print_all()  # prints all rows
-print_all <- function(x) {x %>% print(n = nrow(x))}
+#' print_all(x)  # prints all rows
+print_all <- function(x) {print(x, n = nrow(x))}
 
 #' Predicate to determine if some but not all elements of a vector are NA.
 #'

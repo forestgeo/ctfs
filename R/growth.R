@@ -163,6 +163,7 @@
 #' mindbh`. All parameters for excluding growth measures based on error can be
 #' adjusted.
 #' 
+#' @template mindbh
 #' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
 #'   return all measures.
 #' @param pomcut A number. To include POM changes, set it to a high number, such

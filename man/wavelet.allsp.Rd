@@ -11,10 +11,13 @@ wavelet.allsp(censdata, plotdim = c(1000, 500), gridsize = 2.5,
 \item{censdata}{A table of plot census data.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
+
+\item{gridsize}{Size of the quadrats for the rasterization}
+
+\item{mindbh}{If analysis is to be done at different size  classes.}
 }
 \value{
-xxx_amend_doc This list confuses output with arguments.
-Output is a matrix with:
+A matrix with:
 \itemize{
 \item scale: vector with scale of the analysis in meters;
 \item variance: matrix with the normalized variance at each scale (columns) for
@@ -24,17 +27,19 @@ the plot;
 \item gridsize: grid size parameter used;
 \item UCL: vector with the upper confidence limit for the null hypothesis;
 \item LCL: vector with the lower confidence limit for the null hypothesis.
-\item censdata (): census data for the plot containing the variables gx, gy, dbh,
-status, and sp code;
-\item plotdim c(1000,500):  vector with two numbers indicating the plot size;
-\item gridsize (2.5): gives the size of the quadrats for the rasterization
-\item mindbh (NULL): if analysis is to be done at different size  classes.
 }
 }
 \description{
 Function to calculate the wavelet variance curves for all species in one plot
 using quadrat indexation from CTFS package.
 }
+\section{Argument details}{
+
+\itemize{
+\item censdata: Must  contain the variables gx, gy, dbh, status, and sp code.
+}
+}
+
 \examples{
 \dontrun{
 load("bci.full1.rdata") 

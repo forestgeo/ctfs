@@ -7,7 +7,7 @@
 print_all(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{A tibble or tbl_df.}
 }
 \value{
 All rows of a tibble.
@@ -18,5 +18,5 @@ Print all rows of a tibble or tbl_df.
 \examples{
 x <- tibble::tibble(long = 1:30)
 x  # prints 10 rows
-x \%>\% print_all()  # prints all rows
+print_all(x)  # prints all rows
 }

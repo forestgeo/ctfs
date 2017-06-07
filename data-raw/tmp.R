@@ -30,7 +30,8 @@ avoid <- c(
   "x", "y",  # too generic; definition changes from fun to fun
   "...",  # too variable
   "plotdim",  # done
-  "gridsize"
+  "gridsize",
+  "mindbh"
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
@@ -39,7 +40,8 @@ x <- args_count_formals_man() %>%
   filter(some_but_not_all_is_na)
 print(x, n = x$frml_n[[1]])
 
-
+args_count_formals_man() %>% 
+  filter(params == "xrange")
 
 
 

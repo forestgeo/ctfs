@@ -10,8 +10,7 @@
 #' @author Matteo Detto and Tania Brenes  
 #'
 #' @return
-#' xxx_amend_doc This list confuses output with arguments.
-#' Output is a matrix with:   
+#' A matrix with:
 #' - scale: vector with scale of the analysis in meters; 
 #' - variance: matrix with the normalized variance at each scale (columns) for
 #' each species (rows);
@@ -20,14 +19,14 @@
 #' - gridsize: grid size parameter used; 
 #' - UCL: vector with the upper confidence limit for the null hypothesis; 
 #' - LCL: vector with the lower confidence limit for the null hypothesis.
-#' - censdata (): census data for the plot containing the variables gx, gy, dbh,
-#' status, and sp code;
-#' - plotdim c(1000,500):  vector with two numbers indicating the plot size; 
-#' - gridsize (2.5): gives the size of the quadrats for the rasterization
-#' - mindbh (NULL): if analysis is to be done at different size  classes.
-#'
-#' @template plotdim
+#' 
+#' @section Argument details:
+#' - censdata: Must  contain the variables gx, gy, dbh, status, and sp code.
+#'   
 #' @template censdata
+#' @template plotdim
+#' @param gridsize Size of the quadrats for the rasterization
+#' @param mindbh If analysis is to be done at different size  classes.
 #' 
 #' @examples
 #' \dontrun{
