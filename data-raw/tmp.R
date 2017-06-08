@@ -30,18 +30,24 @@ avoid <- c(
   "x", "y",  # too generic; definition changes from fun to fun
   "...",  # too variable
   "plotdim",  # done
-  "gridsize",
-  "mindbh"
+  "gridsize",  # done
+  "mindbh",  # done
+  "debunit",  # done
+  "export",  # pendent; I'm unsure if the template
+  "xrange"  # skip, too variable
+  
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
   group_by(params) %>% 
   mutate(some_but_not_all_is_na = some_but_not_all_is_na(man_n)) %>% 
-  filter(some_but_not_all_is_na)
+  filter(some_but_not_all_is_na) %>% print_all()
 print(x, n = x$frml_n[[1]])
 
+
+
 args_count_formals_man() %>% 
-  filter(params == "dbhunit")
+  filter(params == "add")
 
 
 

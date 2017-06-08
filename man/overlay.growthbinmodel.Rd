@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{overlay.growthbinmodel}
 \alias{overlay.growthbinmodel}
-\title{Show model fits for 1, 2, 3, and 4 bins on each speciesoverlay.grow...}
+\title{Show model fits for 1, 2, 3, and 4 bins on each species.}
 \usage{
 overlay.growthbinmodel(fit, bins = 1:4, regclr = "green",
   modelclr = "blue", graphdiv = 15, add = FALSE, newgraph = TRUE,

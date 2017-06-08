@@ -7,10 +7,15 @@
 binGraphSampleSpecies(fulldataname, species, whichbin, export = pdf,
   outfile = "growth/linearbin.summary.pdf", h = 8, w = 10)
 }
+\arguments{
+\item{export}{File format to export to.}
+}
 \description{
-Make a single graph, 4 panels, of AGB growth and model fit. Must submit four species names (though they could be
-the same. Enter names of data objects (not the object, just the name in quote marks!) either one data object, or a list of four such objects;
-if only one, all four graphs are based on the single one. Likewise, enter either one bin number, or four.
+Make a single graph, 4 panels, of AGB growth and model fit. Must submit four
+species names (though they could be the same. Enter names of data objects
+(not the object, just the name in quote marks!) either one data object, or a
+list of four such objects; if only one, all four graphs are based on the
+single one. Likewise, enter either one bin number, or four.
 }
 \examples{
 \dontrun{

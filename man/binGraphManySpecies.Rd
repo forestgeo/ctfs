@@ -8,6 +8,9 @@ binGraphManySpecies(fulldataname, darken = 8, xrange = c(-3, 3),
   yrange = c(0, 0.1), xtitle = NULL, ytitle = NULL, export = pdf,
   outfile = "growth/linearbin.multi.pdf", h = 8, w = 10)
 }
+\arguments{
+\item{export}{File format to export to.}
+}
 \description{
 Make a graph of AGB growth and model fit of many species overlaid, predicted
 functions only. Must submit name of data objects (not the object, just the

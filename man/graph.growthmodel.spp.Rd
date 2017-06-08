@@ -10,6 +10,9 @@ graph.growthmodel.spp(fit, jiggle = 0.001, whichpred = "pred",
   modelclr = "blue", modellwd = 1, graphdiv = 10, add = FALSE,
   addpts = TRUE, maintitle = NULL, conf = 0)
 }
+\arguments{
+\item{export}{File format to export to.}
+}
 \description{
 Use output of growth.flexbin to graph observed growth and predictions. With
 conf > 0, random draws from posterior parameters are used to make predictions
