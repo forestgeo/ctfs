@@ -1,19 +1,20 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
 
-#' Use output of growth.flexbin to graph observed growth and predictio...
+#' Use output of growth.flexbin to graph observed growth and predictions.
 #'
 #' @description
-#'
-#' Use output of growth.flexbin to graph observed growth and predictions. With conf>0, random draws from posterior parameters
-#' are used to make predictions and overlay with gray lines, and mean predicted value at each x is calculated.
-#'
-#' The option whichpred determines whether to graph the fitted values based on the median parameters of the Gibbs sampler, or
-#' the mean fitted value of all the steps in the Gibbs sampler.  
-#'
+#' Use output of growth.flexbin to graph observed growth and predictions. With 
+#' conf > 0, random draws from posterior parameters are used to make predictions
+#' and overlay with gray lines, and mean predicted value at each x is 
+#' calculated.
+#' 
+#' The option whichpred determines whether to graph the fitted values based on
+#' the median parameters of the Gibbs sampler, or the mean fitted value of all
+#' the steps in the Gibbs sampler.
+#' 
+#' @template export_format
 #'
 'graph.growthmodel.spp'
 
@@ -26,10 +27,9 @@
 #'
 'graph.growthmodel'
 
-#' Show model fits for 1, 2, 3, and 4 bins on each speciesoverlay.grow...
+#' Show model fits for 1, 2, 3, and 4 bins on each species.
 #'
 #' @description
-#'
 #' Show model fits for 1, 2, 3, and 4 bins on each species
 #'
 #'
@@ -38,19 +38,23 @@
 #' Calculates various metrics of fit: DIC, BIC, AIC based on the maxim...
 #'
 #' @description
+#' Calculates various metrics of fit: DIC, BIC, AIC based on the maximum
+#' likelihood, AIC based on the mean of the Gibbs sampler, from output of the
+#' model fit (all species, all bins 1:4).
+#' 
+#' @template export_format
 #'
-#' Calculates various metrics of fit: DIC, BIC, AIC based on the maximum likelihood, AIC based on the mean of the Gibbs sampler,
-#' from output of the model fit (all species, all bins 1:4). 
-#'
+#' @template export_format
 #'
 'compare.growthbinmodel'
 
 #' Pass the output of extract.growth with every individual's growth (f...
 #'
 #' @description
-#'
-#' Pass the output of extract.growth with every individual\'s growth (full), and another after outliers have been trimmed. This finds
-#' the records trimmed and overlays them on the entire graph. If a model is submitted, then the curves are graphed too.
+#' Pass the output of extract.growth with every individual's growth (full), and 
+#' another after outliers have been trimmed. This finds the records trimmed and 
+#' overlays them on the entire graph. If a model is submitted, then the curves 
+#' are graphed too.
 #'
 #' @examples
 #' \dontrun{
@@ -97,11 +101,14 @@
 #' Make a single graph, 4 panels, of AGB growth and model fit. Must su...
 #'
 #' @description
-#'
-#' Make a single graph, 4 panels, of AGB growth and model fit. Must submit four species names (though they could be
-#' the same. Enter names of data objects (not the object, just the name in quote marks!) either one data object, or a list of four such objects; 
-#' if only one, all four graphs are based on the single one. Likewise, enter either one bin number, or four.
-#'
+#' Make a single graph, 4 panels, of AGB growth and model fit. Must submit four
+#' species names (though they could be the same. Enter names of data objects
+#' (not the object, just the name in quote marks!) either one data object, or a
+#' list of four such objects; if only one, all four graphs are based on the
+#' single one. Likewise, enter either one bin number, or four.
+#' 
+#' @template export_format
+#' 
 #' @examples
 #' \dontrun{
 #' attach('growth/linearbin.fittrim3.bci.rdata')
@@ -138,9 +145,11 @@
 #' Make a graph, 4 panels, of AGB growth and model fit of many species...
 #'
 #' @description
+#'Make a graph, 4 panels, of AGB growth and model fit of many species overlaid,
+#'predicted functions only. Must submit names of four data objects (not the
+#'object, just the name in quote marks!).
 #'
-#' Make a graph, 4 panels, of AGB growth and model fit of many species overlaid, predicted functions only. Must submit names of four data objects 
-#'(not the object, just the name in quote marks!).
+#' @template export_format
 #'
 #' @examples
 #' \dontrun{
@@ -161,15 +170,15 @@
 #'
 'binGraphManySpecies.Panel'
 
-#' Make a graph of AGB growth and model fit of many species overlaid, ...
+#' Graph AGB growth and model fit of many species overlaid.
 #'
 #' @description
+#' Make a graph of AGB growth and model fit of many species overlaid, predicted
+#' functions only. Must submit name of data objects (not the object, just the
+#' name in quote marks!).
+#' 
+#' @template export_format
 #'
-#' Make a graph of AGB growth and model fit of many species overlaid, predicted functions only. Must submit name of data objects 
-#'(not the object, just the name in quote marks!).
-#'
-#'
-
 'binGraphManySpecies'
 
 # Source code and original documentation ----------------------------

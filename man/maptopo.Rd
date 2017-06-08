@@ -32,9 +32,11 @@ mac. `export = format` exports the graph to a specific file format: "pdf",
 
 \item{interval}{Contour line intervals.}
 
-\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
-\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{xaxis}{xxxdocparam}
 

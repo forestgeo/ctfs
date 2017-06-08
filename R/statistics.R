@@ -62,25 +62,27 @@
 #' 
 'regslope.noint'
 
-#' Performs regression in convenient way and returns coefficients and ...
+#' Regression coefficients, probabilities and graph.
 #'
 #' @description
-#'
-#' Performs regression in convenient way and returns coefficients and
+#' Performs regression in convenient way and returns coefficients and 
 #' probabilities in a single vector, and plots a graph.
 #'
 'regress.plot'
 
-#' Performs regression and graphs in a convenient way: with or without...
+#' Performs regression and graphs in a convenient way.
 #' 
 #' @description
-#' 
 #' Performs regression and graphs in a convenient way: with or without
 #' log-transforming x and y variables (the option addone can be included to
 #' handle zeros for log-transformation), with or without manual point labelling,
 #' without or without the best-fit line added, and with many options for colors
 #' and points. add can be a vector of length 2, a constant to be added to every
 #' value of x, y to remove zeroes.
+#' 
+#' @param x,y Variables on which to perform regression and graph.
+#' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
+#' @param addone Use to handle zeros for log-transformation
 #' 
 'regress.loglog'
 

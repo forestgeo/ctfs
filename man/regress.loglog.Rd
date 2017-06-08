@@ -2,13 +2,20 @@
 % Please edit documentation in R/statistics.R
 \name{regress.loglog}
 \alias{regress.loglog}
-\title{Performs regression and graphs in a convenient way: with or without...}
+\title{Performs regression and graphs in a convenient way.}
 \usage{
 regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
   graphit = TRUE, xrange = NULL, yrange = NULL, add = FALSE, pts = 16,
   lwidth = 1, drawline = "solid", title = "", xtitle = NULL,
   ytitle = NULL, ptnames = NULL, ptsize = 1, clr = "blue",
   lineclr = "red", includeaxis = TRUE)
+}
+\arguments{
+\item{x, y}{Variables on which to perform regression and graph.}
+
+\item{xlog, ylog}{Logical. Set to \code{TRUE} to log-transform x and y variables.}
+
+\item{addone}{Use to handle zeros for log-transformation}
 }
 \description{
 Performs regression and graphs in a convenient way: with or without

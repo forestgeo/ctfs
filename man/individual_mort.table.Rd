@@ -2,14 +2,20 @@
 % Please edit documentation in R/demogChange.R
 \name{individual_mort.table}
 \alias{individual_mort.table}
-\title{Create a table of individual trees and their survival status over t...}
+\title{Table individual trees and their survival status over two censuses.}
 \usage{
 individual_mort.table(cnsdata, mindbh = 10, maxdbh = 10000,
   alivecode = c("A", "AB", "AS"), center = 1992)
 }
+\arguments{
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
+}
 \description{
-Create a table of individual trees and their survival status over two censuses, with many species included.
+Create a table of individual trees and their survival status over two
+censuses, with many species included.
 }
 \seealso{
-individual_grow.table
+\code{\link[=individual_grow.table]{individual_grow.table()}}
 }

@@ -25,12 +25,9 @@
 #' PDF of a function formed by adding a gamma distribution to a symmet...
 #'
 #' @description
-#'
-#' PDF of a function formed by adding a gamma distribution to a symmetrical exponential 
-#' distribution. This means simply adding a PDF for a gamma minus an exponential to the
-#'
-#' PDF for a gamma plus an exponential.
-#'
+#' PDF of a function formed by adding a gamma distribution to a symmetrical 
+#' exponential distribution. This means simply adding a PDF for a gamma minus an
+#' exponential to the PDF for a gamma plus an exponential.
 #'
 'dgammadexp'
 
@@ -248,13 +245,11 @@
 #'
 'fitnorm'
 
-#' Fit a random variable x to any submitted probability distribution. ...
+#' Fit a random variable x to any submitted probability distribution.
 #'
 #' @description
-#'
-#' Fit a random variable x to any submitted probability distribution. The number of start parameters
-#' must match what the pdf needs.
-#'
+#' Fit a random variable x to any submitted probability distribution. The number
+#' of start parameters must match what the pdf needs.
 #'
 'fit.pdf'
 

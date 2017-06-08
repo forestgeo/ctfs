@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{pdf.allplot}
 \alias{pdf.allplot}
-\title{Export a pdf with one or more species maps. If singlefile=TRUE,  al...}
+\title{Export a pdf with one or more species maps.}
 \usage{
 pdf.allplot(splitdata = bci.split6, spplist = bci.spptable,
   elev = ctfs.elev$bci$mat, plotdim = c(1000, 500), cutoff = c(10, 100,
@@ -12,13 +12,66 @@ pdf.allplot(splitdata = bci.split6, spplist = bci.spptable,
   legpos = c(plotdim[1]/2, 1.16 * plotdim[2]), export = TRUE,
   singlefile = TRUE, path = "/home/condit/data/maps/bci/")
 }
+\arguments{
+\item{spplist}{A table with species codes and Latin names can be submitted as
+well, so that the full genus-species is added to plot. This must have
+species codes as row names. It should be the CTFS R format species table
+(eg, bci.spptable). It can be set to NULL if not available, then only the
+species code (as submitted) appears on the map.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+
+\item{cutoff}{Diameter breaks for changing size of plotting points.}
+
+\item{topoint}{Interval for topolines, if elevdata are submitted.}
+
+\item{bw}{If TRUE, only black, white, and grays are used.}
+
+\item{topoclr}{Color of topolines.}
+
+\item{bty}{Type of box to appear around species name. The default, 'n', means
+no box; set to 'o'to see the box.}
+
+\item{plotside}{The vertical dimension (inches) of the map.}
+
+\item{size}{The size of plotting points, to match the number of diameter
+breaks. If NULL, a default set is assigned. This can require fiddling, as
+big points do not work for really abundant species, and small points for
+rare species.}
+
+\item{deadtree}{Set NULL to map all trees, alive and dead; TRUE for dead
+only, FALSE for live only (relies on status in the R table).}
+
+\item{symbols}{A vector of symbols, one per species. Can be anything accepted
+by R for pch (plot character in the function plot()). If NULL, defaults are
+assigned.}
+
+\item{legsize}{For the species name, whether to include,
+where to place, and font size. Try the defaults first before fiddling, or
+just set addlegend=FALSE to remove.}
+
+\item{legpos}{For the species name, whether to include,
+where to place, and font size. Try the defaults first before fiddling, or
+just set addlegend=FALSE to remove.}
+
+\item{export}{`export = "no"`, does nothing, so the next graph uses the
+default R device. With this option, the size of the graph cannot have been
+set larger than the default size, which is usually 7 inches. `export =
+"unix"`, a new graphics window in unix, size `h` and width `w`, will be
+opened allowing you to alter the size of the output. `export = "windows"`,
+or `export = "mac"` are similar to `export = "unix"` but for windows and
+mac. `export = format` exports the graph to a specific file format: "pdf",
+"png", "jpg", "bmp", "emf".}
+}
 \description{
-Export a pdf with one or more species maps. If singlefile=TRUE,
-all maps will be in one big pdf, otherwise, a pdf for every species is created. The file exported will be named with Map.pdf
-in the path name given.
+Export a pdf with one or more species maps. If singlefile=TRUE, all maps will
+be in one big pdf, otherwise, a pdf for every species is created. The file
+exported will be named with Map.pdf in the path name given.
 
-This calls the map() function for all species
-in the splitdata list; it is designed for all species from a plot (default is all species from the BCI plot).
-
-See description of map() for details.
+This calls the map() function for all species in the splitdata list; it is
+designed for all species from a plot (default is all species from the BCI
+plot).
+}
+\seealso{
+\code{\link[=map]{map()}}
 }

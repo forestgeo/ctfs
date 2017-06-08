@@ -166,13 +166,18 @@
 #'
 'bad.asymexp.param'
 
-#' Run model.littleR.Gibbs for a series of census databases, for every...
-#'
+
+
+#' Run model.littleR.Gibbs for a series of census databases.
+#' 
 #' @description
-#'
-#' Run model.littleR.Gibbs for a series of census databases, for every successive pair, then the first to the last. Then repeat for 10 times the initial
-#' mindbh. All arguments except allcns are the same as those in model.littleR.Gibbs; allcns is a list of two more more census dataframes. 
-#'
+#' Run [model.littleR.Gibbs()] for a series of census databases, for every
+#' successive pair, then the first to the last. Then repeat for 10 times the
+#' initial mindbh. All arguments except allcns are the same as those in
+#' model.littleR.Gibbs; allcns is a list of two more more census dataframes.
+#' 
+#' @template allcns
+#' @template mindbh
 #'
 'fitSeveralAbundModel'
 
@@ -224,9 +229,11 @@
 #' Given an abundance fit and x axis range and divisions, return a seq...
 #'
 #' @description
-#'
-#' Given an abundance fit and x axis range and divisions, return a sequence of x values for drawing the histogram. Used as a subroutine inside graph.abundmodel.
-#'
+#' Given an abundance fit and x axis range and divisions, return a sequence of x
+#' values for drawing the histogram. Used as a subroutine inside
+#' graph.abundmodel.
+#' 
+#' @inheritParams graph.abundmodel
 #'
 'find.xaxis.hist'
 

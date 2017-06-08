@@ -175,13 +175,12 @@
 #'
 'angleBisector'
 
-#' Checks a vector of coordinates x, y to return which are inside a re...
+#' Checks a vector of coordinates x, y to return which are inside a rectangle.
 #'
 #' @description
-#'
-#' Checks a vector of coordinates x, y to return which are inside a rectangle. For a much more general function for checking whether
-#' points are inside polygons, use the function inout() in the package splancs.
-#'
+#' Checks a vector of coordinates x, y to return which are inside a rectangle.
+#' For a much more general function for checking whether points are inside
+#' polygons, use the function [splancs::inout()].
 #'
 'insideRectangle'
 

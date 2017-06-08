@@ -2,13 +2,34 @@
 % Please edit documentation in R/growth.R
 \name{biomass.growth}
 \alias{biomass.growth}
-\title{Like growth(), but calculates change in biomass (agb) instead of db...}
+\title{Calculate change in biomass (agb).}
 \usage{
 biomass.growth(census1, census2, rounddown = FALSE, stdev = FALSE,
   mindbh = 10, split1 = NULL, split2 = NULL)
 }
+\arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
+\item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
+multiple of 5.}
+
+\item{stdev}{Logical. Default (FALSE) returns confidence limits, otherwise
+returns the SD in growth rate per group.}
+
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
+
+\item{split1}{a vector of categories, one per individual}
+
+\item{split2}{another vector of categories, one per individual}
+}
 \description{
-Like growth(), but calculates change in biomass (agb) instead of dbh. The census tables must have a column
-called agb. There is no trimming done at all -- every tree is included, and its entire biomass (the agb column in the
+Like \code{\link[=growth]{growth()}}, but calculates change in biomass (agb) instead of dbh. The
+census tables must have a column called agb. There is no trimming done at all
+-- every tree is included, and its entire biomass (the agb column in the
 standard CTFS data object has total agb, all stems included.)
 }

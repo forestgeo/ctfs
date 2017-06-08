@@ -24,6 +24,8 @@ included.}
 \item{split1}{a vector of categories, one per individual}
 
 \item{split2}{another vector of categories, one per individual}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
 }
 \value{
 A list with 6 components:

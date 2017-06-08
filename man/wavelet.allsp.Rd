@@ -2,36 +2,51 @@
 % Please edit documentation in R/block.analysis.R
 \name{wavelet.allsp}
 \alias{wavelet.allsp}
-\title{Function to calculate the wavelet variance curves for all species i...}
+\title{Wavelet variance curves for all species in one plot.}
 \usage{
 wavelet.allsp(censdata, plotdim = c(1000, 500), gridsize = 2.5,
   mindbh = NULL)
 }
-\description{
-Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.
+\arguments{
+\item{censdata}{A table of plot census data.}
+
+\item{plotdim}{The x and y dimensions of the plot.}
+
+\item{gridsize}{Size of the quadrats for the rasterization}
+
+\item{mindbh}{If analysis is to be done at different size  classes.}
 }
+\value{
+A matrix with:
+\itemize{
+\item scale: vector with scale of the analysis in meters;
+\item variance: matrix with the normalized variance at each scale (columns) for
+each species (rows);
+density: matrix with the density per area and abundance for each species in
+the plot;
+\item gridsize: grid size parameter used;
+\item UCL: vector with the upper confidence limit for the null hypothesis;
+\item LCL: vector with the lower confidence limit for the null hypothesis.
+}
+}
+\description{
+Function to calculate the wavelet variance curves for all species in one plot
+using quadrat indexation from CTFS package.
+}
+\section{Argument details}{
+
+\itemize{
+\item censdata: Must  contain the variables gx, gy, dbh, status, and sp code.
+}
+}
+
 \examples{
 \dontrun{
 load("bci.full1.rdata") 
-wavelet.variances = wavelet.allsp(censdata, plotdim=c(1000,500))}
-
+wavelet.variances = wavelet.allsp(censdata, plotdim = c(1000, 500))
+}
 
 }
 \author{
 Matteo Detto and Tania Brenes
-
-Output is a matrix with:
-scale: vector with scale of the analysis in meters;
-variance: matrix with the normalized variance at each scale (columns) for each species (rows);
-density: matrix with the density per area and abundance for each species in the plot;
-plotdim: plot dimentions parameter used;
-gridsize: grid size parameter used;
-
-UCL: vector with the upper confidence limit for the null hypothesis;
-
-LCL: vector with the lower confidence limit for the null hypothesis.
-censdata (): census data for the plot containing the variables gx, gy, dbh, status, and sp code;
-plotdim c(1000,500):  vector with two numbers indicating the plot size;
-gridsize (2.5): gives the size of the quadrats for the rasterization
-mindbh (NULL): if analysis is to be done at different size  classes
 }

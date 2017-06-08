@@ -2,12 +2,18 @@
 % Please edit documentation in R/quadfunc.R
 \name{quad.to.gxgy}
 \alias{quad.to.gxgy}
-\title{Convert quadrat names into x-y coordinates, assuming the first 2 di...}
+\title{Convert quadrat names into x-y coordinates.}
 \usage{
 quad.to.gxgy(quad, gridsize = 20, start = 0)
 }
-\description{
-Convert quadrat names into x-y coordinates, assuming the first 2 digits are the column and the second two the row. Quad is a character.
+\arguments{
+\item{gridsize}{Side of the square quadrate.}
 
-If the first row and column are 00, set start=0, etc.
+\item{A}{character giving the quadrat name to convert to x-y coordinates.}
+}
+\description{
+Convert quadrat names into x-y coordinates, assuming the first 2 digits are
+the column and the second two the row. Quad is a character.
+
+If the first row and column are 00, set start = 0, etc.
 }

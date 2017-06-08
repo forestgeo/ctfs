@@ -2,7 +2,7 @@
 % Please edit documentation in R/abund.fit.CTFS.R
 \name{fitSeveralAbundModel}
 \alias{fitSeveralAbundModel}
-\title{Run model.littleR.Gibbs for a series of census databases, for every...}
+\title{Run model.littleR.Gibbs for a series of census databases.}
 \usage{
 fitSeveralAbundModel(allcns = list(bci.full1, bci.full2, bci.full3),
   sptable = bci.spptable, mindbh, excludespp = NULL, useIDlevel = TRUE,
@@ -10,7 +10,16 @@ fitSeveralAbundModel(allcns = list(bci.full1, bci.full2, bci.full3),
   modeltype = "asympower", bad.modelparam = bad.asympower.param,
   steps = 10000, burn = 1000, show = 250, debug = FALSE)
 }
+\arguments{
+\item{allcns}{Full R census, submitted as a list (as many as desired).}
+
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
+}
 \description{
-Run model.littleR.Gibbs for a series of census databases, for every successive pair, then the first to the last. Then repeat for 10 times the initial
-mindbh. All arguments except allcns are the same as those in model.littleR.Gibbs; allcns is a list of two more more census dataframes.
+Run \code{\link[=model.littleR.Gibbs]{model.littleR.Gibbs()}} for a series of census databases, for every
+successive pair, then the first to the last. Then repeat for 10 times the
+initial mindbh. All arguments except allcns are the same as those in
+model.littleR.Gibbs; allcns is a list of two more more census dataframes.
 }

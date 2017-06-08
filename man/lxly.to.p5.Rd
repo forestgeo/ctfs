@@ -2,10 +2,17 @@
 % Please edit documentation in R/quadfunc.R
 \name{lxly.to.p5}
 \alias{lxly.to.p5}
-\title{Given local, or  within-quadrat, coordinates for a 20-m quadrat, re...}
+\title{Calculate p5x5 from local or within-quadrat coordinates for a 20-m quadrat.}
 \usage{
 lxly.to.p5(lx, ly, gridsize = 20)
 }
+\arguments{
+\item{lx, ly}{Must be vectors of equal length. Any values outside [0,20) are
+returned \code{p5 = NA}.}
+
+\item{gridsize}{Side of the square quadrate.}
+}
 \description{
-Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the p5x5; lx and ly must be vectors of equal length. Any values outside [0,20) are returned p5=NA.
+Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the
+p5x5;
 }

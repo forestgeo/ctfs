@@ -13,9 +13,11 @@ map1species(sppdata, plotdim = c(1000, 500), xrange = c(0, plotdim[1]),
 \arguments{
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
-\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{bgcolor}{The background color. Defaults to white. For presentation
 exports, try bgcolor="transparent".}

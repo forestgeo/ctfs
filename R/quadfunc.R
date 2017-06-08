@@ -4,14 +4,16 @@
 #'
 #'
 
-#' Convert quadrat names into x-y coordinates, assuming the first 2 di...
+#' Convert quadrat names into x-y coordinates.
 #'
 #' @description
+#' Convert quadrat names into x-y coordinates, assuming the first 2 digits are
+#' the column and the second two the row. Quad is a character.
 #'
-#' Convert quadrat names into x-y coordinates, assuming the first 2 digits are the column and the second two the row. Quad is a character. 
-#'
-#' If the first row and column are 00, set start=0, etc. 
-#'
+#' If the first row and column are 00, set start = 0, etc. 
+#' 
+#' @template gridsize_side
+#' @param A character giving the quadrat name to convert to x-y coordinates.
 #'
 'quad.to.gxgy'
 
@@ -24,6 +26,7 @@
 #' other quadrate sizes can be used.
 #' 
 #' @inheritParams findborderquads
+#' @template gridsize_side
 #' @param rowno Row number.
 #' @param colno Column number.
 #'
@@ -125,13 +128,16 @@
 #'
 'gxgy.to.lxly'
 
-#' Given local, or  within-quadrat, coordinates for a 20-m quadrat, re...
+#' Calculate p5x5 from local or within-quadrat coordinates for a 20-m quadrat.
 #'
 #' @description
-#'
-#' Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the p5x5; lx and ly must be vectors of equal length. Any values outside [0,20) are returned p5=NA.
-#'
-#'
+#' Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the
+#' p5x5;
+#' 
+#' @template gridsize_side
+#' @param lx,ly Must be vectors of equal length. Any values outside [0,20) are
+#'   returned `p5 = NA`.
+#' 
 'lxly.to.p5'
 
 #' Given a quadrat index, calculate indices of neighboring quadrats.
@@ -177,28 +183,32 @@
 #'
 'findneighborabund'
 
-#' Finds proportion of neighboring quadrats in which a species is pres...
+#' Find proportion of neighboring quadrats in which a species is present.
 #'
 #' @description
-#'
-#' Finds proportion of neighboring quadrats in which a species is present. The input vector
-#' is presence-absence for every quadrat. It returns a vector of the same length.
-#'
+#' Finds proportion of neighboring quadrats in which a species is present. The
+#' input vector is presence-absence for every quadrat. It returns a vector of
+#' the same length.
+#' 
+#' @template plotdim
 #'
 'neighbors'
 
-#' Creates a torus-shifted quadrat topographic dataset. It accepts a q...
+#' Creates a torus-shifted quadrat topographic dataset.
 #'
 #' @description
-#'
-#' Creates a torus-shifted quadrat topographic dataset. It accepts a quadrat dataset
-#' with elevation, convexity, and slope for each 20x20 m quadrat in a plot. It returns a parallel
-#' dataset that is torus shifted, slip.horiz quadrats left-right and slip.vert quadrats up-down. 
-#'
-#' That is, in the new dataset, the topographic information of each quadrat comes from a quadrat
-#' displaced by slip.horiz and slip.vert units away in the original dataset.
-#'
-#'
+#' Creates a torus-shifted quadrat topographic dataset. It accepts a quadrat
+#' dataset with elevation, convexity, and slope for each 20x20 m quadrat in a
+#' plot. It returns a parallel dataset that is torus shifted, slip.horiz
+#' quadrats left-right and slip.vert quadrats up-down.
+#' 
+#' That is, in the new dataset, the topographic information of each quadrat
+#' comes from a quadrat displaced by slip.horiz and slip.vert units away in the
+#' original dataset.
+#' 
+#' @template plotdim
+#' @template gridsize_side
+#' 
 'torus.shift'
 
 #' Convert indices from larger to smaller quadrats.

@@ -28,7 +28,8 @@ species code (as submitted) appears on the map.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{elevdata}{Elevation data can be submitted, then a topo map is overlaid.
 Elevation data must be submitted as a matrix (as described in readelevdata

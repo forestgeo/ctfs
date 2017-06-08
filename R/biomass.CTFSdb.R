@@ -4,13 +4,13 @@
 #'
 #'
 
-#' Calculate biomass from existing R-formatted tables for trees and st...
-#'
+#' Biomass for trees and stems using dbh allometry.
+#' 
 #' @description
-#'
 #' Calculate biomass from existing R-formatted tables for trees and stems using
 #' dbh allometry. By default, it uses the Chave (2005) equations.
-#'
+#' 
+#' @details
 #' Note that the standard downloads of R Analytical Tables, already has the agb
 #' column filled, calculated with this routine using the default parameters for
 #' moist forest.
@@ -19,15 +19,11 @@
 #' used for other tables, always requiring two tables:  one with trees and one
 #' with all stems.
 #'
-#' The function returns the same table as submitted (either tree or stem), with
-#' a column agb added; if the agb column was already present, it is replaced.
-#'
 #' Calculations are done by AGB.ind and the subroutines it call.
 #'
-#' An alternative option is to have AGB calculations already stored in the
-#' server's AGB database, setting useChave=FALSE. This function then looks up
-#' the AGB for each stem from the table named for the plot.
-#'
+#' An alternative option is to have AGB calculations already stored in the 
+#' server's AGB database, setting `useChave = FALSE`. This function then looks
+#' up the AGB for each stem from the table named for the plot.
 #'
 #' RStemTable: Name of table with one row per stem; must have dbh, species
 #' (column sp), treeID
@@ -44,17 +40,21 @@
 #' dbh and any number of parameters; if ht.param is NULL, htmodel is ignored.
 #' 
 #' If you need a dummy wood density table to feed the wsg argument see
-#' `?wsgdata_dummy()`.
-#'
+#' ?[wsgdata_dummy()].
+#' 
+#' @return
+#' The same table as submitted (either tree or stem), with a column agb added;
+#' if the agb column was already present, it is replaced.
+#' 
+#' @template dbhunit
+#' 
 #' @examples
 #' \dontrun{
-#'
 #' CTFSplot("bci","full",census=1) 
 #'
 #' CTFSplot("bci","stem",census=1) 
 #' attach("biomass/wsg.ctfs.Rdata") 
 #' newtable=biomass.CTFSdb(RStemTable=bci.stem1,RTreeTable=bci.full1)}
-#'
 #'
 'biomass.CTFSdb'
 
@@ -125,23 +125,31 @@
 #'
 'AGB.ind'
 
-#'
-#' Computes AGB of each tree in a table, grouping all stems of one tre...
+#' AGB of each tree, grouping all stems of one tree and adding there agbs.
 #'
 #' @description
+#' Computes AGB of each tree in a table, grouping all stems of one tree and
+#' adding there agbs.
 #'
-#' Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs. 
-#'
-#' The submitted table, df, must have dbh, species name (sp),
-#' and a treeID to identify which tree every stem belong to. There must be just one dbh for each stem.  Returns
-#' a dataframe with one row per tree, including the treeID and total agb per tree. Note that it will have fewer rows
-#' than the table submitted. This is called by biomass.CTFSdb in the standard calculation of biomass for CTFS R tables. 
-#'
-#' biomasstbl=AGB.tree(df=bci.stem1)
+#' @return
+#' Adataframe with one row per tree, including the treeID and
+#' total agb per tree. Note that it will have fewer rows than the table
+#' submitted.
+#' 
+#' @inheritParams biomass.CTFSdb
+#' @param df The submitted table. Must have dbh, species name (sp), and a treeID
+#'   to identify which tree every stem belong to. There must be just one dbh for
+#'   each stem.
+#' 
+#' @seealso  This is called by [biomass.CTFSdb()] in the standard calculation of
+#' biomass for CTFS R tables.
+#' @examples 
+#' \dontrun{
+#' biomasstbl = AGB.tree(df = bci.stem1)
 #' dim(bci.stem1)
 #' dim(biomasstbl)
 #' head(biomasstbl)
-#'
+#' }
 #'
 'AGB.tree'
 
@@ -269,9 +277,8 @@
 #' - little.r: The rate of biomass change, or (log(N.2) - log(N.1))/interval
 #' 
 #' @inheritParams abundance
-#' @param census1 The R Analytical Table for a single census, either tree or
-#'   stem.
-#' @param census2 The matching R Analytical Table for a later census.
+#' @template census1_census2
+#' @template dbhunit
 #' 
 #' @examples
 #' \dontrun{

@@ -19,10 +19,12 @@
 #' In the latter, negative growths are transformed to negative, so do not need
 #' to be corrected.
 #' 
+#' @template mindbh
+#' @template debug
 #' @param cnsdata A list of census data sets, for example: 
 #'   `list(bci::bci12full1, bci::bci12full2, bci::bci12full3)`.
 #' @param rnd used to rounddown dbhs for certain intervals. This argument
-#'   indicates that dbhs<50 mm are rounded down to 5-mm, necessary because
+#'   indicates that dbhs < 50 mm are rounded down to 5-mm, necessary because
 #'   saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
 #'   growth functions in the CTFS R Package handle this.
 #'   
@@ -51,13 +53,15 @@
 #' 
 'individual_grow.table'
 
-#' Create a table of individual trees and their survival status over t...
+#' Table individual trees and their survival status over two censuses.
 #'
 #' @description
+#' Create a table of individual trees and their survival status over two
+#' censuses, with many species included.
 #'
-#' Create a table of individual trees and their survival status over two censuses, with many species included. 
-#'
-#' @seealso individual_grow.table
+#' @template mindbh
+#' @seealso [individual_grow.table()]
+#' 
 #'
 'individual_mort.table'
 

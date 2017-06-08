@@ -1,32 +1,36 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
-#' Extract data for growth rates from plot databases and 2 censuses in...
+#' Extract growth rates from plot databases and 2 censuses.
 #'
 #' @description
-#'
-#' Extract data for growth rates from plot databases and 2 censuses in CTFS R format. Returns a table with 
-#' growth, size (ie dbh), and species name. Default is to return log-transformed growth, with negative and zero
-#' growth set to a mingrow, but with logit=TRUE, growth and dbh are not log-transformed.
-#'
-#'
+#' Extract data for growth rates from plot databases and 2 censuses in CTFS R
+#' format.
+#' 
+#' @return
+#' Returns a table with growth, size (ie dbh), and species name. 
+#' 
+#' @template mindbh
+#' @template dbhunit
+#' @param logit Defaults to return log-transformed growth, with negative and
+#'   zero growth set to a mingrow, but with `logit = TRUE`, growth and dbh are
+#'   not log-transformed.
+#'   
 'extract.growthdata'
 
-#' Run the model to fit growth rate in bins for many species, 1-4 bins...
-#'
+#' Run the model to fit growth rate in bins for many species, 1-4 bins.
+#' 
 #' @description
+#' Run the model to fit growth rate in bins for many species, 1-4 bins. It takes
+#' a list of species, extracts growth rates for each, one at a time, from the 
+#' table of growth rates, then calls [run.growthfit.bin()] to fit the model for
+#' the 4 bin options.
 #'
-#' Run the model to fit growth rate in bins for many species, 1-4 bins. It takes a list of species, extracts
-#' growth rates for each, one at a time, from the table of growth rates, then calls run.growthfit.bin to fit the model for
-#' the 4 bin options. 
-#'
-#' Sample species vector from BCI: 
+#' @template dbhunit
 #'
 #' @examples
 #' \dontrun{
+#' # Sample species vector from BCI: 
 #' spp20 = c(
 #'   'tri2tu',
 #'   'alsebl',
@@ -78,7 +82,6 @@
 #'   startsdpar = c(.04, 0)
 #' )
 #' }
-#' 
 #'
 'run.growthbin.manyspp'
 

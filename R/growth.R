@@ -45,6 +45,8 @@
 #' @inheritParams abundance
 #' @inheritParams biomass.change
 #' @inheritParams trim.growth
+#' @template census1_census2
+#' @template mindbh
 #' @param rounddown If TRUE, all dbh < 55 are rounded down to the nearest
 #'   multiple of 5.
 #' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
@@ -67,14 +69,15 @@
 #'
 'growth'
 
-#' Like growth(), but calculates change in biomass (agb) instead of db...
+#' Calculate change in biomass (agb).
 #'
 #' @description
-#'
-#' Like growth(), but calculates change in biomass (agb) instead of dbh. The census tables must have a column
-#' called agb. There is no trimming done at all -- every tree is included, and its entire biomass (the agb column in the
+#' Like [growth()], but calculates change in biomass (agb) instead of dbh. The
+#' census tables must have a column called agb. There is no trimming done at all
+#' -- every tree is included, and its entire biomass (the agb column in the 
 #' standard CTFS data object has total agb, all stems included.)
-#'
+#' 
+#' @inheritParams growth
 #'
 'biomass.growth'
 
@@ -160,6 +163,8 @@
 #' mindbh`. All parameters for excluding growth measures based on error can be
 #' adjusted.
 #' 
+#' @template mindbh
+#' @template dbhunit
 #' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
 #'   return all measures.
 #' @param pomcut A number. To include POM changes, set it to a high number, such
@@ -175,21 +180,30 @@
 #'
 'trim.growth'
 
-#' Like growth.indiv but based on agb growth, not dbh growth. Extreme ...
+#' Like growth.indiv but based on agb growth, not dbh growth.
 #'
 #' @description
-#'
-#' Like growth.indiv but based on agb growth, not dbh growth. Extreme growth rates (based on dbh growth) are
-#' excluded, but cases where the stemID changed are not excluded. 
-#'
-#' Here pomcut is used in a very specific way probably only relevant at BCI. If the second pom is higher than the first by more than
-#' the pomcut, the record is not used. The function trim.growth has already eliminated cases where the stemID is unchanged and pom
-#' changes, so this will only serve for cases where two different stemIDs have measurements. At BCI, in most cases where the second pom
-#' is lower than the first and the stem changed, it is a legitimate stem change. But where the second pom is higher, it is really the
-#' same stem measured at a different pom, and with a different stemID because BCI lacks stem tags. 
-#'
-#' For most plots, especially with stem tags, the default behavior means changes in stem allow changes in pom to be included in biomass growth.
-#'
+#' Like [growth.indiv()] but based on agb growth, not dbh growth. Extreme growth
+#' rates (based on dbh growth) are excluded, but cases where the stemID changed
+#' are not excluded.
+#' 
+#' @details
+#' Here pomcut is used in a very specific way probably only relevant at BCI. If 
+#' the second pom is higher than the first by more than the pomcut, the record 
+#' is not used. The function [trim.growth()] has already eliminated cases where
+#' the stemID is unchanged and pom changes, so this will only serve for cases
+#' where two different stemIDs have measurements. At BCI, in most cases where
+#' the second pom is lower than the first and the stem changed, it is a
+#' legitimate stem change. But where the second pom is higher, it is really the
+#' same stem measured at a different pom, and with a different stemID because
+#' BCI lacks stem tags.
+#' 
+#' For most plots, especially with stem tags, the default behavior means changes
+#' in stem allow changes in pom to be included in biomass growth.
+#' 
+#' @template mindbh
+#' @template dbhunit
+#' @template census1_census2
 #'
 'growth.biomass.indiv'
 

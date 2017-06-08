@@ -108,28 +108,32 @@
 #'
 'map'
 
-#' Export a pdf with one or more species maps. If singlefile=TRUE,  al...
+#' Export a pdf with one or more species maps.
 #'
 #' @description
-#'
-#' Export a pdf with one or more species maps. If singlefile=TRUE, 
-#' all maps will be in one big pdf, otherwise, a pdf for every species is created. The file exported will be named with Map.pdf
-#' in the path name given.  
-#'
-#' This calls the map() function for all species
-#' in the splitdata list; it is designed for all species from a plot (default is all species from the BCI plot).
-#'
-#' See description of map() for details. 
-#'
+#' Export a pdf with one or more species maps. If singlefile=TRUE, all maps will
+#' be in one big pdf, otherwise, a pdf for every species is created. The file
+#' exported will be named with Map.pdf in the path name given.
+#' 
+#' This calls the map() function for all species in the splitdata list; it is
+#' designed for all species from a plot (default is all species from the BCI
+#' plot).
+#' 
+#' @inheritParams map
+#' 
+#' @seealso [map()]
 #'
 'pdf.allplot'
 
-#' Export species maps as png. There will be one for every species cho...
+#' Export species maps as png.
 #'
 #' @description
-#'
-#' Export species maps as png. There will be one for every species chosen. See pdf.allplot. 
-#'
+#' Export species maps as png. There will be one for every species chosen. See
+#' pdf.allplot.
+#' 
+#' @inheritParams map
+#' 
+#' @seealso [map()].
 #'
 'png.allplot'
 
@@ -225,15 +229,16 @@
 #'
 'setsize'
 
-#' Map 2 species to a 2-panel pdf. Two species names are passed to spp...
+#' Map 2 species to a 2-panel pdf.
 #'
 #' @description
-#'
-#' Map 2 species to a 2-panel pdf. Two species names are passed to spp as a vector. The data
-#' must be a list of two split plot data objects, spplist is a list of two different species tables, and elev
-#' a list of two different elevation matrices. To make 2 maps from the same plot, each of the lists should
-#' repeated the same data twice. 
-#'
+#' Map 2 species to a 2-panel pdf. Two species names are passed to spp as a
+#' vector. The data must be a list of two split plot data objects, spplist is a
+#' list of two different species tables, and elev a list of two different
+#' elevation matrices. To make 2 maps from the same plot, each of the lists
+#' should repeated the same data twice.
+#' 
+#' @template export_format
 #'
 
 'map2species'

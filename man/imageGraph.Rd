@@ -24,8 +24,8 @@ lines; if NULL, levels controls the breaks}
 
 \item{xname, yname}{axis names}
 
-\item{xrange, yrange}{if \code{NULL}, all \code{x} (or \code{y}) are included, otherwise, the
-graph will only include \code{x} (or \code{y}) inside \code{xrange} or (\code{yrange})}
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{axisdiv}{the division between tick marks; must be a vector of 2, first
 for x ticks then for y ticks}
@@ -108,7 +108,7 @@ imageGraph(
   h = 11,
   w = 11,
   plotsize = 8
-)}
-
+)
+}
 
 }
