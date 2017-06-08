@@ -28,6 +28,8 @@ as 10.}
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+
 \item{exclude.stem.change}{Logical. FALSE includes cases where stemID
 changed, regardless of growth (it does not make sense to exclude a record
 based on growth when the growth is based on different stems).}

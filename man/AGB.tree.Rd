@@ -7,25 +7,32 @@
 AGB.tree(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
   forest = "moist", ht.param = NULL, htmodel = predht.asym)
 }
+\arguments{
+\item{df}{The submitted table. Must have dbh, species name (sp), and a treeID
+to identify which tree every stem belong to. There must be just one dbh for
+each stem.}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+}
+\value{
+Adataframe with one row per tree, including the treeID and
+total agb per tree. Note that it will have fewer rows than the table
+submitted.
+}
 \description{
 Computes AGB of each tree in a table, grouping all stems of one tree and
 adding there agbs.
 }
-\details{
-The submitted table, df, must have dbh, species name (sp), and a treeID to
-identify which tree every stem belong to. There must be just one dbh for each
-stem.
-
-@return
-Adataframe with one row per tree, including the treeID and
-total agb per tree. Note that it will have fewer rows than the table
-submitted.
-
-@seealso  This is called by \code{\link[=biomass.CTFSdb]{biomass.CTFSdb()}} in the standard calculation of
-biomass for CTFS R tables.
-
-biomasstbl=AGB.tree(df=bci.stem1)
+\examples{
+\dontrun{
+biomasstbl = AGB.tree(df = bci.stem1)
 dim(bci.stem1)
 dim(biomasstbl)
 head(biomasstbl)
+}
+
+}
+\seealso{
+This is called by \code{\link[=biomass.CTFSdb]{biomass.CTFSdb()}} in the standard calculation of
+biomass for CTFS R tables.
 }

@@ -164,6 +164,7 @@
 #' adjusted.
 #' 
 #' @template mindbh
+#' @template dbhunit
 #' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
 #'   return all measures.
 #' @param pomcut A number. To include POM changes, set it to a high number, such

@@ -643,11 +643,12 @@ args_count_man <- function() {
 
 # Count all formal arguments of all functions
 args_formals <- function() {
-  message("On failure check if not_a_function is updated.")
+  message("On failure check if not_a_function is updated in args_formals().")
   # Fails if item is not a function
   not_a_function <- c(
     "forestr", 
-    "MONTHNAMES"
+    "MONTHNAMES",
+    "args_compare"
   )
   funs_all <- setdiff(strip_rd(dir("man")), not_a_function)
   purrr::map(funs_all, args_of) %>% 
@@ -709,27 +710,14 @@ args_pull_definitions <- function(arg) {
 
 # Compare arguments in two functions --------------------------------------
 
+# Intersection or difference in arguments between functions.
+# x,y String giving function name.
 
-#' Compare arguments between two functions.
-#'
-#' @param x,y String giving function name.
-#'
-#' @return Intersection or difference in arguments between functions.
-#' @keywords internal
-#' @aliases args_intersect args_setdiff
-#' @name args_compare
-#' @export
-#' @examples
-#' \dontrun{
-#' args_intersect("AGB.tree", "biomass.CTFSdb")
-#' args_setdiff("AGB.tree", "biomass.CTFSdb")
-#' }
-NULL
-
-#' @rdname args_compare
 args_intersect <- function(x, y) {intersect(args_of(x), args_of(y))}
-#' @rdname args_compare
 args_setdiff <- function(x, y) {setdiff(args_of(x), args_of(y))}
+# e.g.
+# args_intersect("AGB.tree", "biomass.CTFSdb")
+# args_setdiff("AGB.tree", "biomass.CTFSdb")
 
 
 

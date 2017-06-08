@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{run.growthbin.manyspp}
 \alias{run.growthbin.manyspp}
-\title{Run the model to fit growth rate in bins for many species, 1-4 bins...}
+\title{Run the model to fit growth rate in bins for many species, 1-4 bins.}
 \usage{
 run.growthbin.manyspp(growthdata, size = "dbh", spp = spp20,
   minabund300 = 15, minTotal = 40, dbhunit = "mm",
@@ -11,15 +11,18 @@ run.growthbin.manyspp(growthdata, size = "dbh", spp = spp20,
   noreps = 5000, noburn = 2500, noshow = 500, outputname = "linear.fit",
   path = "", ...)
 }
+\arguments{
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+}
 \description{
-Run the model to fit growth rate in bins for many species, 1-4 bins. It takes a list of species, extracts
-growth rates for each, one at a time, from the table of growth rates, then calls run.growthfit.bin to fit the model for
+Run the model to fit growth rate in bins for many species, 1-4 bins. It takes
+a list of species, extracts growth rates for each, one at a time, from the
+table of growth rates, then calls \code{\link[=run.growthfit.bin]{run.growthfit.bin()}} to fit the model for
 the 4 bin options.
-
-Sample species vector from BCI:
 }
 \examples{
 \dontrun{
+# Sample species vector from BCI: 
 spp20 = c(
   'tri2tu',
   'alsebl',
@@ -71,6 +74,5 @@ fit = run.growthbin.manyspp(
   startsdpar = c(.04, 0)
 )
 }
-
 
 }
