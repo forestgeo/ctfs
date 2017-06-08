@@ -108,7 +108,7 @@ imageGraph(
   h = 11,
   w = 11,
   plotsize = 8
-)}
-
+)
+}
 
 }

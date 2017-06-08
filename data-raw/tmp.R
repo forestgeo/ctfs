@@ -41,7 +41,30 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 args_count_formals_man() %>% 
-  filter(params == "xrange")
+  filter(params == "dbhunit")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+args_count_formals_man() %>% 
+  filter(!params %in% avoid) %>%
+  group_by(params) %>% 
+  mutate(some_but_not_all_is_na = some_but_not_all_is_na(man_n)) %>% 
+  filter(some_but_not_all_is_na) %>% 
+  select(1, 3) %>% filter(frml_n > 2) %>% unique()
+  
 
 
 

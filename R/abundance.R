@@ -234,9 +234,10 @@
 #' @description
 #' Collect abundances of all species across several censuses. 
 #' 
-#' @template mindbh
-#' @template type
 #' @template allcns
+#' @template mindbh
+#' @template dbhunit
+#' @template type
 #' @param excludestatus By default, any tree ever given code M is not counted in
 #'   any census, but set `excludestatus = NULL` to include them.
 #' @param excludespp A character vector of species codes can be submitted as
@@ -262,7 +263,8 @@
 #'   type = 'abund',
 #'   excludespp = c('uniden', 'tremxx'),
 #'   excludestatus = NULL
-#' )}
+#' )
+#' }
 #'
 
 'abund.manycensus'

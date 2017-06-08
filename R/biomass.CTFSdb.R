@@ -125,23 +125,31 @@
 #'
 'AGB.ind'
 
-#'
-#' Computes AGB of each tree in a table, grouping all stems of one tre...
+#' AGB of each tree, grouping all stems of one tree and adding there agbs.
 #'
 #' @description
+#' Computes AGB of each tree in a table, grouping all stems of one tree and
+#' adding there agbs.
 #'
-#' Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs. 
-#'
-#' The submitted table, df, must have dbh, species name (sp),
-#' and a treeID to identify which tree every stem belong to. There must be just one dbh for each stem.  Returns
-#' a dataframe with one row per tree, including the treeID and total agb per tree. Note that it will have fewer rows
-#' than the table submitted. This is called by biomass.CTFSdb in the standard calculation of biomass for CTFS R tables. 
-#'
-#' biomasstbl=AGB.tree(df=bci.stem1)
+#' @return
+#' Adataframe with one row per tree, including the treeID and
+#' total agb per tree. Note that it will have fewer rows than the table
+#' submitted.
+#' 
+#' @inheritParams biomass.CTFSdb
+#' @param df The submitted table. Must have dbh, species name (sp), and a treeID
+#'   to identify which tree every stem belong to. There must be just one dbh for
+#'   each stem.
+#' 
+#' @seealso  This is called by [biomass.CTFSdb()] in the standard calculation of
+#' biomass for CTFS R tables.
+#' @examples 
+#' \dontrun{
+#' biomasstbl = AGB.tree(df = bci.stem1)
 #' dim(bci.stem1)
 #' dim(biomasstbl)
 #' head(biomasstbl)
-#'
+#' }
 #'
 'AGB.tree'
 

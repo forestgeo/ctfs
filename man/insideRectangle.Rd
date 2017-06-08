@@ -2,11 +2,12 @@
 % Please edit documentation in R/geometry.R
 \name{insideRectangle}
 \alias{insideRectangle}
-\title{Checks a vector of coordinates x, y to return which are inside a re...}
+\title{Checks a vector of coordinates x, y to return which are inside a rectangle.}
 \usage{
 insideRectangle(x, y, xrange, yrange)
 }
 \description{
-Checks a vector of coordinates x, y to return which are inside a rectangle. For a much more general function for checking whether
-points are inside polygons, use the function inout() in the package splancs.
+Checks a vector of coordinates x, y to return which are inside a rectangle.
+For a much more general function for checking whether points are inside
+polygons, use the function \code{\link[splancs:inout]{splancs::inout()}}.
 }

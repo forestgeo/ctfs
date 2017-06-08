@@ -15,6 +15,8 @@ abund.manycensus(allcns = list(bci.full1, bci.full2, bci.full3), mindbh,
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
+
 \item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
@@ -47,6 +49,7 @@ N = abund.manycensus(
   type = 'abund',
   excludespp = c('uniden', 'tremxx'),
   excludestatus = NULL
-)}
+)
+}
 
 }
