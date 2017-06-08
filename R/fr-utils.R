@@ -477,6 +477,15 @@ args_filter_by_fun <- function(funname) {
 # Helpers
 
 # e.g. args_of("growth.eachspp")
+
+#' Title
+#'
+#' @param x Function name.
+#'
+#' @return Arguments of x
+#' @export
+#' @keywords internal
+#'
 args_of <- function(x) {names(formals(x))}
 
 args_undoc_one <- function(fun) {
@@ -694,6 +703,33 @@ args_pull_definitions <- function(arg) {
     tidyr::unnest() %>% 
     dplyr::rename(where = name, definition = value)
 }
+
+
+
+
+# Compare arguments in two functions --------------------------------------
+
+
+#' Compare arguments between two functions.
+#'
+#' @param x,y String giving function name.
+#'
+#' @return Intersection or difference in arguments between functions.
+#' @keywords internal
+#' @aliases args_intersect args_setdiff
+#' @name args_compare
+#' @export
+#' @examples
+#' \dontrun{
+#' args_intersect("AGB.tree", "biomass.CTFSdb")
+#' args_setdiff("AGB.tree", "biomass.CTFSdb")
+#' }
+NULL
+
+#' @rdname args_compare
+args_intersect <- function(x, y) {intersect(args_of(x), args_of(y))}
+#' @rdname args_compare
+args_setdiff <- function(x, y) {setdiff(args_of(x), args_of(y))}
 
 
 
