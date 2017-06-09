@@ -245,7 +245,6 @@
 #'
 #' @examples
 #' \dontrun{
-#'
 #' N = abund.manycensus(
 #'   allcns = list(bci.full1, bci.full2, bci.full3, bci.full4),
 #'   mindbh = 10,
@@ -266,7 +265,6 @@
 #' )
 #' }
 #'
-
 'abund.manycensus'
 
 # Source code and original documentation ----------------------------

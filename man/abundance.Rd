@@ -10,7 +10,7 @@ abundance(censdata, type = "abund", alivecode = c("A"), mindbh = NULL,
 \arguments{
 \item{censdata}{A table of plot census data.}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
 \item{alivecode}{character, codes of the variable \code{status} that indicate the

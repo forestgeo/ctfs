@@ -447,7 +447,6 @@
 #' @template data_dataframe
 #' @seealso [dplyr::group_by()] and [?dplyr::count()].
 #'
-#'
 'CountByGroup'
 
 #' An unfortunate bug in which.max: if all elements are NA, it doesnt ...

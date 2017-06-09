@@ -1,2 +1,2 @@
-#' @param type either 'abund' (default) for abundance, 'ba' for basal area, or
+#' @param type Either 'abund' (default) for abundance, 'ba' for basal area, or
 #'   'agb'.

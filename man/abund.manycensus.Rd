@@ -17,7 +17,7 @@ included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
 \item{excludespp}{A character vector of species codes can be submitted as
@@ -31,7 +31,6 @@ Collect abundances of all species across several censuses.
 }
 \examples{
 \dontrun{
-
 N = abund.manycensus(
   allcns = list(bci.full1, bci.full2, bci.full3, bci.full4),
   mindbh = 10,

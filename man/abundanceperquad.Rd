@@ -18,7 +18,7 @@ included.}
 
 \item{gridsize}{Side of the square quadrate.}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}

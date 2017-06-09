@@ -172,14 +172,20 @@
 #'
 'define.graphwindow'
 
-#' This sets a name for outputting a map (or any graph) to a file. The...
+#' This sets a name for outputting a map (or any graph) to a file.
 #'
 #' @description
-#'
-#' This sets a name for outputting a map (or any graph) to a file. The argument file may be NULL, then the argument species is used
-#' to name the file, or if there are more than one species, the word multispp is used. The argument exp is the export type and becomes
-#' the extension (ie, .pdf). By default, type assumes a Map, but it can be set otherwise. 
-#'
+#' This sets a name for outputting a map (or any graph) to a file. The argument
+#' file may be NULL, then the argument species is used to name the file, or if
+#' there are more than one species, the word multispp is used. The argument exp
+#' is the export type and becomes the extension (ie, .pdf). By default, type
+#' assumes a Map, but it can be set otherwise.
+#' 
+#' 
+#' @param file If `NULL`, then the argument species is used to name the file, or
+#'   if there are more than one species, the word multispp is used.
+#' @param exp, Export type, and becomes the extension (ie, .pdf).
+#' @param type A string; Defaults to "Map", but it can be set otherwise.
 #'
 'get.filename'
 

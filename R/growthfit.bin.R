@@ -189,16 +189,16 @@
 #'
 'calculateBinModel.BIC'
 
-#' Calculate AIC of the model, using various log(likelihood) estimator...
+#' Calculate AIC of the model, using various log(likelihood) estimators.
 #'
 #' @description
-#'
-#' Calculate AIC of the model, using various log(likelihood) estimators: 
-#' with optim, the highest likelihood found by optim
-#' with mean, the mean llikelihood from the Gibbs sampler
-#' with gibbs, the maximum llikelihood from the Gibbs sampler
-#' with none, just return the mean Gibbs likelihood
-#'
+#' Calculate AIC of the model, using various log(likelihood) estimators. 
+#' 
+#' @param type One of: 
+#' - `optim`, the highest likelihood found by optim;
+#' - `mean`, the mean llikelihood from the Gibbs sampler;
+#' - `gibbs`, the maximum llikelihood from the Gibbs sampler;
+#' - `none`, just return the mean Gibbs likelihood.
 #'
 'calculateBinModel.AIC'
 
