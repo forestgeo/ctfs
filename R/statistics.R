@@ -294,12 +294,12 @@
 #'
 'BadParam'
 
-#' Graph diagnostics of model.xygraph.modeldiag bootstrap.corr  Runnin...
+#' Graph diagnostics of model.xy.
 #'
 #' @description
-#'
 #' Graph diagnostics of model.xy
-#'
+#' 
+#' @template fit
 #'
 'graph.modeldiag'
 

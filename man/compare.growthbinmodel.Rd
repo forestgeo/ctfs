@@ -9,6 +9,8 @@ compare.growthbinmodel(fit, bins = 1:4, makegraph = TRUE, conflines = 0,
   h = 8, w = 10)
 }
 \arguments{
+\item{fit}{A fitted model.}
+
 \item{export}{File format to export to.}
 }
 \description{

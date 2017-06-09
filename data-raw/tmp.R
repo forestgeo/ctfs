@@ -27,15 +27,23 @@ devtools::load_all()
 #    - arguments I already worked on,
 #    - arguments that are all NA, so there is no reference of what they mean.
 avoid <- c(
+  
+  # NEEDS FUTURE WORK
   "x", "y",  # too generic; definition changes from fun to fun
-  "...",  # too variable
+  "...",  # skip, too variable
+  "xrange",  # skip, too variable
+  "yrange",  # skip, too variable
+  "data",  # did some; but too variable
+  "export",  # did some; but too variable
+  "type",  # did some; but too variable and too little information to document
+  
+  # DECENTLY DONE
   "plotdim",  # done
   "gridsize",  # done
   "mindbh",  # done
   "debunit",  # done
-  "export",  # pendent; I'm unsure if the template
-  "xrange"  # skip, too variable
-  
+  "fit",  # done
+  "add"  # done
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
@@ -45,9 +53,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 
-
 args_count_formals_man() %>% 
-  filter(params == "add")
+  filter(params == "census1")
 
 
 

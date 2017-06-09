@@ -11,6 +11,8 @@ graph.growthmodel.spp(fit, jiggle = 0.001, whichpred = "pred",
   addpts = TRUE, maintitle = NULL, conf = 0)
 }
 \arguments{
+\item{fit}{A fitted model.}
+
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}

@@ -11,12 +11,20 @@ map2species(spp, data = list(bci3.spp, korup.spp),
   plotside = 4)
 }
 \arguments{
+\item{spp}{A vector of two species names.}
+
+\item{data}{A list of two split plot data objects.}
+
+\item{spplist}{A list of two different species tables.}
+
+\item{elev}{A list of two different elevation matrices.}
+
 \item{export}{File format to export to.}
 }
 \description{
-Map 2 species to a 2-panel pdf. Two species names are passed to spp as a
-vector. The data must be a list of two split plot data objects, spplist is a
-list of two different species tables, and elev a list of two different
-elevation matrices. To make 2 maps from the same plot, each of the lists
-should repeated the same data twice.
+Map 2 species to a 2-panel pdf.
+}
+\details{
+To make 2 maps from the same plot, each of the lists should repeated
+the same data twice.
 }

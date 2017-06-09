@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{minum.mixnorm}
 \alias{minum.mixnorm}
-\title{Fit a mixture of 2 normals.minum.mixnorm logistic.inter  Logistic f...}
+\title{Fit a mixture of 2 normals.}
 \usage{
 minum.mixnorm(param, data)
 }

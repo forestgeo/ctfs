@@ -7,9 +7,13 @@
 spmean.mort.abundGibbs(spmean.mu, spmean.r, N1, S, time, MuSD, Rsd, type)
 }
 \description{
-Likelihood function for a species mean (a scalar, one species at a time), given logMu and logSD and the data, N and S
-(just one species here, so all parameters are scalars). In the abundance model, the mortality
-parameter is involved in the likelihood for population change, and it must thus depend on the
-the fitted little r. See spmean.mort.Gibbs in mortality.fit.CTFS.r for the original version, from mortality model,
-in which there is no dependence on little r. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
+Likelihood function for a species mean (a scalar, one species at a time),
+given logMu and logSD and the data, N and S (just one species here, so all
+parameters are scalars). In the abundance model, the mortality parameter is
+involved in the likelihood for population change, and it must thus depend on
+the the fitted little r. Only used as a subroutine of the main modeling
+function, model.littleR.Gibbs.
+}
+\seealso{
+\code{\link[=spmean.mort.Gibbs]{spmean.mort.Gibbs()}}
 }

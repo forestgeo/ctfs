@@ -101,26 +101,34 @@
 #' 
 'assemble.demography'
 
-#' This takes a CTFS demography table, output by functions mortality, ...
+#' Keep or clean rows outputed by mortality, growth, or recruitment?
 #'
 #' @description
-#'
-#' This takes a CTFS demography table, output by functions mortality, growth, or recruitment,
-#' and removes rows where N==0, or key data are NA. The rownames are assumed to refer to species names, and
-#' some codes can be excluded using the argument excludespp. The four columns
-#' can be submitted by name or number using default column headers, or by
-#' setting type to 'mort'or 'abund'.
-#'
-#' It returns a logical vector indicating with TRUE which rows to keep, not the cleaned table itself.
-#'
-#' This was formerly in utilities.r.
+#' This takes a CTFS demography table, output by functions mortality, growth, or
+#' recruitment, and removes rows where N == 0, or key data are NA. 
+#' 
+#' @details 
+#' The rownames are assumed to refer to species names, and some codes can be
+#' excluded using the argument excludespp. The four columns can be submitted by
+#' name or number using default column headers, or by setting type to 'mort'or
+#' 'abund'.
+#' 
+#' @return
+#' A logical vector indicating with TRUE which rows to keep, not the cleaned 
+#' table itself.
+#' 
+#' @param type "mort" or "abund" to refer to columns by name or number.
+#' 
 #'
 #' @examples
 #' \dontrun{
-#'
-#' rows.include=clean.demography(demogtable,type='growth',Ncol='N',ratecol='ratecol');
-#' result=demogtable[rows.include,]}
-#'
+#' rows.include = clean.demography(demogtable,
+#'   type = 'growth',
+#'   Ncol = 'N',
+#'   ratecol = 'ratecol')
+#' 
+#' result = demogtable[rows.include, ]
+#' }
 #'
 'clean.demography'
 

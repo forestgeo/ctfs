@@ -119,3 +119,6 @@ The return value is a list with several components:
 \item keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers
 }
 }
+\seealso{
+\code{\link[=lmerBayes]{lmerBayes()}}
+}

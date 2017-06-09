@@ -7,6 +7,9 @@
 graph.outliers.spp(full, trimmed, spname = "gustsu", fit = NULL,
   size = "agb", export = NULL, xtitle = "log(agb)", ytitle = "growth")
 }
+\arguments{
+\item{fit}{A fitted model.}
+}
 \description{
 Pass the output of extract.growth with every individual's growth (full), and
 another after outliers have been trimmed. This finds the records trimmed and
@@ -40,6 +43,5 @@ trimmed = extract.growthdata(
   maxgrow = 75
 )
 }
-
 
 }

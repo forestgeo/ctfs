@@ -10,7 +10,7 @@ abundance.spp(censdata, type = "abund", dbhunit = "mm",
 \arguments{
 \item{censdata}{A table of plot census data.}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
