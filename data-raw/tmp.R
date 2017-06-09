@@ -29,21 +29,22 @@ devtools::load_all()
 avoid <- c(
   
   # NEEDS FUTURE WORK
-  "x", "y",  # too generic; definition changes from fun to fun
   "...",  # skip, too variable
-  "xrange",  # skip, too variable
-  "yrange",  # skip, too variable
   "data",  # did some; but too variable
   "export",  # did some; but too variable
   "type",  # did some; but too variable and too little information to document
+  "x", "y",  # too generic; definition changes from fun to fun
+  "xrange",  # skip, too variable
+  "yrange",  # skip, too variable
   
   # DECENTLY DONE
-  "plotdim",  # done
-  "gridsize",  # done
-  "mindbh",  # done
+  "add",  # done
+  "center",  # done
   "debunit",  # done
   "fit",  # done
-  "add"  # done
+  "gridsize",  # done
+  "mindbh",  # done
+  "plotdim"  # done
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
@@ -53,10 +54,14 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 
+
+
 args_count_formals_man() %>% 
-  filter(params == "census1")
+  filter(params == "center")
 
 
+
+x %>% select(1) %>% unique
 
 
 

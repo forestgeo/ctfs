@@ -6,6 +6,9 @@
 \usage{
 dsymexp(x, center, rate, log = FALSE)
 }
+\arguments{
+\item{center}{center Center of the distribution.}
+}
 \description{
 Probability distribution for a folded, symmetrical exponential. When \code{x >= center}, it's just a standard exponential. When \code{x < center}, it's the mirror
 image of same one.

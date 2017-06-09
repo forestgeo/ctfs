@@ -6,6 +6,9 @@
 \usage{
 dasymexp(x, center, rate1, rate2, log = FALSE)
 }
+\arguments{
+\item{center}{center Center of the distribution.}
+}
 \description{
 Probability distributions for a folded but asymmetrical exponential. When
 \code{x >= center}, it's a standard exponential. When \code{x < center}, it's the

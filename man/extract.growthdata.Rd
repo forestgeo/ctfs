@@ -10,6 +10,11 @@ extract.growthdata(census1, census2, growcol = "incgr", mingrow = 0.1,
   maxgrow = 75, exclude.stem.change = TRUE, returnfull = FALSE)
 }
 \arguments{
+\item{census1}{The R Analytical Table for a single census, either tree or
+stem.}
+
+\item{census2}{The matching R Analytical Table for a later census.}
+
 \item{logit}{Defaults to return log-transformed growth, with negative and
 zero growth set to a mingrow, but with \code{logit = TRUE}, growth and dbh are
 not log-transformed.}

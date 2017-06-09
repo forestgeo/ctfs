@@ -216,45 +216,45 @@
 #' Determines whether any of the 4 corners of one rectangle are within a second rectangle. Both rectangles are submitted as c(x0,x1,y0,y1). If just one
 #' of the corners is inside, it returns true. See insideRectange(), which has a similar name but does something different.
 #'
-#'
 'inside.rect'
 
-#' Calculates points on a circle fullcircle  Create a dataframe for a ...
+
+#' Calculates points on a circle.
 #'
 #' @description
-#'
-#' Calculates points on a 
-#'
+#' Calculates points on a circle.
+#' 
+#' @inheritParams fullcircle
 #'
 'circle'
 
-#' Create a dataframe for a full circle, with x values repeated to get...
+#' Create a dataframe for a full circle.
 #'
 #' @description
-#'
-#' Create a dataframe for a full circle, with x values repeated to get top then bottom. NA is inserted
-#' so this can be passed directly to graphing functions.
-#'
+#' Create a dataframe for a full circle, with x values repeated to get top then
+#' bottom. NA is inserted so this can be passed directly to graphing functions.
+#' 
+#' @template x_coordinates
+#' @param center x-y coordinates of the shape center (vector of 2)
+#' @param radius Radius (scalar)
 #'
 'fullcircle'
 
 #' Equation for (half) a canonical ellipse fullellipse  Creates a data...
 #'
 #' @description
-#'
 #' Equation for (half) a canonical 
-#'
+#' 
+#' @inheritParams fullcircle
 #'
 'ellipse'
 
 #' Creates a dataframe for a full ellipse.
 #'
 #' @description
-#'
 #' Creates a dataframe for a full ellipse. 
-#'
-#' @template x_coordinates
-#' @param center x-y coordinates of ellipse center (vector of 2)
+#' 
+#' @inheritParams fullcircle
 #'
 'fullellipse'
 

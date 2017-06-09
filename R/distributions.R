@@ -127,10 +127,11 @@
 #' A bilateral power distribution, centered at center, decaying with e...
 #'
 #' @description
+#' A bilateral power distribution, centered at center, decaying with exponent
+#' rate1 for positive x and rate2 for negative x. Both rate1 and rate2 must be <
+#' (-1). See dpower, this is analogous to dasymexp for dpower. By R. Chisholm.
 #'
-#' A bilateral power distribution, centered at center, decaying with exponent rate1 for positive x and rate2 for negative x. Both rate1 and rate2
-#' must be < (-1). See dpower, this is analogous to dasymexp for dpower. By R. Chisholm. 
-#'
+#' @template center_distribution
 #'
 'dasympower'
 
@@ -162,25 +163,27 @@
 #'
 #' Each must be divided by two, though, in order to integrate to one.
 #'
+#' @template center_distribution
+#'
 'dsymexp'
 
 #' The CDF for the symmetric exponential.psymexp rsymexp  Drawing a ra...
 #'
 #' @description
-#'
 #' The CDF for the symmetric exponential.
 #'
+#' @template center_distribution
 #'
 'psymexp'
 
-#' Drawing a random variate on the symmetric exponential, based on the...
+#' Drawing a random variate on the symmetric exponential.
 #'
 #' @description
+#' Drawing a random variate on the symmetric exponential, based on the
+#' cumulative probability, as given in psymexp. A random uniform number on (0, 1)
+#' is plugged in the inverse of the cumulative distribution.
 #'
-#' Drawing a random variate on the symmetric exponential, based on the cumulative 
-#' probability, as given in psymexp. A random uniform number on (0,1) is plugged in 
-#' the inverse of the cumulative distribution.
-#'
+#' @template center_distribution
 #'
 'rsymexp'
 
@@ -195,25 +198,28 @@
 #'
 'qasymexp'
 
-#' Probability distributions for an asymmetrical Gaussian, that is wit...
+#' Probability distributions for an asymmetrical Gaussian.
 #' 
 #' Probability distributions for an asymmetrical Gaussian, that is with
 #' different standard deviations above and below the mode, or center. The mode
 #' is not the mean, though. The SD on the right is sigma1, and on the left,
 #' sigma2.
+#' 
+#' @template center_distribution
 #'
 'dasymnorm'
 
 #' Probability distributions for a folded but asymmetrical exponential...
 #'
 #' @description
-#'
 #' Probability distributions for a folded but asymmetrical exponential. When 
 #' `x >= center`, it's a standard exponential. When `x < center`, it's the 
 #' mirror image of a different exponential; `rate1` refers to the right half,
 #' `rate2` to the left. The center is not the median: the section `x > center`
 #' has integral `rate2 / (rate1 + rate2)`, and the section 
 #' `x < center rate1 / (rate1 + rate2)`.
+#' 
+#' @template center_distribution
 #'
 'dasymexp'
 
@@ -564,18 +570,17 @@
 #'
 'logistic.power_simple'
 
-#' This is logistic function with intercept parameterization (see logi...
+#' Logistic function with intercept parameterization centering on x.
 #'
 #' @description
-#'
-#' This is logistic function with intercept parameterization (see logistic above), but with centering on x allowed. 
-#'
-#' If center==NA, then the x values are centered on their median.
-#'
-#' Or center can be a number. If NULL, no centering is done. 
-#'
-#' Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic. 
-#'
+#' This is logistic function with intercept parameterization (see logistic
+#' above), but with centering on x allowed.
+#' 
+#' @details
+#' Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic.
+#' 
+#' @param center A number to center `x`. If `center = NA`, then `x` are centered
+#'   on their median; If `center = NULL`, no centering is done.
 #'
 'logistic.ctr'
 
