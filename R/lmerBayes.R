@@ -344,25 +344,34 @@
 #'
 'resetParam'
 
-#' Make summary calculations based on the full Gibbs sampler. The argu...
+#' Summarize calculations based on the full Gibbs sampler.
 #'
 #' @description
-#'
-#' Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
-#' and likelihood. However, if parameters were saved along the way to a text file, then the argument paramfile is used to name the file and restore them
-#' into a 3D array. Estimates of confidence limits of all parameters are returned. If returnfull is set TRUE, then the entire 3D array of parameters is
-#' also returned. Full likelihood at the best parameters is calculated and likelihood at each step in sampler are used to calculate DIC.
-#'
+#' Make summary calculations based on the full Gibbs sampler.
+#' 
+#'  
+#' @param fit An object holding all steps of the sampler, plus data,
+#'   observations, and likelihood. 
+#' @param paramfile If parameters were saved along the way to a text file, then
+#'   this argument is used to name the file and restore them into a 3D array.
+#' @param returnfull If TRUE, the entire 3D array of parameters is also
+#' returned. Full likelihood at the best parameters is calculated and likelihood
+#' at each step in sampler are used to calculate DIC.
+#' 
+#' @return Estimates of confidence limits of all parameters are returned.
+#' 
+#' @aliases summaryModelMCMC
 #'
 'summaryMCMC'
 
 #' Walk through entire chain of parameters to calculate full likelihoo...
 #'
 #' @description
-#'
-#' Walk through entire chain of parameters to calculate full likelihood at each step, as was done during the model run. The argument keep
-#' defines the elements to be used, or if NULL, fit$keep is used. 
-#'
+#' Walk through entire chain of parameters to calculate full likelihood at each
+#' step, as was done during the model run. The argument keep defines the
+#' elements to be used, or if NULL, fit$keep is used.
+#' 
+#' @template fit
 #'
 'recalculate.lmerBayesllike'
 

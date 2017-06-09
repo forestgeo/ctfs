@@ -2,9 +2,12 @@
 % Please edit documentation in R/statistics.R
 \name{graph.modeldiag}
 \alias{graph.modeldiag}
-\title{Graph diagnostics of model.xygraph.modeldiag bootstrap.corr  Runnin...}
+\title{Graph diagnostics of model.xy.}
 \usage{
 graph.modeldiag(fit, burn = 500, llikelim = 50, graphpar = 1:3)
+}
+\arguments{
+\item{fit}{A fitted model.}
 }
 \description{
 Graph diagnostics of model.xy

@@ -163,30 +163,26 @@
 #' This prevents the bin parameters from moving outside the x range, a...
 #'
 #' @description
-#'
-#' This prevents the bin parameters from moving outside the x range, and keeps the minimum bin width wider than MINBIN of the
-#' xrange. It also requires at least MINSAMPLE individuals per bin. The ellipsis handles the submission of MINBIN and MINBINSAMPLE, if
-#' they are not submitted, default values are assigned.
-#'
+#' This prevents the bin parameters from moving outside the x range, and keeps
+#' the minimum bin width wider than MINBIN of the xrange. It also requires at
+#' least MINSAMPLE individuals per bin. The ellipsis handles the submission of
+#' MINBIN and MINBINSAMPLE, if they are not submitted, default values are
+#' assigned.
 #'
 'bad.binparam'
 
-#' bad.binsdpar calculateBinModel.BIC  Calculate Bayes Information Cri...
-#'
-#' 
+#' bad.binsdpar
 #'
 #'
 'bad.binsdpar'
 
-#' Calculate Bayes Information Criteria using Wikipedia formula Descri...
+#' Calculate Bayes Information Criteria using Wikipedia formula.
 #'
 #' @description
-#'
-#' Calculate Bayes Information Criteria using Wikipedia formula
-#'
-#'
-#' Description: Calculate Deviance Information Criteria, using Wikipedia formula
-#'
+#' Calculate Bayes Information Criteria using Wikipedia formula.
+#' 
+#' @template fit
+#' 
 'calculateBinModel.BIC'
 
 #' Calculate AIC of the model, using various log(likelihood) estimators.
@@ -194,6 +190,7 @@
 #' @description
 #' Calculate AIC of the model, using various log(likelihood) estimators. 
 #' 
+#' @template fit
 #' @param type One of: 
 #' - `optim`, the highest likelihood found by optim;
 #' - `mean`, the mean llikelihood from the Gibbs sampler;
@@ -205,10 +202,10 @@
 #' Calculate mean predicted value at every x using every one of the Gi...
 #'
 #' @description
-#'
-#' Calculate mean predicted value at every x using every one of the Gibbs sampler parameter combinations
-#'(excluding burn in)
-#'
+#' Calculate mean predicted value at every x using every one of the Gibbs sampler
+#' parameter combinations (excluding burn in)
+#' 
+#' @template fit
 #'
 'calculateBinModel.bestpred'
 

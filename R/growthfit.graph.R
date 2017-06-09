@@ -16,6 +16,7 @@
 #' 
 #' @template export_format
 #' @template add_plot
+#' @template fit
 #'
 'graph.growthmodel.spp'
 
@@ -34,6 +35,7 @@
 #' Show model fits for 1, 2, 3, and 4 bins on each species.
 #' 
 #' @template add_plot
+#' @template fit
 #'
 'overlay.growthbinmodel'
 
@@ -45,6 +47,7 @@
 #' model fit (all species, all bins 1:4).
 #' 
 #' @template export_format
+#' @template fit
 #'
 'compare.growthbinmodel'
 
@@ -55,6 +58,8 @@
 #' another after outliers have been trimmed. This finds the records trimmed and 
 #' overlays them on the entire graph. If a model is submitted, then the curves 
 #' are graphed too.
+#' 
+#' @template fit
 #'
 #' @examples
 #' \dontrun{
@@ -84,17 +89,18 @@
 #' )
 #' }
 #'
-#'
 'graph.outliers.spp'
 
-#' Graph the outliers overlaid on the model and full data for all spec...
+#' Plot outliers overlaid on the model and full data for all species.
 #'
 #' @description
+#' Graph the outliers overlaid on the model and full data for all species in a
+#' model fit result.
 #'
-#' Graph the outliers overlaid on the model and full data for all species in a model fit result.
-#'
-#' The argument export can be set to a window device (X11, win.graph, quartz) or a graphics option (png, pdf).
-#'
+#' The argument export can be set to a window device (X11, win.graph, quartz) or
+#' a graphics option (png, pdf).
+#' 
+#' @template fit
 #'
 'graph.outliers'
 
@@ -108,6 +114,7 @@
 #' single one. Likewise, enter either one bin number, or four.
 #' 
 #' @template export_format
+#' @template fit
 #' 
 #' @examples
 #' \dontrun{

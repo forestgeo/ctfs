@@ -2,12 +2,13 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{calculateBinModel.BIC}
 \alias{calculateBinModel.BIC}
-\title{Calculate Bayes Information Criteria using Wikipedia formula Descri...}
+\title{Calculate Bayes Information Criteria using Wikipedia formula.}
 \usage{
 calculateBinModel.BIC(fit)
 }
+\arguments{
+\item{fit}{A fitted model.}
+}
 \description{
-Calculate Bayes Information Criteria using Wikipedia formula
-
-Description: Calculate Deviance Information Criteria, using Wikipedia formula
+Calculate Bayes Information Criteria using Wikipedia formula.
 }

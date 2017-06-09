@@ -65,14 +65,7 @@
 #'
 'residual.llike.modelBayes'
 
-#' Make summary calculations based on the full Gibbs sampler. The argu...
-#'
-#' @description
-#'
-#' Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
-#' and likelihood. Estimates of confidence limits of all parameters are returned. Full likelihood at the best parameters is calculated and likelihood 
-#' at each step in sampler are used to calculate DIC.
-#'
+#' @describeIn summaryMCMC See [summaryMCMC()].
 #'
 'summaryModelMCMC'
 

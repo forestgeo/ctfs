@@ -7,7 +7,9 @@
 bad.binparam(x, param, ...)
 }
 \description{
-This prevents the bin parameters from moving outside the x range, and keeps the minimum bin width wider than MINBIN of the
-xrange. It also requires at least MINSAMPLE individuals per bin. The ellipsis handles the submission of MINBIN and MINBINSAMPLE, if
-they are not submitted, default values are assigned.
+This prevents the bin parameters from moving outside the x range, and keeps
+the minimum bin width wider than MINBIN of the xrange. It also requires at
+least MINSAMPLE individuals per bin. The ellipsis handles the submission of
+MINBIN and MINBINSAMPLE, if they are not submitted, default values are
+assigned.
 }

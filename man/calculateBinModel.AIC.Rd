@@ -7,6 +7,8 @@
 calculateBinModel.AIC(fit, type = "optim")
 }
 \arguments{
+\item{fit}{A fitted model.}
+
 \item{type}{One of:
 \itemize{
 \item \code{optim}, the highest likelihood found by optim;

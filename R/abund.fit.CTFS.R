@@ -101,41 +101,42 @@
 #'
 'full.abundmodel.llike'
 
-#' Calculates the probability of observing N2 given N1, assuming a com...
-#'
+#' Probability of observing N2 given N1 (little.r distributed community-wide).
+#' 
 #' @description
-#'
-#' Calculates the probability of observing N2 given N1, assuming a community-wide
-#' distribution of little.r, log(N2/N1). It uses the normal approximation to the 
-#' binomial-poisson model (see dpopchange and testdpopchange in abundsim.r) as the
-#' error distribution around N2. Works with one species at a time, so all submitted values except lambda.ann are
-#' scalars. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
-#'
+#' Calculates the probability of observing N2 given N1, assuming a
+#' community-wide distribution of little.r, log(N2/N1). It uses the normal
+#' approximation to the binomial-poisson model (see dpopchange and
+#' testdpopchange in abundsim.r) as the error distribution around N2. Works with
+#' one species at a time, so all submitted values except lambda.ann are scalars.
+#' Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
 #'
 'prob.N1'
 
 #' Likelihood function for a species mean (a scalar, one species at a ...
 #'
 #' @description
+#' Likelihood function for a species mean (a scalar, one species at a time), 
+#' given logMu and logSD and the data, N and S (just one species here, so all 
+#' parameters are scalars). In the abundance model, the mortality parameter is 
+#' involved in the likelihood for population change, and it must thus depend on 
+#' the the fitted little r. Only used as a subroutine of the main modeling
+#' function, model.littleR.Gibbs.
 #'
-#' Likelihood function for a species mean (a scalar, one species at a time), given logMu and logSD and the data, N and S 
-#'(just one species here, so all parameters are scalars). In the abundance model, the mortality
-#' parameter is involved in the likelihood for population change, and it must thus depend on the
-#' the fitted little r. See spmean.mort.Gibbs in mortality.fit.CTFS.r for the original version, from mortality model,
-#' in which there is no dependence on little r. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
-#'
+#' @seealso [spmean.mort.Gibbs()]
 #'
 'spmean.mort.abundGibbs'
 
 #' Likelihood function for hyperparameters of abundance model, given t...
 #'
 #' @description
-#'
-#' Likelihood function for hyperparameters of abundance model, given the species values of little.r (latter a vector). Simply calculates
-#' the pdf of whatever modelfunc is requested. For symmetric models, norm and symexp, the third parameter (second hyperSD) is not used.
-#'
+#' Likelihood function for hyperparameters of abundance model, given the species
+#' values of little.r (latter a vector). Simply calculates the pdf of whatever
+#' modelfunc is requested. For symmetric models, norm and symexp, the third
+#' parameter (second hyperSD) is not used.
+#' 
 #' Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
-#'
+#' 
 #'
 'hyper.abundGibbs'
 
@@ -244,12 +245,16 @@
 #'
 'find.xaxis.hist'
 
-#' Simply return the modeled histogram for any set of parameters. Used...
+#' Simply return the modeled histogram for any set of parameters.
 #'
 #' @description
-#'
-#' Simply return the modeled histogram for any set of parameters. Used as a subroutine inside graph.abundmodel.
-#'
+#' Simply return the modeled histogram for any set of parameters.
+#' 
+#' @details 
+#' Used as a subroutine inside [graph.abundmodel()].
+#' 
+#' @inheritParams graph.abundmodel
+#' @template fit
 #'
 'abundmodel.fit'
 

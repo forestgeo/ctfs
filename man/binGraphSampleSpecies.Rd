@@ -9,6 +9,8 @@ binGraphSampleSpecies(fulldataname, species, whichbin, export = pdf,
 }
 \arguments{
 \item{export}{File format to export to.}
+
+\item{fit}{A fitted model.}
 }
 \description{
 Make a single graph, 4 panels, of AGB growth and model fit. Must submit four
