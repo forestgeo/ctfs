@@ -33,6 +33,7 @@ avoid <- c(
   "gridsize",  # done
   "mindbh",  # done
   "debunit",  # done
+  "add",  # done
   "export",  # pendent; I'm unsure if the template
   "xrange"  # skip, too variable
   
@@ -47,7 +48,7 @@ print(x, n = x$frml_n[[1]])
 
 
 args_count_formals_man() %>% 
-  filter(params == "add")
+  filter(params == "data")
 
 
 

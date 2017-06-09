@@ -50,7 +50,8 @@
 #'   constant, meaning the standard deviation is the same for all values of x.
 #'   Parameters for this function are estimated, just as parameters for the
 #'   model function.
-#'
+#' @seealso [lmerBayes()]
+#' 
 'modelBayes'
 
 #' Calculate likelihood of residual standard deviation, given observat...
