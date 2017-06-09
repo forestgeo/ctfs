@@ -8,6 +8,9 @@ llike.model.lmer(test, allparam, whichtest, data, trueN, model,
   sdmodel = constant, sdpar, errormodel = "Gauss", badparam = NULL,
   returnmodel = FALSE, mu, covar, fixed = NULL, debug = FALSE, ...)
 }
+\arguments{
+\item{debug}{Logical. If TRUE, call browser to debug.}
+}
 \description{
 Calculate full likelihood for any complete set of parameters, including every
 set for each random effect and hypermeans and covariances.
@@ -31,7 +34,7 @@ set of parameters given the hyperparameters is already calculated.
 To update fixed effects, can use full.llikelihood.lmerBayes. The fixed
 effects are used identically for every random effect.
 
-A llikelihood function for one set of parameters, for a single rand...
+A llikelihood function for one set of parameters, for a single random effect.
 }
 \examples{
 \dontrun{

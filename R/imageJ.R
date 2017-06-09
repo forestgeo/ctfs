@@ -16,6 +16,7 @@
 #' 
 #' @template gridsize_map
 #' @template subquadratsuffix
+#' @template debug
 #' @param path The complete path name where the map files to be converted are
 #'   found.
 #' @param include.subdir whether the subfolders are to be searched for map files

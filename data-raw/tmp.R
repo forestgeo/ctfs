@@ -40,6 +40,7 @@ avoid <- c(
   # DECENTLY DONE
   "add",  # done
   "center",  # done
+  "debug",  # done
   "debunit",  # done
   "fit",  # done
   "gridsize",  # done
@@ -57,7 +58,7 @@ print(x, n = x$frml_n[[1]])
 
 
 args_count_formals_man() %>% 
-  filter(params == "center")
+  filter(params == "w")
 
 
 
