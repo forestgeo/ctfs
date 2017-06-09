@@ -553,13 +553,11 @@
 #' If `add == TRUE`, `linecol`, `ltype` and `lwidth` are ignored.
 #' 
 #' @template ltype_lwidth
+#' @template add_plot
 #' @param x The x axis values.
 #' @param y1,y2 Two sets of y axis values, each of exactly the same length as 
 #'   `x`.
 #' @param fillcol The color filling the area between the two curves.
-#' @param add Logical. Whether to add points or line to an existing graph. if 
-#'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
-#'   is drawn.
 #' @param linecol Line colour.
 #'
 #' @seealso ?[graphics::plot()], ?[graphics::par()].
@@ -586,8 +584,8 @@
 #' \dontrun{
 #' make.CredIntervalVect(c(3.124,2.76,5.01),digits=c(2,1))}
 #'
-
 'make.CredIntervalVect'
+
 # Source code and original documentation ----------------------------
 # <supplemental>
 # This is supplemental code necessary for the functinos to run.

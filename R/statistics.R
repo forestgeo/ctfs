@@ -80,20 +80,21 @@
 #' and points. add can be a vector of length 2, a constant to be added to every
 #' value of x, y to remove zeroes.
 #' 
+#' @template add_plot
 #' @param x,y Variables on which to perform regression and graph.
 #' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
 #' @param addone Use to handle zeros for log-transformation
 #' 
 'regress.loglog'
 
-#' A major axis regression with parameters fitted by optim. The regres...
+#' A major axis regression with parameters fitted by optim.
 #'
 #' @description
-#'
-#' A major axis regression with parameters fitted by optim. The regression
-#' is the line which minimizes perpendicular distance summed over all points
-#'(and squared).
-#'
+#' A major axis regression with parameters fitted by optim. The regression is
+#' the line which minimizes perpendicular distance summed over all points (and 
+#' squared).
+#' 
+#' @param add xxxdocparam in majoraxisreg() is different to add in add_plot.R.
 #'
 'majoraxisreg'
 
@@ -184,27 +185,33 @@
 #'
 'Gibbs.normalvar'
 
-#' Generic Bayesian routine for fitting a model to y given 1 predictor...
+#' Bayesian routine for fitting a model to y given x.
 #'
 #' @description
-#'
-#' Generic Bayesian routine for fitting a model to y given 1 predictor variable x. The function
-#' of y~x must be supplied, as well as the function for the SD~y. Any functions with any numbers
-#' of parameters can be used: predfunc is the function of y~x, and sdfunc is the function sd~y.
-#'
-#' The function badpredpar is needed so the user can make up any definition
-#' for parameter values that are out of bounds. Without this, the model could not support any generic predfunc.
-#'
-#' Badpredpar must accept two vectors of parameters, one for main and one for sd.
-#'
-#' The ellipses allow additional parameters to be passed to the model function, but there is no such option for the
-#' sd function. The additional parameters mean that some of the variables defining the model do not have to be fitted.
-#'
-#' The sd function can be omitted if the likelihood does not require it. 
-#'
-#' This works only if one likelihood function defines the likelihood of the model, given data and parameters only.
-#'
-#' If the likelihood of some parameters is conditional on other parameters, as in hierarchical model, this can't be used.
+#' Generic Bayesian routine for fitting a model to y given 1 predictor variable
+#' x. The function of y~x must be supplied, as well as the function for the
+#' SD~y. Any functions with any numbers of parameters can be used: predfunc is
+#' the function of y~x, and sdfunc is the function sd~y.
+#' 
+#' @details
+#' The function badpredpar is needed so the user can make up any definition for 
+#' parameter values that are out of bounds. Without this, the model could not 
+#' support any generic predfunc. Badpredpar must accept two vectors of
+#' parameters, one for main and one for sd.
+#' 
+#' The ellipses allow additional parameters to be passed to the model function,
+#' but there is no such option for the sd function. The additional parameters
+#' mean that some of the variables defining the model do not have to be fitted.
+#' 
+#' The sd function can be omitted if the likelihood does not require it.
+#' 
+#' This works only if one likelihood function defines the likelihood of the
+#' model, given data and parameters only.
+#' 
+#' If the likelihood of some parameters is conditional on other parameters, as
+#' in hierarchical model, this can't be used.
+#' 
+#' @param add xxxdocparam in model.xy() is different to add in add_plot.R.
 #'
 #' @examples
 #' \dontrun{
@@ -389,12 +396,13 @@
 #'
 'hist_compare'
 
-#' Harmonic mean of a vector x. NAs and nonzero values can be ignored,...
+#' Harmonic mean of a vector x.
 #'
 #' @description
-#'
-#' Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a constant can be added to every x.
-#'
+#' Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a
+#' constant can be added to every x.
+#' 
+#' @param add xxxdocparam in harmonic.mean() is different to add in add_plot.R
 #'
 'harmonic.mean'
 
@@ -440,14 +448,12 @@
 #'
 'border.distance'
 
-#' This carries out either first or second order polynomial regression...
+#' For a polynomial regression, find x or y at y's peak or x-intercept.
 #'
 #' @description
-#'
 #' This carries out either first or second order polynomial regression,
 #' finds the x- and y-values at y's peak if its second order,
 #' otherwise the x-intercept.
-#'
 #'
 'regsum'
 

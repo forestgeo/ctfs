@@ -55,9 +55,9 @@ decreases in abundance to the screen}
 
 \item{makeleg}{whether to add legend}
 
-\item{add}{Logical. Whether to add points or line to an existing graph. if
-TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn.}
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 
 \item{ax}{if FALSE, the axes are not added}
 
@@ -66,7 +66,8 @@ population change across species}
 
 \item{debug}{Logical. If TRUE, call browser to debug.}
 
-\item{graphit}{xxxdocparam if set to false,}
+\item{graphit}{xxxdocparam in graph.abundmodel() is truncated: "if set to
+false," What follows?}
 }
 \description{
 Output histograms of little.r across species, observed and fitted, using the

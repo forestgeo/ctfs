@@ -38,7 +38,9 @@ for x ticks then for y ticks}
 
 \item{plotside}{The vertical dimension (inches) of the map.}
 
-\item{add}{Logical. Use \code{add = TRUE} to add points to an existing map.}
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 }
 \description{
 This does the mapping for a single species, called from map() but also useful

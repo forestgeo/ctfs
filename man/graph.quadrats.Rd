@@ -2,12 +2,16 @@
 % Please edit documentation in R/spparea.R
 \name{graph.quadrats}
 \alias{graph.quadrats}
-\title{Make a graph of a series of quadrats whose corners are given by the...}
+\title{Plot a series of quadrats with corners xlo, ylo, xhi, yhi.}
 \usage{
 graph.quadrats(coord, plotdim = c(1000, 500), clr = "black", add = FALSE)
 }
 \arguments{
 \item{plotdim}{The x and y dimensions of the plot.}
+
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 }
 \description{
 Make a graph of a series of quadrats whose corners are given by the rows of

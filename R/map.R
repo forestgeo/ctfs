@@ -188,14 +188,13 @@
 #' @description
 #' Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
 #' dimensions are not needed, instead it calculates them from elevmat and the 
-#' gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
-#' screen window is created.
-#'
+#' gridsize.
 #' 
 #' @inheritParams map
 #' @inheritParams graphFilledBand
+#' @template add_plot
 #' @param elevmat Matrix of elevation data (see ?[bci::bci_elevation]).
-#' @param new See [graphics::par()].
+#' @param new If `TRUE`, a new screen window is created.. See [graphics::par()].
 #' @param interval Contour line intervals.
 #' @param xaxis xxxdocparam
 #' @param yaxis xxxdocparam
@@ -215,7 +214,7 @@
 #' @seealso [map()].
 #' 
 #' @inheritParams map
-#' @param add Logical. Use `add = TRUE ` to add points to an existing map.
+#' @template add_plot
 #'
 'map1species'
 

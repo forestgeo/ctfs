@@ -128,7 +128,7 @@
 
 
 
-#' Make a graph of a series of quadrats whose corners are given by the...
+#' Plot a series of quadrats with corners xlo, ylo, xhi, yhi.
 #'
 #' @description
 #' Make a graph of a series of quadrats whose corners are given by the rows of
@@ -136,6 +136,7 @@
 #' quadrats.
 #' 
 #' @template plotdim
+#' @template add_plot
 #'
 'graph.quadrats'
 

@@ -202,6 +202,7 @@
 #' @template ltype_lwidth
 #' @template modeltype
 #' @template xname_yname
+#' @template add_plot
 #' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
 #' @param div width of bins for histogram of observed rate of population change
@@ -213,7 +214,8 @@
 #'   if conf = NULL, no confidence lines are added
 #' @param returnextreme whether to print a list of the fastest increases and
 #'   decreases in abundance to the screen
-#' @param graphit xxxdocparam if set to false,
+#' @param graphit xxxdocparam in graph.abundmodel() is truncated: "if set to
+#'   false," What follows?
 #' @param modelclr Line color; see ?[graphics::par()].
 #' @param bartype if TRUE, histogram is bar graph
 #' @param addpts if TRUE, histogram is a point graph

@@ -864,17 +864,15 @@
 #'
 'asymptote.exp'
 
-#' Graphs contours for an mvnorm, with parameters submitted as a vecto...
+#' Plot contours for an mvnorm, with parameters submitted as a vecto...
 #'
 #' @description
+#' Graphs contours for an mvnorm, with parameters submitted as a vector for a
+#' single 2D Gaussian. The probability has to be calculated on a grid so
+#' contours can be drawn.
 #'
-#' Graphs contours for an mvnorm, with parameters submitted as a
-#' vector, as described above, for a single 2D Gaussian.
-#'
-#' The probability has to be calculated on a grid so contours can be drawn.
-#'
-#' The argument exclude allows parts to be set to zero.
-#'
+#' @template add_plot
+#' @param exclude Allows parts to be set to zero.
 #'
 'graph.mvnorm'
 

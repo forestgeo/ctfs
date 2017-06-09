@@ -2,10 +2,15 @@
 
 ## 2017-06-05 (week starting on)
 
+PENDENT
+
 - Use tag xxx_amend_doc to tag documentation that I need to amend later. Find these tags with `shift + f`.
 
+- Use tag xxxdocparam to tag arguments that need to be documented. They are discoverable with find_xxxdocparam()
 
+MORE
 
+...
 
 
 
