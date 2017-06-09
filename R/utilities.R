@@ -439,9 +439,13 @@
 #'
 #' @description
 #'
-#' Groups a dataframe by one or more columns (named by groupcol). This does exactly what
-#'
+#' Groups a dataframe by one or more columns (named by groupcol). This does
+#' exactly what
+#' 
 #' COUNT(*) GROUP BY does in SQL.
+#' 
+#' @template data_dataframe
+#' @seealso [dplyr::group_by()] and [?dplyr::count()].
 #'
 #'
 'CountByGroup'
@@ -511,20 +515,21 @@
 #'
 'drp'
 
-#' Return a random row from a dataframerandomRow randomElement   Retur...
+#' Return a random row from a dataframe.
 #'
 #' @description
-#'
 #' Return a random row from a dataframe
 #'
-#'
+#' @template data_dataframe
+#' 
 'randomRow'
 
 #' Return a random element from a vector randomElement countUnique  Co...
 #' 
 #' @description
-#'
-#' Return a random element from a vector
+#' Return a random element from a vector.
+#' 
+#' @param data A vector.
 #' 
 'randomElement'
 

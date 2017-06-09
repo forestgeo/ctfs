@@ -231,15 +231,18 @@
 #' Map 2 species to a 2-panel pdf.
 #'
 #' @description
-#' Map 2 species to a 2-panel pdf. Two species names are passed to spp as a
-#' vector. The data must be a list of two split plot data objects, spplist is a
-#' list of two different species tables, and elev a list of two different
-#' elevation matrices. To make 2 maps from the same plot, each of the lists
-#' should repeated the same data twice.
+#' Map 2 species to a 2-panel pdf. 
+#' 
+#' @details 
+#' To make 2 maps from the same plot, each of the lists should repeated
+#' the same data twice.
 #' 
 #' @template export_format
+#' @param data A list of two split plot data objects.
+#' @param spplist A list of two different species tables.
+#' @param elev A list of two different elevation matrices. 
+#' @param spp A vector of two species names.
 #'
-
 'map2species'
 
 # Source code and original documentation ----------------------------

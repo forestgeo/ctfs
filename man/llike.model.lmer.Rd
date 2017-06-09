@@ -2,18 +2,36 @@
 % Please edit documentation in R/lmerBayes.R
 \name{llike.model.lmer}
 \alias{llike.model.lmer}
-\title{A llikelihood function for one set of parameters, for a single rand...}
+\title{Likelihood for any complete set of parameters.}
 \usage{
 llike.model.lmer(test, allparam, whichtest, data, trueN, model,
   sdmodel = constant, sdpar, errormodel = "Gauss", badparam = NULL,
   returnmodel = FALSE, mu, covar, fixed = NULL, debug = FALSE, ...)
 }
 \description{
-A llikelihood function for one set of parameters, for a single random effect. The error is specified by errormodel, typically dbinom or dnorm.
+Calculate full likelihood for any complete set of parameters, including every
+set for each random effect and hypermeans and covariances.
 
-It includes the likelihood of observing data given a response model (model) and its parameters (allparam), plus the hyper-likelihood of observing allparam
-given the hyperparameters, including hypermeans and covariance matrix. This is based off llike.model.occur.hierarch in fitLogisticMap.r,
-but differs in including the covariance in the hyper-model. If the argument mu, for hypermeans, is set NULL, the likelihood without the hyper-likelihood is returned.
+A llikelihood function for one set of parameters, for a single random effect.
+The error is specified by errormodel, typically dbinom or dnorm.
+
+It includes the likelihood of observing data given a response model (model)
+and its parameters (allparam), plus the hyper-likelihood of observing
+allparam given the hyperparameters, including hypermeans and covariance
+matrix. This is based off llike.model.occur.hierarch in fitLogisticMap.r, but
+differs in including the covariance in the hyper-model. If the argument mu,
+for hypermeans, is set NULL, the likelihood without the hyper-likelihood is
+returned.
+}
+\details{
+Further thought: the call to \code{\link[=lmerBayes.hyperllike.sigma]{lmerBayes.hyperllike.sigma()}} doesn't make
+sense, since \code{\link[=llike.model.lmer]{llike.model.lmer()}} already does this; the probability of each
+set of parameters given the hyperparameters is already calculated.
+
+To update fixed effects, can use full.llikelihood.lmerBayes. The fixed
+effects are used identically for every random effect.
+
+A llikelihood function for one set of parameters, for a single rand...
 }
 \examples{
 \dontrun{

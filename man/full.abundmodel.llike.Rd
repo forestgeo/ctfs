@@ -7,9 +7,16 @@
 full.abundmodel.llike(data, param, spmort, spR, type, debug = FALSE,
   badparam = NULL)
 }
+\arguments{
+\item{debug}{Logical. If TRUE, call browser to debug.}
+}
 \description{
-With the table of abundances, hyper-parameter estimates, and estimated mortality rate and population growth for each species, calculates full model likelihood.
+With the table of abundances, hyper-parameter estimates, and estimated
+mortality rate and population growth for each species, calculates full model
+likelihood.
 
-Note use of spmean.mort.abundGibbs, not sppmean.mort.Gibbs; in the latter, the one originally used in mortality model, the likelihood of observing a
-mortality parameter does not depend on the population growth. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
+Note use of spmean.mort.abundGibbs, not sppmean.mort.Gibbs; in the latter,
+the one originally used in mortality model, the likelihood of observing a
+mortality parameter does not depend on the population growth. Only used as a
+subroutine of the main modeling function, model.littleR.Gibbs.
 }

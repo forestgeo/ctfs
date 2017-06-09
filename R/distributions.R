@@ -496,12 +496,10 @@
 #'
 'rmixnorm'
 
-#' Fit a mixture of 2 normals.minum.mixnorm logistic.inter  Logistic f...
-#'
-#' @description
-#'
 #' Fit a mixture of 2 normals.
 #'
+#' @description
+#' Fit a mixture of 2 normals.
 #'
 'minum.mixnorm'
 
