@@ -389,12 +389,14 @@
 #'
 'hist_compare'
 
-#' Harmonic mean of a vector x. NAs and nonzero values can be ignored,...
+#' Harmonic mean of a vector x.
 #'
 #' @description
-#'
-#' Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a constant can be added to every x.
-#'
+#' Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a
+#' constant can be added to every x.
+#' 
+#' @param add xxxdocparam Here, add is different to that common @temp@template
+#'   add_plot
 #'
 'harmonic.mean'
 

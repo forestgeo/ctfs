@@ -55,9 +55,9 @@ decreases in abundance to the screen}
 
 \item{makeleg}{whether to add legend}
 
-\item{add}{Logical. Whether to add points or line to an existing graph. if
-TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn.}
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 
 \item{ax}{if FALSE, the axes are not added}
 

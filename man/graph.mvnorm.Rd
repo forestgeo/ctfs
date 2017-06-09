@@ -2,16 +2,20 @@
 % Please edit documentation in R/distributions.R
 \name{graph.mvnorm}
 \alias{graph.mvnorm}
-\title{Graphs contours for an mvnorm, with parameters submitted as a vecto...}
+\title{Plot contours for an mvnorm, with parameters submitted as a vecto...}
 \usage{
 graph.mvnorm(param, x, y, div = 10, add = FALSE, clr = "gray", lw = 0.5,
   pw = 2, exclude = NULL, returnit = FALSE)
 }
+\arguments{
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
+
+\item{exclude}{Allows parts to be set to zero.}
+}
 \description{
-Graphs contours for an mvnorm, with parameters submitted as a
-vector, as described above, for a single 2D Gaussian.
-
-The probability has to be calculated on a grid so contours can be drawn.
-
-The argument exclude allows parts to be set to zero.
+Graphs contours for an mvnorm, with parameters submitted as a vector for a
+single 2D Gaussian. The probability has to be calculated on a grid so
+contours can be drawn.
 }

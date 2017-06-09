@@ -142,12 +142,13 @@
 #'
 'segmentPt'
 
-#' Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. ...
+#' Draw a rectangle given a matrix or dataframe of 4 x-y coordinates.
 #'
 #' @description
-#'
-#' Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The columns must have x first then y coordinates. 
-#'
+#' Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The
+#' columns must have x first then y coordinates.
+#' 
+#' @template add_plot
 #'
 'drawrectangle'
 

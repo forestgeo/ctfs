@@ -15,6 +15,7 @@
 #' the steps in the Gibbs sampler.
 #' 
 #' @template export_format
+#' @template add_plot
 #'
 'graph.growthmodel.spp'
 

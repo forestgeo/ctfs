@@ -15,9 +15,9 @@ graphFilledBand(x, y1, y2, fillcol = "gray", add = TRUE,
 
 \item{fillcol}{The color filling the area between the two curves.}
 
-\item{add}{Logical. Whether to add points or line to an existing graph. if
-TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn.}
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 
 \item{linecol}{Line colour.}
 
