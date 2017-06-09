@@ -548,7 +548,7 @@ args_explore <- function(x) {
 # Find the pattern xxxdocparam to documente parameters (then ctr + shift + f).
 find_xxxdocparam <- function() {
   purrr::flatten_chr(
-    stringr::str_extract_all(raw_strings(), "#\' @param [^ ]+ xxxdocparam")
+    stringr::str_extract_all(raw_strings(), "#\' @param [^ ]+ xxxdocparam .*")
   )
 }
 
