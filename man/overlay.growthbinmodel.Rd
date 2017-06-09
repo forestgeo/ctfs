@@ -8,6 +8,11 @@ overlay.growthbinmodel(fit, bins = 1:4, regclr = "green",
   modelclr = "blue", graphdiv = 15, add = FALSE, newgraph = TRUE,
   export = pdf, outfile = "growth/linearbin.overlay.pdf", h = 8, w = 10)
 }
+\arguments{
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
+}
 \description{
-Show model fits for 1, 2, 3, and 4 bins on each species
+Show model fits for 1, 2, 3, and 4 bins on each species.
 }

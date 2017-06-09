@@ -66,7 +66,8 @@ population change across species}
 
 \item{debug}{Logical. If TRUE, call browser to debug.}
 
-\item{graphit}{xxxdocparam if set to false,}
+\item{graphit}{xxxdocparam in graph.abundmodel() is truncated: "if set to
+false," What follows?}
 }
 \description{
 Output histograms of little.r across species, observed and fitted, using the

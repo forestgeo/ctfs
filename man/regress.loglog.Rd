@@ -16,6 +16,10 @@ regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
 \item{xlog, ylog}{Logical. Set to \code{TRUE} to log-transform x and y variables.}
 
 \item{addone}{Use to handle zeros for log-transformation}
+
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 }
 \description{
 Performs regression and graphs in a convenient way: with or without

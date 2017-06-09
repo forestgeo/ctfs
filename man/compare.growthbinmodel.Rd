@@ -10,8 +10,6 @@ compare.growthbinmodel(fit, bins = 1:4, makegraph = TRUE, conflines = 0,
 }
 \arguments{
 \item{export}{File format to export to.}
-
-\item{export}{File format to export to.}
 }
 \description{
 Calculates various metrics of fit: DIC, BIC, AIC based on the maximum

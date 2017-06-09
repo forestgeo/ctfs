@@ -31,8 +31,9 @@
 #' Show model fits for 1, 2, 3, and 4 bins on each species.
 #'
 #' @description
-#' Show model fits for 1, 2, 3, and 4 bins on each species
-#'
+#' Show model fits for 1, 2, 3, and 4 bins on each species.
+#' 
+#' @template add_plot
 #'
 'overlay.growthbinmodel'
 
@@ -43,8 +44,6 @@
 #' likelihood, AIC based on the mean of the Gibbs sampler, from output of the
 #' model fit (all species, all bins 1:4).
 #' 
-#' @template export_format
-#'
 #' @template export_format
 #'
 'compare.growthbinmodel'

@@ -7,8 +7,7 @@
 harmonic.mean(x, add = 0, na.rm = TRUE)
 }
 \arguments{
-\item{add}{xxxdocparam Here, add is different to that common @temp@template
-add_plot}
+\item{add}{xxxdocparam in harmonic.mean() is different to add in add_plot.R}
 }
 \description{
 Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a

@@ -214,7 +214,8 @@
 #'   if conf = NULL, no confidence lines are added
 #' @param returnextreme whether to print a list of the fastest increases and
 #'   decreases in abundance to the screen
-#' @param graphit xxxdocparam if set to false,
+#' @param graphit xxxdocparam in graph.abundmodel() is truncated: "if set to
+#'   false," What follows?
 #' @param modelclr Line color; see ?[graphics::par()].
 #' @param bartype if TRUE, histogram is bar graph
 #' @param addpts if TRUE, histogram is a point graph

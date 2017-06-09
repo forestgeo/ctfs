@@ -47,6 +47,10 @@ base function contourLines for details}
 \item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
 TRUE to create a new plot window or export to a file}
 
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
+
 \item{plotsize}{size of graph's x-dimension in inches; ignored if
 newgraph=FALSE}
 
