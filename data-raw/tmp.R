@@ -45,7 +45,8 @@ avoid <- c(
   "fit",  # done
   "gridsize",  # done
   "mindbh",  # done
-  "plotdim"  # done
+  "plotdim",  # done
+  "w"
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
@@ -58,7 +59,7 @@ print(x, n = x$frml_n[[1]])
 
 
 args_count_formals_man() %>% 
-  filter(params == "w")
+  filter(params == "graphit")
 
 
 
