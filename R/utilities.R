@@ -162,13 +162,12 @@
 #'
 'merge_data'
 
-#' A version of paste with sep.pst detachfiles  detachs from the searc...
+#' A version of paste with sep.
 #'
 #' @description
-#'
-#' A version of paste with sep
-#'.
-#'
+#' A version of paste with sep.
+#' 
+#' @param ... See ... in [basre::paste()].
 #'
 'pst'
 

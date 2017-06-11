@@ -6,6 +6,9 @@
 \usage{
 lmerMortLinear(x, param, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
 A linear model of an annual mortality parameter, which is
 \code{-log(annual survival)}, as a function of N predictors x, which must be the

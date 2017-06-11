@@ -13,6 +13,8 @@ run.growthbin.manyspp(growthdata, size = "dbh", spp = spp20,
 }
 \arguments{
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
+
+\item{...}{Arguments passed to \code{\link[=run.growthfit.bin]{run.growthfit.bin()}}.}
 }
 \description{
 Run the model to fit growth rate in bins for many species, 1-4 bins. It takes

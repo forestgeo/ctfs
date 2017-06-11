@@ -6,6 +6,10 @@
 \usage{
 bad.binparam(x, param, ...)
 }
+\arguments{
+\item{...}{Arguments conditionally passed to \code{\link[=enoughSamplePerBin]{enoughSamplePerBin()}} or
+\code{\link[=wideEnoughBins]{wideEnoughBins()}} (see function definition).}
+}
 \description{
 This prevents the bin parameters from moving outside the x range, and keeps
 the minimum bin width wider than MINBIN of the xrange. It also requires at

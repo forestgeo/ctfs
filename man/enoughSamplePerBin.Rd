@@ -6,7 +6,10 @@
 \usage{
 enoughSamplePerBin(x, b, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
-Test whether the number of elements in a vector x between successive breaks exceeds a minimum. If any
-bins have too few, it returns FALSE.
+Test whether the number of elements in a vector x between successive breaks
+exceeds a minimum. If any bins have too few, it returns FALSE.
 }

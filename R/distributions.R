@@ -528,6 +528,8 @@
 #' `param[1]`. Slope parameters follow, one per column of `x`.
 #' 
 #' This is identical to standard.
+#' 
+#' @param ... Unused.
 #'
 'logistic.inter'
 
@@ -535,9 +537,11 @@
 #'
 #' @description
 #'
-#' This is standard logistic function, but with asymptote and basement allowed. The latter are only implemented
-#' if extra parameters are passed. Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic. 
-#'
+#' This is standard logistic function, but with asymptote and basement allowed.
+#' The latter are only implemented if extra parameters are passed. Moved from
+#' calc.surviv.r on 25 July 2010 to provide the standard logistic.
+#' 
+#' @param ... Unused.
 #'
 'logistic.standard'
 
@@ -545,11 +549,13 @@
 #'
 #' @description
 #'
-#' This is the Gaussian logistic function, where logit is a second-order polynomial of x; with asymptote and basement allowed. 
+#' This is the Gaussian logistic function, where logit is a second-order
+#' polynomial of x; with asymptote and basement allowed.
+#' 
+#' There must be 1+2*nopredictors parameters; the asympotote and basement are
+#' only implemented if extra parameters are passed.
 #'
-#' There must be 1+2*nopredictors parameters; the asympotote and basement are only implemented
-#' if extra parameters are passed.  
-#'
+#' @param ... Unused.
 #'
 'logistic.power'
 
@@ -564,17 +570,23 @@
 #' Asymptote and basement are allowed. There must be `1+2*nopredictors`
 #' parameters; the asympotote and basement are only implemented if extra
 #' parameters are passed.
+#' 
+#' @param ... Unused.
 #'
 'logistic.power.mode'
 
 #' This is a mixture of logistic and logistic-standard models. The pre...
 #'
 #' @description
-#'
-#' This is a mixture of logistic and logistic-standard models. The predictors n get a power model, the remaining a simple
-#' model. So if nopredictors==8, and n=c(1,7), then the first and seventh predictors use a power model, while the rest a simple model.
-#'
-#' There must be 1+length(n)+nopredictors parameters, plus additional 1 or 2 for asymptote and basement.  
+#' This is a mixture of logistic and logistic-standard models. The predictors n
+#' get a power model, the remaining a simple model. So if nopredictors==8, and
+#' n=c(1,7), then the first and seventh predictors use a power model, while the
+#' rest a simple model.
+#' 
+#' There must be 1+length(n)+nopredictors parameters, plus additional 1 or 2 for
+#' asymptote and basement.
+#' 
+#' @param ... Unused.
 #'
 #'
 'logistic.power_simple'
@@ -603,14 +615,16 @@
 #'
 'logistic.multiplicative'
 
-#' A function to return a constant at all predictors x. The predictors...
+#' A function to return a constant at all predictors x.
 #'
 #' @description
+#' A function to return a constant at all predictors x. The predictors are a
+#' numeric vector, or a matrix of many predictors (each column a single
+#' predictor). This function is useful in modeling, where the name of a function
+#' is passed; this allows modeling where a response is a constant across all
+#' values of x.
 #'
-#' A function to return a constant at all predictors x. The predictors are a numeric vector, or a matrix of
-#' many predictors (each column a single predictor). This function is useful in modeling, where the name of a function
-#' is passed; this allows modeling where a response is a constant across all values of x. 
-#'
+#' @param ... Unused.
 #'
 'constant'
 
@@ -651,18 +665,20 @@
 #'
 'logistic.sum.squares'
 
-#' The function from Sean Thomas which produces an asymptote for y as ...
+#' Asymptote for y as a function of x.
 #'
 #' @description
-#'
-#' The function from Sean Thomas which produces an asymptote for y as a function of x. 
-#'
+#' The function from Sean Thomas which produces an asymptote for y as a function
+#' of x.
+#' 
 #' Original version: y=ymax*(1-exp(-a*x^b))
-#'
-#' This is the centered version, with x normalized by dividing by parameter k, which is the x value at which
-#' y is half ymax. This eliminates correlation between the a and b parameters in the above version, but
-#' not the correlation between parameters 1 and 2.
-#'
+#' 
+#' This is the centered version, with x normalized by dividing by parameter k,
+#' which is the x value at which y is half ymax. This eliminates correlation
+#' between the a and b parameters in the above version, but not the correlation
+#' between parameters 1 and 2.
+#' 
+#' @param ... Unused.
 #'
 'asymp.ht'
 
@@ -752,17 +768,20 @@
 #' Multiple bin model predicting y as a function of x in several bins....
 #'
 #' @description
-#'
-#' Multiple bin model predicting y as a function of x in several bins. Within each bin, y is a linear function of x. 
-#'
-#' A model with B bins has B-1 parameters for breaks points (initial B-1 parameters), B parameters as slopes (next B parameters), and one intercept (last parameter).
-#'
-#' Intercept is assigned at x=0 by default, but argument LINEARBINMEDIAN can be used to change. 
-#'
-#' This function accepts one set of parameters, separates the bin, slope, and intercept, and submits to the
-#' general version of the function (linearmodel.bin.set). 
-#'
-#'
+#' Multiple bin model predicting y as a function of x in several bins. Within
+#' each bin, y is a linear function of x.
+#' 
+#' A model with B bins has B-1 parameters for breaks points (initial B-1
+#' parameters), B parameters as slopes (next B parameters), and one intercept
+#' (last parameter).
+#' 
+#' Intercept is assigned at x=0 by default, but argument LINEARBINMEDIAN can be
+#' used to change.
+#' 
+#' This function accepts one set of parameters, separates the bin, slope, and
+#' intercept, and submits to the general version of the function
+#' (linearmodel.bin.set).
+#' 
 'linearmodel.bin'
 
 #' This does the work of calculating predicted values at each independ...
@@ -867,12 +886,14 @@
 #'
 'rpois.trunc'
 
-#' A 3-parameter function which asymptotes as x->infinity. The 3rd par...
+#' A 3-parameter function which asymptotes as x->infinity.
 #'
 #' @description
-#'
-#' A 3-parameter function which asymptotes as x->infinity. The 3rd param must be >=0 and x>=0. The asymptote is a, the intercept a-b.
-#'
+#' A 3-parameter function which asymptotes as x->infinity. The 3rd param must be
+#' >=0 and x>=0. The asymptote is a, the intercept a-b.
+#' 
+#' @param ... Unused.
+#' 
 #'
 'asymptote.exp'
 

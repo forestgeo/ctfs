@@ -22,6 +22,10 @@ this argument is used to name the file and restore them into a 3D array.}
 \item{returnfull}{If TRUE, the entire 3D array of parameters is also
 returned. Full likelihood at the best parameters is calculated and likelihood
 at each step in sampler are used to calculate DIC.}
+
+\item{...}{Arguments passed to \code{\link[=llike.model.lmer]{llike.model.lmer()}} or
+\code{\link[=full.likelihood.lmerBayes]{full.likelihood.lmerBayes()}}, which may be problematic
+(xxx_amend_source in \code{\link[=summaryMCMC]{summaryMCMC()}}).}
 }
 \value{
 Estimates of confidence limits of all parameters are returned.

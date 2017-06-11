@@ -45,16 +45,12 @@ spcolumn can be set to 'genus'.
 }
 \description{
 Function for calculating the number of species in replicated, randomly-placed
-quadrats of various areas. The variable size refers to the dimension (side)
-of the square, and can be a vector; replicates is the number of random draws
-per dimension. Full plot data are submitted as censdata.
-
+quadrats of various areas.
+}
+\details{
 Species are counted as the number of unique values of sp in the R Analytical
 Table; unidentified species are not counted, based on a default unidennames;
 see the function unidentified.species in utilitiesCTFS.r.
-}
-\details{
-\code{censdata} can be either full or stem
 }
 \section{Note}{
 
@@ -62,6 +58,16 @@ Randomly-placed quadrats produce statistically preferable species-area curves
 than checkerboards of non-overlapping quadrats. If required, though, the
 function \code{\link[=abundanceperquad]{abundanceperquad()}} offers a fast way to count the number of
 species in checkerboard-type quadrats of different sizes.
+}
+
+\section{Arguments details}{
+
+\itemize{
+\item \code{censdata} can be either full or stem
+\item \code{censdata}
+\item \code{size}Refers to the dimension (side) of the square, and can be a vector;
+replicates is the number of random draws per dimension.
+}
 }
 
 \examples{

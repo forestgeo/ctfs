@@ -28,6 +28,7 @@
 #' the 4 bin options.
 #'
 #' @template dbhunit
+#' @param ... Arguments passed to [run.growthfit.bin()].
 #'
 #' @examples
 #' \dontrun{
@@ -89,23 +90,28 @@
 #' Find best fits for linearmodel.bin, with one set of data and a seri...
 #'
 #' @description
-#'
-#' Find best fits for linearmodel.bin, with one set of data and a series of bins. This starts fit for a bin
-#' based on the best fit for the prior bin, thus always assuring an improved fit. This works best if the first bin=1,
-#' which is just a linear model and easily fit by optim and the Gibbs sampler.
-#'
+#' Find best fits for linearmodel.bin, with one set of data and a series of
+#' bins. This starts fit for a bin based on the best fit for the prior bin, thus
+#' always assuring an improved fit. This works best if the first bin=1, which is
+#' just a linear model and easily fit by optim and the Gibbs sampler.
+#' 
+#' @param ... Arguments passed to [growth.flexbin()].
+#' 
 #'
 'run.growthfit.bin'
 
 #' Fitting a regression line through log growth against log dbh, binni...
 #'
 #' @description
-#'
-#' Fitting a regression line through log growth against log dbh, binning on dbh. Growth table has 2 columns,
-#' one named size (ie, dbh), other growth. The function now calls optim first to find a set of parameters, then, if Gibbs
-#' is selected, runs the Gibbs sampler starting with those parameters. Since optim fails if the initial likelihood is -Inf,
-#' it became necessary to check the parameters with bad.binparam before running. 
-#'
+#' Fitting a regression line through log growth against log dbh, binning on dbh.
+#' Growth table has 2 columns, one named size (ie, dbh), other growth. The
+#' function now calls optim first to find a set of parameters, then, if Gibbs is
+#' selected, runs the Gibbs sampler starting with those parameters. Since optim
+#' fails if the initial likelihood is -Inf, it became necessary to check the
+#' parameters with bad.binparam before running.
+#' 
+#' @param ... Conditionally passed to a number of functions; see function
+#'   definition.
 #'
 'growth.flexbin'
 
@@ -121,11 +127,12 @@
 #' This finds divisions of over the vector size which produce equal nu...
 #'
 #' @description
-#'
-#' This finds divisions of over the vector size which produce equal number of elements per division. In case
-#' any of those divisions are too short, it tries equal sized divisions. A default to use for
-#' start parameters when none are supplied. 
-#'
+#' This finds divisions of over the vector size which produce equal number of
+#' elements per division. In case any of those divisions are too short, it tries
+#' equal sized divisions. A default to use for start parameters when none are
+#' supplied.
+#' 
+#' @param ... Arguments passed to [enoughSamplePerBin()].
 #'
 'defineBinBreaks'
 
@@ -141,10 +148,10 @@
 #' Test whether the number of elements in a vector x between successiv...
 #'
 #' @description
-#'
-#' Test whether the number of elements in a vector x between successive breaks exceeds a minimum. If any
-#' bins have too few, it returns FALSE. 
-#'
+#' Test whether the number of elements in a vector x between successive breaks
+#' exceeds a minimum. If any bins have too few, it returns FALSE.
+#' 
+#' @param ... Unused.
 #'
 'enoughSamplePerBin'
 
@@ -169,11 +176,15 @@
 #' least MINSAMPLE individuals per bin. The ellipsis handles the submission of
 #' MINBIN and MINBINSAMPLE, if they are not submitted, default values are
 #' assigned.
+#' 
+#' @param ... Arguments conditionally passed to [enoughSamplePerBin()] or
+#'   [wideEnoughBins()] (see function definition).
 #'
 'bad.binparam'
 
 #' bad.binsdpar
-#'
+#' 
+#' @param ... Arguments passed to [wideEnoughBins()].
 #'
 'bad.binsdpar'
 

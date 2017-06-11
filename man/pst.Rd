@@ -2,11 +2,13 @@
 % Please edit documentation in R/utilities.R
 \name{pst}
 \alias{pst}
-\title{A version of paste with sep.pst detachfiles  detachs from the searc...}
+\title{A version of paste with sep.}
 \usage{
 pst(...)
 }
+\arguments{
+\item{...}{See ... in \code{\link[basre:paste]{basre::paste()}}.}
+}
 \description{
-A version of paste with sep
-.
+A version of paste with sep.
 }

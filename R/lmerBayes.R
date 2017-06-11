@@ -234,6 +234,9 @@
 #' To update fixed effects, can use full.llikelihood.lmerBayes. The fixed 
 #' effects are used identically for every random effect.
 #' 
+#' @param ... Arguments passed to [llike.model.lmer()].
+#' 
+'full.likelihood.lmerBayes'
 
 
 #' A llikelihood function for one set of parameters, for a single random effect.
@@ -283,7 +286,7 @@
 #' badSD arrangeParam.llike.2D  Used in likelihood function of a Gibbs...
 #'
 #' 
-#'
+#' @param ... Unused.
 #'
 'badSD'
 
@@ -359,6 +362,9 @@
 #' @param returnfull If TRUE, the entire 3D array of parameters is also
 #' returned. Full likelihood at the best parameters is calculated and likelihood
 #' at each step in sampler are used to calculate DIC.
+#' @param ... Arguments passed to [llike.model.lmer()] or
+#'   [full.likelihood.lmerBayes()], which may be problematic 
+#'   (xxx_amend_source in [summaryMCMC()]).
 #' 
 #' @return Estimates of confidence limits of all parameters are returned.
 #' 
@@ -374,6 +380,7 @@
 #' elements to be used, or if NULL, fit$keep is used.
 #' 
 #' @template fit
+#' @param ... Arguments passed to [full.likelihood.lmerBayes()].
 #'
 'recalculate.lmerBayesllike'
 

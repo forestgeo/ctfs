@@ -8,13 +8,8 @@
 #'
 #' @description
 #' Function for calculating the number of species in replicated, randomly-placed
-#' quadrats of various areas. The variable size refers to the dimension (side) 
-#' of the square, and can be a vector; replicates is the number of random draws
-#' per dimension. Full plot data are submitted as censdata.
+#' quadrats of various areas.
 #' 
-#' Species are counted as the number of unique values of sp in the R Analytical
-#' Table; unidentified species are not counted, based on a default unidennames;
-#' see the function unidentified.species in utilitiesCTFS.r.
 #' 
 #' @return 
 #' A list of two components. The first is a table giving the mean number (and
@@ -35,7 +30,15 @@
 #' species in checkerboard-type quadrats of different sizes.
 #' 
 #' @details
-#' `censdata` can be either full or stem
+#' Species are counted as the number of unique values of sp in the R Analytical
+#' Table; unidentified species are not counted, based on a default unidennames;
+#' see the function unidentified.species in utilitiesCTFS.r.
+#' 
+#' @section Arguments details:
+#' - `censdata` can be either full or stem
+#' - `censdata`
+#' - `size`Refers to the dimension (side) of the square, and can be a vector;
+#' replicates is the number of random draws per dimension.
 #' 
 #' @template plotdim
 #' @template mindbh

@@ -6,6 +6,9 @@
 \usage{
 bad.binsdpar(x, param, ...)
 }
+\arguments{
+\item{...}{Arguments passed to \code{\link[=wideEnoughBins]{wideEnoughBins()}}.}
+}
 \description{
 bad.binsdpar
 }
