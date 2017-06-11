@@ -10,6 +10,8 @@ binGraphManySpecies.Panel(fulldataname, sitename, darken = 8, xrange = c(-3,
 }
 \arguments{
 \item{export}{File format to export to.}
+
+\item{h, w}{A number giving the height and width.}
 }
 \description{
 Make a graph, 4 panels, of AGB growth and model fit of many species overlaid,

@@ -34,6 +34,8 @@ no box; set to 'o'to see the box.}
 
 \item{plotside}{The vertical dimension (inches) of the map.}
 
+\item{h, w}{A number giving the height and width.}
+
 \item{size}{The size of plotting points, to match the number of diameter
 breaks. If NULL, a default set is assigned. This can require fiddling, as
 big points do not work for really abundant species, and small points for

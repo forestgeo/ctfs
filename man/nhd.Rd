@@ -6,6 +6,13 @@
 \usage{
 nhd(d, w = 1:6, h = 8)
 }
+\arguments{
+\item{d}{An object (see x in \code{\link[=head]{head()}}).}
+
+\item{w}{Sequence giving the range of columns to print}
+
+\item{h}{Number giving the Number of rows to print.}
+}
 \description{
 A version of head with only 6 columns shown.
 }

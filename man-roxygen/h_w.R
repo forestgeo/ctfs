@@ -1,1 +1,1 @@
-#' @param h,w Height and width
+#' @param h,w A number giving the height and width.

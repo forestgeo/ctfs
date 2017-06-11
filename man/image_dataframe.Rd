@@ -31,7 +31,7 @@ If `NULL`, all `x` (or `y`) are included.}
 \item{graphfile}{the file name if export is pdf, png, jpeg, win.metafile,
 etc.}
 
-\item{export}{if newgraph=TRUE, this defines the graphics device; options
+\item{export}{if \code{newgraph = TRUE}, this defines the graphics device; options
 include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
 quoted!)}
 

@@ -120,6 +120,7 @@
 #' plot).
 #' 
 #' @inheritParams map
+#' @template h_w
 #' 
 #' @seealso [map()]
 #'
@@ -132,6 +133,7 @@
 #' pdf.allplot.
 #' 
 #' @inheritParams map
+#' @template h_w
 #' 
 #' @seealso [map()].
 #'
@@ -168,7 +170,7 @@
 #' This defines an export device for a graph, based on the argument export.
 #' 
 #' @template export
-#' @param h,w Size and width
+#' @template h_w
 #'
 'define.graphwindow'
 
