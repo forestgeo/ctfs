@@ -23,6 +23,8 @@ species code (as submitted) appears on the map.}
 
 \item{plotside}{The vertical dimension (inches) of the map.}
 
+\item{h, w}{A number giving the height and width.}
+
 \item{export}{`export = "no"`, does nothing, so the next graph uses the
 default R device. With this option, the size of the graph cannot have been
 set larger than the default size, which is usually 7 inches. `export =

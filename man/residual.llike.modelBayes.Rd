@@ -2,13 +2,18 @@
 % Please edit documentation in R/modelBayes.R
 \name{residual.llike.modelBayes}
 \alias{residual.llike.modelBayes}
-\title{Calculate likelihood of residual standard deviation, given observat...}
+\title{Calculate likelihood of residual standard deviation.}
 \usage{
 residual.llike.modelBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
   sdmodel, badparam, errormodel = "Gauss", debug = FALSE, ...)
 }
+\arguments{
+\item{debug}{Logical. If TRUE, call browser to debug.}
+}
 \description{
-Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
+Calculate likelihood of residual standard deviation, given observations plus
+the predicting model and data (to make predictions).
 
-This likelihood does not depend on the hyperparameters. It does require data and prediction.
+This likelihood does not depend on the hyperparameters. It does require data
+and prediction.
 }

@@ -16,7 +16,7 @@ or `export = "mac"` are similar to `export = "unix"` but for windows and
 mac. `export = format` exports the graph to a specific file format: "pdf",
 "png", "jpg", "bmp", "emf".}
 
-\item{h, w}{Size and width}
+\item{h, w}{A number giving the height and width.}
 }
 \description{
 This defines an export device for a graph, based on the argument export.

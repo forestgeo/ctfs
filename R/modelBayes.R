@@ -54,14 +54,16 @@
 #' 
 'modelBayes'
 
-#' Calculate likelihood of residual standard deviation, given observat...
+#' Calculate likelihood of residual standard deviation.
 #'
 #' @description
-#'
-#' Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
-#'
-#' This likelihood does not depend on the hyperparameters. It does require data and prediction.
-#'
+#' Calculate likelihood of residual standard deviation, given observations plus
+#' the predicting model and data (to make predictions).
+#' 
+#' This likelihood does not depend on the hyperparameters. It does require data
+#' and prediction.
+#' 
+#' @template debug
 #'
 'residual.llike.modelBayes'
 

@@ -14,6 +14,8 @@ overlay.growthbinmodel(fit, bins = 1:4, regclr = "green",
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
+
+\item{h, w}{A number giving the height and width.}
 }
 \description{
 Show model fits for 1, 2, 3, and 4 bins on each species.

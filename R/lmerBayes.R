@@ -236,7 +236,7 @@
 #' 
 
 
-#' A llikelihood function for one set of parameters, for a single rand...
+#' A llikelihood function for one set of parameters, for a single random effect.
 #'
 #' @description
 #' A llikelihood function for one set of parameters, for a single random effect.
@@ -249,6 +249,8 @@
 #' differs in including the covariance in the hyper-model. If the argument mu,
 #' for hypermeans, is set NULL, the likelihood without the hyper-likelihood is
 #' returned.
+#' 
+#' @template debug
 #' 
 #' @examples
 #' \dontrun{

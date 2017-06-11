@@ -58,7 +58,7 @@ newgraph=FALSE}
 export device chosen (some are pixels, some are inches); ignored if
 newgraph = FALSE.}
 
-\item{export}{if newgraph=TRUE, this defines the graphics device; options
+\item{export}{if \code{newgraph = TRUE}, this defines the graphics device; options
 include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
 quoted!)}
 

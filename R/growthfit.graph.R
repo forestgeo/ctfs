@@ -20,12 +20,12 @@
 #'
 'graph.growthmodel.spp'
 
-#' Graph growth rates and model fit. graph.growthmodel overlay.growthb...
+#' Graph growth rates and model fit.
 #'
 #' @description
-#'
-#' Graph growth rates and model fit. 
-#'
+#' Graph growth rates and model fit.
+#' 
+#' @template h_w
 #'
 'graph.growthmodel'
 
@@ -36,6 +36,7 @@
 #' 
 #' @template add_plot
 #' @template fit
+#' @template h_w
 #'
 'overlay.growthbinmodel'
 
@@ -48,6 +49,7 @@
 #' 
 #' @template export_format
 #' @template fit
+#' @template h_w
 #'
 'compare.growthbinmodel'
 
@@ -115,6 +117,7 @@
 #' 
 #' @template export_format
 #' @template fit
+#' @template h_w
 #' 
 #' @examples
 #' \dontrun{
@@ -157,6 +160,7 @@
 #'object, just the name in quote marks!).
 #'
 #' @template export_format
+#' @template h_w
 #'
 #' @examples
 #' \dontrun{
@@ -185,6 +189,7 @@
 #' name in quote marks!).
 #' 
 #' @template export_format
+#' @template h_w
 #'
 'binGraphManySpecies'
 

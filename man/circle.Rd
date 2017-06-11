@@ -2,10 +2,17 @@
 % Please edit documentation in R/geometry.R
 \name{circle}
 \alias{circle}
-\title{Calculates points on a circle fullcircle  Create a dataframe for a ...}
+\title{Calculates points on a circle.}
 \usage{
 circle(x, center = c(0, 0), radius = 5, half = "top")
 }
+\arguments{
+\item{x}{Coordinates.}
+
+\item{center}{x-y coordinates of the shape center (vector of 2)}
+
+\item{radius}{Radius (scalar)}
+}
 \description{
-Calculates points on a
+Calculates points on a circle.
 }

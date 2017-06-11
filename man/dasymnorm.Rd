@@ -2,9 +2,12 @@
 % Please edit documentation in R/distributions.R
 \name{dasymnorm}
 \alias{dasymnorm}
-\title{Probability distributions for an asymmetrical Gaussian, that is wit...}
+\title{Probability distributions for an asymmetrical Gaussian.}
 \usage{
 dasymnorm(x, center, sigma1, sigma2, log = FALSE)
+}
+\arguments{
+\item{center}{center Center of the distribution.}
 }
 \description{
 Probability distributions for an asymmetrical Gaussian, that is with

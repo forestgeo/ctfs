@@ -184,6 +184,7 @@
 #' 
 #' @template allcns
 #' @template mindbh
+#' @template debug
 #'
 'fitSeveralAbundModel'
 

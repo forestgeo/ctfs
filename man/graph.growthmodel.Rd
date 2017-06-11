@@ -2,11 +2,14 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{graph.growthmodel}
 \alias{graph.growthmodel}
-\title{Graph growth rates and model fit. graph.growthmodel overlay.growthb...}
+\title{Graph growth rates and model fit.}
 \usage{
 graph.growthmodel(spp, fitlist, whichbin = 1, regclr = "green",
   modelclr = "blue", graphdiv = 10, export = pdf,
   outfile = "growth/linearbin.fit.pdf", h = 8, w = 10)
+}
+\arguments{
+\item{h, w}{A number giving the height and width.}
 }
 \description{
 Graph growth rates and model fit.

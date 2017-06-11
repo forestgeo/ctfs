@@ -9,7 +9,9 @@ fullellipse(x, center = c(0, 0), radius = c(7, 5))
 \arguments{
 \item{x}{Coordinates.}
 
-\item{center}{x-y coordinates of ellipse center (vector of 2)}
+\item{center}{x-y coordinates of the shape center (vector of 2)}
+
+\item{radius}{Radius (scalar)}
 }
 \description{
 Creates a dataframe for a full ellipse.

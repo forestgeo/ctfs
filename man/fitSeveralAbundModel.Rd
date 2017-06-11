@@ -16,6 +16,8 @@ fitSeveralAbundModel(allcns = list(bci.full1, bci.full2, bci.full3),
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
+
+\item{debug}{Logical. If TRUE, call browser to debug.}
 }
 \description{
 Run \code{\link[=model.littleR.Gibbs]{model.littleR.Gibbs()}} for a series of census databases, for every

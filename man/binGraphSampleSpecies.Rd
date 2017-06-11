@@ -10,6 +10,8 @@ binGraphSampleSpecies(fulldataname, species, whichbin, export = pdf,
 \arguments{
 \item{export}{File format to export to.}
 
+\item{h, w}{A number giving the height and width.}
+
 \item{fit}{A fitted model.}
 }
 \description{

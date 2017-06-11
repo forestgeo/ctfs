@@ -418,9 +418,11 @@
 #' A version of head with only 6 columns shown.nhd TextToRdata  Reads ...
 #'
 #' @description
-#'
 #' A version of head with only 6 columns shown.
 #'
+#' @param d An object (see x in [head()]).
+#' @param w Sequence giving the range of columns to print
+#' @param h Number giving the Number of rows to print.
 #'
 'nhd'
 
