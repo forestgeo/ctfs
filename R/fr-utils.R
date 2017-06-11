@@ -674,6 +674,20 @@ args_count_formals_man <- function() {
     dplyr::arrange(desc(frml_n), man_n)
 }
 
+# Filter one param from args_count_formals_man()
+args_count_param <- function(param) {
+  args_count_formals_man() %>% 
+    dplyr::filter(params == param)
+}
+
+# Show all help files in Help window.
+args_help <- function(param) {
+  .funs <-  args_count_param(param) %>% 
+    dplyr::pull(fun)
+  .funs[length(.funs):1] %>% 
+    purrr::walk(help)
+}
+
 
 
 # Find similar functions, which args may share a definition ---------------
