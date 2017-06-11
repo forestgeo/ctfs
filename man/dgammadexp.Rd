@@ -2,10 +2,13 @@
 % Please edit documentation in R/distributions.R
 \name{dgammadexp}
 \alias{dgammadexp}
-\title{PDF of a function formed by adding a gamma distribution to a symmet...}
+\title{PDF by adding a gamma distribution to a symmetrical exponential distribution.}
 \usage{
 dgammadexp(z, mean, sd, lambda, draws = 10000, div = 0.1, xrange = c(-10,
   30), graphit = F)
+}
+\arguments{
+\item{graphit}{Logical; if `TRUE` adds plot output.}
 }
 \description{
 PDF of a function formed by adding a gamma distribution to a symmetrical

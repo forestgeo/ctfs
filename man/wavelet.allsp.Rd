@@ -33,7 +33,7 @@ the plot;
 Function to calculate the wavelet variance curves for all species in one plot
 using quadrat indexation from CTFS package.
 }
-\section{Argument details}{
+\section{Arguments details}{
 
 \itemize{
 \item censdata: Must  contain the variables gx, gy, dbh, status, and sp code.

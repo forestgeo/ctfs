@@ -22,47 +22,56 @@
 #'
 'dnormprod0'
 
-#' PDF of a function formed by adding a gamma distribution to a symmet...
+#' PDF by adding a gamma distribution to a symmetrical exponential distribution.
 #'
 #' @description
 #' PDF of a function formed by adding a gamma distribution to a symmetrical 
 #' exponential distribution. This means simply adding a PDF for a gamma minus an
 #' exponential to the PDF for a gamma plus an exponential.
+#' 
+#' @template graphit
 #'
 'dgammadexp'
 
-#' The PDF of the difference between a gamma and a negative exponentia...
+#' The PDF of a gamma distribution minus a negative exponential distribution.
 #'
 #' @description
-#'
-#' The PDF of the difference between a gamma and a negative exponential distribution. The shape and rate of the gamma 
-#' are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
-#'
-#' This comes from the convolution of the two distributions, which is also a gamma, and the integral 
-#' of the new gamma evaluated with pgamma. Note that lambda is the rate of the exponential.
+#' The PDF of the difference between a gamma and a negative exponential
+#' distribution. The shape and rate of the gamma are a and r; mean and sd are
+#' the mean and sd of the gamma. Lambda is the rate of the exponential.
+#' 
+#' This comes from the convolution of the two distributions, which is also a
+#' gamma, and the integral of the new gamma evaluated with pgamma. Note that
+#' lambda is the rate of the exponential.
+#' 
+#' @template graphit
 #'
 #'
 'dgammaMinusdexp'
 
-#' The PDF of the sum of gamma and negative exponential distribution. ...
-#'
+#' The PDF of the sum of gamma and negative exponential distribution.
+#' 
 #' @description
-#'
-#' The PDF of the sum of gamma and negative exponential distribution. The shape and rate of the gamma 
-#' are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
-#'
-#' This is only an appoximation based on the observation that the resulting distribution is very
-#' close to a gamma. So I simply work out a new gamma whose mean is the sum of the means of
-#' the initial gamma and exponential, and likewise for the new variance. 
-#'
-#' As long as gamma\'s rate > the exponential lambda, the distribution
-#' can be specified (using pgamma) as in dgammaMinusdexp. But if rate < lambda, this fails.
-#'
-#' The gamma approximation fails if the sd is sufficiently higher than the mean, and the mean
-#' is low. Then the gamma is absurdly skewed, and the shape of the sum is dominated by the exponential
-#' at low z, nothing like a true gamma. It appears to work reasonably well as long as the
-#' mean >= sd, or even if mean>=0.5*sd.
-#'
+#' The PDF of the sum of gamma and negative exponential distribution. The shape
+#' and rate of the gamma are a and r; mean and sd are the mean and sd of the
+#' gamma. Lambda is the rate of the exponential.
+#' 
+#' This is only an appoximation based on the observation that the resulting
+#' distribution is very close to a gamma. So I simply work out a new gamma whose
+#' mean is the sum of the means of the initial gamma and exponential, and
+#' likewise for the new variance.
+#' 
+#' As long as gamma\'s rate > the exponential lambda, the distribution can be
+#' specified (using pgamma) as in dgammaMinusdexp. But if rate < lambda, this
+#' fails.
+#' 
+#' The gamma approximation fails if the sd is sufficiently higher than the mean,
+#' and the mean is low. Then the gamma is absurdly skewed, and the shape of the
+#' sum is dominated by the exponential at low z, nothing like a true gamma. It
+#' appears to work reasonably well as long as the mean >= sd, or even if
+#' mean>=0.5*sd.
+#' 
+#' @template graphit
 #'
 'dgammaPlusdexp'
 

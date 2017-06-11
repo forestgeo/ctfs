@@ -8,6 +8,8 @@ majoraxisreg(x, y, title = "", graphit = F, add = F, pts = T,
   clr = "blue", xtitle = "x", ytitle = "y", ptsize = 1, labsize = 1)
 }
 \arguments{
+\item{graphit}{Logical; if `TRUE` adds plot output.}
+
 \item{add}{xxxdocparam in majoraxisreg() is different to add in add_plot.R.}
 }
 \description{

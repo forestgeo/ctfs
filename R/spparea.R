@@ -99,11 +99,11 @@
 #'
 #' @template plotdim
 #' @template size
+#' @template graphit
 #' @param shape The ratio of y to x dimensions of the rectangles; `rectdim = 1` 
 #'   (the default) for squares.
 #' @param rep The number of replicated random quadrats (per dimension submitted)
 #'   to create.
-#' @param graphit Logical; if `TRUE` adds plot output.
 #'
 #' @aliases selectrandomquad2 selectrandomquad3
 'selectrandomquad'
@@ -154,6 +154,7 @@
 #' and edges of a plot.
 #' 
 #' @template plotdim
+#' @template graphit
 #' @param slope A number that controls the direction of the diagonal drawn
 #'   accross the plot. To draw the diagonal
 #' * from lower left to upper right, use 1;

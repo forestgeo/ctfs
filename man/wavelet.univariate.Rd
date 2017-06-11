@@ -57,7 +57,7 @@ significantly different from a random process.
 
 Dependencies: needs the package 'spatstat'and the CTFSRpackage
 }
-\section{Parameter details}{
+\section{Arguments details}{
 
 \itemize{
 \item FUN If not specified (default) it counts points. E.g. can be used to sum

@@ -8,6 +8,9 @@ regress.plot(x, y, title = "", graphit = T, add = F, pts = T,
   clr = "blue", ptnames = NULL, xrange = NULL, yrange = NULL,
   xtitle = NULL, ytitle = NULL)
 }
+\arguments{
+\item{graphit}{Logical; if `TRUE` adds plot output.}
+}
 \description{
 Performs regression in convenient way and returns coefficients and
 probabilities in a single vector, and plots a graph.

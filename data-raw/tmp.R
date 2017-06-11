@@ -43,6 +43,7 @@ avoid <- c(
   "debug",  # done
   "debunit",  # done
   "fit",  # done
+  "graphit",  # done
   "gridsize",  # done
   "mindbh",  # done
   "plotdim",  # done
@@ -57,9 +58,11 @@ print(x, n = x$frml_n[[1]])
 
 
 
+args_help("graphit")
+args_count_param("graphit")
 
-args_count_formals_man() %>% 
-  filter(params == "graphit")
+
+
 
 
 

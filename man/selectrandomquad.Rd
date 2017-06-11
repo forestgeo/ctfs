@@ -26,8 +26,7 @@ to create.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{graphit}{Whether to graph the locations of the chosen quadrats on a
-plot map.}
+\item{graphit}{Logical; if `TRUE` adds plot output.}
 }
 \description{
 Draw rectangular quadrats in a plot at random. Returns a dataframe of
@@ -63,4 +62,12 @@ function \code{index.to.gxgy()} with \code{grid = 1}.
 random from a range extending outside the plot dimensions, then quadrats
 are used only if all 4 corners fall inside the plot.
 }}
+
+\section{Arguments details}{
+
+\itemize{
+\item \code{graphit} Whether to graph the locations of the chosen quadrats on a
+plot map.
+}
+}
 

@@ -8,6 +8,9 @@ regsum(x, y, poly = 1, graphit = F, yrange = c(-1, -1),
   yaxslab = "multiplier", newgraph = F, add = F, pts = T, ptype = 16,
   ltype = "solid")
 }
+\arguments{
+\item{graphit}{Logical; if `TRUE` adds plot output.}
+}
 \description{
 This carries out either first or second order polynomial regression,
 finds the x- and y-values at y's peak if its second order,

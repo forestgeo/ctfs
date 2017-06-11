@@ -17,6 +17,8 @@ regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
 
 \item{addone}{Use to handle zeros for log-transformation}
 
+\item{graphit}{Logical; if `TRUE` adds plot output.}
+
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}

@@ -67,6 +67,8 @@
 #' @description
 #' Performs regression in convenient way and returns coefficients and 
 #' probabilities in a single vector, and plots a graph.
+#' 
+#' @template graphit
 #'
 'regress.plot'
 
@@ -81,6 +83,7 @@
 #' value of x, y to remove zeroes.
 #' 
 #' @template add_plot
+#' @template graphit
 #' @param x,y Variables on which to perform regression and graph.
 #' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
 #' @param addone Use to handle zeros for log-transformation
@@ -94,6 +97,7 @@
 #' the line which minimizes perpendicular distance summed over all points (and 
 #' squared).
 #' 
+#' @template graphit
 #' @param add xxxdocparam in majoraxisreg() is different to add in add_plot.R.
 #'
 'majoraxisreg'
@@ -126,12 +130,12 @@
 #'
 'standardreg.no.int'
 
-#' Autocorrelation with a given lag of a vector y.autoregression regre...
-#'
-#' @description
-#'
 #' Autocorrelation with a given lag of a vector y.
 #'
+#' @description
+#' Autocorrelation with a given lag of a vector y.
+#' 
+#' @template graphit
 #'
 'autoregression'
 
@@ -406,15 +410,16 @@
 #'
 'harmonic.mean'
 
-#' Given y values as a function of x, this seeks the x at which the cu...
-#'
+#' Seek x at which the curve passes through a given y.
+#' 
 #' @description
+#' Given y values as a function of x, this seeks the x at which the curve passes
+#' through a given y. It sets a variable whichabove to 0 for all cases where
+#' y > cutoff, otherwise 0, then fits a logistic regression.
+#' 
+#' The midpoint of the logistic regression is a good estimate.
 #'
-#' Given y values as a function of x, this seeks the x at which the curve passes through a given y. It sets
-#' a variable whichabove to 0 for all cases where y>cutoff, otherwise 0, then fits a logistic regression.
-#'
-#' The midpoint of the logistic regression is a good estimate. 
-#'
+#' @template graphit
 #'
 'cumul.above'
 
@@ -454,6 +459,8 @@
 #' This carries out either first or second order polynomial regression,
 #' finds the x- and y-values at y's peak if its second order,
 #' otherwise the x-intercept.
+#' 
+#' @template graphit
 #'
 'regsum'
 
