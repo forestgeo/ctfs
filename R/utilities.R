@@ -427,13 +427,13 @@
 'nhd'
 
 #'
-#' Reads a tab-delimited text file and save as rdata.TextToRdata Count...
-#'
-#' @description
-#'
 #' Reads a tab-delimited text file and save as rdata.
 #'
+#' @description
+#' Reads a tab-delimited text file and save as rdata.
 #'
+#' @template outfile
+#' 
 'TextToRdata'
 
 #'

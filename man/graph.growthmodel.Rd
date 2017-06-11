@@ -9,6 +9,8 @@ graph.growthmodel(spp, fitlist, whichbin = 1, regclr = "green",
   outfile = "growth/linearbin.fit.pdf", h = 8, w = 10)
 }
 \arguments{
+\item{outfile}{Filename for output.}
+
 \item{h, w}{A number giving the height and width.}
 }
 \description{

@@ -39,6 +39,7 @@ avoid <- c(
   
   # DECENTLY DONE
   "add",  # done
+  "alivecode",  # done
   "center",  # done
   "debug",  # done
   "debunit",  # done
@@ -58,8 +59,8 @@ print(x, n = x$frml_n[[1]])
 
 
 
-args_help("alivecode")
-args_count_param("alivecode")
+args_help("outfile")
+args_count_param("outfile")
 
 
 
