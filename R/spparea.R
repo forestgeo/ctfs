@@ -92,6 +92,10 @@
 #' [selectrandomquad3()]) under sample the plot corners. That bias,
 #' [selectrandomquad2()] and [selectrandomquad3()] intended to overcome; but
 #' neither does.
+#' 
+#' @section Arguments details:
+#' - `graphit` Whether to graph the locations of the chosen quadrats on a
+#'   plot map.
 #'
 #' @template plotdim
 #' @template size
@@ -99,8 +103,7 @@
 #'   (the default) for squares.
 #' @param rep The number of replicated random quadrats (per dimension submitted)
 #'   to create.
-#' @param graphit Whether to graph the locations of the chosen quadrats on a
-#'   plot map.
+#' @param graphit Logical; if `TRUE` adds plot output.
 #'
 #' @aliases selectrandomquad2 selectrandomquad3
 'selectrandomquad'

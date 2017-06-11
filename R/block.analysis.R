@@ -20,7 +20,7 @@
 #' - UCL: vector with the upper confidence limit for the null hypothesis; 
 #' - LCL: vector with the lower confidence limit for the null hypothesis.
 #' 
-#' @section Argument details:
+#' @section Arguments details:
 #' - censdata: Must  contain the variables gx, gy, dbh, status, and sp code.
 #'   
 #' @template censdata
@@ -118,7 +118,7 @@
 #' 
 #' Dependencies: needs the package 'spatstat'and the CTFSRpackage
 #'
-#' @section Parameter details:
+#' @section Arguments details:
 #' - FUN If not specified (default) it counts points. E.g. can be used to sum
 #' the basal areas or above graound biomass.
 #' 

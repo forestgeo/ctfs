@@ -2,11 +2,15 @@
 
 ## 2017-06-05 (week starting on)
 
-PENDENT
+CONVENTIONS
 
 - Use tag xxx_amend_doc to tag documentation that I need to amend later. Find these tags with `shift + f`.
 
 - Use tag xxxdocparam to tag arguments that need to be documented. They are discoverable with find_xxxdocparam()
+
+- `@section` Arguments details: 
+
+    - Give details of arguments that are specific for the current function, and may better be kept separate to what is documented more generally via `@param`.
 
 MORE
 
