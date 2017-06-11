@@ -15,8 +15,8 @@ abundance.spp(censdata, type = "abund", dbhunit = "mm",
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 
 \item{dbhbreaks}{a vector of dbhs to define divisions of categories; the last

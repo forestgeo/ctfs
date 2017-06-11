@@ -58,8 +58,8 @@ print(x, n = x$frml_n[[1]])
 
 
 
-args_help("graphit")
-args_count_param("graphit")
+args_help("alivecode")
+args_count_param("alivecode")
 
 
 

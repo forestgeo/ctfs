@@ -60,6 +60,7 @@
 #' censuses, with many species included.
 #'
 #' @template mindbh
+#' @template alivecode
 #' @seealso [individual_grow.table()]
 #' 
 #'

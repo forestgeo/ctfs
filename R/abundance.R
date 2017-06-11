@@ -22,9 +22,7 @@
 #' @template mindbh
 #' @template censdata
 #' @template type
-#' @param alivecode character, codes of the variable `status` that indicate the 
-#'   tree is alive. The default 'A' is the standard CTFS designation for living 
-#'   trees or stems
+#' @template alivecode
 #' @template dbhunit
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual
