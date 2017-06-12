@@ -32,6 +32,9 @@ library(bci)      # to access data of forest dynamics from BCI
 library(forestr)  # to analyse forest dynamics
 library(ggplot2)  # to visualize data
 library(dplyr)    # to transform data
+library(tibble)   # to print large data nicely
+
+bci12full7 <- tibble::as_tibble(bci12full7)  # xxx remove once bci::* is tibble
 ```
 
 #### R for Data Science
@@ -79,33 +82,90 @@ To start exploring your data, you can generally ask:
 
 Every variable varies with a particular pattern, and that pattern may be insightful. To understand the variation pattern of a variable we can visualize the distribution of the variables' values. The best way to visualize a variable's distribution depends on whether the variable is categorical or continuous.
 
-#### Categorical variables
-
-> To examine the distribution of a categorical variable, use a bar chart
+The BCI data has both, categorical and continuous variables, for example, most variables of type <chr> (character) and <dbl> below.
 
 ```{r}
-# xxx replace with bci data
-ggplot(data = diamonds) +
-  geom_bar(mapping = aes(x = cut))
+glimpse(bci12full7)
 ```
 
+#### Visualizing distributions
+
+##### Categorical variables
+
+> A variable is categorical if it can only take one of a small set of values.
+
+> To examine the distribution of a categorical variable, use a bar chart.
+
+```{r, fig.cap="Values distribution of the categorical variable `status`"}
+ggplot(data = bci12full7) +
+  geom_bar(mapping = aes(x = DFstatus))
+```
+
+You can compute the same count manually with `dplyr::count()`:
+
+```{r}
+bci12full7 %>% 
+  count(DFstatus)
+```
+
+##### Continuous variables
+
+> A variable is continuous if it can take any of an infinite set of ordered values.
+
+> To examine the distribution of a continuous variable use a histogram.
+
+```{r}
+ggplot(data = bci12full7) +
+  geom_histogram(mapping = aes(x = date), binwidth = 20)
+```
+
+You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
+
+```{r}
+bci12full7 %>% 
+  mutate(date = cut_width(date, width = 20)) %>% 
+  count(date)
+```
+
+> You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.
+
+To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars:
+
+
+```{r, fig.cap="Lines overlaid are easier to understand than bars."}
+ggplot(data = bci12full7) +
+  geom_freqpoly(mapping = aes(x = date, color = DFstatus), binwidth = 20)
+```
+
+
+#### Typical values
+
 xxxcont.
+
+
+
+
+
+
+```{r}
+library(skimr)
+skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
+```
+
+
+
 
 #### Wrap up
 
 To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
 
-```{r}
+```{r, eval=FALSE}
 library(skimr)
-```
-
-```{r}
 smry <- skim(diamonds)
 smry %>% 
   dplyr::filter(stat == "hist") %>% 
   as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
 ```
-
 
 #### Continuous variables
 
