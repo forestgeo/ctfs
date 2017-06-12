@@ -32,6 +32,7 @@
 #' exponential to the PDF for a gamma plus an exponential.
 #' 
 #' @template graphit
+#' @template mean_sd_lambda
 #'
 'dgammadexp'
 
@@ -39,15 +40,13 @@
 #'
 #' @description
 #' The PDF of the difference between a gamma and a negative exponential
-#' distribution. The shape and rate of the gamma are a and r; mean and sd are
-#' the mean and sd of the gamma. Lambda is the rate of the exponential.
+#' distribution. The shape and rate of the gamma are a and r.
 #' 
 #' This comes from the convolution of the two distributions, which is also a
-#' gamma, and the integral of the new gamma evaluated with pgamma. Note that
-#' lambda is the rate of the exponential.
+#' gamma, and the integral of the new gamma evaluated with pgamma.
 #' 
 #' @template graphit
-#'
+#' @template mean_sd_lambda
 #'
 'dgammaMinusdexp'
 
@@ -74,6 +73,7 @@
 #' mean>=0.5*sd.
 #' 
 #' @template graphit
+#' @template mean_sd_lambda
 #'
 'dgammaPlusdexp'
 
@@ -845,14 +845,16 @@
 #'
 'constant.bin'
 
-#' A probability distribution which is simply a curtailed poisson: all...
+#' A probability distribution which is simply a curtailed poisson.
 #'
 #' @description
+#' A probability distribution which is simply a curtailed poisson: all 
+#' probability above a maximum integer, maxx, is given to that maximum. For all 
+#' x < maxx, the probability is just poission. No normalization is needed, due
+#' to this definition.
 #'
-#' A probability distribution which is simply a curtailed poisson: all probability above a maximum integer,
-#' maxx, is given to that maximum. For all x<maxx, the probability is just poission. No normalization is needed, due
-#' to this definition. 
-#'
+#' @param x,lambda See `x`, `lambda` in [stats::dpois()].
+#' @seealso  [stats::dpois()].
 #'
 'dpois.max'
 
@@ -862,15 +864,17 @@
 #'
 #' A zero-truncated Poisson distribution. 
 #'
+#' @inheritParams dpois.max
 #'
 'dpois.trunc'
 
 #' A zero-truncated Poisson distribution with a ceiling (combining dpo...
 #'
 #' @description
-#'
-#' A zero-truncated Poisson distribution with a ceiling (combining dpois.max and dpois.trunc). 
-#'
+#' A zero-truncated Poisson distribution with a ceiling (combining dpois.max and
+#' dpois.trunc).
+#' 
+#' @inheritParams dpois.max
 #'
 'dpois.maxtrunc'
 

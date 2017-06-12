@@ -50,6 +50,7 @@ avoid <- c(
   "fit",  # done
   "graphit",  # done
   "gridsize",  # done
+  "lambda",  # done
   "mindbh",  # done
   "outfile",  # done
   "plotdim",  # done
@@ -69,11 +70,22 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 
-
-args_help("N")
-args_count_param("N")
+# xxxnext
+args_help("start")
+args_count_param("start")
 
 x %>% select(1) %>% unique()
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -8,6 +8,10 @@ dgammadexp(z, mean, sd, lambda, draws = 10000, div = 0.1, xrange = c(-10,
   30), graphit = F)
 }
 \arguments{
+\item{mean, sd}{The mean and sd of the gamma.}
+
+\item{lambda}{Rate of the exponential.}
+
 \item{graphit}{Logical; if `TRUE` adds plot output.}
 }
 \description{
