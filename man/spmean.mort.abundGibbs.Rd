@@ -15,5 +15,5 @@ the the fitted little r. Only used as a subroutine of the main modeling
 function, model.littleR.Gibbs.
 }
 \seealso{
-\code{\link[=spmean.mort.Gibbs]{spmean.mort.Gibbs()}}
+\code{\link[=spmean.mort.abundGibbs]{spmean.mort.abundGibbs()}}
 }

@@ -17,9 +17,9 @@ Checks many points (dataframe pt with x and y) against a single quadrat whose
 corners are given by as xlo, ylo, xhi, yhi.
 }
 \details{
-This is same as \code{\link[=insideRectange]{insideRectange()}}, but accepting input as a matrix pts and a
+This is same as \code{\link[=insideRectangle]{insideRectangle()}}, but accepting input as a matrix pts and a
 single vector of the four corners of the rectange.
 }
 \seealso{
-\code{\link[=insideRectange]{insideRectange()}}.
+\code{\link[=insideRectangle]{insideRectangle()}}.
 }

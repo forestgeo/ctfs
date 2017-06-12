@@ -7,7 +7,7 @@
 pst(...)
 }
 \arguments{
-\item{...}{See ... in \code{\link[basre:paste]{basre::paste()}}.}
+\item{...}{See ... in \code{\link[base:paste]{base::paste()}}.}
 }
 \description{
 A version of paste with sep.
