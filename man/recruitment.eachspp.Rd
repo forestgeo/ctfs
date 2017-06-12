@@ -17,8 +17,8 @@ stem.}
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 }
 \description{

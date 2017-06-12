@@ -6,7 +6,11 @@
 \usage{
 logistic.standard(x, param, log = FALSE, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
-This is standard logistic function, but with asymptote and basement allowed. The latter are only implemented
-if extra parameters are passed. Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic.
+This is standard logistic function, but with asymptote and basement allowed.
+The latter are only implemented if extra parameters are passed. Moved from
+calc.surviv.r on 25 July 2010 to provide the standard logistic.
 }

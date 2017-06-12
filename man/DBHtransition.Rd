@@ -7,12 +7,15 @@
 DBHtransition(data1, data2, dbhbreaks = c(10, 50, 100, 300, 10000),
   maxgrow = 45, misscode = "M")
 }
+\arguments{
+\item{maxgrow}{A number. Numbers such as 10000 are high and will return all
+measures.}
+}
 \description{
-Calculates a transition matrix of individuals by diameter categories from two censuses.
+Calculates a transition matrix of individuals by diameter categories from two
+censuses.
 
-The missing code (M) is checked in codes field if misscode is set; otherwise, status=M is assumed to mean missing
-and status=AB is assumed to mean the stem was lost, so there is no dbh.
-
-Growth rates above maxgrow and below mingrow are excluded, where max and min are annual increments.
-(Not tested recently and not part of the supported CTFS R package.)
+The missing code (M) is checked in codes field if misscode is set; otherwise,
+status=M is assumed to mean missing and status=AB is assumed to mean the stem
+was lost, so there is no dbh.
 }

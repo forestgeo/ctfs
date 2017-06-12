@@ -26,6 +26,7 @@
 #' Graph growth rates and model fit.
 #' 
 #' @template h_w
+#' @template outfile
 #'
 'graph.growthmodel'
 
@@ -37,10 +38,11 @@
 #' @template add_plot
 #' @template fit
 #' @template h_w
+#' @template outfile
 #'
 'overlay.growthbinmodel'
 
-#' Calculates various metrics of fit: DIC, BIC, AIC based on the maxim...
+#' Calculates various metrics of fit: DIC, BIC, AIC.
 #'
 #' @description
 #' Calculates various metrics of fit: DIC, BIC, AIC based on the maximum
@@ -50,6 +52,7 @@
 #' @template export_format
 #' @template fit
 #' @template h_w
+#' @template outfile
 #'
 'compare.growthbinmodel'
 
@@ -118,6 +121,7 @@
 #' @template export_format
 #' @template fit
 #' @template h_w
+#' @template outfile
 #' 
 #' @examples
 #' \dontrun{
@@ -161,6 +165,7 @@
 #'
 #' @template export_format
 #' @template h_w
+#' @template outfile
 #'
 #' @examples
 #' \dontrun{
@@ -190,6 +195,7 @@
 #' 
 #' @template export_format
 #' @template h_w
+#' @template outfile
 #'
 'binGraphManySpecies'
 

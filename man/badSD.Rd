@@ -6,6 +6,9 @@
 \usage{
 badSD(x, param, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
 badSD arrangeParam.llike.2D  Used in likelihood function of a Gibbs...
 }

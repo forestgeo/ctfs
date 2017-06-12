@@ -193,6 +193,7 @@
 #' subroutine used in [imageGraph()].
 #' 
 #' @inheritParams imageGraph
+#' @param div Vector used to space ticks.
 #'
 'draw.axes'
 

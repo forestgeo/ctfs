@@ -18,6 +18,8 @@ accross the plot. To draw the diagonal
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
+\item{graphit}{Logical; if `TRUE` adds plot output.}
+
 \item{randomquads:}{Defines the four corners of the quadrats in xlo, ylo,
 xhi, yhi.}
 }

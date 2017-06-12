@@ -8,13 +8,8 @@
 #'
 #' @description
 #' Function for calculating the number of species in replicated, randomly-placed
-#' quadrats of various areas. The variable size refers to the dimension (side) 
-#' of the square, and can be a vector; replicates is the number of random draws
-#' per dimension. Full plot data are submitted as censdata.
+#' quadrats of various areas.
 #' 
-#' Species are counted as the number of unique values of sp in the R Analytical
-#' Table; unidentified species are not counted, based on a default unidennames;
-#' see the function unidentified.species in utilitiesCTFS.r.
 #' 
 #' @return 
 #' A list of two components. The first is a table giving the mean number (and
@@ -35,7 +30,15 @@
 #' species in checkerboard-type quadrats of different sizes.
 #' 
 #' @details
-#' `censdata` can be either full or stem
+#' Species are counted as the number of unique values of sp in the R Analytical
+#' Table; unidentified species are not counted, based on a default unidennames;
+#' see the function unidentified.species in utilitiesCTFS.r.
+#' 
+#' @section Arguments details:
+#' - `censdata` can be either full or stem
+#' - `censdata`
+#' - `size`Refers to the dimension (side) of the square, and can be a vector;
+#' replicates is the number of random draws per dimension.
 #' 
 #' @template plotdim
 #' @template mindbh
@@ -92,15 +95,18 @@
 #' [selectrandomquad3()]) under sample the plot corners. That bias,
 #' [selectrandomquad2()] and [selectrandomquad3()] intended to overcome; but
 #' neither does.
+#' 
+#' @section Arguments details:
+#' - `graphit` Whether to graph the locations of the chosen quadrats on a
+#'   plot map.
 #'
 #' @template plotdim
 #' @template size
+#' @template graphit
 #' @param shape The ratio of y to x dimensions of the rectangles; `rectdim = 1` 
 #'   (the default) for squares.
 #' @param rep The number of replicated random quadrats (per dimension submitted)
 #'   to create.
-#' @param graphit Whether to graph the locations of the chosen quadrats on a
-#'   plot map.
 #'
 #' @aliases selectrandomquad2 selectrandomquad3
 'selectrandomquad'
@@ -137,6 +143,7 @@
 #' 
 #' @template plotdim
 #' @template add_plot
+#' @template clr
 #'
 'graph.quadrats'
 
@@ -151,6 +158,7 @@
 #' and edges of a plot.
 #' 
 #' @template plotdim
+#' @template graphit
 #' @param slope A number that controls the direction of the diagonal drawn
 #'   accross the plot. To draw the diagonal
 #' * from lower left to upper right, use 1;

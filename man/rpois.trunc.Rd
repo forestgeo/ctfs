@@ -2,11 +2,18 @@
 % Please edit documentation in R/distributions.R
 \name{rpois.trunc}
 \alias{rpois.trunc}
-\title{Random draws on dpois.trunc. This is taken unchanged from an answer...}
+\title{Random draws on dpois.trunc.}
 \usage{
 rpois.trunc(N, lambda)
 }
+\arguments{
+\item{N, lambda}{Passed to argumentes \code{p}, \code{lambda} in \code{\link[stats:qpois]{stats::qpois()}}.}
+}
 \description{
-Random draws on dpois.trunc. This is taken unchanged from an answer Peter Dalgaard posted to a list serve in 2005. I checked
-by comparing to dpois.trunc and it was spot on.
+Random draws on dpois.trunc. This is taken unchanged from an answer Peter
+Dalgaard posted to a list serve in 2005. I checked by comparing to
+dpois.trunc and it was spot on.
+}
+\seealso{
+\code{\link[stats:qpois]{stats::qpois()}}.
 }

@@ -2,12 +2,21 @@
 % Please edit documentation in R/geometry.R
 \name{xydistmat}
 \alias{xydistmat}
-\title{Distance between two x-y coordinates, but accepts two sets of coord...}
+\title{Distance between two x-y coordinates.}
 \usage{
 xydistmat(pts)
 }
+\arguments{
+\item{pts}{A matrix.}
+}
 \description{
-Distance between two x-y coordinates, but accepts two sets of coordinates in a single matrix (4 columns ordered x1, y1, x2, y2).
+Distance between two x-y coordinates. Accepts two sets of coordinates in a
+single matrix.
+}
+\section{Arguments details}{
+
+\code{pts} A matrix with 4 columns ordered x1, y1, x2, y2.
 
 For use with apply.
 }
+

@@ -60,6 +60,7 @@
 #' censuses, with many species included.
 #'
 #' @template mindbh
+#' @template alivecode
 #' @seealso [individual_grow.table()]
 #' 
 #'
@@ -79,7 +80,6 @@
 #' A linear model of an annual mortality parameter, which is  `-log(an...
 #'
 #' @description
-#'
 #' A linear model of an annual mortality parameter, which is 
 #' `-log(annual survival)`, as a function of N predictors x, which must be the
 #' first N columns of x.
@@ -91,19 +91,27 @@
 #' Return value is predicted survival rate (probability) over an interval of t
 #' years. Nothing prevents the output from being outside (0,1); that must be
 #' handled in the likelihood function.
+#' 
+#' @param ... Unused.
 #'
 'lmerMortLinear'
 
-#' A model for mortality as a function of a single predictor variable,...
+#' A model for mortality as a function of a single predictor variable.
 #'
 #' @description
-#'
-#' A model for mortality as a function of a single predictor variable, with the time interval for each individual incorporated (as a secondpredictor).
-#'
-#' The predictor must be an integer. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor. 
-#'
-#' The return value is a survival probability. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
-#'
+#' A model for mortality as a function of a single predictor variable, with the
+#' time interval for each individual incorporated (as a secondpredictor).
+#' 
+#' @details 
+#' The predictor must be an integer. The log(mortality parameter) is modeled as
+#' a different value for each distinct predictor. The number of parameters must
+#' exceed the maximum value of the predictor.
+#' 
+#' The return value is a survival probability. Nothing prevents the output from
+#' being outside (0,1); that must be handled in the likelihood function.
+#' 
+#' @param ... Unused.
+#' 
 #'
 'lmerMortFixedTime'
 

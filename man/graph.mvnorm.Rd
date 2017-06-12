@@ -12,6 +12,8 @@ graph.mvnorm(param, x, y, div = 10, add = FALSE, clr = "gray", lw = 0.5,
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
 
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+
 \item{exclude}{Allows parts to be set to zero.}
 }
 \description{

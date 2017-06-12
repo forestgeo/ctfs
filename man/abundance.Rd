@@ -13,8 +13,8 @@ abundance(censdata, type = "abund", alivecode = c("A"), mindbh = NULL,
 \item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees

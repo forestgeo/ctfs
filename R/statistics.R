@@ -67,6 +67,9 @@
 #' @description
 #' Performs regression in convenient way and returns coefficients and 
 #' probabilities in a single vector, and plots a graph.
+#' 
+#' @template graphit
+#' @template clr
 #'
 'regress.plot'
 
@@ -81,9 +84,12 @@
 #' value of x, y to remove zeroes.
 #' 
 #' @template add_plot
+#' @template graphit
+#' @template clr
 #' @param x,y Variables on which to perform regression and graph.
 #' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
 #' @param addone Use to handle zeros for log-transformation
+#' @param pts See argument `pch` in [graphics::par()].
 #' 
 'regress.loglog'
 
@@ -94,6 +100,8 @@
 #' the line which minimizes perpendicular distance summed over all points (and 
 #' squared).
 #' 
+#' @template graphit
+#' @template clr
 #' @param add xxxdocparam in majoraxisreg() is different to add in add_plot.R.
 #'
 'majoraxisreg'
@@ -126,12 +134,12 @@
 #'
 'standardreg.no.int'
 
-#' Autocorrelation with a given lag of a vector y.autoregression regre...
-#'
-#' @description
-#'
 #' Autocorrelation with a given lag of a vector y.
 #'
+#' @description
+#' Autocorrelation with a given lag of a vector y.
+#' 
+#' @template graphit
 #'
 'autoregression'
 
@@ -252,17 +260,18 @@
 #'
 'arrangeParam.Gibbs'
 
-#' This is for model.xy. It takes the model function, its parameters, ...
+#' This is for model.xy. 
+#' Generate a likelihood for `model.xy()`.
 #'
 #' @description
-#'
-#' This is for model.xy. It takes the model function, its parameters, x values, observed values of the dependent variable obs, and sd values,
-#' to generate a likelihood. One of the parameters is passed as testparam, for use with metrop1step.
-#'
-#' This requires a badparam function for testing parameters. The standdard deviation is passed as an argument,
-#' not calculated from sdmodel.
-#'
-#'
+#' This is for model.xy. It takes the model function, its parameters, x values,
+#' observed values of the dependent variable obs, and sd values, to generate a
+#' likelihood. One of the parameters is passed as testparam, for use with
+#' metrop1step.
+#' 
+#' This requires a badparam function for testing parameters. The standdard
+#' deviation is passed as an argument, not calculated from sdmodel.
+#' 
 'llike.GaussModel'
 
 #' This is for model.xy. Take the function for the SD, its parameters,...
@@ -406,15 +415,16 @@
 #'
 'harmonic.mean'
 
-#' Given y values as a function of x, this seeks the x at which the cu...
-#'
+#' Seek x at which the curve passes through a given y.
+#' 
 #' @description
+#' Given y values as a function of x, this seeks the x at which the curve passes
+#' through a given y. It sets a variable whichabove to 0 for all cases where
+#' y > cutoff, otherwise 0, then fits a logistic regression.
+#' 
+#' The midpoint of the logistic regression is a good estimate.
 #'
-#' Given y values as a function of x, this seeks the x at which the curve passes through a given y. It sets
-#' a variable whichabove to 0 for all cases where y>cutoff, otherwise 0, then fits a logistic regression.
-#'
-#' The midpoint of the logistic regression is a good estimate. 
-#'
+#' @template graphit
 #'
 'cumul.above'
 
@@ -454,6 +464,8 @@
 #' This carries out either first or second order polynomial regression,
 #' finds the x- and y-values at y's peak if its second order,
 #' otherwise the x-intercept.
+#' 
+#' @template graphit
 #'
 'regsum'
 

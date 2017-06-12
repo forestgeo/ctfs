@@ -29,24 +29,38 @@ devtools::load_all()
 avoid <- c(
   
   # NEEDS FUTURE WORK
-  "...",  # skip, too variable
   "data",  # did some; but too variable
   "export",  # did some; but too variable
+  "path",  # skip, too variable
+  "size",  # unclear it it's the same everywhere.
   "type",  # did some; but too variable and too little information to document
   "x", "y",  # too generic; definition changes from fun to fun
   "xrange",  # skip, too variable
   "yrange",  # skip, too variable
   
   # DECENTLY DONE
+  "...",  # did many; other are weird.
   "add",  # done
+  "alivecode",  # done
+  "badparam",  # done
   "center",  # done
+  "clr",  # all done
   "debug",  # done
   "debunit",  # done
   "fit",  # done
+  "graphit",  # done
   "gridsize",  # done
+  "lambda",  # done
   "mindbh",  # done
+  "outfile",  # done
   "plotdim",  # done
-  "w"
+  "pts",  # done some, others vary.
+  "w",
+  
+  # SKIP FOR NOW
+  "div",
+  "model",
+  "start.param"
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
@@ -56,14 +70,23 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 
+# xxxnext
+args_help("start")
+args_count_param("start")
+
+x %>% select(1) %>% unique()
 
 
-args_count_formals_man() %>% 
-  filter(params == "graphit")
 
 
 
-x %>% select(1) %>% unique
+
+
+
+
+
+
+
 
 
 

@@ -12,6 +12,8 @@ If `NULL`, all `x` (or `y`) are included.}
 
 \item{yrange}{Minimum and maximum x and y coordinates of area graphed.
 If `NULL`, all `x` (or `y`) are included.}
+
+\item{div}{Vector used to space ticks.}
 }
 \description{
 Add axes to a graph, with ticks spaced by the vector div. This is a

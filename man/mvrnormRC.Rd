@@ -2,13 +2,23 @@
 % Please edit documentation in R/distributions.R
 \name{mvrnormRC}
 \alias{mvrnormRC}
-\title{Function that takes a variance-covariance matrix and produces norma...}
+\title{From a variance-covariance matrix, output normal variates with means 0.}
 \usage{
 mvrnormRC(N, Sigma)
 }
+\arguments{
+\item{N}{The number to draw.}
+
+\item{Sigma}{Must be square.}
+}
 \description{
 Function that takes a variance-covariance matrix and produces normal variates
-following it, but with means 0. The R function mvrnorm does this too; this was a
-test of the algorithm from Tommaso Zillio. Sigma must be square. N is the number
-to draw.
+following it, but with means 0.
+}
+\details{
+The R function mvrnorm does this too; this was a test of the algorithm from
+Tommaso Zillio.
+}
+\seealso{
+\code{\link[MASS:mvrnorm]{MASS::mvrnorm()}}.
 }

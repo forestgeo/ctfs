@@ -11,6 +11,8 @@ binGraphManySpecies(fulldataname, darken = 8, xrange = c(-3, 3),
 \arguments{
 \item{export}{File format to export to.}
 
+\item{outfile}{Filename for output.}
+
 \item{h, w}{A number giving the height and width.}
 }
 \description{

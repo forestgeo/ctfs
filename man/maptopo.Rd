@@ -63,7 +63,7 @@ need to be 500-1000.}
 
 \item{filepath}{The folder to which map will be exported.}
 
-\item{clr}{xxxdocparam}
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 
 \item{bgcolor}{The background color. Defaults to white. For presentation
 exports, try bgcolor="transparent".}

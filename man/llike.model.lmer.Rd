@@ -2,19 +2,20 @@
 % Please edit documentation in R/lmerBayes.R
 \name{llike.model.lmer}
 \alias{llike.model.lmer}
-\title{Likelihood for any complete set of parameters.}
+\title{A llikelihood function for one set of parameters, for a single random effect.}
 \usage{
 llike.model.lmer(test, allparam, whichtest, data, trueN, model,
   sdmodel = constant, sdpar, errormodel = "Gauss", badparam = NULL,
   returnmodel = FALSE, mu, covar, fixed = NULL, debug = FALSE, ...)
 }
 \arguments{
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
+
 \item{debug}{Logical. If TRUE, call browser to debug.}
 }
 \description{
-Calculate full likelihood for any complete set of parameters, including every
-set for each random effect and hypermeans and covariances.
-
 A llikelihood function for one set of parameters, for a single random effect.
 The error is specified by errormodel, typically dbinom or dnorm.
 
@@ -26,16 +27,6 @@ differs in including the covariance in the hyper-model. If the argument mu,
 for hypermeans, is set NULL, the likelihood without the hyper-likelihood is
 returned.
 }
-\details{
-Further thought: the call to \code{\link[=lmerBayes.hyperllike.sigma]{lmerBayes.hyperllike.sigma()}} doesn't make
-sense, since \code{\link[=llike.model.lmer]{llike.model.lmer()}} already does this; the probability of each
-set of parameters given the hyperparameters is already calculated.
-
-To update fixed effects, can use full.llikelihood.lmerBayes. The fixed
-effects are used identically for every random effect.
-
-A llikelihood function for one set of parameters, for a single random effect.
-}
 \examples{
 \dontrun{
 
@@ -46,7 +37,7 @@ A llikelihood function for one set of parameters, for a single random effect.
 With this option, model must always be > 0
  llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)
 }
-else if(errormodel=='Flat') llike=rep(0,length(modeled))}
-
+else if(errormodel=='Flat') llike=rep(0,length(modeled))
+}
 
 }

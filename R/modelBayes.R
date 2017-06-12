@@ -64,6 +64,7 @@
 #' and prediction.
 #' 
 #' @template debug
+#' @template badparam
 #'
 'residual.llike.modelBayes'
 

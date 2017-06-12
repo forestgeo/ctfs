@@ -14,16 +14,18 @@
 #' those files with this specific naming convention are read and converted.
 #' Updated Aug 2014 to handle files with no trees (just 4 corner labels).
 #' 
+#' @section Arguments details:
+#' - `outfile` This file will be saved in the folder specified by the path. If 
+#' `outfile = NULL`, the results will not be written to a file.
+#' 
 #' @template gridsize_map
 #' @template subquadratsuffix
 #' @template debug
+#' @template outfile
 #' @param path The complete path name where the map files to be converted are
 #'   found.
 #' @param include.subdir whether the subfolders are to be searched for map files
 #'   also
-#' @param outfile the name of the text file where the results will be saved.
-#'   This file will be saved in the folder specified by the path. If
-#'   `outfile = NULL`, the results will not be written to a file.
 #' @param corners specify the tags used for the map corners used for
 #'   calibration. They must be named in a clockwise direction starting with the
 #'   lower left corner. These tags must be the same in each and every map file.

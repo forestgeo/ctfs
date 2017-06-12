@@ -6,6 +6,12 @@
 \usage{
 dpois.maxtrunc(x, lambda, maxx, log = FALSE)
 }
+\arguments{
+\item{x}{See \code{x}, \code{lambda} in \code{\link[stats:dpois]{stats::dpois()}}.}
+
+\item{lambda}{See \code{x}, \code{lambda} in \code{\link[stats:dpois]{stats::dpois()}}.}
+}
 \description{
-A zero-truncated Poisson distribution with a ceiling (combining dpois.max and dpois.trunc).
+A zero-truncated Poisson distribution with a ceiling (combining dpois.max and
+dpois.trunc).
 }

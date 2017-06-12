@@ -9,6 +9,8 @@ graph.quadrats(coord, plotdim = c(1000, 500), clr = "black", add = FALSE)
 \arguments{
 \item{plotdim}{The x and y dimensions of the plot.}
 
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}

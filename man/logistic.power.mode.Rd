@@ -6,6 +6,9 @@
 \usage{
 logistic.power.mode(x, param, log = FALSE, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
 This is the Gaussian logistic function, where logit is a second-order
 polynomial of x, but with third parameter the position of the critical point

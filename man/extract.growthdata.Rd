@@ -24,6 +24,9 @@ smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
+
+\item{maxgrow}{A number. Numbers such as 10000 are high and will return all
+measures.}
 }
 \value{
 Returns a table with growth, size (ie dbh), and species name.

@@ -15,6 +15,8 @@ overlay.growthbinmodel(fit, bins = 1:4, regclr = "green",
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
 
+\item{outfile}{Filename for output.}
+
 \item{h, w}{A number giving the height and width.}
 }
 \description{

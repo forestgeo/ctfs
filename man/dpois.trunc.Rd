@@ -6,6 +6,11 @@
 \usage{
 dpois.trunc(x, lambda, log = FALSE)
 }
+\arguments{
+\item{x}{See \code{x}, \code{lambda} in \code{\link[stats:dpois]{stats::dpois()}}.}
+
+\item{lambda}{See \code{x}, \code{lambda} in \code{\link[stats:dpois]{stats::dpois()}}.}
+}
 \description{
 A zero-truncated Poisson distribution.
 }
