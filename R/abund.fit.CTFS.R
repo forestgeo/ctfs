@@ -124,7 +124,7 @@
 #' the the fitted little r. Only used as a subroutine of the main modeling
 #' function, model.littleR.Gibbs.
 #'
-#' @seealso [spmean.mort.Gibbs()]
+#' @seealso [spmean.mort.abundGibbs()]
 #'
 'spmean.mort.abundGibbs'
 

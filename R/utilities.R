@@ -167,7 +167,7 @@
 #' @description
 #' A version of paste with sep.
 #' 
-#' @param ... See ... in [basre::paste()].
+#' @param ... See ... in [base::paste()].
 #'
 'pst'
 
@@ -446,7 +446,7 @@
 #' COUNT(*) GROUP BY does in SQL.
 #' 
 #' @template data_dataframe
-#' @seealso [dplyr::group_by()] and [?dplyr::count()].
+#' @seealso [dplyr::group_by()] and [dplyr::count()].
 #'
 'CountByGroup'
 

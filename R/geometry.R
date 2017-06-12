@@ -198,7 +198,7 @@
 #' corners are given by as xlo, ylo, xhi, yhi. 
 #' 
 #' @details
-#' This is same as [insideRectange()], but accepting input as a matrix pts and a
+#' This is same as [insideRectangle()], but accepting input as a matrix pts and a
 #' single vector of the four corners of the rectange.
 #' 
 #' @template pts_matrix
@@ -206,7 +206,7 @@
 #' @return
 #' A logical vector; TRUE for the points inside. 
 #'
-#' @seealso [insideRectange()].
+#' @seealso [insideRectangle()].
 #' 
 'are.ptsinside'
 

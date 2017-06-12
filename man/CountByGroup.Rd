@@ -17,5 +17,5 @@ exactly what
 COUNT(*) GROUP BY does in SQL.
 }
 \seealso{
-\code{\link[dplyr:group_by]{dplyr::group_by()}} and \code{\link[?dplyr:count]{?dplyr::count()}}.
+\code{\link[dplyr:group_by]{dplyr::group_by()}} and \code{\link[dplyr:count]{dplyr::count()}}.
 }
