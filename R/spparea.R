@@ -143,6 +143,7 @@
 #' 
 #' @template plotdim
 #' @template add_plot
+#' @template clr
 #'
 'graph.quadrats'
 

@@ -905,6 +905,7 @@
 #' contours can be drawn.
 #'
 #' @template add_plot
+#' @template clr
 #' @param exclude Allows parts to be set to zero.
 #'
 'graph.mvnorm'

@@ -133,12 +133,13 @@
 #'
 'pts.to.interceptslope'
 
-#' Draw a line segment between two points, where each point is a vecto...
+#' Draw a line segment between two points.
 #'
 #' @description
+#' Draw a line segment between two points, where each point is a vector of x
+#' then y coordinates.
 #'
-#' Draw a line segment between two points, where each point is a vector of x then y coordinates
-#'
+#' @template clr
 #'
 'segmentPt'
 
@@ -149,6 +150,7 @@
 #' columns must have x first then y coordinates.
 #' 
 #' @template add_plot
+#' @template clr
 #'
 'drawrectangle'
 

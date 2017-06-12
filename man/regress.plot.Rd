@@ -10,6 +10,8 @@ regress.plot(x, y, title = "", graphit = T, add = F, pts = T,
 }
 \arguments{
 \item{graphit}{Logical; if `TRUE` adds plot output.}
+
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 }
 \description{
 Performs regression in convenient way and returns coefficients and

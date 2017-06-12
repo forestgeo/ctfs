@@ -2,10 +2,14 @@
 % Please edit documentation in R/geometry.R
 \name{segmentPt}
 \alias{segmentPt}
-\title{Draw a line segment between two points, where each point is a vecto...}
+\title{Draw a line segment between two points.}
 \usage{
 segmentPt(pt1, pt2, clr = "black", lwidth = 1)
 }
+\arguments{
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+}
 \description{
-Draw a line segment between two points, where each point is a vector of x then y coordinates
+Draw a line segment between two points, where each point is a vector of x
+then y coordinates.
 }

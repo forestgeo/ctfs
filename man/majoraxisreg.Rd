@@ -11,6 +11,8 @@ majoraxisreg(x, y, title = "", graphit = F, add = F, pts = T,
 \item{graphit}{Logical; if `TRUE` adds plot output.}
 
 \item{add}{xxxdocparam in majoraxisreg() is different to add in add_plot.R.}
+
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 }
 \description{
 A major axis regression with parameters fitted by optim. The regression is

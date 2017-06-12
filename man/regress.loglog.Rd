@@ -22,6 +22,8 @@ regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
+
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 }
 \description{
 Performs regression and graphs in a convenient way: with or without

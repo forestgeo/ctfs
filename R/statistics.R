@@ -69,6 +69,7 @@
 #' probabilities in a single vector, and plots a graph.
 #' 
 #' @template graphit
+#' @template clr
 #'
 'regress.plot'
 
@@ -84,6 +85,7 @@
 #' 
 #' @template add_plot
 #' @template graphit
+#' @template clr
 #' @param x,y Variables on which to perform regression and graph.
 #' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
 #' @param addone Use to handle zeros for log-transformation
@@ -98,6 +100,7 @@
 #' squared).
 #' 
 #' @template graphit
+#' @template clr
 #' @param add xxxdocparam in majoraxisreg() is different to add in add_plot.R.
 #'
 'majoraxisreg'

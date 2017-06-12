@@ -53,6 +53,7 @@ avoid <- c(
   "w",
   
   # SKIP FOR NOW
+  "div",
   "model"
 )
 x <- args_count_formals_man() %>% 
@@ -62,8 +63,10 @@ x <- args_count_formals_man() %>%
   filter(some_but_not_all_is_na) %>% print_all()
 print(x, n = x$frml_n[[1]])
 
-args_help("div")
-args_count_param("div")
+
+
+args_help("clr")
+args_count_param("clr")
 
 x %>% select(1) %>% unique()
 
