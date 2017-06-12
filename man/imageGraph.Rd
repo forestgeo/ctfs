@@ -77,7 +77,7 @@ exported.
 CTFSplot('bci', 6, 'full')
 
 N = colSums(
-  abundanceperquad(bci.full6, plotdim = c(1000, 500), grid = 20)$abund
+  abundanceperquad(bci::bci12full6, plotdim = c(1000, 500), grid = 20)$abund
 )
 matdata = coldata.to.imagemat(z = N,
   gridsize = 20,

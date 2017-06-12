@@ -8,13 +8,16 @@ CTFSplot(plot, census = 1, type = "full", path = "CTFSRPackage",
   remove = FALSE, includespp = TRUE)
 }
 \arguments{
-\item{plot}{Name of plot as it appears in the names of the R Analytical Tables, in quote marks}
+\item{plot}{Name of plot as it appears in the names of the R Analytical
+Tables, in quote marks}
 
-\item{census}{census numbers as they appear in the names of the R Analytical Tables; can be a vector}
+\item{census}{census numbers as they appear in the names of the R Analytical
+Tables; can be a vector}
 
 \item{type}{either full or stem, in quote marks}
 
-\item{path}{the name of the folder in which the tables are stored, defaults to CTFSRPackage}
+\item{path}{the name of the folder in which the tables are stored, defaults
+to CTFSRPackage}
 
 \item{remove}{if TRUE, the tables are detached, otherwise they are attached}
 
@@ -41,7 +44,13 @@ CTFSplot(plot='bci',census=1:2)
 
 CTFSplot(plot='bci',census=2:3)
 
-CTFSplot(plot='sinharaja', census=3,type='stem',path='C:/SinharajaRDataTables')}
+CTFSplot(
+  plot = 'sinharaja',
+  census = 3,
+  type = 'stem',
+  path = 'C:/SinharajaRDataTables'
+)
+}
 
 
 }

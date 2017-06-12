@@ -36,7 +36,6 @@ quadrats of variable sizes.
 }
 \examples{
 \dontrun{
-load("bci::bci12full1") 
 onesp = subset(bci::bci12full1, sp == "rinosy")  
 
 # plots the density of the sp in the plot  

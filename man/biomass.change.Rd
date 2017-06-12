@@ -62,9 +62,11 @@ is a matrix.
 
 CTFSplot("bci", "full", census = c(3, 7))
 
-deltaAGB = biomass.change(bci.full3, bci.full7)
+deltaAGB = biomass.change(bci::bci12full3, bci::bci12full7)
 
-deltaAGB.spp = biomass.change(bci.full3, bci.full7, split1 = bci.full3$sp)
+deltaAGB.spp = biomass.change(
+  bci::bci12full3, bci::bci12full7, split1 = bci::bci12full3$sp
+)
 
 deltaAGB.table = assemble.demography(deltaAGB.spp, type = "a") 
 

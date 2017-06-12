@@ -25,8 +25,8 @@ adding there agbs.
 }
 \examples{
 \dontrun{
-biomasstbl = AGB.tree(df = bci.stem1)
-dim(bci.stem1)
+biomasstbl = AGB.tree(df = bci::bci12stem1)
+dim(bci::bci12stem1)
 dim(biomasstbl)
 head(biomasstbl)
 }

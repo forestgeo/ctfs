@@ -26,12 +26,14 @@
 #' @template censdata
 #' @template plotdim
 #' @param gridsize Size of the quadrats for the rasterization
-#' @param mindbh If analysis is to be done at different size  classes.
+#' @param mindbh If analysis is to be done at different size classes.
 #' 
 #' @examples
 #' \dontrun{
-#' load("bci.full1.rdata") 
-#' wavelet.variances = wavelet.allsp(censdata, plotdim = c(1000, 500))
+#' wavelet.variances = wavelet.allsp(
+#'   censdata = bci::bci12full1, 
+#'   plotdim = c(1000, 500)
+#' )
 #' }
 #'
 'wavelet.allsp'
@@ -76,7 +78,6 @@
 #'
 #' @examples
 #' \dontrun{
-#' load("bci::bci12full1") 
 #' onesp = subset(bci::bci12full1, sp == "rinosy")  
 #'
 #' # plots the density of the sp in the plot  
@@ -137,13 +138,12 @@
 #' 
 #' @examples
 #' \dontrun{
-#' load("bci.full1.rdata") 
 #' rast1 = rasterize(,
 #'   gridsize = 5,
 #'   plotdim = c(100, 500),
 #'   graph = TRUE)
 #' wv = wavelet.univariate(
-#'   coords = bci.full1[, c("gx", "gy")],
+#'   coords = bci::bci12full1[, c("gx", "gy")],
 #'   k0 = 8,
 #'   dj = 0.15,
 #'   graph = TRUE

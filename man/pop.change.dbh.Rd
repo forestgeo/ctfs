@@ -47,14 +47,14 @@ other examples.
 }
 \examples{
 \dontrun{
-Nchange = pop.change.dbh(bci.full5, bci.full6, classbreak = c(10, 100, 300))
+Nchange = pop.change.dbh(bci::bci12full5, bci::bci12full6, classbreak = c(10, 100, 300))
 Nchange$abund
 
 BAchangePerSpp <- pop.change.dbh(
-  bci.full5,
-  bci.full6,
+  bci::bci12full5,
+  bci::bci12full6,
   classbreak = c(10, 100),
-  split = bci.full5$sp
+  split = bci::bci12full5$sp
 )
 head(BAchangePerSpp$ba)}
 

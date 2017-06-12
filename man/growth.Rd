@@ -82,9 +82,12 @@ census.
 \examples{
 \dontrun{
 CTFSplot("bci", 56)
-growth.data = growth(bci.full5, bci.full6)
+growth.data = growth(bci::bci12full5, bci::bci12full6)
 growth.data$rate
-growth.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+growth.data = growth(
+  bci::bci12full5, bci::bci12full6, 
+  split1 = bci::bci12full5$sp
+)
 growth.data$rate
 assemble.demography(grow.data, type = 'g')
 }

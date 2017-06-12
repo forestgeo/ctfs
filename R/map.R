@@ -36,7 +36,7 @@
 #' @param spplist A table with species codes and Latin names can be submitted as
 #'   well, so that the full genus-species is added to plot. This must have 
 #'   species codes as row names. It should be the CTFS R format species table 
-#'   (eg, bci.spptable). It can be set to NULL if not available, then only the 
+#'   (eg, bci::bci12spptable). It can be set to NULL if not available, then only the 
 #'   species code (as submitted) appears on the map.
 #' @param elevdata Elevation data can be submitted, then a topo map is overlaid.
 #'   Elevation data must be submitted as a matrix (as described in readelevdata 
@@ -85,14 +85,14 @@
 #' 
 #' CTFSplot(plot = 'bci', census = 6)
 #' 
-#' bci.split6 = split_data(censdata = bci.full6, splitcol = 'sp')
+#' bci::bci12split6 = split_data(censdata = bci::bci12full6, splitcol = 'sp')
 #' 
 #' nospp = length(species)
 #' 
-#' map(splitdatafile = bci.split6, species = 'poular')
+#' map(splitdatafile = bci::bci12split6, species = 'poular')
 #' 
 #' map(
-#'   splitdatafile = bci.split6,
+#'   splitdatafile = bci::bci12split6,
 #'   species = 'poular',
 #'   export = 'pdf',
 #'   filepath = '~/data/maps/',
@@ -102,7 +102,7 @@
 #'   wd = 11
 #' )
 #' 
-#' map(splitdatafile = bci.split6,
+#' map(splitdatafile = bci::bci12split6,
 #'   species = c('guatdu', 'poular'))
 #' }
 #'

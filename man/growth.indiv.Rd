@@ -41,7 +41,7 @@ Table growth rate of every individual both relative and dbh-increment.
 }
 \examples{
 \dontrun{
-growth.table = growth.indiv(bci.full5, bci.full6)
+growth.table = growth.indiv(bci::bci12full5, bci::bci12full6)
 }
 
 }

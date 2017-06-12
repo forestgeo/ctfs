@@ -39,12 +39,12 @@
 #' CTFSplot('bci',5:6,'full')
 #'
 #' CTFSplot('bci',5:6,'stem')
-#' total=abundance(bci.full5,mindbh=10)
+#' total=abundance(bci::bci12full5,mindbh=10)
 #' total$abund
 #' total$meandate
-#' totalstem=abundance(bci.stem5,mindbh=10)
+#' totalstem=abundance(bci::bci12stem5,mindbh=10)
 #'
-#' BAperSpecies=abundance(bci.stem5,type='ba',mindbh=10,split1=bci.stem5$sp)
+#' BAperSpecies=abundance(bci::bci12stem5,type='ba',mindbh=10,split1=bci::bci12stem5$sp)
 #' head(BAperSpecies$ba)
 #' head(BAperSpecies$meandate)}
 #'
@@ -79,7 +79,7 @@
 #' @examples
 #' \dontrun{
 #' Nperquad = abundanceperquad(
-#'   bci.full6,
+#'   bci::bci12full6,
 #'   plotdim = c(1000, 500),
 #'   gridsize = 100,
 #'   type = 'abund'
@@ -149,10 +149,10 @@
 #' @examples
 #' \dontrun{
 #' bcichange = pop.change(
-#'   bci.full5,
-#'   bci.full6,
+#'   bci::bci12full5,
+#'   bci::bci12full6,
 #'   type = 'abund',
-#'   split1 = bci.full5$sp,
+#'   split1 = bci::bci12full5$sp,
 #'   mindbh = 10
 #' )
 #' str(bcichange)
@@ -192,14 +192,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' Nchange = pop.change.dbh(bci.full5, bci.full6, classbreak = c(10, 100, 300))
+#' Nchange = pop.change.dbh(bci::bci12full5, bci::bci12full6, classbreak = c(10, 100, 300))
 #' Nchange$abund
 #'
 #' BAchangePerSpp <- pop.change.dbh(
-#'   bci.full5,
-#'   bci.full6,
+#'   bci::bci12full5,
+#'   bci::bci12full6,
 #'   classbreak = c(10, 100),
-#'   split = bci.full5$sp
+#'   split = bci::bci12full5$sp
 #' )
 #' head(BAchangePerSpp$ba)}
 #'
@@ -244,7 +244,9 @@
 #' @examples
 #' \dontrun{
 #' N = abund.manycensus(
-#'   allcns = list(bci.full1, bci.full2, bci.full3, bci.full4),
+#'   allcns = list(
+#'     bci::bci12full1, bci::bci12full2, bci::bci12full3, bci::bci12full4
+#'   ),
 #'   mindbh = 10,
 #'   type = 'abund',
 #'   excludespp = 'uniden',
@@ -255,7 +257,7 @@
 #' apply(N,2,countspp)
 #'
 #' N = abund.manycensus(
-#'   allcns = list(bci.full5, bci.full6),
+#'   allcns = list(bci::bci12full5, bci::bci12full6),
 #'   mindbh = 10,
 #'   type = 'abund',
 #'   excludespp = c('uniden', 'tremxx'),

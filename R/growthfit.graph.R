@@ -69,8 +69,8 @@
 #' @examples
 #' \dontrun{
 #' full = extract.growthdata(
-#'   census1 = bci.full5,
-#'   census2 = bci.full6,
+#'   census1 = bci::bci12full5,
+#'   census2 = bci::bci12full6,
 #'   growcol = 'incgr',
 #'   growthfunc = growth.biomass.indiv,
 #'   logit = 'x',
@@ -81,8 +81,8 @@
 #'   maxgrow = 7500
 #' )
 #' trimmed = extract.growthdata(
-#'   census1 = bci.full5,
-#'   census2 = bci.full6,
+#'   census1 = bci::bci12full5,
+#'   census2 = bci::bci12full6,
 #'   growcol = 'incgr',
 #'   growthfunc = growth.biomass.indiv,
 #'   logit = 'x',
@@ -109,7 +109,7 @@
 #'
 'graph.outliers'
 
-#' Make a single graph, 4 panels, of AGB growth and model fit. Must su...
+#' Make a single graph, 4 panels, of AGB growth and model fit.
 #'
 #' @description
 #' Make a single graph, 4 panels, of AGB growth and model fit. Must submit four

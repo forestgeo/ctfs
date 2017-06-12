@@ -59,9 +59,12 @@ them either as survivors or dead.
 \dontrun{
 
 CTFSplot("bci", 56)
-mort.data = mortality(bci.full5, bci.full6)
+mort.data = mortality(bci::bci12full5, bci::bci12full6)
 mort.data$rate
-mort.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+mort.data = growth(
+  bci::bci12full5, bci::bci12full6, 
+  split1 = bci::bci12full5$sp
+)
 mort.data$rate
 assemble.demography(mort.data, type = 'm')
 }

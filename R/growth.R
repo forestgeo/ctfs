@@ -60,9 +60,12 @@
 #' @examples
 #' \dontrun{
 #' CTFSplot("bci", 56)
-#' growth.data = growth(bci.full5, bci.full6)
+#' growth.data = growth(bci::bci12full5, bci::bci12full6)
 #' growth.data$rate
-#' growth.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+#' growth.data = growth(
+#'   bci::bci12full5, bci::bci12full6, 
+#'   split1 = bci::bci12full5$sp
+#' )
 #' growth.data$rate
 #' assemble.demography(grow.data, type = 'g')
 #' }
@@ -115,7 +118,7 @@
 #' @examples
 #' \dontrun{
 #' growth.dbh <- growth.eachspp(
-#'   bci.full5, bci.full6,
+#'   bci::bci12full5, bci::bci12full6,
 #'   classbreak = c(10, 50, 100, 300, 500))
 #' }
 'growth.dbh'
@@ -137,7 +140,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' growth.table = growth.indiv(bci.full5, bci.full6)
+#' growth.table = growth.indiv(bci::bci12full5, bci::bci12full6)
 #' }
 #'
 'growth.indiv'

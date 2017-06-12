@@ -67,13 +67,12 @@ the basal areas or above graound biomass.
 
 \examples{
 \dontrun{
-load("bci.full1.rdata") 
 rast1 = rasterize(,
   gridsize = 5,
   plotdim = c(100, 500),
   graph = TRUE)
 wv = wavelet.univariate(
-  coords = bci.full1[, c("gx", "gy")],
+  coords = bci::bci12full1[, c("gx", "gy")],
   k0 = 8,
   dj = 0.15,
   graph = TRUE

@@ -14,7 +14,7 @@ wavelet.allsp(censdata, plotdim = c(1000, 500), gridsize = 2.5,
 
 \item{gridsize}{Size of the quadrats for the rasterization}
 
-\item{mindbh}{If analysis is to be done at different size  classes.}
+\item{mindbh}{If analysis is to be done at different size classes.}
 }
 \value{
 A matrix with:
@@ -42,8 +42,10 @@ using quadrat indexation from CTFS package.
 
 \examples{
 \dontrun{
-load("bci.full1.rdata") 
-wavelet.variances = wavelet.allsp(censdata, plotdim = c(1000, 500))
+wavelet.variances = wavelet.allsp(
+  censdata = bci::bci12full1, 
+  plotdim = c(1000, 500)
+)
 }
 
 }

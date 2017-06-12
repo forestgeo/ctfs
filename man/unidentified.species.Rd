@@ -8,11 +8,13 @@ unidentified.species(spnames, exactstr = c("UNIDEN", "UNID", "uniden",
   "unid"), partialstr = c("XX", "**"))
 }
 \description{
-Takes a string of species names or codes and returns a logical vector indicating
-with TRUE those that should be excluded. Any species name (code) matching precisely the names in exactstr
-are excluded, as well as any which has characters matching partialstr. Either or both exactstr and partialstr
+Takes a string of species names or codes and returns a logical vector
+indicating with TRUE those that should be excluded. Any species name (code)
+matching precisely the names in exactstr are excluded, as well as any which
+has characters matching partialstr. Either or both exactstr and partialstr
 can be NULL. The typical use if for excluding species whose codes or names
-indicate they are not fully identified. It returns a logical vector which is TRUE for those to be excluded.
+indicate they are not fully identified. It returns a logical vector which is
+TRUE for those to be excluded.
 
 This was formerly in utilities.r.
 }

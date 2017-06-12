@@ -2,7 +2,7 @@
 % Please edit documentation in R/growthfit.graph.R
 \name{binGraphSampleSpecies}
 \alias{binGraphSampleSpecies}
-\title{Make a single graph, 4 panels, of AGB growth and model fit. Must su...}
+\title{Make a single graph, 4 panels, of AGB growth and model fit.}
 \usage{
 binGraphSampleSpecies(fulldataname, species, whichbin, export = pdf,
   outfile = "growth/linearbin.summary.pdf", h = 8, w = 10)

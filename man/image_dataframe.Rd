@@ -72,7 +72,7 @@ image_dataframe.
 CTFSplot('bci',6,'full')
 
 image_dataframe(
-  data = subset(bci.full6, status == 'A'),
+  data = subset(bci::bci12full6, status == 'A'),
   xcol = 'gx',
   ycol = 'gy',
   zcol = 'dbh',

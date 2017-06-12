@@ -47,7 +47,7 @@ This calculates forest-wide growth in given dbh categories.
 \examples{
 \dontrun{
 growth.dbh <- growth.eachspp(
-  bci.full5, bci.full6,
+  bci::bci12full5, bci::bci12full6,
   classbreak = c(10, 50, 100, 300, 500))
 }
 }

@@ -84,7 +84,7 @@ of those inputs is wrong.
 CTFSplot('bci',6,'full')
 
 BA = abundanceperquad(
-  bci.full6,
+  bci::bci12full6,
   gridsize = 20,
   plotdim = c(1000, 500),
   type = 'ba'

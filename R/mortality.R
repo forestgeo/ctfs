@@ -42,9 +42,12 @@
 #' \dontrun{
 #'
 #' CTFSplot("bci", 56)
-#' mort.data = mortality(bci.full5, bci.full6)
+#' mort.data = mortality(bci::bci12full5, bci::bci12full6)
 #' mort.data$rate
-#' mort.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+#' mort.data = growth(
+#'   bci::bci12full5, bci::bci12full6, 
+#'   split1 = bci::bci12full5$sp
+#' )
 #' mort.data$rate
 #' assemble.demography(mort.data, type = 'm')
 #' }
@@ -54,9 +57,9 @@
 #' Calculate mortality for each species in given dbh categories.
 #'
 #' @description
-#' Calculate mortality for each species in given dbh categories. It sets the
-#' split variables using the species name and submitted dbh `classbreaks` and then
-#' uses mortality to do the calculation. 
+#' Calculate mortality for each species in given dbh categories. It sets the 
+#' split variables using the species name and submitted dbh `classbreaks` and
+#' then uses mortality to do the calculation.
 #' 
 #' @return
 #' The list from [mortality()], which can be passed to [assemble.demography()]
@@ -67,7 +70,7 @@
 #' @examples
 #' \dontrun{
 #' CTFSplot("bci", 5:6)
-#' mort.data = mortality.eachspp(bci.full5, bci.full6)
+#' mort.data = mortality.eachspp(bci::bci12full5, bci::bci12full6)
 #' mort.table1 = assemble.demography(mort.data, type = "m", whichdbhcat = 1)
 #' mort.table2 = assemble.demography(mort.data, type = "m", whichdbhcat = 2)
 #' mort.table3 = assemble.demography(mort.data, type = "m", whichdbhcat = 3)

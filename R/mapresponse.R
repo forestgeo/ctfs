@@ -76,7 +76,7 @@
 #' CTFSplot('bci',6,'full')
 #'
 #' BA = abundanceperquad(
-#'   bci.full6,
+#'   bci::bci12full6,
 #'   gridsize = 20,
 #'   plotdim = c(1000, 500),
 #'   type = 'ba'
@@ -146,7 +146,7 @@
 #' CTFSplot('bci', 6, 'full')
 #' 
 #' N = colSums(
-#'   abundanceperquad(bci.full6, plotdim = c(1000, 500), grid = 20)$abund
+#'   abundanceperquad(bci::bci12full6, plotdim = c(1000, 500), grid = 20)$abund
 #' )
 #' matdata = coldata.to.imagemat(z = N,
 #'   gridsize = 20,
@@ -231,7 +231,7 @@
 #' CTFSplot('bci',6,'full')
 #' 
 #' image_dataframe(
-#'   data = subset(bci.full6, status == 'A'),
+#'   data = subset(bci::bci12full6, status == 'A'),
 #'   xcol = 'gx',
 #'   ycol = 'gy',
 #'   zcol = 'dbh',

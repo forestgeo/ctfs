@@ -58,6 +58,10 @@ CTFSplot("bci","full",census=1)
 
 CTFSplot("bci","stem",census=1) 
 attach("biomass/wsg.ctfs.Rdata") 
-newtable=biomass.CTFSdb(RStemTable=bci.stem1,RTreeTable=bci.full1)}
+newtable = biomass.CTFSdb(
+  RStemTable = bci::bci12stem1, 
+  RTreeTable = bci::bci12full1
+)
+}
 
 }

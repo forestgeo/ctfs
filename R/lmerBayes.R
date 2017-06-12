@@ -153,13 +153,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Assume two plot datasets from BCI are attached, bci.full6 and bci.full7.
+#' # Assume two plot datasets from BCI are available, bci::bci12full6 and
+#' bci::bci12full7.
 #' # Subset to trees above 10 cm dbh and just 10 species for illustration (the
 #' # model will run much faster). The fixed effect, species - level variation
 #' # (or error), and the model parameters for each species are shown below. 
 #' # Check the names of the result to see what else lmerBayes returns.
 #' 
-#' gtable = growth.indiv(bci.full6, bci.full7, mindbh = 100)
+#' gtable = growth.indiv(bci::bci12full6, bci::bci12full7, mindbh = 100)
 #' a_few_species = c(
 #'   'termam',
 #'   'tachve',

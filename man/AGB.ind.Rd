@@ -12,7 +12,8 @@ AGB.ind(df, dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-\item{plot}{Name of plot as it appears in the names of the R Analytical Tables, in quote marks}
+\item{plot}{Name of plot as it appears in the names of the R Analytical
+Tables, in quote marks}
 
 \item{wsgdata}{A wood-density table, see \code{\link[=density_ind]{density_ind()}} and \link{wsgdata_dummy}.}
 
@@ -35,7 +36,7 @@ tropical forest types.
 }
 \examples{
 \dontrun{
-biomass <- AGB.ind(df = bci.full1)
+biomass <- AGB.ind(df = bci::bci12full1)
 hist(log(biomass), breaks = 100)
 sum(biomass, na.rm = TRUE) / 50
 }

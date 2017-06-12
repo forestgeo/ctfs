@@ -19,8 +19,8 @@ are graphed too.
 \examples{
 \dontrun{
 full = extract.growthdata(
-  census1 = bci.full5,
-  census2 = bci.full6,
+  census1 = bci::bci12full5,
+  census2 = bci::bci12full6,
   growcol = 'incgr',
   growthfunc = growth.biomass.indiv,
   logit = 'x',
@@ -31,8 +31,8 @@ full = extract.growthdata(
   maxgrow = 7500
 )
 trimmed = extract.growthdata(
-  census1 = bci.full5,
-  census2 = bci.full6,
+  census1 = bci::bci12full5,
+  census2 = bci::bci12full6,
   growcol = 'incgr',
   growthfunc = growth.biomass.indiv,
   logit = 'x',
