@@ -9,6 +9,10 @@ llike.model.lmer(test, allparam, whichtest, data, trueN, model,
   returnmodel = FALSE, mu, covar, fixed = NULL, debug = FALSE, ...)
 }
 \arguments{
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
+
 \item{debug}{Logical. If TRUE, call browser to debug.}
 }
 \description{
@@ -33,7 +37,7 @@ returned.
 With this option, model must always be > 0
  llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)
 }
-else if(errormodel=='Flat') llike=rep(0,length(modeled))}
-
+else if(errormodel=='Flat') llike=rep(0,length(modeled))
+}
 
 }

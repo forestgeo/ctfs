@@ -97,6 +97,7 @@
 #' subroutine of the main modeling function, model.littleR.Gibbs.
 #' 
 #' @template debug
+#' @template badparam
 #'
 #'
 'full.abundmodel.llike'
@@ -137,6 +138,7 @@
 #' 
 #' Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
 #' 
+#' @template badparam
 #'
 'hyper.abundGibbs'
 

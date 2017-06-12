@@ -9,6 +9,10 @@ full.abundmodel.llike(data, param, spmort, spR, type, debug = FALSE,
 }
 \arguments{
 \item{debug}{Logical. If TRUE, call browser to debug.}
+
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
 }
 \description{
 With the table of abundances, hyper-parameter estimates, and estimated

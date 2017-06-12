@@ -42,6 +42,7 @@ avoid <- c(
   "add",  # done
   "alivecode",  # done
   "center",  # done
+  "clr",  # all done
   "debug",  # done
   "debunit",  # done
   "fit",  # done
@@ -65,8 +66,8 @@ print(x, n = x$frml_n[[1]])
 
 
 
-args_help("clr")
-args_count_param("clr")
+args_help("badparam")
+args_count_param("badparam")
 
 x %>% select(1) %>% unique()
 

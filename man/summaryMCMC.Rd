@@ -16,6 +16,10 @@ summaryModelMCMC(fit, model, error, sdmodel, badparam, paramfile = NULL,
 \item{fit}{An object holding all steps of the sampler, plus data,
 observations, and likelihood.}
 
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
+
 \item{paramfile}{If parameters were saved along the way to a text file, then
 this argument is used to name the file and restore them into a 3D array.}
 

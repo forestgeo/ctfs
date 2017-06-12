@@ -89,6 +89,7 @@
 #' @template debug
 #' @template xcol_ycol
 #' @template steps_showstep
+#' @template badparam
 #' @param data The table of data, in lmer-style, including one column to be 
 #'   modeled (dependent variable, y), one or more predictors (independent 
 #'   variables, x), and one random effect, using any column names.
@@ -128,9 +129,6 @@
 #' @param update 'conjugate' or 'metropolis', whether to use inverse-gamma (or
 #'   inverse-Wishart for full covariance) vs. metropolis steps for updating
 #'   covariances.
-#' @param badparam The name of a function (unquoted) that tests a set of model
-#'   parameters for validity; must return TRUE if parameters are valid,
-#'   otherwise FALSE.
 #' @param sdfunc The name of a function (unquoted) that models the residual
 #'   standard deviation as a function of the x's, just like the model function.
 #'   The default uses the function named constant, meaning the standard
@@ -254,6 +252,7 @@
 #' returned.
 #' 
 #' @template debug
+#' @template badparam
 #' 
 #' @examples
 #' \dontrun{
@@ -265,21 +264,23 @@
 #' With this option, model must always be > 0
 #'  llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)
 #' }
-#' else if(errormodel=='Flat') llike=rep(0,length(modeled))}
-#'
+#' else if(errormodel=='Flat') llike=rep(0,length(modeled))
+#' }
 #'
 'llike.model.lmer'
 
 #' Calculate likelihood of residual standard deviation, given observat...
 #'
 #' @description
-#'
-#' Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
-#'
-#' This likelihood does not depend on the hyperparameters. It does require data and prediction for every single random effect. 
-#'
-#'
+#' Calculate likelihood of residual standard deviation, given observations plus
+#' the predicting model and data (to make predictions).
+#' 
+#' This likelihood does not depend on the hyperparameters. It does require data
+#' and prediction for every single random effect.
+#' 
 #' Simply check a single SD parameter for sign.
+#' 
+#' @template badparam
 #'
 'residual.llike.lmerBayes'
 
@@ -354,7 +355,7 @@
 #' @description
 #' Make summary calculations based on the full Gibbs sampler.
 #' 
-#'  
+#' @template badparam
 #' @param fit An object holding all steps of the sampler, plus data,
 #'   observations, and likelihood. 
 #' @param paramfile If parameters were saved along the way to a text file, then

@@ -7,10 +7,17 @@
 residual.llike.lmerBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
   sdmodel, badparam, errormodel = "Gauss", ...)
 }
+\arguments{
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
+}
 \description{
-Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
+Calculate likelihood of residual standard deviation, given observations plus
+the predicting model and data (to make predictions).
 
-This likelihood does not depend on the hyperparameters. It does require data and prediction for every single random effect.
+This likelihood does not depend on the hyperparameters. It does require data
+and prediction for every single random effect.
 
 Simply check a single SD parameter for sign.
 }

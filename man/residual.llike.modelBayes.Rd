@@ -8,6 +8,10 @@ residual.llike.modelBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
   sdmodel, badparam, errormodel = "Gauss", debug = FALSE, ...)
 }
 \arguments{
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
+
 \item{debug}{Logical. If TRUE, call browser to debug.}
 }
 \description{
