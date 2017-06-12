@@ -53,11 +53,13 @@ avoid <- c(
   "mindbh",  # done
   "outfile",  # done
   "plotdim",  # done
+  "pts",  # done some, others vary.
   "w",
   
   # SKIP FOR NOW
   "div",
-  "model"
+  "model",
+  "start.param"
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
@@ -68,8 +70,8 @@ print(x, n = x$frml_n[[1]])
 
 
 
-args_help("maxgrow")
-args_count_param("maxgrow")
+args_help("N")
+args_count_param("N")
 
 x %>% select(1) %>% unique()
 

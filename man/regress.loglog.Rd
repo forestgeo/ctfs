@@ -23,6 +23,8 @@ regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
 
+\item{pts}{See argument \code{pch} in \code{\link[graphics:par]{graphics::par()}}.}
+
 \item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 }
 \description{

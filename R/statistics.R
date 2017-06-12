@@ -89,6 +89,7 @@
 #' @param x,y Variables on which to perform regression and graph.
 #' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
 #' @param addone Use to handle zeros for log-transformation
+#' @param pts See argument `pch` in [graphics::par()].
 #' 
 'regress.loglog'
 

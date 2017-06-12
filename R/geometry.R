@@ -23,14 +23,18 @@
 #'
 'xydistvect'
 
-#' Distance between two x-y coordinates, but accepts two sets of coord...
+#' Distance between two x-y coordinates.
 #'
 #' @description
-#'
-#' Distance between two x-y coordinates, but accepts two sets of coordinates in a single matrix (4 columns ordered x1, y1, x2, y2). 
-#'
+#' Distance between two x-y coordinates. Accepts two sets of coordinates in a
+#' single matrix.
+#' 
+#' @section Arguments details:
+#' `pts` A matrix with 4 columns ordered x1, y1, x2, y2.
+#' 
 #' For use with apply.
-#'
+#' 
+#' @template pts_matrix
 #'
 'xydistmat'
 
@@ -187,16 +191,23 @@
 #'
 'insideRectangle'
 
-#' Checks many points (dataframe pt with x and y) against a single qua...
-#'
+#' Check if points belong to quadrat.
+#' 
 #' @description
+#' Checks many points (dataframe pt with x and y) against a single quadrat whose
+#' corners are given by as xlo, ylo, xhi, yhi. 
+#' 
+#' @details
+#' This is same as [insideRectange()], but accepting input as a matrix pts and a
+#' single vector of the four corners of the rectange.
+#' 
+#' @template pts_matrix
+#' 
+#' @return
+#' A logical vector; TRUE for the points inside. 
 #'
-#' Checks many points (dataframe pt with x and y) against a single quadrat whose corners are given by as xlo, ylo, xhi, yhi.
-#'
-#' It returns a logical vector, TRUE for the points inside. This is same as insideRectange, but accepting input as a matrix pts
-#' and a single vector of the four corners of the rectange. 
-#'
-#'
+#' @seealso [insideRectange()].
+#' 
 'are.ptsinside'
 
 #' Check a single pt (x and y) against a large number of quadrats whos...

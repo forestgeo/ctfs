@@ -6,6 +6,14 @@
 \usage{
 rpois.max(N, lambda, maxx)
 }
+\arguments{
+\item{N}{Passed to n in \code{\link[stats:rpois]{stats::rpois()}}.}
+
+\item{lambda}{Passed to lambda in \code{\link[stats:rpois]{stats::rpois()}}.}
+}
 \description{
 Random draws on dpois.max
+}
+\seealso{
+\code{\link[stats:rpois]{stats::rpois()}}.
 }

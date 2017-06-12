@@ -4,12 +4,14 @@
 #'
 #'
 
-#' Simulate draws from a double normaldoublenormal dnormprod0  Probabi...
+#' Simulate draws from a double normaldoublenormal.
 #'
 #' @description
-#'
 #' Simulate draws from a double normal
+#' 
+#' @param N,m,sd1 Passed to `n`, `mean`, `sd` in [stats::rnorm()].
 #'
+#' @seealso [stats::rnorm()].
 #'
 'doublenormal'
 
@@ -479,15 +481,20 @@
 #'
 'pexp.sin'
 
-#' Function that takes a variance-covariance matrix and produces norma...
+#' From a variance-covariance matrix, output normal variates with means 0.
 #'
 #' @description
-#'
 #' Function that takes a variance-covariance matrix and produces normal variates
-#' following it, but with means 0. The R function mvrnorm does this too; this was a 
-#' test of the algorithm from Tommaso Zillio. Sigma must be square. N is the number
-#' to draw.
-#'
+#' following it, but with means 0.
+#' 
+#' @details 
+#' The R function mvrnorm does this too; this was a test of the algorithm from
+#' Tommaso Zillio.
+#' 
+#' @param Sigma Must be square.
+#' @param N The number to draw.
+#' 
+#' @seealso [MASS::mvrnorm()].
 #'
 'mvrnormRC'
 
@@ -870,20 +877,26 @@
 #' Random draws on dpois.maxrpois.max rpois.trunc  Random draws on dpo...
 #'
 #' @description
-#'
 #' Random draws on dpois.max
-#'
+#' 
+#' @param N Passed to n in [stats::rpois()].
+#' @param lambda Passed to lambda in [stats::rpois()].
+#' 
+#' @seealso [stats::rpois()].
 #'
 'rpois.max'
 
-#' Random draws on dpois.trunc. This is taken unchanged from an answer...
+#' Random draws on dpois.trunc.
 #'
 #' @description
+#' Random draws on dpois.trunc. This is taken unchanged from an answer Peter
+#' Dalgaard posted to a list serve in 2005. I checked by comparing to
+#' dpois.trunc and it was spot on.
+#' 
+#' @param N,lambda Passed to argumentes `p`, `lambda` in [stats::qpois()].
 #'
-#' Random draws on dpois.trunc. This is taken unchanged from an answer Peter Dalgaard posted to a list serve in 2005. I checked
-#' by comparing to dpois.trunc and it was spot on. 
-#'
-#'
+#' @seealso [stats::qpois()].
+#' 
 'rpois.trunc'
 
 #' A 3-parameter function which asymptotes as x->infinity.
