@@ -2,6 +2,10 @@
 
 ## 2017-06-05 (week starting on)
 
+DONE
+
+- Refer to BCI data using new names, replacing old names (e.g. bci.full1 by bci::bci12full1).
+
 CONVENTIONS
 
 - `@section` Arguments details: 
@@ -10,19 +14,30 @@ CONVENTIONS
 
 PENDENT
 
+TO AMEND SOURCE CODE
+
+- Refactor code to remove unused arguments:
+
 ```R
 #' @param ... Unused.
 ```
 
-- Use tag xxx_amend_doc to tag documentation that I need to amend later. Find these tags with `shift + f`.
-
 - Use tag xxx_amend_source to tag source code that needs work. Find these tags with `shift + f`.
+
+
+
+TO AMEND DOCUMENTATION
+
+- Use tag xxx_amend_doc to tag documentation that I need to amend later. Find these tags with `shift + f`.
 
 - Use tag xxxdocparam to tag arguments that need to be documented. They are discoverable with find_xxxdocparam()
 
-MORE
 
-...
+XXX END OF NOT REPORTED WORK
+
+
+
+
 
 
 
