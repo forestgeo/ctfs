@@ -19,6 +19,9 @@ smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
+
+\item{maxgrow}{A number. Numbers such as 10000 are high and will return all
+measures.}
 }
 \description{
 Like \code{\link[=growth.indiv]{growth.indiv()}} but based on agb growth, not dbh growth. Extreme growth

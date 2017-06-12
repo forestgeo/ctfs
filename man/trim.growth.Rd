@@ -18,8 +18,11 @@ trim.growth(cens1, cens2, time, slope = 0.006214, intercept = 0.9036,
 
 \item{intercept}{Intercept of error of measurement line.}
 
-\item{err.limit, maxgrow}{A number. Numbers such as 10000 are high and will
-return all measures.}
+\item{err.limit}{A number. Numbers such as 10000 are high and will return all
+measures.}
+
+\item{maxgrow}{A number. Numbers such as 10000 are high and will return all
+measures.}
 
 \item{pomcut}{A number. To include POM changes, set it to a high number, such
 as 10.}

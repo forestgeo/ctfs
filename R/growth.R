@@ -165,8 +165,9 @@
 #' 
 #' @template mindbh
 #' @template dbhunit
-#' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
-#'   return all measures.
+#' @template maxgrow
+#' @param err.limit A number. Numbers such as 10000 are high and will return all
+#'   measures.
 #' @param pomcut A number. To include POM changes, set it to a high number, such
 #'   as 10.
 #' @param exclude.stem.change Logical. FALSE includes cases where stemID 
@@ -204,6 +205,7 @@
 #' @template mindbh
 #' @template dbhunit
 #' @template census1_census2
+#' @template maxgrow
 #'
 'growth.biomass.indiv'
 
@@ -211,17 +213,15 @@
 #' Calculates a transition matrix of individuals by diameter categorie...
 #'
 #' @description
+#' Calculates a transition matrix of individuals by diameter categories from two
+#' censuses.
+#' 
+#' The missing code (M) is checked in codes field if misscode is set; otherwise,
+#' status=M is assumed to mean missing and status=AB is assumed to mean the stem
+#' was lost, so there is no dbh.
 #'
-#' Calculates a transition matrix of individuals by diameter categories from two censuses.
+#' @template maxgrow
 #'
-#' The missing code (M) is checked in codes field if misscode is set; otherwise, status=M is assumed to mean missing
-#' and status=AB is assumed to mean the stem was lost, so there is no dbh.
-#'
-#' Growth rates above maxgrow and below mingrow are excluded, where max and min are annual increments.
-#'(Not tested recently and not part of the supported CTFS R package.)
-#'
-#'
-
 'DBHtransition'
 
 # Source code and original documentation ----------------------------

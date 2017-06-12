@@ -31,6 +31,7 @@ avoid <- c(
   # NEEDS FUTURE WORK
   "data",  # did some; but too variable
   "export",  # did some; but too variable
+  "path",  # skip, too variable
   "size",  # unclear it it's the same everywhere.
   "type",  # did some; but too variable and too little information to document
   "x", "y",  # too generic; definition changes from fun to fun
@@ -41,6 +42,7 @@ avoid <- c(
   "...",  # did many; other are weird.
   "add",  # done
   "alivecode",  # done
+  "badparam",  # done
   "center",  # done
   "clr",  # all done
   "debug",  # done
@@ -66,8 +68,8 @@ print(x, n = x$frml_n[[1]])
 
 
 
-args_help("badparam")
-args_count_param("badparam")
+args_help("maxgrow")
+args_count_param("maxgrow")
 
 x %>% select(1) %>% unique()
 
