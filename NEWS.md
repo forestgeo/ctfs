@@ -12,8 +12,6 @@ CONVENTIONS
 
     - Give details of arguments that are specific for the current function, and may better be kept separate to what is documented more generally via `@param`.
 
-PENDENT
-
 TO AMEND SOURCE CODE
 
 - Refactor code to remove unused arguments:
