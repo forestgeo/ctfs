@@ -85,19 +85,21 @@
 #' *  fullparam: A 3D array with all parameters of the Gibbs sampler; one
 #' dimension if for all the random effects, with each random effect having a
 #' matrix of model parameters for every step of the Gibbs's sampler
+#' 
+#' @section Arguments description:
+#' - `start` Apart from a vector, it can be a matrix of such vectors, one per
+#' random effect.
 #'
 #' @template debug
 #' @template xcol_ycol
 #' @template steps_showstep
 #' @template badparam
+#' @template start
 #' @param data The table of data, in lmer-style, including one column to be 
 #'   modeled (dependent variable, y), one or more predictors (independent 
 #'   variables, x), and one random effect, using any column names.
 #' @param randcol The name of one column holding the random variable; must be a
 #'   character variable.
-#' @param start Starting parameter values, either a vector with as many
-#'   parameters as the model needs, or a matrix of such vectors, one per random
-#'   effect
 #' @param startSD A single starting value for the residual standard deviation,
 #'   only used with Gaussian and Negative Binomial error models.
 #' @param startCov Starting values of the diagonal of the covariance matrix;

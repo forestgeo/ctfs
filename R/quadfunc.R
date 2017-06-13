@@ -9,11 +9,12 @@
 #' @description
 #' Convert quadrat names into x-y coordinates, assuming the first 2 digits are
 #' the column and the second two the row. Quad is a character.
-#'
+#' 
+#' @section Argument details:
 #' If the first row and column are 00, set start = 0, etc. 
 #' 
 #' @template gridsize_side
-#' @param A character giving the quadrat name to convert to x-y coordinates.
+#' @param quad A character giving the quadrat name to convert to x-y coordinates.
 #'
 'quad.to.gxgy'
 
@@ -32,15 +33,16 @@
 #'
 'rowcol.to.index'
 
-#' Calculate a quadrat name (column number then row number, as a 4-dig...
+#' Calculate a quadrat name from gy-gy. 
 #'
 #' @description
-#' Calculate a quadrat name (column number then row number, as a 4-digit
-#' character string) from gy-gy. If start is set to zero, quadrats start with
-#' 0000, otherwise, 0101.
+#' Calculate a quadrat name (column number then row number, as a 4-digit 
+#' character string) from gy-gy.
 #' 
 #' @template plotdim
 #' @template gridsize_side
+#' @param start If `start = "zero"`, quadrats start with `0000`, otherwise, they
+#'   start with `0101`.
 #' 
 'gxgy.to.quad'
 

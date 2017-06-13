@@ -20,9 +20,8 @@ holds the x and y (numeric) variable.}
 \item{xcol}{Chareacter string giving the name of a column in `data` that
 holds the x and y (numeric) variable.}
 
-\item{start}{Starting parameter values, either a vector with as many
-parameters as the model needs, or a matrix of such vectors, one per random
-effect}
+\item{start}{A vector giving the starting set of parameters for the model. It
+must be as long as the number of parameters required by the model.}
 
 \item{startSD}{A starting value for the error model; there must be as many
 startSD as parameters needed by sdfunc}
@@ -85,25 +84,15 @@ regardless.}
 various functions used in the model (\code{model}, \code{sdfunc}, \code{badparam},
 \code{badSDparam}).}
 }
-\description{
-A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions
-excluded. A single independent variable, y, can be fit against any number of predictors, x,
-
-The model error can be binomial, Poisson, negative binomial, or Gaussian, with two alternatives for the Gaussian (described below).
-
-Data are submitted the way lm or lmer require, with one single table, one row per observation. The formula, however, is not submitted using the R-style 'squiggle'~.
-
-Rather, the names of x, y columns, are given. The model describing y's function of the x's is passed, and must be provided by the user
-(several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
-
-A starting set of parameters for the model must be submitted. It is a vector as long as the number of
-parameters required by the model.
-
+\value{
 The return value is a list with several components:
 \itemize{
-\item resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
-\item fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
-\item burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+\item resid: A 2D array with the entire chain of the error parameters, from
+Gibbs sampler
+\item fullparam: A 2D array with the entire chain of model parameters from the
+Gibbs sampler
+\item burn: Atomic, the number of steps discarded as burn-in before calculated
+statistics from Gibbs sampler
 \item steps: Atomic, the number of steps run in Gibbs sampler
 \item llike: Full log-likelihood of the model at each step of the Gibbs'sampler
 \item obs: The original y (dependent) variable, just as submitted
@@ -114,10 +103,25 @@ The return value is a list with several components:
 \item CI: Credible intervals for the model parameters
 \item bestresid: The best estimate of parameters for the error model
 \item CIresid: Credible intervals for the parameters of the error model
-\item pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
-\item many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
-\item keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers
+\item pred: A dataframe with all observations, predictors, and the model's best
+prediction, mean prediction, and credible intervals at each point
+\item many: A 2D array holding N draws of the model's prediction at each
+sampling point; N is either the number of post-burn-in steps, or 1000,
+whichever is greater
+\item keep: The steps of the Gibbs sampler after burn-in, as a vector of
+negative numbers
 }
+}
+\description{
+A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions
+excluded. A single independent variable, y, can be fit against any number of predictors, x,
+
+The model error can be binomial, Poisson, negative binomial, or Gaussian, with two alternatives for the Gaussian (described below).
+
+Data are submitted the way lm or lmer require, with one single table, one row per observation. The formula, however, is not submitted using the R-style 'squiggle'~.
+
+Rather, the names of x, y columns, are given. The model describing y's function of the x's is passed, and must be provided by the user
+(several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
 }
 \seealso{
 \code{\link[=lmerBayes]{lmerBayes()}}

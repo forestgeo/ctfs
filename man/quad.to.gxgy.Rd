@@ -7,13 +7,16 @@
 quad.to.gxgy(quad, gridsize = 20, start = 0)
 }
 \arguments{
-\item{gridsize}{Side of the square quadrate.}
+\item{quad}{A character giving the quadrat name to convert to x-y coordinates.}
 
-\item{A}{character giving the quadrat name to convert to x-y coordinates.}
+\item{gridsize}{Side of the square quadrate.}
 }
 \description{
 Convert quadrat names into x-y coordinates, assuming the first 2 digits are
 the column and the second two the row. Quad is a character.
+}
+\section{Argument details}{
 
 If the first row and column are 00, set start = 0, etc.
 }
+

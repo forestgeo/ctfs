@@ -2,7 +2,9 @@
 
 ## 2017-06-05 (week starting on)
 
-DONE
+### DONE
+
+- Deprecate `is.leap()`; recommend `lubridate::leap_year()`.
 
 - Refer to BCI data using new names, replacing old names (e.g. bci.full1 by bci::bci12full1).
 

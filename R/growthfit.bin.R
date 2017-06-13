@@ -101,16 +101,19 @@
 #'
 'run.growthfit.bin'
 
-#' Fitting a regression line through log growth against log dbh, binni...
+#' Fit a regression line through log growth against log dbh, binning on dbh.
 #'
 #' @description
 #' Fitting a regression line through log growth against log dbh, binning on dbh.
-#' Growth table has 2 columns, one named size (ie, dbh), other growth. The
-#' function now calls optim first to find a set of parameters, then, if Gibbs is
-#' selected, runs the Gibbs sampler starting with those parameters. Since optim
-#' fails if the initial likelihood is -Inf, it became necessary to check the
-#' parameters with bad.binparam before running.
 #' 
+#' @details
+#' Since [stats::optim()] fails if the initial likelihood is -Inf, it became
+#' necessary to check the parameters with [bad.binparam()] before running.
+#' 
+#' @param growthtable A table with 2 columns, one named `size` (ie, dbh), other
+#'   `growth`.
+#' @param method If `method = "Gibbs"`, runs the Gibbs sampler starting with a
+#'   set of parameters found by [stats::optim()].
 #' @param ... Conditionally passed to a number of functions; see function
 #'   definition.
 #'

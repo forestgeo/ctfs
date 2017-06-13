@@ -305,12 +305,13 @@
 #'
 'ditch'
 
-#' Return a logical indicating which elements of a vector are leap yea...
+#' Deprecated. Is a year a leap year?
 #'
 #' @description
-#'
-#' Return a logical indicating which elements of a vector are leap years.
-#'
+#' Use instead [lubridate::leap_year()]. Return a logical indicating which
+#' elements of a vector are leap years.
+#' 
+#' @seealso [lubridate::leap_year()].
 #'
 'is.leap'
 
