@@ -118,12 +118,51 @@
 #'
 'fill.1dimension'
 
-#' Converts any character fields in a dataframe from factors to charac...
+#' Converts from factors to character.
 #'
 #' @description
-#'
-#' Converts any character fields in a dataframe from factors to character fields. 
-#'
+#' Converts any character fields in a dataframe from factors to character
+#' fields.
+#' 
+#' @param r A dataframe.
+#' 
+#' @section Alternative:
+#' A more powerful and general alternative is [dplyr::mutate_if()]:
+#' ``` r
+#' lett <- letters[1:3]
+#' x <- tibble::tibble(
+#'   was_fctr = as.factor(lett), 
+#'   was_chr = lett, 
+#'   was_int = as.integer(1:length(lett)),
+#'   was_dbl = as.numeric(1:length(lett)) 
+#'   )
+#' 
+#' x
+#' #> # A tibble: 3 x 4
+#' #>   was_fctr was_chr was_int was_dbl
+#' #>     <fctr>   <chr>   <int>   <dbl>
+#' #> 1        a       a       1       1
+#' #> 2        b       b       2       2
+#' #> 3        c       c       3       3
+#' 
+#' dplyr::mutate_if(x, is.factor, as.character)
+#' #> # A tibble: 3 x 4
+#' #>   was_fctr was_chr was_int was_dbl
+#' #>      <chr>   <chr>   <int>   <dbl>
+#' #> 1        a       a       1       1
+#' #> 2        b       b       2       2
+#' #> 3        c       c       3       3
+#' 
+#' dplyr::mutate_if(x, is.double, as.integer)
+#' #> # A tibble: 3 x 4
+#' #>   was_fctr was_chr was_int was_dbl
+#' #>     <fctr>   <chr>   <int>   <int>
+#' #> 1        a       a       1       1
+#' #> 2        b       b       2       2
+#' #> 3        c       c       3       3
+#' ```
+#' 
+#' @seealso [dplyr::mutate_if()].
 #'
 'convert.factor'
 

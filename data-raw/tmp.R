@@ -53,9 +53,13 @@ avoid <- c(
   "lambda",  # done
   "mindbh",  # done
   "outfile",  # done
+  "plot",  # done
   "plotdim",  # done
   "pts",  # done some, others vary.
+  "r",  # done
+  "start",  # done
   "w",
+  "z",  # done
   
   # SKIP FOR NOW
   "div",
@@ -70,10 +74,10 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 
-args_help("plot")
-args_count_param("plot")
-
 # xxxnext -----------------------------------------------------------------
+args_help("rounddown")
+args_count_param("rounddown")
+
 
 
 x %>% select(1) %>% unique()

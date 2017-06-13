@@ -19,8 +19,10 @@
 #'
 #' @description
 #'
-#' Probability density of product of two normal variates, both with mean 0, SD sx and sy
+#' Probability density of product of two normal variates, both with mean 0, SD
+#' sx and sy
 #'
+#' @template z_num_vector
 #'
 'dnormprod0'
 
@@ -33,6 +35,7 @@
 #' 
 #' @template graphit
 #' @template mean_sd_lambda
+#' @template z_num_vector
 #'
 'dgammadexp'
 
@@ -47,6 +50,7 @@
 #' 
 #' @template graphit
 #' @template mean_sd_lambda
+#' @template z_num_vector
 #'
 'dgammaMinusdexp'
 
@@ -74,6 +78,7 @@
 #' 
 #' @template graphit
 #' @template mean_sd_lambda
+#' @template z_num_vector
 #'
 'dgammaPlusdexp'
 

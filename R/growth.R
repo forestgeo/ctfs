@@ -47,8 +47,7 @@
 #' @inheritParams trim.growth
 #' @template census1_census2
 #' @template mindbh
-#' @param rounddown If TRUE, all dbh < 55 are rounded down to the nearest
-#'   multiple of 5.
+#' @template rounddown
 #' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
 #'   or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
 #' @param stdev Logical. Default (FALSE) returns confidence limits, otherwise

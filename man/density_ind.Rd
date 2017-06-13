@@ -45,10 +45,12 @@ density_ind.
 }
 \examples{
 \dontrun{
-wooddens=density_ind(df=bci::bci12full1,plot="bci",wsg=wsg.ctfs2)
-
-mean(wooddens,na.rm=TRUE)
-
-length(which(is.na(wooddens)))}
+wooddens = density_ind(df = bci::bci12full1,
+  plot = "bci",
+  wsg = wsg.ctfs2
+)
+mean(wooddens, na.rm = TRUE)
+length(which(is.na(wooddens)))
+}
 
 }
