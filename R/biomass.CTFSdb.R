@@ -47,6 +47,7 @@
 #' if the agb column was already present, it is replaced.
 #' 
 #' @template dbhunit
+#' @template plot
 #' 
 #' @examples
 #' \dontrun{
@@ -66,35 +67,45 @@
 #'
 #' @description
 #' Create a vector of wood density for each individual tree based on the species
-#' name and plot. The table of individuals, called df, must include a dbh and a
-#' species name, the latter named sp. There must be a table of wood density
-#' submitted (wsgdata), and this table must have a column sp with species names,
-#' a column plot, plus the wood density in a column called wsg (though the name
-#' of that column can be changed using the argument denscol). The CTFS
-#' wood-density table has this structure, but any table with those columns will
-#' work. If a species in the df table has a matching species name in the correct
-#' plot, its wood density is taken.
+#' name and plot. 
+#' 
+#' @param df The table of individuals; must include a dbh and a species name,
+#'   the latter named sp.
+#' @param wsgdata A table of wood density; this table must have columns:
+#'   - `sp` with species names, 
+#'   - `plot`;
+#'   - `wsg` the wood density (the name of this column can be changed using the
+#'   argument `denscol`). The CTFS wood-density table has this structure, but
+#'   any table with those columns will work. If a species in the df table has a
+#'   matching species name in the correct plot, its wood density is taken.
+#' @param denscol Name of the column in `wsgdata` containing wood density data.
 #'
+#' @details
 #' If a species is not found in the correct plot, then the mean wood density of
 #' all species in the same plot is taken. The function fails (returns only NAs)
 #' if there are no entries for the selected plot in the wood-density table.
 #'
-#' Returns a vector of wood density of the same size as the df table submitted. 
+#' @return
+#' A vector of wood density of the same size as the df table submitted. 
 #'
 #' If you need a dummy wood density table to feed the wsg argument see
-#' `?wsgdata_dummy()`.
+#' [wsgdata_dummy()].
 #' 
 #' @details 
 #' Name density.ind clashed with an S3 method, so it was replaced by
 #' density_ind.
 #' 
+#' @template plot
+#' 
 #' @examples
 #' \dontrun{
-#' wooddens=density_ind(df=bci::bci12full1,plot="bci",wsg=wsg.ctfs2)
-#'
-#' mean(wooddens,na.rm=TRUE)
-#'
-#' length(which(is.na(wooddens)))}
+#' wooddens = density_ind(df = bci::bci12full1,
+#'   plot = "bci",
+#'   wsg = wsg.ctfs2
+#' )
+#' mean(wooddens, na.rm = TRUE)
+#' length(which(is.na(wooddens)))
+#' }
 #'
 'density_ind'
 
@@ -105,7 +116,7 @@
 #' tropical forest types.
 #' 
 #' @inheritParams abundance
-#' @inheritParams CTFSplot
+#' @template plot
 #' @param df A table with dbh and species names
 #' @param wsgdata A wood-density table, see [density_ind()] and [wsgdata_dummy].
 #' @param forest A forest type (for most lowland tropical plots, the default
@@ -141,6 +152,7 @@
 #' submitted.
 #' 
 #' @inheritParams biomass.CTFSdb
+#' @template plot
 #' @param df The submitted table. Must have dbh, species name (sp), and a treeID
 #'   to identify which tree every stem belong to. There must be just one dbh for
 #'   each stem.
@@ -318,11 +330,9 @@
 #' and a column agb with biomass in tons. This is used in cases where biomass for a plot has been calculated separately, using a method other than one of
 #' the Chave allometric equations. The alternative AGB calculation is stored for each plot in this database. The name of the table matches the plot name. 
 #'
-#' df: A table of individual stems.
-#' plot: The plot name
+#' @template  plot
+#' @param df A table of individual stems.
 #'
-#'
-
 'AGB.dbtable'
 
 # Source code and original documentation ----------------------------

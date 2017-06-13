@@ -8,8 +8,8 @@ CTFSplot(plot, census = 1, type = "full", path = "CTFSRPackage",
   remove = FALSE, includespp = TRUE)
 }
 \arguments{
-\item{plot}{Name of plot as it appears in the names of the R Analytical
-Tables, in quote marks}
+\item{plot}{Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).}
 
 \item{census}{census numbers as they appear in the names of the R Analytical
 Tables; can be a vector}

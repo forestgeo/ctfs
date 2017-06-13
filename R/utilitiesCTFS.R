@@ -21,8 +21,7 @@
 #' for the three types of tables. The function 'attach_if_needed' is used, so
 #' there is no penalty to requesting a table that is already attached.
 #'
-#' @param plot Name of plot as it appears in the names of the R Analytical
-#'   Tables, in quote marks
+#' @template plot
 #' @param census census numbers as they appear in the names of the R Analytical
 #'   Tables; can be a vector
 #' @param type either full or stem, in quote marks

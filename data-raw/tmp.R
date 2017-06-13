@@ -70,9 +70,11 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 
-# xxxnext
-args_help("start")
-args_count_param("start")
+args_help("plot")
+args_count_param("plot")
+
+# xxxnext -----------------------------------------------------------------
+
 
 x %>% select(1) %>% unique()
 
