@@ -19,6 +19,9 @@ stem.}
 zero growth set to a mingrow, but with \code{logit = TRUE}, growth and dbh are
 not log-transformed.}
 
+\item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
+multiple of 5.}
+
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}

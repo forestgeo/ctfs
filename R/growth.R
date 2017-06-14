@@ -204,10 +204,14 @@
 #' For most plots, especially with stem tags, the default behavior means changes
 #' in stem allow changes in pom to be included in biomass growth.
 #' 
+#' @section Arguments details:
+#' - rounddown Unused.
+#' 
 #' @template mindbh
 #' @template dbhunit
 #' @template census1_census2
 #' @template maxgrow
+#' @template rounddown
 #'
 'growth.biomass.indiv'
 

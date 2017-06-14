@@ -22,6 +22,9 @@ included.}
 
 \item{maxgrow}{A number. Numbers such as 10000 are high and will return all
 measures.}
+
+\item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
+multiple of 5.}
 }
 \description{
 Like \code{\link[=growth.indiv]{growth.indiv()}} but based on agb growth, not dbh growth. Extreme growth
@@ -42,3 +45,10 @@ BCI lacks stem tags.
 For most plots, especially with stem tags, the default behavior means changes
 in stem allow changes in pom to be included in biomass growth.
 }
+\section{Arguments details}{
+
+\itemize{
+\item rounddown Unused.
+}
+}
+

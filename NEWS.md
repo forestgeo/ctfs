@@ -13,6 +13,8 @@ CONVENTIONS
 - `@section` Arguments details: 
 
     - Give details of arguments that are specific for the current function, and may better be kept separate to what is documented more generally via `@param`.
+    
+- Unused. Search this tag with shift + ctrl + F.
 
 TO AMEND SOURCE CODE
 
