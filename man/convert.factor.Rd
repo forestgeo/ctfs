@@ -13,6 +13,15 @@ convert.factor(r)
 Converts any character fields in a dataframe from factors to character
 fields.
 }
+\section{Reuse good code}{
+
+"The single biggest way to improve both the quality of your code and your 
+productivity is to reuse good code (...) Many algorithms have already been 
+invented, tested, discussed in the trade literature, reviewed, and improved". 
+
+--Code complete 2, by Steve McConnell.
+}
+
 \section{Alternative}{
 
 A more powerful and general alternative is \code{\link[dplyr:mutate_if]{dplyr::mutate_if()}}:\preformatted{lett <- letters[1:3]

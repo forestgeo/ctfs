@@ -63,7 +63,10 @@
 #' @description
 #'
 #' Rounds a numeric value to the next lowest multiple of 5.
-#'
+#' 
+#' @param s Passed to `x` in [base::floor()].
+#' 
+#' @seealso [base::floor()].
 #'
 'rndown5'
 

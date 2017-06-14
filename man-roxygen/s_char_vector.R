@@ -1,0 +1,1 @@
+#' @param s Character vector.

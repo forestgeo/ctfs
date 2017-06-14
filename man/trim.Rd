@@ -6,7 +6,39 @@
 \usage{
 trim(s)
 }
-\description{
-Trims leading and trailing blanks from a vector of character variables. Multibyte character strings are returned intact.
-(extended ascii in R appears as hex values).
+\arguments{
+\item{s}{Character vector.}
 }
+\description{
+Trims leading and trailing blanks from a vector of character variables.
+Multibyte character strings are returned intact. (extended ascii in R appears
+as hex values).
+}
+\section{Reuse good code}{
+
+"The single biggest way to improve both the quality of your code and your 
+productivity is to reuse good code (...) Many algorithms have already been 
+invented, tested, discussed in the trade literature, reviewed, and improved". 
+
+--Code complete 2, by Steve McConnell.
+}
+
+\section{Alternative}{
+
+A more powerful and general alternative is \code{\link[stringr:str_trim]{stringr::str_trim()}}:\preformatted{library(forestr)
+library(stringr)
+
+string <-  " hello   "
+
+# You can do the same.
+trim(string)
+#> [1] "hello"
+str_trim(string)
+#> [1] "hello"
+
+# And more.
+str_trim(string, "right")
+#> [1] " hello"
+}
+}
+

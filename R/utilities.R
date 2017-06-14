@@ -126,6 +126,7 @@
 #' 
 #' @param r A dataframe.
 #' 
+#' @template reuse_good_code
 #' @section Alternative:
 #' A more powerful and general alternative is [dplyr::mutate_if()]:
 #' ``` r
@@ -252,24 +253,48 @@
 #' Trims leading and trailing blanks from a vector of character variab...
 #'
 #' @description
-#'
-#' Trims leading and trailing blanks from a vector of character variables. Multibyte character strings are returned intact.
-#'(extended ascii in R appears as hex values).
-#'
+#' Trims leading and trailing blanks from a vector of character variables.
+#' Multibyte character strings are returned intact. (extended ascii in R appears
+#' as hex values).
+#' 
+#' @template reuse_good_code
+#' @section Alternative:
+#' A more powerful and general alternative is [stringr::str_trim()]:
+#' ``` r
+#' library(forestr)
+#' library(stringr)
+#' 
+#' string <-  " hello   "
+#' 
+#' # You can do the same.
+#' trim(string)
+#' #> [1] "hello"
+#' str_trim(string)
+#' #> [1] "hello"
+#' 
+#' # And more.
+#' str_trim(string, "right")
+#' #> [1] " hello"
+#' ```
+#' 
+#' @template s_char_vector
 #'
 'trim'
 
 #'
-#' Converts a character string into a vector of individual characters....
+#' Converts a character string into a vector of individual characters.
 #'
 #' @description
-#'
 #' Converts a character string into a vector of individual characters.
+#' 
+#' @param s Passed to `x` in [base::substr()].
+#' 
+#' @seealso [base::substr()].
 #'
 #' @examples
 #' \dontrun{
-#'
-#' StringToVect('anystring')}
+#' StringToVect('anystring')
+#' }
 #'
 #'
 'StringToVect'
@@ -288,21 +313,47 @@
 #'
 'charlocate'
 
-#' A standard left function. Returns the leftmost n characters of a st...
+#' Leftmost n characters of a string.
 #'
 #' @description
+#' A standard left function. 
+#' 
+#' @return 
+#' The leftmost n characters of a string.
+#' 
+#' 
+#' @template s_char_vector
+#' @param n Scalar of vector of the same lenght as `s`. If n < 0, returns all
+#'   except the rightmost n. If n == 0, returns an empty string.
 #'
-#' A standard left function. Returns the leftmost n characters of a string. If n<0, returns all except the rightmost n. If n==0, returns an
-#' empty string. Arguments can be vectors, but both must be the same length, or n can be a scalar.
-#'
-#'
+#' @template reuse_good_code
+#' @section Alternative:
+#' A more powerful and general alternative is [stringr::str_sub()]:
+#' ``` r
+#' library(stringr)
+#' library(forestr)
+#' string <- c("abcdefg", "abcdefg", "abcdefg")
+#' # You can do the same
+#' stringr::str_sub(string, end = 2)
+#' #> [1] "ab" "ab" "ab"
+#' left(string, n = 2)
+#' #> [1] "ab" "ab" "ab"
+#' 
+#' # But you can also do more
+#' stringr::str_sub(string, start= 2, end = 4)
+#' #> [1] "bcd" "bcd" "bcd"
+#' ```
+#' 
 'left'
 
-#' Returns the leftmost characters of a string, excluding the last n.l...
+#' Returns the leftmost characters of a string, excluding the last n.
 #'
 #' @description
-#'
 #' Returns the leftmost characters of a string, excluding the last n.
+#' 
+#' @inheritParams left
+#' 
+#' @seealso [left()], [stringr::str_sub()].
 #'
 #'
 'leftbut'
@@ -310,18 +361,22 @@
 #' Returns the rightmost n characters of a stringright rightbut  Retur...
 #'
 #' @description
+#' Returns the rightmost n characters of a string.
 #'
-#' Returns the rightmost n characters of a string
-#'
+#' @inheritParams left
+#' 
+#' @seealso [left()], [stringr::str_sub()].
 #'
 'right'
 
-#' Returns the rightmost characters of a string, excluding the initial...
-#'
-#' @description
-#'
 #' Returns the rightmost characters of a string, excluding the initial n.
 #'
+#' @description
+#' Returns the rightmost characters of a string, excluding the initial n.
+#' 
+#' @inheritParams left
+#' 
+#' @seealso [left()], [stringr::str_sub()].
 #'
 'rightbut'
 

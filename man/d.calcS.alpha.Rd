@@ -2,10 +2,13 @@
 % Please edit documentation in R/calcalpha.R
 \name{d.calcS.alpha}
 \alias{d.calcS.alpha}
-\title{The derivative for use in Newtons methodd.calcS.alpha calcS.alpha  ...}
+\title{The derivative for use in Newtons methodd.}
 \usage{
 d.calcS.alpha(a, n, s)
 }
 \description{
 The derivative for use in Newton's method
+}
+\seealso{
+\code{\link[=calcalpha]{calcalpha()}}.
 }
