@@ -80,7 +80,37 @@ x %>% select(1) %>% unique()
 
 
 
+# Common errors -----------------------------------------------------------
 
+
+
+
+censdata = bci::12bci12full1
+splitcol = "sp"
+keepsplitcol = FALSE
+allsplit = NULL
+showOutput = NULL
+
+output=list()
+
+split=censdata[ ,splitcol]
+
+# Alternatives
+
+# assume data is a single variable, and directly pull into a vector
+split=censdata[ ,splitcol][[1]]
+
+# check first that data is a single variable, then pull into vector
+is_single_vector <- dim(split)[2] == 1
+if(is_single_vector) {
+  split <- split[[1]]
+}
+
+# xxxcont now check where else the problem arised in tests. Is it always via split_data?
+
+
+split=as.data.frame(censdata)[ ,splitcol]
+split=as.data.frame(censdata)[ ,splitcol]
 
 
 
