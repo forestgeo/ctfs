@@ -47,8 +47,7 @@
 #' @inheritParams trim.growth
 #' @template census1_census2
 #' @template mindbh
-#' @param rounddown If TRUE, all dbh < 55 are rounded down to the nearest
-#'   multiple of 5.
+#' @template rounddown
 #' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
 #'   or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
 #' @param stdev Logical. Default (FALSE) returns confidence limits, otherwise
@@ -169,8 +168,7 @@
 #' @template mindbh
 #' @template dbhunit
 #' @template maxgrow
-#' @param err.limit A number. Numbers such as 10000 are high and will return all
-#'   measures.
+#' @template err_limit
 #' @param pomcut A number. To include POM changes, set it to a high number, such
 #'   as 10.
 #' @param exclude.stem.change Logical. FALSE includes cases where stemID 
@@ -205,10 +203,15 @@
 #' For most plots, especially with stem tags, the default behavior means changes
 #' in stem allow changes in pom to be included in biomass growth.
 #' 
+#' @section Arguments details:
+#' - rounddown Unused.
+#' 
 #' @template mindbh
 #' @template dbhunit
 #' @template census1_census2
 #' @template maxgrow
+#' @template rounddown
+#' @template err_limit
 #'
 'growth.biomass.indiv'
 

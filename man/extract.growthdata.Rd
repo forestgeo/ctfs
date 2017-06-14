@@ -19,11 +19,17 @@ stem.}
 zero growth set to a mingrow, but with \code{logit = TRUE}, growth and dbh are
 not log-transformed.}
 
+\item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
+multiple of 5.}
+
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
+
+\item{err.limit}{A number. Numbers such as 10000 are high and will return all
+measures.}
 
 \item{maxgrow}{A number. Numbers such as 10000 are high and will return all
 measures.}

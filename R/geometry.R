@@ -38,45 +38,55 @@
 #'
 'xydistmat'
 
-#' Distance from a point to a line (so its the perpendicular distance)...
+#' Distance from a point to a line (so its the perpendicular distance).
 #'
 #' @description
-#'
-#' Distance from a point to a line (so it's the perpendicular distance);
-#' m and b are slope and intercept; x and y are coordinates. If both b,m and x,y are vectors, they must all be same length.
-#'
-#' Note check for infinite slope, meaning that the intercept b is the x-intercept.
-#'
-#'<display>true
-#'<update>true
-#' b: y-intercept
-#' m: line slope
-#'
-#'
-#' Find distance from a pt (x then y coords) to a line segment given as start and end points. Either x, y or end points can be vectors, but not both.
-#'
-#' It first finds perpendicular distance, then distance to each end point, and returns the minimum. 
-#'
+#' Distance from a point to a line (so it's the perpendicular distance).
+#' 
+#' @details 
+#' Find distance from a pt (x then y coords) to a line segment given as start
+#' and end points. Either x, y or end points can be vectors, but not both.
+#' 
+#' It first finds perpendicular distance, then distance to each end point, and
+#' returns the minimum.
+#' 
+#' @section Arguments details:
+#' If both `b, m` and `x, y` are vectors, they must all be same length.
+#' 
+#' Note check for infinite slope, meaning that the intercept b is the
+#' x-intercept.
+#' 
+#' @template b_intercept
+#' @template m_slope
+#' @template x_coordinates
+#' @template y_coordinates
 #'
 'perpendicular.distance'
 
-#' Finds the slope and intercept of the line perpendicular to a line w...
+#' Slope and intercept of the line perpendicular to another known line.
 #'
 #' @description
-#'
-#' Finds the slope and intercept of the line perpendicular to a line whose slope and intercept are given, 
-#' through the points x,y. Either x and y can be vectors, or b and m can be vectors, or if all are vectors, must be same length. 
-#'
+#' Finds the slope and intercept of the line perpendicular to a line whose slope
+#' and intercept are given, through the points x,y. 
+#' 
+#' @section Arguments details:
+#' Either `x` and `y` can be vectors, or `b` and `m` can be vectors, or if all
+#' are vectors, must be same length.
+#' 
+#' @template b_intercept
+#' @template m_slope
 #'
 'perpendicular.line'
 
-#' Finds the slope and intercept of the line parallel to a line whose ...
+#' Slope and intercept of a line parallel to another known line.
 #'
 #' @description
-#'
-#' Finds the slope and intercept of the line parallel to a line whose slope and intercept are given, 
-#' through the points x,y. Note that the intercept is not needed. For any m that are infinite, the intercept is x.
-#'
+#' Finds the slope and intercept of the line parallel to a line whose slope and 
+#' intercept are given, through the points `x, y`. Note that the intercept is
+#' not needed. For any `m` that are infinite, the intercept is `x`.
+#' 
+#' @template b_intercept
+#' @template m_slope
 #'
 'parallel.line'
 
@@ -96,10 +106,23 @@
 #' Finds the points where a straight line, given lines as intercept b ...
 #'
 #' @description
+#' Finds the points where a straight line, given lines as intercept b then slope
+#' m, intersects with a curve defined by a sequence of segments.
+#' 
+#' Intersections must be found for the line with every segment, then every one
+#' checked with is.between.
+#' 
+#' @section Arguments details:
+#' - `b, m` Must be atomic.
 #'
-#' Finds the points where a straight line, given lines as intercept b then slope m, intersects with a curve defined by a sequence of segments. Intersections must be found for the line with every segment, then every one checked with is.between. The intersections are returned as a dataframe of x, y coordinates. The b and m must be atomic. The curve must be a dataframe with columns x, y (or capital X, Y). 
-#' having any number of segments.
-#'
+#' @template b_intercept
+#' @template m_slope
+#' @param curve Curve defined by a sequence of segments. Must be a dataframe
+#'   with columns x, y (or capital X, Y). having any number of segments.
+#' 
+#' @return
+#' The intersections are returned as a dataframe of x, y
+#' coordinates. 
 #'
 'intersection.line.curve'
 

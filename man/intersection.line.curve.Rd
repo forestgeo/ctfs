@@ -6,7 +6,29 @@
 \usage{
 intersection.line.curve(b, m, curve)
 }
-\description{
-Finds the points where a straight line, given lines as intercept b then slope m, intersects with a curve defined by a sequence of segments. Intersections must be found for the line with every segment, then every one checked with is.between. The intersections are returned as a dataframe of x, y coordinates. The b and m must be atomic. The curve must be a dataframe with columns x, y (or capital X, Y).
-having any number of segments.
+\arguments{
+\item{b}{Intercept.}
+
+\item{m}{Slope.}
+
+\item{curve}{Curve defined by a sequence of segments. Must be a dataframe
+with columns x, y (or capital X, Y). having any number of segments.}
 }
+\value{
+The intersections are returned as a dataframe of x, y
+coordinates.
+}
+\description{
+Finds the points where a straight line, given lines as intercept b then slope
+m, intersects with a curve defined by a sequence of segments.
+
+Intersections must be found for the line with every segment, then every one
+checked with is.between.
+}
+\section{Arguments details}{
+
+\itemize{
+\item \code{b, m} Must be atomic.
+}
+}
+

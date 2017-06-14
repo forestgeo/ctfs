@@ -22,7 +22,7 @@
 #'
 #' Optionally, a table demog can be created separately and submitted. It must
 #' have columns N1, N2, S, time.
-#'
+#' 
 #' @template mindbh
 #' @template debug
 #' @template modeltype
@@ -181,12 +181,13 @@
 #' @description
 #' Run [model.littleR.Gibbs()] for a series of census databases, for every
 #' successive pair, then the first to the last. Then repeat for 10 times the
-#' initial mindbh. All arguments except allcns are the same as those in
-#' model.littleR.Gibbs; allcns is a list of two more more census dataframes.
+#' initial mindbh.
 #' 
+#' @inheritParams model.littleR.Gibbs
 #' @template allcns
-#' @template mindbh
-#' @template debug
+#' @template start
+#' 
+#' @seealso [model.littleR.Gibbs()].
 #'
 'fitSeveralAbundModel'
 

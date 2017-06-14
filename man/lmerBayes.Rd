@@ -21,9 +21,8 @@ character variable.}
 \item{xcol, ycol}{Chareacter string giving the name of a column in `data` that
 holds the x and y (numeric) variable.}
 
-\item{start}{Starting parameter values, either a vector with as many
-parameters as the model needs, or a matrix of such vectors, one per random
-effect}
+\item{start}{A vector giving the starting set of parameters for the model. It
+must be as long as the number of parameters required by the model.}
 
 \item{startSD}{A single starting value for the residual standard deviation,
 only used with Gaussian and Negative Binomial error models.}
@@ -183,6 +182,14 @@ Further details are given in the description of all the arguments and the
 sample here, plus a tutorial on \href{https://goo.gl/KGJYQe}{Mortality changes}
 offers a worked example.
 }
+\section{Arguments description}{
+
+\itemize{
+\item \code{start} Apart from a vector, it can be a matrix of such vectors, one per
+random effect.
+}
+}
+
 \examples{
 \dontrun{
 # Assume two plot datasets from BCI are available, bci::bci12full6 and

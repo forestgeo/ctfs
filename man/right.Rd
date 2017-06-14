@@ -6,6 +6,15 @@
 \usage{
 right(s, n, bytetype = "bytes")
 }
+\arguments{
+\item{s}{Character vector.}
+
+\item{n}{Scalar of vector of the same lenght as \code{s}. If n < 0, returns all
+except the rightmost n. If n == 0, returns an empty string.}
+}
 \description{
-Returns the rightmost n characters of a string
+Returns the rightmost n characters of a string.
+}
+\seealso{
+\code{\link[=left]{left()}}, \code{\link[stringr:str_sub]{stringr::str_sub()}}.
 }

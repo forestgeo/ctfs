@@ -13,6 +13,9 @@ to identify which tree every stem belong to. There must be just one dbh for
 each stem.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
+
+\item{plot}{Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).}
 }
 \value{
 Adataframe with one row per tree, including the treeID and

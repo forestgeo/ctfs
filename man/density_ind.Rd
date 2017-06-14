@@ -6,36 +6,51 @@
 \usage{
 density_ind(df, plot, wsgdata, denscol = "wsg")
 }
+\arguments{
+\item{df}{The table of individuals; must include a dbh and a species name,
+the latter named sp.}
+
+\item{plot}{Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).}
+
+\item{wsgdata}{A table of wood density; this table must have columns:
+\itemize{
+\item \code{sp} with species names,
+\item \code{plot};
+\item \code{wsg} the wood density (the name of this column can be changed using the
+argument \code{denscol}). The CTFS wood-density table has this structure, but
+any table with those columns will work. If a species in the df table has a
+matching species name in the correct plot, its wood density is taken.
+}}
+
+\item{denscol}{Name of the column in \code{wsgdata} containing wood density data.}
+}
+\value{
+A vector of wood density of the same size as the df table submitted.
+
+If you need a dummy wood density table to feed the wsg argument see
+\code{\link[=wsgdata_dummy]{wsgdata_dummy()}}.
+}
 \description{
 Create a vector of wood density for each individual tree based on the species
-name and plot. The table of individuals, called df, must include a dbh and a
-species name, the latter named sp. There must be a table of wood density
-submitted (wsgdata), and this table must have a column sp with species names,
-a column plot, plus the wood density in a column called wsg (though the name
-of that column can be changed using the argument denscol). The CTFS
-wood-density table has this structure, but any table with those columns will
-work. If a species in the df table has a matching species name in the correct
-plot, its wood density is taken.
-
+name and plot.
+}
+\details{
 If a species is not found in the correct plot, then the mean wood density of
 all species in the same plot is taken. The function fails (returns only NAs)
 if there are no entries for the selected plot in the wood-density table.
 
-Returns a vector of wood density of the same size as the df table submitted.
-
-If you need a dummy wood density table to feed the wsg argument see
-\code{?wsgdata_dummy()}.
-}
-\details{
 Name density.ind clashed with an S3 method, so it was replaced by
 density_ind.
 }
 \examples{
 \dontrun{
-wooddens=density_ind(df=bci::bci12full1,plot="bci",wsg=wsg.ctfs2)
-
-mean(wooddens,na.rm=TRUE)
-
-length(which(is.na(wooddens)))}
+wooddens = density_ind(df = bci::bci12full1,
+  plot = "bci",
+  wsg = wsg.ctfs2
+)
+mean(wooddens, na.rm = TRUE)
+length(which(is.na(wooddens)))
+}
 
 }

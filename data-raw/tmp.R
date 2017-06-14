@@ -47,15 +47,23 @@ avoid <- c(
   "clr",  # all done
   "debug",  # done
   "debunit",  # done
+  "err.limit",  # done
   "fit",  # done
   "graphit",  # done
   "gridsize",  # done
   "lambda",  # done
+  "m",  # done
   "mindbh",  # done
+  "N",  # done
   "outfile",  # done
+  "plot",  # done
   "plotdim",  # done
   "pts",  # done some, others vary.
+  "r",  # done
+  "rounddown",  # done
+  "start",  # done
   "w",
+  "z",  # done
   
   # SKIP FOR NOW
   "div",
@@ -70,9 +78,11 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 
-# xxxnext
-args_help("start")
-args_count_param("start")
+# xxxnext -----------------------------------------------------------------
+args_help("s")
+args_count_param("s")
+
+
 
 x %>% select(1) %>% unique()
 

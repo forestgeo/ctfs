@@ -377,11 +377,11 @@
 #' is no step-size thus no adjustment.
 'metrop1step.discrete'
 
-#' For testing mcmc1step. No longer used.testmcmcfunc CI  Confidence l...
-#'
+#' Deprecated. Test mcmc1step.
+#' 
 #' @description
-#'
 #' For testing mcmc1step. No longer used.
+#' 
 'testmcmcfunc'
 
 #'

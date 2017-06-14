@@ -2,21 +2,26 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{growth.flexbin}
 \alias{growth.flexbin}
-\title{Fitting a regression line through log growth against log dbh, binni...}
+\title{Fit a regression line through log growth against log dbh, binning on dbh.}
 \usage{
 growth.flexbin(growthtable, sizecol = "dbh", nobin = 2, start = NULL,
   startsd = NULL, sdmodel = linear.model.ctr, badsdfunc = NULL,
   method = "Gibbs", rep = 1200, show = 100, burn = 200, ...)
 }
 \arguments{
+\item{growthtable}{A table with 2 columns, one named \code{size} (ie, dbh), other
+\code{growth}.}
+
+\item{method}{If \code{method = "Gibbs"}, runs the Gibbs sampler starting with a
+set of parameters found by \code{\link[stats:optim]{stats::optim()}}.}
+
 \item{...}{Conditionally passed to a number of functions; see function
 definition.}
 }
 \description{
 Fitting a regression line through log growth against log dbh, binning on dbh.
-Growth table has 2 columns, one named size (ie, dbh), other growth. The
-function now calls optim first to find a set of parameters, then, if Gibbs is
-selected, runs the Gibbs sampler starting with those parameters. Since optim
-fails if the initial likelihood is -Inf, it became necessary to check the
-parameters with bad.binparam before running.
+}
+\details{
+Since \code{\link[stats:optim]{stats::optim()}} fails if the initial likelihood is -Inf, it became
+necessary to check the parameters with \code{\link[=bad.binparam]{bad.binparam()}} before running.
 }

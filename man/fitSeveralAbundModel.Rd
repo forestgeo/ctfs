@@ -17,11 +17,39 @@ fitSeveralAbundModel(allcns = list(bci.full1, bci.full2, bci.full3),
 smaller than `mindbh` are excluded. If `NULL`, all living trees are
 included.}
 
+\item{abundrange}{the default includes every species, but this can be set to
+a minimum and maximum abundance (first census); species with abundances
+outside the range are excluded}
+
+\item{start}{A vector giving the starting set of parameters for the model. It
+must be as long as the number of parameters required by the model.}
+
+\item{modeltype}{Functional forms to fit to the distribution; it can be:
+* Gaussian `modeltype = "norm"`, with the quotes
+* Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) `modeltype = "asymnorm"`, with the quotes
+* Laplace (exponential distribution, with mirror image for negative values)
+`modeltype = "symexp"`, with the quotes
+* Asymmetric Laplace (different rate constant for left and right of the
+center) `modeltype = "asymexp"`, with the quotes
+* Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.}
+
+\item{bad.modelparam}{name of a function which checks the model parameters
+for bad values; for modeltype asymexp, must be bad.asymexp.param, for
+modeltype asympower, must be bad.asympower.param}
+
+\item{steps}{The number of steps to run the Gibbs sampler.}
+
+\item{burn}{number of steps of sampler to exclude as burn-in}
+
 \item{debug}{Logical. If TRUE, call browser to debug.}
 }
 \description{
 Run \code{\link[=model.littleR.Gibbs]{model.littleR.Gibbs()}} for a series of census databases, for every
 successive pair, then the first to the last. Then repeat for 10 times the
-initial mindbh. All arguments except allcns are the same as those in
-model.littleR.Gibbs; allcns is a list of two more more census dataframes.
+initial mindbh.
+}
+\seealso{
+\code{\link[=model.littleR.Gibbs]{model.littleR.Gibbs()}}.
 }

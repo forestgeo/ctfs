@@ -8,6 +8,8 @@ dgammaMinusdexp(z, mean, sd, lambda, draws = 10000, div = 0.01,
   xrange = c(0, 25), xmax = 4, graphit = F)
 }
 \arguments{
+\item{z}{A numeric vector.}
+
 \item{mean, sd}{The mean and sd of the gamma.}
 
 \item{lambda}{Rate of the exponential.}

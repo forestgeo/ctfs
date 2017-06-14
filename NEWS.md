@@ -2,33 +2,47 @@
 
 ## 2017-06-05 (week starting on)
 
-DONE
+### DONE
+
+- Deprecate `is.leap()`; recommend `lubridate::leap_year()`.
 
 - Refer to BCI data using new names, replacing old names (e.g. bci.full1 by bci::bci12full1).
 
 CONVENTIONS
 
-- `@section` Arguments details: 
+### New sections:
 
-    - Give details of arguments that are specific for the current function, and may better be kept separate to what is documented more generally via `@param`.
+#### Reuse good code, and Alternative
 
-TO AMEND SOURCE CODE
+To direct users to better alternatives:
 
-- Refactor code to remove unused arguments:
+via `@template reuse_good_code`, add:
 
-```R
-#' @param ... Unused.
-```
+"The single biggest way to improve both the quality of your code and your productivity is to reuse good code (...) Many algorithms have already been invented, tested, discussed in the trade literature, reviewed, and improved". 
 
-- Use tag xxx_amend_source to tag source code that needs work. Find these tags with `shift + f`.
+--Code complete 2, by Steve McConnell.
 
+Then, show a better alternative via section __Alternative_. For examples see `left()`, `convert.factor()`.
 
+#### Arguments details
 
-TO AMEND DOCUMENTATION
+Gives details of arguments that are specific for the current function, and may better be kept separate to what is documented more generally via `@param`, which can be reused via `@template` or `@inheritParams`).
 
-- Use tag xxx_amend_doc to tag documentation that I need to amend later. Find these tags with `shift + f`.
+### New tags:
 
-- Use tag xxxdocparam to tag arguments that need to be documented. They are discoverable with find_xxxdocparam()
+Find these tags with `shift + f`
+
+SOURCE CODE
+
+- __Unused.__ To tag unused arguments. Search this tag with shift + ctrl + F.
+
+- __xxx_amend_source__ To tag source code that needs work.
+
+DOCUMENTATION
+
+- __xxx_amend_doc__ To tag documentation that I need to amend later. Find these tags with `shift + f`.
+
+- __xxxdocparam__ To tag arguments that need to be documented. They are discoverable with find_xxxdocparam()
 
 
 XXX END OF NOT REPORTED WORK

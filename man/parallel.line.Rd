@@ -2,11 +2,17 @@
 % Please edit documentation in R/geometry.R
 \name{parallel.line}
 \alias{parallel.line}
-\title{Finds the slope and intercept of the line parallel to a line whose ...}
+\title{Slope and intercept of a line parallel to another known line.}
 \usage{
 parallel.line(b, m, x, y)
 }
+\arguments{
+\item{b}{Intercept.}
+
+\item{m}{Slope.}
+}
 \description{
-Finds the slope and intercept of the line parallel to a line whose slope and intercept are given,
-through the points x,y. Note that the intercept is not needed. For any m that are infinite, the intercept is x.
+Finds the slope and intercept of the line parallel to a line whose slope and
+intercept are given, through the points \code{x, y}. Note that the intercept is
+not needed. For any \code{m} that are infinite, the intercept is \code{x}.
 }
