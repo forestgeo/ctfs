@@ -168,8 +168,7 @@
 #' @template mindbh
 #' @template dbhunit
 #' @template maxgrow
-#' @param err.limit A number. Numbers such as 10000 are high and will return all
-#'   measures.
+#' @template err_limit
 #' @param pomcut A number. To include POM changes, set it to a high number, such
 #'   as 10.
 #' @param exclude.stem.change Logical. FALSE includes cases where stemID 
@@ -212,6 +211,7 @@
 #' @template census1_census2
 #' @template maxgrow
 #' @template rounddown
+#' @template err_limit
 #'
 'growth.biomass.indiv'
 

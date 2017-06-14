@@ -57,6 +57,7 @@ avoid <- c(
   "plotdim",  # done
   "pts",  # done some, others vary.
   "r",  # done
+  "rounddown",  # done
   "start",  # done
   "w",
   "z",  # done
@@ -75,8 +76,8 @@ print(x, n = x$frml_n[[1]])
 
 
 # xxxnext -----------------------------------------------------------------
-args_help("rounddown")
-args_count_param("rounddown")
+args_help("err.limit")
+args_count_param("err.limit")
 
 
 

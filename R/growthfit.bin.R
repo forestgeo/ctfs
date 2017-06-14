@@ -15,6 +15,7 @@
 #' @template census1_census2
 #' @template maxgrow
 #' @template rounddown
+#' @template err_limit
 #' @param logit Defaults to return log-transformed growth, with negative and
 #'   zero growth set to a mingrow, but with `logit = TRUE`, growth and dbh are
 #'   not log-transformed.
