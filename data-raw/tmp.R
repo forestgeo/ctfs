@@ -47,11 +47,14 @@ avoid <- c(
   "clr",  # all done
   "debug",  # done
   "debunit",  # done
+  "err.limit",  # done
   "fit",  # done
   "graphit",  # done
   "gridsize",  # done
   "lambda",  # done
+  "m",  # done
   "mindbh",  # done
+  "N",  # done
   "outfile",  # done
   "plot",  # done
   "plotdim",  # done
@@ -76,8 +79,8 @@ print(x, n = x$frml_n[[1]])
 
 
 # xxxnext -----------------------------------------------------------------
-args_help("err.limit")
-args_count_param("err.limit")
+args_help("s")
+args_count_param("s")
 
 
 

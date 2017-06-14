@@ -374,14 +374,15 @@
 #'
 'dbinomrev'
 
-#' This reverses the order of parameters to dnorm, so that outer can b...
+#' Reverse the order of parameters to dnorm.
 #'
 #' @description
-#'
 #' This reverses the order of parameters to dnorm, so that outer can be used
 #' with a vector of x, and two vectors for mean and sd (the latter two equal in
-#' length). 
-#'
+#' length).
+#' 
+#' @param m,x,s Passed to `mean`, `x` and `sd` in [dnorm()].
+#' @seealso [dnorm()].
 #'
 'dnormrev'
 

@@ -2,22 +2,34 @@
 % Please edit documentation in R/geometry.R
 \name{perpendicular.distance}
 \alias{perpendicular.distance}
-\title{Distance from a point to a line (so its the perpendicular distance)...}
+\title{Distance from a point to a line (so its the perpendicular distance).}
 \usage{
 perpendicular.distance(b, m, x, y)
 }
-\description{
-Distance from a point to a line (so it's the perpendicular distance);
-m and b are slope and intercept; x and y are coordinates. If both b,m and x,y are vectors, they must all be same length.
+\arguments{
+\item{b}{Intercept.}
 
-Note check for infinite slope, meaning that the intercept b is the x-intercept.
+\item{m}{Slope.}
 
-<display>true
-<update>true
-b: y-intercept
-m: line slope
+\item{x}{Coordinates.}
 
-Find distance from a pt (x then y coords) to a line segment given as start and end points. Either x, y or end points can be vectors, but not both.
-
-It first finds perpendicular distance, then distance to each end point, and returns the minimum.
+\item{y}{Coordinates.}
 }
+\description{
+Distance from a point to a line (so it's the perpendicular distance).
+}
+\details{
+Find distance from a pt (x then y coords) to a line segment given as start
+and end points. Either x, y or end points can be vectors, but not both.
+
+It first finds perpendicular distance, then distance to each end point, and
+returns the minimum.
+}
+\section{Arguments details}{
+
+If both \code{b, m} and \code{x, y} are vectors, they must all be same length.
+
+Note check for infinite slope, meaning that the intercept b is the
+x-intercept.
+}
+

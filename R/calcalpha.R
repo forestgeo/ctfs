@@ -10,6 +10,8 @@
 #'
 #' Calculates alpha from a stem and species count submitted using Newton's method.
 #'
+#' @template n_stem Stem count.
+#' @template s_species Species count.
 #'
 'calcalpha'
 
