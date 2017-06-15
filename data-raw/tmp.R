@@ -91,6 +91,59 @@ x %>% select(1) %>% unique()
 
 
 
+
+# Dates -------------------------------------------------------------------
+
+library(lubridate)
+
+
+
+ddays(18286.97)
+
+
+seven %>%
+  select(date) %>% 
+  mutate(
+    days = date %/% 1,
+    days_ = date %% 1,
+    hr = (days_ * 24) %/% 1,
+    hr_ = (days_ * 24) %% 1,
+    min = (hr_ * 60) %/% 1,
+    min_ = (hr_ * 60) %% 1,
+    sec = (min_ * 60) %/% 1,
+    sec_ = (min_ * 60) %% 1,
+    days_ = NULL,
+    hr_ = NULL,
+    min_ = NULL,
+    sec_ = NULL,
+    duration = duration(hour = hr, minute = min, second = sec),
+    hours = dhours(hr)
+  ) %>% 
+  head()
+
+seven %>% 
+  as_tibble() %>% 
+  select(date) %>% 
+  mutate(
+    # integer diviison to remove fraction of seconds
+    duration = dseconds((date * 24 * 60 * 60) %/% 1),
+    datetime = as_datetime(duration, origin = "1960-01-01")
+    ) %>% 
+  head()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Unclassified ------------------------------------------------------------
 
 # work on plotdim

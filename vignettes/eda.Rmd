@@ -28,18 +28,11 @@ We will use data from Barro Colorado Island (DOI: https://doi.org/10.5479/data.b
 
 ```{r packages}
 # To install packages see ?install.packages and ?devtools::install_github
-library(bci)      # to access data of forest dynamics from BCI
+library(bci)  # to access data of forest dynamics from BCI
 library(forestr)  # to analyse forest dynamics
 library(ggplot2)  # to visualize data
-library(dplyr)    # to transform data
-
-# Handle and print large data nicely *xxx
-library(tibble)
-bci12full7 <- tibble::as_tibble(bci12full7)
-# *xxx Note: If you get this error message:
-# "Can't use matrix or array for column indexing"
-# watch for problematic interaction with legacy code (https://goo.gl/g7rg2P)
-# and try solve it by with as.data.frame().
+library(dplyr)  # to transform data
+library(tibble)  # to handle large data easier
 ```
 
 #### R for Data Science
@@ -90,8 +83,44 @@ Every variable varies with a particular pattern, and that pattern may be insight
 The BCI data has both, categorical and continuous variables, for example, most variables of type <chr> (character) and <dbl> below.
 
 ```{r}
-glimpse(bci12full7)
+seven <- bci12full7  # give the data a clearer and more memorable name
+
+# Tibbles print better than dataframes
+seven <- as_tibble(seven)
+seven
+# Another view; like str() but shows as much data as possible
+glimpse(seven)
 ```
+
+
+#### Working with dates
+
+xxx replace data for some that is easier to work with.
+
+__xxx maybe move this subsection for after the eda has been covered with easier-to-work data. Here, I may choose another variable to work with, e.g. dbh. Latter, this section's purpose would be to show how to deal with dates. For this, I could follow the `lubridate` section of r4ds.__
+
+The variable `date` is the number of days since 1960-01-01 (see data dictionary at https://goo.gl/Q6XYrb), but it will be easier to interpret if we convert it to a date-time object (see `?lubridate::as_datetime`).
+
+```{r}
+library(lubridate)
+
+# "Duration" is a useful intermediate; learn more with ?lubridate::duration
+# %/%: integere diviison removes useless and annoying fraction of seconds.
+seven <- mutate(seven, duration = dseconds((date * 24 * 60 * 60) %/% 1))
+seven <- mutate(seven, datetime = as_datetime(duration, origin = "1960-01-01"))
+seven %>% 
+  select(date, datetime) %>%
+  print(n = 20)  # print some more rows than tibble's default
+```
+
+```{r}
+seven$date <- lubridate::as_date(seven$date, origin = "1960-01-01")
+seven %>% 
+  select(date) %>% 
+  glimpse()
+```
+
+
 
 #### Visualizing distributions
 
@@ -102,15 +131,14 @@ glimpse(bci12full7)
 > To examine the distribution of a categorical variable, use a bar chart.
 
 ```{r, fig.cap="Values distribution of the categorical variable `status`"}
-ggplot(data = bci12full7) +
-  geom_bar(mapping = aes(x = DFstatus))
+ggplot(seven) +
+  geom_bar(aes(x = DFstatus))
 ```
 
 You can compute the same count manually with `dplyr::count()`:
 
 ```{r}
-bci12full7 %>% 
-  count(DFstatus)
+count(seven, DFstatus)
 ```
 
 ##### Continuous variables
@@ -120,30 +148,64 @@ bci12full7 %>%
 > To examine the distribution of a continuous variable use a histogram.
 
 ```{r}
-ggplot(data = bci12full7) +
-  geom_histogram(mapping = aes(x = date), binwidth = 20)
+barwidth <- 10  # set once, then use multiple times
+
+ggplot(seven) +
+  geom_histogram(aes(x = date), binwidth = barwidth)
 ```
 
 You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
 
 ```{r}
-bci12full7 %>% 
-  mutate(date = cut_width(date, width = 20)) %>% 
-  count(date)
+seven %>% 
+  mutate(date = cut_width(date, width = barwidth)) %>% 
+  count(date) %>% 
+  tail()
+```
+
+```{r, echo=FALSE}
+nas_cnt <- seven %>% 
+  mutate(date = cut_width(date, width = barwidth)) %>% 
+  count(date) %>% 
+  dplyr::filter(is.na(date)) %>% 
+  pull(n)
+```
+
+The `r nas_cnt` `NA` indicate dates where no trees where recorded (notice `DF status` = `"no_record"` on the bar chart above). The same we see from a histogram with narrower bars.
+
+```{r}
+ggplot(seven) +
+  geom_histogram(aes(x = date), binwidth = 1)
 ```
 
 > You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.
 
 To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars:
 
-
 ```{r, fig.cap="Lines overlaid are easier to understand than bars."}
-ggplot(data = bci12full7) +
-  geom_freqpoly(mapping = aes(x = date, color = DFstatus), binwidth = 20)
+ggplot(seven) +
+  geom_freqpoly(aes(x = date, color = DFstatus), binwidth = barwidth)
 ```
 
 
 #### Typical values
+
+In both bar charts and histograms, tall and short bars let us explore common and less-common values. Now we can ask:
+
+> - Which values are the most common? Why?
+
+> - Which values are rare? Why? Does that match your expectations?
+
+> - Can you see any unusual patterns? What might explain them?
+
+
+```{r}
+ggplot(seven) +
+  geom_histogram(aes(x = dbh), binwidth = 50)
+```
+
+
+
 
 xxxcont.
 
@@ -152,15 +214,16 @@ xxxcont.
 
 
 
+
+
+# Leftovers
+
+## skimr
+
 ```{r}
 library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
-skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
+skim(seven) %>% filter(stat == "hist") %>% as.matrix()
 ```
-
-
-
-
-#### Wrap up
 
 To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
 
@@ -172,8 +235,17 @@ smry %>%
   as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
 ```
 
-#### Continuous variables
 
+## tibble conflicts
 
-
+```{r}
+# xxx turn this off because the data type changes
+# Handle and print large data nicely *xxx
+# library(tibble)
+# bci12full7 <- tibble::as_tibble(bci12full7)
+# *xxx Note: If you get this error message:
+# "Can't use matrix or array for column indexing"
+# watch for problematic interaction with legacy code (https://goo.gl/g7rg2P)
+# and try solve it by with as.data.frame().
+```
 
