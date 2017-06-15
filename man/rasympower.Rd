@@ -2,10 +2,19 @@
 % Please edit documentation in R/distributions.R
 \name{rasympower}
 \alias{rasympower}
-\title{Random draws from the bilateral power distribution, dasympower. By ...}
+\title{Random draws from the bilateral power distribution, dasympower.}
 \usage{
 rasympower(n, rate1, rate2, c)
 }
+\arguments{
+\item{n}{Passed to argument `n` in [stats::runif()].}
+}
 \description{
-Random draws from the bilateral power distribution, dasympower. By R. Chisholm.
+Random draws from the bilateral power distribution, \code{\link[=dasympower]{dasympower()}}.
+}
+\seealso{
+[stats::runif()]
+}
+\author{
+R. Chisholm.
 }

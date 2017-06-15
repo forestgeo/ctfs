@@ -219,14 +219,18 @@
 #'
 'detachfiles'
 
-#' Saves all functions in position n to the file already  attached at ...
+#' Save functions in position n to a file already  attached.
 #'
 #' @description
-#'
-#' Saves all functions in position n to the file already 
-#' attached at that position; n can be a vector. Allows changes in attached data to be saved easily, but
-#' please use with care, as it will over-write the existing file. 
-#'
+#' Saves all functions in position n to the file already attached at that
+#' position
+#' 
+#' @param n Can be a vector; position of functions to be saved and of attached
+#'   file to save to.
+#' 
+#' @section Warning:
+#' Allows changes in attached data to be saved easily, but please use with care,
+#' as it will over-write the existing file.
 #'
 'save.searchpath'
 

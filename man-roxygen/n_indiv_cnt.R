@@ -1,0 +1,1 @@
+#' @param n Individuals count.

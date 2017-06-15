@@ -7,7 +7,7 @@
 calcalpha(n, s)
 }
 \arguments{
-\item{n}{Stem count.}
+\item{n}{Individuals count.}
 
 \item{s}{Species count.}
 }

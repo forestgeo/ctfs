@@ -91,13 +91,17 @@
 #'
 'dgamma.meansd'
 
-#' Random draws of gamma, parameterized with mean and sd instead of sh...
-#'
+#' Random draws of gamma, parameterized with mean and sd.
+#' 
 #' @description
-#'
-#' Random draws of gamma, parameterized with mean and sd instead of shape and scale.
-#'
-#'
+#' Random draws of gamma, parameterized with mean and sd instead of shape and
+#' scale.
+#' 
+#' @param n Passed to `n` in [stats::rgamma()].
+#' @param mean Mean.
+#' @param sd sd.
+#' @seealso [stats::rgamma()].
+#' 
 'rgamma.meansd'
 
 #' A version of dgamma where the parameters are ordered so that the me...
@@ -137,6 +141,7 @@
 #'
 #' Random draws based on the integral.
 #'
+#' @template n_pass_runif
 #'
 'rpower'
 
@@ -151,13 +156,15 @@
 #'
 'dasympower'
 
-#' Random draws from the bilateral power distribution, dasympower. By ...
-#'
+#' Random draws from the bilateral power distribution, dasympower.
+#' 
 #' @description
-#'
-#' Random draws from the bilateral power distribution, dasympower. By R. Chisholm. 
-#'
-#'
+#' Random draws from the bilateral power distribution, [dasympower()].
+#' 
+#' @author R. Chisholm.
+#' 
+#' @template n_pass_runif
+#' 
 'rasympower'
 
 #' Quantiles from the bilateral power distribution, dasympower. By R. ...
@@ -200,6 +207,7 @@
 #' is plugged in the inverse of the cumulative distribution.
 #'
 #' @template center_distribution
+#' @template n_pass_runif
 #'
 'rsymexp'
 
@@ -518,9 +526,9 @@
 #' Random draw on the mixed normal distribution.rmixnorm minum.mixnorm...
 #'
 #' @description
-#'
 #' Random draw on the mixed normal distribution.
 #'
+#' @template n_pass_runif
 #'
 'rmixnorm'
 

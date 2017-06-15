@@ -11,9 +11,14 @@ library(bci)      # to access data of forest dynamics from BCI
 library(forestr)  # to analyse forest dynamics
 library(ggplot2)  # to visualize data
 library(dplyr)    # to transform data
-library(tibble)   # to print large data nicely
 
-bci12full7 <- tibble::as_tibble(bci12full7)  # xxx remove once bci::* is tibble
+# Handle and print large data nicely *xxx
+library(tibble)
+bci12full7 <- tibble::as_tibble(bci12full7)
+# *xxx Note: If you get this error message:
+# "Can't use matrix or array for column indexing"
+# watch for problematic interaction with legacy code (https://goo.gl/g7rg2P)
+# and try solve it by with as.data.frame().
 
 ## ------------------------------------------------------------------------
 glimpse(bci12full7)
@@ -40,7 +45,7 @@ ggplot(data = bci12full7) +
   geom_freqpoly(mapping = aes(x = date, color = DFstatus), binwidth = 20)
 
 ## ------------------------------------------------------------------------
-library(skimr)
+library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
 skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
 
 ## ---- eval=FALSE---------------------------------------------------------

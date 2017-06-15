@@ -10,8 +10,8 @@
 #'
 #' Calculates alpha from a stem and species count submitted using Newton's method.
 #'
-#' @param n Stem count.
-#' @param s Species count.
+#' @template n_indiv_cnt
+#' @template S_spp_cnt
 #'
 'calcalpha'
 
@@ -19,18 +19,20 @@
 #'
 #' @description
 #' The derivative for use in Newton's method
+#' 
+#' @inheritParams calcS.alpha
 #'
 #' @seealso [calcalpha()].
 #'
 'd.calcS.alpha'
 
-#' Estimated number of species in a sample of N individuals, given Fis...
+#' Number of species in a sample of N individuals, given Fisher's alpha.
 #'
 #' @description
+#' Estimated number of species in a sample of N individuals, given Fisher's alpha.
 #'
-#' Estimated number of species in a sample of N individuals, given Fisher's alpha
-#'
-#'
+#' @template n_indiv_cnt
+#' @param a Fisher's alpha.
 'calcS.alpha'
 
 #' Species number in a random subsample of `s` individuals.
