@@ -61,6 +61,7 @@ avoid <- c(
   "pts",  # done some, others vary.
   "r",  # done
   "rounddown",  # done
+  "s",  # done
   "start",  # done
   "w",
   "z",  # done
@@ -79,8 +80,8 @@ print(x, n = x$frml_n[[1]])
 
 
 # xxxnext -----------------------------------------------------------------
-args_help("s")
-args_count_param("s")
+args_help("n")
+args_count_param("n")
 
 
 
@@ -89,54 +90,7 @@ x %>% select(1) %>% unique()
 
 
 
-
-# Common errors -----------------------------------------------------------
-
-
-
-
-censdata = bci::12bci12full1
-splitcol = "sp"
-keepsplitcol = FALSE
-allsplit = NULL
-showOutput = NULL
-
-output=list()
-
-split=censdata[ ,splitcol]
-
-# Alternatives
-
-# assume data is a single variable, and directly pull into a vector
-split=censdata[ ,splitcol][[1]]
-
-# check first that data is a single variable, then pull into vector
-is_single_vector <- dim(split)[2] == 1
-if(is_single_vector) {
-  split <- split[[1]]
-}
-
-# xxxcont now check where else the problem arised in tests. Is it always via split_data?
-
-
-split=as.data.frame(censdata)[ ,splitcol]
-split=as.data.frame(censdata)[ ,splitcol]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Unclassified ------------------------------------------------------------
 
 # work on plotdim
 args_pull_definitions("plotdim")[[2]]
@@ -144,34 +98,6 @@ args_pull_definitions("plotdim")[[2]]
 
 fun_family("allquadratslopes") %>% filter(params == "plotdim")
 # There is no other function too closetly related
-
-# 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

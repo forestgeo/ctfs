@@ -6,6 +6,12 @@
 \usage{
 rpower(n, beta)
 }
+\arguments{
+\item{n}{Passed to argument `n` in [stats::runif()].}
+}
 \description{
 Random draws based on the integral.
+}
+\seealso{
+[stats::runif()]
 }

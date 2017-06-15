@@ -2,10 +2,21 @@
 % Please edit documentation in R/distributions.R
 \name{rgamma.meansd}
 \alias{rgamma.meansd}
-\title{Random draws of gamma, parameterized with mean and sd instead of sh...}
+\title{Random draws of gamma, parameterized with mean and sd.}
 \usage{
 rgamma.meansd(n, mean, sd)
 }
+\arguments{
+\item{n}{Passed to \code{n} in \code{\link[stats:rgamma]{stats::rgamma()}}.}
+
+\item{mean}{Mean.}
+
+\item{sd}{sd.}
+}
 \description{
-Random draws of gamma, parameterized with mean and sd instead of shape and scale.
+Random draws of gamma, parameterized with mean and sd instead of shape and
+scale.
+}
+\seealso{
+\code{\link[stats:rgamma]{stats::rgamma()}}.
 }

@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 This vignette will show you how to explore your data systematically, using visualization and transformation. The goal is to use your data and some research questions to learn something that you can then use to refine your questions. You should repeat the process until you are happy with what you learned.
 
-We will use data from Barro Colorado Island (DOI: https://doi.org/10.5479/data.bci.20130603), and functions from the packages **[forestr](xxxaddlink)**, **[dplyr](xxxaddlink)** and **[ggplot2](xxxaddlink)**.
+We will use data from Barro Colorado Island (DOI: https://doi.org/10.5479/data.bci.20130603), and functions from the packages **[forestr](https://forestgeo.github.io/forestr/)**, **[dplyr](http://dplyr.tidyverse.org/)** and **[ggplot2](http://ggplot2.tidyverse.org/)**.
 
 ```{r packages}
 # To install packages see ?install.packages and ?devtools::install_github
@@ -32,9 +32,14 @@ library(bci)      # to access data of forest dynamics from BCI
 library(forestr)  # to analyse forest dynamics
 library(ggplot2)  # to visualize data
 library(dplyr)    # to transform data
-library(tibble)   # to print large data nicely
 
-bci12full7 <- tibble::as_tibble(bci12full7)  # xxx remove once bci::* is tibble
+# Handle and print large data nicely *xxx
+library(tibble)
+bci12full7 <- tibble::as_tibble(bci12full7)
+# *xxx Note: If you get this error message:
+# "Can't use matrix or array for column indexing"
+# watch for problematic interaction with legacy code (https://goo.gl/g7rg2P)
+# and try solve it by with as.data.frame().
 ```
 
 #### R for Data Science
@@ -148,7 +153,7 @@ xxxcont.
 
 
 ```{r}
-library(skimr)
+library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
 skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
 ```
 

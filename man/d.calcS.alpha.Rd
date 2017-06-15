@@ -6,6 +6,11 @@
 \usage{
 d.calcS.alpha(a, n, s)
 }
+\arguments{
+\item{a}{Fisher's alpha.}
+
+\item{n}{Individuals count.}
+}
 \description{
 The derivative for use in Newton's method
 }
