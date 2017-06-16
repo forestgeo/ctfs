@@ -1,0 +1,179 @@
+---
+title: "Exploratory Data Analysis"
+author: "Mauro Lepore"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 6
+vignette: >
+  %\VignetteIndexEntry{Exploratory Data Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, echo = FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+### Introduction
+
+This vignette will show you how to explore your data systematically, using visualization and transformation. The goal is to use your data and some research questions to learn something that you can then use to refine your questions. You should repeat the process until you are happy with what you learned.
+
+We will use data from Barro Colorado Island (DOI: https://doi.org/10.5479/data.bci.20130603), and functions from the packages **[forestr](https://forestgeo.github.io/forestr/)**, **[dplyr](http://dplyr.tidyverse.org/)** and **[ggplot2](http://ggplot2.tidyverse.org/)**.
+
+```{r packages}
+# To install packages see ?install.packages and ?devtools::install_github
+library(bci)      # to access data of forest dynamics from BCI
+library(forestr)  # to analyse forest dynamics
+library(ggplot2)  # to visualize data
+library(dplyr)    # to transform data
+
+# Handle and print large data nicely *xxx
+library(tibble)
+bci12full7 <- tibble::as_tibble(bci12full7)
+# *xxx Note: If you get this error message:
+# "Can't use matrix or array for column indexing"
+# watch for problematic interaction with legacy code (https://goo.gl/g7rg2P)
+# and try solve it by with as.data.frame().
+```
+
+#### R for Data Science
+
+The ideas presented here come from [Exploratory Data Analysis](http://r4ds.had.co.nz/exploratory-data-analysis.html), in [R for Data Science](http://r4ds.had.co.nz/), by Garrett Grolemund and Hadley Wickham. Some text from that book section is literally reproduced here _like this_ or
+
+> like this,
+
+```R
+but not like this (compared to the text above, this one has different indentation and fonttype).
+```
+
+For example, the following definitions are literally reproduced:
+
+> A __variable__ is a quantity, quality, or property that you can measure. 
+
+> A __value__ is the state of a variable when you measure it. The value of a
+    variable may change from measurement to measurement.
+  
+> An __observation__ is a set of measurements made under similar conditions
+    (you usually make all of the measurements in an observation at the same 
+    time and on the same object). An observation will contain several values, 
+    each associated with a different variable. I'll sometimes refer to 
+    an observation as a data point.
+
+> __Tabular data__ is a set of values, each associated with a variable and an 
+    observation. Tabular data is _tidy_ if each value is placed in its own
+    "cell", each variable in its own column, and each observation in its own 
+    row. 
+
+
+
+### Questions
+
+To start exploring your data, you can generally ask:
+
+> What type of variation occurs within my variables?
+
+> What type of covariation occurs between my variables?
+
+
+### Variation
+
+> __Variation__ is the tendency of the values of a variable to change from measurement to measurement. 
+
+Every variable varies with a particular pattern, and that pattern may be insightful. To understand the variation pattern of a variable we can visualize the distribution of the variables' values. The best way to visualize a variable's distribution depends on whether the variable is categorical or continuous.
+
+The BCI data has both, categorical and continuous variables, for example, most variables of type <chr> (character) and <dbl> below.
+
+```{r}
+glimpse(bci12full7)
+```
+
+#### Visualizing distributions
+
+##### Categorical variables
+
+> A variable is categorical if it can only take one of a small set of values.
+
+> To examine the distribution of a categorical variable, use a bar chart.
+
+```{r, fig.cap="Values distribution of the categorical variable `status`"}
+ggplot(data = bci12full7) +
+  geom_bar(mapping = aes(x = DFstatus))
+```
+
+You can compute the same count manually with `dplyr::count()`:
+
+```{r}
+bci12full7 %>% 
+  count(DFstatus)
+```
+
+##### Continuous variables
+
+> A variable is continuous if it can take any of an infinite set of ordered values.
+
+> To examine the distribution of a continuous variable use a histogram.
+
+```{r}
+ggplot(data = bci12full7) +
+  geom_histogram(mapping = aes(x = date), binwidth = 20)
+```
+
+You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
+
+```{r}
+bci12full7 %>% 
+  mutate(date = cut_width(date, width = 20)) %>% 
+  count(date)
+```
+
+> You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.
+
+To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars:
+
+
+```{r, fig.cap="Lines overlaid are easier to understand than bars."}
+ggplot(data = bci12full7) +
+  geom_freqpoly(mapping = aes(x = date, color = DFstatus), binwidth = 20)
+```
+
+
+#### Typical values
+
+xxxcont.
+
+
+
+
+
+
+```{r}
+library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
+skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
+```
+
+
+
+
+#### Wrap up
+
+To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
+
+```{r, eval=FALSE}
+library(skimr)
+smry <- skim(diamonds)
+smry %>% 
+  dplyr::filter(stat == "hist") %>% 
+  as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
+```
+
+#### Continuous variables
+
+
+
+
