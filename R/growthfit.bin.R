@@ -1,32 +1,41 @@
 
 # Roxygen documentation generated programatically -------------------
 
-#'
-#'
-
-#' Extract data for growth rates from plot databases and 2 censuses in...
+#' Extract growth rates from plot databases and 2 censuses.
 #'
 #' @description
-#'
-#' Extract data for growth rates from plot databases and 2 censuses in CTFS R format. Returns a table with 
-#' growth, size (ie dbh), and species name. Default is to return log-transformed growth, with negative and zero
-#' growth set to a mingrow, but with logit=TRUE, growth and dbh are not log-transformed.
-#'
-#'
+#' Extract data for growth rates from plot databases and 2 censuses in CTFS R
+#' format.
+#' 
+#' @return
+#' Returns a table with growth, size (ie dbh), and species name. 
+#' 
+#' @template mindbh
+#' @template dbhunit
+#' @template census1_census2
+#' @template maxgrow
+#' @template rounddown
+#' @template err_limit
+#' @param logit Defaults to return log-transformed growth, with negative and
+#'   zero growth set to a mingrow, but with `logit = TRUE`, growth and dbh are
+#'   not log-transformed.
+#'   
 'extract.growthdata'
 
-#' Run the model to fit growth rate in bins for many species, 1-4 bins...
-#'
+#' Run the model to fit growth rate in bins for many species, 1-4 bins.
+#' 
 #' @description
+#' Run the model to fit growth rate in bins for many species, 1-4 bins. It takes
+#' a list of species, extracts growth rates for each, one at a time, from the 
+#' table of growth rates, then calls [run.growthfit.bin()] to fit the model for
+#' the 4 bin options.
 #'
-#' Run the model to fit growth rate in bins for many species, 1-4 bins. It takes a list of species, extracts
-#' growth rates for each, one at a time, from the table of growth rates, then calls run.growthfit.bin to fit the model for
-#' the 4 bin options. 
-#'
-#' Sample species vector from BCI: 
+#' @template dbhunit
+#' @param ... Arguments passed to [run.growthfit.bin()].
 #'
 #' @examples
 #' \dontrun{
+#' # Sample species vector from BCI: 
 #' spp20 = c(
 #'   'tri2tu',
 #'   'alsebl',
@@ -53,8 +62,8 @@
 #' # Creating the complete table of biomass growth for all individuals in a 
 #' # plot:
 #' agb.growth = extract.growthdata(
-#'   bci.full5,
-#'   bci.full6,
+#'   bci::bci12full5,
+#'   bci::bci12full6,
 #'   growthfunc = growth.biomass.indiv,
 #'   logit = 'x',
 #'   rounddown = FALSE,
@@ -78,30 +87,37 @@
 #'   startsdpar = c(.04, 0)
 #' )
 #' }
-#' 
 #'
 'run.growthbin.manyspp'
 
 #' Find best fits for linearmodel.bin, with one set of data and a seri...
 #'
 #' @description
-#'
-#' Find best fits for linearmodel.bin, with one set of data and a series of bins. This starts fit for a bin
-#' based on the best fit for the prior bin, thus always assuring an improved fit. This works best if the first bin=1,
-#' which is just a linear model and easily fit by optim and the Gibbs sampler.
-#'
+#' Find best fits for linearmodel.bin, with one set of data and a series of
+#' bins. This starts fit for a bin based on the best fit for the prior bin, thus
+#' always assuring an improved fit. This works best if the first bin=1, which is
+#' just a linear model and easily fit by optim and the Gibbs sampler.
+#' 
+#' @param ... Arguments passed to [growth.flexbin()].
+#' 
 #'
 'run.growthfit.bin'
 
-#' Fitting a regression line through log growth against log dbh, binni...
+#' Fit a regression line through log growth against log dbh, binning on dbh.
 #'
 #' @description
-#'
-#' Fitting a regression line through log growth against log dbh, binning on dbh. Growth table has 2 columns,
-#' one named size (ie, dbh), other growth. The function now calls optim first to find a set of parameters, then, if Gibbs
-#' is selected, runs the Gibbs sampler starting with those parameters. Since optim fails if the initial likelihood is -Inf,
-#' it became necessary to check the parameters with bad.binparam before running. 
-#'
+#' Fitting a regression line through log growth against log dbh, binning on dbh.
+#' 
+#' @details
+#' Since [stats::optim()] fails if the initial likelihood is -Inf, it became
+#' necessary to check the parameters with [bad.binparam()] before running.
+#' 
+#' @param growthtable A table with 2 columns, one named `size` (ie, dbh), other
+#'   `growth`.
+#' @param method If `method = "Gibbs"`, runs the Gibbs sampler starting with a
+#'   set of parameters found by [stats::optim()].
+#' @param ... Conditionally passed to a number of functions; see function
+#'   definition.
 #'
 'growth.flexbin'
 
@@ -117,11 +133,12 @@
 #' This finds divisions of over the vector size which produce equal nu...
 #'
 #' @description
-#'
-#' This finds divisions of over the vector size which produce equal number of elements per division. In case
-#' any of those divisions are too short, it tries equal sized divisions. A default to use for
-#' start parameters when none are supplied. 
-#'
+#' This finds divisions of over the vector size which produce equal number of
+#' elements per division. In case any of those divisions are too short, it tries
+#' equal sized divisions. A default to use for start parameters when none are
+#' supplied.
+#' 
+#' @param ... Arguments passed to [enoughSamplePerBin()].
 #'
 'defineBinBreaks'
 
@@ -137,10 +154,12 @@
 #' Test whether the number of elements in a vector x between successiv...
 #'
 #' @description
-#'
-#' Test whether the number of elements in a vector x between successive breaks exceeds a minimum. If any
-#' bins have too few, it returns FALSE. 
-#'
+#' Test whether the number of elements in a vector x between successive breaks
+#' exceeds a minimum. If any bins have too few, it returns FALSE.
+#' 
+#' @param ... Unused.
+#' @param x,b Passed to `x`, `breaks` in [base::cut()].
+#' @seealso [base::cut()].
 #'
 'enoughSamplePerBin'
 
@@ -160,52 +179,53 @@
 #' This prevents the bin parameters from moving outside the x range, a...
 #'
 #' @description
-#'
-#' This prevents the bin parameters from moving outside the x range, and keeps the minimum bin width wider than MINBIN of the
-#' xrange. It also requires at least MINSAMPLE individuals per bin. The ellipsis handles the submission of MINBIN and MINBINSAMPLE, if
-#' they are not submitted, default values are assigned.
-#'
+#' This prevents the bin parameters from moving outside the x range, and keeps
+#' the minimum bin width wider than MINBIN of the xrange. It also requires at
+#' least MINSAMPLE individuals per bin. The ellipsis handles the submission of
+#' MINBIN and MINBINSAMPLE, if they are not submitted, default values are
+#' assigned.
+#' 
+#' @param ... Arguments conditionally passed to [enoughSamplePerBin()] or
+#'   [wideEnoughBins()] (see function definition).
 #'
 'bad.binparam'
 
-#' bad.binsdpar calculateBinModel.BIC  Calculate Bayes Information Cri...
-#'
+#' bad.binsdpar
 #' 
-#'
+#' @param ... Arguments passed to [wideEnoughBins()].
 #'
 'bad.binsdpar'
 
-#' Calculate Bayes Information Criteria using Wikipedia formula Descri...
+#' Calculate Bayes Information Criteria using Wikipedia formula.
 #'
 #' @description
-#'
-#' Calculate Bayes Information Criteria using Wikipedia formula
-#'
-#'
-#' Description: Calculate Deviance Information Criteria, using Wikipedia formula
-#'
+#' Calculate Bayes Information Criteria using Wikipedia formula.
+#' 
+#' @template fit
+#' 
 'calculateBinModel.BIC'
 
-#' Calculate AIC of the model, using various log(likelihood) estimator...
+#' Calculate AIC of the model, using various log(likelihood) estimators.
 #'
 #' @description
-#'
-#' Calculate AIC of the model, using various log(likelihood) estimators: 
-#' with optim, the highest likelihood found by optim
-#' with mean, the mean llikelihood from the Gibbs sampler
-#' with gibbs, the maximum llikelihood from the Gibbs sampler
-#' with none, just return the mean Gibbs likelihood
-#'
+#' Calculate AIC of the model, using various log(likelihood) estimators. 
+#' 
+#' @template fit
+#' @param type One of: 
+#' - `optim`, the highest likelihood found by optim;
+#' - `mean`, the mean llikelihood from the Gibbs sampler;
+#' - `gibbs`, the maximum llikelihood from the Gibbs sampler;
+#' - `none`, just return the mean Gibbs likelihood.
 #'
 'calculateBinModel.AIC'
 
 #' Calculate mean predicted value at every x using every one of the Gi...
 #'
 #' @description
-#'
-#' Calculate mean predicted value at every x using every one of the Gibbs sampler parameter combinations
-#'(excluding burn in)
-#'
+#' Calculate mean predicted value at every x using every one of the Gibbs sampler
+#' parameter combinations (excluding burn in)
+#' 
+#' @template fit
 #'
 'calculateBinModel.bestpred'
 

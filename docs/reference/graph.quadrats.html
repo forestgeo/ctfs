@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make a graph of a series of quadrats whose corners are given by the... — graph.quadrats â€¢ forestr</title>
+<title>Plot a series of quadrats with corners xlo, ylo, xhi, yhi. — graph.quadrats â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make a graph of a series of quadrats whose corners are given by the...</h1>
+    <h1>Plot a series of quadrats with corners xlo, ylo, xhi, yhi.</h1>
     </div>
 
     
@@ -96,6 +96,16 @@ quadrats.</p>
     <tr>
       <th>plotdim</th>
       <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>clr</th>
+      <td><p>A string indicating colour. See argument col in [graphics::par()].</p></td>
+    </tr>
+    <tr>
+      <th>add</th>
+      <td><p>Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.</p></td>
     </tr>
     </table>
     

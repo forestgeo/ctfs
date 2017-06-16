@@ -2,11 +2,22 @@
 % Please edit documentation in R/geometry.R
 \name{perpendicular.line}
 \alias{perpendicular.line}
-\title{Finds the slope and intercept of the line perpendicular to a line w...}
+\title{Slope and intercept of the line perpendicular to another known line.}
 \usage{
 perpendicular.line(b, m, x, y)
 }
-\description{
-Finds the slope and intercept of the line perpendicular to a line whose slope and intercept are given,
-through the points x,y. Either x and y can be vectors, or b and m can be vectors, or if all are vectors, must be same length.
+\arguments{
+\item{b}{Intercept.}
+
+\item{m}{Slope.}
 }
+\description{
+Finds the slope and intercept of the line perpendicular to a line whose slope
+and intercept are given, through the points x,y.
+}
+\section{Arguments details}{
+
+Either \code{x} and \code{y} can be vectors, or \code{b} and \code{m} can be vectors, or if all
+are vectors, must be same length.
+}
+

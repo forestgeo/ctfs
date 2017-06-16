@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Use output of growth.flexbin to graph observed growth and predictio... — graph.growthmodel.spp â€¢ forestr</title>
+<title>Use output of growth.flexbin to graph observed growth and predictions. — graph.growthmodel.spp â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,14 +79,17 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Use output of growth.flexbin to graph observed growth and predictio...</h1>
+    <h1>Use output of growth.flexbin to graph observed growth and predictions.</h1>
     </div>
 
     
-    <p>Use output of growth.flexbin to graph observed growth and predictions. With conf&gt;0, random draws from posterior parameters
-are used to make predictions and overlay with gray lines, and mean predicted value at each x is calculated.</p>
-<p>The option whichpred determines whether to graph the fitted values based on the median parameters of the Gibbs sampler, or
-the mean fitted value of all the steps in the Gibbs sampler.</p>
+    <p>Use output of growth.flexbin to graph observed growth and predictions. With
+conf &gt; 0, random draws from posterior parameters are used to make predictions
+and overlay with gray lines, and mean predicted value at each x is
+calculated.</p>
+<p>The option whichpred determines whether to graph the fitted values based on
+the median parameters of the Gibbs sampler, or the mean fitted value of all
+the steps in the Gibbs sampler.</p>
     
 
     <pre class="usage"><span class='fu'>graph.growthmodel.spp</span>(<span class='no'>fit</span>, <span class='kw'>jiggle</span> <span class='kw'>=</span> <span class='fl'>0.001</span>, <span class='kw'>whichpred</span> <span class='kw'>=</span> <span class='st'>"pred"</span>,
@@ -94,12 +97,32 @@ the mean fitted value of all the steps in the Gibbs sampler.</p>
   <span class='kw'>includeaxs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>withSD</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>regclr</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
   <span class='kw'>modelclr</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>modellwd</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>graphdiv</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>addpts</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>maintitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>conf</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fit</th>
+      <td><p>A fitted model.</p></td>
+    </tr>
+    <tr>
+      <th>add</th>
+      <td><p>Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.</p></td>
+    </tr>
+    <tr>
+      <th>export</th>
+      <td><p>File format to export to.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

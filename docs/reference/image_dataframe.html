@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Creates a color response map based on columnar data, not a matrix a... — image_dataframe â€¢ forestr</title>
+<title>Creates a color response map based on columnar data. — image_dataframe â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Creates a color response map based on columnar data, not a matrix a...</h1>
+    <h1>Creates a color response map based on columnar data.</h1>
     </div>
 
     
@@ -112,8 +112,59 @@ and one a numerical response at those coordinates</p></td>
 names</p></td>
     </tr>
     <tr>
+      <th>breaks</th>
+      <td><p>if set, a vector of breaks for the image colors and the contour
+lines; if NULL, levels controls the breaks</p></td>
+    </tr>
+    <tr>
+      <th>xname</th>
+      <td><p>axis names</p></td>
+    </tr>
+    <tr>
+      <th>yname</th>
+      <td><p>axis names</p></td>
+    </tr>
+    <tr>
+      <th>xrange, yrange</th>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.</p></td>
+    </tr>
+    <tr>
       <th>ptsize</th>
       <td><p>Size of points to be drawn.</p></td>
+    </tr>
+    <tr>
+      <th>graphfile</th>
+      <td><p>the file name if export is pdf, png, jpeg, win.metafile,
+etc.</p></td>
+    </tr>
+    <tr>
+      <th>export</th>
+      <td><p>if <code>newgraph = TRUE</code>, this defines the graphics device; options
+include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
+quoted!)</p></td>
+    </tr>
+    <tr>
+      <th>newgraph</th>
+      <td><p>if FALSE, just graph to the screen and export is ignored; use
+TRUE to create a new plot window or export to a file</p></td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td><p>height and width of graph window in units which depend on the
+export device chosen (some are pixels, some are inches); ignored if
+newgraph = FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td><p>height and width of graph window in units which depend on the
+export device chosen (some are pixels, some are inches); ignored if
+newgraph = FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>plotsize</th>
+      <td><p>size of graph's x-dimension in inches; ignored if
+newgraph=FALSE</p></td>
     </tr>
     </table>
     
@@ -130,7 +181,7 @@ image_dataframe.</p>
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>'bci'</span>,<span class='fl'>6</span>,<span class='st'>'full'</span>)
 
   <span class='fu'>image_dataframe</span>(
-    <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='no'>bci.full6</span>, <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>'A'</span>),
+    <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>, <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>'A'</span>),
     <span class='kw'>xcol</span> <span class='kw'>=</span> <span class='st'>'gx'</span>,
     <span class='kw'>ycol</span> <span class='kw'>=</span> <span class='st'>'gy'</span>,
     <span class='kw'>zcol</span> <span class='kw'>=</span> <span class='st'>'dbh'</span>,

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate full likelihood for any complete set of parameters, inclu... — full.likelihood.lmerBayes â€¢ forestr</title>
+<title>Likelihood for any complete set of parameters. — full.likelihood.lmerBayes â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,26 +79,44 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate full likelihood for any complete set of parameters, inclu...</h1>
+    <h1>Likelihood for any complete set of parameters.</h1>
     </div>
 
     
-    <p>Calculate full likelihood for any complete set of parameters, including every set for each random effect and hypermeans and covariances ##</p>
-<p>Further thought: the call to lmerBayes.hyperllike.sigma doesn't make sense, since llike.model.lmer already does this; the probability of
-each set of parameters given the hyperparameters is already calculated.</p>
-<p>To update fixed effects, can use full.llikelihood.lmerBayes. The fixed effects are used identically for every random effect.</p>
+    <p>Calculate full likelihood for any complete set of parameters, including every
+set for each random effect and hypermeans and covariances.</p>
     
 
     <pre class="usage"><span class='fu'>full.likelihood.lmerBayes</span>(<span class='no'>one.covar</span>, <span class='no'>one.param</span>, <span class='no'>one.hyper</span>, <span class='kw'>fixpar</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='no'>errormodel</span>, <span class='no'>data</span>, <span class='no'>obs</span>, <span class='no'>model</span>, <span class='kw'>sdmodel</span> <span class='kw'>=</span> <span class='st'>"constant"</span>, <span class='no'>sdpar</span>, <span class='kw'>bad</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>duphyper</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed to <code><a href='llike.model.lmer.html'>llike.model.lmer()</a></code>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Further thought: the call to <code><a href='lmerBayes.hyperllike.sigma.html'>lmerBayes.hyperllike.sigma()</a></code> doesn't make
+sense, since <code><a href='llike.model.lmer.html'>llike.model.lmer()</a></code> already does this; the probability of each
+set of parameters given the hyperparameters is already calculated.</p>
+<p>To update fixed effects, can use full.llikelihood.lmerBayes. The fixed
+effects are used identically for every random effect.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

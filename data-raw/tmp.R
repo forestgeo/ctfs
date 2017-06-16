@@ -23,19 +23,144 @@ devtools::load_all()
 
 
 # For now, let's try to inherit, so let's skip arguments:
-#    - x and y because they are too generic
-#    - nowhere in man because there is no example to inherit.
-args_count_formals_man() %>% 
-    filter(params != "x", params != "y", !is.na(man_n))
-# This shows that plotdim is a good argument to documetn
+#    - x and y because they are too generic,
+#    - arguments I already worked on,
+#    - arguments that are all NA, so there is no reference of what they mean.
+avoid <- c(
+  
+  # NEEDS FUTURE WORK
+  "data",  # did some; but too variable
+  "export",  # did some; but too variable
+  "path",  # skip, too variable
+  "size",  # unclear it it's the same everywhere.
+  "type",  # did some; but too variable and too little information to document
+  "x", "y",  # too generic; definition changes from fun to fun
+  "xrange",  # skip, too variable
+  "yrange",  # skip, too variable
+  
+  # DECENTLY DONE
+  "...",  # did many; other are weird.
+  "add",  # done
+  "alivecode",  # done
+  "b",  # done some, others are unclear
+  "badparam",  # done
+  "center",  # done
+  "clr",  # all done
+  "dbh",  # done
+  "debug",  # done
+  "debunit",  # done
+  "err.limit",  # done
+  "fit",  # done
+  "graphit",  # done
+  "gridsize",  # done
+  "lambda",  # done
+  "m",  # done
+  "mindbh",  # done
+  "n",  # done
+  "N",  # done
+  "outfile",  # done
+  "plot",  # done
+  "plotdim",  # done
+  "pts",  # done some, others vary.
+  "r",  # done
+  "rounddown",  # done
+  "s",  # done
+  "start",  # done
+  "w",
+  "z",  # done
+  
+  # SKIP FOR NOW
+  "div",
+  "model",
+  "shape",  # too little info
+  "start.param",
+  "test"  # too little info
+)
+x <- args_count_formals_man() %>% 
+  filter(!params %in% avoid) %>%
+  group_by(params) %>% 
+  
+  mutate(some_but_not_all_is_na = some_but_not_all_is_na(man_n)) %>% 
+  filter(some_but_not_all_is_na) %>% print_all()
+print(x, n = x$frml_n[[1]])
 
-args_count_formals_man() %>% 
-  filter(params == "plotdim") %>% 
-  print_all()
-# this shows that allquadratslopes is a good function to focus, because it's not
-# in man
+# xxxnext -----------------------------------------------------------------
+args_help("newgraph")
+args_count_param("newgraph")
 
 
+
+x %>% select(1) %>% unique()
+
+
+
+# Diagnostics -------------------------------------------------------------
+
+# xxx cont. analyse how many argument items I documented.
+
+
+
+
+
+
+
+
+
+
+
+# Dates -------------------------------------------------------------------
+
+library(lubridate)
+
+
+
+ddays(18286.97)
+
+
+seven %>%
+  select(date) %>% 
+  mutate(
+    days = date %/% 1,
+    days_ = date %% 1,
+    hr = (days_ * 24) %/% 1,
+    hr_ = (days_ * 24) %% 1,
+    min = (hr_ * 60) %/% 1,
+    min_ = (hr_ * 60) %% 1,
+    sec = (min_ * 60) %/% 1,
+    sec_ = (min_ * 60) %% 1,
+    days_ = NULL,
+    hr_ = NULL,
+    min_ = NULL,
+    sec_ = NULL,
+    duration = duration(hour = hr, minute = min, second = sec),
+    hours = dhours(hr)
+  ) %>% 
+  head()
+
+seven %>% 
+  as_tibble() %>% 
+  select(date) %>% 
+  mutate(
+    # integer diviison to remove fraction of seconds
+    duration = dseconds((date * 24 * 60 * 60) %/% 1),
+    datetime = as_datetime(duration, origin = "1960-01-01")
+    ) %>% 
+  head()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Unclassified ------------------------------------------------------------
 
 # work on plotdim
 args_pull_definitions("plotdim")[[2]]
@@ -43,34 +168,6 @@ args_pull_definitions("plotdim")[[2]]
 
 fun_family("allquadratslopes") %>% filter(params == "plotdim")
 # There is no other function too closetly related
-
-# 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

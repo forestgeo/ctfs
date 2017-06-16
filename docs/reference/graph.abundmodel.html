@@ -85,11 +85,7 @@
     
     <p>Output histograms of little.r across species, observed and fitted, using the
 result of <code><a href='model.littleR.Gibbs.html'>model.littleR.Gibbs()</a></code>. The histogram of black points is all
-species, blue points only those starting with <code>N &gt;= minabund</code>. If the
-argument <code>mortcorr = TRUE</code>, a graph of mortality rate vs. population change
-for every species is also produced. Otherwise, a table of the species with
-biggest increases and biggest decreases in abundance is printed to the
-screen.</p>
+species, blue points only those starting with <code>N &gt;= minabund</code>.</p>
     
 
     <pre class="usage"><span class='fu'>graph.abundmodel</span>(<span class='no'>fit</span>, <span class='kw'>datafile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>div</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>tinydiv</span> <span class='kw'>=</span> <span class='fl'>0.001</span>,
@@ -155,9 +151,12 @@ decreases in abundance to the screen</p></td>
       <td><p>axis names</p></td>
     </tr>
     <tr>
-      <th>ltype, lwidth</th>
-      <td><p>Line type (`ltype`) and width (`width`); see
-?[graphics::par()].</p></td>
+      <th>ltype</th>
+      <td><p>Line type; see `ltype` in ?[graphics::par()].</p></td>
+    </tr>
+    <tr>
+      <th>lwidth</th>
+      <td><p>Line width; see `width` in ?[graphics::par()].</p></td>
     </tr>
     <tr>
       <th>modelclr</th>
@@ -177,9 +176,9 @@ decreases in abundance to the screen</p></td>
     </tr>
     <tr>
       <th>add</th>
-      <td><p>Logical. Whether to add points or line to an existing graph. if
-TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn.</p></td>
+      <td><p>Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.</p></td>
     </tr>
     <tr>
       <th>ax</th>
@@ -196,9 +195,17 @@ population change across species</p></td>
     </tr>
     <tr>
       <th>graphit</th>
-      <td><p>xxxdocparam if set to false,</p></td>
+      <td><p>xxxdocparam in graph.abundmodel() is truncated: "if set to
+false," What follows?</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="arguments-details"><a class="anchor" href="#arguments-details"></a>Arguments details</h2>
+
+    <p><code>mortcorr</code> If the argument <code>mortcorr = TRUE</code>, a graph of mortality rate vs.
+population change for every species is also produced. Otherwise, a table of
+the species with biggest increases and biggest decreases in abundance is
+printed to the screen.</p>
     
     <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
 
@@ -218,6 +225,8 @@ in future versions.</p>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#arguments-details">Arguments details</a></li>
+
       <li><a href="#warning">Warning</a></li>
 
       <li><a href="#see-also">See also</a></li>

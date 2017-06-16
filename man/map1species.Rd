@@ -13,9 +13,11 @@ map1species(sppdata, plotdim = c(1000, 500), xrange = c(0, plotdim[1]),
 \arguments{
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
-\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{bgcolor}{The background color. Defaults to white. For presentation
 exports, try bgcolor="transparent".}
@@ -36,7 +38,9 @@ for x ticks then for y ticks}
 
 \item{plotside}{The vertical dimension (inches) of the map.}
 
-\item{add}{Logical. Use \code{add = TRUE} to add points to an existing map.}
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 }
 \description{
 This does the mapping for a single species, called from map() but also useful

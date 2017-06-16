@@ -21,10 +21,12 @@
 #' for the three types of tables. The function 'attach_if_needed' is used, so
 #' there is no penalty to requesting a table that is already attached.
 #'
-#' @param plot Name of plot as it appears in the names of the R Analytical Tables, in quote marks
-#' @param census census numbers as they appear in the names of the R Analytical Tables; can be a vector
+#' @template plot
+#' @param census census numbers as they appear in the names of the R Analytical
+#'   Tables; can be a vector
 #' @param type either full or stem, in quote marks
-#' @param path the name of the folder in which the tables are stored, defaults to CTFSRPackage
+#' @param path the name of the folder in which the tables are stored, defaults
+#'   to CTFSRPackage
 #' @param remove if TRUE, the tables are detached, otherwise they are attached
 #' @param includespp can be set to FALSE if the species table is not available
 #'
@@ -35,7 +37,13 @@
 #'
 #' CTFSplot(plot='bci',census=2:3)
 #'
-#' CTFSplot(plot='sinharaja', census=3,type='stem',path='C:/SinharajaRDataTables')}
+#' CTFSplot(
+#'   plot = 'sinharaja',
+#'   census = 3,
+#'   type = 'stem',
+#'   path = 'C:/SinharajaRDataTables'
+#' )
+#' }
 #'
 #'
 'CTFSplot'
@@ -43,10 +51,9 @@
 #' A function for extracting a single speciesdataframe from the large ...
 #'
 #' @description
-#'
-#' A function for extracting a single species'dataframe from the large spp dataset
-#'(list of dataframes, one per species). The split data file must come
-#' as a name, that is in quote marks.
+#'A function for extracting a single species'dataframe from the large spp
+#'dataset (list of dataframes, one per species). The split data file must come 
+#'as a name, that is in quote marks.
 #'
 #'
 'load.species'
@@ -56,7 +63,10 @@
 #' @description
 #'
 #' Rounds a numeric value to the next lowest multiple of 5.
-#'
+#' 
+#' @param s Passed to `x` in [base::floor()].
+#' 
+#' @seealso [base::floor()].
 #'
 'rndown5'
 
@@ -90,37 +100,51 @@
 #' @examples
 #' \dontrun{
 #'
-#' data = pop.change(bci.full5, bci.full6, split1 = bci.full5$sp)
+#' data = pop.change(
+#'   bci::bci12full5, bci::bci12full6, 
+#'   split1 = bci::bci12full5$sp
+#' )
 #' result = assemble.demography(data, type = 'a', whichdbhcat = 1)
-#' data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+#' data = growth(bci::bci12full5, bci::bci12full6, split1 = bci::bci12full5$sp)
 #' result = assemble.demography(data, type = 'g', whichdbhcat = 1)
-#' data = mortality.eachspp(bci.full5, bci.full6, classbreak = c(10, 100))
+#' data = mortality.eachspp(
+#'   bci::bci12full5, bci::bci12full6, 
+#'   classbreak = c(10, 100)
+#' )
 #' result1 = assemble.demography(data, type = 'm', whichdbhcat = 1)
 #' result2 = assemble.demography(data, type = 'm', whichdbhcat = 2)
 #' }
 #' 
 'assemble.demography'
 
-#' This takes a CTFS demography table, output by functions mortality, ...
+#' Keep or clean rows outputed by mortality, growth, or recruitment?
 #'
 #' @description
-#'
-#' This takes a CTFS demography table, output by functions mortality, growth, or recruitment,
-#' and removes rows where N==0, or key data are NA. The rownames are assumed to refer to species names, and
-#' some codes can be excluded using the argument excludespp. The four columns
-#' can be submitted by name or number using default column headers, or by
-#' setting type to 'mort'or 'abund'.
-#'
-#' It returns a logical vector indicating with TRUE which rows to keep, not the cleaned table itself.
-#'
-#' This was formerly in utilities.r.
+#' This takes a CTFS demography table, output by functions mortality, growth, or
+#' recruitment, and removes rows where N == 0, or key data are NA. 
+#' 
+#' @details 
+#' The rownames are assumed to refer to species names, and some codes can be
+#' excluded using the argument excludespp. The four columns can be submitted by
+#' name or number using default column headers, or by setting type to 'mort'or
+#' 'abund'.
+#' 
+#' @return
+#' A logical vector indicating with TRUE which rows to keep, not the cleaned 
+#' table itself.
+#' 
+#' @param type "mort" or "abund" to refer to columns by name or number.
+#' 
 #'
 #' @examples
 #' \dontrun{
-#'
-#' rows.include=clean.demography(demogtable,type='growth',Ncol='N',ratecol='ratecol');
-#' result=demogtable[rows.include,]}
-#'
+#' rows.include = clean.demography(demogtable,
+#'   type = 'growth',
+#'   Ncol = 'N',
+#'   ratecol = 'ratecol')
+#' 
+#' result = demogtable[rows.include, ]
+#' }
 #'
 'clean.demography'
 
@@ -128,11 +152,13 @@
 #'
 #' @description
 #'
-#' Takes a string of species names or codes and returns a logical vector indicating
-#' with TRUE those that should be excluded. Any species name (code) matching precisely the names in exactstr
-#' are excluded, as well as any which has characters matching partialstr. Either or both exactstr and partialstr
-#' can be NULL. The typical use if for excluding species whose codes or names
-#' indicate they are not fully identified. It returns a logical vector which is TRUE for those to be excluded.
+#' Takes a string of species names or codes and returns a logical vector
+#' indicating with TRUE those that should be excluded. Any species name (code)
+#' matching precisely the names in exactstr are excluded, as well as any which
+#' has characters matching partialstr. Either or both exactstr and partialstr 
+#' can be NULL. The typical use if for excluding species whose codes or names 
+#' indicate they are not fully identified. It returns a logical vector which is
+#' TRUE for those to be excluded.
 #'
 #' This was formerly in utilities.r.
 #'
@@ -143,10 +169,12 @@
 #'
 #' @description
 #'
-#' A more specialized version of unidentified species. It excludes species codes matching any listed in speciesnames
-#' but only for one specific plot. This way a code can be eliminated from one plot's results, but not any other plot.
-#'
-#' It returns a logical vector, TRUE for species to be excluded. This was formerly in utilities.r.
+#' A more specialized version of unidentified species. It excludes species codes
+#' matching any listed in speciesnames but only for one specific plot. This way
+#' a code can be eliminated from one plot's results, but not any other plot.
+#' 
+#' It returns a logical vector, TRUE for species to be excluded. This was
+#' formerly in utilities.r.
 #'
 #'
 'exclude.unidentified'

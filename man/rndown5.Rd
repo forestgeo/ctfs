@@ -6,6 +6,12 @@
 \usage{
 rndown5(s)
 }
+\arguments{
+\item{s}{Passed to \code{x} in \code{\link[base:floor]{base::floor()}}.}
+}
 \description{
 Rounds a numeric value to the next lowest multiple of 5.
+}
+\seealso{
+\code{\link[base:floor]{base::floor()}}.
 }

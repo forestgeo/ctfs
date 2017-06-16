@@ -7,9 +7,16 @@
 hyper.abundGibbs(test, Rsd, spmean, whichtest, type, badparam = NULL,
   returneach = FALSE)
 }
+\arguments{
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
+}
 \description{
-Likelihood function for hyperparameters of abundance model, given the species values of little.r (latter a vector). Simply calculates
-the pdf of whatever modelfunc is requested. For symmetric models, norm and symexp, the third parameter (second hyperSD) is not used.
+Likelihood function for hyperparameters of abundance model, given the species
+values of little.r (latter a vector). Simply calculates the pdf of whatever
+modelfunc is requested. For symmetric models, norm and symexp, the third
+parameter (second hyperSD) is not used.
 
 Only used as a subroutine of the main modeling function, model.littleR.Gibbs.
 }

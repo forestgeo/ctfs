@@ -28,7 +28,7 @@ capabilities.
 \examples{
 \dontrun{
 # Count all the consp neighbors of one species 
-one.sp = subset(bci.full7, sp == "ingasa" & status == "A")
+one.sp = subset(bci::bci12full7, sp == "ingasa" & status == "A")
 neighbor.counts <- NDcount(one.sp)
 }
 

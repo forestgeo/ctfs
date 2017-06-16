@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function that takes a variance-covariance matrix and produces norma... — mvrnormRC â€¢ forestr</title>
+<title>From a variance-covariance matrix, output normal variates with means 0. — mvrnormRC â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,24 +79,49 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function that takes a variance-covariance matrix and produces norma...</h1>
+    <h1>From a variance-covariance matrix, output normal variates with means 0.</h1>
     </div>
 
     
     <p>Function that takes a variance-covariance matrix and produces normal variates
-following it, but with means 0. The R function mvrnorm does this too; this was a
-test of the algorithm from Tommaso Zillio. Sigma must be square. N is the number
-to draw.</p>
+following it, but with means 0.</p>
     
 
     <pre class="usage"><span class='fu'>mvrnormRC</span>(<span class='no'>N</span>, <span class='no'>Sigma</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>N</th>
+      <td><p>The number to draw.</p></td>
+    </tr>
+    <tr>
+      <th>Sigma</th>
+      <td><p>Must be square.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The R function mvrnorm does this too; this was a test of the algorithm from
+Tommaso Zillio.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='http://www.rdocumentation.org/packages/MASS/topics/mvrnorm'>MASS::mvrnorm()</a></code>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

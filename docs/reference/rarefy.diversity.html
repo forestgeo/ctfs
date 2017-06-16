@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>takes a full plot dataframe and calculates species number in a rand... — rarefy.diversity â€¢ forestr</title>
+<title>Species number in a random subsample of <code>s</code> individuals. — rarefy.diversity â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,23 +79,39 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>takes a full plot dataframe and calculates species number in a rand...</h1>
+    <h1>Species number in a random subsample of <code>s</code> individuals.</h1>
     </div>
 
     
-    <p>takes a full plot dataframe and calculates species number in a
-random subsample of s individuals. All it requires is a column
-called sp which has species designation for each individual.</p>
+    <p>Takes a full plot dataframe and calculates species number in a random
+subsample of s individuals. All it requires is a column called sp which has
+species designation for each individual.</p>
     
 
     <pre class="usage"><span class='fu'>rarefy.diversity</span>(<span class='no'>fulldata</span>, <span class='no'>s</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>s</th>
+      <td><p>Passed to <code>size</code> in <code><a href='http://www.rdocumentation.org/packages/base/topics/sample'>base::sample()</a></code>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='http://www.rdocumentation.org/packages/base/topics/sample'>base::sample()</a></code>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

@@ -6,6 +6,9 @@
 \usage{
 randomElement(data)
 }
+\arguments{
+\item{data}{A vector.}
+}
 \description{
-Return a random element from a vector
+Return a random element from a vector.
 }

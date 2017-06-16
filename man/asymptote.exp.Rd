@@ -2,10 +2,15 @@
 % Please edit documentation in R/distributions.R
 \name{asymptote.exp}
 \alias{asymptote.exp}
-\title{A 3-parameter function which asymptotes as x->infinity. The 3rd par...}
+\title{A 3-parameter function which asymptotes as x->infinity.}
 \usage{
 asymptote.exp(x, param, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
-A 3-parameter function which asymptotes as x->infinity. The 3rd param must be >=0 and x>=0. The asymptote is a, the intercept a-b.
+A 3-parameter function which asymptotes as x->infinity. The 3rd param must be
+
+=0 and x>=0. The asymptote is a, the intercept a-b.
 }

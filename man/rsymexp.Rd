@@ -2,12 +2,20 @@
 % Please edit documentation in R/distributions.R
 \name{rsymexp}
 \alias{rsymexp}
-\title{Drawing a random variate on the symmetric exponential, based on the...}
+\title{Drawing a random variate on the symmetric exponential.}
 \usage{
 rsymexp(n, center, rate)
 }
+\arguments{
+\item{n}{Passed to argument `n` in [stats::runif()].}
+
+\item{center}{center Center of the distribution.}
+}
 \description{
-Drawing a random variate on the symmetric exponential, based on the cumulative
-probability, as given in psymexp. A random uniform number on (0,1) is plugged in
-the inverse of the cumulative distribution.
+Drawing a random variate on the symmetric exponential, based on the
+cumulative probability, as given in psymexp. A random uniform number on (0, 1)
+is plugged in the inverse of the cumulative distribution.
+}
+\seealso{
+[stats::runif()]
 }

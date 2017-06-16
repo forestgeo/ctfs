@@ -45,8 +45,9 @@
 #' @inheritParams abundance
 #' @inheritParams biomass.change
 #' @inheritParams trim.growth
-#' @param rounddown If TRUE, all dbh < 55 are rounded down to the nearest
-#'   multiple of 5.
+#' @template census1_census2
+#' @template mindbh
+#' @template rounddown
 #' @param method Use 'I' to calculate annual dbh increment: (dbh2 - dbh1)/time,
 #'   or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.
 #' @param stdev Logical. Default (FALSE) returns confidence limits, otherwise
@@ -58,23 +59,27 @@
 #' @examples
 #' \dontrun{
 #' CTFSplot("bci", 56)
-#' growth.data = growth(bci.full5, bci.full6)
+#' growth.data = growth(bci::bci12full5, bci::bci12full6)
 #' growth.data$rate
-#' growth.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+#' growth.data = growth(
+#'   bci::bci12full5, bci::bci12full6, 
+#'   split1 = bci::bci12full5$sp
+#' )
 #' growth.data$rate
 #' assemble.demography(grow.data, type = 'g')
 #' }
 #'
 'growth'
 
-#' Like growth(), but calculates change in biomass (agb) instead of db...
+#' Calculate change in biomass (agb).
 #'
 #' @description
-#'
-#' Like growth(), but calculates change in biomass (agb) instead of dbh. The census tables must have a column
-#' called agb. There is no trimming done at all -- every tree is included, and its entire biomass (the agb column in the
+#' Like [growth()], but calculates change in biomass (agb) instead of dbh. The
+#' census tables must have a column called agb. There is no trimming done at all
+#' -- every tree is included, and its entire biomass (the agb column in the 
 #' standard CTFS data object has total agb, all stems included.)
-#'
+#' 
+#' @inheritParams growth
 #'
 'biomass.growth'
 
@@ -112,7 +117,7 @@
 #' @examples
 #' \dontrun{
 #' growth.dbh <- growth.eachspp(
-#'   bci.full5, bci.full6,
+#'   bci::bci12full5, bci::bci12full6,
 #'   classbreak = c(10, 50, 100, 300, 500))
 #' }
 'growth.dbh'
@@ -134,7 +139,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' growth.table = growth.indiv(bci.full5, bci.full6)
+#' growth.table = growth.indiv(bci::bci12full5, bci::bci12full6)
 #' }
 #'
 'growth.indiv'
@@ -160,8 +165,10 @@
 #' mindbh`. All parameters for excluding growth measures based on error can be
 #' adjusted.
 #' 
-#' @param err.limit,maxgrow A number. Numbers such as 10000 are high and will
-#'   return all measures.
+#' @template mindbh
+#' @template dbhunit
+#' @template maxgrow
+#' @template err_limit
 #' @param pomcut A number. To include POM changes, set it to a high number, such
 #'   as 10.
 #' @param exclude.stem.change Logical. FALSE includes cases where stemID 
@@ -175,21 +182,36 @@
 #'
 'trim.growth'
 
-#' Like growth.indiv but based on agb growth, not dbh growth. Extreme ...
+#' Like growth.indiv but based on agb growth, not dbh growth.
 #'
 #' @description
-#'
-#' Like growth.indiv but based on agb growth, not dbh growth. Extreme growth rates (based on dbh growth) are
-#' excluded, but cases where the stemID changed are not excluded. 
-#'
-#' Here pomcut is used in a very specific way probably only relevant at BCI. If the second pom is higher than the first by more than
-#' the pomcut, the record is not used. The function trim.growth has already eliminated cases where the stemID is unchanged and pom
-#' changes, so this will only serve for cases where two different stemIDs have measurements. At BCI, in most cases where the second pom
-#' is lower than the first and the stem changed, it is a legitimate stem change. But where the second pom is higher, it is really the
-#' same stem measured at a different pom, and with a different stemID because BCI lacks stem tags. 
-#'
-#' For most plots, especially with stem tags, the default behavior means changes in stem allow changes in pom to be included in biomass growth.
-#'
+#' Like [growth.indiv()] but based on agb growth, not dbh growth. Extreme growth
+#' rates (based on dbh growth) are excluded, but cases where the stemID changed
+#' are not excluded.
+#' 
+#' @details
+#' Here pomcut is used in a very specific way probably only relevant at BCI. If 
+#' the second pom is higher than the first by more than the pomcut, the record 
+#' is not used. The function [trim.growth()] has already eliminated cases where
+#' the stemID is unchanged and pom changes, so this will only serve for cases
+#' where two different stemIDs have measurements. At BCI, in most cases where
+#' the second pom is lower than the first and the stem changed, it is a
+#' legitimate stem change. But where the second pom is higher, it is really the
+#' same stem measured at a different pom, and with a different stemID because
+#' BCI lacks stem tags.
+#' 
+#' For most plots, especially with stem tags, the default behavior means changes
+#' in stem allow changes in pom to be included in biomass growth.
+#' 
+#' @section Arguments details:
+#' - rounddown Unused.
+#' 
+#' @template mindbh
+#' @template dbhunit
+#' @template census1_census2
+#' @template maxgrow
+#' @template rounddown
+#' @template err_limit
 #'
 'growth.biomass.indiv'
 
@@ -197,17 +219,15 @@
 #' Calculates a transition matrix of individuals by diameter categorie...
 #'
 #' @description
+#' Calculates a transition matrix of individuals by diameter categories from two
+#' censuses.
+#' 
+#' The missing code (M) is checked in codes field if misscode is set; otherwise,
+#' status=M is assumed to mean missing and status=AB is assumed to mean the stem
+#' was lost, so there is no dbh.
 #'
-#' Calculates a transition matrix of individuals by diameter categories from two censuses.
+#' @template maxgrow
 #'
-#' The missing code (M) is checked in codes field if misscode is set; otherwise, status=M is assumed to mean missing
-#' and status=AB is assumed to mean the stem was lost, so there is no dbh.
-#'
-#' Growth rates above maxgrow and below mingrow are excluded, where max and min are annual increments.
-#'(Not tested recently and not part of the supported CTFS R package.)
-#'
-#'
-
 'DBHtransition'
 
 # Source code and original documentation ----------------------------

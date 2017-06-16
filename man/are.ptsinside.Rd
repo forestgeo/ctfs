@@ -2,13 +2,24 @@
 % Please edit documentation in R/geometry.R
 \name{are.ptsinside}
 \alias{are.ptsinside}
-\title{Checks many points (dataframe pt with x and y) against a single qua...}
+\title{Check if points belong to quadrat.}
 \usage{
 are.ptsinside(pts, coord)
 }
+\arguments{
+\item{pts}{A matrix.}
+}
+\value{
+A logical vector; TRUE for the points inside.
+}
 \description{
-Checks many points (dataframe pt with x and y) against a single quadrat whose corners are given by as xlo, ylo, xhi, yhi.
-
-It returns a logical vector, TRUE for the points inside. This is same as insideRectange, but accepting input as a matrix pts
-and a single vector of the four corners of the rectange.
+Checks many points (dataframe pt with x and y) against a single quadrat whose
+corners are given by as xlo, ylo, xhi, yhi.
+}
+\details{
+This is same as \code{\link[=insideRectangle]{insideRectangle()}}, but accepting input as a matrix pts and a
+single vector of the four corners of the rectange.
+}
+\seealso{
+\code{\link[=insideRectangle]{insideRectangle()}}.
 }

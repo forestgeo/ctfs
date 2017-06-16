@@ -109,8 +109,8 @@ stem.</p></td>
     </tr>
     <tr>
       <th>alivecode</th>
-      <td><p>character, codes of the variable <code>status</code> that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+      <td><p>character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems</p></td>
     </tr>
     <tr>
@@ -126,6 +126,10 @@ included.</p></td>
     <tr>
       <th>split2</th>
       <td><p>another vector of categories, one per individual</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
     </tr>
     </table>
     
@@ -157,9 +161,11 @@ is a matrix.</p>
 
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>"bci"</span>, <span class='st'>"full"</span>, <span class='kw'>census</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>3</span>, <span class='fl'>7</span>))
 
-  <span class='no'>deltaAGB</span> <span class='kw'>=</span> <span class='fu'>biomass.change</span>(<span class='no'>bci.full3</span>, <span class='no'>bci.full7</span>)
+  <span class='no'>deltaAGB</span> <span class='kw'>=</span> <span class='fu'>biomass.change</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full3</span>, <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full7</span>)
 
-  <span class='no'>deltaAGB.spp</span> <span class='kw'>=</span> <span class='fu'>biomass.change</span>(<span class='no'>bci.full3</span>, <span class='no'>bci.full7</span>, <span class='kw'>split1</span> <span class='kw'>=</span> <span class='no'>bci.full3</span>$<span class='no'>sp</span>)
+  <span class='no'>deltaAGB.spp</span> <span class='kw'>=</span> <span class='fu'>biomass.change</span>(
+    <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full3</span>, <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full7</span>, <span class='kw'>split1</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full3</span>$<span class='no'>sp</span>
+  )
 
   <span class='no'>deltaAGB.table</span> <span class='kw'>=</span> <span class='fu'><a href='assemble.demography.html'>assemble.demography</a></span>(<span class='no'>deltaAGB.spp</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"a"</span>)
 

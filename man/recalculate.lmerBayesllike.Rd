@@ -7,7 +7,13 @@
 recalculate.lmerBayesllike(fit, model, error, bad = NULL, keep = NULL,
   dup = TRUE, ...)
 }
+\arguments{
+\item{fit}{A fitted model.}
+
+\item{...}{Arguments passed to \code{\link[=full.likelihood.lmerBayes]{full.likelihood.lmerBayes()}}.}
+}
 \description{
-Walk through entire chain of parameters to calculate full likelihood at each step, as was done during the model run. The argument keep
-defines the elements to be used, or if NULL, fit$keep is used.
+Walk through entire chain of parameters to calculate full likelihood at each
+step, as was done during the model run. The argument keep defines the
+elements to be used, or if NULL, fit$keep is used.
 }

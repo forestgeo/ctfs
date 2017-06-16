@@ -9,8 +9,8 @@ wsgdata_dummy(censdata, plot = "bci")
 \arguments{
 \item{censdata}{Census data, e.g. \code{bci::bci12full1}.}
 
-\item{plot}{An character string of length 1 giving the plot name where
-\code{censdata} comes from.}
+\item{plot}{Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).}
 }
 \value{
 A data frame with one row per species in \code{censdata} and 3 variables.

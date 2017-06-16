@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function to calculate the univariate wavelet variance using furier ... — wavelet.univariate â€¢ forestr</title>
+<title>Univariate wavelet variance using furier transforms. — wavelet.univariate â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,57 +79,127 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function to calculate the univariate wavelet variance using furier ...</h1>
+    <h1>Univariate wavelet variance using furier transforms.</h1>
     </div>
 
     
-    <p>Function to calculate the univariate wavelet variance using furier transforms.</p>
-<p>It accepts a raster data or a point pattern, which is the default if raster is not provided.</p>
-<p>The wavelet variance describes the spatial autocorrelation or aggregation of tree distribution.</p>
-<p>A wavelet variance greater than 1 indicates scales at which individuals
-are aggregated. A wavelet variance less than 1, indicates scales at which
-individuals are dis-aggregated. A wavelet variance equal to 1, indicates scales
-at which individuals are randomply distribuited (as Poisson process).</p>
-<p>A graphical test is implemented on the null hypothesis of complete randomness.</p>
-<p>If the wavelet variance is out of the conf bounds the tree distribution
-is significantly different from a random process.</p>
-<p>Dependencies: needs the package 'spatstat'and the CTFSRpackage</p>
-<p>Authors: Matteo Detto and Tania Brenes</p>
-<p>Output: a list containing vectors for the wavelet variance, the scale of the wavelet variance, the normalized variance, and the confidence intervals.</p>
-<p>raster (NULL): used if data is entered already as a raster matrix
-coords  (): an alternate to a raster table, a table with two (or three) columns giving coordinates x, y (and an optional mark) in that order. This is used to calculate a raster;
-gridsize : is the quadrat size of the rasterization;
-plotdim (c(1000,500)): the dimensions of the plot;</p>
-<p>FUN (NULL): function to apply to the marked point pattern, if function is not specified (default) it counts points. E.g. can be used to sum the basal areas or above graound biomass
-k0 (8): numeric. smoothing parameter of the wavelet filter (k0 between 5.5-15), lower values of k0 produce a smoother wavelet variance;
-dj  (0.15):  numeric. discretization of the scale axis;
-graph (FALSE): logical. If TRUE, plots the wavelet variace as a function of scale</p>
+    <p>Function to calculate the univariate wavelet variance using furier
+transforms.</p>
     
 
     <pre class="usage"><span class='fu'>wavelet.univariate</span>(<span class='kw'>raster</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>coords</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>,
   <span class='fl'>500</span>), <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>k0</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>dj</span> <span class='kw'>=</span> <span class='fl'>0.15</span>, <span class='kw'>graph</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>raster</th>
+      <td><p>Used if data is entered already as a raster matrix.</p></td>
+    </tr>
+    <tr>
+      <th>coords</th>
+      <td><p>An alternate to a raster table, a table with two (or three)
+columns giving coordinates x, y (and an optional mark) in that order. This
+is used to calculate a raster.</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>Side of the square quadrate.</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>FUN</th>
+      <td><p>Function to apply to the marked point pattern, by default it sums
+the values as would be used for sum of basal areas or sum of above graound
+biomass</p></td>
+    </tr>
+    <tr>
+      <th>k0</th>
+      <td><p>Numeric. Smoothing parameter of the wavelet filter. (k0 between
+5.5-15), lower values of k0 produce a smoother wavelet variance.</p></td>
+    </tr>
+    <tr>
+      <th>dj</th>
+      <td><p>Numeric. Discretization of the scale axis.</p></td>
+    </tr>
+    <tr>
+      <th>graph</th>
+      <td><p>Logical. If TRUE plot the wavelet variace.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list containing vectors for the wavelet variance, the scale of the
+wavelet variance, the normalized variance, and the confidence intervals.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>It accepts a raster data or a point pattern, which is the default if raster
+is not provided.</p>
+<p>The wavelet variance describes the spatial autocorrelation or aggregation of
+tree distribution.</p>
+<p>A wavelet variance greater than 1 indicates scales at which individuals are
+aggregated. A wavelet variance less than 1, indicates scales at which
+individuals are dis-aggregated. A wavelet variance equal to 1, indicates
+scales at which individuals are randomply distribuited (as Poisson process).</p>
+<p>A graphical test is implemented on the null hypothesis of complete
+randomness.</p>
+<p>If the wavelet variance is out of the conf bounds the tree distribution is
+significantly different from a random process.</p>
+<p>Dependencies: needs the package 'spatstat'and the CTFSRpackage</p>
+    
+    <h2 class="hasAnchor" id="arguments-details"><a class="anchor" href="#arguments-details"></a>Arguments details</h2>
+
+    
+    <ul>
+<li><p>FUN If not specified (default) it counts points. E.g. can be used to sum
+the basal areas or above graound biomass.</p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='wavelet.bivariate.html'>wavelet.bivariate()</a></code></p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>not_run({
-  load("bci.full1.rdata") 
-  rast1 = rasterize(, gridsize=5, plotdim=c(100,500), graph=TRUE)
-  wv = wavelet.univariate(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)
-  plots the scale of aggregation
-})
-
-
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:5:9: unexpected symbol</span>
-#&gt; <span class='error'>4:   wv = wavelet.univariate(coords=bci.full1[,c("gx","gy")], k0=8, dj=0.15, graph=TRUE)</span>
-#&gt; <span class='error'>5:   plots the</span>
-#&gt; <span class='error'>           ^</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='no'>rast1</span> <span class='kw'>=</span> <span class='fu'><a href='rasterize.html'>rasterize</a></span>(,
+    <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>5</span>,
+    <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>100</span>, <span class='fl'>500</span>),
+    <span class='kw'>graph</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+  <span class='no'>wv</span> <span class='kw'>=</span> <span class='fu'>wavelet.univariate</span>(
+    <span class='kw'>coords</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full1</span>[, <span class='fu'>c</span>(<span class='st'>"gx"</span>, <span class='st'>"gy"</span>)],
+    <span class='kw'>k0</span> <span class='kw'>=</span> <span class='fl'>8</span>,
+    <span class='kw'>dj</span> <span class='kw'>=</span> <span class='fl'>0.15</span>,
+    <span class='kw'>graph</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+    )
+  <span class='co'># plots the scale of aggregation</span>
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#arguments-details">Arguments details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
+
+    <h2>Author</h2>
+    
+Matteo Detto and Tania Brenes
 
   </div>
 </div>

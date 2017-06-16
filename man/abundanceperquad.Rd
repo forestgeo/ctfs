@@ -18,7 +18,7 @@ included.}
 
 \item{gridsize}{Side of the square quadrate.}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
@@ -45,7 +45,7 @@ species and stems per quadrat, etc.
 \examples{
 \dontrun{
 Nperquad = abundanceperquad(
-  bci.full6,
+  bci::bci12full6,
   plotdim = c(1000, 500),
   gridsize = 100,
   type = 'abund'

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This takes a CTFS demography table, output by functions mortality, ... — clean.demography â€¢ forestr</title>
+<title>Keep or clean rows outputed by mortality, growth, or recruitment? — clean.demography â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,34 +79,58 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This takes a CTFS demography table, output by functions mortality, ...</h1>
+    <h1>Keep or clean rows outputed by mortality, growth, or recruitment?</h1>
     </div>
 
     
-    <p>This takes a CTFS demography table, output by functions mortality, growth, or recruitment,
-and removes rows where N==0, or key data are NA. The rownames are assumed to refer to species names, and
-some codes can be excluded using the argument excludespp. The four columns
-can be submitted by name or number using default column headers, or by
-setting type to 'mort'or 'abund'.</p>
-<p>It returns a logical vector indicating with TRUE which rows to keep, not the cleaned table itself.</p>
-<p>This was formerly in utilities.r.</p>
+    <p>This takes a CTFS demography table, output by functions mortality, growth, or
+recruitment, and removes rows where N == 0, or key data are NA.</p>
     
 
     <pre class="usage"><span class='fu'>clean.demography</span>(<span class='no'>demogdata</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"mort"</span>, <span class='kw'>Ncol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>Scol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>timecol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ratecol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>excludespp</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>type</th>
+      <td><p>"mort" or "abund" to refer to columns by name or number.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A logical vector indicating with TRUE which rows to keep, not the cleaned
+table itself.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The rownames are assumed to refer to species names, and some codes can be
+excluded using the argument excludespp. The four columns can be submitted by
+name or number using default column headers, or by setting type to 'mort'or
+'abund'.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='no'>rows.include</span> <span class='kw'>=</span> <span class='fu'>clean.demography</span>(<span class='no'>demogtable</span>,
+    <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'growth'</span>,
+    <span class='kw'>Ncol</span> <span class='kw'>=</span> <span class='st'>'N'</span>,
+    <span class='kw'>ratecol</span> <span class='kw'>=</span> <span class='st'>'ratecol'</span>)
 
-  <span class='no'>rows.include</span><span class='kw'>=</span><span class='fu'>clean.demography</span>(<span class='no'>demogtable</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'growth'</span>,<span class='kw'>Ncol</span><span class='kw'>=</span><span class='st'>'N'</span>,<span class='kw'>ratecol</span><span class='kw'>=</span><span class='st'>'ratecol'</span>);
-  <span class='no'>result</span><span class='kw'>=</span><span class='no'>demogtable</span>[<span class='no'>rows.include</span>,]
+  <span class='no'>result</span> <span class='kw'>=</span> <span class='no'>demogtable</span>[<span class='no'>rows.include</span>, ]
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

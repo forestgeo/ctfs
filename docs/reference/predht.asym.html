@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>An allometric model predicting an asymptote at large size, used in ... — predht.asym â€¢ forestr</title>
+<title>An allometric model predicting an asymptote at large size. — predht.asym â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,33 +79,44 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>An allometric model predicting an asymptote at large size, used in ...</h1>
+    <h1>An allometric model predicting an asymptote at large size.</h1>
     </div>
 
     
-    <p>An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh.</p>
-<p>The model uses 3 parameters, submitted as argument param. The matrix form of param allows a different set of parameters to
-be submitted for every species. The default parameters given in the function Chave.AGB assume dbh is in cm, as do all the biomass
-allometry functions.</p>
-<p>dbh: Vector of dbh
-param: Either a vector of length 3, or a matrix of 3 columns; if the latter, there must be one row for each dbh</p>
+    <p>An allometric model predicting an asymptote at large size, used in estimating
+tree height as a function of dbh.</p>
+<p>The model uses 3 parameters, submitted as argument param. The matrix form of
+param allows a different set of parameters to be submitted for every species.
+The default parameters given in the function Chave.AGB assume dbh is in cm,
+as do all the biomass allometry functions.</p>
+<p>dbh: Vector of dbh param: Either a vector of length 3, or a matrix of 3
+columns; if the latter, there must be one row for each dbh.</p>
     
 
     <pre class="usage"><span class='fu'>predht.asym</span>(<span class='no'>dbh</span>, <span class='no'>param</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>dbh</th>
+      <td><p>Stem diameter, usually at breast height (see data dictionary at 
+http://ctfs.si.edu/Public/DataDict/data_dict.php).</p></td>
+    </tr>
+    </table>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>htparam</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>41.7</span>,<span class='fl'>.057</span>,<span class='fl'>.748</span>)
-
-  <span class='no'>d</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>5</span>,<span class='fl'>10</span>,<span class='fl'>20</span>,<span class='fl'>50</span>)
-
-  <span class='no'>ht</span><span class='kw'>=</span><span class='fu'>predht.asym</span>(<span class='kw'>dbh</span><span class='kw'>=</span><span class='no'>d</span>,<span class='kw'>param</span><span class='kw'>=</span><span class='no'>htparam</span>)
+  <span class='no'>htparam</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>41.7</span>, <span class='fl'>.057</span>, <span class='fl'>.748</span>)
+  <span class='no'>d</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>50</span>)
+  <span class='no'>ht</span> <span class='kw'>=</span> <span class='fu'>predht.asym</span>(<span class='kw'>dbh</span> <span class='kw'>=</span> <span class='no'>d</span>, <span class='kw'>param</span> <span class='kw'>=</span> <span class='no'>htparam</span>)
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
             
       <li><a href="#examples">Examples</a></li>
     </ul>

@@ -40,6 +40,8 @@
 #' 
 #' The name solve.topo clashed with an S3 method, so it was replaced by
 #' solve_topo.
+#' 
+#' @template debug
 #'
 #' @examples
 #' \dontrun{

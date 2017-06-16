@@ -6,8 +6,12 @@
 \usage{
 defineBinBreaks(size, nobin, ...)
 }
+\arguments{
+\item{...}{Arguments passed to \code{\link[=enoughSamplePerBin]{enoughSamplePerBin()}}.}
+}
 \description{
-This finds divisions of over the vector size which produce equal number of elements per division. In case
-any of those divisions are too short, it tries equal sized divisions. A default to use for
-start parameters when none are supplied.
+This finds divisions of over the vector size which produce equal number of
+elements per division. In case any of those divisions are too short, it tries
+equal sized divisions. A default to use for start parameters when none are
+supplied.
 }

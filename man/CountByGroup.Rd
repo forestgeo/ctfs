@@ -7,8 +7,15 @@
 CountByGroup(data, groupcol, count_to_data = FALSE, countname = "count",
   groupname = "groupID")
 }
+\arguments{
+\item{data}{A dataframe.}
+}
 \description{
-Groups a dataframe by one or more columns (named by groupcol). This does exactly what
+Groups a dataframe by one or more columns (named by groupcol). This does
+exactly what
 
 COUNT(*) GROUP BY does in SQL.
+}
+\seealso{
+\code{\link[dplyr:group_by]{dplyr::group_by()}} and \code{\link[dplyr:count]{dplyr::count()}}.
 }

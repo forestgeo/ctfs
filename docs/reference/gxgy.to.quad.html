@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate a quadrat name (column number then row number, as a 4-dig... — gxgy.to.quad â€¢ forestr</title>
+<title>Calculate a quadrat name from gy-gy. — gxgy.to.quad â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,13 +79,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate a quadrat name (column number then row number, as a 4-dig...</h1>
+    <h1>Calculate a quadrat name from gy-gy.</h1>
     </div>
 
     
     <p>Calculate a quadrat name (column number then row number, as a 4-digit
-character string) from gy-gy. If start is set to zero, quadrats start with
-0000, otherwise, 0101.</p>
+character string) from gy-gy.</p>
     
 
     <pre class="usage"><span class='fu'>gxgy.to.quad</span>(<span class='no'>gx</span>, <span class='no'>gy</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>), <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>,
@@ -101,6 +100,11 @@ character string) from gy-gy. If start is set to zero, quadrats start with
     <tr>
       <th>plotdim</th>
       <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>start</th>
+      <td><p>If <code>start = "zero"</code>, quadrats start with <code>0000</code>, otherwise, they
+start with <code>0101</code>.</p></td>
     </tr>
     </table>
     

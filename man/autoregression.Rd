@@ -2,9 +2,12 @@
 % Please edit documentation in R/statistics.R
 \name{autoregression}
 \alias{autoregression}
-\title{Autocorrelation with a given lag of a vector y.autoregression regre...}
+\title{Autocorrelation with a given lag of a vector y.}
 \usage{
 autoregression(y, lag, xlog = FALSE, ylog = FALSE, graphit = TRUE)
+}
+\arguments{
+\item{graphit}{Logical; if `TRUE` adds plot output.}
 }
 \description{
 Autocorrelation with a given lag of a vector y.

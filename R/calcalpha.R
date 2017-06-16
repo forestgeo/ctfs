@@ -10,36 +10,42 @@
 #'
 #' Calculates alpha from a stem and species count submitted using Newton's method.
 #'
+#' @template n_indiv_cnt
+#' @template S_spp_cnt
 #'
 'calcalpha'
 
-#' The derivative for use in Newtons methodd.calcS.alpha calcS.alpha  ...
+#' The derivative for use in Newtons methodd.
 #'
 #' @description
-#'
 #' The derivative for use in Newton's method
+#' 
+#' @inheritParams calcS.alpha
 #'
+#' @seealso [calcalpha()].
 #'
 'd.calcS.alpha'
 
-#' Estimated number of species in a sample of N individuals, given Fis...
+#' Number of species in a sample of N individuals, given Fisher's alpha.
 #'
 #' @description
+#' Estimated number of species in a sample of N individuals, given Fisher's alpha.
 #'
-#' Estimated number of species in a sample of N individuals, given Fisher's alpha
-#'
-#'
+#' @template n_indiv_cnt
+#' @param a Fisher's alpha.
 'calcS.alpha'
 
-#' takes a full plot dataframe and calculates species number in a rand...
+#' Species number in a random subsample of `s` individuals.
 #'
 #' @description
-#' takes a full plot dataframe and calculates species number in a
-#' random subsample of s individuals. All it requires is a column
-#' called sp which has species designation for each individual. 
-#'
-#'
-
+#' Takes a full plot dataframe and calculates species number in a random
+#' subsample of s individuals. All it requires is a column called sp which has
+#' species designation for each individual.
+#' 
+#' @param s Passed to `size` in [base::sample()].
+#' 
+#' @seealso [base::sample()].
+#' 
 'rarefy.diversity'
 
 # Source code and original documentation ----------------------------

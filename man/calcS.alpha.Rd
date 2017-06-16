@@ -2,10 +2,15 @@
 % Please edit documentation in R/calcalpha.R
 \name{calcS.alpha}
 \alias{calcS.alpha}
-\title{Estimated number of species in a sample of N individuals, given Fis...}
+\title{Number of species in a sample of N individuals, given Fisher's alpha.}
 \usage{
 calcS.alpha(n, a)
 }
+\arguments{
+\item{n}{Individuals count.}
+
+\item{a}{Fisher's alpha.}
+}
 \description{
-Estimated number of species in a sample of N individuals, given Fisher's alpha
+Estimated number of species in a sample of N individuals, given Fisher's alpha.
 }

@@ -2,9 +2,12 @@
 % Please edit documentation in R/utilities.R
 \name{randomRow}
 \alias{randomRow}
-\title{Return a random row from a dataframerandomRow randomElement   Retur...}
+\title{Return a random row from a dataframe.}
 \usage{
 randomRow(data)
+}
+\arguments{
+\item{data}{A dataframe.}
 }
 \description{
 Return a random row from a dataframe

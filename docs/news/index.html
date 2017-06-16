@@ -87,6 +87,53 @@
     <div id="forestr-0-0-0-9000" class="section level1">
 <h1 class="hasAnchor">
 <a href="#forestr-0-0-0-9000" class="anchor"></a>forestr 0.0.0.9000</h1>
+<div id="week-starting-on" class="section level2">
+<h2 class="hasAnchor">
+<a href="#week-starting-on" class="anchor"></a>2017-06-05 (week starting on)</h2>
+<div id="done" class="section level3">
+<h3 class="hasAnchor">
+<a href="#done" class="anchor"></a>DONE</h3>
+<ul>
+<li><p>Deprecate <code><a href="../reference/is.leap.html">is.leap()</a></code>; recommend <code>lubridate::leap_year()</code>.</p></li>
+<li><p>Refer to BCI data using new names, replacing old names (e.g. bci.full1 by bci::bci12full1).</p></li>
+</ul>
+<p>CONVENTIONS</p>
+</div>
+<div id="new-sections" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-sections" class="anchor"></a>New sections:</h3>
+<div id="reuse-good-code-and-alternative" class="section level4">
+<h4 class="hasAnchor">
+<a href="#reuse-good-code-and-alternative" class="anchor"></a>Reuse good code, and Alternative</h4>
+<p>To direct users to better alternatives:</p>
+<p>via <code>@template reuse_good_code</code>, add:</p>
+<p>“The single biggest way to improve both the quality of your code and your productivity is to reuse good code (…) Many algorithms have already been invented, tested, discussed in the trade literature, reviewed, and improved”.</p>
+<p>–Code complete 2, by Steve McConnell.</p>
+<p>Then, show a better alternative via section __Alternative_. For examples see <code><a href="../reference/left.html">left()</a></code>, <code><a href="../reference/convert.factor.html">convert.factor()</a></code>.</p>
+</div>
+<div id="arguments-details" class="section level4">
+<h4 class="hasAnchor">
+<a href="#arguments-details" class="anchor"></a>Arguments details</h4>
+<p>Gives details of arguments that are specific for the current function, and may better be kept separate to what is documented more generally via <code>@param</code>, which can be reused via <code>@template</code> or <code>@inheritParams</code>).</p>
+</div>
+</div>
+<div id="new-tags" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-tags" class="anchor"></a>New tags:</h3>
+<p>Find these tags with <code>shift + f</code></p>
+<p>SOURCE CODE</p>
+<ul>
+<li><p><strong>Unused.</strong> To tag unused arguments. Search this tag with shift + ctrl + F.</p></li>
+<li><p><strong>xxx_amend_source</strong> To tag source code that needs work.</p></li>
+</ul>
+<p>DOCUMENTATION</p>
+<ul>
+<li><p><strong>xxx_amend_doc</strong> To tag documentation that I need to amend later. Find these tags with <code>shift + f</code>.</p></li>
+<li><p><strong>xxxdocparam</strong> To tag arguments that need to be documented. They are discoverable with find_xxxdocparam()</p></li>
+</ul>
+<p>XXX END OF NOT REPORTED WORK</p>
+</div>
+</div>
 <div id="improved-arguments-documentation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#improved-arguments-documentation" class="anchor"></a>Improved arguments documentation</h2>
@@ -136,9 +183,9 @@
 <span class="dv">10</span> plotdim findneighborabund     <span class="dv">37</span>    <span class="dv">29</span>
 <span class="co"># ... with 27 more rows</span></code></pre></div>
 </div>
-<div id="reduced-duplicated-arguments-documentation" class="section level3">
+<div id="reduced-duplicated-instances-of-arguments-documentation" class="section level3">
 <h3 class="hasAnchor">
-<a href="#reduced-duplicated-arguments-documentation" class="anchor"></a>Reduced duplicated arguments documentation</h3>
+<a href="#reduced-duplicated-instances-of-arguments-documentation" class="anchor"></a>Reduced duplicated instances of arguments documentation</h3>
 <ul>
 <li>Reduced duplicated instances of arguments documentation from 132 to 41, mostly via roxygen2 @templates and @inheritParams.</li>
 </ul>

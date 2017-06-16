@@ -7,15 +7,20 @@
 graph.outliers.spp(full, trimmed, spname = "gustsu", fit = NULL,
   size = "agb", export = NULL, xtitle = "log(agb)", ytitle = "growth")
 }
+\arguments{
+\item{fit}{A fitted model.}
+}
 \description{
-Pass the output of extract.growth with every individual's growth (full), and another after outliers have been trimmed. This finds
-the records trimmed and overlays them on the entire graph. If a model is submitted, then the curves are graphed too.
+Pass the output of extract.growth with every individual's growth (full), and
+another after outliers have been trimmed. This finds the records trimmed and
+overlays them on the entire graph. If a model is submitted, then the curves
+are graphed too.
 }
 \examples{
 \dontrun{
 full = extract.growthdata(
-  census1 = bci.full5,
-  census2 = bci.full6,
+  census1 = bci::bci12full5,
+  census2 = bci::bci12full6,
   growcol = 'incgr',
   growthfunc = growth.biomass.indiv,
   logit = 'x',
@@ -26,8 +31,8 @@ full = extract.growthdata(
   maxgrow = 7500
 )
 trimmed = extract.growthdata(
-  census1 = bci.full5,
-  census2 = bci.full6,
+  census1 = bci::bci12full5,
+  census2 = bci::bci12full6,
   growcol = 'incgr',
   growthfunc = growth.biomass.indiv,
   logit = 'x',
@@ -38,6 +43,5 @@ trimmed = extract.growthdata(
   maxgrow = 75
 )
 }
-
 
 }

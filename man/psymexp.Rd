@@ -6,6 +6,9 @@
 \usage{
 psymexp(x, center, rate)
 }
+\arguments{
+\item{center}{center Center of the distribution.}
+}
 \description{
 The CDF for the symmetric exponential.
 }

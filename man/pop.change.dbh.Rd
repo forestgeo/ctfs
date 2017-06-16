@@ -13,13 +13,13 @@ stem.}
 
 \item{census2}{The matching R Analytical Table for a later census.}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 
 \item{classbreak}{xxxdocparam}
@@ -47,14 +47,14 @@ other examples.
 }
 \examples{
 \dontrun{
-Nchange = pop.change.dbh(bci.full5, bci.full6, classbreak = c(10, 100, 300))
+Nchange = pop.change.dbh(bci::bci12full5, bci::bci12full6, classbreak = c(10, 100, 300))
 Nchange$abund
 
 BAchangePerSpp <- pop.change.dbh(
-  bci.full5,
-  bci.full6,
+  bci::bci12full5,
+  bci::bci12full6,
   classbreak = c(10, 100),
-  split = bci.full5$sp
+  split = bci::bci12full5$sp
 )
 head(BAchangePerSpp$ba)}
 

@@ -2,12 +2,17 @@
 % Please edit documentation in R/distributions.R
 \name{constant}
 \alias{constant}
-\title{A function to return a constant at all predictors x. The predictors...}
+\title{A function to return a constant at all predictors x.}
 \usage{
 constant(x, param, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
-A function to return a constant at all predictors x. The predictors are a numeric vector, or a matrix of
-many predictors (each column a single predictor). This function is useful in modeling, where the name of a function
-is passed; this allows modeling where a response is a constant across all values of x.
+A function to return a constant at all predictors x. The predictors are a
+numeric vector, or a matrix of many predictors (each column a single
+predictor). This function is useful in modeling, where the name of a function
+is passed; this allows modeling where a response is a constant across all
+values of x.
 }

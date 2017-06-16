@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A more convenient version of the R function ifelse in cases where t... — IfElse â€¢ forestr</title>
+<title>A Version of <code>base::ifelse()</code>. — IfElse â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,21 +79,57 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A more convenient version of the R function ifelse in cases where t...</h1>
+    <h1>A Version of <code>base::ifelse()</code>.</h1>
     </div>
 
     
-    <p>A more convenient version of the R function ifelse in cases where test, a, and b are atomic.</p>
+    <p>A Version of <code>base::ifelse()</code>.</p>
     
 
     <pre class="usage"><span class='fu'>IfElse</span>(<span class='no'>test</span>, <span class='no'>a</span>, <span class='no'>b</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>test, a, b</th>
+      <td><p>Equivalent to <code>test</code>, <code>yes</code>, <code>no</code> in <code><a href='http://www.rdocumentation.org/packages/base/topics/ifelse'>base::ifelse()</a></code>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="reuse-good-code"><a class="anchor" href="#reuse-good-code"></a>Reuse good code</h2>
+
+    
+    <p>"The single biggest way to improve both the quality of your code and your 
+productivity is to reuse good code (...) Many algorithms have already been 
+invented, tested, discussed in the trade literature, reviewed, and improved".</p>
+<p>--Code complete 2, by Steve McConnell.</p>
+    
+    <h2 class="hasAnchor" id="alternative"><a class="anchor" href="#alternative"></a>Alternative</h2>
+
+    
+    <p>A good alternative is <code><a href='http://www.rdocumentation.org/packages/dplyr/topics/if_else'>dplyr::if_else()</a></code>: "Compared to the base ifelse(),
+this function is more strict. It checks that true and false are the same
+type. This strictness makes the output type more predictable, and makes it
+somewhat faster".</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='http://www.rdocumentation.org/packages/base/topics/Control'>base::if()</a></code>, <code><a href='http://www.rdocumentation.org/packages/base/topics/ifelse'>base::ifelse()</a></code>, <code><a href='http://www.rdocumentation.org/packages/dplyr/topics/if_else'>dplyr::if_else()</a></code>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#reuse-good-code">Reuse good code</a></li>
+
+      <li><a href="#alternative">Alternative</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

@@ -2,10 +2,14 @@
 % Please edit documentation in R/statistics.R
 \name{harmonic.mean}
 \alias{harmonic.mean}
-\title{Harmonic mean of a vector x. NAs and nonzero values can be ignored,...}
+\title{Harmonic mean of a vector x.}
 \usage{
 harmonic.mean(x, add = 0, na.rm = TRUE)
 }
+\arguments{
+\item{add}{xxxdocparam in harmonic.mean() is different to add in add_plot.R}
+}
 \description{
-Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a constant can be added to every x.
+Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a
+constant can be added to every x.
 }

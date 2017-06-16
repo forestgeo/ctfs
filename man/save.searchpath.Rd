@@ -2,12 +2,21 @@
 % Please edit documentation in R/utilities.R
 \name{save.searchpath}
 \alias{save.searchpath}
-\title{Saves all functions in position n to the file already  attached at ...}
+\title{Save functions in position n to a file already  attached.}
 \usage{
 save.searchpath(n)
 }
-\description{
-Saves all functions in position n to the file already
-attached at that position; n can be a vector. Allows changes in attached data to be saved easily, but
-please use with care, as it will over-write the existing file.
+\arguments{
+\item{n}{Can be a vector; position of functions to be saved and of attached
+file to save to.}
 }
+\description{
+Saves all functions in position n to the file already attached at that
+position
+}
+\section{Warning}{
+
+Allows changes in attached data to be saved easily, but please use with care,
+as it will over-write the existing file.
+}
+

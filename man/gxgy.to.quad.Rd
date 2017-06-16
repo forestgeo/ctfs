@@ -2,7 +2,7 @@
 % Please edit documentation in R/quadfunc.R
 \name{gxgy.to.quad}
 \alias{gxgy.to.quad}
-\title{Calculate a quadrat name (column number then row number, as a 4-dig...}
+\title{Calculate a quadrat name from gy-gy.}
 \usage{
 gxgy.to.quad(gx, gy, gridsize = 20, plotdim = c(1000, 500), digits = 2,
   start = "zero")
@@ -11,9 +11,11 @@ gxgy.to.quad(gx, gy, gridsize = 20, plotdim = c(1000, 500), digits = 2,
 \item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
+
+\item{start}{If \code{start = "zero"}, quadrats start with \code{0000}, otherwise, they
+start with \code{0101}.}
 }
 \description{
 Calculate a quadrat name (column number then row number, as a 4-digit
-character string) from gy-gy. If start is set to zero, quadrats start with
-0000, otherwise, 0101.
+character string) from gy-gy.
 }

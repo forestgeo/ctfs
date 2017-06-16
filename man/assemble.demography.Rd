@@ -30,11 +30,17 @@ categories are included.
 \examples{
 \dontrun{
 
-data = pop.change(bci.full5, bci.full6, split1 = bci.full5$sp)
+data = pop.change(
+  bci::bci12full5, bci::bci12full6, 
+  split1 = bci::bci12full5$sp
+)
 result = assemble.demography(data, type = 'a', whichdbhcat = 1)
-data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+data = growth(bci::bci12full5, bci::bci12full6, split1 = bci::bci12full5$sp)
 result = assemble.demography(data, type = 'g', whichdbhcat = 1)
-data = mortality.eachspp(bci.full5, bci.full6, classbreak = c(10, 100))
+data = mortality.eachspp(
+  bci::bci12full5, bci::bci12full6, 
+  classbreak = c(10, 100)
+)
 result1 = assemble.demography(data, type = 'm', whichdbhcat = 1)
 result2 = assemble.demography(data, type = 'm', whichdbhcat = 2)
 }

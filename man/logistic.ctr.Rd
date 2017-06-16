@@ -2,16 +2,18 @@
 % Please edit documentation in R/distributions.R
 \name{logistic.ctr}
 \alias{logistic.ctr}
-\title{This is logistic function with intercept parameterization (see logi...}
+\title{Logistic function with intercept parameterization centering on x.}
 \usage{
 logistic.ctr(x, param, log = FALSE, center = NA)
 }
+\arguments{
+\item{center}{A number to center \code{x}. If \code{center = NA}, then \code{x} are centered
+on their median; If \code{center = NULL}, no centering is done.}
+}
 \description{
-This is logistic function with intercept parameterization (see logistic above), but with centering on x allowed.
-
-If center==NA, then the x values are centered on their median.
-
-Or center can be a number. If NULL, no centering is done.
-
+This is logistic function with intercept parameterization (see logistic
+above), but with centering on x allowed.
+}
+\details{
 Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic.
 }

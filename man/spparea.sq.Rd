@@ -45,16 +45,12 @@ spcolumn can be set to 'genus'.
 }
 \description{
 Function for calculating the number of species in replicated, randomly-placed
-quadrats of various areas. The variable size refers to the dimension (side)
-of the square, and can be a vector; replicates is the number of random draws
-per dimension. Full plot data are submitted as censdata.
-
+quadrats of various areas.
+}
+\details{
 Species are counted as the number of unique values of sp in the R Analytical
 Table; unidentified species are not counted, based on a default unidennames;
 see the function unidentified.species in utilitiesCTFS.r.
-}
-\details{
-\code{censdata} can be either full or stem
 }
 \section{Note}{
 
@@ -64,20 +60,30 @@ function \code{\link[=abundanceperquad]{abundanceperquad()}} offers a fast way t
 species in checkerboard-type quadrats of different sizes.
 }
 
+\section{Arguments details}{
+
+\itemize{
+\item \code{censdata} can be either full or stem
+\item \code{censdata}
+\item \code{size}Refers to the dimension (side) of the square, and can be a vector;
+replicates is the number of random draws per dimension.
+}
+}
+
 \examples{
 \dontrun{
 speciesPerArea = spparea.sq(
-  bci.full6,
+  bci::bci12full6,
   size = c(10, 20, 50),
   mindbh = 10,
   plotdim = c(1000, 500),
   replicates = 5,
   unidennames = c('unid')
 )
-rowmatch = match(bci.full6$sp, bci.spptable$sp)
-bci.full6$Genus = bci.spptable$Genus[rowmatch]
+rowmatch = match(bci::bci12full6$sp, bci::bci12spptable$sp)
+bci::bci12full6$Genus = bci::bci12spptable$Genus[rowmatch]
 genusPerArea = spparea.sq(
-  bci.full6,
+  bci::bci12full6,
   spcolumn = 'Genus',
   size = c(10, 20, 50),
   mindbh = 10,

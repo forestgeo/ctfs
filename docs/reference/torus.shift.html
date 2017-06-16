@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Creates a torus-shifted quadrat topographic dataset. It accepts a q... — torus.shift â€¢ forestr</title>
+<title>Creates a torus-shifted quadrat topographic dataset. — torus.shift â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,25 +79,41 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Creates a torus-shifted quadrat topographic dataset. It accepts a q...</h1>
+    <h1>Creates a torus-shifted quadrat topographic dataset.</h1>
     </div>
 
     
-    <p>Creates a torus-shifted quadrat topographic dataset. It accepts a quadrat dataset
-with elevation, convexity, and slope for each 20x20 m quadrat in a plot. It returns a parallel
-dataset that is torus shifted, slip.horiz quadrats left-right and slip.vert quadrats up-down.</p>
-<p>That is, in the new dataset, the topographic information of each quadrat comes from a quadrat
-displaced by slip.horiz and slip.vert units away in the original dataset.</p>
+    <p>Creates a torus-shifted quadrat topographic dataset. It accepts a quadrat
+dataset with elevation, convexity, and slope for each 20x20 m quadrat in a
+plot. It returns a parallel dataset that is torus shifted, slip.horiz
+quadrats left-right and slip.vert quadrats up-down.</p>
+<p>That is, in the new dataset, the topographic information of each quadrat
+comes from a quadrat displaced by slip.horiz and slip.vert units away in the
+original dataset.</p>
     
 
     <pre class="usage"><span class='fu'>torus.shift</span>(<span class='no'>quaddata</span>, <span class='no'>slip.horiz</span>, <span class='no'>slip.vert</span>, <span class='kw'>invert</span> <span class='kw'>=</span> <span class='no'>F</span>, <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='no'>F</span>,
   <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>), <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>Side of the square quadrate.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function to calculate the wavelet variance curves for all species i... — wavelet.allsp â€¢ forestr</title>
+<title>Wavelet variance curves for all species in one plot. — wavelet.allsp â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,48 +79,83 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function to calculate the wavelet variance curves for all species i...</h1>
+    <h1>Wavelet variance curves for all species in one plot.</h1>
     </div>
 
     
-    <p>Function to calculate the wavelet variance curves for all species in one plot using quadrat indexation from CTFS package.</p>
+    <p>Function to calculate the wavelet variance curves for all species in one plot
+using quadrat indexation from CTFS package.</p>
     
 
     <pre class="usage"><span class='fu'>wavelet.allsp</span>(<span class='no'>censdata</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>), <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>2.5</span>,
   <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>censdata</th>
+      <td><p>A table of plot census data.</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>Size of the quadrats for the rasterization</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>If analysis is to be done at different size classes.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A matrix with:</p><ul>
+<li><p>scale: vector with scale of the analysis in meters;</p></li>
+<li><p>variance: matrix with the normalized variance at each scale (columns) for
+each species (rows);
+density: matrix with the density per area and abundance for each species in
+the plot;</p></li>
+<li><p>gridsize: grid size parameter used;</p></li>
+<li><p>UCL: vector with the upper confidence limit for the null hypothesis;</p></li>
+<li><p>LCL: vector with the lower confidence limit for the null hypothesis.</p></li>
+</ul>
+
+    
+    <h2 class="hasAnchor" id="arguments-details"><a class="anchor" href="#arguments-details"></a>Arguments details</h2>
+
+    
+    <ul>
+<li><p>censdata: Must  contain the variables gx, gy, dbh, status, and sp code.</p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='fu'>load</span>(<span class='st'>"bci.full1.rdata"</span>)
-  <span class='no'>wavelet.variances</span> <span class='kw'>=</span> <span class='fu'>wavelet.allsp</span>(<span class='no'>censdata</span>, <span class='kw'>plotdim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>1000</span>,<span class='fl'>500</span>))
+  <span class='no'>wavelet.variances</span> <span class='kw'>=</span> <span class='fu'>wavelet.allsp</span>(
+    <span class='kw'>censdata</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full1</span>,
+    <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>)
+  )
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#arguments-details">Arguments details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
     <h2>Author</h2>
     
 Matteo Detto and Tania Brenes
-
-Output is a matrix with:
-scale: vector with scale of the analysis in meters;
-variance: matrix with the normalized variance at each scale (columns) for each species (rows);
-density: matrix with the density per area and abundance for each species in the plot;
-plotdim: plot dimentions parameter used;
-gridsize: grid size parameter used;
-
-UCL: vector with the upper confidence limit for the null hypothesis;
-
-LCL: vector with the lower confidence limit for the null hypothesis.
-censdata (): census data for the plot containing the variables gx, gy, dbh, status, and sp code;
-plotdim c(1000,500):  vector with two numbers indicating the plot size;
-gridsize (2.5): gives the size of the quadrats for the rasterization
-mindbh (NULL): if analysis is to be done at different size  classes
 
   </div>
 </div>

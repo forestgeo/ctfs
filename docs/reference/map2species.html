@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Map 2 species to a 2-panel pdf. Two species names are passed to spp... — map2species â€¢ forestr</title>
+<title>Map 2 species to a 2-panel pdf. — map2species â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,14 +79,11 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Map 2 species to a 2-panel pdf. Two species names are passed to spp...</h1>
+    <h1>Map 2 species to a 2-panel pdf.</h1>
     </div>
 
     
-    <p>Map 2 species to a 2-panel pdf. Two species names are passed to spp as a vector. The data
-must be a list of two split plot data objects, spplist is a list of two different species tables, and elev
-a list of two different elevation matrices. To make 2 maps from the same plot, each of the lists should
-repeated the same data twice.</p>
+    <p>Map 2 species to a 2-panel pdf.</p>
     
 
     <pre class="usage"><span class='fu'>map2species</span>(<span class='no'>spp</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='no'>bci3.spp</span>, <span class='no'>korup.spp</span>),
@@ -94,13 +91,46 @@ repeated the same data twice.</p>
   <span class='no'>ctfs.elev</span>$<span class='no'>korup</span>), <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"spp"</span>, <span class='kw'>export</span> <span class='kw'>=</span> <span class='no'>pdf</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='pst.html'>pst</a></span>(<span class='no'>spp</span>[<span class='fl'>1</span>], <span class='no'>spp</span>[<span class='fl'>2</span>],
   <span class='st'>"map.pdf"</span>), <span class='kw'>ptsize</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.6</span>, <span class='fl'>0.6</span>), <span class='kw'>topo</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>4</span>), <span class='kw'>ht</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>wd</span> <span class='kw'>=</span> <span class='fl'>8.5</span>,
   <span class='kw'>plotside</span> <span class='kw'>=</span> <span class='fl'>4</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>spp</th>
+      <td><p>A vector of two species names.</p></td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td><p>A list of two split plot data objects.</p></td>
+    </tr>
+    <tr>
+      <th>spplist</th>
+      <td><p>A list of two different species tables.</p></td>
+    </tr>
+    <tr>
+      <th>elev</th>
+      <td><p>A list of two different elevation matrices.</p></td>
+    </tr>
+    <tr>
+      <th>export</th>
+      <td><p>File format to export to.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>To make 2 maps from the same plot, each of the lists should repeated
+the same data twice.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

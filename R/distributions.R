@@ -4,12 +4,14 @@
 #'
 #'
 
-#' Simulate draws from a double normaldoublenormal dnormprod0  Probabi...
+#' Simulate draws from a double normaldoublenormal.
 #'
 #' @description
-#'
 #' Simulate draws from a double normal
+#' 
+#' @param N,m,sd1 Passed to `n`, `mean`, `sd` in [stats::rnorm()].
 #'
+#' @seealso [stats::rnorm()].
 #'
 'doublenormal'
 
@@ -17,55 +19,66 @@
 #'
 #' @description
 #'
-#' Probability density of product of two normal variates, both with mean 0, SD sx and sy
+#' Probability density of product of two normal variates, both with mean 0, SD
+#' sx and sy
 #'
+#' @template z_num_vector
 #'
 'dnormprod0'
 
-#' PDF of a function formed by adding a gamma distribution to a symmet...
+#' PDF by adding a gamma distribution to a symmetrical exponential distribution.
 #'
 #' @description
-#'
-#' PDF of a function formed by adding a gamma distribution to a symmetrical exponential 
-#' distribution. This means simply adding a PDF for a gamma minus an exponential to the
-#'
-#' PDF for a gamma plus an exponential.
-#'
+#' PDF of a function formed by adding a gamma distribution to a symmetrical 
+#' exponential distribution. This means simply adding a PDF for a gamma minus an
+#' exponential to the PDF for a gamma plus an exponential.
+#' 
+#' @template graphit
+#' @template mean_sd_lambda
+#' @template z_num_vector
 #'
 'dgammadexp'
 
-#' The PDF of the difference between a gamma and a negative exponentia...
+#' The PDF of a gamma distribution minus a negative exponential distribution.
 #'
 #' @description
-#'
-#' The PDF of the difference between a gamma and a negative exponential distribution. The shape and rate of the gamma 
-#' are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
-#'
-#' This comes from the convolution of the two distributions, which is also a gamma, and the integral 
-#' of the new gamma evaluated with pgamma. Note that lambda is the rate of the exponential.
-#'
+#' The PDF of the difference between a gamma and a negative exponential
+#' distribution. The shape and rate of the gamma are a and r.
+#' 
+#' This comes from the convolution of the two distributions, which is also a
+#' gamma, and the integral of the new gamma evaluated with pgamma.
+#' 
+#' @template graphit
+#' @template mean_sd_lambda
+#' @template z_num_vector
 #'
 'dgammaMinusdexp'
 
-#' The PDF of the sum of gamma and negative exponential distribution. ...
-#'
+#' The PDF of the sum of gamma and negative exponential distribution.
+#' 
 #' @description
-#'
-#' The PDF of the sum of gamma and negative exponential distribution. The shape and rate of the gamma 
-#' are a and r; mean and sd are the mean and sd of the gamma. Lambda is the rate of the exponential. 
-#'
-#' This is only an appoximation based on the observation that the resulting distribution is very
-#' close to a gamma. So I simply work out a new gamma whose mean is the sum of the means of
-#' the initial gamma and exponential, and likewise for the new variance. 
-#'
-#' As long as gamma\'s rate > the exponential lambda, the distribution
-#' can be specified (using pgamma) as in dgammaMinusdexp. But if rate < lambda, this fails.
-#'
-#' The gamma approximation fails if the sd is sufficiently higher than the mean, and the mean
-#' is low. Then the gamma is absurdly skewed, and the shape of the sum is dominated by the exponential
-#' at low z, nothing like a true gamma. It appears to work reasonably well as long as the
-#' mean >= sd, or even if mean>=0.5*sd.
-#'
+#' The PDF of the sum of gamma and negative exponential distribution. The shape
+#' and rate of the gamma are a and r; mean and sd are the mean and sd of the
+#' gamma. Lambda is the rate of the exponential.
+#' 
+#' This is only an appoximation based on the observation that the resulting
+#' distribution is very close to a gamma. So I simply work out a new gamma whose
+#' mean is the sum of the means of the initial gamma and exponential, and
+#' likewise for the new variance.
+#' 
+#' As long as gamma\'s rate > the exponential lambda, the distribution can be
+#' specified (using pgamma) as in dgammaMinusdexp. But if rate < lambda, this
+#' fails.
+#' 
+#' The gamma approximation fails if the sd is sufficiently higher than the mean,
+#' and the mean is low. Then the gamma is absurdly skewed, and the shape of the
+#' sum is dominated by the exponential at low z, nothing like a true gamma. It
+#' appears to work reasonably well as long as the mean >= sd, or even if
+#' mean>=0.5*sd.
+#' 
+#' @template graphit
+#' @template mean_sd_lambda
+#' @template z_num_vector
 #'
 'dgammaPlusdexp'
 
@@ -78,13 +91,17 @@
 #'
 'dgamma.meansd'
 
-#' Random draws of gamma, parameterized with mean and sd instead of sh...
-#'
+#' Random draws of gamma, parameterized with mean and sd.
+#' 
 #' @description
-#'
-#' Random draws of gamma, parameterized with mean and sd instead of shape and scale.
-#'
-#'
+#' Random draws of gamma, parameterized with mean and sd instead of shape and
+#' scale.
+#' 
+#' @param n Passed to `n` in [stats::rgamma()].
+#' @param mean Mean.
+#' @param sd sd.
+#' @seealso [stats::rgamma()].
+#' 
 'rgamma.meansd'
 
 #' A version of dgamma where the parameters are ordered so that the me...
@@ -124,26 +141,30 @@
 #'
 #' Random draws based on the integral.
 #'
+#' @template n_pass_runif
 #'
 'rpower'
 
 #' A bilateral power distribution, centered at center, decaying with e...
 #'
 #' @description
+#' A bilateral power distribution, centered at center, decaying with exponent
+#' rate1 for positive x and rate2 for negative x. Both rate1 and rate2 must be <
+#' (-1). See dpower, this is analogous to dasymexp for dpower. By R. Chisholm.
 #'
-#' A bilateral power distribution, centered at center, decaying with exponent rate1 for positive x and rate2 for negative x. Both rate1 and rate2
-#' must be < (-1). See dpower, this is analogous to dasymexp for dpower. By R. Chisholm. 
-#'
+#' @template center_distribution
 #'
 'dasympower'
 
-#' Random draws from the bilateral power distribution, dasympower. By ...
-#'
+#' Random draws from the bilateral power distribution, dasympower.
+#' 
 #' @description
-#'
-#' Random draws from the bilateral power distribution, dasympower. By R. Chisholm. 
-#'
-#'
+#' Random draws from the bilateral power distribution, [dasympower()].
+#' 
+#' @author R. Chisholm.
+#' 
+#' @template n_pass_runif
+#' 
 'rasympower'
 
 #' Quantiles from the bilateral power distribution, dasympower. By R. ...
@@ -165,25 +186,28 @@
 #'
 #' Each must be divided by two, though, in order to integrate to one.
 #'
+#' @template center_distribution
+#'
 'dsymexp'
 
 #' The CDF for the symmetric exponential.psymexp rsymexp  Drawing a ra...
 #'
 #' @description
-#'
 #' The CDF for the symmetric exponential.
 #'
+#' @template center_distribution
 #'
 'psymexp'
 
-#' Drawing a random variate on the symmetric exponential, based on the...
+#' Drawing a random variate on the symmetric exponential.
 #'
 #' @description
+#' Drawing a random variate on the symmetric exponential, based on the
+#' cumulative probability, as given in psymexp. A random uniform number on (0, 1)
+#' is plugged in the inverse of the cumulative distribution.
 #'
-#' Drawing a random variate on the symmetric exponential, based on the cumulative 
-#' probability, as given in psymexp. A random uniform number on (0,1) is plugged in 
-#' the inverse of the cumulative distribution.
-#'
+#' @template center_distribution
+#' @template n_pass_runif
 #'
 'rsymexp'
 
@@ -198,25 +222,28 @@
 #'
 'qasymexp'
 
-#' Probability distributions for an asymmetrical Gaussian, that is wit...
+#' Probability distributions for an asymmetrical Gaussian.
 #' 
 #' Probability distributions for an asymmetrical Gaussian, that is with
 #' different standard deviations above and below the mode, or center. The mode
 #' is not the mean, though. The SD on the right is sigma1, and on the left,
 #' sigma2.
+#' 
+#' @template center_distribution
 #'
 'dasymnorm'
 
 #' Probability distributions for a folded but asymmetrical exponential...
 #'
 #' @description
-#'
 #' Probability distributions for a folded but asymmetrical exponential. When 
 #' `x >= center`, it's a standard exponential. When `x < center`, it's the 
 #' mirror image of a different exponential; `rate1` refers to the right half,
 #' `rate2` to the left. The center is not the median: the section `x > center`
 #' has integral `rate2 / (rate1 + rate2)`, and the section 
 #' `x < center rate1 / (rate1 + rate2)`.
+#' 
+#' @template center_distribution
 #'
 'dasymexp'
 
@@ -248,13 +275,11 @@
 #'
 'fitnorm'
 
-#' Fit a random variable x to any submitted probability distribution. ...
+#' Fit a random variable x to any submitted probability distribution.
 #'
 #' @description
-#'
-#' Fit a random variable x to any submitted probability distribution. The number of start parameters
-#' must match what the pdf needs.
-#'
+#' Fit a random variable x to any submitted probability distribution. The number
+#' of start parameters must match what the pdf needs.
 #'
 'fit.pdf'
 
@@ -357,14 +382,15 @@
 #'
 'dbinomrev'
 
-#' This reverses the order of parameters to dnorm, so that outer can b...
+#' Reverse the order of parameters to dnorm.
 #'
 #' @description
-#'
 #' This reverses the order of parameters to dnorm, so that outer can be used
 #' with a vector of x, and two vectors for mean and sd (the latter two equal in
-#' length). 
-#'
+#' length).
+#' 
+#' @param m,x,s Passed to `mean`, `x` and `sd` in [dnorm()].
+#' @seealso [dnorm()].
 #'
 'dnormrev'
 
@@ -469,15 +495,20 @@
 #'
 'pexp.sin'
 
-#' Function that takes a variance-covariance matrix and produces norma...
+#' From a variance-covariance matrix, output normal variates with means 0.
 #'
 #' @description
-#'
 #' Function that takes a variance-covariance matrix and produces normal variates
-#' following it, but with means 0. The R function mvrnorm does this too; this was a 
-#' test of the algorithm from Tommaso Zillio. Sigma must be square. N is the number
-#' to draw.
-#'
+#' following it, but with means 0.
+#' 
+#' @details 
+#' The R function mvrnorm does this too; this was a test of the algorithm from
+#' Tommaso Zillio.
+#' 
+#' @param Sigma Must be square.
+#' @param N The number to draw.
+#' 
+#' @seealso [MASS::mvrnorm()].
 #'
 'mvrnormRC'
 
@@ -495,18 +526,16 @@
 #' Random draw on the mixed normal distribution.rmixnorm minum.mixnorm...
 #'
 #' @description
-#'
 #' Random draw on the mixed normal distribution.
 #'
+#' @template n_pass_runif
 #'
 'rmixnorm'
 
-#' Fit a mixture of 2 normals.minum.mixnorm logistic.inter  Logistic f...
-#'
-#' @description
-#'
 #' Fit a mixture of 2 normals.
 #'
+#' @description
+#' Fit a mixture of 2 normals.
 #'
 'minum.mixnorm'
 
@@ -520,6 +549,8 @@
 #' `param[1]`. Slope parameters follow, one per column of `x`.
 #' 
 #' This is identical to standard.
+#' 
+#' @param ... Unused.
 #'
 'logistic.inter'
 
@@ -527,9 +558,11 @@
 #'
 #' @description
 #'
-#' This is standard logistic function, but with asymptote and basement allowed. The latter are only implemented
-#' if extra parameters are passed. Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic. 
-#'
+#' This is standard logistic function, but with asymptote and basement allowed.
+#' The latter are only implemented if extra parameters are passed. Moved from
+#' calc.surviv.r on 25 July 2010 to provide the standard logistic.
+#' 
+#' @param ... Unused.
 #'
 'logistic.standard'
 
@@ -537,11 +570,13 @@
 #'
 #' @description
 #'
-#' This is the Gaussian logistic function, where logit is a second-order polynomial of x; with asymptote and basement allowed. 
+#' This is the Gaussian logistic function, where logit is a second-order
+#' polynomial of x; with asymptote and basement allowed.
+#' 
+#' There must be 1+2*nopredictors parameters; the asympotote and basement are
+#' only implemented if extra parameters are passed.
 #'
-#' There must be 1+2*nopredictors parameters; the asympotote and basement are only implemented
-#' if extra parameters are passed.  
-#'
+#' @param ... Unused.
 #'
 'logistic.power'
 
@@ -556,33 +591,38 @@
 #' Asymptote and basement are allowed. There must be `1+2*nopredictors`
 #' parameters; the asympotote and basement are only implemented if extra
 #' parameters are passed.
+#' 
+#' @param ... Unused.
 #'
 'logistic.power.mode'
 
 #' This is a mixture of logistic and logistic-standard models. The pre...
 #'
 #' @description
-#'
-#' This is a mixture of logistic and logistic-standard models. The predictors n get a power model, the remaining a simple
-#' model. So if nopredictors==8, and n=c(1,7), then the first and seventh predictors use a power model, while the rest a simple model.
-#'
-#' There must be 1+length(n)+nopredictors parameters, plus additional 1 or 2 for asymptote and basement.  
+#' This is a mixture of logistic and logistic-standard models. The predictors n
+#' get a power model, the remaining a simple model. So if nopredictors==8, and
+#' n=c(1,7), then the first and seventh predictors use a power model, while the
+#' rest a simple model.
+#' 
+#' There must be 1+length(n)+nopredictors parameters, plus additional 1 or 2 for
+#' asymptote and basement.
+#' 
+#' @param ... Unused.
 #'
 #'
 'logistic.power_simple'
 
-#' This is logistic function with intercept parameterization (see logi...
+#' Logistic function with intercept parameterization centering on x.
 #'
 #' @description
-#'
-#' This is logistic function with intercept parameterization (see logistic above), but with centering on x allowed. 
-#'
-#' If center==NA, then the x values are centered on their median.
-#'
-#' Or center can be a number. If NULL, no centering is done. 
-#'
-#' Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic. 
-#'
+#' This is logistic function with intercept parameterization (see logistic
+#' above), but with centering on x allowed.
+#' 
+#' @details
+#' Moved from calc.surviv.r on 25 July 2010 to provide the standard logistic.
+#' 
+#' @param center A number to center `x`. If `center = NA`, then `x` are centered
+#'   on their median; If `center = NULL`, no centering is done.
 #'
 'logistic.ctr'
 
@@ -596,14 +636,16 @@
 #'
 'logistic.multiplicative'
 
-#' A function to return a constant at all predictors x. The predictors...
+#' A function to return a constant at all predictors x.
 #'
 #' @description
+#' A function to return a constant at all predictors x. The predictors are a
+#' numeric vector, or a matrix of many predictors (each column a single
+#' predictor). This function is useful in modeling, where the name of a function
+#' is passed; this allows modeling where a response is a constant across all
+#' values of x.
 #'
-#' A function to return a constant at all predictors x. The predictors are a numeric vector, or a matrix of
-#' many predictors (each column a single predictor). This function is useful in modeling, where the name of a function
-#' is passed; this allows modeling where a response is a constant across all values of x. 
-#'
+#' @param ... Unused.
 #'
 'constant'
 
@@ -644,18 +686,20 @@
 #'
 'logistic.sum.squares'
 
-#' The function from Sean Thomas which produces an asymptote for y as ...
+#' Asymptote for y as a function of x.
 #'
 #' @description
-#'
-#' The function from Sean Thomas which produces an asymptote for y as a function of x. 
-#'
+#' The function from Sean Thomas which produces an asymptote for y as a function
+#' of x.
+#' 
 #' Original version: y=ymax*(1-exp(-a*x^b))
-#'
-#' This is the centered version, with x normalized by dividing by parameter k, which is the x value at which
-#' y is half ymax. This eliminates correlation between the a and b parameters in the above version, but
-#' not the correlation between parameters 1 and 2.
-#'
+#' 
+#' This is the centered version, with x normalized by dividing by parameter k,
+#' which is the x value at which y is half ymax. This eliminates correlation
+#' between the a and b parameters in the above version, but not the correlation
+#' between parameters 1 and 2.
+#' 
+#' @param ... Unused.
 #'
 'asymp.ht'
 
@@ -745,17 +789,20 @@
 #' Multiple bin model predicting y as a function of x in several bins....
 #'
 #' @description
-#'
-#' Multiple bin model predicting y as a function of x in several bins. Within each bin, y is a linear function of x. 
-#'
-#' A model with B bins has B-1 parameters for breaks points (initial B-1 parameters), B parameters as slopes (next B parameters), and one intercept (last parameter).
-#'
-#' Intercept is assigned at x=0 by default, but argument LINEARBINMEDIAN can be used to change. 
-#'
-#' This function accepts one set of parameters, separates the bin, slope, and intercept, and submits to the
-#' general version of the function (linearmodel.bin.set). 
-#'
-#'
+#' Multiple bin model predicting y as a function of x in several bins. Within
+#' each bin, y is a linear function of x.
+#' 
+#' A model with B bins has B-1 parameters for breaks points (initial B-1
+#' parameters), B parameters as slopes (next B parameters), and one intercept
+#' (last parameter).
+#' 
+#' Intercept is assigned at x=0 by default, but argument LINEARBINMEDIAN can be
+#' used to change.
+#' 
+#' This function accepts one set of parameters, separates the bin, slope, and
+#' intercept, and submits to the general version of the function
+#' (linearmodel.bin.set).
+#' 
 'linearmodel.bin'
 
 #' This does the work of calculating predicted values at each independ...
@@ -812,14 +859,16 @@
 #'
 'constant.bin'
 
-#' A probability distribution which is simply a curtailed poisson: all...
+#' A probability distribution which is simply a curtailed poisson.
 #'
 #' @description
+#' A probability distribution which is simply a curtailed poisson: all 
+#' probability above a maximum integer, maxx, is given to that maximum. For all 
+#' x < maxx, the probability is just poission. No normalization is needed, due
+#' to this definition.
 #'
-#' A probability distribution which is simply a curtailed poisson: all probability above a maximum integer,
-#' maxx, is given to that maximum. For all x<maxx, the probability is just poission. No normalization is needed, due
-#' to this definition. 
-#'
+#' @param x,lambda See `x`, `lambda` in [stats::dpois()].
+#' @seealso  [stats::dpois()].
 #'
 'dpois.max'
 
@@ -829,57 +878,66 @@
 #'
 #' A zero-truncated Poisson distribution. 
 #'
+#' @inheritParams dpois.max
 #'
 'dpois.trunc'
 
 #' A zero-truncated Poisson distribution with a ceiling (combining dpo...
 #'
 #' @description
-#'
-#' A zero-truncated Poisson distribution with a ceiling (combining dpois.max and dpois.trunc). 
-#'
+#' A zero-truncated Poisson distribution with a ceiling (combining dpois.max and
+#' dpois.trunc).
+#' 
+#' @inheritParams dpois.max
 #'
 'dpois.maxtrunc'
 
 #' Random draws on dpois.maxrpois.max rpois.trunc  Random draws on dpo...
 #'
 #' @description
-#'
 #' Random draws on dpois.max
-#'
+#' 
+#' @param N Passed to n in [stats::rpois()].
+#' @param lambda Passed to lambda in [stats::rpois()].
+#' 
+#' @seealso [stats::rpois()].
 #'
 'rpois.max'
 
-#' Random draws on dpois.trunc. This is taken unchanged from an answer...
+#' Random draws on dpois.trunc.
 #'
 #' @description
+#' Random draws on dpois.trunc. This is taken unchanged from an answer Peter
+#' Dalgaard posted to a list serve in 2005. I checked by comparing to
+#' dpois.trunc and it was spot on.
+#' 
+#' @param N,lambda Passed to argumentes `p`, `lambda` in [stats::qpois()].
 #'
-#' Random draws on dpois.trunc. This is taken unchanged from an answer Peter Dalgaard posted to a list serve in 2005. I checked
-#' by comparing to dpois.trunc and it was spot on. 
-#'
-#'
+#' @seealso [stats::qpois()].
+#' 
 'rpois.trunc'
 
-#' A 3-parameter function which asymptotes as x->infinity. The 3rd par...
+#' A 3-parameter function which asymptotes as x->infinity.
 #'
 #' @description
-#'
-#' A 3-parameter function which asymptotes as x->infinity. The 3rd param must be >=0 and x>=0. The asymptote is a, the intercept a-b.
-#'
+#' A 3-parameter function which asymptotes as x->infinity. The 3rd param must be
+#' >=0 and x>=0. The asymptote is a, the intercept a-b.
+#' 
+#' @param ... Unused.
+#' 
 #'
 'asymptote.exp'
 
-#' Graphs contours for an mvnorm, with parameters submitted as a vecto...
+#' Plot contours for an mvnorm, with parameters submitted as a vecto...
 #'
 #' @description
+#' Graphs contours for an mvnorm, with parameters submitted as a vector for a
+#' single 2D Gaussian. The probability has to be calculated on a grid so
+#' contours can be drawn.
 #'
-#' Graphs contours for an mvnorm, with parameters submitted as a
-#' vector, as described above, for a single 2D Gaussian.
-#'
-#' The probability has to be calculated on a grid so contours can be drawn.
-#'
-#' The argument exclude allows parts to be set to zero.
-#'
+#' @template add_plot
+#' @template clr
+#' @param exclude Allows parts to be set to zero.
 #'
 'graph.mvnorm'
 

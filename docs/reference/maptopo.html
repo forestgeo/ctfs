@@ -85,8 +85,7 @@
     
     <p>Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
 dimensions are not needed, instead it calculates them from elevmat and the
-gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
-screen window is created.</p>
+gridsize.</p>
     
 
     <pre class="usage"><span class='fu'>maptopo</span>(<span class='no'>elevmat</span>, <span class='no'>plotdim</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>new</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>export</span> <span class='kw'>=</span> <span class='st'>"no"</span>,
@@ -108,13 +107,13 @@ screen window is created.</p>
     </tr>
     <tr>
       <th>add</th>
-      <td><p>Logical. Whether to add points or line to an existing graph. if
-TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn.</p></td>
+      <td><p>Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.</p></td>
     </tr>
     <tr>
       <th>new</th>
-      <td><p>See <code><a href='http://www.rdocumentation.org/packages/graphics/topics/par'>graphics::par()</a></code>.</p></td>
+      <td><p>If <code>TRUE</code>, a new screen window is created.. See <code><a href='http://www.rdocumentation.org/packages/graphics/topics/par'>graphics::par()</a></code>.</p></td>
     </tr>
     <tr>
       <th>export</th>
@@ -133,11 +132,13 @@ mac. `export = format` exports the graph to a specific file format: "pdf",
     </tr>
     <tr>
       <th>xrange</th>
-      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.</p></td>
     </tr>
     <tr>
       <th>yrange</th>
-      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.</p></td>
     </tr>
     <tr>
       <th>xaxis</th>
@@ -184,7 +185,7 @@ need to be 500-1000.</p></td>
     </tr>
     <tr>
       <th>clr</th>
-      <td><p>xxxdocparam</p></td>
+      <td><p>A string indicating colour. See argument col in [graphics::par()].</p></td>
     </tr>
     <tr>
       <th>bgcolor</th>

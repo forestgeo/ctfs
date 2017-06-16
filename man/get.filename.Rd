@@ -2,12 +2,22 @@
 % Please edit documentation in R/map.R
 \name{get.filename}
 \alias{get.filename}
-\title{This sets a name for outputting a map (or any graph) to a file. The...}
+\title{This sets a name for outputting a map (or any graph) to a file.}
 \usage{
 get.filename(file, path, exp, species, type = "Map.")
 }
+\arguments{
+\item{file}{If \code{NULL}, then the argument species is used to name the file, or
+if there are more than one species, the word multispp is used.}
+
+\item{exp, }{Export type, and becomes the extension (ie, .pdf).}
+
+\item{type}{A string; Defaults to "Map", but it can be set otherwise.}
+}
 \description{
-This sets a name for outputting a map (or any graph) to a file. The argument file may be NULL, then the argument species is used
-to name the file, or if there are more than one species, the word multispp is used. The argument exp is the export type and becomes
-the extension (ie, .pdf). By default, type assumes a Map, but it can be set otherwise.
+This sets a name for outputting a map (or any graph) to a file. The argument
+file may be NULL, then the argument species is used to name the file, or if
+there are more than one species, the word multispp is used. The argument exp
+is the export type and becomes the extension (ie, .pdf). By default, type
+assumes a Map, but it can be set otherwise.
 }

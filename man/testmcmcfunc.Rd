@@ -2,7 +2,7 @@
 % Please edit documentation in R/statistics.R
 \name{testmcmcfunc}
 \alias{testmcmcfunc}
-\title{For testing mcmc1step. No longer used.testmcmcfunc CI  Confidence l...}
+\title{Deprecated. Test mcmc1step.}
 \usage{
 testmcmcfunc(x, mn, s)
 }

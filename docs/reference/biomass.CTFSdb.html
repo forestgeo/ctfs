@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate biomass from existing R-formatted tables for trees and st... — biomass.CTFSdb â€¢ forestr</title>
+<title>Biomass for trees and stems using dbh allometry. — biomass.CTFSdb â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,24 +79,50 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate biomass from existing R-formatted tables for trees and st...</h1>
+    <h1>Biomass for trees and stems using dbh allometry.</h1>
     </div>
 
     
     <p>Calculate biomass from existing R-formatted tables for trees and stems using
 dbh allometry. By default, it uses the Chave (2005) equations.</p>
-<p>Note that the standard downloads of R Analytical Tables, already has the agb
+    
+
+    <pre class="usage"><span class='fu'>biomass.CTFSdb</span>(<span class='no'>RStemTable</span>, <span class='no'>RTreeTable</span>, <span class='kw'>whichtable</span> <span class='kw'>=</span> <span class='st'>"tree"</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>,
+  <span class='kw'>plot</span> <span class='kw'>=</span> <span class='st'>"bci"</span>, <span class='kw'>wsgdata</span> <span class='kw'>=</span> <span class='no'>wsg.ctfs2</span>, <span class='kw'>forest</span> <span class='kw'>=</span> <span class='st'>"moist"</span>, <span class='kw'>ht.param</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>htmodel</span> <span class='kw'>=</span> <span class='no'>predht.asym</span>, <span class='kw'>useChave</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>cnsno</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dbname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>fullname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>plotcode</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
+      <th>plot</th>
+      <td><p>Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The same table as submitted (either tree or stem), with a column agb added;
+if the agb column was already present, it is replaced.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Note that the standard downloads of R Analytical Tables, already has the agb
 column filled, calculated with this routine using the default parameters for
 moist forest.</p>
 <p>This program can be used to repeat or redo the calculation. It can also be
 used for other tables, always requiring two tables:  one with trees and one
 with all stems.</p>
-<p>The function returns the same table as submitted (either tree or stem), with
-a column agb added; if the agb column was already present, it is replaced.</p>
 <p>Calculations are done by AGB.ind and the subroutines it call.</p>
 <p>An alternative option is to have AGB calculations already stored in the
-server's AGB database, setting useChave=FALSE. This function then looks up
-the AGB for each stem from the table named for the plot.</p>
+server's AGB database, setting <code>useChave = FALSE</code>. This function then looks
+up the AGB for each stem from the table named for the plot.</p>
 <p>RStemTable: Name of table with one row per stem; must have dbh, species
 (column sp), treeID</p>
 <p>RTreeTable: Name of table with one row per tree; must have dbh, species
@@ -110,29 +136,30 @@ formula relating tree height to dbh; if NULL, the biomass formula does not
 use height htmodel: Name of an R function that returns tree height giving a
 dbh and any number of parameters; if ht.param is NULL, htmodel is ignored.</p>
 <p>If you need a dummy wood density table to feed the wsg argument see
-<code>?wsgdata_dummy()</code>.</p>
+?<code><a href='wsgdata_dummy.html'>wsgdata_dummy()</a></code>.</p>
     
-
-    <pre class="usage"><span class='fu'>biomass.CTFSdb</span>(<span class='no'>RStemTable</span>, <span class='no'>RTreeTable</span>, <span class='kw'>whichtable</span> <span class='kw'>=</span> <span class='st'>"tree"</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>,
-  <span class='kw'>plot</span> <span class='kw'>=</span> <span class='st'>"bci"</span>, <span class='kw'>wsgdata</span> <span class='kw'>=</span> <span class='no'>wsg.ctfs2</span>, <span class='kw'>forest</span> <span class='kw'>=</span> <span class='st'>"moist"</span>, <span class='kw'>ht.param</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>htmodel</span> <span class='kw'>=</span> <span class='no'>predht.asym</span>, <span class='kw'>useChave</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>cnsno</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dbname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>fullname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>plotcode</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>"bci"</span>,<span class='st'>"full"</span>,<span class='kw'>census</span><span class='kw'>=</span><span class='fl'>1</span>)
 
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>"bci"</span>,<span class='st'>"stem"</span>,<span class='kw'>census</span><span class='kw'>=</span><span class='fl'>1</span>)
   <span class='fu'>attach</span>(<span class='st'>"biomass/wsg.ctfs.Rdata"</span>)
-  <span class='no'>newtable</span><span class='kw'>=</span><span class='fu'>biomass.CTFSdb</span>(<span class='kw'>RStemTable</span><span class='kw'>=</span><span class='no'>bci.stem1</span>,<span class='kw'>RTreeTable</span><span class='kw'>=</span><span class='no'>bci.full1</span>)
+  <span class='no'>newtable</span> <span class='kw'>=</span> <span class='fu'>biomass.CTFSdb</span>(
+    <span class='kw'>RStemTable</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12stem1</span>,
+    <span class='kw'>RTreeTable</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full1</span>
+  )
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

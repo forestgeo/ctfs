@@ -22,11 +22,11 @@ included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-\item{err.limit}{A number. Numbers such as 10000 are high and will
-return all measures.}
+\item{err.limit}{A number. Numbers such as 10000 are high and will return all
+measures.}
 
-\item{maxgrow}{A number. Numbers such as 10000 are high and will
-return all measures.}
+\item{maxgrow}{A number. Numbers such as 10000 are high and will return all
+measures.}
 }
 \value{
 This returns a complete table with growth rate of every individual, both
@@ -41,7 +41,7 @@ Table growth rate of every individual both relative and dbh-increment.
 }
 \examples{
 \dontrun{
-growth.table = growth.indiv(bci.full5, bci.full6)
+growth.table = growth.indiv(bci::bci12full5, bci::bci12full6)
 }
 
 }

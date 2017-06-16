@@ -7,7 +7,8 @@
 basum(dbh, mindbh = 10, dbhunit = "mm")
 }
 \arguments{
-\item{dbh}{DBH in mm of tree}
+\item{dbh}{Stem diameter, usually at breast height (see data dictionary at 
+http://ctfs.si.edu/Public/DataDict/data_dict.php).}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
 smaller than `mindbh` are excluded. If `NULL`, all living trees are

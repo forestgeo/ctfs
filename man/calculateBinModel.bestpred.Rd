@@ -6,7 +6,10 @@
 \usage{
 calculateBinModel.bestpred(fit)
 }
+\arguments{
+\item{fit}{A fitted model.}
+}
 \description{
-Calculate mean predicted value at every x using every one of the Gibbs sampler parameter combinations
-(excluding burn in)
+Calculate mean predicted value at every x using every one of the Gibbs sampler
+parameter combinations (excluding burn in)
 }

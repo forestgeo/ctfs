@@ -7,6 +7,9 @@
 solve_topo(coldata, column1 = "pt1", column2 = "pt2",
   diffcolumn = "htdiff", basept = "1", baseelev = 0, debug = NULL)
 }
+\arguments{
+\item{debug}{Logical. If TRUE, call browser to debug.}
+}
 \description{
 This is based on the problem and solution outlined in my book on plot methods
 (Condit, 1998). Each of N stakes i has an estimated height \code{E[i]} and a true

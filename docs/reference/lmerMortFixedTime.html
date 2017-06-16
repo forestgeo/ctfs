@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A model for mortality as a function of a single predictor variable,... — lmerMortFixedTime â€¢ forestr</title>
+<title>A model for mortality as a function of a single predictor variable. — lmerMortFixedTime â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,23 +79,42 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A model for mortality as a function of a single predictor variable,...</h1>
+    <h1>A model for mortality as a function of a single predictor variable.</h1>
     </div>
 
     
-    <p>A model for mortality as a function of a single predictor variable, with the time interval for each individual incorporated (as a secondpredictor).</p>
-<p>The predictor must be an integer. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor.</p>
-<p>The return value is a survival probability. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.</p>
+    <p>A model for mortality as a function of a single predictor variable, with the
+time interval for each individual incorporated (as a secondpredictor).</p>
     
 
     <pre class="usage"><span class='fu'>lmerMortFixedTime</span>(<span class='no'>x</span>, <span class='no'>param</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Unused.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The predictor must be an integer. The log(mortality parameter) is modeled as
+a different value for each distinct predictor. The number of parameters must
+exceed the maximum value of the predictor.</p>
+<p>The return value is a survival probability. Nothing prevents the output from
+being outside (0,1); that must be handled in the likelihood function.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

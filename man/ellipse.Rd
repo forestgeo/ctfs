@@ -6,6 +6,13 @@
 \usage{
 ellipse(x, center = c(0, 0), radius = c(7, 5), half = "top")
 }
+\arguments{
+\item{x}{Coordinates.}
+
+\item{center}{x-y coordinates of the shape center (vector of 2)}
+
+\item{radius}{Radius (scalar)}
+}
 \description{
 Equation for (half) a canonical
 }

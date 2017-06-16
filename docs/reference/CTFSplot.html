@@ -95,11 +95,13 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>plot</th>
-      <td><p>Name of plot as it appears in the names of the R Analytical Tables, in quote marks</p></td>
+      <td><p>Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).</p></td>
     </tr>
     <tr>
       <th>census</th>
-      <td><p>census numbers as they appear in the names of the R Analytical Tables; can be a vector</p></td>
+      <td><p>census numbers as they appear in the names of the R Analytical
+Tables; can be a vector</p></td>
     </tr>
     <tr>
       <th>type</th>
@@ -107,7 +109,8 @@
     </tr>
     <tr>
       <th>path</th>
-      <td><p>the name of the folder in which the tables are stored, defaults to CTFSRPackage</p></td>
+      <td><p>the name of the folder in which the tables are stored, defaults
+to CTFSRPackage</p></td>
     </tr>
     <tr>
       <th>remove</th>
@@ -137,7 +140,12 @@ there is no penalty to requesting a table that is already attached.</p>
 
   <span class='fu'>CTFSplot</span>(<span class='kw'>plot</span><span class='kw'>=</span><span class='st'>'bci'</span>,<span class='kw'>census</span><span class='kw'>=</span><span class='fl'>2</span>:<span class='fl'>3</span>)
 
-  <span class='fu'>CTFSplot</span>(<span class='kw'>plot</span><span class='kw'>=</span><span class='st'>'sinharaja'</span>, <span class='kw'>census</span><span class='kw'>=</span><span class='fl'>3</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'stem'</span>,<span class='kw'>path</span><span class='kw'>=</span><span class='st'>'C:/SinharajaRDataTables'</span>)
+  <span class='fu'>CTFSplot</span>(
+    <span class='kw'>plot</span> <span class='kw'>=</span> <span class='st'>'sinharaja'</span>,
+    <span class='kw'>census</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+    <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'stem'</span>,
+    <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>'C:/SinharajaRDataTables'</span>
+  )
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

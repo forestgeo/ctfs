@@ -2,10 +2,13 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{bad.binsdpar}
 \alias{bad.binsdpar}
-\title{bad.binsdpar calculateBinModel.BIC  Calculate Bayes Information Cri...}
+\title{bad.binsdpar}
 \usage{
 bad.binsdpar(x, param, ...)
 }
+\arguments{
+\item{...}{Arguments passed to \code{\link[=wideEnoughBins]{wideEnoughBins()}}.}
+}
 \description{
-bad.binsdpar calculateBinModel.BIC  Calculate Bayes Information Cri...
+bad.binsdpar
 }

@@ -118,12 +118,52 @@
 #'
 'fill.1dimension'
 
-#' Converts any character fields in a dataframe from factors to charac...
+#' Converts from factors to character.
 #'
 #' @description
-#'
-#' Converts any character fields in a dataframe from factors to character fields. 
-#'
+#' Converts any character fields in a dataframe from factors to character
+#' fields.
+#' 
+#' @param r A dataframe.
+#' 
+#' @template reuse_good_code
+#' @section Alternative:
+#' A more powerful and general alternative is [dplyr::mutate_if()]:
+#' ``` r
+#' lett <- letters[1:3]
+#' x <- tibble::tibble(
+#'   was_fctr = as.factor(lett), 
+#'   was_chr = lett, 
+#'   was_int = as.integer(1:length(lett)),
+#'   was_dbl = as.numeric(1:length(lett)) 
+#'   )
+#' 
+#' x
+#' #> # A tibble: 3 x 4
+#' #>   was_fctr was_chr was_int was_dbl
+#' #>     <fctr>   <chr>   <int>   <dbl>
+#' #> 1        a       a       1       1
+#' #> 2        b       b       2       2
+#' #> 3        c       c       3       3
+#' 
+#' dplyr::mutate_if(x, is.factor, as.character)
+#' #> # A tibble: 3 x 4
+#' #>   was_fctr was_chr was_int was_dbl
+#' #>      <chr>   <chr>   <int>   <dbl>
+#' #> 1        a       a       1       1
+#' #> 2        b       b       2       2
+#' #> 3        c       c       3       3
+#' 
+#' dplyr::mutate_if(x, is.double, as.integer)
+#' #> # A tibble: 3 x 4
+#' #>   was_fctr was_chr was_int was_dbl
+#' #>     <fctr>   <chr>   <int>   <int>
+#' #> 1        a       a       1       1
+#' #> 2        b       b       2       2
+#' #> 3        c       c       3       3
+#' ```
+#' 
+#' @seealso [dplyr::mutate_if()].
 #'
 'convert.factor'
 
@@ -162,13 +202,12 @@
 #'
 'merge_data'
 
-#' A version of paste with sep.pst detachfiles  detachs from the searc...
+#' A version of paste with sep.
 #'
 #' @description
-#'
-#' A version of paste with sep
-#'.
-#'
+#' A version of paste with sep.
+#' 
+#' @param ... See ... in [base::paste()].
 #'
 'pst'
 
@@ -180,14 +219,18 @@
 #'
 'detachfiles'
 
-#' Saves all functions in position n to the file already  attached at ...
+#' Save functions in position n to a file already  attached.
 #'
 #' @description
-#'
-#' Saves all functions in position n to the file already 
-#' attached at that position; n can be a vector. Allows changes in attached data to be saved easily, but
-#' please use with care, as it will over-write the existing file. 
-#'
+#' Saves all functions in position n to the file already attached at that
+#' position
+#' 
+#' @param n Can be a vector; position of functions to be saved and of attached
+#'   file to save to.
+#' 
+#' @section Warning:
+#' Allows changes in attached data to be saved easily, but please use with care,
+#' as it will over-write the existing file.
 #'
 'save.searchpath'
 
@@ -214,24 +257,48 @@
 #' Trims leading and trailing blanks from a vector of character variab...
 #'
 #' @description
-#'
-#' Trims leading and trailing blanks from a vector of character variables. Multibyte character strings are returned intact.
-#'(extended ascii in R appears as hex values).
-#'
+#' Trims leading and trailing blanks from a vector of character variables.
+#' Multibyte character strings are returned intact. (extended ascii in R appears
+#' as hex values).
+#' 
+#' @template reuse_good_code
+#' @section Alternative:
+#' A more powerful and general alternative is [stringr::str_trim()]:
+#' ``` r
+#' library(forestr)
+#' library(stringr)
+#' 
+#' string <-  " hello   "
+#' 
+#' # You can do the same.
+#' trim(string)
+#' #> [1] "hello"
+#' str_trim(string)
+#' #> [1] "hello"
+#' 
+#' # And more.
+#' str_trim(string, "right")
+#' #> [1] " hello"
+#' ```
+#' 
+#' @template s_char_vector
 #'
 'trim'
 
 #'
-#' Converts a character string into a vector of individual characters....
+#' Converts a character string into a vector of individual characters.
 #'
 #' @description
-#'
 #' Converts a character string into a vector of individual characters.
+#' 
+#' @param s Passed to `x` in [base::substr()].
+#' 
+#' @seealso [base::substr()].
 #'
 #' @examples
 #' \dontrun{
-#'
-#' StringToVect('anystring')}
+#' StringToVect('anystring')
+#' }
 #'
 #'
 'StringToVect'
@@ -250,21 +317,47 @@
 #'
 'charlocate'
 
-#' A standard left function. Returns the leftmost n characters of a st...
+#' Leftmost n characters of a string.
 #'
 #' @description
+#' A standard left function. 
+#' 
+#' @return 
+#' The leftmost n characters of a string.
+#' 
+#' 
+#' @template s_char_vector
+#' @param n Scalar of vector of the same lenght as `s`. If n < 0, returns all
+#'   except the rightmost n. If n == 0, returns an empty string.
 #'
-#' A standard left function. Returns the leftmost n characters of a string. If n<0, returns all except the rightmost n. If n==0, returns an
-#' empty string. Arguments can be vectors, but both must be the same length, or n can be a scalar.
-#'
-#'
+#' @template reuse_good_code
+#' @section Alternative:
+#' A more powerful and general alternative is [stringr::str_sub()]:
+#' ``` r
+#' library(stringr)
+#' library(forestr)
+#' string <- c("abcdefg", "abcdefg", "abcdefg")
+#' # You can do the same
+#' stringr::str_sub(string, end = 2)
+#' #> [1] "ab" "ab" "ab"
+#' left(string, n = 2)
+#' #> [1] "ab" "ab" "ab"
+#' 
+#' # But you can also do more
+#' stringr::str_sub(string, start= 2, end = 4)
+#' #> [1] "bcd" "bcd" "bcd"
+#' ```
+#' 
 'left'
 
-#' Returns the leftmost characters of a string, excluding the last n.l...
+#' Returns the leftmost characters of a string, excluding the last n.
 #'
 #' @description
-#'
 #' Returns the leftmost characters of a string, excluding the last n.
+#' 
+#' @inheritParams left
+#' 
+#' @seealso [left()], [stringr::str_sub()].
 #'
 #'
 'leftbut'
@@ -272,18 +365,22 @@
 #' Returns the rightmost n characters of a stringright rightbut  Retur...
 #'
 #' @description
+#' Returns the rightmost n characters of a string.
 #'
-#' Returns the rightmost n characters of a string
-#'
+#' @inheritParams left
+#' 
+#' @seealso [left()], [stringr::str_sub()].
 #'
 'right'
 
-#' Returns the rightmost characters of a string, excluding the initial...
-#'
-#' @description
-#'
 #' Returns the rightmost characters of a string, excluding the initial n.
 #'
+#' @description
+#' Returns the rightmost characters of a string, excluding the initial n.
+#' 
+#' @inheritParams left
+#' 
+#' @seealso [left()], [stringr::str_sub()].
 #'
 'rightbut'
 
@@ -306,12 +403,13 @@
 #'
 'ditch'
 
-#' Return a logical indicating which elements of a vector are leap yea...
+#' Deprecated. Is a year a leap year?
 #'
 #' @description
-#'
-#' Return a logical indicating which elements of a vector are leap years.
-#'
+#' Use instead [lubridate::leap_year()]. Return a logical indicating which
+#' elements of a vector are leap years.
+#' 
+#' @seealso [lubridate::leap_year()].
 #'
 'is.leap'
 
@@ -418,20 +516,22 @@
 #' A version of head with only 6 columns shown.nhd TextToRdata  Reads ...
 #'
 #' @description
-#'
 #' A version of head with only 6 columns shown.
 #'
+#' @param d An object (see x in [head()]).
+#' @param w Sequence giving the range of columns to print
+#' @param h Number giving the Number of rows to print.
 #'
 'nhd'
 
 #'
-#' Reads a tab-delimited text file and save as rdata.TextToRdata Count...
-#'
-#' @description
-#'
 #' Reads a tab-delimited text file and save as rdata.
 #'
+#' @description
+#' Reads a tab-delimited text file and save as rdata.
 #'
+#' @template outfile
+#' 
 'TextToRdata'
 
 #'
@@ -439,10 +539,13 @@
 #'
 #' @description
 #'
-#' Groups a dataframe by one or more columns (named by groupcol). This does exactly what
-#'
+#' Groups a dataframe by one or more columns (named by groupcol). This does
+#' exactly what
+#' 
 #' COUNT(*) GROUP BY does in SQL.
-#'
+#' 
+#' @template data_dataframe
+#' @seealso [dplyr::group_by()] and [dplyr::count()].
 #'
 'CountByGroup'
 
@@ -468,14 +571,21 @@
 #'
 'attach_if_needed'
 
-#'
-#' A more convenient version of the R function ifelse in cases where t...
+#' A Version of `base::ifelse()`.
 #'
 #' @description
-#'
-#' A more convenient version of the R function ifelse in cases where test, a, and b are atomic.  
-#'
-#'
+#' A Version of `base::ifelse()`.
+#' 
+#' @param test,a,b Equivalent to `test`, `yes`, `no` in [base::ifelse()].
+#' @seealso [base::if()], [base::ifelse()], [dplyr::if_else()].
+#' 
+#' @template reuse_good_code
+#' @section Alternative:
+#' A good alternative is [dplyr::if_else()]: "Compared to the base ifelse(),
+#' this function is more strict. It checks that true and false are the same
+#' type. This strictness makes the output type more predictable, and makes it
+#' somewhat faster".
+#' 
 'IfElse'
 
 #'
@@ -511,20 +621,21 @@
 #'
 'drp'
 
-#' Return a random row from a dataframerandomRow randomElement   Retur...
+#' Return a random row from a dataframe.
 #'
 #' @description
-#'
 #' Return a random row from a dataframe
 #'
-#'
+#' @template data_dataframe
+#' 
 'randomRow'
 
 #' Return a random element from a vector randomElement countUnique  Co...
 #' 
 #' @description
-#'
-#' Return a random element from a vector
+#' Return a random element from a vector.
+#' 
+#' @param data A vector.
 #' 
 'randomElement'
 
@@ -552,14 +663,13 @@
 #' @section Customizing plot lines:
 #' If `add == TRUE`, `linecol`, `ltype` and `lwidth` are ignored.
 #' 
-#' @template ltype_lwidth
+#' @template ltype
+#' @template lwidth
+#' @template add_plot
 #' @param x The x axis values.
 #' @param y1,y2 Two sets of y axis values, each of exactly the same length as 
 #'   `x`.
 #' @param fillcol The color filling the area between the two curves.
-#' @param add Logical. Whether to add points or line to an existing graph. if 
-#'   TRUE, there must be an appropriate existing graph, otherwise, a new graph 
-#'   is drawn.
 #' @param linecol Line colour.
 #'
 #' @seealso ?[graphics::plot()], ?[graphics::par()].
@@ -586,8 +696,8 @@
 #' \dontrun{
 #' make.CredIntervalVect(c(3.124,2.76,5.01),digits=c(2,1))}
 #'
-
 'make.CredIntervalVect'
+
 # Source code and original documentation ----------------------------
 # <supplemental>
 # This is supplemental code necessary for the functinos to run.

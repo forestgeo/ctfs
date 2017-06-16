@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fitting a regression line through log growth against log dbh, binni... — growth.flexbin â€¢ forestr</title>
+<title>Fit a regression line through log growth against log dbh, binning on dbh. — growth.flexbin â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,26 +79,51 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fitting a regression line through log growth against log dbh, binni...</h1>
+    <h1>Fit a regression line through log growth against log dbh, binning on dbh.</h1>
     </div>
 
     
-    <p>Fitting a regression line through log growth against log dbh, binning on dbh. Growth table has 2 columns,
-one named size (ie, dbh), other growth. The function now calls optim first to find a set of parameters, then, if Gibbs
-is selected, runs the Gibbs sampler starting with those parameters. Since optim fails if the initial likelihood is -Inf,
-it became necessary to check the parameters with bad.binparam before running.</p>
+    <p>Fitting a regression line through log growth against log dbh, binning on dbh.</p>
     
 
     <pre class="usage"><span class='fu'>growth.flexbin</span>(<span class='no'>growthtable</span>, <span class='kw'>sizecol</span> <span class='kw'>=</span> <span class='st'>"dbh"</span>, <span class='kw'>nobin</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>startsd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sdmodel</span> <span class='kw'>=</span> <span class='no'>linear.model.ctr</span>, <span class='kw'>badsdfunc</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"Gibbs"</span>, <span class='kw'>rep</span> <span class='kw'>=</span> <span class='fl'>1200</span>, <span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>burn</span> <span class='kw'>=</span> <span class='fl'>200</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>growthtable</th>
+      <td><p>A table with 2 columns, one named <code>size</code> (ie, dbh), other
+<code>growth</code>.</p></td>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td><p>If <code>method = "Gibbs"</code>, runs the Gibbs sampler starting with a
+set of parameters found by <code><a href='http://www.rdocumentation.org/packages/stats/topics/optim'>stats::optim()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Conditionally passed to a number of functions; see function
+definition.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Since <code><a href='http://www.rdocumentation.org/packages/stats/topics/optim'>stats::optim()</a></code> fails if the initial likelihood is -Inf, it became
+necessary to check the parameters with <code><a href='bad.binparam.html'>bad.binparam()</a></code> before running.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

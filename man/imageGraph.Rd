@@ -24,8 +24,8 @@ lines; if NULL, levels controls the breaks}
 
 \item{xname, yname}{axis names}
 
-\item{xrange, yrange}{if \code{NULL}, all \code{x} (or \code{y}) are included, otherwise, the
-graph will only include \code{x} (or \code{y}) inside \code{xrange} or (\code{yrange})}
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{axisdiv}{the division between tick marks; must be a vector of 2, first
 for x ticks then for y ticks}
@@ -41,11 +41,17 @@ neither image or standard contours are included}
 \item{clrs}{colors for the image; if NULL, they are chosen by default,
 otherwise, must be 1 + the number of breaks}
 
+\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
+
 \item{returnline}{TRUE or FALSE, whether to return the contour lines; see R's
 base function contourLines for details}
 
 \item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
 TRUE to create a new plot window or export to a file}
+
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 
 \item{plotsize}{size of graph's x-dimension in inches; ignored if
 newgraph=FALSE}
@@ -54,7 +60,7 @@ newgraph=FALSE}
 export device chosen (some are pixels, some are inches); ignored if
 newgraph = FALSE.}
 
-\item{export}{if newgraph=TRUE, this defines the graphics device; options
+\item{export}{if \code{newgraph = TRUE}, this defines the graphics device; options
 include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
 quoted!)}
 
@@ -73,7 +79,7 @@ exported.
 CTFSplot('bci', 6, 'full')
 
 N = colSums(
-  abundanceperquad(bci.full6, plotdim = c(1000, 500), grid = 20)$abund
+  abundanceperquad(bci::bci12full6, plotdim = c(1000, 500), grid = 20)$abund
 )
 matdata = coldata.to.imagemat(z = N,
   gridsize = 20,
@@ -108,7 +114,7 @@ imageGraph(
   h = 11,
   w = 11,
   plotsize = 8
-)}
-
+)
+}
 
 }

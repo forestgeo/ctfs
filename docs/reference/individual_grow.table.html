@@ -108,9 +108,19 @@ to be corrected.</p>
     <tr>
       <th>rnd</th>
       <td><p>used to rounddown dbhs for certain intervals. This argument
-indicates that dbhs&lt;50 mm are rounded down to 5-mm, necessary because
+indicates that dbhs &lt; 50 mm are rounded down to 5-mm, necessary because
 saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
 growth functions in the CTFS R Package handle this.</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
+    </tr>
+    <tr>
+      <th>debug</th>
+      <td><p>Logical. If TRUE, call browser to debug.</p></td>
     </tr>
     </table>
     

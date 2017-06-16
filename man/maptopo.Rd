@@ -15,11 +15,11 @@ maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{add}{Logical. Whether to add points or line to an existing graph. if
-TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn.}
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 
-\item{new}{See \code{\link[graphics:par]{graphics::par()}}.}
+\item{new}{If \code{TRUE}, a new screen window is created.. See \code{\link[graphics:par]{graphics::par()}}.}
 
 \item{export}{`export = "no"`, does nothing, so the next graph uses the
 default R device. With this option, the size of the graph cannot have been
@@ -32,9 +32,11 @@ mac. `export = format` exports the graph to a specific file format: "pdf",
 
 \item{interval}{Contour line intervals.}
 
-\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
-\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{xaxis}{xxxdocparam}
 
@@ -61,7 +63,7 @@ need to be 500-1000.}
 
 \item{filepath}{The folder to which map will be exported.}
 
-\item{clr}{xxxdocparam}
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 
 \item{bgcolor}{The background color. Defaults to white. For presentation
 exports, try bgcolor="transparent".}
@@ -69,8 +71,7 @@ exports, try bgcolor="transparent".}
 \description{
 Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
 dimensions are not needed, instead it calculates them from elevmat and the
-gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
-screen window is created.
+gridsize.
 }
 \seealso{
 \code{\link[=map]{map()}}, \link[bci:bci_elevation]{bci::bci_elevation}.

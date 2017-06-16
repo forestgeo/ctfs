@@ -10,11 +10,11 @@ abundance(censdata, type = "abund", alivecode = c("A"), mindbh = NULL,
 \arguments{
 \item{censdata}{A table of plot census data.}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
@@ -53,12 +53,12 @@ the stem or full table to count stems or trees, respectively.
 CTFSplot('bci',5:6,'full')
 
 CTFSplot('bci',5:6,'stem')
-total=abundance(bci.full5,mindbh=10)
+total=abundance(bci::bci12full5,mindbh=10)
 total$abund
 total$meandate
-totalstem=abundance(bci.stem5,mindbh=10)
+totalstem=abundance(bci::bci12stem5,mindbh=10)
 
-BAperSpecies=abundance(bci.stem5,type='ba',mindbh=10,split1=bci.stem5$sp)
+BAperSpecies=abundance(bci::bci12stem5,type='ba',mindbh=10,split1=bci::bci12stem5$sp)
 head(BAperSpecies$ba)
 head(BAperSpecies$meandate)}
 

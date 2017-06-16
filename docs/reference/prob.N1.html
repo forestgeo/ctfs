@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculates the probability of observing N2 given N1, assuming a com... — prob.N1 â€¢ forestr</title>
+<title>Probability of observing N2 given N1 (little.r distributed community-wide). — prob.N1 â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,15 +79,16 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculates the probability of observing N2 given N1, assuming a com...</h1>
+    <h1>Probability of observing N2 given N1 (little.r distributed community-wide).</h1>
     </div>
 
     
-    <p>Calculates the probability of observing N2 given N1, assuming a community-wide
-distribution of little.r, log(N2/N1). It uses the normal approximation to the
-binomial-poisson model (see dpopchange and testdpopchange in abundsim.r) as the
-error distribution around N2. Works with one species at a time, so all submitted values except lambda.ann are
-scalars. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.</p>
+    <p>Calculates the probability of observing N2 given N1, assuming a
+community-wide distribution of little.r, log(N2/N1). It uses the normal
+approximation to the binomial-poisson model (see dpopchange and
+testdpopchange in abundsim.r) as the error distribution around N2. Works with
+one species at a time, so all submitted values except lambda.ann are scalars.
+Only used as a subroutine of the main modeling function, model.littleR.Gibbs.</p>
     
 
     <pre class="usage"><span class='fu'>prob.N1</span>(<span class='no'>spmean.ann</span>, <span class='no'>Rsd</span>, <span class='no'>N1</span>, <span class='no'>N2</span>, <span class='no'>surv.ann</span>, <span class='no'>time</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"norm"</span>)</pre>

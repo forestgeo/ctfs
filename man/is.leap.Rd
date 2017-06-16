@@ -2,10 +2,14 @@
 % Please edit documentation in R/utilities.R
 \name{is.leap}
 \alias{is.leap}
-\title{Return a logical indicating which elements of a vector are leap yea...}
+\title{Deprecated. Is a year a leap year?}
 \usage{
 is.leap(yr, start = 1904, end = 2096)
 }
 \description{
-Return a logical indicating which elements of a vector are leap years.
+Use instead \code{\link[lubridate:leap_year]{lubridate::leap_year()}}. Return a logical indicating which
+elements of a vector are leap years.
+}
+\seealso{
+\code{\link[lubridate:leap_year]{lubridate::leap_year()}}.
 }

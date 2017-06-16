@@ -20,14 +20,14 @@
 #'(several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.
 #'
 #'
-#' A starting set of parameters for the model must be submitted. It is a vector as long as the number of
-#' parameters required by the model. 
-#'
-#'
+#' @return
 #' The return value is a list with several components:
-#' *  resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler
-#' *  fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler
-#' *  burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler
+#' *  resid: A 2D array with the entire chain of the error parameters, from
+#' Gibbs sampler
+#' *  fullparam: A 2D array with the entire chain of model parameters from the
+#' Gibbs sampler
+#' *  burn: Atomic, the number of steps discarded as burn-in before calculated
+#' statistics from Gibbs sampler
 #' *  steps: Atomic, the number of steps run in Gibbs sampler
 #' *  llike: Full log-likelihood of the model at each step of the Gibbs'sampler
 #' *  obs: The original y (dependent) variable, just as submitted
@@ -38,11 +38,16 @@
 #' *  CI: Credible intervals for the model parameters
 #' *  bestresid: The best estimate of parameters for the error model
 #' *  CIresid: Credible intervals for the parameters of the error model
-#' *  pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point
-#' *  many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater
-#' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers 
+#' *  pred: A dataframe with all observations, predictors, and the model's best
+#' prediction, mean prediction, and credible intervals at each point
+#' *  many: A 2D array holding N draws of the model's prediction at each
+#' sampling point; N is either the number of post-burn-in steps, or 1000,
+#' whichever is greater
+#' *  keep: The steps of the Gibbs sampler after burn-in, as a vector of
+#' negative numbers
 #'
 #' @inheritParams lmerBayes
+#' @template start
 #' @param startSD A starting value for the error model; there must be as many
 #'   startSD as parameters needed by sdfunc
 #' @param sdfunc The name of a function (unquoted) that models the error
@@ -50,28 +55,25 @@
 #'   constant, meaning the standard deviation is the same for all values of x.
 #'   Parameters for this function are estimated, just as parameters for the
 #'   model function.
-#'
+#' @seealso [lmerBayes()]
+#' 
 'modelBayes'
 
-#' Calculate likelihood of residual standard deviation, given observat...
+#' Calculate likelihood of residual standard deviation.
 #'
 #' @description
-#'
-#' Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
-#'
-#' This likelihood does not depend on the hyperparameters. It does require data and prediction.
-#'
+#' Calculate likelihood of residual standard deviation, given observations plus
+#' the predicting model and data (to make predictions).
+#' 
+#' This likelihood does not depend on the hyperparameters. It does require data
+#' and prediction.
+#' 
+#' @template debug
+#' @template badparam
 #'
 'residual.llike.modelBayes'
 
-#' Make summary calculations based on the full Gibbs sampler. The argu...
-#'
-#' @description
-#'
-#' Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
-#' and likelihood. Estimates of confidence limits of all parameters are returned. Full likelihood at the best parameters is calculated and likelihood 
-#' at each step in sampler are used to calculate DIC.
-#'
+#' @describeIn summaryMCMC See [summaryMCMC()].
 #'
 'summaryModelMCMC'
 

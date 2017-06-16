@@ -6,6 +6,9 @@
 \usage{
 logistic.inter(x, param, log = FALSE, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
 Logistic function with intercept parameterization (i.e., first parameter is y
 when all \code{x = 0}). The input x are all independent variables, in a matrix

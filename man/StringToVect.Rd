@@ -2,17 +2,23 @@
 % Please edit documentation in R/utilities.R
 \name{StringToVect}
 \alias{StringToVect}
-\title{Converts a character string into a vector of individual characters....}
+\title{Converts a character string into a vector of individual characters.}
 \usage{
 StringToVect(s)
+}
+\arguments{
+\item{s}{Passed to \code{x} in \code{\link[base:substr]{base::substr()}}.}
 }
 \description{
 Converts a character string into a vector of individual characters.
 }
 \examples{
 \dontrun{
+StringToVect('anystring')
+}
 
-StringToVect('anystring')}
 
-
+}
+\seealso{
+\code{\link[base:substr]{base::substr()}}.
 }

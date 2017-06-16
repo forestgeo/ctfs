@@ -83,18 +83,57 @@
     </div>
 
     
-    <p>Trims leading and trailing blanks from a vector of character variables. Multibyte character strings are returned intact.
-(extended ascii in R appears as hex values).</p>
+    <p>Trims leading and trailing blanks from a vector of character variables.
+Multibyte character strings are returned intact. (extended ascii in R appears
+as hex values).</p>
     
 
     <pre class="usage"><span class='fu'>trim</span>(<span class='no'>s</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>s</th>
+      <td><p>Character vector.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="reuse-good-code"><a class="anchor" href="#reuse-good-code"></a>Reuse good code</h2>
+
+    
+    <p>"The single biggest way to improve both the quality of your code and your 
+productivity is to reuse good code (...) Many algorithms have already been 
+invented, tested, discussed in the trade literature, reviewed, and improved".</p>
+<p>--Code complete 2, by Steve McConnell.</p>
+    
+    <h2 class="hasAnchor" id="alternative"><a class="anchor" href="#alternative"></a>Alternative</h2>
+
+    
+    <p>A more powerful and general alternative is <code><a href='http://www.rdocumentation.org/packages/stringr/topics/str_trim'>stringr::str_trim()</a></code>:</p><pre>library(forestr)
+library(stringr)
+    string &lt;-  " hello   "
+    # You can do the same.
+trim(string)
+#&gt; [1] "hello"
+str_trim(string)
+#&gt; [1] "hello"
+    # And more.
+str_trim(string, "right")
+#&gt; [1] " hello"
+</pre>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#reuse-good-code">Reuse good code</a></li>
+
+      <li><a href="#alternative">Alternative</a></li>
+          </ul>
 
   </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Given y values as a function of x, this seeks the x at which the cu... — cumul.above â€¢ forestr</title>
+<title>Seek x at which the curve passes through a given y. — cumul.above â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,22 +79,33 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Given y values as a function of x, this seeks the x at which the cu...</h1>
+    <h1>Seek x at which the curve passes through a given y.</h1>
     </div>
 
     
-    <p>Given y values as a function of x, this seeks the x at which the curve passes through a given y. It sets
-a variable whichabove to 0 for all cases where y&gt;cutoff, otherwise 0, then fits a logistic regression.</p>
+    <p>Given y values as a function of x, this seeks the x at which the curve passes
+through a given y. It sets a variable whichabove to 0 for all cases where
+y &gt; cutoff, otherwise 0, then fits a logistic regression.</p>
 <p>The midpoint of the logistic regression is a good estimate.</p>
     
 
     <pre class="usage"><span class='fu'>cumul.above</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>cutoff</span>, <span class='kw'>logaxs</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>graphit</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>returnfull</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>graphit</th>
+      <td><p>Logical; if `TRUE` adds plot output.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

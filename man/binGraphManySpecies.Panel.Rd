@@ -8,9 +8,17 @@ binGraphManySpecies.Panel(fulldataname, sitename, darken = 8, xrange = c(-3,
   3), yrange = c(0, 0.1), export = pdf,
   outfile = "growth/linearbin.multi.pdf", h = 8, w = 10)
 }
+\arguments{
+\item{export}{File format to export to.}
+
+\item{outfile}{Filename for output.}
+
+\item{h, w}{A number giving the height and width.}
+}
 \description{
-Make a graph, 4 panels, of AGB growth and model fit of many species overlaid, predicted functions only. Must submit names of four data objects
-(not the object, just the name in quote marks!).
+Make a graph, 4 panels, of AGB growth and model fit of many species overlaid,
+predicted functions only. Must submit names of four data objects (not the
+object, just the name in quote marks!).
 }
 \examples{
 \dontrun{

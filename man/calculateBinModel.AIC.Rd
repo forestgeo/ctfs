@@ -2,14 +2,21 @@
 % Please edit documentation in R/growthfit.bin.R
 \name{calculateBinModel.AIC}
 \alias{calculateBinModel.AIC}
-\title{Calculate AIC of the model, using various log(likelihood) estimator...}
+\title{Calculate AIC of the model, using various log(likelihood) estimators.}
 \usage{
 calculateBinModel.AIC(fit, type = "optim")
 }
+\arguments{
+\item{fit}{A fitted model.}
+
+\item{type}{One of:
+\itemize{
+\item \code{optim}, the highest likelihood found by optim;
+\item \code{mean}, the mean llikelihood from the Gibbs sampler;
+\item \code{gibbs}, the maximum llikelihood from the Gibbs sampler;
+\item \code{none}, just return the mean Gibbs likelihood.
+}}
+}
 \description{
-Calculate AIC of the model, using various log(likelihood) estimators:
-with optim, the highest likelihood found by optim
-with mean, the mean llikelihood from the Gibbs sampler
-with gibbs, the maximum llikelihood from the Gibbs sampler
-with none, just return the mean Gibbs likelihood
+Calculate AIC of the model, using various log(likelihood) estimators.
 }

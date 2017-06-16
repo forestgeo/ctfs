@@ -19,10 +19,12 @@
 #' In the latter, negative growths are transformed to negative, so do not need
 #' to be corrected.
 #' 
+#' @template mindbh
+#' @template debug
 #' @param cnsdata A list of census data sets, for example: 
 #'   `list(bci::bci12full1, bci::bci12full2, bci::bci12full3)`.
 #' @param rnd used to rounddown dbhs for certain intervals. This argument
-#'   indicates that dbhs<50 mm are rounded down to 5-mm, necessary because
+#'   indicates that dbhs < 50 mm are rounded down to 5-mm, necessary because
 #'   saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
 #'   growth functions in the CTFS R Package handle this.
 #'   
@@ -51,13 +53,16 @@
 #' 
 'individual_grow.table'
 
-#' Create a table of individual trees and their survival status over t...
+#' Table individual trees and their survival status over two censuses.
 #'
 #' @description
+#' Create a table of individual trees and their survival status over two
+#' censuses, with many species included.
 #'
-#' Create a table of individual trees and their survival status over two censuses, with many species included. 
-#'
-#' @seealso individual_grow.table
+#' @template mindbh
+#' @template alivecode
+#' @seealso [individual_grow.table()]
+#' 
 #'
 'individual_mort.table'
 
@@ -75,7 +80,6 @@
 #' A linear model of an annual mortality parameter, which is  `-log(an...
 #'
 #' @description
-#'
 #' A linear model of an annual mortality parameter, which is 
 #' `-log(annual survival)`, as a function of N predictors x, which must be the
 #' first N columns of x.
@@ -87,19 +91,27 @@
 #' Return value is predicted survival rate (probability) over an interval of t
 #' years. Nothing prevents the output from being outside (0,1); that must be
 #' handled in the likelihood function.
+#' 
+#' @param ... Unused.
 #'
 'lmerMortLinear'
 
-#' A model for mortality as a function of a single predictor variable,...
+#' A model for mortality as a function of a single predictor variable.
 #'
 #' @description
-#'
-#' A model for mortality as a function of a single predictor variable, with the time interval for each individual incorporated (as a secondpredictor).
-#'
-#' The predictor must be an integer. The log(mortality parameter) is modeled as a different value for each distinct predictor. The number of parameters must exceed the maximum value of the predictor. 
-#'
-#' The return value is a survival probability. Nothing prevents the output from being outside (0,1); that must be handled in the likelihood function.
-#'
+#' A model for mortality as a function of a single predictor variable, with the
+#' time interval for each individual incorporated (as a secondpredictor).
+#' 
+#' @details 
+#' The predictor must be an integer. The log(mortality parameter) is modeled as
+#' a different value for each distinct predictor. The number of parameters must
+#' exceed the maximum value of the predictor.
+#' 
+#' The return value is a survival probability. Nothing prevents the output from
+#' being outside (0,1); that must be handled in the likelihood function.
+#' 
+#' @param ... Unused.
+#' 
 #'
 'lmerMortFixedTime'
 

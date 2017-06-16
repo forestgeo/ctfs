@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generic Bayesian routine for fitting a model to y given 1 predictor... — model.xy â€¢ forestr</title>
+<title>Bayesian routine for fitting a model to y given x. — model.xy â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,28 +79,45 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generic Bayesian routine for fitting a model to y given 1 predictor...</h1>
+    <h1>Bayesian routine for fitting a model to y given x.</h1>
     </div>
 
     
-    <p>Generic Bayesian routine for fitting a model to y given 1 predictor variable x. The function
-of y~x must be supplied, as well as the function for the SD~y. Any functions with any numbers
-of parameters can be used: predfunc is the function of y~x, and sdfunc is the function sd~y.</p>
-<p>The function badpredpar is needed so the user can make up any definition
-for parameter values that are out of bounds. Without this, the model could not support any generic predfunc.</p>
-<p>Badpredpar must accept two vectors of parameters, one for main and one for sd.</p>
-<p>The ellipses allow additional parameters to be passed to the model function, but there is no such option for the
-sd function. The additional parameters mean that some of the variables defining the model do not have to be fitted.</p>
-<p>The sd function can be omitted if the likelihood does not require it.</p>
-<p>This works only if one likelihood function defines the likelihood of the model, given data and parameters only.</p>
-<p>If the likelihood of some parameters is conditional on other parameters, as in hierarchical model, this can't be used.</p>
+    <p>Generic Bayesian routine for fitting a model to y given 1 predictor variable
+x. The function of y~x must be supplied, as well as the function for the
+SD~y. Any functions with any numbers of parameters can be used: predfunc is
+the function of y~x, and sdfunc is the function sd~y.</p>
     
 
     <pre class="usage"><span class='fu'>model.xy</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>predfunc</span>, <span class='no'>llikefunc</span>, <span class='no'>badpredpar</span>, <span class='kw'>badsdpar</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='no'>start.predpar</span>, <span class='kw'>sdfunc</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>start.sdpar</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>llikefuncSD</span>,
   <span class='kw'>logx</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>logy</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>0</span>), <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>100</span>,
   <span class='kw'>showstep</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>burnin</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>add</th>
+      <td><p>xxxdocparam in model.xy() is different to add in add_plot.R.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The function badpredpar is needed so the user can make up any definition for
+parameter values that are out of bounds. Without this, the model could not
+support any generic predfunc. Badpredpar must accept two vectors of
+parameters, one for main and one for sd.</p>
+<p>The ellipses allow additional parameters to be passed to the model function,
+but there is no such option for the sd function. The additional parameters
+mean that some of the variables defining the model do not have to be fitted.</p>
+<p>The sd function can be omitted if the likelihood does not require it.</p>
+<p>This works only if one likelihood function defines the likelihood of the
+model, given data and parameters only.</p>
+<p>If the likelihood of some parameters is conditional on other parameters, as
+in hierarchical model, this can't be used.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
@@ -122,7 +139,10 @@ sd function. The additional parameters mean that some of the variables defining 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-            
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

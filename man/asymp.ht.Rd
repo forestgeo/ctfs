@@ -2,16 +2,21 @@
 % Please edit documentation in R/distributions.R
 \name{asymp.ht}
 \alias{asymp.ht}
-\title{The function from Sean Thomas which produces an asymptote for y as ...}
+\title{Asymptote for y as a function of x.}
 \usage{
 asymp.ht(x, param, ...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
-The function from Sean Thomas which produces an asymptote for y as a function of x.
+The function from Sean Thomas which produces an asymptote for y as a function
+of x.
 
 Original version: y=ymax*(1-exp(-a*x^b))
 
-This is the centered version, with x normalized by dividing by parameter k, which is the x value at which
-y is half ymax. This eliminates correlation between the a and b parameters in the above version, but
-not the correlation between parameters 1 and 2.
+This is the centered version, with x normalized by dividing by parameter k,
+which is the x value at which y is half ymax. This eliminates correlation
+between the a and b parameters in the above version, but not the correlation
+between parameters 1 and 2.
 }

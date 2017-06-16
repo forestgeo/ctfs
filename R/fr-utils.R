@@ -477,6 +477,15 @@ args_filter_by_fun <- function(funname) {
 # Helpers
 
 # e.g. args_of("growth.eachspp")
+
+#' Title
+#'
+#' @param x Function name.
+#'
+#' @return Arguments of x
+#' @export
+#' @keywords internal
+#'
 args_of <- function(x) {names(formals(x))}
 
 args_undoc_one <- function(fun) {
@@ -539,12 +548,9 @@ args_explore <- function(x) {
 # Find the pattern xxxdocparam to documente parameters (then ctr + shift + f).
 find_xxxdocparam <- function() {
   purrr::flatten_chr(
-    stringr::str_extract_all(raw_strings(), "#\' @param [^ ]+ xxxdocparam")
+    stringr::str_extract_all(raw_strings(), "#\' @param [^ ]+ xxxdocparam .*")
   )
 }
-
-
-
 
 
 
@@ -637,11 +643,12 @@ args_count_man <- function() {
 
 # Count all formal arguments of all functions
 args_formals <- function() {
-  message("On failure check if not_a_function is updated.")
+  message("On failure check if not_a_function is updated in args_formals().")
   # Fails if item is not a function
   not_a_function <- c(
     "forestr", 
-    "MONTHNAMES"
+    "MONTHNAMES",
+    "args_compare"
   )
   funs_all <- setdiff(strip_rd(dir("man")), not_a_function)
   purrr::map(funs_all, args_of) %>% 
@@ -665,6 +672,20 @@ args_count_formals_man <- function() {
     dplyr::select(params, fun, frml_n, man_n, everything()) %>% 
     unique() %>% 
     dplyr::arrange(desc(frml_n), man_n)
+}
+
+# Filter one param from args_count_formals_man()
+args_count_param <- function(param) {
+  args_count_formals_man() %>% 
+    dplyr::filter(params == param)
+}
+
+# Show all help files in Help window.
+args_help <- function(param) {
+  .funs <-  args_count_param(param) %>% 
+    dplyr::pull(fun)
+  .funs[length(.funs):1] %>% 
+    purrr::walk(help)
 }
 
 
@@ -701,9 +722,53 @@ args_pull_definitions <- function(arg) {
 
 
 
+# Compare arguments in two functions --------------------------------------
+
+# Intersection or difference in arguments between functions.
+# x,y String giving function name.
+
+args_intersect <- function(x, y) {intersect(args_of(x), args_of(y))}
+args_setdiff <- function(x, y) {setdiff(args_of(x), args_of(y))}
+# e.g.
+# args_intersect("AGB.tree", "biomass.CTFSdb")
+# args_setdiff("AGB.tree", "biomass.CTFSdb")
+
+
+
 # misc --------------------------------------------------------------------
 
-print_all <- function(x) {x %>% print(n = nrow(x))}
+#' Print all rows of a tibble or tbl_df.
+#'
+#' @param x A tibble or tbl_df.
+#'
+#' @return All rows of a tibble.
+#' @export
+#' @examples
+#' x <- tibble::tibble(long = 1:30)
+#' x  # prints 10 rows
+#' print_all(x)  # prints all rows
+print_all <- function(x) {print(x, n = nrow(x))}
+
+#' Predicate to determine if some but not all elements of a vector are NA.
+#'
+#' @param x Vector
+#'
+#' @return A single locical.
+#' @export
+#' @keywords internal
+#'
+#' @examples
+#' x <- c(1:3, NA)
+#' some_but_not_all_is_na(x)
+#' x <- c(NA, NA)
+#' some_but_not_all_is_na(x)
+#' x <- c(1:3)
+#' some_but_not_all_is_na(x)
+some_but_not_all_is_na <- function(x) {
+  some_is_na <- purrr::some(x, is.na)
+  all_is_na <- all(is.na(x))
+  all(c(some_is_na, !all_is_na))
+}
 
 # end ---------------------------------------------------------------------
 

@@ -102,11 +102,13 @@ on its own.</p>
     </tr>
     <tr>
       <th>xrange</th>
-      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.</p></td>
     </tr>
     <tr>
       <th>yrange</th>
-      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.</p></td>
     </tr>
     <tr>
       <th>bgcolor</th>
@@ -143,7 +145,9 @@ for x ticks then for y ticks</p></td>
     </tr>
     <tr>
       <th>add</th>
-      <td><p>Logical. Use <code>add = TRUE</code> to add points to an existing map.</p></td>
+      <td><p>Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.</p></td>
     </tr>
     </table>
     

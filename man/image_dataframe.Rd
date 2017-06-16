@@ -2,7 +2,7 @@
 % Please edit documentation in R/mapresponse.R
 \name{image_dataframe}
 \alias{image_dataframe}
-\title{Creates a color response map based on columnar data, not a matrix a...}
+\title{Creates a color response map based on columnar data.}
 \usage{
 image_dataframe(data, xcol = "x", ycol = "y", zcol = "z", breaks = NULL,
   div = NULL, colors = NULL, xname = "x", yname = "y", xrange = NULL,
@@ -16,7 +16,38 @@ and one a numerical response at those coordinates}
 \item{xcol, ycol, zcol}{These allow the columns of data to carry non-standard
 names}
 
+\item{breaks}{if set, a vector of breaks for the image colors and the contour
+lines; if NULL, levels controls the breaks}
+
+\item{xname}{axis names}
+
+\item{yname}{axis names}
+
+\item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
+
 \item{ptsize}{Size of points to be drawn.}
+
+\item{graphfile}{the file name if export is pdf, png, jpeg, win.metafile,
+etc.}
+
+\item{export}{if \code{newgraph = TRUE}, this defines the graphics device; options
+include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
+quoted!)}
+
+\item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
+TRUE to create a new plot window or export to a file}
+
+\item{h}{height and width of graph window in units which depend on the
+export device chosen (some are pixels, some are inches); ignored if
+newgraph = FALSE.}
+
+\item{w}{height and width of graph window in units which depend on the
+export device chosen (some are pixels, some are inches); ignored if
+newgraph = FALSE.}
+
+\item{plotsize}{size of graph's x-dimension in inches; ignored if
+newgraph=FALSE}
 }
 \description{
 Creates a color response map based on columnar data, not a matrix as used by
@@ -41,7 +72,7 @@ image_dataframe.
 CTFSplot('bci',6,'full')
 
 image_dataframe(
-  data = subset(bci.full6, status == 'A'),
+  data = subset(bci::bci12full6, status == 'A'),
   xcol = 'gx',
   ycol = 'gy',
   zcol = 'dbh',

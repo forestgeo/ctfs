@@ -2,9 +2,12 @@
 % Please edit documentation in R/RipUvK.R
 \name{circlearea}
 \alias{circlearea}
-\title{Simply returns area of a circle of radius r.circlearea partialcircl...}
+\title{Area of a circle of radius r.}
 \usage{
 circlearea(r)
+}
+\arguments{
+\item{r}{Radius.}
 }
 \description{
 Simply returns area of a circle of radius r.

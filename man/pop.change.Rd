@@ -13,13 +13,13 @@ stem.}
 
 \item{census2}{The matching R Analytical Table for a later census.}
 
-\item{type}{either 'abund' (default) for abundance, 'ba' for basal area, or
+\item{type}{Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
@@ -68,10 +68,10 @@ date equal to the date on which their quadrat was censused
 \examples{
 \dontrun{
 bcichange = pop.change(
-  bci.full5,
-  bci.full6,
+  bci::bci12full5,
+  bci::bci12full6,
   type = 'abund',
-  split1 = bci.full5$sp,
+  split1 = bci::bci12full5$sp,
   mindbh = 10
 )
 str(bcichange)

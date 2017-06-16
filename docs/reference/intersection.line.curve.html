@@ -83,18 +83,55 @@
     </div>
 
     
-    <p>Finds the points where a straight line, given lines as intercept b then slope m, intersects with a curve defined by a sequence of segments. Intersections must be found for the line with every segment, then every one checked with is.between. The intersections are returned as a dataframe of x, y coordinates. The b and m must be atomic. The curve must be a dataframe with columns x, y (or capital X, Y).
-having any number of segments.</p>
+    <p>Finds the points where a straight line, given lines as intercept b then slope
+m, intersects with a curve defined by a sequence of segments.</p>
+<p>Intersections must be found for the line with every segment, then every one
+checked with is.between.</p>
     
 
     <pre class="usage"><span class='fu'>intersection.line.curve</span>(<span class='no'>b</span>, <span class='no'>m</span>, <span class='no'>curve</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>b</th>
+      <td><p>Intercept.</p></td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td><p>Slope.</p></td>
+    </tr>
+    <tr>
+      <th>curve</th>
+      <td><p>Curve defined by a sequence of segments. Must be a dataframe
+with columns x, y (or capital X, Y). having any number of segments.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The intersections are returned as a dataframe of x, y
+coordinates.</p>
+    
+    <h2 class="hasAnchor" id="arguments-details"><a class="anchor" href="#arguments-details"></a>Arguments details</h2>
+
+    
+    <ul>
+<li><p><code>b, m</code> Must be atomic.</p></li>
+</ul>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#arguments-details">Arguments details</a></li>
+          </ul>
 
   </div>
 </div>

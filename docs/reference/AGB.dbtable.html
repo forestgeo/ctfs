@@ -86,17 +86,30 @@
     <p>This function looks up the database named AGB in the MySQL server to get a table of biomass per stem. The MySQL table must have treeID, stemID, censusID,
 and a column agb with biomass in tons. This is used in cases where biomass for a plot has been calculated separately, using a method other than one of
 the Chave allometric equations. The alternative AGB calculation is stored for each plot in this database. The name of the table matches the plot name.</p>
-<p>df: A table of individual stems.
-plot: The plot name</p>
     
 
     <pre class="usage"><span class='fu'>AGB.dbtable</span>(<span class='no'>df</span>, <span class='no'>dbname</span>, <span class='no'>plot</span>, <span class='no'>code</span>, <span class='no'>censusno</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>df</th>
+      <td><p>A table of individual stems.</p></td>
+    </tr>
+    <tr>
+      <th>plot</th>
+      <td><p>Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

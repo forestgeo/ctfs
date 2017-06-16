@@ -44,8 +44,9 @@ decreases in abundance to the screen}
 
 \item{xname, yname}{axis names}
 
-\item{ltype, lwidth}{Line type (`ltype`) and width (`width`); see
-?[graphics::par()].}
+\item{ltype}{Line type; see `ltype` in ?[graphics::par()].}
+
+\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
 
 \item{modelclr}{Line color; see ?\code{\link[graphics:par]{graphics::par()}}.}
 
@@ -55,9 +56,9 @@ decreases in abundance to the screen}
 
 \item{makeleg}{whether to add legend}
 
-\item{add}{Logical. Whether to add points or line to an existing graph. if
-TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn.}
+\item{add}{Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.}
 
 \item{ax}{if FALSE, the axes are not added}
 
@@ -66,17 +67,22 @@ population change across species}
 
 \item{debug}{Logical. If TRUE, call browser to debug.}
 
-\item{graphit}{xxxdocparam if set to false,}
+\item{graphit}{xxxdocparam in graph.abundmodel() is truncated: "if set to
+false," What follows?}
 }
 \description{
 Output histograms of little.r across species, observed and fitted, using the
 result of \code{\link[=model.littleR.Gibbs]{model.littleR.Gibbs()}}. The histogram of black points is all
-species, blue points only those starting with \code{N >= minabund}. If the
-argument \code{mortcorr = TRUE}, a graph of mortality rate vs. population change
-for every species is also produced. Otherwise, a table of the species with
-biggest increases and biggest decreases in abundance is printed to the
-screen.
+species, blue points only those starting with \code{N >= minabund}.
 }
+\section{Arguments details}{
+
+\code{mortcorr} If the argument \code{mortcorr = TRUE}, a graph of mortality rate vs.
+population change for every species is also produced. Otherwise, a table of
+the species with biggest increases and biggest decreases in abundance is
+printed to the screen.
+}
+
 \section{Warning}{
  If you use the argument datafile, beware that it uses
 \code{attach()}. After use you should remove the attached object from the serach

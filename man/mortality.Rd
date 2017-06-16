@@ -13,8 +13,8 @@ stem.}
 
 \item{census2}{The matching R Analytical Table for a later census.}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 
 \item{split1}{a vector of categories, one per individual}
@@ -59,9 +59,12 @@ them either as survivors or dead.
 \dontrun{
 
 CTFSplot("bci", 56)
-mort.data = mortality(bci.full5, bci.full6)
+mort.data = mortality(bci::bci12full5, bci::bci12full6)
 mort.data$rate
-mort.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+mort.data = growth(
+  bci::bci12full5, bci::bci12full6, 
+  split1 = bci::bci12full5$sp
+)
 mort.data$rate
 assemble.demography(mort.data, type = 'm')
 }

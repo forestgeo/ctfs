@@ -21,12 +21,9 @@
 #' 
 #' @template mindbh
 #' @template censdata
-#' @param type either 'abund' (default) for abundance, 'ba' for basal area, or
-#'   'agb'.
-#' @param alivecode character, codes of the variable `status` that indicate the 
-#'   tree is alive. The default 'A' is the standard CTFS designation for living 
-#'   trees or stems
-#' @param dbhunit 'cm' or 'mm', only used for basal area
+#' @template type
+#' @template alivecode
+#' @template dbhunit
 #' @param split1 a vector of categories, one per individual
 #' @param split2 another vector of categories, one per individual
 #'
@@ -42,12 +39,12 @@
 #' CTFSplot('bci',5:6,'full')
 #'
 #' CTFSplot('bci',5:6,'stem')
-#' total=abundance(bci.full5,mindbh=10)
+#' total=abundance(bci::bci12full5,mindbh=10)
 #' total$abund
 #' total$meandate
-#' totalstem=abundance(bci.stem5,mindbh=10)
+#' totalstem=abundance(bci::bci12stem5,mindbh=10)
 #'
-#' BAperSpecies=abundance(bci.stem5,type='ba',mindbh=10,split1=bci.stem5$sp)
+#' BAperSpecies=abundance(bci::bci12stem5,type='ba',mindbh=10,split1=bci::bci12stem5$sp)
 #' head(BAperSpecies$ba)
 #' head(BAperSpecies$meandate)}
 #'
@@ -82,7 +79,7 @@
 #' @examples
 #' \dontrun{
 #' Nperquad = abundanceperquad(
-#'   bci.full6,
+#'   bci::bci12full6,
 #'   plotdim = c(1000, 500),
 #'   gridsize = 100,
 #'   type = 'abund'
@@ -152,10 +149,10 @@
 #' @examples
 #' \dontrun{
 #' bcichange = pop.change(
-#'   bci.full5,
-#'   bci.full6,
+#'   bci::bci12full5,
+#'   bci::bci12full6,
 #'   type = 'abund',
-#'   split1 = bci.full5$sp,
+#'   split1 = bci::bci12full5$sp,
 #'   mindbh = 10
 #' )
 #' str(bcichange)
@@ -195,14 +192,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' Nchange = pop.change.dbh(bci.full5, bci.full6, classbreak = c(10, 100, 300))
+#' Nchange = pop.change.dbh(bci::bci12full5, bci::bci12full6, classbreak = c(10, 100, 300))
 #' Nchange$abund
 #'
 #' BAchangePerSpp <- pop.change.dbh(
-#'   bci.full5,
-#'   bci.full6,
+#'   bci::bci12full5,
+#'   bci::bci12full6,
 #'   classbreak = c(10, 100),
-#'   split = bci.full5$sp
+#'   split = bci::bci12full5$sp
 #' )
 #' head(BAchangePerSpp$ba)}
 #'
@@ -214,7 +211,7 @@
 #' Calculates the individual basal areas (in square meters) for all submitted
 #' dbhs. The dbh units must be submitted, either cm'or 'millimeters'.
 #' @inheritParams abundance
-#' @param dbh DBH in mm of tree
+#' @template dbh
 #' @return A vector of basal area values of same length as the submitted vector 
 #'   of dbhs.
 'ba'
@@ -225,27 +222,32 @@
 #' Returns the basal area summed over all submitted dbhs. NAs can be included,
 #' as sum will be completed with `na.rm = TRUE`.
 #'
-#' @inheritParams ba
-#' @inheritParams abundance
+#' @template dbh
+#' @template mindbh
+#' @template dbhunit
 #'
 'basum'
 
-#' Collect abundances of all species across several censuses. The full...
+#' Collect abundances of all species across several censuses.
 #'
 #' @description
-#'
-#' Collect abundances of all species across several censuses. The full R census tables are submitted as a list, as many as desired. The
-#' argument type can be used to choose basal area or agb, or the default for number of individuals. The mindbh to include must be given
-#' as an argument, but it can be NULL. If the latter, trees are counted if they have no dbh, as long as status=A. By default, any tree
-#' ever given code M is not counted in any census, but set excludestatus=NULL to include them.
-#'
-#' A character vector of species codes can be submitted as excludespp, for instance those for unidentified trees. 
+#' Collect abundances of all species across several censuses. 
+#' 
+#' @template allcns
+#' @template mindbh
+#' @template dbhunit
+#' @template type
+#' @param excludestatus By default, any tree ever given code M is not counted in
+#'   any census, but set `excludestatus = NULL` to include them.
+#' @param excludespp A character vector of species codes can be submitted as
+#'   `excludespp`, for instance those for unidentified trees.
 #'
 #' @examples
 #' \dontrun{
-#'
 #' N = abund.manycensus(
-#'   allcns = list(bci.full1, bci.full2, bci.full3, bci.full4),
+#'   allcns = list(
+#'     bci::bci12full1, bci::bci12full2, bci::bci12full3, bci::bci12full4
+#'   ),
 #'   mindbh = 10,
 #'   type = 'abund',
 #'   excludespp = 'uniden',
@@ -256,14 +258,14 @@
 #' apply(N,2,countspp)
 #'
 #' N = abund.manycensus(
-#'   allcns = list(bci.full5, bci.full6),
+#'   allcns = list(bci::bci12full5, bci::bci12full6),
 #'   mindbh = 10,
 #'   type = 'abund',
 #'   excludespp = c('uniden', 'tremxx'),
 #'   excludestatus = NULL
-#' )}
+#' )
+#' }
 #'
-
 'abund.manycensus'
 
 # Source code and original documentation ----------------------------

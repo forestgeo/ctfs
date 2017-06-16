@@ -2,11 +2,16 @@
 % Please edit documentation in R/statistics.R
 \name{regress.plot}
 \alias{regress.plot}
-\title{Performs regression in convenient way and returns coefficients and ...}
+\title{Regression coefficients, probabilities and graph.}
 \usage{
 regress.plot(x, y, title = "", graphit = T, add = F, pts = T,
   clr = "blue", ptnames = NULL, xrange = NULL, yrange = NULL,
   xtitle = NULL, ytitle = NULL)
+}
+\arguments{
+\item{graphit}{Logical; if `TRUE` adds plot output.}
+
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 }
 \description{
 Performs regression in convenient way and returns coefficients and

@@ -2,12 +2,18 @@
 % Please edit documentation in R/calcalpha.R
 \name{rarefy.diversity}
 \alias{rarefy.diversity}
-\title{takes a full plot dataframe and calculates species number in a rand...}
+\title{Species number in a random subsample of \code{s} individuals.}
 \usage{
 rarefy.diversity(fulldata, s)
 }
+\arguments{
+\item{s}{Passed to \code{size} in \code{\link[base:sample]{base::sample()}}.}
+}
 \description{
-takes a full plot dataframe and calculates species number in a
-random subsample of s individuals. All it requires is a column
-called sp which has species designation for each individual.
+Takes a full plot dataframe and calculates species number in a random
+subsample of s individuals. All it requires is a column called sp which has
+species designation for each individual.
+}
+\seealso{
+\code{\link[base:sample]{base::sample()}}.
 }

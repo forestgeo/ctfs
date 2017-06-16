@@ -6,6 +6,10 @@
 \usage{
 dnormprod0(z, sx, sy)
 }
+\arguments{
+\item{z}{A numeric vector.}
+}
 \description{
-Probability density of product of two normal variates, both with mean 0, SD sx and sy
+Probability density of product of two normal variates, both with mean 0, SD
+sx and sy
 }

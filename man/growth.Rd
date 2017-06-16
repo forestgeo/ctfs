@@ -32,11 +32,11 @@ included.}
 \item{growthcol}{defines how growth is measured, either 'dbh'or
 'agb'(agb=biomass)}
 
-\item{err.limit}{A number. Numbers such as 10000 are high and will
-return all measures.}
+\item{err.limit}{A number. Numbers such as 10000 are high and will return all
+measures.}
 
-\item{maxgrow}{A number. Numbers such as 10000 are high and will
-return all measures.}
+\item{maxgrow}{A number. Numbers such as 10000 are high and will return all
+measures.}
 
 \item{split1}{a vector of categories, one per individual}
 
@@ -82,9 +82,12 @@ census.
 \examples{
 \dontrun{
 CTFSplot("bci", 56)
-growth.data = growth(bci.full5, bci.full6)
+growth.data = growth(bci::bci12full5, bci::bci12full6)
 growth.data$rate
-growth.data = growth(bci.full5, bci.full6, split1 = bci.full5$sp)
+growth.data = growth(
+  bci::bci12full5, bci::bci12full6, 
+  split1 = bci::bci12full5$sp
+)
 growth.data$rate
 assemble.demography(grow.data, type = 'g')
 }

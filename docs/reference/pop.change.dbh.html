@@ -104,7 +104,7 @@ stem.</p></td>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>either 'abund' (default) for abundance, 'ba' for basal area, or
+      <td><p>Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.</p></td>
     </tr>
     <tr>
@@ -113,8 +113,8 @@ stem.</p></td>
     </tr>
     <tr>
       <th>alivecode</th>
-      <td><p>character, codes of the variable <code>status</code> that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+      <td><p>character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems</p></td>
     </tr>
     <tr>
@@ -151,14 +151,14 @@ other examples.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>Nchange</span> <span class='kw'>=</span> <span class='fu'>pop.change.dbh</span>(<span class='no'>bci.full5</span>, <span class='no'>bci.full6</span>, <span class='kw'>classbreak</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>300</span>))
+  <span class='no'>Nchange</span> <span class='kw'>=</span> <span class='fu'>pop.change.dbh</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>, <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>, <span class='kw'>classbreak</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>300</span>))
   <span class='no'>Nchange</span>$<span class='no'>abund</span>
 
   <span class='no'>BAchangePerSpp</span> <span class='kw'>&lt;-</span> <span class='fu'>pop.change.dbh</span>(
-    <span class='no'>bci.full5</span>,
-    <span class='no'>bci.full6</span>,
+    <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>,
+    <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>,
     <span class='kw'>classbreak</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>100</span>),
-    <span class='kw'>split</span> <span class='kw'>=</span> <span class='no'>bci.full5</span>$<span class='no'>sp</span>
+    <span class='kw'>split</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>$<span class='no'>sp</span>
   )
   <span class='fu'>head</span>(<span class='no'>BAchangePerSpp</span>$<span class='no'>ba</span>)
 })</div></pre>

@@ -2,13 +2,20 @@
 % Please edit documentation in R/statistics.R
 \name{majoraxisreg}
 \alias{majoraxisreg}
-\title{A major axis regression with parameters fitted by optim. The regres...}
+\title{A major axis regression with parameters fitted by optim.}
 \usage{
 majoraxisreg(x, y, title = "", graphit = F, add = F, pts = T,
   clr = "blue", xtitle = "x", ytitle = "y", ptsize = 1, labsize = 1)
 }
+\arguments{
+\item{graphit}{Logical; if `TRUE` adds plot output.}
+
+\item{add}{xxxdocparam in majoraxisreg() is different to add in add_plot.R.}
+
+\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+}
 \description{
-A major axis regression with parameters fitted by optim. The regression
-is the line which minimizes perpendicular distance summed over all points
-(and squared).
+A major axis regression with parameters fitted by optim. The regression is
+the line which minimizes perpendicular distance summed over all points (and
+squared).
 }

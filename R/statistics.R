@@ -62,19 +62,20 @@
 #' 
 'regslope.noint'
 
-#' Performs regression in convenient way and returns coefficients and ...
+#' Regression coefficients, probabilities and graph.
 #'
 #' @description
-#'
-#' Performs regression in convenient way and returns coefficients and
+#' Performs regression in convenient way and returns coefficients and 
 #' probabilities in a single vector, and plots a graph.
+#' 
+#' @template graphit
+#' @template clr
 #'
 'regress.plot'
 
-#' Performs regression and graphs in a convenient way: with or without...
+#' Performs regression and graphs in a convenient way.
 #' 
 #' @description
-#' 
 #' Performs regression and graphs in a convenient way: with or without
 #' log-transforming x and y variables (the option addone can be included to
 #' handle zeros for log-transformation), with or without manual point labelling,
@@ -82,16 +83,28 @@
 #' and points. add can be a vector of length 2, a constant to be added to every
 #' value of x, y to remove zeroes.
 #' 
+#' @template add_plot
+#' @template graphit
+#' @template clr
+#' @template ltype
+#' @template lwidth
+#' @param x,y Variables on which to perform regression and graph.
+#' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
+#' @param addone Use to handle zeros for log-transformation
+#' @param pts See argument `pch` in [graphics::par()].
+#' 
 'regress.loglog'
 
-#' A major axis regression with parameters fitted by optim. The regres...
+#' A major axis regression with parameters fitted by optim.
 #'
 #' @description
-#'
-#' A major axis regression with parameters fitted by optim. The regression
-#' is the line which minimizes perpendicular distance summed over all points
-#'(and squared).
-#'
+#' A major axis regression with parameters fitted by optim. The regression is
+#' the line which minimizes perpendicular distance summed over all points (and 
+#' squared).
+#' 
+#' @template graphit
+#' @template clr
+#' @param add xxxdocparam in majoraxisreg() is different to add in add_plot.R.
 #'
 'majoraxisreg'
 
@@ -123,12 +136,12 @@
 #'
 'standardreg.no.int'
 
-#' Autocorrelation with a given lag of a vector y.autoregression regre...
-#'
-#' @description
-#'
 #' Autocorrelation with a given lag of a vector y.
 #'
+#' @description
+#' Autocorrelation with a given lag of a vector y.
+#' 
+#' @template graphit
 #'
 'autoregression'
 
@@ -182,27 +195,33 @@
 #'
 'Gibbs.normalvar'
 
-#' Generic Bayesian routine for fitting a model to y given 1 predictor...
+#' Bayesian routine for fitting a model to y given x.
 #'
 #' @description
-#'
-#' Generic Bayesian routine for fitting a model to y given 1 predictor variable x. The function
-#' of y~x must be supplied, as well as the function for the SD~y. Any functions with any numbers
-#' of parameters can be used: predfunc is the function of y~x, and sdfunc is the function sd~y.
-#'
-#' The function badpredpar is needed so the user can make up any definition
-#' for parameter values that are out of bounds. Without this, the model could not support any generic predfunc.
-#'
-#' Badpredpar must accept two vectors of parameters, one for main and one for sd.
-#'
-#' The ellipses allow additional parameters to be passed to the model function, but there is no such option for the
-#' sd function. The additional parameters mean that some of the variables defining the model do not have to be fitted.
-#'
-#' The sd function can be omitted if the likelihood does not require it. 
-#'
-#' This works only if one likelihood function defines the likelihood of the model, given data and parameters only.
-#'
-#' If the likelihood of some parameters is conditional on other parameters, as in hierarchical model, this can't be used.
+#' Generic Bayesian routine for fitting a model to y given 1 predictor variable
+#' x. The function of y~x must be supplied, as well as the function for the
+#' SD~y. Any functions with any numbers of parameters can be used: predfunc is
+#' the function of y~x, and sdfunc is the function sd~y.
+#' 
+#' @details
+#' The function badpredpar is needed so the user can make up any definition for 
+#' parameter values that are out of bounds. Without this, the model could not 
+#' support any generic predfunc. Badpredpar must accept two vectors of
+#' parameters, one for main and one for sd.
+#' 
+#' The ellipses allow additional parameters to be passed to the model function,
+#' but there is no such option for the sd function. The additional parameters
+#' mean that some of the variables defining the model do not have to be fitted.
+#' 
+#' The sd function can be omitted if the likelihood does not require it.
+#' 
+#' This works only if one likelihood function defines the likelihood of the
+#' model, given data and parameters only.
+#' 
+#' If the likelihood of some parameters is conditional on other parameters, as
+#' in hierarchical model, this can't be used.
+#' 
+#' @param add xxxdocparam in model.xy() is different to add in add_plot.R.
 #'
 #' @examples
 #' \dontrun{
@@ -243,17 +262,18 @@
 #'
 'arrangeParam.Gibbs'
 
-#' This is for model.xy. It takes the model function, its parameters, ...
+#' This is for model.xy. 
+#' Generate a likelihood for `model.xy()`.
 #'
 #' @description
-#'
-#' This is for model.xy. It takes the model function, its parameters, x values, observed values of the dependent variable obs, and sd values,
-#' to generate a likelihood. One of the parameters is passed as testparam, for use with metrop1step.
-#'
-#' This requires a badparam function for testing parameters. The standdard deviation is passed as an argument,
-#' not calculated from sdmodel.
-#'
-#'
+#' This is for model.xy. It takes the model function, its parameters, x values,
+#' observed values of the dependent variable obs, and sd values, to generate a
+#' likelihood. One of the parameters is passed as testparam, for use with
+#' metrop1step.
+#' 
+#' This requires a badparam function for testing parameters. The standdard
+#' deviation is passed as an argument, not calculated from sdmodel.
+#' 
 'llike.GaussModel'
 
 #' This is for model.xy. Take the function for the SD, its parameters,...
@@ -285,12 +305,12 @@
 #'
 'BadParam'
 
-#' Graph diagnostics of model.xygraph.modeldiag bootstrap.corr  Runnin...
+#' Graph diagnostics of model.xy.
 #'
 #' @description
-#'
 #' Graph diagnostics of model.xy
-#'
+#' 
+#' @template fit
 #'
 'graph.modeldiag'
 
@@ -359,11 +379,11 @@
 #' is no step-size thus no adjustment.
 'metrop1step.discrete'
 
-#' For testing mcmc1step. No longer used.testmcmcfunc CI  Confidence l...
-#'
+#' Deprecated. Test mcmc1step.
+#' 
 #' @description
-#'
 #' For testing mcmc1step. No longer used.
+#' 
 'testmcmcfunc'
 
 #'
@@ -387,24 +407,26 @@
 #'
 'hist_compare'
 
-#' Harmonic mean of a vector x. NAs and nonzero values can be ignored,...
+#' Harmonic mean of a vector x.
 #'
 #' @description
-#'
-#' Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a constant can be added to every x.
-#'
+#' Harmonic mean of a vector x. NAs and nonzero values can be ignored, and a
+#' constant can be added to every x.
+#' 
+#' @param add xxxdocparam in harmonic.mean() is different to add in add_plot.R
 #'
 'harmonic.mean'
 
-#' Given y values as a function of x, this seeks the x at which the cu...
-#'
+#' Seek x at which the curve passes through a given y.
+#' 
 #' @description
+#' Given y values as a function of x, this seeks the x at which the curve passes
+#' through a given y. It sets a variable whichabove to 0 for all cases where
+#' y > cutoff, otherwise 0, then fits a logistic regression.
+#' 
+#' The midpoint of the logistic regression is a good estimate.
 #'
-#' Given y values as a function of x, this seeks the x at which the curve passes through a given y. It sets
-#' a variable whichabove to 0 for all cases where y>cutoff, otherwise 0, then fits a logistic regression.
-#'
-#' The midpoint of the logistic regression is a good estimate. 
-#'
+#' @template graphit
 #'
 'cumul.above'
 
@@ -438,14 +460,14 @@
 #'
 'border.distance'
 
-#' This carries out either first or second order polynomial regression...
+#' For a polynomial regression, find x or y at y's peak or x-intercept.
 #'
 #' @description
-#'
 #' This carries out either first or second order polynomial regression,
 #' finds the x- and y-values at y's peak if its second order,
 #' otherwise the x-intercept.
-#'
+#' 
+#' @template graphit
 #'
 'regsum'
 

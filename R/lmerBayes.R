@@ -85,18 +85,21 @@
 #' *  fullparam: A 3D array with all parameters of the Gibbs sampler; one
 #' dimension if for all the random effects, with each random effect having a
 #' matrix of model parameters for every step of the Gibbs's sampler
+#' 
+#' @section Arguments description:
+#' - `start` Apart from a vector, it can be a matrix of such vectors, one per
+#' random effect.
 #'
 #' @template debug
 #' @template xcol_ycol
 #' @template steps_showstep
+#' @template badparam
+#' @template start
 #' @param data The table of data, in lmer-style, including one column to be 
 #'   modeled (dependent variable, y), one or more predictors (independent 
 #'   variables, x), and one random effect, using any column names.
 #' @param randcol The name of one column holding the random variable; must be a
 #'   character variable.
-#' @param start Starting parameter values, either a vector with as many
-#'   parameters as the model needs, or a matrix of such vectors, one per random
-#'   effect
 #' @param startSD A single starting value for the residual standard deviation,
 #'   only used with Gaussian and Negative Binomial error models.
 #' @param startCov Starting values of the diagonal of the covariance matrix;
@@ -128,9 +131,6 @@
 #' @param update 'conjugate' or 'metropolis', whether to use inverse-gamma (or
 #'   inverse-Wishart for full covariance) vs. metropolis steps for updating
 #'   covariances.
-#' @param badparam The name of a function (unquoted) that tests a set of model
-#'   parameters for validity; must return TRUE if parameters are valid,
-#'   otherwise FALSE.
 #' @param sdfunc The name of a function (unquoted) that models the residual
 #'   standard deviation as a function of the x's, just like the model function.
 #'   The default uses the function named constant, meaning the standard
@@ -155,13 +155,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Assume two plot datasets from BCI are attached, bci.full6 and bci.full7.
+#' # Assume two plot datasets from BCI are available, bci::bci12full6 and
+#' bci::bci12full7.
 #' # Subset to trees above 10 cm dbh and just 10 species for illustration (the
 #' # model will run much faster). The fixed effect, species - level variation
 #' # (or error), and the model parameters for each species are shown below. 
 #' # Check the names of the result to see what else lmerBayes returns.
 #' 
-#' gtable = growth.indiv(bci.full6, bci.full7, mindbh = 100)
+#' gtable = growth.indiv(bci::bci12full6, bci::bci12full7, mindbh = 100)
 #' a_few_species = c(
 #'   'termam',
 #'   'tachve',
@@ -220,32 +221,42 @@
 #'
 'lmerBayes.hyperllike.mean'
 
-#' Calculate full likelihood for any complete set of parameters, inclu...
+#' Likelihood for any complete set of parameters.
 #'
 #' @description
-#'
-#' Calculate full likelihood for any complete set of parameters, including every set for each random effect and hypermeans and covariances ##
-#'
-#'
-#' Further thought: the call to lmerBayes.hyperllike.sigma doesn't make sense, since llike.model.lmer already does this; the probability of 
-#' each set of parameters given the hyperparameters is already calculated. 
-#'
-#'
-#' To update fixed effects, can use full.llikelihood.lmerBayes. The fixed effects are used identically for every random effect.  
-#'
-#'
+#' Calculate full likelihood for any complete set of parameters, including every
+#' set for each random effect and hypermeans and covariances.
+#' 
+#' @details
+#' Further thought: the call to [lmerBayes.hyperllike.sigma()] doesn't make
+#' sense, since [llike.model.lmer()] already does this; the probability of each
+#' set of parameters given the hyperparameters is already calculated.
+#' 
+#' To update fixed effects, can use full.llikelihood.lmerBayes. The fixed 
+#' effects are used identically for every random effect.
+#' 
+#' @param ... Arguments passed to [llike.model.lmer()].
+#' 
 'full.likelihood.lmerBayes'
 
-#' A llikelihood function for one set of parameters, for a single rand...
+
+#' A llikelihood function for one set of parameters, for a single random effect.
 #'
 #' @description
-#'
-#' A llikelihood function for one set of parameters, for a single random effect. The error is specified by errormodel, typically dbinom or dnorm.  
-#'
-#' It includes the likelihood of observing data given a response model (model) and its parameters (allparam), plus the hyper-likelihood of observing allparam
-#' given the hyperparameters, including hypermeans and covariance matrix. This is based off llike.model.occur.hierarch in fitLogisticMap.r, 
-#' but differs in including the covariance in the hyper-model. If the argument mu, for hypermeans, is set NULL, the likelihood without the hyper-likelihood is returned.
-#'
+#' A llikelihood function for one set of parameters, for a single random effect.
+#' The error is specified by errormodel, typically dbinom or dnorm.
+#' 
+#' It includes the likelihood of observing data given a response model (model)
+#' and its parameters (allparam), plus the hyper-likelihood of observing
+#' allparam given the hyperparameters, including hypermeans and covariance
+#' matrix. This is based off llike.model.occur.hierarch in fitLogisticMap.r, but
+#' differs in including the covariance in the hyper-model. If the argument mu,
+#' for hypermeans, is set NULL, the likelihood without the hyper-likelihood is
+#' returned.
+#' 
+#' @template debug
+#' @template badparam
+#' 
 #' @examples
 #' \dontrun{
 #'
@@ -256,28 +267,30 @@
 #' With this option, model must always be > 0
 #'  llike=dnorm(x=trueN,mean=modeled,sd=withinSD*modeled,log=TRUE)
 #' }
-#' else if(errormodel=='Flat') llike=rep(0,length(modeled))}
-#'
+#' else if(errormodel=='Flat') llike=rep(0,length(modeled))
+#' }
 #'
 'llike.model.lmer'
 
 #' Calculate likelihood of residual standard deviation, given observat...
 #'
 #' @description
-#'
-#' Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).
-#'
-#' This likelihood does not depend on the hyperparameters. It does require data and prediction for every single random effect. 
-#'
-#'
+#' Calculate likelihood of residual standard deviation, given observations plus
+#' the predicting model and data (to make predictions).
+#' 
+#' This likelihood does not depend on the hyperparameters. It does require data
+#' and prediction for every single random effect.
+#' 
 #' Simply check a single SD parameter for sign.
+#' 
+#' @template badparam
 #'
 'residual.llike.lmerBayes'
 
 #' badSD arrangeParam.llike.2D  Used in likelihood function of a Gibbs...
 #'
 #' 
-#'
+#' @param ... Unused.
 #'
 'badSD'
 
@@ -340,25 +353,38 @@
 #'
 'resetParam'
 
-#' Make summary calculations based on the full Gibbs sampler. The argu...
+#' Summarize calculations based on the full Gibbs sampler.
 #'
 #' @description
-#'
-#' Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
-#' and likelihood. However, if parameters were saved along the way to a text file, then the argument paramfile is used to name the file and restore them
-#' into a 3D array. Estimates of confidence limits of all parameters are returned. If returnfull is set TRUE, then the entire 3D array of parameters is
-#' also returned. Full likelihood at the best parameters is calculated and likelihood at each step in sampler are used to calculate DIC.
-#'
+#' Make summary calculations based on the full Gibbs sampler.
+#' 
+#' @template badparam
+#' @param fit An object holding all steps of the sampler, plus data,
+#'   observations, and likelihood. 
+#' @param paramfile If parameters were saved along the way to a text file, then
+#'   this argument is used to name the file and restore them into a 3D array.
+#' @param returnfull If TRUE, the entire 3D array of parameters is also
+#' returned. Full likelihood at the best parameters is calculated and likelihood
+#' at each step in sampler are used to calculate DIC.
+#' @param ... Arguments passed to [llike.model.lmer()] or
+#'   [full.likelihood.lmerBayes()], which may be problematic 
+#'   (xxx_amend_source in [summaryMCMC()]).
+#' 
+#' @return Estimates of confidence limits of all parameters are returned.
+#' 
+#' @aliases summaryModelMCMC
 #'
 'summaryMCMC'
 
 #' Walk through entire chain of parameters to calculate full likelihoo...
 #'
 #' @description
-#'
-#' Walk through entire chain of parameters to calculate full likelihood at each step, as was done during the model run. The argument keep
-#' defines the elements to be used, or if NULL, fit$keep is used. 
-#'
+#' Walk through entire chain of parameters to calculate full likelihood at each
+#' step, as was done during the model run. The argument keep defines the
+#' elements to be used, or if NULL, fit$keep is used.
+#' 
+#' @template fit
+#' @param ... Arguments passed to [full.likelihood.lmerBayes()].
 #'
 'recalculate.lmerBayesllike'
 

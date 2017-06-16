@@ -14,9 +14,7 @@ fullplot.imageJ(path = "", outfile = "plotLxLy.txt", delim = ",",
 \item{path}{The complete path name where the map files to be converted are
 found.}
 
-\item{outfile}{the name of the text file where the results will be saved.
-This file will be saved in the folder specified by the path. If
-\code{outfile = NULL}, the results will not be written to a file.}
+\item{outfile}{Filename for output.}
 
 \item{include.subdir}{whether the subfolders are to be searched for map files
 also}
@@ -38,6 +36,8 @@ of the quadrat name}
 
 \item{gridsize}{Size of each individual map.}
 
+\item{debug}{Logical. If TRUE, call browser to debug.}
+
 \item{subquadratsuffix}{Suffixes used to indicate what section of the map the
 subquadrat refers to. They should be named clockwise from the lower left.
 It can be used for map files that are smaller than 20x20m (i.e. 10x10m).}
@@ -53,6 +53,14 @@ subquadrats, the names should end with the same consistent suffixes. Only
 those files with this specific naming convention are read and converted.
 Updated Aug 2014 to handle files with no trees (just 4 corner labels).
 }
+\section{Arguments details}{
+
+\itemize{
+\item \code{outfile} This file will be saved in the folder specified by the path. If
+\code{outfile = NULL}, the results will not be written to a file.
+}
+}
+
 \examples{
 \dontrun{
 mapfolder = '/maps/rabi/'

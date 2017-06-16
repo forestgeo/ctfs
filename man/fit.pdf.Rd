@@ -2,12 +2,12 @@
 % Please edit documentation in R/distributions.R
 \name{fit.pdf}
 \alias{fit.pdf}
-\title{Fit a random variable x to any submitted probability distribution. ...}
+\title{Fit a random variable x to any submitted probability distribution.}
 \usage{
 fit.pdf(start.param = c(1, 1), data, pdf = dnorm, xrange = c(0, 1),
   badpar = default.badpar)
 }
 \description{
-Fit a random variable x to any submitted probability distribution. The number of start parameters
-must match what the pdf needs.
+Fit a random variable x to any submitted probability distribution. The number
+of start parameters must match what the pdf needs.
 }

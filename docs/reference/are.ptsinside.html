@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Checks many points (dataframe pt with x and y) against a single qua... — are.ptsinside â€¢ forestr</title>
+<title>Check if points belong to quadrat. — are.ptsinside â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,23 +79,51 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Checks many points (dataframe pt with x and y) against a single qua...</h1>
+    <h1>Check if points belong to quadrat.</h1>
     </div>
 
     
-    <p>Checks many points (dataframe pt with x and y) against a single quadrat whose corners are given by as xlo, ylo, xhi, yhi.</p>
-<p>It returns a logical vector, TRUE for the points inside. This is same as insideRectange, but accepting input as a matrix pts
-and a single vector of the four corners of the rectange.</p>
+    <p>Checks many points (dataframe pt with x and y) against a single quadrat whose
+corners are given by as xlo, ylo, xhi, yhi.</p>
     
 
     <pre class="usage"><span class='fu'>are.ptsinside</span>(<span class='no'>pts</span>, <span class='no'>coord</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>pts</th>
+      <td><p>A matrix.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A logical vector; TRUE for the points inside.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This is same as <code><a href='insideRectangle.html'>insideRectangle()</a></code>, but accepting input as a matrix pts and a
+single vector of the four corners of the rectange.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='insideRectangle.html'>insideRectangle()</a></code>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

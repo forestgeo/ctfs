@@ -39,9 +39,11 @@ mac. `export = format` exports the graph to a specific file format: "pdf",
 background of all species (first one) and for the individual species
 (second one).}
 
-\item{xrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
-\item{yrange}{Minimum and maximum x and y coordinates of area graphed.}
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
 
 \item{wd}{Height and width of the overall graph.
 The default work for pdf export or mapping to the screen, and ht and wd are

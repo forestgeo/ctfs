@@ -2,12 +2,19 @@
 % Please edit documentation in R/distributions.R
 \name{dpois.max}
 \alias{dpois.max}
-\title{A probability distribution which is simply a curtailed poisson: all...}
+\title{A probability distribution which is simply a curtailed poisson.}
 \usage{
 dpois.max(x, lambda, maxx, log = FALSE)
 }
+\arguments{
+\item{x, lambda}{See \code{x}, \code{lambda} in \code{\link[stats:dpois]{stats::dpois()}}.}
+}
 \description{
-A probability distribution which is simply a curtailed poisson: all probability above a maximum integer,
-maxx, is given to that maximum. For all x<maxx, the probability is just poission. No normalization is needed, due
+A probability distribution which is simply a curtailed poisson: all
+probability above a maximum integer, maxx, is given to that maximum. For all
+x < maxx, the probability is just poission. No normalization is needed, due
 to this definition.
+}
+\seealso{
+\code{\link[stats:dpois]{stats::dpois()}}.
 }

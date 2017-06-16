@@ -83,21 +83,32 @@
     </div>
 
     
-    <p>Calculates a transition matrix of individuals by diameter categories from two censuses.</p>
-<p>The missing code (M) is checked in codes field if misscode is set; otherwise, status=M is assumed to mean missing
-and status=AB is assumed to mean the stem was lost, so there is no dbh.</p>
-<p>Growth rates above maxgrow and below mingrow are excluded, where max and min are annual increments.
-(Not tested recently and not part of the supported CTFS R package.)</p>
+    <p>Calculates a transition matrix of individuals by diameter categories from two
+censuses.</p>
+<p>The missing code (M) is checked in codes field if misscode is set; otherwise,
+status=M is assumed to mean missing and status=AB is assumed to mean the stem
+was lost, so there is no dbh.</p>
     
 
     <pre class="usage"><span class='fu'>DBHtransition</span>(<span class='no'>data1</span>, <span class='no'>data2</span>, <span class='kw'>dbhbreaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>50</span>, <span class='fl'>100</span>, <span class='fl'>300</span>, <span class='fl'>10000</span>),
   <span class='kw'>maxgrow</span> <span class='kw'>=</span> <span class='fl'>45</span>, <span class='kw'>misscode</span> <span class='kw'>=</span> <span class='st'>"M"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>maxgrow</th>
+      <td><p>A number. Numbers such as 10000 are high and will return all
+measures.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

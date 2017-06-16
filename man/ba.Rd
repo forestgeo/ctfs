@@ -7,7 +7,8 @@
 ba(dbh, dbhunit = "mm")
 }
 \arguments{
-\item{dbh}{DBH in mm of tree}
+\item{dbh}{Stem diameter, usually at breast height (see data dictionary at 
+http://ctfs.si.edu/Public/DataDict/data_dict.php).}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 }

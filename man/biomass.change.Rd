@@ -13,8 +13,8 @@ stem.}
 
 \item{census2}{The matching R Analytical Table for a later census.}
 
-\item{alivecode}{character, codes of the variable \code{status} that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+\item{alivecode}{character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
@@ -24,6 +24,8 @@ included.}
 \item{split1}{a vector of categories, one per individual}
 
 \item{split2}{another vector of categories, one per individual}
+
+\item{dbhunit}{'cm' or 'mm', only used for basal area}
 }
 \value{
 A list with 6 components:
@@ -60,9 +62,11 @@ is a matrix.
 
 CTFSplot("bci", "full", census = c(3, 7))
 
-deltaAGB = biomass.change(bci.full3, bci.full7)
+deltaAGB = biomass.change(bci::bci12full3, bci::bci12full7)
 
-deltaAGB.spp = biomass.change(bci.full3, bci.full7, split1 = bci.full3$sp)
+deltaAGB.spp = biomass.change(
+  bci::bci12full3, bci::bci12full7, split1 = bci::bci12full3$sp
+)
 
 deltaAGB.table = assemble.demography(deltaAGB.spp, type = "a") 
 

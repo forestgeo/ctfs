@@ -4,13 +4,13 @@
 #'
 #'
 
-#' Calculate biomass from existing R-formatted tables for trees and st...
-#'
+#' Biomass for trees and stems using dbh allometry.
+#' 
 #' @description
-#'
 #' Calculate biomass from existing R-formatted tables for trees and stems using
 #' dbh allometry. By default, it uses the Chave (2005) equations.
-#'
+#' 
+#' @details
 #' Note that the standard downloads of R Analytical Tables, already has the agb
 #' column filled, calculated with this routine using the default parameters for
 #' moist forest.
@@ -19,15 +19,11 @@
 #' used for other tables, always requiring two tables:  one with trees and one
 #' with all stems.
 #'
-#' The function returns the same table as submitted (either tree or stem), with
-#' a column agb added; if the agb column was already present, it is replaced.
-#'
 #' Calculations are done by AGB.ind and the subroutines it call.
 #'
-#' An alternative option is to have AGB calculations already stored in the
-#' server's AGB database, setting useChave=FALSE. This function then looks up
-#' the AGB for each stem from the table named for the plot.
-#'
+#' An alternative option is to have AGB calculations already stored in the 
+#' server's AGB database, setting `useChave = FALSE`. This function then looks
+#' up the AGB for each stem from the table named for the plot.
 #'
 #' RStemTable: Name of table with one row per stem; must have dbh, species
 #' (column sp), treeID
@@ -44,17 +40,26 @@
 #' dbh and any number of parameters; if ht.param is NULL, htmodel is ignored.
 #' 
 #' If you need a dummy wood density table to feed the wsg argument see
-#' `?wsgdata_dummy()`.
-#'
+#' ?[wsgdata_dummy()].
+#' 
+#' @return
+#' The same table as submitted (either tree or stem), with a column agb added;
+#' if the agb column was already present, it is replaced.
+#' 
+#' @template dbhunit
+#' @template plot
+#' 
 #' @examples
 #' \dontrun{
-#'
 #' CTFSplot("bci","full",census=1) 
 #'
 #' CTFSplot("bci","stem",census=1) 
 #' attach("biomass/wsg.ctfs.Rdata") 
-#' newtable=biomass.CTFSdb(RStemTable=bci.stem1,RTreeTable=bci.full1)}
-#'
+#' newtable = biomass.CTFSdb(
+#'   RStemTable = bci::bci12stem1, 
+#'   RTreeTable = bci::bci12full1
+#' )
+#' }
 #'
 'biomass.CTFSdb'
 
@@ -62,35 +67,45 @@
 #'
 #' @description
 #' Create a vector of wood density for each individual tree based on the species
-#' name and plot. The table of individuals, called df, must include a dbh and a
-#' species name, the latter named sp. There must be a table of wood density
-#' submitted (wsgdata), and this table must have a column sp with species names,
-#' a column plot, plus the wood density in a column called wsg (though the name
-#' of that column can be changed using the argument denscol). The CTFS
-#' wood-density table has this structure, but any table with those columns will
-#' work. If a species in the df table has a matching species name in the correct
-#' plot, its wood density is taken.
+#' name and plot. 
+#' 
+#' @param df The table of individuals; must include a dbh and a species name,
+#'   the latter named sp.
+#' @param wsgdata A table of wood density; this table must have columns:
+#'   - `sp` with species names, 
+#'   - `plot`;
+#'   - `wsg` the wood density (the name of this column can be changed using the
+#'   argument `denscol`). The CTFS wood-density table has this structure, but
+#'   any table with those columns will work. If a species in the df table has a
+#'   matching species name in the correct plot, its wood density is taken.
+#' @param denscol Name of the column in `wsgdata` containing wood density data.
 #'
+#' @details
 #' If a species is not found in the correct plot, then the mean wood density of
 #' all species in the same plot is taken. The function fails (returns only NAs)
 #' if there are no entries for the selected plot in the wood-density table.
 #'
-#' Returns a vector of wood density of the same size as the df table submitted. 
+#' @return
+#' A vector of wood density of the same size as the df table submitted. 
 #'
 #' If you need a dummy wood density table to feed the wsg argument see
-#' `?wsgdata_dummy()`.
+#' [wsgdata_dummy()].
 #' 
 #' @details 
 #' Name density.ind clashed with an S3 method, so it was replaced by
 #' density_ind.
 #' 
+#' @template plot
+#' 
 #' @examples
 #' \dontrun{
-#' wooddens=density_ind(df=bci.full1,plot="bci",wsg=wsg.ctfs2)
-#'
-#' mean(wooddens,na.rm=TRUE)
-#'
-#' length(which(is.na(wooddens)))}
+#' wooddens = density_ind(df = bci::bci12full1,
+#'   plot = "bci",
+#'   wsg = wsg.ctfs2
+#' )
+#' mean(wooddens, na.rm = TRUE)
+#' length(which(is.na(wooddens)))
+#' }
 #'
 'density_ind'
 
@@ -101,7 +116,7 @@
 #' tropical forest types.
 #' 
 #' @inheritParams abundance
-#' @inheritParams CTFSplot
+#' @template plot
 #' @param df A table with dbh and species names
 #' @param wsgdata A wood-density table, see [density_ind()] and [wsgdata_dummy].
 #' @param forest A forest type (for most lowland tropical plots, the default
@@ -118,123 +133,159 @@
 #'
 #' @examples
 #' \dontrun{
-#' biomass <- AGB.ind(df = bci.full1)
+#' biomass <- AGB.ind(df = bci::bci12full1)
 #' hist(log(biomass), breaks = 100)
 #' sum(biomass, na.rm = TRUE) / 50
 #' }
 #'
 'AGB.ind'
 
-#'
-#' Computes AGB of each tree in a table, grouping all stems of one tre...
+#' AGB of each tree, grouping all stems of one tree and adding there agbs.
 #'
 #' @description
+#' Computes AGB of each tree in a table, grouping all stems of one tree and
+#' adding there agbs.
 #'
-#' Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs. 
-#'
-#' The submitted table, df, must have dbh, species name (sp),
-#' and a treeID to identify which tree every stem belong to. There must be just one dbh for each stem.  Returns
-#' a dataframe with one row per tree, including the treeID and total agb per tree. Note that it will have fewer rows
-#' than the table submitted. This is called by biomass.CTFSdb in the standard calculation of biomass for CTFS R tables. 
-#'
-#' biomasstbl=AGB.tree(df=bci.stem1)
-#' dim(bci.stem1)
+#' @return
+#' Adataframe with one row per tree, including the treeID and
+#' total agb per tree. Note that it will have fewer rows than the table
+#' submitted.
+#' 
+#' @inheritParams biomass.CTFSdb
+#' @template plot
+#' @param df The submitted table. Must have dbh, species name (sp), and a treeID
+#'   to identify which tree every stem belong to. There must be just one dbh for
+#'   each stem.
+#' 
+#' @seealso  This is called by [biomass.CTFSdb()] in the standard calculation of
+#' biomass for CTFS R tables.
+#' @examples 
+#' \dontrun{
+#' biomasstbl = AGB.tree(df = bci::bci12stem1)
+#' dim(bci::bci12stem1)
 #' dim(biomasstbl)
 #' head(biomasstbl)
-#'
+#' }
 #'
 'AGB.tree'
 
-#'
-#' The Chave 2005 Oecologia model for calculating biomass from dbh in ...
-#'
+#' The Chave 2005 Oecologia model for calculating biomass from dbh in cm.
+#' 
 #' @description
-#'
-#' The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All dbhs are submitted as a vector, and a vector of wood density
-#' of the same length must also be submitted (or a single wood density can be passed, to be used for every tree). 
-#'
-#' Parameter values for the 3 forest types according to Chave 2005 are hard-coded in the function.
-#'
-#' The recommended CTFS use is with htparam=NULL, so height is not used. If height parameters and a height model are passed,
-#' then the height of every tree is calculated, and the Chave AGB formula that includes height is used. The default height parameters are 
-#' from Chave et al 2003 on BCI biomass, and the default height function is predht.asym, provided in this file. But any height model can be
-#' substituted, providing the function name is passed and the necessary number of parameters included as htparam. 
-#'
-#' Returns a vector of biomass of same length as vector of dbh submitted. 
-#'
-#' This is called by AGB.tree in the standard calculation of biomass for CTFS R tables.
+#' 
+#' The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All
+#' dbhs are submitted as a vector, and a vector of wood density of the same
+#' length must also be submitted (or a single wood density can be passed, to be
+#' used for every tree).
+#' 
+#' Parameter values for the 3 forest types according to Chave 2005 are
+#' hard-coded in the function.
+#' 
+#' The recommended CTFS use is with htparam=NULL, so height is not used. If
+#' height parameters and a height model are passed, then the height of every
+#' tree is calculated, and the Chave AGB formula that includes height is used.
+#' The default height parameters are from Chave et al 2003 on BCI biomass, and
+#' the default height function is predht.asym, provided in this file. But any
+#' height model can be substituted, providing the function name is passed and
+#' the necessary number of parameters included as htparam.
+#' 
+#' Returns a vector of biomass of same length as vector of dbh submitted.
+#' 
+#' This is called by AGB.tree in the standard calculation of biomass for CTFS R
+#' tables.
+#' 
+#' @template dbh
 #'
 #' @examples
 #' \dontrun{
-#' testdbh=c(1,2,5,10,20,30,50,100,200)
+#' testdbh = c(1, 2, 5, 10, 20, 30, 50, 100, 200)
 #'
+#' AGBmoist = Chave.AGB(dbh = testdbh, forest = "moist")
 #'
-#' AGBmoist=Chave.AGB(dbh=testdbh,forest="moist")
+#' AGBwet = Chave.AGB(dbh = testdbh, forest = "wet")
 #'
+#' plot(testdbh, AGBmoist, col = "green", type = "l")
 #'
-#' AGBwet=Chave.AGB(dbh=testdbh,forest="wet")
-#'
-#' plot(testdbh,AGBmoist,col="green",type="l")
-#'
-#' lines(testdbh,AGBwet,col="blue")}
+#' lines(testdbh, AGBwet, col = "blue")
+#' }
 #'
 #'
 'Chave.AGB'
 
-#' Calculates biomass from density, height, and dbh. Requires just two...
+#' Calculates biomass from density, height, and dbh.
 #'
 #' @description
-#'
-#' Calculates biomass from density, height, and dbh. Requires just two parameters, following Chave (2005). The parameters can be
-#' changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
-#'
-#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
+#' Calculates biomass from density, height, and dbh. Requires just two
+#' parameters, following Chave (2005). The parameters can be changed, but the
+#' formula cannot be. Returns a vector of biomass as long as vector of dbh
+#' submitted.
+#' 
+#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R
+#' tables.
+#' 
+#' @template dbh
 #'
 #' @examples
 #' \dontrun{
-#' agb.model(dbh=c(1,1,2),density=c(.6,.6,.5),height=c(2,3,4),param=c(.0501,1))}
+#' agb.model(
+#'   dbh = c(1, 1, 2),
+#'   density = c(.6, .6, .5),
+#'   height = c(2, 3, 4),
+#'   param = c(.0501, 1)
+#' )
+#' }
+#' 
 #'
 #'
 'agb.model'
 
-#' Calculates biomass from density and diameter, without height. Requi...
+#' Calculates biomass from density and diameter, without height.
 #'
 #' @description
-#'
-#' Calculates biomass from density and diameter, without height. Requires four parameters, following Chave (2005). 
-#'
-#' The parameters can be changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
-#'
-#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
+#' Calculates biomass from density and diameter, without height. Requires four
+#' parameters, following Chave (2005).
+#' 
+#' The parameters can be changed, but the formula cannot be. Returns a vector of
+#' biomass as long as vector of dbh submitted.
+#' 
+#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R
+#' tables.
+#' 
+#' @template dbh
 #'
 #' @examples
 #' \dontrun{
-#' agb.dbhmodel(dbh=c(1,1,2),density=c(.6,.6,.5),param=c(-1.499,2.148,0.207,-0.0281)) }
-#'
+#' agb.dbhmodel(
+#'   dbh = c(1, 1, 2),
+#'   density = c(.6, .6, .5),
+#'   param = c(-1.499, 2.148, 0.207, -0.0281)
+#' ) 
+#' }
 #'
 'agb.dbhmodel'
 
-#' An allometric model predicting an asymptote at large size, used in ...
-#'
+#' An allometric model predicting an asymptote at large size.
+#' 
 #' @description
-#'
-#' An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh. 
-#'
-#' The model uses 3 parameters, submitted as argument param. The matrix form of param allows a different set of parameters to
-#' be submitted for every species. The default parameters given in the function Chave.AGB assume dbh is in cm, as do all the biomass
-#' allometry functions. 
-#'
-#' dbh: Vector of dbh
-#' param: Either a vector of length 3, or a matrix of 3 columns; if the latter, there must be one row for each dbh
-#'
+#' An allometric model predicting an asymptote at large size, used in estimating
+#' tree height as a function of dbh.
+#' 
+#' The model uses 3 parameters, submitted as argument param. The matrix form of
+#' param allows a different set of parameters to be submitted for every species.
+#' The default parameters given in the function Chave.AGB assume dbh is in cm,
+#' as do all the biomass allometry functions.
+#' 
+#' dbh: Vector of dbh param: Either a vector of length 3, or a matrix of 3
+#' columns; if the latter, there must be one row for each dbh.
+#' 
+#' @template dbh
+#' 
 #' @examples
 #' \dontrun{
-#' htparam=c(41.7,.057,.748)
-#'
-#' d=c(1,2,5,10,20,50)
-#'
-#' ht=predht.asym(dbh=d,param=htparam)}
-#'
+#' htparam = c(41.7, .057, .748)
+#' d = c(1, 2, 5, 10, 20, 50)
+#' ht = predht.asym(dbh = d, param = htparam)
+#' }
 #'
 'predht.asym'
 
@@ -269,18 +320,19 @@
 #' - little.r: The rate of biomass change, or (log(N.2) - log(N.1))/interval
 #' 
 #' @inheritParams abundance
-#' @param census1 The R Analytical Table for a single census, either tree or
-#'   stem.
-#' @param census2 The matching R Analytical Table for a later census.
+#' @template census1_census2
+#' @template dbhunit
 #' 
 #' @examples
 #' \dontrun{
 #'
 #' CTFSplot("bci", "full", census = c(3, 7))
 #'
-#' deltaAGB = biomass.change(bci.full3, bci.full7)
+#' deltaAGB = biomass.change(bci::bci12full3, bci::bci12full7)
 #'
-#' deltaAGB.spp = biomass.change(bci.full3, bci.full7, split1 = bci.full3$sp)
+#' deltaAGB.spp = biomass.change(
+#'   bci::bci12full3, bci::bci12full7, split1 = bci::bci12full3$sp
+#' )
 #'
 #' deltaAGB.table = assemble.demography(deltaAGB.spp, type = "a") 
 #'
@@ -305,11 +357,9 @@
 #' and a column agb with biomass in tons. This is used in cases where biomass for a plot has been calculated separately, using a method other than one of
 #' the Chave allometric equations. The alternative AGB calculation is stored for each plot in this database. The name of the table matches the plot name. 
 #'
-#' df: A table of individual stems.
-#' plot: The plot name
+#' @template  plot
+#' @param df A table of individual stems.
 #'
-#'
-
 'AGB.dbtable'
 
 # Source code and original documentation ----------------------------

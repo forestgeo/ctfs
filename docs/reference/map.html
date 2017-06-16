@@ -117,7 +117,7 @@ calls the functions maptopo() and map1species() for the actual mapping.</p>
       <td><p>A table with species codes and Latin names can be submitted as
 well, so that the full genus-species is added to plot. This must have
 species codes as row names. It should be the CTFS R format species table
-(eg, bci.spptable). It can be set to NULL if not available, then only the
+(eg, bci::bci12spptable). It can be set to NULL if not available, then only the
 species code (as submitted) appears on the map.</p></td>
     </tr>
     <tr>
@@ -126,7 +126,8 @@ species code (as submitted) appears on the map.</p></td>
     </tr>
     <tr>
       <th>xrange, yrange</th>
-      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.</p></td>
     </tr>
     <tr>
       <th>elevdata</th>
@@ -271,14 +272,14 @@ entire plot.</p></li>
 
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='kw'>plot</span> <span class='kw'>=</span> <span class='st'>'bci'</span>, <span class='kw'>census</span> <span class='kw'>=</span> <span class='fl'>6</span>)
 
-  <span class='no'>bci.split6</span> <span class='kw'>=</span> <span class='fu'><a href='split_data.html'>split_data</a></span>(<span class='kw'>censdata</span> <span class='kw'>=</span> <span class='no'>bci.full6</span>, <span class='kw'>splitcol</span> <span class='kw'>=</span> <span class='st'>'sp'</span>)
+  <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12split6</span> <span class='kw'>=</span> <span class='fu'><a href='split_data.html'>split_data</a></span>(<span class='kw'>censdata</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>, <span class='kw'>splitcol</span> <span class='kw'>=</span> <span class='st'>'sp'</span>)
 
   <span class='no'>nospp</span> <span class='kw'>=</span> <span class='fu'>length</span>(<span class='no'>species</span>)
 
-  <span class='fu'>map</span>(<span class='kw'>splitdatafile</span> <span class='kw'>=</span> <span class='no'>bci.split6</span>, <span class='kw'>species</span> <span class='kw'>=</span> <span class='st'>'poular'</span>)
+  <span class='fu'>map</span>(<span class='kw'>splitdatafile</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12split6</span>, <span class='kw'>species</span> <span class='kw'>=</span> <span class='st'>'poular'</span>)
 
   <span class='fu'>map</span>(
-    <span class='kw'>splitdatafile</span> <span class='kw'>=</span> <span class='no'>bci.split6</span>,
+    <span class='kw'>splitdatafile</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12split6</span>,
     <span class='kw'>species</span> <span class='kw'>=</span> <span class='st'>'poular'</span>,
     <span class='kw'>export</span> <span class='kw'>=</span> <span class='st'>'pdf'</span>,
     <span class='kw'>filepath</span> <span class='kw'>=</span> <span class='st'>'~/data/maps/'</span>,
@@ -288,7 +289,7 @@ entire plot.</p></li>
     <span class='kw'>wd</span> <span class='kw'>=</span> <span class='fl'>11</span>
   )
 
-  <span class='fu'>map</span>(<span class='kw'>splitdatafile</span> <span class='kw'>=</span> <span class='no'>bci.split6</span>,
+  <span class='fu'>map</span>(<span class='kw'>splitdatafile</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12split6</span>,
     <span class='kw'>species</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>'guatdu'</span>, <span class='st'>'poular'</span>))
 })</div></pre>
   </div>

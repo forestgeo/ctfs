@@ -76,7 +76,7 @@
 #' CTFSplot('bci',6,'full')
 #'
 #' BA = abundanceperquad(
-#'   bci.full6,
+#'   bci::bci12full6,
 #'   gridsize = 20,
 #'   plotdim = c(1000, 500),
 #'   type = 'ba'
@@ -106,7 +106,10 @@
 #' data, using R's contourLines. The graph can be sent to the screen or 
 #' exported.
 #' 
+#' @template xrange_yrange
 #' @template xname_yname
+#' @template add_plot
+#' @template lwidth
 #' @param matrixdata a list having components x, y, and mat, exactly the output
 #'   of coldata.to.imagemat
 #' @param levels if set, then contours are drawn (or colors assigned) to breaks 
@@ -114,8 +117,6 @@
 #'   NULL to let breaks control
 #' @param breaks if set, a vector of breaks for the image colors and the contour
 #'   lines; if NULL, levels controls the breaks
-#' @param xrange,yrange if `NULL`, all `x` (or `y`) are included, otherwise, the
-#'   graph will only include `x` (or `y`) inside `xrange` or (`yrange`)
 #' @param axisdiv the division between tick marks; must be a vector of 2, first
 #'   for x ticks then for y ticks
 #' @param clrs colors for the image; if NULL, they are chosen by default,
@@ -134,7 +135,7 @@
 #' @param h,w height and width of graph window in units which depend on the
 #'   export device chosen (some are pixels, some are inches); ignored if
 #'   newgraph = FALSE.
-#' @param export if newgraph=TRUE, this defines the graphics device; options
+#' @param export if `newgraph = TRUE`, this defines the graphics device; options
 #'   include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
 #'   quoted!)
 #' @param graphfile the file name if export is pdf, png, jpeg, win.metafile,
@@ -146,7 +147,7 @@
 #' CTFSplot('bci', 6, 'full')
 #' 
 #' N = colSums(
-#'   abundanceperquad(bci.full6, plotdim = c(1000, 500), grid = 20)$abund
+#'   abundanceperquad(bci::bci12full6, plotdim = c(1000, 500), grid = 20)$abund
 #' )
 #' matdata = coldata.to.imagemat(z = N,
 #'   gridsize = 20,
@@ -181,21 +182,23 @@
 #'   h = 11,
 #'   w = 11,
 #'   plotsize = 8
-#' )}
-#'
+#' )
+#' }
 #'
 'imageGraph'
 
-#' Add axes to a graph, with ticks spaced by the vector div. This is a...
+#' Add axes to a graph, with ticks spaced by the vector div.
 #'
 #' @description
-#'
-#' Add axes to a graph, with ticks spaced by the vector div. This is a subroutine used in imageGraph().
-#'
+#' Add axes to a graph, with ticks spaced by the vector div. This is a
+#' subroutine used in [imageGraph()].
+#' 
+#' @inheritParams imageGraph
+#' @param div Vector used to space ticks.
 #'
 'draw.axes'
 
-#' Creates a color response map based on columnar data, not a matrix a...
+#' Creates a color response map based on columnar data.
 #'
 #' @description
 #'
@@ -209,6 +212,8 @@
 #' coloring points by the concentration of one nutrient. Another, illustrated
 #' below, would be to color tree locations according to dbh.
 #'
+#' @inheritParams imageGraph
+#' @template xrange_yrange
 #' @param data A data frame with at least 3 columns, 2 of which are coordinates
 #'   and one a numerical response at those coordinates
 #' @param xcol,ycol,zcol These allow the columns of data to carry non-standard
@@ -227,7 +232,7 @@
 #' CTFSplot('bci',6,'full')
 #' 
 #' image_dataframe(
-#'   data = subset(bci.full6, status == 'A'),
+#'   data = subset(bci::bci12full6, status == 'A'),
 #'   xcol = 'gx',
 #'   ycol = 'gy',
 #'   zcol = 'dbh',

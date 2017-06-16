@@ -59,10 +59,10 @@
 #' # Otherwise start with a standard R Analytical Table (could be stem also):
 #'
 #' CTFSplot("bci",6,type="full")
-#' bci.split6=split_data(bci.full6)
+#' bci::bci12split6=split_data(bci::bci12full6)
 #' # A quick test, run on only the first 10 species:
 #' rip = RipUvK(
-#'   splitdata = bci.split6[1:10],
+#'   splitdata = bci::bci12split6[1:10],
 #'   plotdim = c(1000, 500),
 #'   rseq = c(10, 20, 30, 40, 50, 60),
 #'   mindbh = 10,
@@ -71,7 +71,7 @@
 #' )
 #' # All the species (takes several minutes):
 #' rip = RipUvK(
-#'   splitdata = bci.split6,
+#'   splitdata = bci::bci12split6,
 #'   plotdim = c(1000, 500),
 #'   rseq = c(10, 20, 30, 40, 50, 60),
 #'   mindbh = 10,
@@ -118,32 +118,33 @@
 #'
 'CalcRingArea'
 
-#' Simply returns area of a circle of radius r.circlearea partialcircl...
+#' Area of a circle of radius r.
 #'
 #' @description
-#'
 #' Simply returns area of a circle of radius r.
-#'
+#' 
+#' @template r
 #'
 'circlearea'
 
-#' Calculates the area of a circle of radius r that is inside a rectan...
-#'
+#' Area of a circle of radius r that is inside a rectangular plot.
+#' 
 #' @description
-#'
-#' Calculates the area of a circle of radius r that is inside a rectangular plot.  
-#'
-#' The distance from the circle center to plot edges are c2, cy1, cy2, where cy1 is the shortest
-#' distance to a y-boundary and cy3 the longest, while c2 is the shortest x distance.
-#'
-#' The longest x distance is not needed. 
-#'
-#' This will not work if the longest x distance < radius of the
-#' circle.  The greatest radius allowed is thus half the x dimension of the plot, generally
-#'250 or 500 m.
-#'
+#' Calculates the area of a circle of radius r that is inside a rectangular plot.
+#' 
+#' The distance from the circle center to plot edges are c2, cy1, cy2, where cy1
+#' is the shortest distance to a y-boundary and cy3 the longest, while c2 is the
+#' shortest x distance.
+#' 
+#' The longest x distance is not needed.
+#' 
+#' This will not work if the longest x distance < radius of the circle.  The
+#' greatest radius allowed is thus half the x dimension of the plot, generally
+#' 250 or 500 m.
+#' 
 #' Ordinarily only used as a subroutine of RipUvK.
-#'
+#' 
+#' @template r
 #'
 'partialcirclearea'
 

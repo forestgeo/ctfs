@@ -7,7 +7,7 @@
 load.species(spname, sppdatafile)
 }
 \description{
-A function for extracting a single species'dataframe from the large spp dataset
-(list of dataframes, one per species). The split data file must come
+A function for extracting a single species'dataframe from the large spp
+dataset (list of dataframes, one per species). The split data file must come
 as a name, that is in quote marks.
 }

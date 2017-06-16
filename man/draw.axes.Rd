@@ -2,10 +2,20 @@
 % Please edit documentation in R/mapresponse.R
 \name{draw.axes}
 \alias{draw.axes}
-\title{Add axes to a graph, with ticks spaced by the vector div. This is a...}
+\title{Add axes to a graph, with ticks spaced by the vector div.}
 \usage{
 draw.axes(whichaxs = 1:4, xrange, yrange, div, whichbox = 1:4)
 }
+\arguments{
+\item{xrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
+
+\item{yrange}{Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.}
+
+\item{div}{Vector used to space ticks.}
+}
 \description{
-Add axes to a graph, with ticks spaced by the vector div. This is a subroutine used in imageGraph().
+Add axes to a graph, with ticks spaced by the vector div. This is a
+subroutine used in \code{\link[=imageGraph]{imageGraph()}}.
 }

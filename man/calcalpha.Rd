@@ -6,6 +6,11 @@
 \usage{
 calcalpha(n, s)
 }
+\arguments{
+\item{n}{Individuals count.}
+
+\item{s}{Species count.}
+}
 \description{
 Calculates alpha from a stem and species count submitted using Newton's method.
 }

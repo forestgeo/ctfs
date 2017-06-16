@@ -36,7 +36,7 @@
 #' @param spplist A table with species codes and Latin names can be submitted as
 #'   well, so that the full genus-species is added to plot. This must have 
 #'   species codes as row names. It should be the CTFS R format species table 
-#'   (eg, bci.spptable). It can be set to NULL if not available, then only the 
+#'   (eg, bci::bci12spptable). It can be set to NULL if not available, then only the 
 #'   species code (as submitted) appears on the map.
 #' @param elevdata Elevation data can be submitted, then a topo map is overlaid.
 #'   Elevation data must be submitted as a matrix (as described in readelevdata 
@@ -85,14 +85,14 @@
 #' 
 #' CTFSplot(plot = 'bci', census = 6)
 #' 
-#' bci.split6 = split_data(censdata = bci.full6, splitcol = 'sp')
+#' bci::bci12split6 = split_data(censdata = bci::bci12full6, splitcol = 'sp')
 #' 
 #' nospp = length(species)
 #' 
-#' map(splitdatafile = bci.split6, species = 'poular')
+#' map(splitdatafile = bci::bci12split6, species = 'poular')
 #' 
 #' map(
-#'   splitdatafile = bci.split6,
+#'   splitdatafile = bci::bci12split6,
 #'   species = 'poular',
 #'   export = 'pdf',
 #'   filepath = '~/data/maps/',
@@ -102,34 +102,40 @@
 #'   wd = 11
 #' )
 #' 
-#' map(splitdatafile = bci.split6,
+#' map(splitdatafile = bci::bci12split6,
 #'   species = c('guatdu', 'poular'))
 #' }
 #'
 'map'
 
-#' Export a pdf with one or more species maps. If singlefile=TRUE,  al...
+#' Export a pdf with one or more species maps.
 #'
 #' @description
-#'
-#' Export a pdf with one or more species maps. If singlefile=TRUE, 
-#' all maps will be in one big pdf, otherwise, a pdf for every species is created. The file exported will be named with Map.pdf
-#' in the path name given.  
-#'
-#' This calls the map() function for all species
-#' in the splitdata list; it is designed for all species from a plot (default is all species from the BCI plot).
-#'
-#' See description of map() for details. 
-#'
+#' Export a pdf with one or more species maps. If singlefile=TRUE, all maps will
+#' be in one big pdf, otherwise, a pdf for every species is created. The file
+#' exported will be named with Map.pdf in the path name given.
+#' 
+#' This calls the map() function for all species in the splitdata list; it is
+#' designed for all species from a plot (default is all species from the BCI
+#' plot).
+#' 
+#' @inheritParams map
+#' @template h_w
+#' 
+#' @seealso [map()]
 #'
 'pdf.allplot'
 
-#' Export species maps as png. There will be one for every species cho...
+#' Export species maps as png.
 #'
 #' @description
-#'
-#' Export species maps as png. There will be one for every species chosen. See pdf.allplot. 
-#'
+#' Export species maps as png. There will be one for every species chosen. See
+#' pdf.allplot.
+#' 
+#' @inheritParams map
+#' @template h_w
+#' 
+#' @seealso [map()].
 #'
 'png.allplot'
 
@@ -164,18 +170,24 @@
 #' This defines an export device for a graph, based on the argument export.
 #' 
 #' @template export
-#' @param h,w Size and width
+#' @template h_w
 #'
 'define.graphwindow'
 
-#' This sets a name for outputting a map (or any graph) to a file. The...
+#' This sets a name for outputting a map (or any graph) to a file.
 #'
 #' @description
-#'
-#' This sets a name for outputting a map (or any graph) to a file. The argument file may be NULL, then the argument species is used
-#' to name the file, or if there are more than one species, the word multispp is used. The argument exp is the export type and becomes
-#' the extension (ie, .pdf). By default, type assumes a Map, but it can be set otherwise. 
-#'
+#' This sets a name for outputting a map (or any graph) to a file. The argument
+#' file may be NULL, then the argument species is used to name the file, or if
+#' there are more than one species, the word multispp is used. The argument exp
+#' is the export type and becomes the extension (ie, .pdf). By default, type
+#' assumes a Map, but it can be set otherwise.
+#' 
+#' 
+#' @param file If `NULL`, then the argument species is used to name the file, or
+#'   if there are more than one species, the word multispp is used.
+#' @param exp, Export type, and becomes the extension (ie, .pdf).
+#' @param type A string; Defaults to "Map", but it can be set otherwise.
 #'
 'get.filename'
 
@@ -184,19 +196,18 @@
 #' @description
 #' Draws contours on a plot map. Elevmat has elevation data in matrix form; plot
 #' dimensions are not needed, instead it calculates them from elevmat and the 
-#' gridsize. If add=TRUE, they are added to an existing map. If new=TRUE, a new
-#' screen window is created.
-#'
+#' gridsize.
 #' 
 #' @inheritParams map
 #' @inheritParams graphFilledBand
+#' @template add_plot
+#' @template clr
 #' @param elevmat Matrix of elevation data (see ?[bci::bci_elevation]).
-#' @param new See [graphics::par()].
+#' @param new If `TRUE`, a new screen window is created.. See [graphics::par()].
 #' @param interval Contour line intervals.
 #' @param xaxis xxxdocparam
 #' @param yaxis xxxdocparam
 #' @param labelsize xxxdocparam
-#' @param clr xxxdocparam
 #' 
 #' @seealso [map()], [bci::bci_elevation].
 #' 
@@ -211,31 +222,38 @@
 #' @seealso [map()].
 #' 
 #' @inheritParams map
-#' @param add Logical. Use `add = TRUE ` to add points to an existing map.
+#' @template add_plot
 #'
 'map1species'
 
-#' An internal function, called by map() to choose size of plotting po...
+#' An internal function, called by [map()] to choose size of plotting points. 
 #'
 #' @description
-#'
-#' An internal function, called by map() to choose size of plotting points. It uses the number of dbh categories (n) and abundance of the species (s) 
-#' to help determine the size. Note that the user can override these defaults by submitting sizes.
-#'
+#' An internal function, called by [map()] to choose size of plotting points. 
+#' 
+#' Note that the user can override these defaults by
+#' submitting sizes.
+#' 
+#' @param n Number of dbh categories
+#' @param s Abundance of the species.
 #'
 'setsize'
 
-#' Map 2 species to a 2-panel pdf. Two species names are passed to spp...
+#' Map 2 species to a 2-panel pdf.
 #'
 #' @description
+#' Map 2 species to a 2-panel pdf. 
+#' 
+#' @details 
+#' To make 2 maps from the same plot, each of the lists should repeated
+#' the same data twice.
+#' 
+#' @template export_format
+#' @param data A list of two split plot data objects.
+#' @param spplist A list of two different species tables.
+#' @param elev A list of two different elevation matrices. 
+#' @param spp A vector of two species names.
 #'
-#' Map 2 species to a 2-panel pdf. Two species names are passed to spp as a vector. The data
-#' must be a list of two split plot data objects, spplist is a list of two different species tables, and elev
-#' a list of two different elevation matrices. To make 2 maps from the same plot, each of the lists should
-#' repeated the same data twice. 
-#'
-#'
-
 'map2species'
 
 # Source code and original documentation ----------------------------
