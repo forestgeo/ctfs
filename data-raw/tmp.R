@@ -101,6 +101,26 @@ x %>% select(1) %>% unique()
 
 
 
+args_count_formals_man() %>% 
+  filter(is.na(man_n))
+# 2017-06-16
+# # A tibble: 925 x 4
+#    params             fun frml_n man_n
+#     <chr>           <chr>  <int> <int>
+#  1      x  abundmodel.fit    133    NA
+#  2      x     addBinParam    133    NA
+#  3      x      AssignDiag    133    NA
+#  4      x asymp.ht.fixmax    133    NA
+#  5      x        asymp.ht    133    NA
+#  6      x   asymptote.exp    133    NA
+#  7      x    bad.binparam    133    NA
+#  8      x    bad.binsdpar    133    NA
+#  9      x        BadParam    133    NA
+# 10      x           badSD    133    NA
+# # ... with 915 more rows
+
+
+
 # Diagnostics -------------------------------------------------------------
 
 # xxx cont. analyse how many argument items I documented.
