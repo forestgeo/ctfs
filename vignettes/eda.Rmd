@@ -20,32 +20,30 @@ knitr::opts_chunk$set(
 )
 ```
 
-### Introduction
+# Introduction
 
-This vignette will show you how to explore your data systematically, using visualization and transformation. An exploratory data analysis is an iterative process that aims to use data and some research questions to learn something that can help refine the questions and move forward the learning spiral.
+This vignette will show you how to explore your data systematically, using modern and more powerful tools for visualization and transformation. An exploratory data analysis is an iterative process that aims to use data and some research questions to learn something that can help refine the questions and move forward the learning spiral.
 
-We will use data from Barro Colorado Island (DOI: https://doi.org/10.5479/data.bci.20130603), and functions from the packages **[forestr](https://forestgeo.github.io/forestr/)**, **[dplyr](http://dplyr.tidyverse.org/)** and **[ggplot2](http://ggplot2.tidyverse.org/)**.
+## Prerequisites
+
+The data we will use comes from Barro Colorado Island. It is available at DOI: https://doi.org/10.5479/data.bci.20130603 and via the __bci__ data package.
+
+Some functions we will use are available in the __[forestr](https://forestgeo.github.io/forestr/)__ package, and many are available in the __tidyverse__ package (which includes, for example, the packages __[dplyr](http://dplyr.tidyverse.org/)__ and __[ggplot2](http://ggplot2.tidyverse.org/)__). If you are new to the __tidyversre__, you may feel a little frustrated at the begining. But quickly your effort will pay-off. The tools in the __tidyverse__ are powerful, realatively easy to use and consistent; so once you learn some, you will learn most other tools intuitively.
+
+To more compleately learan how to do data science with the __tidyverse__ read [R for Data Science](http://r4ds.had.co.nz/), by Garrett Grolemund and Hadley Wickham.
 
 ```{r packages}
 # To install packages see ?install.packages and ?devtools::install_github
-library(bci)  # to access data of forest dynamics from BCI
+
+# Data
+library(bci)  # to access data from BCI
+
+# Functions
 library(forestr)  # to analyse forest dynamics
-library(ggplot2)  # to visualize data
-library(dplyr)  # to transform data
-library(tibble)  # to handle large data easier
+library(tidyverse)  # to visualize and transform data, and much more
 ```
 
-#### R for Data Science
-
-The ideas presented here come from [Exploratory Data Analysis](http://r4ds.had.co.nz/exploratory-data-analysis.html), in [R for Data Science](http://r4ds.had.co.nz/), by Garrett Grolemund and Hadley Wickham. Some text from that book section is literally reproduced here _like this_ or
-
-> like this,
-
-```R
-but not like this (compared to the text above, this one has different indentation and fonttype).
-```
-
-For example, the following definitions are literally reproduced:
+## Definitions
 
 > A __variable__ is a quantity, quality, or property that you can measure. 
 
@@ -61,11 +59,12 @@ For example, the following definitions are literally reproduced:
 > __Tabular data__ is a set of values, each associated with a variable and an 
     observation. Tabular data is _tidy_ if each value is placed in its own
     "cell", each variable in its own column, and each observation in its own 
-    row. 
+    row.
+    
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
 
-
-### Questions
+# Questions
 
 To start exploring your data, you can generally ask:
 
@@ -73,98 +72,90 @@ To start exploring your data, you can generally ask:
 
 > What type of covariation occurs between my variables?
 
-
-### Variation
+# Variation
 
 > __Variation__ is the tendency of the values of a variable to change from measurement to measurement. 
 
 Every variable varies with a particular pattern, and that pattern may be insightful. To understand the variation pattern of a variable we can visualize the distribution of the variables' values. The best way to visualize a variable's distribution depends on whether the variable is categorical or continuous.
 
-The BCI data has both, categorical and continuous variables, for example, most variables of type <chr> (character) and <dbl> below.
+The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings or factors, for example, most variables of type <chr> (character) and <dbl> below.
 
-```{r}
-seven <- bci12full7  # give the data a clearer and more memorable name
-
-# Tibbles print better than dataframes
-seven <- as_tibble(seven)
-seven
-# Another view; like str() but shows as much data as possible
-glimpse(seven)
+```{r data}
+# Data from Barro Colorado Island, released in 2012, FullViewTable census 7
+# tibbles print faster and nicer than dataframes, but read "Interacting with 
+# legacy code" at https://goo.gl/CJ5jLs.
+bci12full7 <- as_tibble(bci12full7)  
+bci12full7
 ```
 
+For alternative views try:
 
-#### Working with dates
-
-xxx replace data for some that is easier to work with.
-
-__xxx maybe move this subsection for after the eda has been covered with easier-to-work data. Here, I may choose another variable to work with, e.g. dbh. Latter, this section's purpose would be to show how to deal with dates. For this, I could follow the `lubridate` section of r4ds.__
-
-The variable `date` is the number of days since 1960-01-01 (see data dictionary at https://goo.gl/Q6XYrb), but it will be easier to interpret if we convert it to a date-time object (see `?lubridate::as_datetime`).
-
-```{r}
-library(lubridate)
-
-# "Duration" is a useful intermediate; learn more with ?lubridate::duration
-# %/%: integere diviison removes useless and annoying fraction of seconds.
-seven <- mutate(seven, duration = dseconds((date * 24 * 60 * 60) %/% 1))
-seven <- mutate(seven, datetime = as_datetime(duration, origin = "1960-01-01"))
-seven %>% 
-  select(date, datetime) %>%
-  print(n = 20)  # print some more rows than tibble's default
+```{r, eval=FALSE}
+as.data.frame(bci12full7)  # takes long and doesn't print nicely
+View(bci12full7)  # prints to a viewer panel
+str(bci12full7)  # informative and prints nice
+glimpse(bci12full7)  # like str() but shows as much data as possible
 ```
 
-```{r}
-seven$date <- lubridate::as_date(seven$date, origin = "1960-01-01")
-seven %>% 
-  select(date) %>% 
-  glimpse()
-```
+## Visualizing Distributions
 
-
-
-#### Visualizing distributions
-
-##### Categorical variables
+### Categorical variables
 
 > A variable is categorical if it can only take one of a small set of values.
 
 > To examine the distribution of a categorical variable, use a bar chart.
 
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+
 ```{r, fig.cap="Values distribution of the categorical variable `status`"}
-ggplot(seven) +
+ggplot(bci12full7) +
   geom_bar(aes(x = DFstatus))
 ```
 
 You can compute the same count manually with `dplyr::count()`:
 
 ```{r}
-count(seven, DFstatus)
+count(bci12full7, DFstatus)
 ```
 
-##### Continuous variables
+### Continuous Variables
 
 > A variable is continuous if it can take any of an infinite set of ordered values.
 
 > To examine the distribution of a continuous variable use a histogram.
 
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+
+
+
+
+
+
+
+
+
+```
+Here, replace this example with data of class date by an example with data of class double, e.g. the variable dbh. 
+```
+
 ```{r}
 barwidth <- 10  # set once, then use multiple times
 
-ggplot(seven) +
+ggplot(bci12full7) +
   geom_histogram(aes(x = date), binwidth = barwidth)
 ```
 
 You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
 
 ```{r}
-seven %>% 
+bci12full7 %>% 
   mutate(date = cut_width(date, width = barwidth)) %>% 
   count(date) %>% 
   tail()
 ```
 
 ```{r, echo=FALSE}
-nas_cnt <- seven %>% 
+nas_cnt <- bci12full7 %>% 
   mutate(date = cut_width(date, width = barwidth)) %>% 
   count(date) %>% 
   dplyr::filter(is.na(date)) %>% 
@@ -174,7 +165,7 @@ nas_cnt <- seven %>%
 The `r nas_cnt` `NA` indicate dates where no trees where recorded (notice `DF status` = `"no_record"` on the bar chart above). The same we see from a histogram with narrower bars.
 
 ```{r}
-ggplot(seven) +
+ggplot(bci12full7) +
   geom_histogram(aes(x = date), binwidth = 1)
 ```
 
@@ -183,12 +174,11 @@ ggplot(seven) +
 To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars:
 
 ```{r, fig.cap="Lines overlaid are easier to understand than bars."}
-ggplot(seven) +
+ggplot(bci12full7) +
   geom_freqpoly(aes(x = date, color = DFstatus), binwidth = barwidth)
 ```
 
-
-#### Typical values
+### Typical Values
 
 In both bar charts and histograms, tall and short bars let us explore common and less-common values. Now we can ask:
 
@@ -198,17 +188,28 @@ In both bar charts and histograms, tall and short bars let us explore common and
 
 > - Can you see any unusual patterns? What might explain them?
 
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
 ```{r}
-ggplot(seven) +
+ggplot(bci12full7) +
   geom_histogram(aes(x = dbh), binwidth = 50)
 ```
 
-
-
-
 xxxcont.
 
+### Unusual Values
+
+# Missing Values
+
+# Covariation
+
+## A Categorical and Continuous Variable
+
+## Two Categorical Variables
+
+## Two Continuous Variables
+
+# Patterns and Models
 
 
 
@@ -216,13 +217,39 @@ xxxcont.
 
 
 
-# Leftovers
+
+# To consider
+
+## Working with Dates
+
+The variable `date` is the number of days since 1960-01-01 (see data dictionary at https://goo.gl/Q6XYrb), but it will be easier to interpret if we convert it to a date-time object (see `?lubridate::as_datetime`).
+
+```{r}
+library(lubridate)
+
+# "Duration" is a useful intermediate; learn more with ?lubridate::duration
+# %/%: integere diviison removes useless and annoying fraction of seconds.
+bci12full7 <- mutate(bci12full7, duration = dseconds((date * 24 * 60 * 60) %/% 1))
+bci12full7 <- mutate(bci12full7, datetime = as_datetime(duration, origin = "1960-01-01"))
+bci12full7 %>% 
+  select(date, datetime) %>%
+  print(n = 20)  # print some more rows than tibble's default
+```
+
+```{r}
+bci12full7$date <- lubridate::as_date(bci12full7$date, origin = "1960-01-01")
+bci12full7 %>% 
+  select(date) %>% 
+  glimpse()
+```
+
+
 
 ## skimr
 
 ```{r}
 library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
-skim(seven) %>% filter(stat == "hist") %>% as.matrix()
+skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
 ```
 
 To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
@@ -234,18 +261,3 @@ smry %>%
   dplyr::filter(stat == "hist") %>% 
   as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
 ```
-
-
-## tibble conflicts
-
-```{r}
-# xxx turn this off because the data type changes
-# Handle and print large data nicely *xxx
-# library(tibble)
-# bci12full7 <- tibble::as_tibble(bci12full7)
-# *xxx Note: If you get this error message:
-# "Can't use matrix or array for column indexing"
-# watch for problematic interaction with legacy code (https://goo.gl/g7rg2P)
-# and try solve it by with as.data.frame().
-```
-
