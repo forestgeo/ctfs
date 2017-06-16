@@ -158,6 +158,8 @@
 #' exceeds a minimum. If any bins have too few, it returns FALSE.
 #' 
 #' @param ... Unused.
+#' @param x,b Passed to `x`, `breaks` in [base::cut()].
+#' @seealso [base::cut()].
 #'
 'enoughSamplePerBin'
 

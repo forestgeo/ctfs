@@ -2,10 +2,33 @@
 % Please edit documentation in R/utilities.R
 \name{IfElse}
 \alias{IfElse}
-\title{A more convenient version of the R function ifelse in cases where t...}
+\title{A Version of \code{base::ifelse()}.}
 \usage{
 IfElse(test, a, b)
 }
+\arguments{
+\item{test, a, b}{Equivalent to \code{test}, \code{yes}, \code{no} in \code{\link[base:ifelse]{base::ifelse()}}.}
+}
 \description{
-A more convenient version of the R function ifelse in cases where test, a, and b are atomic.
+A Version of \code{base::ifelse()}.
+}
+\section{Reuse good code}{
+
+"The single biggest way to improve both the quality of your code and your 
+productivity is to reuse good code (...) Many algorithms have already been 
+invented, tested, discussed in the trade literature, reviewed, and improved". 
+
+--Code complete 2, by Steve McConnell.
+}
+
+\section{Alternative}{
+
+A good alternative is \code{\link[dplyr:if_else]{dplyr::if_else()}}: "Compared to the base ifelse(),
+this function is more strict. It checks that true and false are the same
+type. This strictness makes the output type more predictable, and makes it
+somewhat faster".
+}
+
+\seealso{
+\code{\link[base:if]{base::if()}}, \code{\link[base:ifelse]{base::ifelse()}}, \code{\link[dplyr:if_else]{dplyr::if_else()}}.
 }

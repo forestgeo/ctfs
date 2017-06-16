@@ -7,9 +7,14 @@
 enoughSamplePerBin(x, b, ...)
 }
 \arguments{
+\item{x, b}{Passed to \code{x}, \code{breaks} in \code{\link[base:cut]{base::cut()}}.}
+
 \item{...}{Unused.}
 }
 \description{
 Test whether the number of elements in a vector x between successive breaks
 exceeds a minimum. If any bins have too few, it returns FALSE.
+}
+\seealso{
+\code{\link[base:cut]{base::cut()}}.
 }

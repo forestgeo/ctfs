@@ -42,6 +42,7 @@ avoid <- c(
   "...",  # did many; other are weird.
   "add",  # done
   "alivecode",  # done
+  "b",  # done some, others are unclear
   "badparam",  # done
   "center",  # done
   "clr",  # all done
@@ -70,7 +71,9 @@ avoid <- c(
   # SKIP FOR NOW
   "div",
   "model",
-  "start.param"
+  "shape",  # too little info
+  "start.param",
+  "test",  # too little info
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
@@ -79,10 +82,9 @@ x <- args_count_formals_man() %>%
   filter(some_but_not_all_is_na) %>% print_all()
 print(x, n = x$frml_n[[1]])
 
-
 # xxxnext -----------------------------------------------------------------
-args_help("b")
-args_count_param("b")
+args_help("dbh")
+args_count_param("dbh")
 
 
 

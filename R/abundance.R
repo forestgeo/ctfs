@@ -211,7 +211,7 @@
 #' Calculates the individual basal areas (in square meters) for all submitted
 #' dbhs. The dbh units must be submitted, either cm'or 'millimeters'.
 #' @inheritParams abundance
-#' @param dbh DBH in mm of tree
+#' @template dbh
 #' @return A vector of basal area values of same length as the submitted vector 
 #'   of dbhs.
 'ba'

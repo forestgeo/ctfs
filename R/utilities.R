@@ -571,14 +571,21 @@
 #'
 'attach_if_needed'
 
-#'
-#' A more convenient version of the R function ifelse in cases where t...
+#' A Version of `base::ifelse()`.
 #'
 #' @description
-#'
-#' A more convenient version of the R function ifelse in cases where test, a, and b are atomic.  
-#'
-#'
+#' A Version of `base::ifelse()`.
+#' 
+#' @param test,a,b Equivalent to `test`, `yes`, `no` in [base::ifelse()].
+#' @seealso [base::if()], [base::ifelse()], [dplyr::if_else()].
+#' 
+#' @template reuse_good_code
+#' @section Alternative:
+#' A good alternative is [dplyr::if_else()]: "Compared to the base ifelse(),
+#' this function is more strict. It checks that true and false are the same
+#' type. This strictness makes the output type more predictable, and makes it
+#' somewhat faster".
+#' 
 'IfElse'
 
 #'
