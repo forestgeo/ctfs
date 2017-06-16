@@ -663,7 +663,8 @@
 #' @section Customizing plot lines:
 #' If `add == TRUE`, `linecol`, `ltype` and `lwidth` are ignored.
 #' 
-#' @template ltype_lwidth
+#' @template ltype
+#' @template lwidth
 #' @template add_plot
 #' @param x The x axis values.
 #' @param y1,y2 Two sets of y axis values, each of exactly the same length as 

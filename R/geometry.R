@@ -167,6 +167,7 @@
 #' then y coordinates.
 #'
 #' @template clr
+#' @template lwidth
 #'
 'segmentPt'
 
@@ -178,6 +179,7 @@
 #' 
 #' @template add_plot
 #' @template clr
+#' @template lwidth
 #'
 'drawrectangle'
 

@@ -46,6 +46,7 @@ avoid <- c(
   "badparam",  # done
   "center",  # done
   "clr",  # all done
+  "dbh",  # done
   "debug",  # done
   "debunit",  # done
   "err.limit",  # done
@@ -73,18 +74,19 @@ avoid <- c(
   "model",
   "shape",  # too little info
   "start.param",
-  "test",  # too little info
+  "test"  # too little info
 )
 x <- args_count_formals_man() %>% 
   filter(!params %in% avoid) %>%
   group_by(params) %>% 
+  
   mutate(some_but_not_all_is_na = some_but_not_all_is_na(man_n)) %>% 
   filter(some_but_not_all_is_na) %>% print_all()
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("dbh")
-args_count_param("dbh")
+args_help("lwidth")
+args_count_param("lwidth")
 
 
 

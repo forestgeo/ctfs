@@ -12,6 +12,8 @@ existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
 
 \item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+
+\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
 }
 \description{
 Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The

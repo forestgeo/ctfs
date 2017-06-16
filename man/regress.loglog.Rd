@@ -25,7 +25,11 @@ otherwise, a new graph is drawn.}
 
 \item{pts}{See argument \code{pch} in \code{\link[graphics:par]{graphics::par()}}.}
 
+\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
+
 \item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+
+\item{ltype}{Line type; see `ltype` in ?[graphics::par()].}
 }
 \description{
 Performs regression and graphs in a convenient way: with or without

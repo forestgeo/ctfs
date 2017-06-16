@@ -41,6 +41,8 @@ neither image or standard contours are included}
 \item{clrs}{colors for the image; if NULL, they are chosen by default,
 otherwise, must be 1 + the number of breaks}
 
+\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
+
 \item{returnline}{TRUE or FALSE, whether to return the contour lines; see R's
 base function contourLines for details}
 

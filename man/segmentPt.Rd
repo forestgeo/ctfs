@@ -8,6 +8,8 @@ segmentPt(pt1, pt2, clr = "black", lwidth = 1)
 }
 \arguments{
 \item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+
+\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
 }
 \description{
 Draw a line segment between two points, where each point is a vector of x

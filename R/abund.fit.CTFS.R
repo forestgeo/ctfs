@@ -211,7 +211,8 @@
 #'
 #' @inheritParams graphFilledBand
 #' @template debug
-#' @template ltype_lwidth
+#' @template ltype
+#' @template lwidth
 #' @template modeltype
 #' @template xname_yname
 #' @template add_plot

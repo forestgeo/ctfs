@@ -109,6 +109,7 @@
 #' @template xrange_yrange
 #' @template xname_yname
 #' @template add_plot
+#' @template lwidth
 #' @param matrixdata a list having components x, y, and mat, exactly the output
 #'   of coldata.to.imagemat
 #' @param levels if set, then contours are drawn (or colors assigned) to breaks 

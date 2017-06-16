@@ -86,6 +86,8 @@
 #' @template add_plot
 #' @template graphit
 #' @template clr
+#' @template ltype
+#' @template lwidth
 #' @param x,y Variables on which to perform regression and graph.
 #' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
 #' @param addone Use to handle zeros for log-transformation

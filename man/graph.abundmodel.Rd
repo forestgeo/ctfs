@@ -44,8 +44,9 @@ decreases in abundance to the screen}
 
 \item{xname, yname}{axis names}
 
-\item{ltype, lwidth}{Line type (`ltype`) and width (`width`); see
-?[graphics::par()].}
+\item{ltype}{Line type; see `ltype` in ?[graphics::par()].}
+
+\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
 
 \item{modelclr}{Line color; see ?\code{\link[graphics:par]{graphics::par()}}.}
 
