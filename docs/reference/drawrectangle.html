@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. ... — drawrectangle â€¢ forestr</title>
+<title>Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. — drawrectangle â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,20 +79,41 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. ...</h1>
+    <h1>Draw a rectangle given a matrix or dataframe of 4 x-y coordinates.</h1>
     </div>
 
     
-    <p>Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The columns must have x first then y coordinates.</p>
+    <p>Draw a rectangle given a matrix or dataframe of 4 x-y coordinates. The
+columns must have x first then y coordinates.</p>
     
 
     <pre class="usage"><span class='fu'>drawrectangle</span>(<span class='no'>corners</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clr</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>lwidth</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>add</th>
+      <td><p>Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.</p></td>
+    </tr>
+    <tr>
+      <th>clr</th>
+      <td><p>A string indicating colour. See argument col in [graphics::par()].</p></td>
+    </tr>
+    <tr>
+      <th>lwidth</th>
+      <td><p>Line width; see `width` in ?[graphics::par()].</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

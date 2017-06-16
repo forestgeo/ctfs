@@ -99,13 +99,13 @@ categorical variables.</p>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>either 'abund' (default) for abundance, 'ba' for basal area, or
+      <td><p>Either 'abund' (default) for abundance, 'ba' for basal area, or
 'agb'.</p></td>
     </tr>
     <tr>
       <th>alivecode</th>
-      <td><p>character, codes of the variable <code>status</code> that indicate the
-tree is alive. The default 'A' is the standard CTFS designation for living
+      <td><p>character, codes of the variable `status` that indicate the 
+tree is alive. The default 'A' is the standard CTFS designation for living 
 trees or stems</p></td>
     </tr>
     <tr>
@@ -152,12 +152,12 @@ the stem or full table to count stems or trees, respectively.</p>
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>'bci'</span>,<span class='fl'>5</span>:<span class='fl'>6</span>,<span class='st'>'full'</span>)
 
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>'bci'</span>,<span class='fl'>5</span>:<span class='fl'>6</span>,<span class='st'>'stem'</span>)
-  <span class='no'>total</span><span class='kw'>=</span><span class='fu'>abundance</span>(<span class='no'>bci.full5</span>,<span class='kw'>mindbh</span><span class='kw'>=</span><span class='fl'>10</span>)
+  <span class='no'>total</span><span class='kw'>=</span><span class='fu'>abundance</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>,<span class='kw'>mindbh</span><span class='kw'>=</span><span class='fl'>10</span>)
   <span class='no'>total</span>$<span class='no'>abund</span>
   <span class='no'>total</span>$<span class='no'>meandate</span>
-  <span class='no'>totalstem</span><span class='kw'>=</span><span class='fu'>abundance</span>(<span class='no'>bci.stem5</span>,<span class='kw'>mindbh</span><span class='kw'>=</span><span class='fl'>10</span>)
+  <span class='no'>totalstem</span><span class='kw'>=</span><span class='fu'>abundance</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12stem5</span>,<span class='kw'>mindbh</span><span class='kw'>=</span><span class='fl'>10</span>)
 
-  <span class='no'>BAperSpecies</span><span class='kw'>=</span><span class='fu'>abundance</span>(<span class='no'>bci.stem5</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'ba'</span>,<span class='kw'>mindbh</span><span class='kw'>=</span><span class='fl'>10</span>,<span class='kw'>split1</span><span class='kw'>=</span><span class='no'>bci.stem5</span>$<span class='no'>sp</span>)
+  <span class='no'>BAperSpecies</span><span class='kw'>=</span><span class='fu'>abundance</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12stem5</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'ba'</span>,<span class='kw'>mindbh</span><span class='kw'>=</span><span class='fl'>10</span>,<span class='kw'>split1</span><span class='kw'>=</span><span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12stem5</span>$<span class='no'>sp</span>)
   <span class='fu'>head</span>(<span class='no'>BAperSpecies</span>$<span class='no'>ba</span>)
   <span class='fu'>head</span>(<span class='no'>BAperSpecies</span>$<span class='no'>meandate</span>)
 })</div></pre>

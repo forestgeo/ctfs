@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Like growth(), but calculates change in biomass (agb) instead of db... — biomass.growth â€¢ forestr</title>
+<title>Calculate change in biomass (agb). — biomass.growth â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,23 +79,63 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Like growth(), but calculates change in biomass (agb) instead of db...</h1>
+    <h1>Calculate change in biomass (agb).</h1>
     </div>
 
     
-    <p>Like growth(), but calculates change in biomass (agb) instead of dbh. The census tables must have a column
-called agb. There is no trimming done at all -- every tree is included, and its entire biomass (the agb column in the
+    <p>Like <code><a href='growth.html'>growth()</a></code>, but calculates change in biomass (agb) instead of dbh. The
+census tables must have a column called agb. There is no trimming done at all
+-- every tree is included, and its entire biomass (the agb column in the
 standard CTFS data object has total agb, all stems included.)</p>
     
 
     <pre class="usage"><span class='fu'>biomass.growth</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>stdev</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>split1</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>split2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>census1</th>
+      <td><p>The R Analytical Table for a single census, either tree or
+stem.</p></td>
+    </tr>
+    <tr>
+      <th>census2</th>
+      <td><p>The matching R Analytical Table for a later census.</p></td>
+    </tr>
+    <tr>
+      <th>rounddown</th>
+      <td><p>If TRUE, all dbh &lt; 55 are rounded down to the nearest
+multiple of 5.</p></td>
+    </tr>
+    <tr>
+      <th>stdev</th>
+      <td><p>Logical. Default (FALSE) returns confidence limits, otherwise
+returns the SD in growth rate per group.</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
+    </tr>
+    <tr>
+      <th>split1</th>
+      <td><p>a vector of categories, one per individual</p></td>
+    </tr>
+    <tr>
+      <th>split2</th>
+      <td><p>another vector of categories, one per individual</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Like growth.indiv but based on agb growth, not dbh growth. Extreme ... — growth.biomass.indiv â€¢ forestr</title>
+<title>Like growth.indiv but based on agb growth, not dbh growth. — growth.biomass.indiv â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,30 +79,90 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Like growth.indiv but based on agb growth, not dbh growth. Extreme ...</h1>
+    <h1>Like growth.indiv but based on agb growth, not dbh growth.</h1>
     </div>
 
     
-    <p>Like growth.indiv but based on agb growth, not dbh growth. Extreme growth rates (based on dbh growth) are
-excluded, but cases where the stemID changed are not excluded.</p>
-<p>Here pomcut is used in a very specific way probably only relevant at BCI. If the second pom is higher than the first by more than
-the pomcut, the record is not used. The function trim.growth has already eliminated cases where the stemID is unchanged and pom
-changes, so this will only serve for cases where two different stemIDs have measurements. At BCI, in most cases where the second pom
-is lower than the first and the stem changed, it is a legitimate stem change. But where the second pom is higher, it is really the
-same stem measured at a different pom, and with a different stemID because BCI lacks stem tags.</p>
-<p>For most plots, especially with stem tags, the default behavior means changes in stem allow changes in pom to be included in biomass growth.</p>
+    <p>Like <code><a href='growth.indiv.html'>growth.indiv()</a></code> but based on agb growth, not dbh growth. Extreme growth
+rates (based on dbh growth) are excluded, but cases where the stemID changed
+are not excluded.</p>
     
 
     <pre class="usage"><span class='fu'>growth.biomass.indiv</span>(<span class='no'>census1</span>, <span class='no'>census2</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>steminfo</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>, <span class='kw'>err.limit</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>maxgrow</span> <span class='kw'>=</span> <span class='fl'>75</span>, <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>exclude.stem.change</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>pomcut</span> <span class='kw'>=</span> <span class='fl'>10000</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>census1</th>
+      <td><p>The R Analytical Table for a single census, either tree or
+stem.</p></td>
+    </tr>
+    <tr>
+      <th>census2</th>
+      <td><p>The matching R Analytical Table for a later census.</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
+      <th>err.limit</th>
+      <td><p>A number. Numbers such as 10000 are high and will return all
+measures.</p></td>
+    </tr>
+    <tr>
+      <th>maxgrow</th>
+      <td><p>A number. Numbers such as 10000 are high and will return all
+measures.</p></td>
+    </tr>
+    <tr>
+      <th>rounddown</th>
+      <td><p>If TRUE, all dbh &lt; 55 are rounded down to the nearest
+multiple of 5.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Here pomcut is used in a very specific way probably only relevant at BCI. If
+the second pom is higher than the first by more than the pomcut, the record
+is not used. The function <code><a href='trim.growth.html'>trim.growth()</a></code> has already eliminated cases where
+the stemID is unchanged and pom changes, so this will only serve for cases
+where two different stemIDs have measurements. At BCI, in most cases where
+the second pom is lower than the first and the stem changed, it is a
+legitimate stem change. But where the second pom is higher, it is really the
+same stem measured at a different pom, and with a different stemID because
+BCI lacks stem tags.</p>
+<p>For most plots, especially with stem tags, the default behavior means changes
+in stem allow changes in pom to be included in biomass growth.</p>
+    
+    <h2 class="hasAnchor" id="arguments-details"><a class="anchor" href="#arguments-details"></a>Arguments details</h2>
+
+    
+    <ul>
+<li><p>rounddown Unused.</p></li>
+</ul>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#arguments-details">Arguments details</a></li>
+          </ul>
 
   </div>
 </div>

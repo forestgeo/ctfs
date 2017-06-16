@@ -83,18 +83,33 @@
     </div>
 
     
-    <p>Walk through entire chain of parameters to calculate full likelihood at each step, as was done during the model run. The argument keep
-defines the elements to be used, or if NULL, fit$keep is used.</p>
+    <p>Walk through entire chain of parameters to calculate full likelihood at each
+step, as was done during the model run. The argument keep defines the
+elements to be used, or if NULL, fit$keep is used.</p>
     
 
     <pre class="usage"><span class='fu'>recalculate.lmerBayesllike</span>(<span class='no'>fit</span>, <span class='no'>model</span>, <span class='no'>error</span>, <span class='kw'>bad</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>keep</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>dup</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fit</th>
+      <td><p>A fitted model.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed to <code><a href='full.likelihood.lmerBayes.html'>full.likelihood.lmerBayes()</a></code>.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

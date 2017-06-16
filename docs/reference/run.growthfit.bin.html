@@ -83,20 +83,31 @@
     </div>
 
     
-    <p>Find best fits for linearmodel.bin, with one set of data and a series of bins. This starts fit for a bin
-based on the best fit for the prior bin, thus always assuring an improved fit. This works best if the first bin=1,
-which is just a linear model and easily fit by optim and the Gibbs sampler.</p>
+    <p>Find best fits for linearmodel.bin, with one set of data and a series of
+bins. This starts fit for a bin based on the best fit for the prior bin, thus
+always assuring an improved fit. This works best if the first bin=1, which is
+just a linear model and easily fit by optim and the Gibbs sampler.</p>
     
 
     <pre class="usage"><span class='fu'>run.growthfit.bin</span>(<span class='no'>growthdata</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"dbh"</span>, <span class='kw'>startpar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.03</span>, <span class='fl'>0.005</span>),
   <span class='kw'>startsdpar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.04</span>, <span class='fl'>0</span>), <span class='kw'>sdmodel</span> <span class='kw'>=</span> <span class='no'>linear.model.ctr</span>, <span class='kw'>badsdfunc</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>binoption</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>noreps</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>noburn</span> <span class='kw'>=</span> <span class='fl'>2500</span>, <span class='kw'>noshow</span> <span class='kw'>=</span> <span class='fl'>500</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed to <code><a href='growth.flexbin.html'>growth.flexbin()</a></code>.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

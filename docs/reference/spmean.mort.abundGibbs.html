@@ -83,21 +83,28 @@
     </div>
 
     
-    <p>Likelihood function for a species mean (a scalar, one species at a time), given logMu and logSD and the data, N and S
-(just one species here, so all parameters are scalars). In the abundance model, the mortality
-parameter is involved in the likelihood for population change, and it must thus depend on the
-the fitted little r. See spmean.mort.Gibbs in mortality.fit.CTFS.r for the original version, from mortality model,
-in which there is no dependence on little r. Only used as a subroutine of the main modeling function, model.littleR.Gibbs.</p>
+    <p>Likelihood function for a species mean (a scalar, one species at a time),
+given logMu and logSD and the data, N and S (just one species here, so all
+parameters are scalars). In the abundance model, the mortality parameter is
+involved in the likelihood for population change, and it must thus depend on
+the the fitted little r. Only used as a subroutine of the main modeling
+function, model.littleR.Gibbs.</p>
     
 
     <pre class="usage"><span class='fu'>spmean.mort.abundGibbs</span>(<span class='no'>spmean.mu</span>, <span class='no'>spmean.r</span>, <span class='no'>N1</span>, <span class='no'>S</span>, <span class='no'>time</span>, <span class='no'>MuSD</span>, <span class='no'>Rsd</span>, <span class='no'>type</span>)</pre>
         
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code>spmean.mort.abundGibbs()</code></p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

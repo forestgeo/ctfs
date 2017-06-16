@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Performs regression in convenient way and returns coefficients and ... — regress.plot â€¢ forestr</title>
+<title>Regression coefficients, probabilities and graph. — regress.plot â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Performs regression in convenient way and returns coefficients and ...</h1>
+    <h1>Regression coefficients, probabilities and graph.</h1>
     </div>
 
     
@@ -90,12 +90,26 @@ probabilities in a single vector, and plots a graph.</p>
     <pre class="usage"><span class='fu'>regress.plot</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>graphit</span> <span class='kw'>=</span> <span class='no'>T</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='no'>F</span>, <span class='kw'>pts</span> <span class='kw'>=</span> <span class='no'>T</span>,
   <span class='kw'>clr</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>ptnames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xrange</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>yrange</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>xtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ytitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>graphit</th>
+      <td><p>Logical; if `TRUE` adds plot output.</p></td>
+    </tr>
+    <tr>
+      <th>clr</th>
+      <td><p>A string indicating colour. See argument col in [graphics::par()].</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

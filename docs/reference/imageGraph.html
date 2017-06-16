@@ -121,8 +121,8 @@ lines; if NULL, levels controls the breaks</p></td>
     </tr>
     <tr>
       <th>xrange, yrange</th>
-      <td><p>if <code>NULL</code>, all <code>x</code> (or <code>y</code>) are included, otherwise, the
-graph will only include <code>x</code> (or <code>y</code>) inside <code>xrange</code> or (<code>yrange</code>)</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.
+If `NULL`, all `x` (or `y`) are included.</p></td>
     </tr>
     <tr>
       <th>axisdiv</th>
@@ -149,6 +149,10 @@ neither image or standard contours are included</p></td>
 otherwise, must be 1 + the number of breaks</p></td>
     </tr>
     <tr>
+      <th>lwidth</th>
+      <td><p>Line width; see `width` in ?[graphics::par()].</p></td>
+    </tr>
+    <tr>
       <th>returnline</th>
       <td><p>TRUE or FALSE, whether to return the contour lines; see R's
 base function contourLines for details</p></td>
@@ -157,6 +161,12 @@ base function contourLines for details</p></td>
       <th>newgraph</th>
       <td><p>if FALSE, just graph to the screen and export is ignored; use
 TRUE to create a new plot window or export to a file</p></td>
+    </tr>
+    <tr>
+      <th>add</th>
+      <td><p>Logical. Whether to add elements such as points or line to an
+existing graph. if TRUE, there must be an appropriate existing graph,
+otherwise, a new graph is drawn.</p></td>
     </tr>
     <tr>
       <th>plotsize</th>
@@ -171,7 +181,7 @@ newgraph = FALSE.</p></td>
     </tr>
     <tr>
       <th>export</th>
-      <td><p>if newgraph=TRUE, this defines the graphics device; options
+      <td><p>if <code>newgraph = TRUE</code>, this defines the graphics device; options
 include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
 quoted!)</p></td>
     </tr>
@@ -189,7 +199,7 @@ etc.</p></td>
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>'bci'</span>, <span class='fl'>6</span>, <span class='st'>'full'</span>)
 
   <span class='no'>N</span> <span class='kw'>=</span> <span class='fu'>colSums</span>(
-    <span class='fu'><a href='abundanceperquad.html'>abundanceperquad</a></span>(<span class='no'>bci.full6</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>), <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>20</span>)$<span class='no'>abund</span>
+    <span class='fu'><a href='abundanceperquad.html'>abundanceperquad</a></span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>), <span class='kw'>grid</span> <span class='kw'>=</span> <span class='fl'>20</span>)$<span class='no'>abund</span>
   )
   <span class='no'>matdata</span> <span class='kw'>=</span> <span class='fu'><a href='coldata.to.imagemat.html'>coldata.to.imagemat</a></span>(<span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>N</span>,
     <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>,

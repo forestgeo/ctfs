@@ -103,7 +103,8 @@ tropical forest types.</p>
     </tr>
     <tr>
       <th>plot</th>
-      <td><p>Name of plot as it appears in the names of the R Analytical Tables, in quote marks</p></td>
+      <td><p>Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).</p></td>
     </tr>
     <tr>
       <th>wsgdata</th>
@@ -138,7 +139,7 @@ tree, using the Chave model with height passed to <code>htmodel</code>. If NULL
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>biomass</span> <span class='kw'>&lt;-</span> <span class='fu'>AGB.ind</span>(<span class='kw'>df</span> <span class='kw'>=</span> <span class='no'>bci.full1</span>)
+  <span class='no'>biomass</span> <span class='kw'>&lt;-</span> <span class='fu'>AGB.ind</span>(<span class='kw'>df</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full1</span>)
   <span class='fu'>hist</span>(<span class='fu'>log</span>(<span class='no'>biomass</span>), <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fl'>100</span>)
   <span class='fu'>sum</span>(<span class='no'>biomass</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) / <span class='fl'>50</span>
 })</div></pre>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Computes AGB of each tree in a table, grouping all stems of one tre... — AGB.tree â€¢ forestr</title>
+<title>AGB of each tree, grouping all stems of one tree and adding there agbs. — AGB.tree â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,30 +79,68 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Computes AGB of each tree in a table, grouping all stems of one tre...</h1>
+    <h1>AGB of each tree, grouping all stems of one tree and adding there agbs.</h1>
     </div>
 
     
-    <p>Computes AGB of each tree in a table, grouping all stems of one tree and adding there agbs.</p>
-<p>The submitted table, df, must have dbh, species name (sp),
-and a treeID to identify which tree every stem belong to. There must be just one dbh for each stem.  Returns
-a dataframe with one row per tree, including the treeID and total agb per tree. Note that it will have fewer rows
-than the table submitted. This is called by biomass.CTFSdb in the standard calculation of biomass for CTFS R tables.</p>
-<p>biomasstbl=AGB.tree(df=bci.stem1)
-dim(bci.stem1)
-dim(biomasstbl)
-head(biomasstbl)</p>
+    <p>Computes AGB of each tree in a table, grouping all stems of one tree and
+adding there agbs.</p>
     
 
     <pre class="usage"><span class='fu'>AGB.tree</span>(<span class='no'>df</span>, <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>"mm"</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='st'>"bci"</span>, <span class='kw'>wsgdata</span> <span class='kw'>=</span> <span class='no'>wsg.ctfs2</span>,
   <span class='kw'>forest</span> <span class='kw'>=</span> <span class='st'>"moist"</span>, <span class='kw'>ht.param</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>htmodel</span> <span class='kw'>=</span> <span class='no'>predht.asym</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>df</th>
+      <td><p>The submitted table. Must have dbh, species name (sp), and a treeID
+to identify which tree every stem belong to. There must be just one dbh for
+each stem.</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
+      <th>plot</th>
+      <td><p>Character string giving the name of the plot where the data comes
+from (as it appears in the names of the R Analytical Tables).</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>Adataframe with one row per tree, including the treeID and
+total agb per tree. Note that it will have fewer rows than the table
+submitted.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p>This is called by <code><a href='biomass.CTFSdb.html'>biomass.CTFSdb()</a></code> in the standard calculation of
+biomass for CTFS R tables.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='no'>biomasstbl</span> <span class='kw'>=</span> <span class='fu'>AGB.tree</span>(<span class='kw'>df</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12stem1</span>)
+  <span class='fu'>dim</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12stem1</span>)
+  <span class='fu'>dim</span>(<span class='no'>biomasstbl</span>)
+  <span class='fu'>head</span>(<span class='no'>biomasstbl</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

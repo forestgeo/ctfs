@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PDF of a function formed by adding a gamma distribution to a symmet... — dgammadexp â€¢ forestr</title>
+<title>PDF by adding a gamma distribution to a symmetrical exponential distribution. — dgammadexp â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,23 +79,45 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>PDF of a function formed by adding a gamma distribution to a symmet...</h1>
+    <h1>PDF by adding a gamma distribution to a symmetrical exponential distribution.</h1>
     </div>
 
     
-    <p>PDF of a function formed by adding a gamma distribution to a symmetrical exponential
-distribution. This means simply adding a PDF for a gamma minus an exponential to the</p>
-<p>PDF for a gamma plus an exponential.</p>
+    <p>PDF of a function formed by adding a gamma distribution to a symmetrical
+exponential distribution. This means simply adding a PDF for a gamma minus an
+exponential to the PDF for a gamma plus an exponential.</p>
     
 
     <pre class="usage"><span class='fu'>dgammadexp</span>(<span class='no'>z</span>, <span class='no'>mean</span>, <span class='no'>sd</span>, <span class='no'>lambda</span>, <span class='kw'>draws</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>div</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>xrange</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>10</span>,
   <span class='fl'>30</span>), <span class='kw'>graphit</span> <span class='kw'>=</span> <span class='no'>F</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>z</th>
+      <td><p>A numeric vector.</p></td>
+    </tr>
+    <tr>
+      <th>mean, sd</th>
+      <td><p>The mean and sd of the gamma.</p></td>
+    </tr>
+    <tr>
+      <th>lambda</th>
+      <td><p>Rate of the exponential.</p></td>
+    </tr>
+    <tr>
+      <th>graphit</th>
+      <td><p>Logical; if `TRUE` adds plot output.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

@@ -83,19 +83,33 @@
     </div>
 
     
-    <p>Calculate likelihood of residual standard deviation, given observations plus the predicting model and data (to make predictions).</p>
-<p>This likelihood does not depend on the hyperparameters. It does require data and prediction for every single random effect.</p>
+    <p>Calculate likelihood of residual standard deviation, given observations plus
+the predicting model and data (to make predictions).</p>
+<p>This likelihood does not depend on the hyperparameters. It does require data
+and prediction for every single random effect.</p>
 <p>Simply check a single SD parameter for sign.</p>
     
 
     <pre class="usage"><span class='fu'>residual.llike.lmerBayes</span>(<span class='no'>test</span>, <span class='no'>whichtest</span>, <span class='no'>data</span>, <span class='no'>trueN</span>, <span class='no'>model</span>, <span class='no'>sdpar</span>, <span class='no'>fullpar</span>,
   <span class='no'>sdmodel</span>, <span class='no'>badparam</span>, <span class='kw'>errormodel</span> <span class='kw'>=</span> <span class='st'>"Gauss"</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>badparam</th>
+      <td><p>The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

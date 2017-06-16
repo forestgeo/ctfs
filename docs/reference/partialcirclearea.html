@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculates the area of a circle of radius r that is inside a rectan... — partialcirclearea â€¢ forestr</title>
+<title>Area of a circle of radius r that is inside a rectangular plot. — partialcirclearea â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,27 +79,38 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculates the area of a circle of radius r that is inside a rectan...</h1>
+    <h1>Area of a circle of radius r that is inside a rectangular plot.</h1>
     </div>
 
     
     <p>Calculates the area of a circle of radius r that is inside a rectangular plot.</p>
-<p>The distance from the circle center to plot edges are c2, cy1, cy2, where cy1 is the shortest
-distance to a y-boundary and cy3 the longest, while c2 is the shortest x distance.</p>
+<p>The distance from the circle center to plot edges are c2, cy1, cy2, where cy1
+is the shortest distance to a y-boundary and cy3 the longest, while c2 is the
+shortest x distance.</p>
 <p>The longest x distance is not needed.</p>
-<p>This will not work if the longest x distance &lt; radius of the
-circle.  The greatest radius allowed is thus half the x dimension of the plot, generally
+<p>This will not work if the longest x distance &lt; radius of the circle.  The
+greatest radius allowed is thus half the x dimension of the plot, generally
 250 or 500 m.</p>
 <p>Ordinarily only used as a subroutine of RipUvK.</p>
     
 
     <pre class="usage"><span class='fu'>partialcirclearea</span>(<span class='no'>r</span>, <span class='no'>c2</span>, <span class='no'>cy1</span>, <span class='no'>cy2</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>r</th>
+      <td><p>Radius.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

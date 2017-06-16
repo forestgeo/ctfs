@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Given local, or  within-quadrat, coordinates for a 20-m quadrat, re... — lxly.to.p5 â€¢ forestr</title>
+<title>Calculate p5x5 from local or within-quadrat coordinates for a 20-m quadrat. — lxly.to.p5 â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,20 +79,36 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Given local, or  within-quadrat, coordinates for a 20-m quadrat, re...</h1>
+    <h1>Calculate p5x5 from local or within-quadrat coordinates for a 20-m quadrat.</h1>
     </div>
 
     
-    <p>Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the p5x5; lx and ly must be vectors of equal length. Any values outside [0,20) are returned p5=NA.</p>
+    <p>Given local, or  within-quadrat, coordinates for a 20-m quadrat, return the
+p5x5;</p>
     
 
     <pre class="usage"><span class='fu'>lxly.to.p5</span>(<span class='no'>lx</span>, <span class='no'>ly</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>lx, ly</th>
+      <td><p>Must be vectors of equal length. Any values outside [0,20) are
+returned <code>p5 = NA</code>.</p></td>
+    </tr>
+    <tr>
+      <th>gridsize</th>
+      <td><p>Side of the square quadrate.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

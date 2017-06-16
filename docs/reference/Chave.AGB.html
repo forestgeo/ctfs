@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The Chave 2005 Oecologia model for calculating biomass from dbh in ... — Chave.AGB â€¢ forestr</title>
+<title>The Chave 2005 Oecologia model for calculating biomass from dbh in cm. — Chave.AGB â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,43 +79,59 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The Chave 2005 Oecologia model for calculating biomass from dbh in ...</h1>
+    <h1>The Chave 2005 Oecologia model for calculating biomass from dbh in cm.</h1>
     </div>
 
     
-    <p>The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All dbhs are submitted as a vector, and a vector of wood density
-of the same length must also be submitted (or a single wood density can be passed, to be used for every tree).</p>
-<p>Parameter values for the 3 forest types according to Chave 2005 are hard-coded in the function.</p>
-<p>The recommended CTFS use is with htparam=NULL, so height is not used. If height parameters and a height model are passed,
-then the height of every tree is calculated, and the Chave AGB formula that includes height is used. The default height parameters are
-from Chave et al 2003 on BCI biomass, and the default height function is predht.asym, provided in this file. But any height model can be
-substituted, providing the function name is passed and the necessary number of parameters included as htparam.</p>
+    <p>The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All
+dbhs are submitted as a vector, and a vector of wood density of the same
+length must also be submitted (or a single wood density can be passed, to be
+used for every tree).</p>
+<p>Parameter values for the 3 forest types according to Chave 2005 are
+hard-coded in the function.</p>
+<p>The recommended CTFS use is with htparam=NULL, so height is not used. If
+height parameters and a height model are passed, then the height of every
+tree is calculated, and the Chave AGB formula that includes height is used.
+The default height parameters are from Chave et al 2003 on BCI biomass, and
+the default height function is predht.asym, provided in this file. But any
+height model can be substituted, providing the function name is passed and
+the necessary number of parameters included as htparam.</p>
 <p>Returns a vector of biomass of same length as vector of dbh submitted.</p>
-<p>This is called by AGB.tree in the standard calculation of biomass for CTFS R tables.</p>
+<p>This is called by AGB.tree in the standard calculation of biomass for CTFS R
+tables.</p>
     
 
     <pre class="usage"><span class='fu'>Chave.AGB</span>(<span class='no'>dbh</span>, <span class='kw'>density</span> <span class='kw'>=</span> <span class='fl'>0.62</span>, <span class='kw'>htparam</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>41.7</span>, <span class='fl'>0.057</span>, <span class='fl'>0.748</span>),
   <span class='kw'>heightmodel</span> <span class='kw'>=</span> <span class='no'>predht.asym</span>, <span class='kw'>forest</span> <span class='kw'>=</span> <span class='st'>"moist"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>dbh</th>
+      <td><p>Stem diameter, usually at breast height (see data dictionary at 
+http://ctfs.si.edu/Public/DataDict/data_dict.php).</p></td>
+    </tr>
+    </table>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>testdbh</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>5</span>,<span class='fl'>10</span>,<span class='fl'>20</span>,<span class='fl'>30</span>,<span class='fl'>50</span>,<span class='fl'>100</span>,<span class='fl'>200</span>)
+  <span class='no'>testdbh</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>30</span>, <span class='fl'>50</span>, <span class='fl'>100</span>, <span class='fl'>200</span>)
 
+  <span class='no'>AGBmoist</span> <span class='kw'>=</span> <span class='fu'>Chave.AGB</span>(<span class='kw'>dbh</span> <span class='kw'>=</span> <span class='no'>testdbh</span>, <span class='kw'>forest</span> <span class='kw'>=</span> <span class='st'>"moist"</span>)
 
-  <span class='no'>AGBmoist</span><span class='kw'>=</span><span class='fu'>Chave.AGB</span>(<span class='kw'>dbh</span><span class='kw'>=</span><span class='no'>testdbh</span>,<span class='kw'>forest</span><span class='kw'>=</span><span class='st'>"moist"</span>)
+  <span class='no'>AGBwet</span> <span class='kw'>=</span> <span class='fu'>Chave.AGB</span>(<span class='kw'>dbh</span> <span class='kw'>=</span> <span class='no'>testdbh</span>, <span class='kw'>forest</span> <span class='kw'>=</span> <span class='st'>"wet"</span>)
 
+  <span class='fu'>plot</span>(<span class='no'>testdbh</span>, <span class='no'>AGBmoist</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"green"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>)
 
-  <span class='no'>AGBwet</span><span class='kw'>=</span><span class='fu'>Chave.AGB</span>(<span class='kw'>dbh</span><span class='kw'>=</span><span class='no'>testdbh</span>,<span class='kw'>forest</span><span class='kw'>=</span><span class='st'>"wet"</span>)
-
-  <span class='fu'>plot</span>(<span class='no'>testdbh</span>,<span class='no'>AGBmoist</span>,<span class='kw'>col</span><span class='kw'>=</span><span class='st'>"green"</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"l"</span>)
-
-  <span class='fu'>lines</span>(<span class='no'>testdbh</span>,<span class='no'>AGBwet</span>,<span class='kw'>col</span><span class='kw'>=</span><span class='st'>"blue"</span>)
+  <span class='fu'>lines</span>(<span class='no'>testdbh</span>, <span class='no'>AGBwet</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)
 })</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
             
       <li><a href="#examples">Examples</a></li>
     </ul>

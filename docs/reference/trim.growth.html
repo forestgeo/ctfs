@@ -121,14 +121,29 @@ if the POM changes by more than 5<!-- %. --></p>
       <td><p>Intercept of error of measurement line.</p></td>
     </tr>
     <tr>
-      <th>err.limit, maxgrow</th>
-      <td><p>A number. Numbers such as 10000 are high and will
-return all measures.</p></td>
+      <th>err.limit</th>
+      <td><p>A number. Numbers such as 10000 are high and will return all
+measures.</p></td>
+    </tr>
+    <tr>
+      <th>maxgrow</th>
+      <td><p>A number. Numbers such as 10000 are high and will return all
+measures.</p></td>
     </tr>
     <tr>
       <th>pomcut</th>
       <td><p>A number. To include POM changes, set it to a high number, such
 as 10.</p></td>
+    </tr>
+    <tr>
+      <th>mindbh</th>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
+    </tr>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
     </tr>
     <tr>
       <th>exclude.stem.change</th>

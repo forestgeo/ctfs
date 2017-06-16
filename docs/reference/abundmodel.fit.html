@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simply return the modeled histogram for any set of parameters. Used... — abundmodel.fit â€¢ forestr</title>
+<title>Simply return the modeled histogram for any set of parameters. — abundmodel.fit â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,21 +79,55 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Simply return the modeled histogram for any set of parameters. Used...</h1>
+    <h1>Simply return the modeled histogram for any set of parameters.</h1>
     </div>
 
     
-    <p>Simply return the modeled histogram for any set of parameters. Used as a subroutine inside graph.abundmodel.</p>
+    <p>Simply return the modeled histogram for any set of parameters.</p>
     
 
     <pre class="usage"><span class='fu'>abundmodel.fit</span>(<span class='no'>x</span>, <span class='no'>fit</span>, <span class='no'>modeltype</span>, <span class='kw'>conf</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fit</th>
+      <td><p>A fitted model.</p></td>
+    </tr>
+    <tr>
+      <th>modeltype</th>
+      <td><p>Functional forms to fit to the distribution; it can be:
+* Gaussian `modeltype = "norm"`, with the quotes
+* Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) `modeltype = "asymnorm"`, with the quotes
+* Laplace (exponential distribution, with mirror image for negative values)
+`modeltype = "symexp"`, with the quotes
+* Asymmetric Laplace (different rate constant for left and right of the
+center) `modeltype = "asymexp"`, with the quotes
+* Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.</p></td>
+    </tr>
+    <tr>
+      <th>conf</th>
+      <td><p>number of alternate fits to graph, as indication of confidence;
+if conf = NULL, no confidence lines are added</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Used as a subroutine inside <code><a href='graph.abundmodel.html'>graph.abundmodel()</a></code>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

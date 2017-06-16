@@ -120,7 +120,7 @@ individual in censdata.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
   <span class='co'># Count all the consp neighbors of one species </span>
-  <span class='no'>one.sp</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='no'>bci.full7</span>, <span class='no'>sp</span> <span class='kw'>==</span> <span class='st'>"ingasa"</span> <span class='kw'>&amp;</span> <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>"A"</span>)
+  <span class='no'>one.sp</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full7</span>, <span class='no'>sp</span> <span class='kw'>==</span> <span class='st'>"ingasa"</span> <span class='kw'>&amp;</span> <span class='no'>status</span> <span class='kw'>==</span> <span class='st'>"A"</span>)
   <span class='no'>neighbor.counts</span> <span class='kw'>&lt;-</span> <span class='fu'>NDcount</span>(<span class='no'>one.sp</span>)
 })</div></pre>
   </div>

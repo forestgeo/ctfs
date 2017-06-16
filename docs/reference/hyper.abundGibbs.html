@@ -83,19 +83,33 @@
     </div>
 
     
-    <p>Likelihood function for hyperparameters of abundance model, given the species values of little.r (latter a vector). Simply calculates
-the pdf of whatever modelfunc is requested. For symmetric models, norm and symexp, the third parameter (second hyperSD) is not used.</p>
+    <p>Likelihood function for hyperparameters of abundance model, given the species
+values of little.r (latter a vector). Simply calculates the pdf of whatever
+modelfunc is requested. For symmetric models, norm and symexp, the third
+parameter (second hyperSD) is not used.</p>
 <p>Only used as a subroutine of the main modeling function, model.littleR.Gibbs.</p>
     
 
     <pre class="usage"><span class='fu'>hyper.abundGibbs</span>(<span class='no'>test</span>, <span class='no'>Rsd</span>, <span class='no'>spmean</span>, <span class='no'>whichtest</span>, <span class='no'>type</span>, <span class='kw'>badparam</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>returneach</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>badparam</th>
+      <td><p>The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

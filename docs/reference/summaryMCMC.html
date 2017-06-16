@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make summary calculations based on the full Gibbs sampler. The argu... — summaryMCMC â€¢ forestr</title>
+<title>Summarize calculations based on the full Gibbs sampler. — summaryMCMC â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,25 +79,73 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make summary calculations based on the full Gibbs sampler. The argu...</h1>
+    <h1>Summarize calculations based on the full Gibbs sampler.</h1>
     </div>
 
     
-    <p>Make summary calculations based on the full Gibbs sampler. The argument fit is an object holding all steps of the sampler, plus data, observations,
-and likelihood. However, if parameters were saved along the way to a text file, then the argument paramfile is used to name the file and restore them
-into a 3D array. Estimates of confidence limits of all parameters are returned. If returnfull is set TRUE, then the entire 3D array of parameters is
-also returned. Full likelihood at the best parameters is calculated and likelihood at each step in sampler are used to calculate DIC.</p>
+    <p>Make summary calculations based on the full Gibbs sampler.</p>
     
 
     <pre class="usage"><span class='fu'>summaryMCMC</span>(<span class='no'>fit</span>, <span class='no'>model</span>, <span class='no'>error</span>, <span class='no'>sdmodel</span>, <span class='no'>badparam</span>, <span class='kw'>paramfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>returnfull</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+
+<span class='fu'>summaryModelMCMC</span>(<span class='no'>fit</span>, <span class='no'>model</span>, <span class='no'>error</span>, <span class='no'>sdmodel</span>, <span class='no'>badparam</span>, <span class='kw'>paramfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>returnfull</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fit</th>
+      <td><p>An object holding all steps of the sampler, plus data,
+observations, and likelihood.</p></td>
+    </tr>
+    <tr>
+      <th>badparam</th>
+      <td><p>The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>paramfile</th>
+      <td><p>If parameters were saved along the way to a text file, then
+this argument is used to name the file and restore them into a 3D array.</p></td>
+    </tr>
+    <tr>
+      <th>returnfull</th>
+      <td><p>If TRUE, the entire 3D array of parameters is also
+returned. Full likelihood at the best parameters is calculated and likelihood
+at each step in sampler are used to calculate DIC.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed to <code><a href='llike.model.lmer.html'>llike.model.lmer()</a></code> or
+<code><a href='full.likelihood.lmerBayes.html'>full.likelihood.lmerBayes()</a></code>, which may be problematic
+(xxx_amend_source in <code>summaryMCMC()</code>).</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Estimates of confidence limits of all parameters are returned.</p>
+    
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    <ul>
+<li><p><code>summaryModelMCMC</code>: See <code>summaryMCMC()</code>.</p></li>
+</ul>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#functions">Functions</a></li>
+          </ul>
 
   </div>
 </div>

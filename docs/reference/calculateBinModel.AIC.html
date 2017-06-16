@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculate AIC of the model, using various log(likelihood) estimator... — calculateBinModel.AIC â€¢ forestr</title>
+<title>Calculate AIC of the model, using various log(likelihood) estimators. — calculateBinModel.AIC â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,24 +79,39 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calculate AIC of the model, using various log(likelihood) estimator...</h1>
+    <h1>Calculate AIC of the model, using various log(likelihood) estimators.</h1>
     </div>
 
     
-    <p>Calculate AIC of the model, using various log(likelihood) estimators:
-with optim, the highest likelihood found by optim
-with mean, the mean llikelihood from the Gibbs sampler
-with gibbs, the maximum llikelihood from the Gibbs sampler
-with none, just return the mean Gibbs likelihood</p>
+    <p>Calculate AIC of the model, using various log(likelihood) estimators.</p>
     
 
     <pre class="usage"><span class='fu'>calculateBinModel.AIC</span>(<span class='no'>fit</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"optim"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fit</th>
+      <td><p>A fitted model.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>One of:</p><ul>
+<li><p><code>optim</code>, the highest likelihood found by optim;</p></li>
+<li><p><code>mean</code>, the mean llikelihood from the Gibbs sampler;</p></li>
+<li><p><code>gibbs</code>, the maximum llikelihood from the Gibbs sampler;</p></li>
+<li><p><code>none</code>, just return the mean Gibbs likelihood.</p></li>
+</ul></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

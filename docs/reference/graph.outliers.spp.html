@@ -83,19 +83,30 @@
     </div>
 
     
-    <p>Pass the output of extract.growth with every individual's growth (full), and another after outliers have been trimmed. This finds
-the records trimmed and overlays them on the entire graph. If a model is submitted, then the curves are graphed too.</p>
+    <p>Pass the output of extract.growth with every individual's growth (full), and
+another after outliers have been trimmed. This finds the records trimmed and
+overlays them on the entire graph. If a model is submitted, then the curves
+are graphed too.</p>
     
 
     <pre class="usage"><span class='fu'>graph.outliers.spp</span>(<span class='no'>full</span>, <span class='no'>trimmed</span>, <span class='kw'>spname</span> <span class='kw'>=</span> <span class='st'>"gustsu"</span>, <span class='kw'>fit</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"agb"</span>, <span class='kw'>export</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xtitle</span> <span class='kw'>=</span> <span class='st'>"log(agb)"</span>, <span class='kw'>ytitle</span> <span class='kw'>=</span> <span class='st'>"growth"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>fit</th>
+      <td><p>A fitted model.</p></td>
+    </tr>
+    </table>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
   <span class='no'>full</span> <span class='kw'>=</span> <span class='fu'><a href='extract.growthdata.html'>extract.growthdata</a></span>(
-    <span class='kw'>census1</span> <span class='kw'>=</span> <span class='no'>bci.full5</span>,
-    <span class='kw'>census2</span> <span class='kw'>=</span> <span class='no'>bci.full6</span>,
+    <span class='kw'>census1</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>,
+    <span class='kw'>census2</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>,
     <span class='kw'>growcol</span> <span class='kw'>=</span> <span class='st'>'incgr'</span>,
     <span class='kw'>growthfunc</span> <span class='kw'>=</span> <span class='no'>growth.biomass.indiv</span>,
     <span class='kw'>logit</span> <span class='kw'>=</span> <span class='st'>'x'</span>,
@@ -106,8 +117,8 @@ the records trimmed and overlays them on the entire graph. If a model is submitt
     <span class='kw'>maxgrow</span> <span class='kw'>=</span> <span class='fl'>7500</span>
   )
   <span class='no'>trimmed</span> <span class='kw'>=</span> <span class='fu'><a href='extract.growthdata.html'>extract.growthdata</a></span>(
-    <span class='kw'>census1</span> <span class='kw'>=</span> <span class='no'>bci.full5</span>,
-    <span class='kw'>census2</span> <span class='kw'>=</span> <span class='no'>bci.full6</span>,
+    <span class='kw'>census1</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>,
+    <span class='kw'>census2</span> <span class='kw'>=</span> <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>,
     <span class='kw'>growcol</span> <span class='kw'>=</span> <span class='st'>'incgr'</span>,
     <span class='kw'>growthfunc</span> <span class='kw'>=</span> <span class='no'>growth.biomass.indiv</span>,
     <span class='kw'>logit</span> <span class='kw'>=</span> <span class='st'>'x'</span>,
@@ -122,6 +133,7 @@ the records trimmed and overlays them on the entire graph. If a model is submitt
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
             
       <li><a href="#examples">Examples</a></li>
     </ul>

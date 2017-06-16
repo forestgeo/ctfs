@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Run the model to fit growth rate in bins for many species, 1-4 bins... — run.growthbin.manyspp â€¢ forestr</title>
+<title>Run the model to fit growth rate in bins for many species, 1-4 bins. — run.growthbin.manyspp â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,14 +79,14 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Run the model to fit growth rate in bins for many species, 1-4 bins...</h1>
+    <h1>Run the model to fit growth rate in bins for many species, 1-4 bins.</h1>
     </div>
 
     
-    <p>Run the model to fit growth rate in bins for many species, 1-4 bins. It takes a list of species, extracts
-growth rates for each, one at a time, from the table of growth rates, then calls run.growthfit.bin to fit the model for
+    <p>Run the model to fit growth rate in bins for many species, 1-4 bins. It takes
+a list of species, extracts growth rates for each, one at a time, from the
+table of growth rates, then calls <code><a href='run.growthfit.bin.html'>run.growthfit.bin()</a></code> to fit the model for
 the 4 bin options.</p>
-<p>Sample species vector from BCI:</p>
     
 
     <pre class="usage"><span class='fu'>run.growthbin.manyspp</span>(<span class='no'>growthdata</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"dbh"</span>, <span class='kw'>spp</span> <span class='kw'>=</span> <span class='no'>spp20</span>,
@@ -95,10 +95,24 @@ the 4 bin options.</p>
   <span class='kw'>startsdpar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.04</span>, <span class='fl'>0</span>), <span class='kw'>badsdfunc</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>binoption</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>,
   <span class='kw'>noreps</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>noburn</span> <span class='kw'>=</span> <span class='fl'>2500</span>, <span class='kw'>noshow</span> <span class='kw'>=</span> <span class='fl'>500</span>, <span class='kw'>outputname</span> <span class='kw'>=</span> <span class='st'>"linear.fit"</span>,
   <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='no'>...</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>dbhunit</th>
+      <td><p>'cm' or 'mm', only used for basal area</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed to <code><a href='run.growthfit.bin.html'>run.growthfit.bin()</a></code>.</p></td>
+    </tr>
+    </table>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='co'># Sample species vector from BCI: </span>
   <span class='no'>spp20</span> <span class='kw'>=</span> <span class='fu'>c</span>(
     <span class='st'>'tri2tu'</span>,
     <span class='st'>'alsebl'</span>,
@@ -125,8 +139,8 @@ the 4 bin options.</p>
   <span class='co'># Creating the complete table of biomass growth for all individuals in a </span>
   <span class='co'># plot:</span>
   <span class='no'>agb.growth</span> <span class='kw'>=</span> <span class='fu'><a href='extract.growthdata.html'>extract.growthdata</a></span>(
-    <span class='no'>bci.full5</span>,
-    <span class='no'>bci.full6</span>,
+    <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>,
+    <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>,
     <span class='kw'>growthfunc</span> <span class='kw'>=</span> <span class='no'>growth.biomass.indiv</span>,
     <span class='kw'>logit</span> <span class='kw'>=</span> <span class='st'>'x'</span>,
     <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -154,6 +168,7 @@ the 4 bin options.</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
             
       <li><a href="#examples">Examples</a></li>
     </ul>

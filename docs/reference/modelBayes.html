@@ -89,26 +89,6 @@ excluded. A single independent variable, y, can be fit against any number of pre
 <p>Data are submitted the way lm or lmer require, with one single table, one row per observation. The formula, however, is not submitted using the R-style 'squiggle'~.</p>
 <p>Rather, the names of x, y columns, are given. The model describing y's function of the x's is passed, and must be provided by the user
 (several are available within the CTFS R Package, though, in the Utilities topic). Examples below will serve to explain.</p>
-<p>A starting set of parameters for the model must be submitted. It is a vector as long as the number of
-parameters required by the model.</p>
-<p>The return value is a list with several components:</p><ul>
-<li><p>resid: A 2D array with the entire chain of the error parameters, from Gibbs sampler</p></li>
-<li><p>fullparam: A 2D array with the entire chain of model parameters from the Gibbs sampler</p></li>
-<li><p>burn: Atomic, the number of steps discarded as burn-in before calculated statistics from Gibbs sampler</p></li>
-<li><p>steps: Atomic, the number of steps run in Gibbs sampler</p></li>
-<li><p>llike: Full log-likelihood of the model at each step of the Gibbs'sampler</p></li>
-<li><p>obs: The original y (dependent) variable, just as submitted</p></li>
-<li><p>data: The original x (independent) variables, just as submitted</p></li>
-<li><p>parnames: The names of the model parameters</p></li>
-<li><p>start: The start parameters submitted</p></li>
-<li><p>best: Best estimate of the model parameters for the entire data</p></li>
-<li><p>CI: Credible intervals for the model parameters</p></li>
-<li><p>bestresid: The best estimate of parameters for the error model</p></li>
-<li><p>CIresid: Credible intervals for the parameters of the error model</p></li>
-<li><p>pred: A dataframe with all observations, predictors, and the model's best prediction, mean prediction, and credible intervals at each point</p></li>
-<li><p>many: A 2D array holding N draws of the model's prediction at each sampling point; N is either the number of post-burn-in steps, or 1000, whichever is greater</p></li>
-<li><p>keep: The steps of the Gibbs sampler after burn-in, as a vector of negative numbers</p></li>
-</ul>
     
 
     <pre class="usage"><span class='fu'>modelBayes</span>(<span class='no'>data</span>, <span class='no'>ycol</span>, <span class='no'>xcol</span>, <span class='no'>start</span>, <span class='no'>startSD</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='no'>logistic.standard</span>,
@@ -137,9 +117,8 @@ holds the x and y (numeric) variable.</p></td>
     </tr>
     <tr>
       <th>start</th>
-      <td><p>Starting parameter values, either a vector with as many
-parameters as the model needs, or a matrix of such vectors, one per random
-effect</p></td>
+      <td><p>A vector giving the starting set of parameters for the model. It
+must be as long as the number of parameters required by the model.</p></td>
     </tr>
     <tr>
       <th>startSD</th>
@@ -227,13 +206,50 @@ various functions used in the model (<code>model</code>, <code>sdfunc</code>, <c
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The return value is a list with several components:</p><ul>
+<li><p>resid: A 2D array with the entire chain of the error parameters, from
+Gibbs sampler</p></li>
+<li><p>fullparam: A 2D array with the entire chain of model parameters from the
+Gibbs sampler</p></li>
+<li><p>burn: Atomic, the number of steps discarded as burn-in before calculated
+statistics from Gibbs sampler</p></li>
+<li><p>steps: Atomic, the number of steps run in Gibbs sampler</p></li>
+<li><p>llike: Full log-likelihood of the model at each step of the Gibbs'sampler</p></li>
+<li><p>obs: The original y (dependent) variable, just as submitted</p></li>
+<li><p>data: The original x (independent) variables, just as submitted</p></li>
+<li><p>parnames: The names of the model parameters</p></li>
+<li><p>start: The start parameters submitted</p></li>
+<li><p>best: Best estimate of the model parameters for the entire data</p></li>
+<li><p>CI: Credible intervals for the model parameters</p></li>
+<li><p>bestresid: The best estimate of parameters for the error model</p></li>
+<li><p>CIresid: Credible intervals for the parameters of the error model</p></li>
+<li><p>pred: A dataframe with all observations, predictors, and the model's best
+prediction, mean prediction, and credible intervals at each point</p></li>
+<li><p>many: A 2D array holding N draws of the model's prediction at each
+sampling point; N is either the number of post-burn-in steps, or 1000,
+whichever is greater</p></li>
+<li><p>keep: The steps of the Gibbs sampler after burn-in, as a vector of
+negative numbers</p></li>
+</ul>
+
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='lmerBayes.html'>lmerBayes()</a></code></p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>
