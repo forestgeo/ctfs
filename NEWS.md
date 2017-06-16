@@ -2,9 +2,150 @@
 
 ## Improved arguments documentation
 
-A large problem of forestr is that many function arguments are undocumented. This problem can in part be solved by re-using arguments shared across multiple functions, when the arguments are documented in one but not all of those functions. This also reduces duplication, which makes easier to maintain documentation (see [Inheriting parameters from other functions](http://r-pkgs.had.co.nz/man.html), by Hadley Wickham).
+> Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.
 
-This week I reduced the number of undocumented arguments by approx. 120 (from 1,150 to 1,036), by reviewing only ~30 functions from _forestr_ which name is exactly the same as in CTFS-CRAN. 
+-- http://r-pkgs.had.co.nz/man.html
+
+Documentation of forestr has two large problems: the arguments of many function are undocumented, and many arguments that mean the same accross multiple functions are documented in multiple places. Those problems can in part be solved by re-using arguments shared across multiple functions, when the arguments are documented in one but not all of those functions. This also reduces duplication, which makes easier to maintain documentation (see [Inheriting parameters from other functions](http://r-pkgs.had.co.nz/man.html), by Hadley Wickham).
+
+### Where to start from?
+
+* (Comes after item below), identified what arguments should be documented with highest priority, to maximize the positive impact by unit of effort. I wrote functions to identify what arguments are most commonly used in forestr functions, but less commonly documented.
+
+Example 1: The list below shows that the argument `x` is used 130 times (by functions including `border.distance`, `cartesian.to.polar`, etc.), but `x` is only documented 8 times.
+
+```R
+> args_count_formals_man()
+# A tibble: 1,758 x 4
+   params                 fun frml_n man_n
+    <chr>               <chr>  <int> <int>
+ 1      x     border.distance    130     8
+ 2      x  cartesian.to.polar    130     8
+ 3      x coldata.to.imagemat    130     8
+ 4      x         fullellipse    130     8
+ 5      x      getquadratname    130     8
+ 6      x     graphFilledBand    130     8
+ 7      x        plot_wavelet    130     8
+ 8      x            tojulian    130     8
+ 9      x      abundmodel.fit    130    NA
+10      x         addBinParam    130    NA
+# ... with 1,748 more rows
+```
+
+Note: unfortunately, `x` is used with very different meaning in different functions, so it is not a great candidate to improve documentation fast. Other arguments are  better candidates.
+
+Example 2: The argument `plotdim` is a good candidate to improve documentation fast. It is needed by 37 functions but is documented in only 29. Its meaning is very consistent accross functions, so it can be documented in one place via \@templates and then re-used from the functions that need it (they all point to the same tamplate).
+
+```R
+args_count_formals_man() %>% 
+  filter(params == "plotdim") 
+# A tibble: 37 x 4
+    params               fun frml_n man_n
+     <chr>             <chr>  <int> <int>
+ 1 plotdim  abundanceperquad     37    29
+ 2 plotdim  allquadratslopes     37    29
+ 3 plotdim            Annuli     37    29
+ 4 plotdim   border.distance     37    29
+ 5 plotdim      CalcRingArea     37    29
+ 6 plotdim  complete.plotmap     37    29
+ 7 plotdim     coverage.diag     37    29
+ 8 plotdim          distance     37    29
+ 9 plotdim   findborderquads     37    29
+10 plotdim findneighborabund     37    29
+# ... with 27 more rows
+```
+
+### Reduced duplicated instances of arguments documentation
+
+* Reduced duplicated instances of arguments documentation from 132 to 41, mostly via roxygen2 @templates and @inheritParams.
+
+BEFORE: 43 arguments were repeated multiple times (see `n` in table below), adding up to 132 duplicated instances.
+
+```R
+             params     n
+              <chr> <int>
+ 0          plotdim     9
+ 1         gridsize     8
+ 2           mindbh     6
+ 3                x     6
+ 4         censdata     5
+ 5            debug     5
+ 6             ycol     5
+ 7                r     4
+ 8             type     4
+ 9           xrange     4
+10           yrange     4
+11             data     3
+12           export     3
+13          outfile     3
+14         showstep     3
+15             size     3
+16            steps     3
+17             xcol     3
+18                y     3
+19              ...     2
+20         badparam     2
+21       badSDparam     2
+22           burnin     2
+23             clrs     2
+24            error     2
+25         filepath     2
+26          graphit     2
+27               ht     2
+28            ltype     2
+29           lwidth     2
+30            model     2
+31        modeltype     2
+32             path     2
+33           ptsize     2
+34           sdfunc     2
+35            start     2
+36          startSD     2
+37 subquadratsuffix     2
+38           update     2
+39               wd     2
+40            xname     2
+41            yname     2
+42                z     2
+-------------------------
+sum(n)                132
+```
+
+AFTER: 18 arguments remain that have the same name in two or more functions, adding up to 41 instances. These instances of arguments with thae same name either mean different things in different fuctions or, rarely, if they mean the same or not is unclear.
+
+```R
+    params     n
+     <chr> <int>
+ 1    type     4
+ 2       x     4
+ 3       y     3
+ 4    clrs     2
+ 5    data     2
+ 6 graphit     2
+ 7       h     2
+ 8    path     2
+ 9  ptsize     2
+10       r     2
+11  sdfunc     2
+12 startSD     2
+13       w     2
+14    xcol     2
+15  xrange     2
+16    ycol     2
+17  yrange     2
+18       z     2
+----------------
+sum(n)        41
+```
+
+### Documented arguments which functions names are similar in CTFS-CRAN
+
+* Documented arguments from functions of forestr which function names are similar to functions from CTFS-CRAN. After working on the item below, I documented functions which name is not exactly the same but similar, suggesting that those functions from forestr and CTFS-CRAN have a lot in common and therefore the information from CTFS-CRAN helped fill a few more gaps in the documentation of forestr.
+
+
+### Documented arguments which functions names match exactly function names in CTFS-CRAN
+
+* Documented arguments by reviewing only ~30 functions from _forestr_ which name is exactly the same as in CTFS-CRAN (see list below). This match helped document arguments which meaning was unclear from only one source of information. Undocumented arguments reduced by approx. 120 (from 1,150 to 1,036).
 
 Those functions are these:
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Maps a response variable with Rs contour or image functions, or bot... — imageGraph â€¢ forestr</title>
+<title>Maps a response variable with Rs contour or image functions, or both. — imageGraph â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,13 +79,14 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Maps a response variable with Rs contour or image functions, or bot...</h1>
+    <h1>Maps a response variable with Rs contour or image functions, or both.</h1>
     </div>
 
     
-    <p>Maps a response variable with R's contour or image functions, or both, using the output of coldata.to.imagemat.</p>
-<p>Also can return contours as vector data, using R's contourLines. The graph can be sent to the screen or exported.</p>
-<p>There are many options for tweaking the graph, explained with the arguments.</p>
+    <p>Maps a response variable with R's contour or image functions, or both, using
+the output of <code><a href='coldata.to.imagemat.html'>coldata.to.imagemat()</a></code>. Also can return contours as vector
+data, using R's contourLines. The graph can be sent to the screen or
+exported.</p>
     
 
     <pre class="usage"><span class='fu'>imageGraph</span>(<span class='no'>matrixdata</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>33000</span>, <span class='fl'>0</span>, <span class='fl'>150</span>, <span class='fl'>250</span>, <span class='fl'>500</span>,
@@ -100,32 +101,33 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>matrixdata</th>
-      <td><p>a list having components x, y, and mat, exactly the output of coldata.to.imagemat</p></td>
+      <td><p>a list having components x, y, and mat, exactly the output
+of coldata.to.imagemat</p></td>
     </tr>
     <tr>
       <th>levels</th>
-      <td><p>if set, then contours are drawn (or colors assigned) to breaks are at levels equally-spaced divisions of the response variable;
-can be NULL to let breaks control</p></td>
+      <td><p>if set, then contours are drawn (or colors assigned) to breaks
+are at levels equally-spaced divisions of the response variable; can be
+NULL to let breaks control</p></td>
     </tr>
     <tr>
       <th>breaks</th>
-      <td><p>if set, a vector of breaks for the image colors and the contour lines; if NULL, levels controls the breaks</p></td>
+      <td><p>if set, a vector of breaks for the image colors and the contour
+lines; if NULL, levels controls the breaks</p></td>
     </tr>
     <tr>
       <th>xname, yname</th>
-      <td><p>names for the axes</p></td>
+      <td><p>axis names</p></td>
     </tr>
     <tr>
-      <th>xrange</th>
-      <td><p>if NULL, all x are included, otherwise, the graph will only include x inside xrange</p></td>
-    </tr>
-    <tr>
-      <th>yrange</th>
-      <td><p>likewise for y</p></td>
+      <th>xrange, yrange</th>
+      <td><p>if <code>NULL</code>, all <code>x</code> (or <code>y</code>) are included, otherwise, the
+graph will only include <code>x</code> (or <code>y</code>) inside <code>xrange</code> or (<code>yrange</code>)</p></td>
     </tr>
     <tr>
       <th>axisdiv</th>
-      <td><p>the division between tick marks; must be a vector of 2, first for x ticks then for y ticks</p></td>
+      <td><p>the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks</p></td>
     </tr>
     <tr>
       <th>img</th>
@@ -133,40 +135,50 @@ can be NULL to let breaks control</p></td>
     </tr>
     <tr>
       <th>cntrs</th>
-      <td><p>TRUE or FALSE, whether to add contour lines; both img and cntrs can be TRUE</p></td>
+      <td><p>TRUE or FALSE, whether to add contour lines; both img and cntrs
+can be TRUE</p></td>
     </tr>
     <tr>
       <th>filled</th>
-      <td><p>TRUE or FALSE, whether to draw filled contours; if TRUE, neither image or standard contours are included</p></td>
+      <td><p>TRUE or FALSE, whether to draw filled contours; if TRUE,
+neither image or standard contours are included</p></td>
     </tr>
     <tr>
       <th>clrs</th>
-      <td><p>colors for the image; if NULL, they are chosen by default, otherwise, must be 1 + the number of breaks</p></td>
+      <td><p>colors for the image; if NULL, they are chosen by default,
+otherwise, must be 1 + the number of breaks</p></td>
     </tr>
     <tr>
       <th>returnline</th>
-      <td><p>TRUE or FALSE, whether to return the contour lines; see R's base function contourLines for details</p></td>
+      <td><p>TRUE or FALSE, whether to return the contour lines; see R's
+base function contourLines for details</p></td>
     </tr>
     <tr>
       <th>newgraph</th>
-      <td><p>if FALSE, just graph to the screen and export is ignored; use TRUE to create a new plot window or export to a file</p></td>
+      <td><p>if FALSE, just graph to the screen and export is ignored; use
+TRUE to create a new plot window or export to a file</p></td>
     </tr>
     <tr>
       <th>plotsize</th>
-      <td><p>size of graph's x-dimension in inches; ignored if newgraph=FALSE</p></td>
+      <td><p>size of graph's x-dimension in inches; ignored if
+newgraph=FALSE</p></td>
     </tr>
     <tr>
       <th>h, w</th>
-      <td><p>height and width of graph window in units which depend on the export device chosen (some are pixels, some are inches);
-ignored if newgraph=FALSE</p></td>
+      <td><p>height and width of graph window in units which depend on the
+export device chosen (some are pixels, some are inches); ignored if
+newgraph = FALSE.</p></td>
     </tr>
     <tr>
       <th>export</th>
-      <td><p>if newgraph=TRUE, this defines the graphics device; options include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not quoted!)</p></td>
+      <td><p>if newgraph=TRUE, this defines the graphics device; options
+include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
+quoted!)</p></td>
     </tr>
     <tr>
       <th>graphfile</th>
-      <td><p>the file name if export is pdf, png, jpeg, win.metafile, etc.</p></td>
+      <td><p>the file name if export is pdf, png, jpeg, win.metafile,
+etc.</p></td>
     </tr>
     </table>
     

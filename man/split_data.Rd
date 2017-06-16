@@ -8,7 +8,7 @@ split_data(censdata, splitcol = "sp", keepsplitcol = FALSE,
   allsplit = NULL, showOutput = NULL)
 }
 \arguments{
-\item{censdata}{A dataframe (any).}
+\item{censdata}{A table of plot census data.}
 
 \item{splitcol}{The name of any variable in \code{censdata}.}
 

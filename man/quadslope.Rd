@@ -9,7 +9,7 @@ quadslope(cornerelev, gridsize = 20)
 \arguments{
 \item{cornerelev}{vector of 4 elevations}
 
-\item{gridsize}{the side of the square}
+\item{gridsize}{Side of the square quadrate.}
 }
 \description{
 Given the elevation at four corners of a square of side=gridsize, this

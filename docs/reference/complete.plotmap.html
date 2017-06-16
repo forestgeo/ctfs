@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This creates a map with every individual shown. The area to be mapp... — complete.plotmap â€¢ forestr</title>
+<title>Map every individual. — complete.plotmap â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,13 +79,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This creates a map with every individual shown. The area to be mapp...</h1>
+    <h1>Map every individual.</h1>
     </div>
 
     
-    <p>This creates a map with every individual shown. The area to be mapped can be chosen, allowing maps of small areas.</p>
-<p>On top of the map of every individual, individual species can be overlaid in different colors. If nospp is set NULL, no species
-are added. If spnames is set NULL, then the most abundant species in the plot are chosen, up to the number nospp.</p>
+    <p>This creates a map with every individual shown. The area to be mapped can be
+chosen, allowing maps of small areas.</p>
     
 
     <pre class="usage"><span class='fu'>complete.plotmap</span>(<span class='kw'>cns</span> <span class='kw'>=</span> <span class='no'>bci.full6</span>, <span class='kw'>spnames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>,
@@ -108,11 +107,20 @@ are added. If spnames is set NULL, then the most abundant species in the plot ar
     </tr>
     <tr>
       <th>mindbh</th>
-      <td><p>smallest dbh to include</p></td>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
     </tr>
     <tr>
       <th>export</th>
-      <td><p>set to 'no'to graph to screen, 'pdf'to export to pdf (see define.graphwindow function)</p></td>
+      <td><p>`export = "no"`, does nothing, so the next graph uses the
+default R device. With this option, the size of the graph cannot have been
+set larger than the default size, which is usually 7 inches. `export =
+"unix"`, a new graphics window in unix, size `h` and width `w`, will be
+opened allowing you to alter the size of the output. `export = "windows"`,
+or `export = "mac"` are similar to `export = "unix"` but for windows and
+mac. `export = format` exports the graph to a specific file format: "pdf",
+"png", "jpg", "bmp", "emf".</p></td>
     </tr>
     <tr>
       <th>nospp</th>
@@ -120,7 +128,7 @@ are added. If spnames is set NULL, then the most abundant species in the plot ar
     </tr>
     <tr>
       <th>plotdim</th>
-      <td><p>x and y plot dimensions</p></td>
+      <td><p>The x and y dimensions of the plot.</p></td>
     </tr>
     <tr>
       <th>clrlist</th>
@@ -128,37 +136,61 @@ are added. If spnames is set NULL, then the most abundant species in the plot ar
     </tr>
     <tr>
       <th>ptsize</th>
-      <td><p>size of points, the first used for the background of all species, the second for the individual species</p></td>
+      <td><p>A vector of two numbers giving the point size for the
+background of all species (first one) and for the individual species
+(second one).</p></td>
     </tr>
     <tr>
       <th>xrange</th>
-      <td><p>minimum and maximum x coordinates of area graphed</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
     </tr>
     <tr>
       <th>yrange</th>
-      <td><p>minimum and maximum y coordinates of area graphed</p></td>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
     </tr>
     <tr>
       <th>wd</th>
-      <td><p>graph width; see map() function</p></td>
+      <td><p>Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.</p></td>
     </tr>
     <tr>
       <th>ht</th>
-      <td><p>graph height, same units as wd</p></td>
+      <td><p>Height and width of the overall graph.
+The default work for pdf export or mapping to the screen, and ht and wd are
+inches. But if export is png, jpg, emf, height and width are pixels and
+need to be 500-1000.</p></td>
     </tr>
     <tr>
       <th>side</th>
       <td><p>the side in inches of the graph; see map()</p></td>
     </tr>
     <tr>
+      <th>labsize</th>
+      <td><p>Size of axis labels.</p></td>
+    </tr>
+    <tr>
+      <th>axisdiv</th>
+      <td><p>the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks</p></td>
+    </tr>
+    <tr>
       <th>filepath</th>
-      <td><p>folder to save output</p></td>
+      <td><p>The folder to which map will be exported.</p></td>
     </tr>
     <tr>
       <th>outfile</th>
-      <td><p>filename for output</p></td>
+      <td><p>Filename for output.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>On top of the map of every individual, individual species can be overlaid in
+different colors. If nospp is set NULL, no species are added. If spnames is
+set NULL, then the most abundant species in the plot are chosen, up to the
+number nospp.</p>
     
 
   </div>
@@ -166,7 +198,9 @@ are added. If spnames is set NULL, then the most abundant species in the plot ar
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>

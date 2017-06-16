@@ -25,8 +25,9 @@ returns the SD in growth rate per group.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
-\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
-all (living) are included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{growthcol}{defines how growth is measured, either 'dbh'or
 'agb'(agb=biomass)}

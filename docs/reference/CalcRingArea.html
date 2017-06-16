@@ -83,20 +83,38 @@
     </div>
 
     
-    <p>Given a dataframe that includes gx, gy coordinates, and a single value radius,
-finds the area within radius from all points (summed). In the
-absence of edge corrections, this would be simply N<em>pi</em>radius^2, where N is the
+    <p>Given a dataframe that includes gx, gy coordinates, and a single value
+radius, finds the area within radius from all points (summed). In the absence
+of edge corrections, this would be simply N<em>pi</em>radius^2, where N is the
 number of points. But this uses the function partialcirclearea to do the edge
 correction. This is ordinarily only used as a subroutine for RipUvK.</p>
     
 
     <pre class="usage"><span class='fu'>CalcRingArea</span>(<span class='no'>data</span>, <span class='no'>radius</span>, <span class='no'>plotdim</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A dataframe with gx and gy coordinates</p></td>
+    </tr>
+    <tr>
+      <th>radius</th>
+      <td><p>A number, a single value radius.</p></td>
+    </tr>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    </table>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>

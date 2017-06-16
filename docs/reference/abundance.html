@@ -95,9 +95,7 @@ categorical variables.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>censdata</th>
-      <td><p>an R Analytical Table for a full plot census. For basal area
-use a stem table. For abundance, use either the stem or full table to count
-stems or trees, respectively.</p></td>
+      <td><p>A table of plot census data.</p></td>
     </tr>
     <tr>
       <th>type</th>
@@ -112,8 +110,9 @@ trees or stems</p></td>
     </tr>
     <tr>
       <th>mindbh</th>
-      <td><p>the minimum diameter above which the counts are done; if NULL,
-all (living) are included</p></td>
+      <td><p>The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.</p></td>
     </tr>
     <tr>
       <th>dbhunit</th>
@@ -143,6 +142,8 @@ one of the categorical variables.</p>
 exactly as the number of rows in the plot data submitted (so one per tree or
 stem). The first vector should be the one with the most categories (for
 instances, <code>split1 = species</code>, <code>split2 = dbhcategory</code>).</p>
+<p>For basal area, pass a stem table to <code>censdata</code>; For abundance, use either
+the stem or full table to count stems or trees, respectively.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

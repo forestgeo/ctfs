@@ -9,7 +9,7 @@ gxgy.to.hectindex(gx, gy, plotdim = c(1000, 500))
 \arguments{
 \item{gx, gy}{Tree x and y coordinate.}
 
-\item{plotdim}{Dimensions of the plot: east-west 1000m and north-south 500m}
+\item{plotdim}{The x and y dimensions of the plot.}
 }
 \description{
 Takes an x, y plot location and identifies the hectare number.

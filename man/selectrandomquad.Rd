@@ -16,18 +16,18 @@ selectrandomquad3(size, shape, rep, plotdim = c(1000, 500), graphit = FALSE)
 }
 \arguments{
 \item{size}{A vector of quadrat sizes, referring to the x-dimension of a
-rectangular quadrat}
+rectangular quadrat.}
 
-\item{shape}{the ratio of y to x dimensions of the rectangles; \code{rectdim = 1}
+\item{shape}{The ratio of y to x dimensions of the rectangles; \code{rectdim = 1}
 (the default) for squares.}
 
 \item{rep}{The number of replicated random quadrats (per dimension submitted)
 to create.}
 
-\item{plotdim}{the x and y dimensions of the entire plot}
+\item{plotdim}{The x and y dimensions of the plot.}
 
-\item{graphit}{whether to graph the locations of the chosen quadrats on a
-plot map}
+\item{graphit}{Whether to graph the locations of the chosen quadrats on a
+plot map.}
 }
 \description{
 Draw rectangular quadrats in a plot at random. Returns a dataframe of

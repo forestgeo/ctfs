@@ -2,7 +2,7 @@
 % Please edit documentation in R/RipUvK.R
 \name{Annuli}
 \alias{Annuli}
-\title{Calculates the total area in a series of annuli, summed over all in...}
+\title{Total area in a series of annuli, summed over all individuals in a dataset.}
 \usage{
 Annuli(spdata, r, plotdim)
 }
@@ -11,11 +11,12 @@ Annuli(spdata, r, plotdim)
 
 \item{r}{A vector of distances defining the successive annuli.}
 
-\item{plotdim}{The x and y dimensions of the plot in which the individuals are mapped.}
+\item{plotdim}{The x and y dimensions of the plot.}
 }
 \description{
-Calculates the total area in a series of annuli, summed over all individuals in the
-submitted dataset. Calls CalcRingArea to do the calculations for the area within
-a distance r of every individual, then subtracts successive areas to get
-the area within annuli. This is ordinarily only used as a subroutine of RipUvK.
+Calculates the total area in a series of annuli, summed over all individuals
+in the submitted dataset. Calls CalcRingArea to do the calculations for the
+area within a distance r of every individual, then subtracts successive areas
+to get the area within annuli. This is ordinarily only used as a subroutine
+of RipUvK.
 }

@@ -7,6 +7,6 @@
 convert.rowcol(num)
 }
 \description{
-Convert an integer to a character, with a single leading zero if the integer is < 10. Does
-not handle integers >99
+Convert an integer to a character, with a single leading zero if the integer
+is < 10. Does not handle integers >99
 }

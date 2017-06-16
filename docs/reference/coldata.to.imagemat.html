@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>These functions create maps of response variables using the R funct... — coldata.to.imagemat â€¢ forestr</title>
+<title>Map response variables using <code>contour()</code>, <code>image()</code>, and <code>filled.contour()</code>. — coldata.to.imagemat â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,48 +79,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>These functions create maps of response variables using the R funct...</h1>
+    <h1>Map response variables using <code>contour()</code>, <code>image()</code>, and <code>filled.contour()</code>.</h1>
     </div>
 
     
-    <p>These functions create maps of response variables using the R functions
-contour, image, and filled.contour. Those functions are powerful and do the
-difficult work, but they are a bit tricky to learn and have many options. If
-you are expert with those 3 R functions, the functions below will not be
-especially useful. They simply rearrange various types of data into the
-correct format.</p>
-<p>The first, coldata.to.imagemat, converts a vector of response variables and
-converts it into a matrix of the correct form for use by contour, image, and
-filled.contour. There must be one value of the response z for every position
-in a grid overlain on the map. In the case of CTFS Plots, this means a value
-for z at every quadrat, though quadrat can be any size.  The function
-abundanceperquad (abundance.r) produces exactly the correct kind of vector
-for use by coldata.to.imagemat. The function gxgy.to.index (quadfunc.r)
-produces quadrat numbers that are the correct vector for use by
-coldata.to.imagemat.</p>
-<p>For example, consider a 50 ha plot of 1000 x 500 meters. If gridsize=20, the
-standard quadrat, then there are 50 columns x 25 rows in the plot.</p>
-<p>In that case, the length of vector z must be exactly 1250, length(x) must be
-exactly 50, and length(y) exactly 25. Alternatively, x and y can be set</p>
-<p>NULL and it will be calculated from plotmax=c(1000,500) and plotmin=c(0,0).
-The simplest application of this function for CTFS plots is to set x and y
-NULL, and plotmax to the correct plot dimensions. Then make sure z is the
-right size for the number of quadrats.</p>
-<p>The common error with image and contour maps is getting the proper dimensions
-for z and the proper sizes for plotmax, x, and y. If you get an error data
-length is not a sub-multiple or multiple of the number of rows'then one of
-those inputs is wrong.</p>
-<p>Return value is a list designed to match exactly the format of the RGDAL
-raster object. It has components:</p><ul>
-<li><p>x: same as the argument x; if x is submitted as NULL, this is the vector
-calculated by using plotmax;</p></li>
-<li><p>y: likewise for y;</p></li>
-<li><p>z: exactly as submitted;</p></li>
-<li><p>columns: number of columns in the grid, same as length(x);</p></li>
-<li><p>rows: Number of rows in the grid, same as length(y);</p></li>
-<li><p>mat: The matrix needed for graphing, exactly as needed for instance by
-imageGraph().</p></li>
-</ul>
+    <p>Map response variables using <code>contour()</code>, <code>image()</code>, and
+<code>filled.contour()</code>.</p>
     
 
     <pre class="usage"><span class='fu'>coldata.to.imagemat</span>(<span class='no'>z</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>plotmin</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>,
@@ -131,40 +95,94 @@ imageGraph().</p></li>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>z</th>
-      <td><p>A numeric vector of responses, which means an attribute which has map coordinates.</p></td>
+      <td><p>A numeric vector of responses, which means an attribute which has
+map coordinates.</p></td>
     </tr>
     <tr>
       <th>x</th>
-      <td><p>The map coordinates of each column in the matrix, and the values with which the x-axis of the map will be numbered.</p>
-<p>The number of columns of z, dim(z)[2], must be exactly length(x). If x is NULL, then it is calculated using plotmax.</p></td>
+      <td><p>The map coordinates of each column in the matrix, and the values
+with which the x-axis of the map will be numbered. The number of columns of
+<code>z</code>, <code>dim(z)\[2]</code>, must be exactly <code>length(x)</code>. If <code>x</code> is <code>NULL</code>, then it
+is calculated using <code>plotmax</code>.</p></td>
     </tr>
     <tr>
       <th>y</th>
-      <td><p>The map coordinates of each row in the matrix, and the values with which the y-axis of the map will be numbered;
-dim(z)[1] must be exactly length(y). If y is NULL, then it is calculated using plotmax.</p></td>
+      <td><p>The map coordinates of each row in the matrix, and the values with
+which the y-axis of the map will be numbered; dim(z)[1] must be exactly
+length(y). If y is NULL, then it is calculated using plotmax.</p></td>
     </tr>
     <tr>
       <th>gridsize</th>
-      <td><p>Size of quadrats into which the map is divided; must be square quadrats. This cannot be NULL.</p></td>
+      <td><p>Size of each individual map.</p></td>
     </tr>
     <tr>
       <th>plotmin</th>
-      <td><p>The minimum plot x and y coordinates; in CTFS plots, these are always 0,0. Ignored if x and y are submitted.</p></td>
+      <td><p>The minimum plot x and y coordinates; in CTFS plots, these are
+always 0,0. Ignored if x and y are submitted.</p></td>
     </tr>
     <tr>
       <th>plotmax</th>
-      <td><p>Maximum plot x and y coordinates. The default, 1000,500, is typical CTFS 50-ha plot. Ignored if x and y are submitted.</p></td>
+      <td><p>Maximum plot x and y coordinates. The default, 1000,500, is
+typical CTFS 50-ha plot. Ignored if x and y are submitted.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list designed to match exactly the format of the RGDAL
+raster object. It has components:</p><ul>
+<li><p><code>x</code>: same as the argument x; if x is submitted as NULL, this is the vector
+calculated by using plotmax; *  y: likewise for y;</p></li>
+<li><p><code>z</code>: exactly as submitted;</p></li>
+<li><p><code>columns</code>: number of columns in the grid, same as length(x);</p></li>
+<li><p><code>rows</code>: Number of rows in the grid, same as length(y);</p></li>
+<li><p><code>mat</code>: The matrix needed for graphing, exactly as needed for instance by
+<code><a href='imageGraph.html'>imageGraph()</a></code>.</p></li>
+</ul>
+
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>contour()</code>, <code>image()</code>, and <code>filled.contour()</code> are powerful and do the
+difficult work, but they are a bit tricky to learn and have many options. If
+you are expert with those 3 R functions, the functions below will not be
+especially useful. They simply rearrange various types of data into the
+correct format.</p>
+<p>The first, <code>coldata.to.imagemat()</code>, converts a vector of response variables
+and converts it into a matrix of the correct form for use by <code>contour()</code>,
+<code>image()</code>, and <code>filled.contour()</code>. There must be one value of the response
+<code>z</code> for every position in a grid overlain on the map. In the case of CTFS
+Plots, this means a value for <code>z</code> at every quadrat, though quadrat can be any
+size.  The function <code><a href='abundanceperquad.html'>abundanceperquad()</a></code> produces exactly the correct kind of
+vector for use by <code>coldata.to.imagemat()</code>. The function <code><a href='gxgy.to.index.html'>gxgy.to.index()</a></code>
+produces quadrat numbers that are the correct vector for use by
+<code>coldata.to.imagemat()</code>.</p>
+<p>For example, consider a 50 ha plot of 1000 x 500 meters. If gridsize = 20,
+the standard quadrat, then there are 50 columns x 25 rows in the plot.</p>
+<p>In that case, the length of vector <code>z</code> must be exactly 1250, <code>length(x)</code> must
+be exactly 50, and <code>length(y)</code> exactly 25. Alternatively, x and y can be set</p>
+<p>NULL and it will be calculated from <code>plotmax = c(1000, 500)</code> and <code>plotmin = c(0, 0)</code>. The simplest application of this function for CTFS plots is to set
+x and y NULL, and <code>plotmax</code> to the correct plot dimensions. Then make sure
+<code>z</code> is the right size for the number of quadrats.</p>
+<p>The common error with image and contour maps is getting the proper dimensions
+for <code>z</code> and the proper sizes for <code>plotmax</code>, <code>x</code>, and <code>y</code>. If you get an error
+data length is not a sub-multiple or multiple of the number of rows'then one
+of those inputs is wrong.
+    <code>gridsize</code> must be of square quadrats, and cannot be NULL.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-
   <span class='fu'><a href='CTFSplot.html'>CTFSplot</a></span>(<span class='st'>'bci'</span>,<span class='fl'>6</span>,<span class='st'>'full'</span>)
 
-  <span class='no'>BA</span><span class='kw'>=</span><span class='fu'><a href='abundanceperquad.html'>abundanceperquad</a></span>(<span class='no'>bci.full6</span>,<span class='kw'>gridsize</span><span class='kw'>=</span><span class='fl'>20</span>,<span class='kw'>plotdim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>1000</span>,<span class='fl'>500</span>),<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'ba'</span>)
-  <span class='no'>totalBAperquad</span><span class='kw'>=</span><span class='fu'>colSums</span>(<span class='no'>BA</span>$<span class='no'>ba</span>)
+  <span class='no'>BA</span> <span class='kw'>=</span> <span class='fu'><a href='abundanceperquad.html'>abundanceperquad</a></span>(
+    <span class='no'>bci.full6</span>,
+    <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fl'>20</span>,
+    <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>),
+    <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'ba'</span>
+    )
+
+  <span class='no'>totalBAperquad</span> <span class='kw'>=</span> <span class='fu'>colSums</span>(<span class='no'>BA</span>$<span class='no'>ba</span>)
   <span class='fu'>summary</span>(<span class='no'>totalBAperquad</span>)
   <span class='no'>matrixdata</span> <span class='kw'>&lt;-</span> <span class='fu'>coldata.to.imagemat</span>(
     <span class='kw'>z</span> <span class='kw'>=</span> <span class='no'>totalBAperquad</span>,
@@ -182,7 +200,11 @@ dim(z)[1] must be exactly length(y). If y is NULL, then it is calculated using p
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

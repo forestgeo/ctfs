@@ -34,8 +34,9 @@ or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.}
 \item{stdev}{Logical. Default (FALSE) returns confidence limits, otherwise
 returns the SD in growth rate per group.}
 
-\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
-all (living) are included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 }
 \value{
 A list of arrays; values are provided for each DBH class.

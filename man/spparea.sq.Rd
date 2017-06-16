@@ -2,51 +2,68 @@
 % Please edit documentation in R/spparea.R
 \name{spparea.sq}
 \alias{spparea.sq}
-\title{Function for calculating the number of species in replicated, rando...}
+\title{Number of species in replicated, randomly-placed quadrats of various areas.}
 \usage{
 spparea.sq(censdata, spcolumn = "sp", size, rectdim = 1, mindbh = NULL,
   plotdim = c(1000, 500), replicates = 10, unidennames = c("**", "UNID",
   "uniden", "UNIDEN"))
 }
 \arguments{
-\item{censdata}{one R Analytical Table, either full or stem}
+\item{censdata}{A table of plot census data.}
 
-\item{spcolumn}{name of the column in the table having the species; defaults to 'sp', but can be set to 'genus'for 'family'if desired}
+\item{spcolumn}{name of the column in the table having the species; defaults
+to 'sp', but can be set to 'genus'for 'family'if desired}
 
-\item{size}{a vector of quadrat sizes, referring to the x-dimension of a rectangular quadrat}
+\item{size}{A vector of quadrat sizes, referring to the x-dimension of a
+rectangular quadrat.}
 
-\item{rectdim}{the ratio of y to x dimensions of the rectangles; rectdim=1 (the default) for squares}
+\item{rectdim}{the ratio of y to x dimensions of the rectangles; rectdim=1
+(the default) for squares}
 
-\item{mindbh}{the minimum dbh included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
-\item{plotdim}{the x and y dimensions of the entire plot}
+\item{plotdim}{The x and y dimensions of the plot.}
 
 \item{replicates}{the number of random quadrats to create, of each size}
 
-\item{unidennames}{a vector of species names that should not be included in species counts (see the function unidentified.species()}
+\item{unidennames}{a vector of species names that should not be included in
+species counts (see the function unidentified.species()}
+}
+\value{
+A list of two components. The first is a table giving the mean number (and
+SD) of individuals and species in all quadrat sizes submitted. The second is
+a table giving the number of individuals and species in every random quadrat
+created.
+
+In addition, a graph of species vs. individuals in every quadrat is created
+as the program runs.  This can also be used to calculate genus- or
+family-area curves with use of the spcolumn argument. The censdata table must
+have a new column added, for example the genus for every record, then
+spcolumn can be set to 'genus'.
 }
 \description{
 Function for calculating the number of species in replicated, randomly-placed
 quadrats of various areas. The variable size refers to the dimension (side)
-of the square, and can be a vector; replicates is the
-number of random draws per dimension. Full plot data are submitted as censdata.
+of the square, and can be a vector; replicates is the number of random draws
+per dimension. Full plot data are submitted as censdata.
 
-Species are counted as the number of unique values of sp in the R Analytical Table; unidentified species are not counted,
-based on a default unidennames; see the function unidentified.species in utilitiesCTFS.r.
-
-The return value is a list of two components. The first is a table giving the mean number (and SD) of individuals and species
-in all quadrat sizes submitted. The second is a table giving the number of individuals and species in every random quadrat created.
-
-In addition, a graph of species vs. individuals in every quadrat is created as the program runs.
-
-This can also be used to calculate genus- or family-area curves with use of the spcolumn argument. The censdata table must have
-a new column added, for example the genus for every record, then spcolumn can be set to 'genus'.
-
-Note: randomly-placed quadrats produce statistically preferable species-area
-curves than checkerboards of non-overlapping quadrats. If required, though,
-the function abundanceperquad() in abundance.r offers a fast way to count the
-number of species in checkerboard-type quadrats of different sizes.
+Species are counted as the number of unique values of sp in the R Analytical
+Table; unidentified species are not counted, based on a default unidennames;
+see the function unidentified.species in utilitiesCTFS.r.
 }
+\details{
+\code{censdata} can be either full or stem
+}
+\section{Note}{
+
+Randomly-placed quadrats produce statistically preferable species-area curves
+than checkerboards of non-overlapping quadrats. If required, though, the
+function \code{\link[=abundanceperquad]{abundanceperquad()}} offers a fast way to count the number of
+species in checkerboard-type quadrats of different sizes.
+}
+
 \examples{
 \dontrun{
 speciesPerArea = spparea.sq(

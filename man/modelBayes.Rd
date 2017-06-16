@@ -10,54 +10,80 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
   burnin = 100, debug = FALSE, ...)
 }
 \arguments{
-\item{data}{The table of data, in lmer-style, including one column to be modeled (dependent variable, y), one or more predictors (independent variables, x), and one random effect, using any column names.}
+\item{data}{The table of data, in lmer-style, including one column to be
+modeled (dependent variable, y), one or more predictors (independent
+variables, x), and one random effect, using any column names.}
 
-\item{ycol}{The name of the column holding the y variable, with quote marks; this variable must be numeric.}
+\item{ycol}{Chareacter string giving the name of a column in `data` that
+holds the x and y (numeric) variable.}
 
-\item{xcol}{The name of one or more columns holding the x variables, with quote marks; these can be numeric or character variables.}
+\item{xcol}{Chareacter string giving the name of a column in `data` that
+holds the x and y (numeric) variable.}
 
-\item{start}{Starting parameter values, either a vector with as many parameters as the model needs, or a matrix of such vectors, one per random effect}
+\item{start}{Starting parameter values, either a vector with as many
+parameters as the model needs, or a matrix of such vectors, one per random
+effect}
 
-\item{startSD}{A starting value for the error model; there must be as many startSD as parameters needed by sdfunc}
+\item{startSD}{A starting value for the error model; there must be as many
+startSD as parameters needed by sdfunc}
 
-\item{model}{The function name holding the model describing y's relationship to all the x's, without quote marks. The first argument of the function must be named x, the second param, with additional arguments allowed. The model may accept x either a vector or a matrix, the latter for a multiple regression. There can be any number of parameters, but the number must match the number given as start parameters. The return value must be a numeric vector with the same size as x.}
+\item{model}{The function name holding the model describing y's relationship
+to all the x's, without quote marks. The first argument of the function
+must be named x, the second param, with additional arguments allowed. The
+model may accept as x either a vector or a matrix, the latter for a
+multiple regression. There can be any number of parameters, but the number
+must match the number given as start parameters. The return value must be a
+numeric vector with the same size as x.}
 
-\item{error}{A character variable; either "Binom", "Pois", "NegBinom",
-"Flat", "Gauss", or "GaussMultResid".
+\item{error}{A character variable with 6 possible values: "Binom", "NgBinom",
+"Pois", "Gauss", "GaussMultResid", or "Flat".
 \itemize{
-\item 'Binom' uses binomial error, appropriate only for non-negative integer y;
-there are no error parameters for the binomial, so no resid parameters
-\item 'Poisson' uses Poisson error, appropriate only for non-negative integer
-y; there are no error parameters for the binomial, so no resid parameters
-\item 'NegBinom'uses negative binomial error, appropriate only for
-non-negative integer y; the clump parameter k of the negative binomial is
-also fitted, and can be modeled with sdfunc
-\item 'Gauss'uses Gaussian error, which can be a constant or modeled on the x's
-\item 'GaussMultResid'uses Gaussian error modeled as a fraction of the
-prediction at each x; again, it can be a constant fraction or a fraction
-modeled on x (aappropriate only if predictions are strictly positive)
-\item 'Flat' is a trivial model where the same likelihood is returned
+\item "Binom" uses binomial error for residuals - NegBinom'uses negative
+binomial error for residuals; the SD is then the dispersion parameter (k)
+of the negative binomial.
+\item "Poisson" uses Poisson error for residuals.
+\item "Gauss" uses Gaussian error for residuals with constant standard
+deviation across groups.
+\item "GaussMultResid" uses Gaussian error for residuals, with standard
+deviation a constant fraction of the model's prediction (and thus only
+appropriate if predictions are strictly positive).
+\item "Flat" is a trivial model where the same likelihood is returned
 regardless of parameters or data. It is for testing how parameter search
 behaves in absence of data, as for describing an implied prior.
 }}
 
-\item{update}{'conjugate'or 'metropolis', whether to use inverse-gamma (or inverse-Wishart for full covariance) vs. metropolis steps for updating covariances.}
+\item{update}{'conjugate' or 'metropolis', whether to use inverse-gamma (or
+inverse-Wishart for full covariance) vs. metropolis steps for updating
+covariances.}
 
-\item{badparam}{The name of a function (unquoted) that tests a set of model parameters for validity; must return TRUE if parameters are valid, otherwise FALSE.}
+\item{badparam}{The name of a function (unquoted) that tests a set of model
+parameters for validity; must return TRUE if parameters are valid,
+otherwise FALSE.}
 
-\item{sdfunc}{The name of a function (unquoted) that models the error parameter as a function of the x's; the default uses the function named constant, meaning the standard deviation is the same for all values of x. Parameters for this function are estimated, just as parameters for the model function.}
+\item{sdfunc}{The name of a function (unquoted) that models the error
+parameter as a function of the x's; the default uses the function named
+constant, meaning the standard deviation is the same for all values of x.
+Parameters for this function are estimated, just as parameters for the
+model function.}
 
-\item{badSDparam}{The name of a function which tests for invalid parameters for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple version is provided, called badSD, which rejects a single parameter if it is < 0.}
+\item{badSDparam}{The name of a function which tests for invalid parameters
+for sdfunc, returning TRUE or FALSE (analogous to badparam); a simple
+version is provided, called badSD, which rejects a single parameter if it
+is < 0.}
 
 \item{steps}{The number of steps to run the Gibbs sampler.}
 
 \item{showstep}{Information is printed to the screen every showstep steps.}
 
-\item{burnin}{The number of steps to remove as burn-in before calculating posterior distributions; not that all parameters are saved and returned regardless.}
+\item{burnin}{The number of steps to remove as burn-in before calculating
+posterior distributions; not that all parameters are saved and returned
+regardless.}
 
-\item{debug}{TRUE or FALSE, whether to pause and debug; for advanced users and developers.}
+\item{debug}{Logical. If TRUE, call browser to debug.}
 
-\item{...}{The typical R means for submitting additional parameters for various functions used in the model (model, sdfunc, badparam, badSDparam).}
+\item{...}{The typical R means for submitting additional parameters for
+various functions used in the model (\code{model}, \code{sdfunc}, \code{badparam},
+\code{badSDparam}).}
 }
 \description{
 A Metropolis MCMC version for any modeling y~x, without random effects (as in lmerBayes). This version is built off lmerBayes, with the hyperdistributions

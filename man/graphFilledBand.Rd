@@ -8,35 +8,37 @@ graphFilledBand(x, y1, y2, fillcol = "gray", add = TRUE,
   linecol = "black", ltype = "solid", lwidth = 1)
 }
 \arguments{
-\item{x}{The x axis values, as in any R graph}
+\item{x}{The x axis values.}
 
-\item{y1, y2}{= Two sets of y axis values, each of exactly the same length as
-\code{x}}
+\item{y1, y2}{Two sets of y axis values, each of exactly the same length as
+\code{x}.}
 
-\item{fillcol}{The color filling the area between the two curves}
+\item{fillcol}{The color filling the area between the two curves.}
 
 \item{add}{Logical. Whether to add points or line to an existing graph. if
 TRUE, there must be an appropriate existing graph, otherwise, a new graph
-is drawn}
+is drawn.}
 
-\item{linecol}{If add == FALSE, lines drawn at y1 and y2 are this color;
-ignored if add == TRUE}
+\item{linecol}{Line colour.}
 
-\item{ltype}{If add == FALSE, lines drawn at y1 and y2 are this type
-('solid','dashed',etc);  ignored if add==TRUE}
-
-\item{lwidth}{If add == FALSE, lines drawn at y1 and y2 are this thickness (a
-number);  ignored if add==TRUE}
+\item{ltype, lwidth}{Line type (`ltype`) and width (`width`); see
+?[graphics::par()].}
 }
 \description{
 Fill the area between two curves on a graph. Useful for confidence limits,
 for example.
-
+}
+\details{
 Typical use is to draw a graph first with some central y values, then add a
 confidence band by filling the area between upper and lower confidence limits
 (designated by variables lower.y and upper.y in the example below). The
 central line should then be redrawn over the filled area.
 }
+\section{Customizing plot lines}{
+
+If \code{add == TRUE}, \code{linecol}, \code{ltype} and \code{lwidth} are ignored.
+}
+
 \examples{
 \dontrun{
 plot(x, y, type = 'l')
@@ -46,5 +48,5 @@ lines(x, y)
 
 }
 \seealso{
-?\code{\link[graphics:plot]{graphics::plot()}}, ?\code{\link[graphics:par]{graphics::par()}}
+?\code{\link[graphics:plot]{graphics::plot()}}, ?\code{\link[graphics:par]{graphics::par()}}.
 }

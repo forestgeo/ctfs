@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This does the mapping for a single species, called from map() but a... — map1species â€¢ forestr</title>
+<title>Map a single species. — map1species â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,12 +79,12 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This does the mapping for a single species, called from map() but a...</h1>
+    <h1>Map a single species.</h1>
     </div>
 
     
-    <p>This does the mapping for a single species, called from map() but also useful on its own.</p>
-<p>With add=TRUE, points are added to an existing map. All other parameters are described with map().</p>
+    <p>This does the mapping for a single species, called from map() but also useful
+on its own.</p>
     
 
     <pre class="usage"><span class='fu'>map1species</span>(<span class='no'>sppdata</span>, <span class='kw'>plotdim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1000</span>, <span class='fl'>500</span>), <span class='kw'>xrange</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='no'>plotdim</span>[<span class='fl'>1</span>]),
@@ -92,13 +92,74 @@
   <span class='kw'>axspos</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>xaxis</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>yaxis</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>symbol</span> <span class='kw'>=</span> <span class='fl'>16</span>,
   <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'>rep</span>(-<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>300</span>, <span class='fl'>3000</span>), <span class='kw'>axisdiv</span> <span class='kw'>=</span> <span class='fl'>100</span>,
   <span class='kw'>labsize</span> <span class='kw'>=</span> <span class='fl'>1.75</span>, <span class='kw'>plotside</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>plotdim</th>
+      <td><p>The x and y dimensions of the plot.</p></td>
+    </tr>
+    <tr>
+      <th>xrange</th>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
+    </tr>
+    <tr>
+      <th>yrange</th>
+      <td><p>Minimum and maximum x and y coordinates of area graphed.</p></td>
+    </tr>
+    <tr>
+      <th>bgcolor</th>
+      <td><p>The background color. Defaults to white. For presentation
+exports, try bgcolor="transparent".</p></td>
+    </tr>
+    <tr>
+      <th>axspos</th>
+      <td><p>Distance between axis numbers and axis.</p></td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td><p>The size of plotting points, to match the number of diameter
+breaks. If NULL, a default set is assigned. This can require fiddling, as
+big points do not work for really abundant species, and small points for
+rare species.</p></td>
+    </tr>
+    <tr>
+      <th>cutoff</th>
+      <td><p>Diameter breaks for changing size of plotting points.</p></td>
+    </tr>
+    <tr>
+      <th>axisdiv</th>
+      <td><p>the division between tick marks; must be a vector of 2, first
+for x ticks then for y ticks</p></td>
+    </tr>
+    <tr>
+      <th>labsize</th>
+      <td><p>Size of axis labels.</p></td>
+    </tr>
+    <tr>
+      <th>plotside</th>
+      <td><p>The vertical dimension (inches) of the map.</p></td>
+    </tr>
+    <tr>
+      <th>add</th>
+      <td><p>Logical. Use <code>add = TRUE</code> to add points to an existing map.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='map.html'>map()</a></code>.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

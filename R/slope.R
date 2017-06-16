@@ -28,12 +28,11 @@
 #' `elev` (elevation) for a given grid size and converts to a list.
 #' 
 #' @return 
-#' - object 1: the input dataframe
-#' - object 2: matrix of elevation value sin the orientation of the plot
-#' 
+#' * object 1: the input dataframe
+#' * object 2: matrix of elevation value sin the orientation of the plot
 #' @param elevfile A data frame with x, y coordinates and elevation, 
 #'   bcielev.info.
-#' @param gridsize scale of elevation values (m)
+#' @param gridsize xxxdocparam scale of elevation values (m)
 #' 
 'elev.to.list'
 
@@ -49,7 +48,10 @@
 #' elevation of one 20x20 m quadrat relative (minus) the mean of its immediate
 #' neighbors.
 #'
-#' Helene Muller-Landau added a section to correct convexity in edge quadrats
+#' Helene Muller-Landau added a section to correct convexity in edge quadrats.
+#' 
+#' @template plotdim
+#' @template gridsize_side
 #' 
 #' @seealso [calcslope()], [quadslope()]
 #' @examples
@@ -87,8 +89,8 @@
 #' The 4 slopes are averaged. Returns both the mean slope and the sqrt of the
 #' variance of the 4 different slopes.
 #'
+#' @template gridsize_side
 #' @param cornerelev vector of 4 elevations 
-#' @param gridsize the side of the square
 #'
 #' @seealso [calcslope()], [quadslope()]
 #'
@@ -102,13 +104,13 @@
 #' corners of a right, isoceles triangle whose short side = gridsize, this
 #' calculates the slope in degrees of the plane through the points.
 #' 
-#' `calcslope()` takes 3 elevations and finds the slope of the plane through 
+#' [calcslope()] takes 3 elevations and finds the slope of the plane through 
 #' them.
 #'
 #' The second point is the one between the two short sides. 
 #'
+#' @template gridsize_side
 #' @param z numeric vector of length 3 
-#' @param gridsize numeric scalar
 #'
 'calcslope'
 

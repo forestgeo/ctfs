@@ -16,8 +16,9 @@ stem.}
 \item{rounddown}{If TRUE, all dbh < 55 are rounded down to the nearest
 multiple of 5.}
 
-\item{mindbh}{the minimum diameter above which the counts are done; if NULL,
-all (living) are included}
+\item{mindbh}{The minimum diameter above which the counts are done. Trees
+smaller than `mindbh` are excluded. If `NULL`, all living trees are
+included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
