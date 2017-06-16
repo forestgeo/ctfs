@@ -1,4 +1,11 @@
 
+# r4ds --------------------------------------------------------------------
+
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+
+
+
+
 # setup -------------------------------------------------------------------
 
 library(tidyverse)
