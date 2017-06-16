@@ -2,27 +2,31 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{predht.asym}
 \alias{predht.asym}
-\title{An allometric model predicting an asymptote at large size, used in ...}
+\title{An allometric model predicting an asymptote at large size.}
 \usage{
 predht.asym(dbh, param)
 }
+\arguments{
+\item{dbh}{Stem diameter, usually at breast height (see data dictionary at 
+http://ctfs.si.edu/Public/DataDict/data_dict.php).}
+}
 \description{
-An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh.
+An allometric model predicting an asymptote at large size, used in estimating
+tree height as a function of dbh.
 
-The model uses 3 parameters, submitted as argument param. The matrix form of param allows a different set of parameters to
-be submitted for every species. The default parameters given in the function Chave.AGB assume dbh is in cm, as do all the biomass
-allometry functions.
+The model uses 3 parameters, submitted as argument param. The matrix form of
+param allows a different set of parameters to be submitted for every species.
+The default parameters given in the function Chave.AGB assume dbh is in cm,
+as do all the biomass allometry functions.
 
-dbh: Vector of dbh
-param: Either a vector of length 3, or a matrix of 3 columns; if the latter, there must be one row for each dbh
+dbh: Vector of dbh param: Either a vector of length 3, or a matrix of 3
+columns; if the latter, there must be one row for each dbh.
 }
 \examples{
 \dontrun{
-htparam=c(41.7,.057,.748)
-
-d=c(1,2,5,10,20,50)
-
-ht=predht.asym(dbh=d,param=htparam)}
-
+htparam = c(41.7, .057, .748)
+d = c(1, 2, 5, 10, 20, 50)
+ht = predht.asym(dbh = d, param = htparam)
+}
 
 }

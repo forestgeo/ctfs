@@ -169,96 +169,123 @@
 #'
 'AGB.tree'
 
-#'
-#' The Chave 2005 Oecologia model for calculating biomass from dbh in ...
-#'
+#' The Chave 2005 Oecologia model for calculating biomass from dbh in cm.
+#' 
 #' @description
-#'
-#' The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All dbhs are submitted as a vector, and a vector of wood density
-#' of the same length must also be submitted (or a single wood density can be passed, to be used for every tree). 
-#'
-#' Parameter values for the 3 forest types according to Chave 2005 are hard-coded in the function.
-#'
-#' The recommended CTFS use is with htparam=NULL, so height is not used. If height parameters and a height model are passed,
-#' then the height of every tree is calculated, and the Chave AGB formula that includes height is used. The default height parameters are 
-#' from Chave et al 2003 on BCI biomass, and the default height function is predht.asym, provided in this file. But any height model can be
-#' substituted, providing the function name is passed and the necessary number of parameters included as htparam. 
-#'
-#' Returns a vector of biomass of same length as vector of dbh submitted. 
-#'
-#' This is called by AGB.tree in the standard calculation of biomass for CTFS R tables.
+#' 
+#' The Chave 2005 Oecologia model for calculating biomass from dbh in cm. All
+#' dbhs are submitted as a vector, and a vector of wood density of the same
+#' length must also be submitted (or a single wood density can be passed, to be
+#' used for every tree).
+#' 
+#' Parameter values for the 3 forest types according to Chave 2005 are
+#' hard-coded in the function.
+#' 
+#' The recommended CTFS use is with htparam=NULL, so height is not used. If
+#' height parameters and a height model are passed, then the height of every
+#' tree is calculated, and the Chave AGB formula that includes height is used.
+#' The default height parameters are from Chave et al 2003 on BCI biomass, and
+#' the default height function is predht.asym, provided in this file. But any
+#' height model can be substituted, providing the function name is passed and
+#' the necessary number of parameters included as htparam.
+#' 
+#' Returns a vector of biomass of same length as vector of dbh submitted.
+#' 
+#' This is called by AGB.tree in the standard calculation of biomass for CTFS R
+#' tables.
+#' 
+#' @template dbh
 #'
 #' @examples
 #' \dontrun{
-#' testdbh=c(1,2,5,10,20,30,50,100,200)
+#' testdbh = c(1, 2, 5, 10, 20, 30, 50, 100, 200)
 #'
+#' AGBmoist = Chave.AGB(dbh = testdbh, forest = "moist")
 #'
-#' AGBmoist=Chave.AGB(dbh=testdbh,forest="moist")
+#' AGBwet = Chave.AGB(dbh = testdbh, forest = "wet")
 #'
+#' plot(testdbh, AGBmoist, col = "green", type = "l")
 #'
-#' AGBwet=Chave.AGB(dbh=testdbh,forest="wet")
-#'
-#' plot(testdbh,AGBmoist,col="green",type="l")
-#'
-#' lines(testdbh,AGBwet,col="blue")}
+#' lines(testdbh, AGBwet, col = "blue")
+#' }
 #'
 #'
 'Chave.AGB'
 
-#' Calculates biomass from density, height, and dbh. Requires just two...
+#' Calculates biomass from density, height, and dbh.
 #'
 #' @description
-#'
-#' Calculates biomass from density, height, and dbh. Requires just two parameters, following Chave (2005). The parameters can be
-#' changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
-#'
-#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
+#' Calculates biomass from density, height, and dbh. Requires just two
+#' parameters, following Chave (2005). The parameters can be changed, but the
+#' formula cannot be. Returns a vector of biomass as long as vector of dbh
+#' submitted.
+#' 
+#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R
+#' tables.
+#' 
+#' @template dbh
 #'
 #' @examples
 #' \dontrun{
-#' agb.model(dbh=c(1,1,2),density=c(.6,.6,.5),height=c(2,3,4),param=c(.0501,1))}
+#' agb.model(
+#'   dbh = c(1, 1, 2),
+#'   density = c(.6, .6, .5),
+#'   height = c(2, 3, 4),
+#'   param = c(.0501, 1)
+#' )
+#' }
+#' 
 #'
 #'
 'agb.model'
 
-#' Calculates biomass from density and diameter, without height. Requi...
+#' Calculates biomass from density and diameter, without height.
 #'
 #' @description
-#'
-#' Calculates biomass from density and diameter, without height. Requires four parameters, following Chave (2005). 
-#'
-#' The parameters can be changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted. 
-#'
-#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
+#' Calculates biomass from density and diameter, without height. Requires four
+#' parameters, following Chave (2005).
+#' 
+#' The parameters can be changed, but the formula cannot be. Returns a vector of
+#' biomass as long as vector of dbh submitted.
+#' 
+#' This is called by Chave.AGB in the standard calculation of biomass for CTFS R
+#' tables.
+#' 
+#' @template dbh
 #'
 #' @examples
 #' \dontrun{
-#' agb.dbhmodel(dbh=c(1,1,2),density=c(.6,.6,.5),param=c(-1.499,2.148,0.207,-0.0281)) }
-#'
+#' agb.dbhmodel(
+#'   dbh = c(1, 1, 2),
+#'   density = c(.6, .6, .5),
+#'   param = c(-1.499, 2.148, 0.207, -0.0281)
+#' ) 
+#' }
 #'
 'agb.dbhmodel'
 
-#' An allometric model predicting an asymptote at large size, used in ...
-#'
+#' An allometric model predicting an asymptote at large size.
+#' 
 #' @description
-#'
-#' An allometric model predicting an asymptote at large size, used in estimating tree height as a function of dbh. 
-#'
-#' The model uses 3 parameters, submitted as argument param. The matrix form of param allows a different set of parameters to
-#' be submitted for every species. The default parameters given in the function Chave.AGB assume dbh is in cm, as do all the biomass
-#' allometry functions. 
-#'
-#' dbh: Vector of dbh
-#' param: Either a vector of length 3, or a matrix of 3 columns; if the latter, there must be one row for each dbh
-#'
+#' An allometric model predicting an asymptote at large size, used in estimating
+#' tree height as a function of dbh.
+#' 
+#' The model uses 3 parameters, submitted as argument param. The matrix form of
+#' param allows a different set of parameters to be submitted for every species.
+#' The default parameters given in the function Chave.AGB assume dbh is in cm,
+#' as do all the biomass allometry functions.
+#' 
+#' dbh: Vector of dbh param: Either a vector of length 3, or a matrix of 3
+#' columns; if the latter, there must be one row for each dbh.
+#' 
+#' @template dbh
+#' 
 #' @examples
 #' \dontrun{
-#' htparam=c(41.7,.057,.748)
-#'
-#' d=c(1,2,5,10,20,50)
-#'
-#' ht=predht.asym(dbh=d,param=htparam)}
-#'
+#' htparam = c(41.7, .057, .748)
+#' d = c(1, 2, 5, 10, 20, 50)
+#' ht = predht.asym(dbh = d, param = htparam)
+#' }
 #'
 'predht.asym'
 

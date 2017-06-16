@@ -2,20 +2,31 @@
 % Please edit documentation in R/biomass.CTFSdb.R
 \name{agb.dbhmodel}
 \alias{agb.dbhmodel}
-\title{Calculates biomass from density and diameter, without height. Requi...}
+\title{Calculates biomass from density and diameter, without height.}
 \usage{
 agb.dbhmodel(dbh, density, param)
 }
+\arguments{
+\item{dbh}{Stem diameter, usually at breast height (see data dictionary at 
+http://ctfs.si.edu/Public/DataDict/data_dict.php).}
+}
 \description{
-Calculates biomass from density and diameter, without height. Requires four parameters, following Chave (2005).
+Calculates biomass from density and diameter, without height. Requires four
+parameters, following Chave (2005).
 
-The parameters can be changed, but the formula cannot be. Returns a vector of biomass as long as vector of dbh submitted.
+The parameters can be changed, but the formula cannot be. Returns a vector of
+biomass as long as vector of dbh submitted.
 
-This is called by Chave.AGB in the standard calculation of biomass for CTFS R tables.
+This is called by Chave.AGB in the standard calculation of biomass for CTFS R
+tables.
 }
 \examples{
 \dontrun{
-agb.dbhmodel(dbh=c(1,1,2),density=c(.6,.6,.5),param=c(-1.499,2.148,0.207,-0.0281)) }
-
+agb.dbhmodel(
+  dbh = c(1, 1, 2),
+  density = c(.6, .6, .5),
+  param = c(-1.499, 2.148, 0.207, -0.0281)
+) 
+}
 
 }

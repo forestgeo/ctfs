@@ -222,8 +222,9 @@
 #' Returns the basal area summed over all submitted dbhs. NAs can be included,
 #' as sum will be completed with `na.rm = TRUE`.
 #'
-#' @inheritParams ba
-#' @inheritParams abundance
+#' @template dbh
+#' @template mindbh
+#' @template dbhunit
 #'
 'basum'
 
