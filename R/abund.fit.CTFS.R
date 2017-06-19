@@ -26,7 +26,8 @@
 #' @template mindbh
 #' @template debug
 #' @template modeltype
-#' @template steps_showstep
+#' @template showstep
+#' @template steps
 #' @param cns1,cns2 The two census R Analytical Tables, with earlier census
 #'   first
 #' @param demog optional, must match exactly the table created within the

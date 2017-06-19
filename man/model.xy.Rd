@@ -11,6 +11,8 @@ model.xy(x, y, predfunc, llikefunc, badpredpar, badsdpar = NULL,
 }
 \arguments{
 \item{add}{xxxdocparam in model.xy() is different to add in add_plot.R.}
+
+\item{steps}{The number of steps to run the Gibbs sampler.}
 }
 \description{
 Generic Bayesian routine for fitting a model to y given 1 predictor variable

@@ -92,7 +92,8 @@
 #'
 #' @template debug
 #' @template xcol_ycol
-#' @template steps_showstep
+#' @template showstep
+#' @template steps
 #' @template badparam
 #' @template start
 #' @param data The table of data, in lmer-style, including one column to be 

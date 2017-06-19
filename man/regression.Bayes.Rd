@@ -2,10 +2,13 @@
 % Please edit documentation in R/statistics.R
 \name{regression.Bayes}
 \alias{regression.Bayes}
-\title{Regression using the Gibbs sampler, with just one x variable. regre...}
+\title{Regression using the Gibbs sampler, with just one x variable.}
 \usage{
 regression.Bayes(x, y, start.param = NULL, steps = 1100,
   whichuse = 101:1100, showstep = 50)
+}
+\arguments{
+\item{steps}{The number of steps to run the Gibbs sampler.}
 }
 \description{
 Regression using the Gibbs sampler, with just one x variable.
