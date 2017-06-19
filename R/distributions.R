@@ -82,12 +82,14 @@
 #'
 'dgammaPlusdexp'
 
-#' Probability distribution of gamma, parameterized with mean and sd i...
+#' Probability distribution of gamma, parameterized with mean and sd.
 #'
 #' @description
+#' Probability distribution of gamma, parameterized with mean and sd instead of
+#' shape and scale.
 #'
-#' Probability distribution of gamma, parameterized with mean and sd instead of shape and scale.
-#'
+#' @param mean Mean.
+#' @param sd sd.
 #'
 'dgamma.meansd'
 
@@ -315,13 +317,17 @@
 #'
 'normalproduct'
 
-#' This reparameterizes the beta distribution as a function of its mea...
+#' Reparameterize beta distribution as a function of its mean and sd.
 #'
 #' @description
-#'
-#' This reparameterizes the beta distribution as a function of its mean and
-#' standard deviation. The mean must be between 0 and 1, and sd>0.
-#'
+#' This reparameterizes the beta distribution as a function of its mean and 
+#' standard deviation. 
+#' 
+#' @section Arguments details:
+#' The mean must be between 0 and 1, and sd>0.
+#' 
+#' @param mean Mean.
+#' @param sd sd.
 #'
 'dbeta.reparam'
 

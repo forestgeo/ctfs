@@ -65,6 +65,7 @@ avoid <- c(
   "mindbh",  # done
   "n",  # done
   "N",  # done
+  "newgraph",  # done
   "outfile",  # done
   "plot",  # done
   "plotdim",  # done
@@ -92,10 +93,10 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("newgraph")
-args_count_param("newgraph")
+args_help("sd")
+args_count_param("sd")
 
-
+%>% 
 
 x %>% select(1) %>% unique()
 

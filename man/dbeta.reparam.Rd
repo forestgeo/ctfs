@@ -2,11 +2,21 @@
 % Please edit documentation in R/distributions.R
 \name{dbeta.reparam}
 \alias{dbeta.reparam}
-\title{This reparameterizes the beta distribution as a function of its mea...}
+\title{Reparameterize beta distribution as a function of its mean and sd.}
 \usage{
 dbeta.reparam(x, mu, sd)
 }
+\arguments{
+\item{sd}{sd.}
+
+\item{mean}{Mean.}
+}
 \description{
 This reparameterizes the beta distribution as a function of its mean and
-standard deviation. The mean must be between 0 and 1, and sd>0.
+standard deviation.
 }
+\section{Arguments details}{
+
+The mean must be between 0 and 1, and sd>0.
+}
+
