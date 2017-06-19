@@ -6,6 +6,17 @@
 \usage{
 betaproduct(x, lag, mean1, sd1, meanint, meanslope, CV)
 }
+\arguments{
+\item{x}{A normal distribution.}
+
+\item{mean1}{The mean and sd of the first distribution.}
+
+\item{sd1}{The mean and sd of the first distribution.}
+
+\item{meanslope}{The slope}
+
+\item{CV}{The coefficient of variation.}
+}
 \description{
 This is equivalent to the normal product above.
 }

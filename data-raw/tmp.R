@@ -69,6 +69,7 @@ avoid <- c(
   "outfile",  # done
   "plot",  # done
   "plotdim",  # done
+  "plotside",  # done
   "pts",  # done some, others vary.
   "r",  # done
   "rounddown",  # done
@@ -95,8 +96,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("plotside")
-args_count_param("plotside")
+args_help("sd1")
+args_count_param("sd1")
 
 
 

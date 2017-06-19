@@ -8,6 +8,10 @@ rmixnorm(n, mean1, mean2, sd1, sd2, f)
 }
 \arguments{
 \item{n}{Passed to argument `n` in [stats::runif()].}
+
+\item{mean1, sd1, }{The mean and sd of the first distribution.}
+
+\item{x}{A distribution.}
 }
 \description{
 Random draw on the mixed normal distribution.

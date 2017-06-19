@@ -2,12 +2,16 @@
 % Please edit documentation in R/distributions.R
 \name{dmixnorm}
 \alias{dmixnorm}
-\title{Mixed normal distribution. The parameter f is the probability  of f...}
+\title{Mixed normal distribution.}
 \usage{
 dmixnorm(x, mean1, mean2, sd1, sd2, f, log = FALSE)
 }
+\arguments{
+\item{x}{A distribution.}
+
+\item{mean1, sd1, }{The mean and sd of the first distribution.}
+}
 \description{
-Mixed normal distribution. The parameter f is the probability
-of following the first, with mean1 and sd1; 1-f is the probability
-for the second normal
+Mixed normal distribution. The parameter f is the probability of following
+the first, with mean1 and sd1; 1-f is the probability for the second normal
 }
