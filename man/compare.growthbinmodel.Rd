@@ -11,6 +11,9 @@ compare.growthbinmodel(fit, bins = 1:4, makegraph = TRUE, conflines = 0,
 \arguments{
 \item{fit}{A fitted model.}
 
+\item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
+TRUE to create a new plot window or export to a file.}
+
 \item{export}{File format to export to.}
 
 \item{outfile}{Filename for output.}

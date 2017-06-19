@@ -216,6 +216,7 @@
 #' @template modeltype
 #' @template xname_yname
 #' @template add_plot
+#' @template newgraph
 #' @param fit result of model.littleR.Gibbs
 #' @param datafile optional name of file where the fitted result is saved
 #' @param div width of bins for histogram of observed rate of population change

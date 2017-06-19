@@ -39,6 +39,7 @@
 #' @template fit
 #' @template h_w
 #' @template outfile
+#' @template newgraph
 #'
 'overlay.growthbinmodel'
 
@@ -53,6 +54,7 @@
 #' @template fit
 #' @template h_w
 #' @template outfile
+#' @template newgraph
 #'
 'compare.growthbinmodel'
 

@@ -468,6 +468,7 @@
 #' otherwise the x-intercept.
 #' 
 #' @template graphit
+#' @template newgraph
 #'
 'regsum'
 

@@ -128,8 +128,7 @@
 #'   can be TRUE
 #' @param filled TRUE or FALSE, whether to draw filled contours; if TRUE,
 #'   neither image or standard contours are included
-#' @param newgraph if FALSE, just graph to the screen and export is ignored; use
-#'   TRUE to create a new plot window or export to a file
+#' @template newgraph
 #' @param plotsize size of graph's x-dimension in inches; ignored if
 #'   newgraph=FALSE
 #' @param h,w height and width of graph window in units which depend on the

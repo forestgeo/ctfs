@@ -10,6 +10,9 @@ regsum(x, y, poly = 1, graphit = F, yrange = c(-1, -1),
 }
 \arguments{
 \item{graphit}{Logical; if `TRUE` adds plot output.}
+
+\item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
+TRUE to create a new plot window or export to a file.}
 }
 \description{
 This carries out either first or second order polynomial regression,
