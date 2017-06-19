@@ -75,6 +75,7 @@ avoid <- c(
   "rounddown",  # done
   "s",  # done
   "sd",  # done
+  "sd1",  # done
   "start",  # done
   "steps",  # done
   "w",
@@ -96,8 +97,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("sd1")
-args_count_param("sd1")
+args_help("elev")
+args_count_param("elev")
 
 
 
