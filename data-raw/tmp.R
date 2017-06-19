@@ -95,8 +95,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("steps")
-args_count_param("steps")
+args_help("plotside")
+args_count_param("plotside")
 
 
 
