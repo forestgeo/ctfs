@@ -201,16 +201,6 @@ Using a bar width of 30 `dbh` seems useful.
 useful_barwidth <- 30
 ```
 
-You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
-
-```{r}
-dbh_cut_width <- dplyr::mutate(small,
-  dbh_cut = ggplot2::cut_width(dbh, width = useful_barwidth)
-)
-dbh_count <- dbh_cut_width %>% dplyr::count(dbh_cut, sort = TRUE)
-dbh_count
-```
-
 To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars.
 
 ```{r hist-vs-freqpoly-set}
@@ -237,18 +227,22 @@ In both bar charts and histograms, tall and short bars let us explore common and
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
-Although the most common trees are those which diameter (`dbh`) is between 15 mm and 45 mm, smaller trees are generally more common than bigger trees, which we already learned from previous plots.
+The later two plots give a good estimate of what tree diameters are most common. You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
 
 ```{r}
-all_rows <- nrow(dbh_count)
-dbh_count %>% print(n = all_rows)  # print all rows; more than tibble's default
+dbh_cut_width <- dplyr::mutate(small,
+  dbh_cut = ggplot2::cut_width(dbh, width = useful_barwidth)
+)
+dbh_count <- dbh_cut_width %>% dplyr::count(dbh_cut, sort = TRUE)
 ```
+
+Although the most common trees are those which diameter (`dbh`) is between 15 mm and 45 mm, smaller trees are generally more common than bigger trees, which we already learned from previous plots.
 
 
 
 ### Clustered values
 
-In this section we will focus on the largest trees; later we will explore all trees, including medium size ones.
+In this section we will focus on the largest trees; later we will explore all trees, including medium-size ones.
 
 ```{r}
 largest <- dplyr::filter(bci12full7, dbh > 2000)
