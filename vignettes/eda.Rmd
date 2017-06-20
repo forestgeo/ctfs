@@ -20,13 +20,17 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+
 # Introduction
 
 This vignette will show you how to explore your data systematically, using modern and more powerful tools for visualization and transformation. An exploratory data analysis is an iterative process that aims to use data and some research questions to learn something that can help refine the questions and move forward the learning spiral.
 
+
+
 ## Prerequisites
 
-The data we will use comes from Barro Colorado Island. It is available at DOI: https://doi.org/10.5479/data.bci.20130603 and via the __bci__ data package.
+The data we will use comes from Barro Colorado Island. It is available at DOI: https://doi.org/10.5479/data.bci.20130603 and via the __[bci](https://forestgeo.github.io/bci/)__ data package.
 
 Some functions we will use are available in the __[forestr](https://forestgeo.github.io/forestr/)__ package, and many are available in the __tidyverse__ package (which includes, for example, the packages __[dplyr](http://dplyr.tidyverse.org/)__ and __[ggplot2](http://ggplot2.tidyverse.org/)__). If you are new to the __tidyversre__, you may feel a little frustrated at the begining. But quickly your effort will pay-off. The tools in the __tidyverse__ are powerful, realatively easy to use and consistent; so once you learn some, you will learn most other tools intuitively.
 
@@ -34,18 +38,50 @@ To more compleately learan how to do data science with the __tidyverse__ read [R
 
 ```{r packages}
 # To install packages see ?install.packages and ?devtools::install_github
-
 # Data
 library(bci)  # to access data from BCI
-
 # Functions
 library(forestr)  # to analyse forest dynamics
 library(tidyverse)  # to visualize and transform data, and much more
 ```
 
+
+
+## Style
+
+### Being explicit about what package a function comes from
+
+Frequently I refer to functions from a particular package as `package::fun()` (e.g. the first time I use a function). Althought the prefix `package::` is unnecesary if the package has previously been loaded with `library(package)`, I will often keep that prefix to be explicit about where the function comes from. This should help you to find the function if you ever want to use it again.
+
+
+
+### The tidyverse style guide
+
+I use [The tidyverse style guide](http://style.tidyverse.org/).
+
+> Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread.
+
+--Hadley Wickham, [The tidyverse style guide](http://style.tidyverse.org/index.html).
+
+
+
+### Combining multiple operations with the pipe `%>%`
+
+Often I combine multiple operations with the pipe `%>%` because it makes the code considerably more readable.
+
+> [The pipe] focuses on the transformations, not what's being transformed, which makes the code easier to read. You can read it as a series of imperative statements: group, then summarise, then filter. As suggested by this reading, a good way to pronounce `%>%` when reading code is "then".
+
+> Behind the scenes, `x %>% f(y)` turns into `f(x, y)`, and `x %>% f(y) %>% g(z)` turns into `g(f(x, y), z)` and so on. You can use the pipe to rewrite multiple operations in a way that you can read left-to-right, top-to-bottom.
+
+> Working with the pipe is one of the key criteria for belonging to the tidyverse. The only exception is ggplot2: it was written before the pipe was discovered.
+
+--[Combining multiple operations with the pipe](http://r4ds.had.co.nz/transform.html)
+
+
+
 ## Definitions
 
-> A __variable__ is a quantity, quality, or property that you can measure. 
+> A __variable__ is a quantity, quality, or property that you can measure.
 
 > A __value__ is the state of a variable when you measure it. The value of a
     variable may change from measurement to measurement.
@@ -60,9 +96,8 @@ library(tidyverse)  # to visualize and transform data, and much more
     observation. Tabular data is _tidy_ if each value is placed in its own
     "cell", each variable in its own column, and each observation in its own 
     row.
-    
--- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
 # Questions
 
@@ -70,7 +105,9 @@ To start exploring your data, you can generally ask:
 
 > What type of variation occurs within my variables?
 
-> What type of covariation occurs between my variables?
+> What type of covariation occurs between my variables? [^2
+
+
 
 # Variation
 
@@ -78,24 +115,28 @@ To start exploring your data, you can generally ask:
 
 Every variable varies with a particular pattern, and that pattern may be insightful. To understand the variation pattern of a variable we can visualize the distribution of the variables' values. The best way to visualize a variable's distribution depends on whether the variable is categorical or continuous.
 
-The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings or factors, for example, most variables of type <chr> (character) and <dbl> below.
+The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings (<chr>) or factors (fctr), and continuous variables are stored as integers (<int>) or doubles (<dbl>)
 
-```{r data}
+```{r viz-data}
 # Data from Barro Colorado Island, released in 2012, FullViewTable census 7
+head(bci::bci12full7)  # bci data package: https://forestgeo.github.io/bci/
+
 # tibbles print faster and nicer than dataframes, but read "Interacting with 
 # legacy code" at https://goo.gl/CJ5jLs.
-bci12full7 <- as_tibble(bci12full7)  
+bci12full7 <- tibble::as_tibble(bci12full7)  
 bci12full7
 ```
 
 For alternative views try:
 
-```{r, eval=FALSE}
+```R
 as.data.frame(bci12full7)  # takes long and doesn't print nicely
 View(bci12full7)  # prints to a viewer panel
 str(bci12full7)  # informative and prints nice
-glimpse(bci12full7)  # like str() but shows as much data as possible
+dplyr::glimpse(bci12full7)  # like str() but shows as much data as possible
 ```
+
+
 
 ## Visualizing Distributions
 
@@ -107,18 +148,30 @@ glimpse(bci12full7)  # like str() but shows as much data as possible
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
-```{r, fig.cap="Values distribution of the categorical variable `status`"}
-ggplot(bci12full7) +
-  geom_bar(aes(x = DFstatus))
+Let's use a bar chart to explore the variable `status`, which represents the status of the tree or stem (see description of `ViewFullTable` variables at the [data dictionary](https://goo.gl/wGKEE3)). Possible values are: alive (tree or stem is alive), dead (tree is dead), lost_stem (stem is dead, not found, or broken, etc. but other stems of the tree are still alive), or missing (tree or stem was not found, so measurement is unknown).
+
+```{r viz-categorical-bar, fig.cap="Values distribution of the categorical variable `status`"}
+ggplot2::ggplot(data = bci12full7) +
+  ggplot2::geom_bar(mapping = aes(x = status))
 ```
 
-You can compute the same count manually with `dplyr::count()`:
+Although the [data dictionary](https://goo.gl/wGKEE3)) does not explicitely refer to `A`, `D` and `M`, you likely know or guess that they mean alive, dead and misisng. To confirm this, let's first count the the number of unique values of the variables `status` and `DFstatus` (not decribed in the [data dictionary](https://goo.gl/wGKEE3), then joining both counts by the shared variable `n`:
 
-```{r}
-count(bci12full7, DFstatus)
+```{r introduce-count}
+count_status <- dplyr::count(bci12full7, status)
+count_DFstatus <- dplyr::count(bci12full7, DFstatus)
+dplyr::full_join(count_status, count_DFstatus)
 ```
+
+
 
 ### Continuous Variables
+
+In this section we will focus on small trees; big trees will be explored later.
+
+```{r}
+small <- dplyr::filter(bci12full7, dbh < 500)
+```
 
 > A variable is continuous if it can take any of an infinite set of ordered values.
 
@@ -126,61 +179,55 @@ count(bci12full7, DFstatus)
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
+Let's use a histogram to explore the variable `dbh`, which represents the stem diameter, usually at breast height (see description of `ViewFullTable` variables at the [data dictionary](https://goo.gl/wGKEE3)).
 
+> You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.
 
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
+We'll try bars of different widths and choose one for further analyses.
 
-
-
-
-
+```{r viz-continuous-hist, fig.show="hold"}
+p <- ggplot(small)
+p + geom_histogram(aes(x = dbh), binwidth = 10)
+# It's ok to ommit the obvious `x =`,  but `binwidth =` must be explicit.
+p + geom_histogram(aes(dbh), binwidth = 30)
+p + geom_histogram(aes(dbh), binwidth = 60)
 ```
-Here, replace this example with data of class date by an example with data of class double, e.g. the variable dbh. 
-```
 
-```{r}
-barwidth <- 10  # set once, then use multiple times
+Using a bar width of 30 `dbh` seems useful.
 
-ggplot(bci12full7) +
-  geom_histogram(aes(x = date), binwidth = barwidth)
+```{r set-barwidth}
+useful_barwidth <- 30
 ```
 
 You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
 
 ```{r}
-bci12full7 %>% 
-  mutate(date = cut_width(date, width = barwidth)) %>% 
-  count(date) %>% 
-  tail()
+dbh_cut_width <- dplyr::mutate(small,
+  dbh_cut = ggplot2::cut_width(dbh, width = useful_barwidth)
+)
+dbh_count <- dbh_cut_width %>% dplyr::count(dbh_cut, sort = TRUE)
+dbh_count
 ```
 
-```{r, echo=FALSE}
-nas_cnt <- bci12full7 %>% 
-  mutate(date = cut_width(date, width = barwidth)) %>% 
-  count(date) %>% 
-  dplyr::filter(is.na(date)) %>% 
-  pull(n)
+To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars.
+
+```{r hist-vs-freqpoly-set}
+# Make n groups with ~ numbers of observations with `ggplot2::cut_number()`
+dbh_cut_number <- mutate(small, equal_n = cut_number(dbh, n = 5))
+p <- ggplot(dbh_cut_number)
 ```
 
-The `r nas_cnt` `NA` indicate dates where no trees where recorded (notice `DF status` = `"no_record"` on the bar chart above). The same we see from a histogram with narrower bars.
-
-```{r}
-ggplot(bci12full7) +
-  geom_histogram(aes(x = date), binwidth = 1)
+```{r hist-vs-freqpoly-compare, fig.cap="For multiple histograms, lines are easier to understand than bars."}
+# Now, compare the next two plots:
+p + geom_histogram(aes(dbh, color = equal_n))
+p + geom_freqpoly(aes(dbh, color = equal_n))
 ```
 
-> You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.
+### Typical and rare Values
 
-To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars:
-
-```{r, fig.cap="Lines overlaid are easier to understand than bars."}
-ggplot(bci12full7) +
-  geom_freqpoly(aes(x = date, color = DFstatus), binwidth = barwidth)
-```
-
-### Typical Values
-
-In both bar charts and histograms, tall and short bars let us explore common and less-common values. Now we can ask:
+In both bar charts and histograms, tall and short bars let us explore common and less-common values. For example, we could ask:
 
 > - Which values are the most common? Why?
 
@@ -190,16 +237,107 @@ In both bar charts and histograms, tall and short bars let us explore common and
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
+Although the most common trees are those which diameter (`dbh`) is between 15 mm and 45 mm, smaller trees are generally more common than bigger trees, which we already learned from previous plots.
+
 ```{r}
-ggplot(bci12full7) +
-  geom_histogram(aes(x = dbh), binwidth = 50)
+all_rows <- nrow(dbh_count)
+dbh_count %>% print(n = all_rows)  # print all rows; more than tibble's default
 ```
 
-xxxcont.
 
-### Unusual Values
+
+### Clustered values
+
+In this section we will focus on the largest trees; later we will explore all trees, including medium size ones.
+
+```{r}
+largest <- dplyr::filter(bci12full7, dbh > 2000)
+```
+
+> Clusters of similar values suggest that subgroups exist in your data. To understand the subgroups, ask:
+
+> - How are the observations within each cluster similar to each other?
+
+> - How are the observations in separate clusters different from each other?
+
+> - How can you explain or describe the clusters?
+
+> - Why might the appearance of clusters be misleading?
+
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+
+In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering dissapears with bars twice as wide.
+
+```{r clustering, fig.show="hold"}
+p <- ggplot(largest, aes(dbh))
+p + geom_histogram(binwidth = useful_barwidth)
+p + geom_histogram(binwidth = useful_barwidth * 2)
+```
+
+
+
+### Unusual values
+
+
+In this section we will work with the entire bci12full7 dataset, which includes trees of all sizes.
+
+> Outliers are observations that are unusual; data points that don't seem to fit the pattern. Sometimes outliers are data entry errors; other times outliers suggest important new science. When you have a lot of data, outliers are sometimes difficult to see in a histogram. 
+
+> For example, take the distribution of the _dbh_ variable of the _bci12full7_ dataset. The only evidence of outliers is the unusually wide limits on the x-axis (stress mine).
+
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+
+
+```{r}
+p <- ggplot(bci12full7, aes(x = dbh)) +
+  geom_histogram(binwidth = useful_barwidth)
+p
+```   
+
+> There are so many observations in the common bins that the rare bins are so short that you can't see them . To make it easy to see the unusual values, we need to zoom to small values of the y-axis with `coord_cartesian()`:
+
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+
+```{r}
+p + coord_cartesian(ylim = c(0, 50))
+```   
+
+> (`coord_cartesian()` also has an `xlim()` argument for when you need to zoom into the x-axis. ggplot2 also has `xlim()` and `ylim()` functions that work slightly differently: they throw away the data outside the limits.)
+
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+
+This allows us to see that `dbh` values over 2000 are unusual. We pluck them out with `dplyr::filter()` and select a subset of informative variables:
+
+```{r}
+unusual <- bci12full7 %>% 
+  filter(dbh > 2000) %>% 
+  select(treeID, ExactDate, status, gx, gy, dbh) %>%
+  arrange(dbh)
+unusual
+```
+
+We could ask where in the plot the unusual trees are located:
+
+```{r}
+# For faster analysis and to avoid overplotting, choose only 100 trees at random
+sample_100 <- bci12full7 %>% sample_n(100)
+
+ggplot(sample_100, aes(gx, gy)) + 
+    # plot a few points for reference with only 1/10 opacity (less distracting)
+    geom_point(alpha = 1/10) +
+    # highlight location of unusual trees in the plot
+    geom_point(data = unusual, colour = "red")
+```
+
+Most trees of unusually large dbh seem to be on the edge of the plot.
+
+> It's good practice to repeat your analysis with and without the outliers. If they have minimal effect on the results, and you can't figure out why they're there, it's reasonable to replace them with missing values, and move on. However, if they have a substantial effect on your results, you shouldn't drop them without justification. You'll need to figure out what caused them (e.g. a data entry error) and disclose that you removed them in your write-up.
+
+-- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
 # Missing Values
+
+xxxcont. Before this, re-do first plots above with a subset of small trees; save the unusually large trees for the section "Unusual values".
 
 # Covariation
 
@@ -243,9 +381,13 @@ bci12full7 %>%
   glimpse()
 ```
 
+## Tools to explore data quickly
 
+### inzight light
 
-## skimr
+http://lite.docker.stat.auckland.ac.nz/
+
+### skimr
 
 ```{r}
 library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
