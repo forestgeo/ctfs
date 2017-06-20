@@ -120,11 +120,16 @@ The BCI data has both, categorical and continuous variables. In R, categorical v
 ```{r viz-data}
 # Data from Barro Colorado Island, released in 2012, FullViewTable census 7
 head(bci::bci12full7)  # bci data package: https://forestgeo.github.io/bci/
+```
 
+```{r}
 # tibbles print faster and nicer than dataframes, but read "Interacting with 
 # legacy code" at https://goo.gl/CJ5jLs.
 bci12full7 <- tibble::as_tibble(bci12full7)  
 bci12full7
+
+# NOTE: If you ever want to print more rows than tibble's default use:
+# print(your_tibble, n = rows_n)
 ```
 
 For alternative views try:
@@ -364,8 +369,7 @@ library(lubridate)
 bci12full7 <- mutate(bci12full7, duration = dseconds((date * 24 * 60 * 60) %/% 1))
 bci12full7 <- mutate(bci12full7, datetime = as_datetime(duration, origin = "1960-01-01"))
 bci12full7 %>% 
-  select(date, datetime) %>%
-  print(n = 20)  # print some more rows than tibble's default
+  select(date, datetime)
 ```
 
 ```{r}
