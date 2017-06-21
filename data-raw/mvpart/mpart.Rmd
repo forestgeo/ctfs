@@ -1,0 +1,148 @@
+---
+title: "Testing mvpart"
+output: 
+  rmarkdown::html_document:
+    toc: true
+date: '`r Sys.Date()`'
+---
+
+```{r setup, echo = FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+
+```{r}
+library(dplyr)
+library(mvpart)
+```
+
+# Installation
+
+The __mvpart__ package is no longer active on CRAN but can be installed from the archives.
+
+```R
+# install.packages("devtools")
+devtools::install_github("cran/mvpart")
+```
+
+Or download a realease from https://github.com/cran/mvpart/releases and install it with something like:
+
+```R
+
+install.packages(
+  "C:/Users/dora/Desktop/mvpart-1.6-2.tar.gz", 
+  repos = NULL, type = "source"
+)
+```
+
+Some people reported installation issues (https://goo.gl/oDjjz8).
+
+
+
+# Data
+
+- Tutorial https://goo.gl/zDLdMi
+
+- Data from Stuart Davies (https://goo.gl/).
+
+```{r}
+# mvpart
+
+# From Stuart Davies https://goo.gl/NszXEi
+# KC3spp20 – is the species matrix of abundance in each of 600 quadrats
+# kc.hab – a bunch of habitat variables for the same 600 quadrats
+
+kc.hab <- readr::read_csv("kc.hab.csv")
+KC3spp20 <- readr::read_csv("KC3spp20.csv")
+```
+
+
+## Overview data
+
+2 files attached:
+
+- KC3spp20 – is the species matrix of abundance in each of 600 quadrats
+
+```{r}
+# See a few columns from the beginning, middle and end
+KC3spp20 %>% dplyr::select(1:2, 250:252, 583:585)
+
+# For a cleaner output for interpretation, normalized tree spp data to a mean of
+# 0 and standard deviation of 1 (https://goo.gl/zDLdMi).
+```
+
+- kc.hab – a bunch of habitat variables for the same 600 quadrats
+
+```{r}
+kc.hab %>% dplyr::glimpse()
+```
+
+## Build and run the model
+
+```{r, fig.height=14, fig.width=12}
+abundance <- data.matrix(KC3spp20)
+environmental_variables <- kc.hab
+
+formula <- abundance ~ RB_NO3 + RB_NH4 + RB_PO4 + Al + pH_water + Na + Mn + 
+  Mg + K + Fe + Ca + BS + ECEC + Bray_P + meanelev + convex + slope
+
+(mvpart_result <- mvpart(form = formula, data = environmental_variables))
+```
+
+## Results
+
+### Structure
+
+```{r}
+str(mvpart_result)
+```
+
+### Full summary
+
+```{r}
+summary(mvpart_result)
+```
+
+### Groupings
+
+```{r}
+# Summary
+tibble::tibble(quadrat = 1:600, where = mvpart_result$where) %>% count(where)
+(groupings <- as_tibble(mvpart_result$where))
+groupings %>% readr::write_csv("export_mvpart_where.csv")  # To Stuart Davies
+```
+
+### Map
+
+Produced by Stuart Davies.
+
+![](Screen Shot 2017-06-21 at 4.49.28 PM.png)
+
+## Compared to the data sent, is the data here equal?
+
+```{r}
+# Test file sent and data here are the same
+groupings_sent_and_downloaded <- readr::read_csv(
+  "C:/Users/dora/Downloads/export_mvpart_where.csv"
+  )
+groupings_here <- groupings
+
+# If the number of NA-rows is cero, then all rows match
+both_datasets <- full_join(groupings_sent_and_downloaded, groupings_here)
+both_datasets %>% 
+  filter(is.na(value))
+
+# Check difference
+setdiff(groupings_sent_and_downloaded$value, groupings_here$value)
+
+# Test for equality
+all.equal(groupings_sent_and_downloaded$value, groupings_here$value)
+```
+
+
+
+
