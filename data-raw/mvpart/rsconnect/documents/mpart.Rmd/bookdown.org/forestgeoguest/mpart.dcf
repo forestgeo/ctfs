@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: mpart
 title: mpart
 account: forestgeoguest
@@ -8,3 +9,16 @@ url: https://bookdown.org/forestgeoguest/mpart/
 when: 1498086648.14033
 asMultiple: FALSE
 asStatic: TRUE
+||||||| merged common ancestors
+=======
+name: mpart
+title: mpart
+account: forestgeoguest
+server: bookdown.org
+appId: 654
+bundleId: 2977
+url: https://bookdown.org/forestgeoguest/mpart/
+when: 1498083976.7937
+asMultiple: FALSE
+asStatic: TRUE
+>>>>>>> 3548580ad5a23ab5765c35c858d007f2a1ea7a8c
