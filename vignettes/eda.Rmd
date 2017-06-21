@@ -115,24 +115,30 @@ To start exploring your data, you can generally ask:
 
 Every variable varies with a particular pattern, and that pattern may be insightful. To understand the variation pattern of a variable we can visualize the distribution of the variables' values. The best way to visualize a variable's distribution depends on whether the variable is categorical or continuous.
 
-The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings (<chr>) or factors (fctr), and continuous variables are stored as integers (<int>) or doubles (<dbl>)
+The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings (<chr>) or factors (fctr), and continuous variables are stored as integers (<int>) or doubles (<dbl>).
+
+These are the first few rows of the data FullViewTable census 7 from Barro Colorado Island, released in 2012:
 
 ```{r viz-data}
-# Data from Barro Colorado Island, released in 2012, FullViewTable census 7
-head(bci::bci12full7)  # bci data package: https://forestgeo.github.io/bci/
+head(bci::bci12full7)
 ```
+
+If you want to handle the data faster and print it nicer, convert dataframes to tibbles:
 
 ```{r}
-# tibbles print faster and nicer than dataframes, but read "Interacting with 
-# legacy code" at https://goo.gl/CJ5jLs.
 bci12full7 <- tibble::as_tibble(bci12full7)  
 bci12full7
-
-# NOTE: If you ever want to print more rows than tibble's default use:
-# print(your_tibble, n = rows_n)
 ```
 
-For alternative views try:
+
+NOTES: 
+
+1. If you ever want to print more rows than tibble's default use:
+   print(your_tibble, n = rows_n)
+2. If when you use tibbles with forestr functions you get this error message:
+   "Can't use matrix or array for column indexing", please read "Interacting
+   with legacy code" at https://goo.gl/CJ5jLs.
+3. For alternative views try:
 
 ```R
 as.data.frame(bci12full7)  # takes long and doesn't print nicely
@@ -153,6 +159,8 @@ dplyr::glimpse(bci12full7)  # like str() but shows as much data as possible
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
+
+
 Let's use a bar chart to explore the variable `status`, which represents the status of the tree or stem (see description of `ViewFullTable` variables at the [data dictionary](https://goo.gl/wGKEE3)). Possible values are: alive (tree or stem is alive), dead (tree is dead), lost_stem (stem is dead, not found, or broken, etc. but other stems of the tree are still alive), or missing (tree or stem was not found, so measurement is unknown).
 
 ```{r viz-categorical-bar, fig.cap="Values distribution of the categorical variable `status`"}
@@ -160,7 +168,7 @@ ggplot2::ggplot(data = bci12full7) +
   ggplot2::geom_bar(mapping = aes(x = status))
 ```
 
-Although the [data dictionary](https://goo.gl/wGKEE3)) does not explicitely refer to `A`, `D` and `M`, you likely know or guess that they mean alive, dead and misisng. To confirm this, let's first count the the number of unique values of the variables `status` and `DFstatus` (not decribed in the [data dictionary](https://goo.gl/wGKEE3), then joining both counts by the shared variable `n`:
+Although the [data dictionary](https://goo.gl/wGKEE3) does not explicitely refer to `A`, `D` and `M`, you likely know or guess that they mean alive, dead and misisng. To confirm this, let's first count the the number of unique values of the variables `status` and `DFstatus` (`DFstatus` is not decribed in the [data dictionary](https://goo.gl/wGKEE3)), then joining both counts by the shared variable `n`:
 
 ```{r introduce-count}
 count_status <- dplyr::count(bci12full7, status)
@@ -172,35 +180,35 @@ dplyr::full_join(count_status, count_DFstatus)
 
 ### Continuous Variables
 
-In this section we will focus on small trees; big trees will be explored later.
-
-```{r}
-small <- dplyr::filter(bci12full7, dbh < 500)
-```
-
 > A variable is continuous if it can take any of an infinite set of ordered values.
 
 > To examine the distribution of a continuous variable use a histogram.
-
--- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
-
-Let's use a histogram to explore the variable `dbh`, which represents the stem diameter, usually at breast height (see description of `ViewFullTable` variables at the [data dictionary](https://goo.gl/wGKEE3)).
 
 > You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
-We'll try bars of different widths and choose one for further analyses.
+
+
+Let's use a histogram to explore the variable `dbh`, which represents the stem diameter, usually at breast height (see description of `ViewFullTable` variables at the [data dictionary](https://goo.gl/wGKEE3)).
+
+In this section we will focus on small trees; big trees will be explored later. And we will try bars of different widths and choose one for further analyses.
 
 ```{r viz-continuous-hist, fig.show="hold"}
-p <- ggplot(small)
-p + geom_histogram(aes(x = dbh), binwidth = 10)
-# It's ok to ommit the obvious `x =`,  but `binwidth =` must be explicit.
-p + geom_histogram(aes(dbh), binwidth = 30)
-p + geom_histogram(aes(dbh), binwidth = 60)
+small_dbh <- dplyr::filter(bci12full7, dbh < 500)
+gg_small_dbh <- ggplot(data = small_dbh, mapping = aes(x = dbh))
+gg_small_dbh + geom_histogram(binwidth = 10)
 ```
 
-Using a bar width of 30 `dbh` seems useful.
+```{r}
+gg_small_dbh + geom_histogram(aes(dbh), binwidth = 30)
+```
+
+```{r}
+gg_small_dbh + geom_histogram(aes(dbh), binwidth = 60)
+```
+
+A bar width of 30 `dbh` seems useful.
 
 ```{r set-barwidth}
 useful_barwidth <- 30
@@ -208,16 +216,13 @@ useful_barwidth <- 30
 
 To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars.
 
-```{r hist-vs-freqpoly-set}
-# Make n groups with ~ numbers of observations with `ggplot2::cut_number()`
-dbh_cut_number <- mutate(small, equal_n = cut_number(dbh, n = 5))
-p <- ggplot(dbh_cut_number)
-```
-
 ```{r hist-vs-freqpoly-compare, fig.cap="For multiple histograms, lines are easier to understand than bars."}
+# Make n groups with ~ numbers of observations with `ggplot2::cut_number()`
+small_cut_num <- mutate(small_dbh, equal_n = cut_number(dbh, n = 5))
+
 # Now, compare the next two plots:
-p + geom_histogram(aes(dbh, color = equal_n))
-p + geom_freqpoly(aes(dbh, color = equal_n))
+ggplot(small_cut_num) + geom_histogram(aes(dbh, color = equal_n))
+ggplot(small_cut_num) + geom_freqpoly(aes(dbh, color = equal_n))
 ```
 
 ### Typical and rare Values
@@ -235,10 +240,11 @@ In both bar charts and histograms, tall and short bars let us explore common and
 The later two plots give a good estimate of what tree diameters are most common. You can compute the same count manually, by cutting the variable with `ggplot2::cut_width()` and then counting the unique pieces with `dplyr::count()`:
 
 ```{r}
-dbh_cut_width <- dplyr::mutate(small,
+small_cut_width <- dplyr::mutate(
+  small_dbh,
   dbh_cut = ggplot2::cut_width(dbh, width = useful_barwidth)
 )
-dbh_count <- dbh_cut_width %>% dplyr::count(dbh_cut, sort = TRUE)
+small_cut_width %>% dplyr::count(dbh_cut, sort = TRUE)
 ```
 
 Although the most common trees are those which diameter (`dbh`) is between 15 mm and 45 mm, smaller trees are generally more common than bigger trees, which we already learned from previous plots.
@@ -250,7 +256,7 @@ Although the most common trees are those which diameter (`dbh`) is between 15 mm
 In this section we will focus on the largest trees; later we will explore all trees, including medium-size ones.
 
 ```{r}
-largest <- dplyr::filter(bci12full7, dbh > 2000)
+largest_dbh <- dplyr::filter(bci12full7, dbh > 2000)
 ```
 
 > Clusters of similar values suggest that subgroups exist in your data. To understand the subgroups, ask:
@@ -268,17 +274,16 @@ largest <- dplyr::filter(bci12full7, dbh > 2000)
 In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering dissapears with bars twice as wide.
 
 ```{r clustering, fig.show="hold"}
-p <- ggplot(largest, aes(dbh))
-p + geom_histogram(binwidth = useful_barwidth)
-p + geom_histogram(binwidth = useful_barwidth * 2)
+gg_largest_dbh <- ggplot(largest_dbh, aes(dbh))
+gg_largest_dbh + geom_histogram(binwidth = useful_barwidth)
+gg_largest_dbh + geom_histogram(binwidth = useful_barwidth * 2)
 ```
 
 
 
 ### Unusual values
 
-
-In this section we will work with the entire bci12full7 dataset, which includes trees of all sizes.
+In this section we will work with the entire bci12full7 dataset.
 
 > Outliers are observations that are unusual; data points that don't seem to fit the pattern. Sometimes outliers are data entry errors; other times outliers suggest important new science. When you have a lot of data, outliers are sometimes difficult to see in a histogram. 
 
@@ -286,11 +291,10 @@ In this section we will work with the entire bci12full7 dataset, which includes 
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
-
 ```{r}
-p <- ggplot(bci12full7, aes(x = dbh)) +
+bci_hist <- ggplot(bci12full7, aes(x = dbh)) +
   geom_histogram(binwidth = useful_barwidth)
-p
+bci_hist
 ```   
 
 > There are so many observations in the common bins that the rare bins are so short that you can't see them . To make it easy to see the unusual values, we need to zoom to small values of the y-axis with `coord_cartesian()`:
@@ -298,7 +302,7 @@ p
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
 ```{r}
-p + coord_cartesian(ylim = c(0, 50))
+bci_hist + coord_cartesian(ylim = c(0, 50))
 ```   
 
 > (`coord_cartesian()` also has an `xlim()` argument for when you need to zoom into the x-axis. ggplot2 also has `xlim()` and `ylim()` functions that work slightly differently: they throw away the data outside the limits.)
@@ -308,27 +312,37 @@ p + coord_cartesian(ylim = c(0, 50))
 This allows us to see that `dbh` values over 2000 are unusual. We pluck them out with `dplyr::filter()` and select a subset of informative variables:
 
 ```{r}
-unusual <- bci12full7 %>% 
+unusual_trees <- bci12full7 %>% 
   filter(dbh > 2000) %>% 
   select(treeID, ExactDate, status, gx, gy, dbh) %>%
   arrange(dbh)
-unusual
+unusual_trees
 ```
 
 We could ask where in the plot the unusual trees are located:
 
-```{r}
+```{r locate-unusual-trees}
 # For faster analysis and to avoid overplotting, choose only 100 trees at random
 sample_100 <- bci12full7 %>% sample_n(100)
 
-ggplot(sample_100, aes(gx, gy)) + 
+unusual_tree_loc <- ggplot(sample_100, aes(gx, gy)) + 
     # plot a few points for reference with only 1/10 opacity (less distracting)
     geom_point(alpha = 1/10) +
     # highlight location of unusual trees in the plot
-    geom_point(data = unusual, colour = "red")
+    geom_point(data = unusual_trees, colour = "red")
 ```
 
-Most trees of unusually large dbh seem to be on the edge of the plot.
+A number of the unusually large trees seem to be on the edge of the plot, where `gy` values are lower than 100. This information helps us to filter those edge trees selectively, and decide what to do with them.
+
+```{r}
+edge_trees <- unusual_trees %>% filter(gy < 100)
+unusual_tree_loc + 
+  geom_point(
+    data = edge_trees, 
+    size = 3, shape = 1  # highlight edge trees with bigger and hollow points
+  )
+```
+
 
 > It's good practice to repeat your analysis with and without the outliers. If they have minimal effect on the results, and you can't figure out why they're there, it's reasonable to replace them with missing values, and move on. However, if they have a substantial effect on your results, you shouldn't drop them without justification. You'll need to figure out what caused them (e.g. a data entry error) and disclose that you removed them in your write-up.
 
@@ -336,7 +350,73 @@ Most trees of unusually large dbh seem to be on the edge of the plot.
 
 # Missing Values
 
-xxxcont. Before this, re-do first plots above with a subset of small trees; save the unusually large trees for the section "Unusual values".
+(Except for the data, this section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).)
+
+
+If you've encountered unusual values in your dataset, and simply want to move on to the rest of your analysis, you have two options.
+
+1.  Drop the entire row with the strange values:
+
+    ```{r, eval = FALSE}
+    diamonds2 <- diamonds %>% 
+      filter(between(y, 3, 20))
+    ```
+    
+    I don't recommend this option because just because one measurement
+    is invalid, doesn't mean all the measurements are. Additionally, if you
+    have low quality data, by time that you've applied this approach to every
+    variable you might find that you don't have any data left!
+
+1.  Instead, I recommend replacing the unusual values with missing values.
+    The easiest way to do this is to use `mutate()` to replace the variable
+    with a modified copy. You can use the `ifelse()` function to replace
+    unusual values with `NA`:
+
+    ```{r}
+    diamonds2 <- diamonds %>% 
+      mutate(y = ifelse(y < 3 | y > 20, NA, y))
+    ```
+
+`ifelse()` has three arguments. The first argument `test` should be a logical vector. The result will contain the value of the second argument, `yes`, when `test` is `TRUE`, and the value of the third argument, `no`, when it is false.
+
+Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It's not obvious where you should plot missing values, so ggplot2 doesn't include them in the plot, but it does warn that they've been removed:
+
+```{r, dev = "png"}
+ggplot(data = diamonds2, mapping = aes(x = x, y = y)) + 
+  geom_point()
+```
+
+To suppress that warning, set `na.rm = TRUE`:
+
+```{r, eval = FALSE}
+ggplot(data = diamonds2, mapping = aes(x = x, y = y)) + 
+  geom_point(na.rm = TRUE)
+```
+
+Other times you want to understand what makes observations with missing values different to observations with recorded values. For example, in `nycflights13::flights`, missing values in the `dep_time` variable indicate that the flight was cancelled. So you might want to compare the scheduled departure times for cancelled and non-cancelled times. You can do this by making a new variable with `is.na()`.
+
+```{r}
+nycflights13::flights %>% 
+  mutate(
+    cancelled = is.na(dep_time),
+    sched_hour = sched_dep_time %/% 100,
+    sched_min = sched_dep_time %% 100,
+    sched_dep_time = sched_hour + sched_min / 60
+  ) %>% 
+  ggplot(mapping = aes(sched_dep_time)) + 
+    geom_freqpoly(mapping = aes(colour = cancelled), binwidth = 1/4)
+```
+
+However this plot isn't great because there are many more non-cancelled flights than cancelled flights. In the next section we'll explore some techniques for improving this comparison.
+
+
+
+
+
+
+
+
+
 
 # Covariation
 
