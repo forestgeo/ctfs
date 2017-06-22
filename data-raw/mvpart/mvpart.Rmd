@@ -95,7 +95,7 @@ formula <- abundance ~ RB_NO3 + RB_NH4 + RB_PO4 + Al + pH_water + Na + Mn +
 
 # Set a new seed for random numbers to ensure results are reproducible
 set.seed(1221)
-mvpart_run_cero <- mvpart(form = formula, data = environmental_variables)
+mvpart_run1 <- mvpart(form = formula, data = environmental_variables)
 ```
 
 ### Model details
@@ -103,19 +103,19 @@ mvpart_run_cero <- mvpart(form = formula, data = environmental_variables)
 #### Structure
 
 ```{r}
-str(mvpart_run_cero)
+str(mvpart_run1)
 ```
 
 #### Full summary
 
 ```{r}
-summary(mvpart_run_cero)
+summary(mvpart_run1)
 ```
 
 #### Groupings
 
 ```{r}
-table( mvpart_run_cero$where)
+table( mvpart_run1$where)
 ```
 
 #### Map
@@ -130,24 +130,24 @@ __Two runs of the same model are different because the algorithm uses random num
 
 ```{r}
 set.seed(1234)  # Set a new seed for random numbers
-mvpart_run_one <- mvpart(form = formula, data = environmental_variables)
+mvpart_run2 <- mvpart(form = formula, data = environmental_variables)
 # Set a different seed and re-run the exact same model
 set.seed(4321)  
-mvpart_run_two <- mvpart(form = formula, data = environmental_variables)
+mvpart_run3 <- mvpart(form = formula, data = environmental_variables)
 # compare run 1 and 2
-all.equal(mvpart_run_one, mvpart_run_two)
+all.equal(mvpart_run2, mvpart_run3)
 
-# These two models are obviously different.
-mvpart_run_one
-mvpart_run_two
+# These two models are different.
+mvpart_run1
+mvpart_run2
+mvpart_run3
 ```
 
 ### Produce different grouping datasets from different runs
 
-
 ```{r}
 # tibble::tibble(
-#   mvpart_run_cero$where, mvpart_run_one$where, mvpart_run_two$where
+#   mvpart_run1$where, mvpart_run2$where, mvpart_run3$where
 # ) %>% 
 #   purrr::map2(c("run1.csv", "run2.csv", "run2.csv"), readr::write_csv)
 ```
