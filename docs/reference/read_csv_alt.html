@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Show model fits for 1, 2, 3, and 4 bins on each species. — overlay.growthbinmodel â€¢ forestr</title>
+<title>Read a csv file from two alternative paths. — read_csv_alt â€¢ forestr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -79,52 +79,58 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Show model fits for 1, 2, 3, and 4 bins on each species.</h1>
+    <h1>Read a csv file from two alternative paths.</h1>
     </div>
 
     
-    <p>Show model fits for 1, 2, 3, and 4 bins on each species.</p>
+    <p>Read a csv file from two alternative paths, trying the first one first, and
+the alternative one second. This is useful in rmarkdown files as the working
+directory changes during knitting.</p>
     
 
-    <pre class="usage"><span class='fu'>overlay.growthbinmodel</span>(<span class='no'>fit</span>, <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>regclr</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
-  <span class='kw'>modelclr</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>graphdiv</span> <span class='kw'>=</span> <span class='fl'>15</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>newgraph</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>export</span> <span class='kw'>=</span> <span class='no'>pdf</span>, <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='st'>"growth/linearbin.overlay.pdf"</span>, <span class='kw'>h</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>10</span>)</pre>
+    <pre class="usage"><span class='fu'>read_csv_alt</span>(<span class='no'>file</span>, <span class='no'>alt</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fit</th>
-      <td><p>A fitted model.</p></td>
+      <th>file</th>
+      <td><p>Either a path to a file, a connection, or literal data (either a
+single string or a raw vector).</p></td>
     </tr>
     <tr>
-      <th>add</th>
-      <td><p>Logical. Whether to add elements such as points or line to an
-existing graph. if TRUE, there must be an appropriate existing graph,
-otherwise, a new graph is drawn.</p></td>
+      <th>alt</th>
+      <td><p>Alternative file.</p></td>
     </tr>
     <tr>
-      <th>newgraph</th>
-      <td><p>if FALSE, just graph to the screen and export is ignored; use
-TRUE to create a new plot window or export to a file.</p></td>
-    </tr>
-    <tr>
-      <th>outfile</th>
-      <td><p>Filename for output.</p></td>
-    </tr>
-    <tr>
-      <th>h, w</th>
-      <td><p>A number giving the height and width.</p></td>
+      <th>...</th>
+      <td><p>Arguments passed to <code><a href='http://www.rdocumentation.org/packages/readr/topics/read_delim'>readr::read_csv()</a></code>.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A data frame.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='http://www.rdocumentation.org/packages/readr/topics/read_delim'>readr::read_csv()</a></code>.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Not run: read_csv_alt("myfile.csv", "./data-raw/myfile.csv")</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
