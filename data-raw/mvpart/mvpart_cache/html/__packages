@@ -2,3 +2,9 @@ base
 dplyr
 mvpart
 forestr
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
