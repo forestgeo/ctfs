@@ -3,8 +3,7 @@ title: "Testing mvpart"
 output: 
   rmarkdown::html_document:
     toc: true
-    toc_depth: 4
-    toc_float: true
+    toc_depth: 6
 date: '`r Sys.Date()`'
 ---
 
@@ -12,7 +11,6 @@ date: '`r Sys.Date()`'
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  cache = TRUE,
   echo = TRUE
 )
 ```
@@ -84,7 +82,7 @@ In this section, we first explore one result in detail; then we'll re-run the ex
 
 ## Build and run the model
 
-```{r, fig.height=14, fig.width=12}
+```{r mvpart-run1, fig.height=14, fig.width=12}
 abundance <- data.matrix(KC3spp20)
 environmental_variables <- kc.hab
 
@@ -149,117 +147,75 @@ all.equal(mvpart_run1, mvpart_run3)
 all.equal(mvpart_run2, mvpart_run3)
 ```
 
-## To follow up
+## `mvpart()` fails with scaled abundance data
 
 ```
 The clustering actually is weird. It groups the top of the hill and the bottom
 of the hill (red and green on the map) together in the second split. The
 species are really different between these habitats, which suggests there is
-an error.  It looks like the analysis just grouped on soils, and did not
-consider species data.
-```
+an error.
 
-```{r note-0153, eval=FALSE, include=FALSE}
-# Davies, Stuart J. <DaviesS@si.edu> wrote:
-# 
-# I was just reading through some of the results and the paper on the technique.
-# 
-# ...
-# 
-# What did your command below do to the species data? KC3spp20 was already a
-# matrix (of species * quadrat).
-# 
-# abundance <- data.matrix(KC3spp20)
-# 
-# what happens if you just run it a raw data? 
-```
-
-```
 The classification tree seems to be entirely driven by the soils, and the
-species don’t carry much weight. Perhaps standardizing the abundances would help?
+species don’t carry much weight.
+
+I wonder if the results would differ after scaling the species data (scale function in base package).
 ```
 
-```{r note-0179, eval=FALSE, include=FALSE}
-# Davies, Stuart J. <DaviesS@si.edu>
-
-# The classification tree seems to be entirely driven by the soils, and the
-# species don’t carry much weight. Perhaps standardizing the abundances or
-# something would help? My map of the 8 clusters is fine. It represents
-# distinctly different habitats. But, the order of classification in the tree is
-# weird.
-
-# Any idea what determines the number of clusters?  Why 8?
-```
-
-
-
-
-
-
-- Are soils values much different than values of other environmental variables?
-
-```{r}
-kc.hab %>% 
-  tidyr::gather(var, value) %>% 
-  ggplot() + 
-    geom_boxplot(aes(x = var, y = log(value))) +
-    coord_flip()
-```
-
-```
-I wonder if the results would differ after scaling the species data (“scale” function in base package). The data we used were just raw data.
-```
-
-> These are data for each tree species normalized to a mean of 0 and standard    deviation of 1, which creates a cleaner output for interpretation
+> These are data for each tree species __normalized to a mean of 0 and standard    deviation of 1__, which creates a cleaner output for interpretation
 
 --https://goo.gl/zDLdMi
 
+```{r}
+# Standarize
 
-> The value of scale determines how column scaling is performed (after 
-centering). If scale is a numeric vector with length equal to the number of 
-columns of x, then each column of x is divided by the corresponding value from 
-scale. If scale is TRUE then scaling is done by dividing the (centered) columns 
-of x by their standard deviations if center is TRUE, and the root mean square 
-otherwise. If scale is FALSE, no scaling is done.
+abundance <- data.matrix(KC3spp20)
+abund_scaled <- scale(abundance)
 
-
-```{r, fig.height=14, fig.width=12}
-abund_scaled <- KC3spp20 %>% data.matrix() %>% scale()
-environmental_variables <- kc.hab
-
-formula <- abund_scaled ~ RB_NO3 + RB_NH4 + RB_PO4 + Al + pH_water + Na + Mn + 
-  Mg + K + Fe + Ca + BS + ECEC + Bray_P + meanelev + convex + slope
-
-set.seed(1221)
-mvpart_run1 <- mvpart(form = formula, data = environmental_variables)
+# Ad-hoc function to check that all columns have mean = 0 and sd = 1
+are_all_columns_near <- function(.data, .near, .f) {
+  # Arguments:
+  #   .data: Dataframe or matrix.
+  #   .near: Scalar.
+  #   .f: Summary function such as mean and sd to apply to all columns of data.
+  # Value:
+  #   Returns TRUE if all columns are near .near; FALSE otherwise.
+  .data %>% 
+    as_tibble() %>%
+    summarise_all(.f) %>% 
+    purrr::map(dplyr::near, .near) %>%
+    as.logical() %>% 
+    all()
+}
+abundance %>% are_all_columns_near(0, mean)
+abund_scaled %>% are_all_columns_near(0, mean)
+abundance %>% are_all_columns_near(1, sd)
+abund_scaled %>% are_all_columns_near(1, sd)
 ```
 
+```{r, error=TRUE}
+# Re-run analysis that resulted in mvpart_run1
 
+formula_scaled <- abund_scaled ~ RB_NO3 + RB_NH4 + RB_PO4 + Al + pH_water +
+  Na + Mn + Mg + K + Fe + Ca + BS + ECEC + Bray_P + meanelev + convex + slope
 
+set.seed(1221) # same seed as for mvpart_run1
 
-- Why is this approach useful compared to other approaches (e.g. implemented in vegan)?
+# This one fails
+mvpart_run1_scaled <- mvpart(
+  form = formula_scaled, 
+  data = environmental_variables,
+  all.leaves = TRUE,  # annotate all nodes
+  rsq = TRUE,  # give "rsq" plot
+  pca = TRUE,  # plot PCA of group means and add species and site information
+  wgt.ave.pca = TRUE  # plot weighted averages acorss sites for species
+)
+```
 
-- Map with ggplot2
+The scaled data fails. Repeating mvpart_run1 to check it runs again:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```{r, fig.height=14, fig.width=12}
+<<mvpart-run1>>
+```
 
 
 
