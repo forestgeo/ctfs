@@ -221,6 +221,51 @@ The scaled data fails. Repeating mvpart_run1 to check it runs again:
 
 # Miscelaneas
 
+## Example: Path from root to leaf node in mvpart
+
+> I was recently asked by a R user about how one could extract the “rule” in a
+  classification/regression tree. The requirement was to obtain the path traced
+  from the root node to the leaf nodes and obtain all the paths or “rules”
+
+> path.rpart() function in the mvpart package provides this convenience
+
+--https://goo.gl/DgTNFE
+
+```{r, error=TRUE}
+library(mvpart)
+
+# Create a classification tree
+ozone <- mvpart(Ozone ~ ., data = airquality)
+print(ozone) # Gives you the various splits in the tree
+
+# Issue the two commands below to see the graphical representation
+plot(ozone)
+text(ozone)
+
+# To obtain the summary of the created tree
+summary(ozone)
+
+# To obtain the path to the leaf nodes
+ozone$frame
+leafnodeRows <- grepl("leaf", ozone$frame$var)
+nodevals <- as.numeric(rownames(ozone$frame)[leafnodeRows])
+rules <- path.rpart(ozone, nodevals)
+
+rulesdf <- do.call(
+  "rbind", 
+  lapply(rules, function(x) paste(x, collapse = " -AND- "))
+)
+rulesdf <- data.frame(
+  nodeNumber = rownames(rulesdf), 
+  rule = rulesdf[, 1], 
+  stringsAsFactors = FALSE
+)
+rulesdf
+```
+
+
+
+
 ## Package __rpart__ does not handle multi variate data
 
 The __rpart__ package seems like a good alternative because `?mvpart::mvpart()` says it's a wrapper of `rpart()`. However, `mvpart::rpart()` works with multivariate data, but `rpart::rpart()` does not. 
