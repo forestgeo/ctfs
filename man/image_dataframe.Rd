@@ -36,7 +36,7 @@ include X11, quartz, win.graph, win.metafile, png, bmp, jpeg, pdf (not
 quoted!)}
 
 \item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
-TRUE to create a new plot window or export to a file}
+TRUE to create a new plot window or export to a file.}
 
 \item{h}{height and width of graph window in units which depend on the
 export device chosen (some are pixels, some are inches); ignored if

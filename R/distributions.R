@@ -82,12 +82,14 @@
 #'
 'dgammaPlusdexp'
 
-#' Probability distribution of gamma, parameterized with mean and sd i...
+#' Probability distribution of gamma, parameterized with mean and sd.
 #'
 #' @description
+#' Probability distribution of gamma, parameterized with mean and sd instead of
+#' shape and scale.
 #'
-#' Probability distribution of gamma, parameterized with mean and sd instead of shape and scale.
-#'
+#' @param mean Mean.
+#' @param sd sd.
 #'
 'dgamma.meansd'
 
@@ -301,36 +303,43 @@
 #'
 'bad.paretopar'
 
-#' A function which returns the product of 2 normal distributions, the...
-#'
+#' Product of 2 normal distributions, the first at x and the second at lag-x.
+#' 
 #' @description
-#'
 #' A function which returns the product of 2 normal distributions, the first
 #' at x (a vector), the second at lag-x (lag is a scalar). The mean and SD 
 #' of the second normal are linear functions of x, with meanint being the
 #' intercept, meanslope the slope, and CV the coefficient of variation.  
-#'
+#' 
 #' A convolution!
-#'
+#' 
+#' @param x A normal distribution.
+#' @template mean1_sd1
+#' @param meanslope The slope
+#' @param CV The coefficient of variation.
 #'
 'normalproduct'
 
-#' This reparameterizes the beta distribution as a function of its mea...
+#' Reparameterize beta distribution as a function of its mean and sd.
 #'
 #' @description
-#'
-#' This reparameterizes the beta distribution as a function of its mean and
-#' standard deviation. The mean must be between 0 and 1, and sd>0.
-#'
+#' This reparameterizes the beta distribution as a function of its mean and 
+#' standard deviation. 
+#' 
+#' @section Arguments details:
+#' The mean must be between 0 and 1, and sd>0.
+#' 
+#' @param mean Mean.
+#' @param sd sd.
 #'
 'dbeta.reparam'
 
 #' This is equivalent to the normal product above.betaproduct beta.nor...
 #'
 #' @description
-#'
 #' This is equivalent to the normal product above.
 #'
+#' @inheritParams normalproduct
 #'
 'betaproduct'
 
@@ -512,13 +521,14 @@
 #'
 'mvrnormRC'
 
-#' Mixed normal distribution. The parameter f is the probability  of f...
+#' Mixed normal distribution.
 #'
 #' @description
+#' Mixed normal distribution. The parameter f is the probability of following
+#' the first, with mean1 and sd1; 1-f is the probability for the second normal
 #'
-#' Mixed normal distribution. The parameter f is the probability 
-#' of following the first, with mean1 and sd1; 1-f is the probability
-#' for the second normal
+#' @template mean1_sd1
+#' @param x A distribution.
 #'
 #'
 'dmixnorm'
@@ -529,6 +539,8 @@
 #' Random draw on the mixed normal distribution.
 #'
 #' @template n_pass_runif
+#' @template mean1_sd1
+#' @param x A distribution.
 #'
 'rmixnorm'
 

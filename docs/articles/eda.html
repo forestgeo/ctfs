@@ -60,7 +60,7 @@
       <h1>Exploratory Data Analysis</h1>
                         <h4 class="author">Mauro Lepore</h4>
             
-            <h4 class="date">2017-06-16</h4>
+            <h4 class="date">2017-06-23</h4>
           </div>
 
     
@@ -73,14 +73,12 @@
 <div id="prerequisites" class="section level2">
 <h2 class="hasAnchor">
 <a href="#prerequisites" class="anchor"></a>Prerequisites</h2>
-<p>The data we will use comes from Barro Colorado Island. It is available at DOI: <a href="https://doi.org/10.5479/data.bci.20130603" class="uri">https://doi.org/10.5479/data.bci.20130603</a> and via the <strong>bci</strong> data package.</p>
+<p>The data we will use comes from Barro Colorado Island. It is available at DOI: <a href="https://doi.org/10.5479/data.bci.20130603" class="uri">https://doi.org/10.5479/data.bci.20130603</a> and via the <strong><a href="https://forestgeo.github.io/bci/">bci</a></strong> data package.</p>
 <p>Some functions we will use are available in the <strong><a href="https://forestgeo.github.io/forestr/">forestr</a></strong> package, and many are available in the <strong>tidyverse</strong> package (which includes, for example, the packages <strong><a href="http://dplyr.tidyverse.org/">dplyr</a></strong> and <strong><a href="http://ggplot2.tidyverse.org/">ggplot2</a></strong>). If you are new to the <strong>tidyversre</strong>, you may feel a little frustrated at the begining. But quickly your effort will pay-off. The tools in the <strong>tidyverse</strong> are powerful, realatively easy to use and consistent; so once you learn some, you will learn most other tools intuitively.</p>
 <p>To more compleately learan how to do data science with the <strong>tidyverse</strong> read <a href="http://r4ds.had.co.nz/">R for Data Science</a>, by Garrett Grolemund and Hadley Wickham.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To install packages see ?install.packages and ?devtools::install_github</span>
-
 <span class="co"># Data</span>
 <span class="kw">library</span>(bci)  <span class="co"># to access data from BCI</span>
-
 <span class="co"># Functions</span>
 <span class="kw">library</span>(forestr)  <span class="co"># to analyse forest dynamics</span>
 <span class="kw">library</span>(tidyverse)  <span class="co"># to visualize and transform data, and much more</span>
@@ -94,6 +92,40 @@
 <span class="co">#&gt; filter(): dplyr, stats</span>
 <span class="co">#&gt; lag():    dplyr, stats</span>
 <span class="co">#&gt; map():    purrr, forestr</span></code></pre></div>
+</div>
+<div id="style" class="section level2">
+<h2 class="hasAnchor">
+<a href="#style" class="anchor"></a>Style</h2>
+<div id="being-explicit-about-what-package-a-function-comes-from" class="section level3">
+<h3 class="hasAnchor">
+<a href="#being-explicit-about-what-package-a-function-comes-from" class="anchor"></a>Being explicit about what package a function comes from</h3>
+<p>Frequently I refer to functions from a particular package as <code>package::fun()</code> (e.g. the first time I use a function). Althought the prefix <code>package::</code> is unnecesary if the package has previously been loaded with <code>library(package)</code>, I will often keep that prefix to be explicit about where the function comes from. This should help you to find the function if you ever want to use it again.</p>
+</div>
+<div id="the-tidyverse-style-guide" class="section level3">
+<h3 class="hasAnchor">
+<a href="#the-tidyverse-style-guide" class="anchor"></a>The tidyverse style guide</h3>
+<p>I use <a href="http://style.tidyverse.org/">The tidyverse style guide</a>.</p>
+<blockquote>
+<p>Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread.</p>
+</blockquote>
+<p>–Hadley Wickham, <a href="http://style.tidyverse.org/index.html">The tidyverse style guide</a>.</p>
+</div>
+<div id="combining-multiple-operations-with-the-pipe" class="section level3">
+<h3 class="hasAnchor">
+<a href="#combining-multiple-operations-with-the-pipe" class="anchor"></a>Combining multiple operations with the pipe <code>%&gt;%</code>
+</h3>
+<p>Often I combine multiple operations with the pipe <code>%&gt;%</code> because it makes the code considerably more readable.</p>
+<blockquote>
+<p>[The pipe] focuses on the transformations, not what’s being transformed, which makes the code easier to read. You can read it as a series of imperative statements: group, then summarise, then filter. As suggested by this reading, a good way to pronounce <code>%&gt;%</code> when reading code is “then”.</p>
+</blockquote>
+<blockquote>
+<p>Behind the scenes, <code>x %&gt;% f(y)</code> turns into <code>f(x, y)</code>, and <code>x %&gt;% f(y) %&gt;% g(z)</code> turns into <code>g(f(x, y), z)</code> and so on. You can use the pipe to rewrite multiple operations in a way that you can read left-to-right, top-to-bottom.</p>
+</blockquote>
+<blockquote>
+<p>Working with the pipe is one of the key criteria for belonging to the tidyverse. The only exception is ggplot2: it was written before the pipe was discovered.</p>
+</blockquote>
+<p>–<a href="http://r4ds.had.co.nz/transform.html">Combining multiple operations with the pipe</a></p>
+</div>
 </div>
 <div id="definitions" class="section level2">
 <h2 class="hasAnchor">
@@ -121,7 +153,7 @@
 <p>What type of variation occurs within my variables?</p>
 </blockquote>
 <blockquote>
-<p>What type of covariation occurs between my variables?</p>
+<p>What type of covariation occurs between my variables? [^2</p>
 </blockquote>
 </div>
 <div id="variation" class="section level1">
@@ -131,11 +163,32 @@
 <p><strong>Variation</strong> is the tendency of the values of a variable to change from measurement to measurement.</p>
 </blockquote>
 <p>Every variable varies with a particular pattern, and that pattern may be insightful. To understand the variation pattern of a variable we can visualize the distribution of the variables’ values. The best way to visualize a variable’s distribution depends on whether the variable is categorical or continuous.</p>
-<p>The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings or factors, for example, most variables of type <chr> (character) and <dbl> below.</dbl></chr></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data from Barro Colorado Island, released in 2012, FullViewTable census 7</span>
-<span class="co"># tibbles print faster and nicer than dataframes, but read "Interacting with </span>
-<span class="co"># legacy code" at https://goo.gl/CJ5jLs.</span>
-bci12full7 &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(bci12full7)  
+<p>The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings (<chr>) or factors (fctr), and continuous variables are stored as integers (<int>) or doubles (<dbl>).</dbl></int></chr></p>
+<p>These are the first few rows of the data FullViewTable census 7 from Barro Colorado Island, released in 2012:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bci::bci12full7)
+<span class="co">#&gt;   treeID stemID    tag StemTag     sp quadrat    gx    gy MeasureID</span>
+<span class="co">#&gt; 1      1     NA -05599    &lt;NA&gt; swars1    4007 800.2 152.2        NA</span>
+<span class="co">#&gt; 2      2     NA -22851    &lt;NA&gt; hybapr    0718 151.5 378.8        NA</span>
+<span class="co">#&gt; 3      3     NA -24362    &lt;NA&gt; aegipa    0417  95.2 357.5        NA</span>
+<span class="co">#&gt; 4      4     NA -26589    &lt;NA&gt; beilpe    0007  11.7 151.1        NA</span>
+<span class="co">#&gt; 5      5     NA -26590    &lt;NA&gt; faraoc    0004   7.7  96.2        NA</span>
+<span class="co">#&gt; 6      6     NA -26703    &lt;NA&gt; hybapr    0210  50.1 215.4        NA</span>
+<span class="co">#&gt;   CensusID dbh  pom hom ExactDate DFstatus codes nostems     date status</span>
+<span class="co">#&gt; 1       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18465.07      D</span>
+<span class="co">#&gt; 2       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18329.00      D</span>
+<span class="co">#&gt; 3       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18316.05      D</span>
+<span class="co">#&gt; 4       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18295.61      D</span>
+<span class="co">#&gt; 5       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18288.57      D</span>
+<span class="co">#&gt; 6       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18300.45      D</span>
+<span class="co">#&gt;   agb</span>
+<span class="co">#&gt; 1   0</span>
+<span class="co">#&gt; 2   0</span>
+<span class="co">#&gt; 3   0</span>
+<span class="co">#&gt; 4   0</span>
+<span class="co">#&gt; 5   0</span>
+<span class="co">#&gt; 6   0</span></code></pre></div>
+<p>If you want to handle the data faster and print it nicer, convert dataframes to tibbles:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci12full7 &lt;-<span class="st"> </span>tibble::<span class="kw">as_tibble</span>(bci12full7)  
 bci12full7
 <span class="co">#&gt; # A tibble: 394,658 x 20</span>
 <span class="co">#&gt;    treeID stemID    tag StemTag     sp quadrat    gx    gy MeasureID</span>
@@ -153,11 +206,16 @@ bci12full7
 <span class="co">#&gt; # ... with 394,648 more rows, and 11 more variables: CensusID &lt;int&gt;,</span>
 <span class="co">#&gt; #   dbh &lt;dbl&gt;, pom &lt;chr&gt;, hom &lt;dbl&gt;, ExactDate &lt;chr&gt;, DFstatus &lt;chr&gt;,</span>
 <span class="co">#&gt; #   codes &lt;chr&gt;, nostems &lt;dbl&gt;, date &lt;dbl&gt;, status &lt;chr&gt;, agb &lt;dbl&gt;</span></code></pre></div>
-<p>For alternative views try:</p>
+<p>NOTES:</p>
+<ol style="list-style-type: decimal">
+<li>If you ever want to print more rows than tibble’s default use: print(your_tibble, n = rows_n)</li>
+<li>If when you use tibbles with forestr functions you get this error message: “Can’t use matrix or array for column indexing”, please read “Interacting with legacy code” at <a href="https://goo.gl/CJ5jLs" class="uri">https://goo.gl/CJ5jLs</a>.</li>
+<li>For alternative views try:</li>
+</ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.data.frame</span>(bci12full7)  <span class="co"># takes long and doesn't print nicely</span>
 <span class="kw">View</span>(bci12full7)  <span class="co"># prints to a viewer panel</span>
 <span class="kw">str</span>(bci12full7)  <span class="co"># informative and prints nice</span>
-<span class="kw">glimpse</span>(bci12full7)  <span class="co"># like str() but shows as much data as possible</span></code></pre></div>
+dplyr::<span class="kw">glimpse</span>(bci12full7)  <span class="co"># like str() but shows as much data as possible</span></code></pre></div>
 <div id="visualizing-distributions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#visualizing-distributions" class="anchor"></a>Visualizing Distributions</h2>
@@ -171,21 +229,25 @@ bci12full7
 <p>To examine the distribution of a categorical variable, use a bar chart.</p>
 </blockquote>
 <p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(bci12full7) +
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> DFstatus))</code></pre></div>
+<p>Let’s use a bar chart to explore the variable <code>status</code>, which represents the status of the tree or stem (see description of <code>ViewFullTable</code> variables at the <a href="https://goo.gl/wGKEE3">data dictionary</a>). Possible values are: alive (tree or stem is alive), dead (tree is dead), lost_stem (stem is dead, not found, or broken, etc. but other stems of the tree are still alive), or missing (tree or stem was not found, so measurement is unknown).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ggplot2::<span class="kw">ggplot</span>(<span class="dt">data =</span> bci12full7) +
+<span class="st">  </span>ggplot2::<span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> status))</code></pre></div>
 <div class="figure">
-<img src="eda_files/figure-html/unnamed-chunk-2-1.png" alt="Values distribution of the categorical variable `status`" width="672"><p class="caption">
+<img src="eda_files/figure-html/viz-categorical-bar-1.png" alt="Values distribution of the categorical variable `status`" width="672"><p class="caption">
 Values distribution of the categorical variable <code>status</code>
 </p>
 </div>
-<p>You can compute the same count manually with <code>dplyr::count()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">count</span>(bci12full7, DFstatus)
-<span class="co">#&gt; # A tibble: 3 x 2</span>
-<span class="co">#&gt;    DFstatus      n</span>
-<span class="co">#&gt;       &lt;chr&gt;  &lt;int&gt;</span>
-<span class="co">#&gt; 1     alive 221758</span>
-<span class="co">#&gt; 2      dead 172848</span>
-<span class="co">#&gt; 3 no_record     52</span></code></pre></div>
+<p>Although the <a href="https://goo.gl/wGKEE3">data dictionary</a> does not explicitely refer to <code>A</code>, <code>D</code> and <code>M</code>, you likely know or guess that they mean alive, dead and misisng. To confirm this, let’s first count the the number of unique values of the variables <code>status</code> and <code>DFstatus</code> (<code>DFstatus</code> is not decribed in the <a href="https://goo.gl/wGKEE3">data dictionary</a>), then joining both counts by the shared variable <code>n</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count_status &lt;-<span class="st"> </span>dplyr::<span class="kw">count</span>(bci12full7, status)
+count_DFstatus &lt;-<span class="st"> </span>dplyr::<span class="kw">count</span>(bci12full7, DFstatus)
+dplyr::<span class="kw">full_join</span>(count_status, count_DFstatus)
+<span class="co">#&gt; Joining, by = "n"</span>
+<span class="co">#&gt; # A tibble: 3 x 3</span>
+<span class="co">#&gt;   status      n  DFstatus</span>
+<span class="co">#&gt;    &lt;chr&gt;  &lt;int&gt;     &lt;chr&gt;</span>
+<span class="co">#&gt; 1      A 221758     alive</span>
+<span class="co">#&gt; 2      D 172848      dead</span>
+<span class="co">#&gt; 3      M     52 no_record</span></code></pre></div>
 </div>
 <div id="continuous-variables" class="section level3">
 <h3 class="hasAnchor">
@@ -196,50 +258,46 @@ Values distribution of the categorical variable <code>status</code>
 <blockquote>
 <p>To examine the distribution of a continuous variable use a histogram.</p>
 </blockquote>
-<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
-<pre><code>Here, replace this example with data of class date by an example with data of class double, e.g. the variable dbh. </code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">barwidth &lt;-<span class="st"> </span><span class="dv">10</span>  <span class="co"># set once, then use multiple times</span>
-
-<span class="kw">ggplot</span>(bci12full7) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> date), <span class="dt">binwidth =</span> barwidth)
-<span class="co">#&gt; Warning: Removed 52 rows containing non-finite values (stat_bin).</span></code></pre></div>
-<p><img src="eda_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
-<p>You can compute the same count manually, by cutting the variable with <code>ggplot2::cut_width()</code> and then counting the unique pieces with <code>dplyr::count()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci12full7 %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">cut_width</span>(date, <span class="dt">width =</span> barwidth)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">count</span>(date) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">tail</span>()
-<span class="co">#&gt; # A tibble: 6 x 2</span>
-<span class="co">#&gt;            date     n</span>
-<span class="co">#&gt;          &lt;fctr&gt; &lt;int&gt;</span>
-<span class="co">#&gt; 1 (18505,18515] 15737</span>
-<span class="co">#&gt; 2 (18515,18525]  7684</span>
-<span class="co">#&gt; 3 (18525,18535]  3205</span>
-<span class="co">#&gt; 4 (18655,18665]    22</span>
-<span class="co">#&gt; 5 (18705,18715]    11</span>
-<span class="co">#&gt; 6            NA    52</span></code></pre></div>
-<p>The 52 <code>NA</code> indicate dates where no trees where recorded (notice <code>DF status</code> = <code>"no_record"</code> on the bar chart above). The same we see from a histogram with narrower bars.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(bci12full7) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> date), <span class="dt">binwidth =</span> <span class="dv">1</span>)
-<span class="co">#&gt; Warning: Removed 52 rows containing non-finite values (stat_bin).</span></code></pre></div>
-<p><img src="eda_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
 <blockquote>
 <p>You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.</p>
 </blockquote>
-<p>To overlay multiple histograms in the same plot, <code>geom_freqpoly()</code> may produce clearer plots than <code>geom_histogram()</code> because it is easier to understand overlying lines than bars:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(bci12full7) +
-<span class="st">  </span><span class="kw">geom_freqpoly</span>(<span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">color =</span> DFstatus), <span class="dt">binwidth =</span> barwidth)
-<span class="co">#&gt; Warning: Removed 52 rows containing non-finite values (stat_bin).</span></code></pre></div>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>Let’s use a histogram to explore the variable <code>dbh</code>, which represents the stem diameter, usually at breast height (see description of <code>ViewFullTable</code> variables at the <a href="https://goo.gl/wGKEE3">data dictionary</a>).</p>
+<p>In this section we will focus on small trees; big trees will be explored later. And we will try bars of different widths and choose one for further analyses.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">small_dbh &lt;-<span class="st"> </span>dplyr::<span class="kw">filter</span>(bci12full7, dbh &lt;<span class="st"> </span><span class="dv">500</span>)
+gg_small_dbh &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> small_dbh, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dbh))
+gg_small_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre></div>
+<p><img src="eda_files/figure-html/viz-continuous-hist-1.png" width="672"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gg_small_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(dbh), <span class="dt">binwidth =</span> <span class="dv">30</span>)</code></pre></div>
+<p><img src="eda_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gg_small_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(dbh), <span class="dt">binwidth =</span> <span class="dv">60</span>)</code></pre></div>
+<p><img src="eda_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
+<p>A bar width of 30 <code>dbh</code> seems useful.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">useful_barwidth &lt;-<span class="st"> </span><span class="dv">30</span></code></pre></div>
+<p>To overlay multiple histograms in the same plot, <code>geom_freqpoly()</code> may produce clearer plots than <code>geom_histogram()</code> because it is easier to understand overlying lines than bars.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make n groups with ~ numbers of observations with `ggplot2::cut_number()`</span>
+small_cut_num &lt;-<span class="st"> </span><span class="kw">mutate</span>(small_dbh, <span class="dt">equal_n =</span> <span class="kw">cut_number</span>(dbh, <span class="dt">n =</span> <span class="dv">5</span>))
+
+<span class="co"># Now, compare the next two plots:</span>
+<span class="kw">ggplot</span>(small_cut_num) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(dbh, <span class="dt">color =</span> equal_n))
+<span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></code></pre></div>
 <div class="figure">
-<img src="eda_files/figure-html/unnamed-chunk-8-1.png" alt="Lines overlaid are easier to understand than bars." width="672"><p class="caption">
-Lines overlaid are easier to understand than bars.
+<img src="eda_files/figure-html/hist-vs-freqpoly-compare-1.png" alt="For multiple histograms, lines are easier to understand than bars." width="672"><p class="caption">
+For multiple histograms, lines are easier to understand than bars.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(small_cut_num) +<span class="st"> </span><span class="kw">geom_freqpoly</span>(<span class="kw">aes</span>(dbh, <span class="dt">color =</span> equal_n))
+<span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></code></pre></div>
+<div class="figure">
+<img src="eda_files/figure-html/hist-vs-freqpoly-compare-2.png" alt="For multiple histograms, lines are easier to understand than bars." width="672"><p class="caption">
+For multiple histograms, lines are easier to understand than bars.
 </p>
 </div>
 </div>
-<div id="typical-values" class="section level3">
+<div id="typical-and-rare-values" class="section level3">
 <h3 class="hasAnchor">
-<a href="#typical-values" class="anchor"></a>Typical Values</h3>
-<p>In both bar charts and histograms, tall and short bars let us explore common and less-common values. Now we can ask:</p>
+<a href="#typical-and-rare-values" class="anchor"></a>Typical and rare Values</h3>
+<p>In both bar charts and histograms, tall and short bars let us explore common and less-common values. For example, we could ask:</p>
 <blockquote>
 <ul>
 <li>Which values are the most common? Why?</li>
@@ -256,121 +314,144 @@ Lines overlaid are easier to understand than bars.
 </ul>
 </blockquote>
 <p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(bci12full7) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> dbh), <span class="dt">binwidth =</span> <span class="dv">50</span>)
-<span class="co">#&gt; Warning: Removed 187399 rows containing non-finite values (stat_bin).</span></code></pre></div>
-<p><img src="eda_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
-<p>xxxcont.</p>
+<p>The later two plots give a good estimate of what tree diameters are most common. You can compute the same count manually, by cutting the variable with <code>ggplot2::cut_width()</code> and then counting the unique pieces with <code>dplyr::count()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">small_cut_width &lt;-<span class="st"> </span>dplyr::<span class="kw">mutate</span>(
+  small_dbh,
+  <span class="dt">dbh_cut =</span> ggplot2::<span class="kw">cut_width</span>(dbh, <span class="dt">width =</span> useful_barwidth)
+)
+small_cut_width %&gt;%<span class="st"> </span>dplyr::<span class="kw">count</span>(dbh_cut, <span class="dt">sort =</span> <span class="ot">TRUE</span>)
+<span class="co">#&gt; # A tibble: 18 x 2</span>
+<span class="co">#&gt;      dbh_cut      n</span>
+<span class="co">#&gt;       &lt;fctr&gt;  &lt;int&gt;</span>
+<span class="co">#&gt;  1   (15,45] 106249</span>
+<span class="co">#&gt;  2  [-15,15]  46024</span>
+<span class="co">#&gt;  3   (45,75]  25191</span>
+<span class="co">#&gt;  4  (75,105]  10867</span>
+<span class="co">#&gt;  5 (105,135]   5998</span>
+<span class="co">#&gt;  6 (135,165]   3173</span>
+<span class="co">#&gt;  7 (165,195]   1952</span>
+<span class="co">#&gt;  8 (195,225]   1459</span>
+<span class="co">#&gt;  9 (225,255]   1089</span>
+<span class="co">#&gt; 10 (255,285]    887</span>
+<span class="co">#&gt; 11 (285,315]    702</span>
+<span class="co">#&gt; 12 (315,345]    570</span>
+<span class="co">#&gt; 13 (345,375]    484</span>
+<span class="co">#&gt; 14 (375,405]    410</span>
+<span class="co">#&gt; 15 (405,435]    315</span>
+<span class="co">#&gt; 16 (435,465]    248</span>
+<span class="co">#&gt; 17 (465,495]    248</span>
+<span class="co">#&gt; 18 (495,525]     22</span></code></pre></div>
+<p>Although the most common trees are those which diameter (<code>dbh</code>) is between 15 mm and 45 mm, smaller trees are generally more common than bigger trees, which we already learned from previous plots.</p>
+</div>
+<div id="clustered-values" class="section level3">
+<h3 class="hasAnchor">
+<a href="#clustered-values" class="anchor"></a>Clustered values</h3>
+<p>In this section we will focus on the largest trees; later we will explore all trees, including medium-size ones.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">largest_dbh &lt;-<span class="st"> </span>dplyr::<span class="kw">filter</span>(bci12full7, dbh &gt;<span class="st"> </span><span class="dv">2000</span>)</code></pre></div>
+<blockquote>
+<p>Clusters of similar values suggest that subgroups exist in your data. To understand the subgroups, ask:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>How are the observations within each cluster similar to each other?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>How are the observations in separate clusters different from each other?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>How can you explain or describe the clusters?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Why might the appearance of clusters be misleading?</li>
+</ul>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering dissapears with bars twice as wide.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gg_largest_dbh &lt;-<span class="st"> </span><span class="kw">ggplot</span>(largest_dbh, <span class="kw">aes</span>(dbh))
+gg_largest_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth)
+gg_largest_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth *<span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<p><img src="eda_files/figure-html/clustering-1.png" width="672"><img src="eda_files/figure-html/clustering-2.png" width="672"></p>
 </div>
 <div id="unusual-values" class="section level3">
 <h3 class="hasAnchor">
-<a href="#unusual-values" class="anchor"></a>Unusual Values</h3>
+<a href="#unusual-values" class="anchor"></a>Unusual values</h3>
+<p>In this section we will work with the entire bci12full7 dataset.</p>
+<blockquote>
+<p>Outliers are observations that are unusual; data points that don’t seem to fit the pattern. Sometimes outliers are data entry errors; other times outliers suggest important new science. When you have a lot of data, outliers are sometimes difficult to see in a histogram.</p>
+</blockquote>
+<blockquote>
+<p>For example, take the distribution of the <em>dbh</em> variable of the <em>bci12full7</em> dataset. The only evidence of outliers is the unusually wide limits on the x-axis (stress mine).</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci_hist &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bci12full7, <span class="kw">aes</span>(<span class="dt">x =</span> dbh)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth)
+bci_hist
+<span class="co">#&gt; Warning: Removed 187399 rows containing non-finite values (stat_bin).</span></code></pre></div>
+<p><img src="eda_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
+<blockquote>
+<p>There are so many observations in the common bins that the rare bins are so short that you can’t see them . To make it easy to see the unusual values, we need to zoom to small values of the y-axis with <code>coord_cartesian()</code>:</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci_hist +<span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))
+<span class="co">#&gt; Warning: Removed 187399 rows containing non-finite values (stat_bin).</span></code></pre></div>
+<p><img src="eda_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
+<blockquote>
+<p>(<code>coord_cartesian()</code> also has an <code>xlim()</code> argument for when you need to zoom into the x-axis. ggplot2 also has <code>xlim()</code> and <code>ylim()</code> functions that work slightly differently: they throw away the data outside the limits.)</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>This allows us to see that <code>dbh</code> values over 2000 are unusual. We pluck them out with <code>dplyr::filter()</code> and select a subset of informative variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">unusual_trees &lt;-<span class="st"> </span>bci12full7 %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(dbh &gt;<span class="st"> </span><span class="dv">2000</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(treeID, ExactDate, status, gx, gy, dbh) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(dbh)
+unusual_trees
+<span class="co">#&gt; # A tibble: 10 x 6</span>
+<span class="co">#&gt;    treeID  ExactDate status    gx    gy   dbh</span>
+<span class="co">#&gt;     &lt;int&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1    897 2011-03-28      A 883.6 197.7  2080</span>
+<span class="co">#&gt;  2   5169 2010-08-07      A 389.2 166.9  2085</span>
+<span class="co">#&gt;  3   3634 2010-08-23      A 577.4  22.1  2103</span>
+<span class="co">#&gt;  4   3608 2010-08-23      A 589.3  60.3  2172</span>
+<span class="co">#&gt;  5   2564 2010-08-30      A 716.4  27.2  2180</span>
+<span class="co">#&gt;  6   1160 2011-03-28      A 861.2  39.9  2200</span>
+<span class="co">#&gt;  7   5100 2010-08-30      A 387.9 404.1  2285</span>
+<span class="co">#&gt;  8   4142 2011-03-28      A 517.0 323.9  2300</span>
+<span class="co">#&gt;  9   1903 2010-09-10      A 780.4  45.4  2320</span>
+<span class="co">#&gt; 10   2935 2010-09-06      A 648.6  28.4  2477</span></code></pre></div>
+<p>We could ask where in the plot the unusual trees are located:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># For faster analysis and to avoid overplotting, choose only 100 trees at random</span>
+sample_100 &lt;-<span class="st"> </span>bci12full7 %&gt;%<span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">100</span>)
+
+unusual_tree_loc &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sample_100, <span class="kw">aes</span>(gx, gy)) +<span class="st"> </span>
+<span class="st">    </span><span class="co"># plot a few points for reference with only 1/10 opacity (less distracting)</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="dv">1</span>/<span class="dv">10</span>) +
+<span class="st">    </span><span class="co"># highlight location of unusual trees in the plot</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">data =</span> unusual_trees, <span class="dt">colour =</span> <span class="st">"red"</span>)</code></pre></div>
+<p>A number of the unusually large trees seem to be on the edge of the plot, where <code>gy</code> values are lower than 100. This information helps us to filter those edge trees selectively, and decide what to do with them.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edge_trees &lt;-<span class="st"> </span>unusual_trees %&gt;%<span class="st"> </span><span class="kw">filter</span>(gy &lt;<span class="st"> </span><span class="dv">100</span>)
+unusual_tree_loc +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(
+    <span class="dt">data =</span> edge_trees, 
+    <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">1</span>  <span class="co"># highlight edge trees with bigger and hollow points</span>
+  )</code></pre></div>
+<p><img src="eda_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
+<blockquote>
+<p>It’s good practice to repeat your analysis with and without the outliers. If they have minimal effect on the results, and you can’t figure out why they’re there, it’s reasonable to replace them with missing values, and move on. However, if they have a substantial effect on your results, you shouldn’t drop them without justification. You’ll need to figure out what caused them (e.g. a data entry error) and disclose that you removed them in your write-up.</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
 </div>
 </div>
 </div>
 <div id="missing-values" class="section level1">
 <h1 class="hasAnchor">
 <a href="#missing-values" class="anchor"></a>Missing Values</h1>
-</div>
-<div id="covariation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#covariation" class="anchor"></a>Covariation</h1>
-<div id="a-categorical-and-continuous-variable" class="section level2">
-<h2 class="hasAnchor">
-<a href="#a-categorical-and-continuous-variable" class="anchor"></a>A Categorical and Continuous Variable</h2>
-</div>
-<div id="two-categorical-variables" class="section level2">
-<h2 class="hasAnchor">
-<a href="#two-categorical-variables" class="anchor"></a>Two Categorical Variables</h2>
-</div>
-<div id="two-continuous-variables" class="section level2">
-<h2 class="hasAnchor">
-<a href="#two-continuous-variables" class="anchor"></a>Two Continuous Variables</h2>
-</div>
-</div>
-<div id="patterns-and-models" class="section level1">
-<h1 class="hasAnchor">
-<a href="#patterns-and-models" class="anchor"></a>Patterns and Models</h1>
-</div>
-<div id="to-consider" class="section level1">
-<h1 class="hasAnchor">
-<a href="#to-consider" class="anchor"></a>To consider</h1>
-<div id="working-with-dates" class="section level2">
-<h2 class="hasAnchor">
-<a href="#working-with-dates" class="anchor"></a>Working with Dates</h2>
-<p>The variable <code>date</code> is the number of days since 1960-01-01 (see data dictionary at <a href="https://goo.gl/Q6XYrb" class="uri">https://goo.gl/Q6XYrb</a>), but it will be easier to interpret if we convert it to a date-time object (see <code>?lubridate::as_datetime</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'lubridate'</span>
-<span class="co">#&gt; The following object is masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     date</span>
-
-<span class="co"># "Duration" is a useful intermediate; learn more with ?lubridate::duration</span>
-<span class="co"># %/%: integere diviison removes useless and annoying fraction of seconds.</span>
-bci12full7 &lt;-<span class="st"> </span><span class="kw">mutate</span>(bci12full7, <span class="dt">duration =</span> <span class="kw">dseconds</span>((date *<span class="st"> </span><span class="dv">24</span> *<span class="st"> </span><span class="dv">60</span> *<span class="st"> </span><span class="dv">60</span>) %/%<span class="st"> </span><span class="dv">1</span>))
-bci12full7 &lt;-<span class="st"> </span><span class="kw">mutate</span>(bci12full7, <span class="dt">datetime =</span> <span class="kw">as_datetime</span>(duration, <span class="dt">origin =</span> <span class="st">"1960-01-01"</span>))
-bci12full7 %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(date, datetime) %&gt;%
-<span class="st">  </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">20</span>)  <span class="co"># print some more rows than tibble's default</span>
-<span class="co">#&gt; # A tibble: 394,658 x 2</span>
-<span class="co">#&gt;        date            datetime</span>
-<span class="co">#&gt;       &lt;dbl&gt;              &lt;dttm&gt;</span>
-<span class="co">#&gt;  1 18465.07 2010-07-22 01:34:25</span>
-<span class="co">#&gt;  2 18329.00 2010-03-08 00:00:00</span>
-<span class="co">#&gt;  3 18316.05 2010-02-23 01:05:13</span>
-<span class="co">#&gt;  4 18295.61 2010-02-02 14:42:34</span>
-<span class="co">#&gt;  5 18288.57 2010-01-26 13:45:13</span>
-<span class="co">#&gt;  6 18300.45 2010-02-07 10:48:56</span>
-<span class="co">#&gt;  7 18319.00 2010-02-26 00:00:00</span>
-<span class="co">#&gt;  8 18305.93 2010-02-12 22:16:49</span>
-<span class="co">#&gt;  9 18292.02 2010-01-30 00:28:47</span>
-<span class="co">#&gt; 10       NA                  NA</span>
-<span class="co">#&gt; 11 18349.44 2010-03-28 10:27:05</span>
-<span class="co">#&gt; 12 18358.00 2010-04-06 00:00:00</span>
-<span class="co">#&gt; 13 18401.11 2010-05-19 02:32:24</span>
-<span class="co">#&gt; 14 18386.51 2010-05-04 12:19:06</span>
-<span class="co">#&gt; 15 18390.09 2010-05-08 02:13:00</span>
-<span class="co">#&gt; 16 18393.11 2010-05-11 02:36:49</span>
-<span class="co">#&gt; 17 18362.29 2010-04-10 07:01:07</span>
-<span class="co">#&gt; 18 18528.81 2010-09-23 19:25:19</span>
-<span class="co">#&gt; 19 18518.00 2010-09-13 00:00:00</span>
-<span class="co">#&gt; 20 18528.81 2010-09-23 19:25:19</span>
-<span class="co">#&gt; # ... with 3.946e+05 more rows</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci12full7$date &lt;-<span class="st"> </span>lubridate::<span class="kw">as_date</span>(bci12full7$date, <span class="dt">origin =</span> <span class="st">"1960-01-01"</span>)
-bci12full7 %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(date) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">glimpse</span>()
-<span class="co">#&gt; Observations: 394,658</span>
-<span class="co">#&gt; Variables: 1</span>
-<span class="co">#&gt; $ date &lt;date&gt; 2010-07-22, 2010-03-08, 2010-02-23, 2010-02-02, 2010-01-...</span></code></pre></div>
-</div>
-<div id="skimr" class="section level2">
-<h2 class="hasAnchor">
-<a href="#skimr" class="anchor"></a>skimr</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(skimr)  <span class="co"># xxx remove or declare in DESCRIPTION in Suggest:</span>
-<span class="kw">skim</span>(bci12full7) %&gt;%<span class="st"> </span><span class="kw">filter</span>(stat ==<span class="st"> "hist"</span>) %&gt;%<span class="st"> </span><span class="kw">as.matrix</span>()
-<span class="co">#&gt; Warning: Skim does not know how to summarize of vector of class: Duration.</span>
-<span class="co">#&gt; Coercing to numeric</span>
-<span class="co">#&gt;       var         type      stat   level        value</span>
-<span class="co">#&gt;  [1,] "treeID"    "integer" "hist" "&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2585&gt;" "0"  </span>
-<span class="co">#&gt;  [2,] "stemID"    "integer" "hist" "&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;" "0"  </span>
-<span class="co">#&gt;  [3,] "gx"        "numeric" "hist" "&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;" "0"  </span>
-<span class="co">#&gt;  [4,] "gy"        "numeric" "hist" "&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;" "0"  </span>
-<span class="co">#&gt;  [5,] "MeasureID" "integer" "hist" "&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;" "0"  </span>
-<span class="co">#&gt;  [6,] "CensusID"  "integer" "hist" "&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;" "0"  </span>
-<span class="co">#&gt;  [7,] "dbh"       "numeric" "hist" "&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;" "0"  </span>
-<span class="co">#&gt;  [8,] "hom"       "numeric" "hist" "&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;" "0"  </span>
-<span class="co">#&gt;  [9,] "nostems"   "numeric" "hist" "&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;" "0"  </span>
-<span class="co">#&gt; [10,] "agb"       "numeric" "hist" "&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;" "0"  </span>
-<span class="co">#&gt; [11,] "duration"  "numeric" "hist" "&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;" "0"</span></code></pre></div>
-<p>To do all of the above quickly, we can use package <strong>skimr</strong> (<a href="https://github.com/ropenscilabs/skimr" class="uri">https://github.com/ropenscilabs/skimr</a>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(skimr)
-smry &lt;-<span class="st"> </span><span class="kw">skim</span>(diamonds)
-smry %&gt;%<span class="st"> </span>
-<span class="st">  </span>dplyr::<span class="kw">filter</span>(stat ==<span class="st"> "hist"</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">as.matrix</span>()  <span class="co"># Only needed in Windows for histograms (https://goo.gl/S8MaZW)</span></code></pre></div>
-</div>
+<p>xxxcont. here, work in progress.</p>
 </div>
 </div>
   </div>
@@ -382,6 +463,7 @@ smry %&gt;%<span class="st"> </span>
 <li>
 <a href="#introduction">Introduction</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#style">Style</a></li>
       <li><a href="#definitions">Definitions</a></li>
       </ul>
 </li>
@@ -392,20 +474,6 @@ smry %&gt;%<span class="st"> </span>
       </ul>
 </li>
       <li><a href="#missing-values">Missing Values</a></li>
-      <li>
-<a href="#covariation">Covariation</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#a-categorical-and-continuous-variable">A Categorical and Continuous Variable</a></li>
-      <li><a href="#two-categorical-variables">Two Categorical Variables</a></li>
-      <li><a href="#two-continuous-variables">Two Continuous Variables</a></li>
-      </ul>
-</li>
-      <li><a href="#patterns-and-models">Patterns and Models</a></li>
-      <li>
-<a href="#to-consider">To consider</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#working-with-dates">Working with Dates</a></li>
-      <li><a href="#skimr">skimr</a></li>
-      </ul>
-</li>
       </ul>
 </div>
       </div>

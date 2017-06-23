@@ -31,6 +31,7 @@
 #' @template outfile
 #' @template export
 #' @template ht_wt
+#' @template plotside
 #' @param splitdatafile A full plot dataset in list format (see `?split_data`).
 #' @param species One or more species codes to be mapped.
 #' @param spplist A table with species codes and Latin names can be submitted as
@@ -64,7 +65,6 @@
 #' @param addlegend,legpos,legsize For the species name, whether to include, 
 #'   where to place, and font size. Try the defaults first before fiddling, or 
 #'   just set addlegend=FALSE to remove.
-#' @param plotside The vertical dimension (inches) of the map.
 #' @param labsize Size of axis labels.
 #' @param bty Type of box to appear around species name. The default, 'n', means
 #'   no box; set to 'o'to see the box.

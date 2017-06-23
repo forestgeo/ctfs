@@ -60,6 +60,9 @@ decreases in abundance to the screen}
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
 
+\item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
+TRUE to create a new plot window or export to a file.}
+
 \item{ax}{if FALSE, the axes are not added}
 
 \item{mortcorr}{whether to graph the correlation between mortality and

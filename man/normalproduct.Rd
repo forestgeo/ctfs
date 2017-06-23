@@ -2,9 +2,18 @@
 % Please edit documentation in R/distributions.R
 \name{normalproduct}
 \alias{normalproduct}
-\title{A function which returns the product of 2 normal distributions, the...}
+\title{Product of 2 normal distributions, the first at x and the second at lag-x.}
 \usage{
 normalproduct(x, lag, mean1, sd1, meanint, meanslope, CV)
+}
+\arguments{
+\item{x}{A normal distribution.}
+
+\item{mean1, sd1, }{The mean and sd of the first distribution.}
+
+\item{meanslope}{The slope}
+
+\item{CV}{The coefficient of variation.}
 }
 \description{
 A function which returns the product of 2 normal distributions, the first

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Mauro Lepore" />
+
+<meta name="date" content="2017-06-23" />
+
+<title>Exploratory Data Analysis</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Exploratory Data Analysis</h1>
+<h4 class="author"><em>Mauro Lepore</em></h4>
+<h4 class="date"><em>2017-06-23</em></h4>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#style">Style</a><ul>
+<li><a href="#being-explicit-about-what-package-a-function-comes-from">Being explicit about what package a function comes from</a></li>
+<li><a href="#the-tidyverse-style-guide">The tidyverse style guide</a></li>
+<li><a href="#combining-multiple-operations-with-the-pipe">Combining multiple operations with the pipe <code>%&gt;%</code></a></li>
+</ul></li>
+<li><a href="#definitions">Definitions</a></li>
+</ul></li>
+<li><a href="#questions">Questions</a></li>
+<li><a href="#variation">Variation</a><ul>
+<li><a href="#visualizing-distributions">Visualizing Distributions</a><ul>
+<li><a href="#categorical-variables">Categorical variables</a></li>
+<li><a href="#continuous-variables">Continuous Variables</a></li>
+<li><a href="#typical-and-rare-values">Typical and rare Values</a></li>
+<li><a href="#clustered-values">Clustered values</a></li>
+<li><a href="#unusual-values">Unusual values</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#missing-values">Missing Values</a></li>
+<li><a href="#covariation">Covariation</a><ul>
+<li><a href="#a-categorical-and-continuous-variable">A Categorical and Continuous Variable</a></li>
+<li><a href="#two-categorical-variables">Two Categorical Variables</a></li>
+<li><a href="#two-continuous-variables">Two Continuous Variables</a></li>
+</ul></li>
+<li><a href="#patterns-and-models">Patterns and Models</a></li>
+<li><a href="#to-consider">To consider</a><ul>
+<li><a href="#working-with-dates">Working with Dates</a></li>
+<li><a href="#tools-to-explore-data-quickly">Tools to explore data quickly</a><ul>
+<li><a href="#inzight-light">inzight light</a></li>
+<li><a href="#skimr">skimr</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This vignette will show you how to explore your data systematically, using modern and more powerful tools for visualization and transformation. An exploratory data analysis is an iterative process that aims to use data and some research questions to learn something that can help refine the questions and move forward the learning spiral.</p>
+<div id="prerequisites" class="section level2">
+<h2>Prerequisites</h2>
+<p>The data we will use comes from Barro Colorado Island. It is available at DOI: <a href="https://doi.org/10.5479/data.bci.20130603" class="uri">https://doi.org/10.5479/data.bci.20130603</a> and via the <strong><a href="https://forestgeo.github.io/bci/">bci</a></strong> data package.</p>
+<p>Some functions we will use are available in the <strong><a href="https://forestgeo.github.io/forestr/">forestr</a></strong> package, and many are available in the <strong>tidyverse</strong> package (which includes, for example, the packages <strong><a href="http://dplyr.tidyverse.org/">dplyr</a></strong> and <strong><a href="http://ggplot2.tidyverse.org/">ggplot2</a></strong>). If you are new to the <strong>tidyversre</strong>, you may feel a little frustrated at the begining. But quickly your effort will pay-off. The tools in the <strong>tidyverse</strong> are powerful, realatively easy to use and consistent; so once you learn some, you will learn most other tools intuitively.</p>
+<p>To more compleately learan how to do data science with the <strong>tidyverse</strong> read <a href="http://r4ds.had.co.nz/">R for Data Science</a>, by Garrett Grolemund and Hadley Wickham.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To install packages see ?install.packages and ?devtools::install_github</span>
+<span class="co"># Data</span>
+<span class="kw">library</span>(bci)  <span class="co"># to access data from BCI</span>
+<span class="co"># Functions</span>
+<span class="kw">library</span>(forestr)  <span class="co"># to analyse forest dynamics</span>
+<span class="kw">library</span>(tidyverse)  <span class="co"># to visualize and transform data, and much more</span>
+<span class="co">#&gt; Loading tidyverse: ggplot2</span>
+<span class="co">#&gt; Loading tidyverse: tibble</span>
+<span class="co">#&gt; Loading tidyverse: tidyr</span>
+<span class="co">#&gt; Loading tidyverse: readr</span>
+<span class="co">#&gt; Loading tidyverse: purrr</span>
+<span class="co">#&gt; Loading tidyverse: dplyr</span>
+<span class="co">#&gt; Conflicts with tidy packages ----------------------------------------------</span>
+<span class="co">#&gt; filter(): dplyr, stats</span>
+<span class="co">#&gt; lag():    dplyr, stats</span>
+<span class="co">#&gt; map():    purrr, forestr</span></code></pre></div>
+</div>
+<div id="style" class="section level2">
+<h2>Style</h2>
+<div id="being-explicit-about-what-package-a-function-comes-from" class="section level3">
+<h3>Being explicit about what package a function comes from</h3>
+<p>Frequently I refer to functions from a particular package as <code>package::fun()</code> (e.g. the first time I use a function). Althought the prefix <code>package::</code> is unnecesary if the package has previously been loaded with <code>library(package)</code>, I will often keep that prefix to be explicit about where the function comes from. This should help you to find the function if you ever want to use it again.</p>
+</div>
+<div id="the-tidyverse-style-guide" class="section level3">
+<h3>The tidyverse style guide</h3>
+<p>I use <a href="http://style.tidyverse.org/">The tidyverse style guide</a>.</p>
+<blockquote>
+<p>Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread.</p>
+</blockquote>
+<p>–Hadley Wickham, <a href="http://style.tidyverse.org/index.html">The tidyverse style guide</a>.</p>
+</div>
+<div id="combining-multiple-operations-with-the-pipe" class="section level3">
+<h3>Combining multiple operations with the pipe <code>%&gt;%</code></h3>
+<p>Often I combine multiple operations with the pipe <code>%&gt;%</code> because it makes the code considerably more readable.</p>
+<blockquote>
+<p>[The pipe] focuses on the transformations, not what’s being transformed, which makes the code easier to read. You can read it as a series of imperative statements: group, then summarise, then filter. As suggested by this reading, a good way to pronounce <code>%&gt;%</code> when reading code is “then”.</p>
+</blockquote>
+<blockquote>
+<p>Behind the scenes, <code>x %&gt;% f(y)</code> turns into <code>f(x, y)</code>, and <code>x %&gt;% f(y) %&gt;% g(z)</code> turns into <code>g(f(x, y), z)</code> and so on. You can use the pipe to rewrite multiple operations in a way that you can read left-to-right, top-to-bottom.</p>
+</blockquote>
+<blockquote>
+<p>Working with the pipe is one of the key criteria for belonging to the tidyverse. The only exception is ggplot2: it was written before the pipe was discovered.</p>
+</blockquote>
+<p>–<a href="http://r4ds.had.co.nz/transform.html">Combining multiple operations with the pipe</a></p>
+</div>
+</div>
+<div id="definitions" class="section level2">
+<h2>Definitions</h2>
+<blockquote>
+<p>A <strong>variable</strong> is a quantity, quality, or property that you can measure.</p>
+</blockquote>
+<blockquote>
+<p>A <strong>value</strong> is the state of a variable when you measure it. The value of a variable may change from measurement to measurement.</p>
+</blockquote>
+<blockquote>
+<p>An <strong>observation</strong> is a set of measurements made under similar conditions (you usually make all of the measurements in an observation at the same time and on the same object). An observation will contain several values, each associated with a different variable. I’ll sometimes refer to an observation as a data point.</p>
+</blockquote>
+<blockquote>
+<p><strong>Tabular data</strong> is a set of values, each associated with a variable and an observation. Tabular data is <em>tidy</em> if each value is placed in its own “cell”, each variable in its own column, and each observation in its own row.</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+</div>
+</div>
+<div id="questions" class="section level1">
+<h1>Questions</h1>
+<p>To start exploring your data, you can generally ask:</p>
+<blockquote>
+<p>What type of variation occurs within my variables?</p>
+</blockquote>
+<blockquote>
+<p>What type of covariation occurs between my variables? [^2</p>
+</blockquote>
+</div>
+<div id="variation" class="section level1">
+<h1>Variation</h1>
+<blockquote>
+<p><strong>Variation</strong> is the tendency of the values of a variable to change from measurement to measurement.</p>
+</blockquote>
+<p>Every variable varies with a particular pattern, and that pattern may be insightful. To understand the variation pattern of a variable we can visualize the distribution of the variables’ values. The best way to visualize a variable’s distribution depends on whether the variable is categorical or continuous.</p>
+<p>The BCI data has both, categorical and continuous variables. In R, categorical variables are usually stored as character strings (<chr>) or factors (fctr), and continuous variables are stored as integers (<int>) or doubles (<dbl>).</p>
+<p>These are the first few rows of the data FullViewTable census 7 from Barro Colorado Island, released in 2012:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bci::bci12full7)
+<span class="co">#&gt;   treeID stemID    tag StemTag     sp quadrat    gx    gy MeasureID</span>
+<span class="co">#&gt; 1      1     NA -05599    &lt;NA&gt; swars1    4007 800.2 152.2        NA</span>
+<span class="co">#&gt; 2      2     NA -22851    &lt;NA&gt; hybapr    0718 151.5 378.8        NA</span>
+<span class="co">#&gt; 3      3     NA -24362    &lt;NA&gt; aegipa    0417  95.2 357.5        NA</span>
+<span class="co">#&gt; 4      4     NA -26589    &lt;NA&gt; beilpe    0007  11.7 151.1        NA</span>
+<span class="co">#&gt; 5      5     NA -26590    &lt;NA&gt; faraoc    0004   7.7  96.2        NA</span>
+<span class="co">#&gt; 6      6     NA -26703    &lt;NA&gt; hybapr    0210  50.1 215.4        NA</span>
+<span class="co">#&gt;   CensusID dbh  pom hom ExactDate DFstatus codes nostems     date status</span>
+<span class="co">#&gt; 1       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18465.07      D</span>
+<span class="co">#&gt; 2       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18329.00      D</span>
+<span class="co">#&gt; 3       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18316.05      D</span>
+<span class="co">#&gt; 4       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18295.61      D</span>
+<span class="co">#&gt; 5       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18288.57      D</span>
+<span class="co">#&gt; 6       NA  NA &lt;NA&gt;  NA      &lt;NA&gt;     dead  &lt;NA&gt;      NA 18300.45      D</span>
+<span class="co">#&gt;   agb</span>
+<span class="co">#&gt; 1   0</span>
+<span class="co">#&gt; 2   0</span>
+<span class="co">#&gt; 3   0</span>
+<span class="co">#&gt; 4   0</span>
+<span class="co">#&gt; 5   0</span>
+<span class="co">#&gt; 6   0</span></code></pre></div>
+<p>If you want to handle the data faster and print it nicer, convert dataframes to tibbles:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci12full7 &lt;-<span class="st"> </span>tibble::<span class="kw">as_tibble</span>(bci12full7)  
+bci12full7
+<span class="co">#&gt; # A tibble: 394,658 x 20</span>
+<span class="co">#&gt;    treeID stemID    tag StemTag     sp quadrat    gx    gy MeasureID</span>
+<span class="co">#&gt;  *  &lt;int&gt;  &lt;int&gt;  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;</span>
+<span class="co">#&gt;  1      1     NA -05599    &lt;NA&gt; swars1    4007 800.2 152.2        NA</span>
+<span class="co">#&gt;  2      2     NA -22851    &lt;NA&gt; hybapr    0718 151.5 378.8        NA</span>
+<span class="co">#&gt;  3      3     NA -24362    &lt;NA&gt; aegipa    0417  95.2 357.5        NA</span>
+<span class="co">#&gt;  4      4     NA -26589    &lt;NA&gt; beilpe    0007  11.7 151.1        NA</span>
+<span class="co">#&gt;  5      5     NA -26590    &lt;NA&gt; faraoc    0004   7.7  96.2        NA</span>
+<span class="co">#&gt;  6      6     NA -26703    &lt;NA&gt; hybapr    0210  50.1 215.4        NA</span>
+<span class="co">#&gt;  7      7     NA -26746    &lt;NA&gt; tet2pa    0218  58.5 364.7        NA</span>
+<span class="co">#&gt;  8      8     NA -27125    &lt;NA&gt; des2pa    0613 139.8 267.1        NA</span>
+<span class="co">#&gt;  9      9     NA -27298    &lt;NA&gt; crotbi    0704 157.8  86.4        NA</span>
+<span class="co">#&gt; 10     10     NA -27784    &lt;NA&gt; alsebl            NA    NA        NA</span>
+<span class="co">#&gt; # ... with 394,648 more rows, and 11 more variables: CensusID &lt;int&gt;,</span>
+<span class="co">#&gt; #   dbh &lt;dbl&gt;, pom &lt;chr&gt;, hom &lt;dbl&gt;, ExactDate &lt;chr&gt;, DFstatus &lt;chr&gt;,</span>
+<span class="co">#&gt; #   codes &lt;chr&gt;, nostems &lt;dbl&gt;, date &lt;dbl&gt;, status &lt;chr&gt;, agb &lt;dbl&gt;</span></code></pre></div>
+<p>NOTES:</p>
+<ol style="list-style-type: decimal">
+<li>If you ever want to print more rows than tibble’s default use: print(your_tibble, n = rows_n)</li>
+<li>If when you use tibbles with forestr functions you get this error message: “Can’t use matrix or array for column indexing”, please read “Interacting with legacy code” at <a href="https://goo.gl/CJ5jLs" class="uri">https://goo.gl/CJ5jLs</a>.</li>
+<li>For alternative views try:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.data.frame</span>(bci12full7)  <span class="co"># takes long and doesn't print nicely</span>
+<span class="kw">View</span>(bci12full7)  <span class="co"># prints to a viewer panel</span>
+<span class="kw">str</span>(bci12full7)  <span class="co"># informative and prints nice</span>
+dplyr::<span class="kw">glimpse</span>(bci12full7)  <span class="co"># like str() but shows as much data as possible</span></code></pre></div>
+<div id="visualizing-distributions" class="section level2">
+<h2>Visualizing Distributions</h2>
+<div id="categorical-variables" class="section level3">
+<h3>Categorical variables</h3>
+<blockquote>
+<p>A variable is categorical if it can only take one of a small set of values.</p>
+</blockquote>
+<blockquote>
+<p>To examine the distribution of a categorical variable, use a bar chart.</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>Let’s use a bar chart to explore the variable <code>status</code>, which represents the status of the tree or stem (see description of <code>ViewFullTable</code> variables at the <a href="https://goo.gl/wGKEE3">data dictionary</a>). Possible values are: alive (tree or stem is alive), dead (tree is dead), lost_stem (stem is dead, not found, or broken, etc. but other stems of the tree are still alive), or missing (tree or stem was not found, so measurement is unknown).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ggplot2::<span class="kw">ggplot</span>(<span class="dt">data =</span> bci12full7) +
+<span class="st">  </span>ggplot2::<span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> status))</code></pre></div>
+<div class="figure">
+<img src="data:image/png;base64,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" alt="Values distribution of the categorical variable status" />
+<p class="caption">Values distribution of the categorical variable <code>status</code></p>
+</div>
+<p>Although the <a href="https://goo.gl/wGKEE3">data dictionary</a> does not explicitely refer to <code>A</code>, <code>D</code> and <code>M</code>, you likely know or guess that they mean alive, dead and misisng. To confirm this, let’s first count the the number of unique values of the variables <code>status</code> and <code>DFstatus</code> (<code>DFstatus</code> is not decribed in the <a href="https://goo.gl/wGKEE3">data dictionary</a>), then joining both counts by the shared variable <code>n</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count_status &lt;-<span class="st"> </span>dplyr::<span class="kw">count</span>(bci12full7, status)
+count_DFstatus &lt;-<span class="st"> </span>dplyr::<span class="kw">count</span>(bci12full7, DFstatus)
+dplyr::<span class="kw">full_join</span>(count_status, count_DFstatus)
+<span class="co">#&gt; Joining, by = &quot;n&quot;</span>
+<span class="co">#&gt; # A tibble: 3 x 3</span>
+<span class="co">#&gt;   status      n  DFstatus</span>
+<span class="co">#&gt;    &lt;chr&gt;  &lt;int&gt;     &lt;chr&gt;</span>
+<span class="co">#&gt; 1      A 221758     alive</span>
+<span class="co">#&gt; 2      D 172848      dead</span>
+<span class="co">#&gt; 3      M     52 no_record</span></code></pre></div>
+</div>
+<div id="continuous-variables" class="section level3">
+<h3>Continuous Variables</h3>
+<blockquote>
+<p>A variable is continuous if it can take any of an infinite set of ordered values.</p>
+</blockquote>
+<blockquote>
+<p>To examine the distribution of a continuous variable use a histogram.</p>
+</blockquote>
+<blockquote>
+<p>You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>Let’s use a histogram to explore the variable <code>dbh</code>, which represents the stem diameter, usually at breast height (see description of <code>ViewFullTable</code> variables at the <a href="https://goo.gl/wGKEE3">data dictionary</a>).</p>
+<p>In this section we will focus on small trees; big trees will be explored later. And we will try bars of different widths and choose one for further analyses.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">small_dbh &lt;-<span class="st"> </span>dplyr::<span class="kw">filter</span>(bci12full7, dbh &lt;<span class="st"> </span><span class="dv">500</span>)
+gg_small_dbh &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> small_dbh, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> dbh))
+gg_small_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gg_small_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(dbh), <span class="dt">binwidth =</span> <span class="dv">30</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gg_small_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(dbh), <span class="dt">binwidth =</span> <span class="dv">60</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>A bar width of 30 <code>dbh</code> seems useful.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">useful_barwidth &lt;-<span class="st"> </span><span class="dv">30</span></code></pre></div>
+<p>To overlay multiple histograms in the same plot, <code>geom_freqpoly()</code> may produce clearer plots than <code>geom_histogram()</code> because it is easier to understand overlying lines than bars.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make n groups with ~ numbers of observations with `ggplot2::cut_number()`</span>
+small_cut_num &lt;-<span class="st"> </span><span class="kw">mutate</span>(small_dbh, <span class="dt">equal_n =</span> <span class="kw">cut_number</span>(dbh, <span class="dt">n =</span> <span class="dv">5</span>))
+
+<span class="co"># Now, compare the next two plots:</span>
+<span class="kw">ggplot</span>(small_cut_num) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(dbh, <span class="dt">color =</span> equal_n))
+<span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></code></pre></div>
+<div class="figure">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAABLFBMVEUAAAAAADoAAGYAOpAAZrYAsPYAv30zMzM6AAA6ADo6AGY6OmY6OpA6kLY6kNtNTU1NTWRNTW5NTXlNTY5NXl5NbqtNeXlNg45NjshZWVleTW5eaatkTU1mAABmADpmAGZmOgBmOpBmkJBmtrZmtv9pTVluTU1uTW5uTW9uTYNuTY5ubo5ubqtuq+SOTU2OTV6OTWOOTW6OTY6Obk2Obm6OyP+QOgCQOjqQOmaQZgCQkGaQkLaQtpCQ27aQ29uQ2/+dnW6jpQCrbk2rbm6rbo6ryKur5Mir5OSr5P+2ZgC2Zma2/9u2///Ijk3I///bkDrb///knV7kq2Pkq27k5Kvk///na/Pr6+v4dm3/tW7/tmb/yI7/25D/29v/5Kv//7b//8j//9v//+T///8ZTmFJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAKb0lEQVR4nO2dC3sbRxWGZVtOHQgOoRQIoEKLSLml5SYXSsBNeovBtlxCkiILK/L8///AnDO7q5m9ndFqtTva/d4nyegZy632fWZmR3P2zAwUKGXQ9gcIHQgSgCABCBKAIAEIEqhT0OvXr+kvk7zIqar6s/hVjR9ZBoIEIEgAggQgSACCBCBIAIIEIEgAggQgSKBuQd8QEJQPC3r48CEEFdBDQTe/uVTqzYf333lZXhj6J+j6/tuX6vbZRL34UWkR0TtBFw++0C3ozR8vqSWVFdH7eyfIdLGb371Ub/7wvKzQ73xLQ7/Bgpr44E0hC7p+hyWUFdG70YJKWhDRU0EYg0qgi7999tjcsIqLiJ4KwjyoNiBIAIIEIEgAggQgSACCBCBIAIIEIEgAggQgSACCBCBIAIIEIEgAggQgSACCBCBIAII86FlkdT3QggQgSACCBCBIAIIEIEgAggQgSACCBCBIIHBB87unFX4LggQgSKBLgpYng8H+uVKL0WDvyd1TFkL/zI8Gg8GxLWh+94muG/tcVIcELU+GSk0PrhajoXa0lwhajLSJ6f65Lejo4IqqPC6qQ4JmpvWMuZytBP3vSnHpCBr7drkOCZoOmGPdiFZC+J+Zrt5zBCU/EumSIBITl5Yg6m7pFtRLQbpXmTLVxWYkbIYWpAdpbUKLoMGaWs1idKzr9k5J3PwIgsxtnloRle9Ht/dfvHuqznT130djCLKpNivMQRb04j4x4fLty13J1WhQEEGJcxcTerUrOau5gnhKPTD90BcvQZQzd/sZ580hXywPaiS6M1FHQ85qDqzg5gNuRchZzeE6GYcvJiHnrH6TSwOCLh4nryYhj0H0/87QgCAzPFMzuv38MuSc1bYERX1Iz4MePA86Z7UtQd5AkAAECUCQQLCCZgNeQ/uWWdCP1tWiClqH3P/XSeEKfj8EDdnS/rlanozVdGjezhXqzJg5672gs70nusEsfnZuGk5csfz4FIJMC2Ix83tXavFu9GWeKnSX4wAZBBkftD7tCKJlEWpFEFTQghhtB4KiHrUagyAoT9Dy5Di5iyV9bvmXcwhSzjzItJ14HkQrsBDk8s/0cws9F7SaPRuWf3N/c9nzmfQmQJAABAl0SlBbi/a+tC1oK3RJ0NNcNryoLuWsPs0bg0IS1HoLgiAIgiAI6rIgfmY/eoy2CgELmh4rO8zDFziP0zV0ffG31X4IopVWN8yjeOU1eg7fqS8UFD3Jr8msnuy8ILp6N8wTLRLRYivXewhKWlBlghVEK9HKDfNEV8zr93NfQZsSrCDuYW6Yh6EV6rUERY/Jdm4Mmh0kgphIBuUqrCWIM9I2gAW1eL6YTwuyBHHS2FqC6hiD6EM+DU2QNQbFYR7LzzotqKOC4iazCvPol+auPV5HUPUZUOiCoj5m4R33cbvYYONBOkxBZiZt4R/3qfs2H6ig6kCQQE+6WHWyLSh5fGZtWhfU0KL97CA95HvStqCtkCdoV7vYnVyqXUtCjqCzXW1Bd/LGoDoFRYN0OqOzLJs3k8zSaUEFlGTzZpN6eyioLJs3m1DXcUH8BS41Ky/L5s0m9T6tYepRle0LmpodeFxDZdm82aTeTregkqhGQTZvNqk3UEH6y6od5eG6WRL/qSHsU5DNuytj0PzeVSrKYzxNkzQgv/Wg3C5Wls2bTeoNU5C++lSUx0CS1gj75A/Spdm8uzEPipZc7ShPdL2rJ8ybCvsEKShaULSjPPziyMyJIch8/XaiPIZ1A4ekeIPYT7CCuAW5UZ6Is/UW7c+GapPoWLCCOAnKjfIoK7du3bjYxssd/HRySILo6t0oD9/j4+/ljQu6Qx8rKEE1hX3y50H+hCuotrDPLG8e5E3Agqqzjds8BBUAQQKtC2po0b4ybQvaCl0SdJjLhhfVKUF5YxAErYAgCIIgCIKgEgIWpL+s2lEeU2eeFdPfU2kf/CaeUSQSQS1QLGh+7yoV5VH29m60dtbkmnR4LSi6eivKo+KMjTji0WtBsQQryqPivJ/5vb+WbiDUC0FmQdGJ8qg474fWqunnvRYUP3WZCRxqLfG2b70WlCxJr6I8iaDFexDEY1AqyqPs7d1638X46p0ojxX20YO199MdnRVUV9hnQ8IVFFi2T4CCqgNBAhAk0ClBWLQvF7QVuiToVS4bXlSnBOWNQRC0AoIgCIIgCIJK6Kugm0eUUOd5EG2ggvS3eTsMFv0Cb3czP+L1IC5yvtTLgigfjJLq/A6iDVOQtWQYhcGMNq2Dnn2eHlxFRXZZSBZ0TQIuJp4H0YYpSF92KgzG2r7983F8Vkvh2r3fGKRbkedBtG1GVgsFkZVUGExR5PAfJzUJorw5z4Nog2xBdPWpMJiicYnGIO5bdDg9F9UEvfkwPmhVPoiWBdGzpSEJSgadVRiMrcWD9Hc+Po2LKoJuHk3il/JBtCTokJapQhJkxcXiMFi88yivVUcDExUVBEV+PA+iDVJQHBezwmAMdzFtazqMiyqCaP5Dw7PfQbRBCrLjYiYMZoKH3MVmAz7YJioq3sX8CFeQR1wsoqeCxLhYXF1lJu1PwIKqA0ECnRK0K4v2hyavt3FBW2FbLUj/gaA0LEgDQQXQZ7+DFlQMBAlAkAAECUCQAAQJQJAABAlAkAAECUCQAAR5YAmq+b/cEmhBAhAkAEECECQAQQLbExSv20NQgivolf4DQQ4QJABBAhAkAEECGUF8I4OghGwLokYEQQkQJABBAnmCSp+DgaDVvQyCFASJFAjKHEEPQakW9NC0IggqEeScRQJB+s/hoduC6HlcCFoJepXuYvYNv0+CMsksxYLi4br6uT87KCib1FsqyNG0osOCsgl1HoLSVRlhZeyYoGxSL6Vj0gi9Leq45rXYTFA2qdenq/RoDMom9UKQQ3YMgiCHbFIvBLlk5kEQVAIECUCQAAQJQJDMWz5VXm/yrNo6ECQAQQIQJFD3g+SdA4IEIEgAggQgSKBOQc5Xe7NOZO3k9R+z46m9t9c1b36a2u6LAgFOVe4eqY1RoyA3xHFNF2XtaPrv7/KOp/Yepz/UCrPbnr7QGp2qvD1Sm6NGQc7y4sWDL/RLazfB/37vMrvNoMpuOXjz2z9NnA1Rf/3nnD1S6/vUEjUKcheo+TJS+1Hm7FCpW4NT9dVnXz1zN0T9/aOcPVLr+9QSNQpyQxwsyN3RlBZo3ZqbRw+eu1WfPqZOZFd99OOcPVLr+9QSDbagL2nH03RDSDWqj37y8vZZTnNJ75Fa36eW2NYYZATZA8evfjpROUOJOyz9kne1fCy8a0fHIDfEwZdh7Wj69f2J9SYufrDqeda2p9SC0u/K7JHaHI3Ng74f7XiamuFkdz/Nmwdl39UYmEkLQJAABAlAkAAECUCQAAQJQJBAa4Jm++d01AURl0ECQQIQJNCKoMVosPcJCfpkQGc1cFl0GHXbtCFoMTrWf7Wgo4Or5clQUamm+wUHObRMG4Jm5GJKgsbcv+KyhY8i04YgOuiMzkbh41EWozG7gaAVECTAXSy+i1EXgyCXxWjoDtIQlMK+zQ8VBO00ECQAQQIQJABBAhAkAEEC/wcKajl1m3LMVwAAAABJRU5ErkJggg==" alt="For multiple histograms, lines are easier to understand than bars." />
+<p class="caption">For multiple histograms, lines are easier to understand than bars.</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(small_cut_num) +<span class="st"> </span><span class="kw">geom_freqpoly</span>(<span class="kw">aes</span>(dbh, <span class="dt">color =</span> equal_n))
+<span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></code></pre></div>
+<div class="figure">
+<img src="data:image/png;base64,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" alt="For multiple histograms, lines are easier to understand than bars." />
+<p class="caption">For multiple histograms, lines are easier to understand than bars.</p>
+</div>
+</div>
+<div id="typical-and-rare-values" class="section level3">
+<h3>Typical and rare Values</h3>
+<p>In both bar charts and histograms, tall and short bars let us explore common and less-common values. For example, we could ask:</p>
+<blockquote>
+<ul>
+<li>Which values are the most common? Why?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Which values are rare? Why? Does that match your expectations?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Can you see any unusual patterns? What might explain them?</li>
+</ul>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>The later two plots give a good estimate of what tree diameters are most common. You can compute the same count manually, by cutting the variable with <code>ggplot2::cut_width()</code> and then counting the unique pieces with <code>dplyr::count()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">small_cut_width &lt;-<span class="st"> </span>dplyr::<span class="kw">mutate</span>(
+  small_dbh,
+  <span class="dt">dbh_cut =</span> ggplot2::<span class="kw">cut_width</span>(dbh, <span class="dt">width =</span> useful_barwidth)
+)
+small_cut_width %&gt;%<span class="st"> </span>dplyr::<span class="kw">count</span>(dbh_cut, <span class="dt">sort =</span> <span class="ot">TRUE</span>)
+<span class="co">#&gt; # A tibble: 18 x 2</span>
+<span class="co">#&gt;      dbh_cut      n</span>
+<span class="co">#&gt;       &lt;fctr&gt;  &lt;int&gt;</span>
+<span class="co">#&gt;  1   (15,45] 106249</span>
+<span class="co">#&gt;  2  [-15,15]  46024</span>
+<span class="co">#&gt;  3   (45,75]  25191</span>
+<span class="co">#&gt;  4  (75,105]  10867</span>
+<span class="co">#&gt;  5 (105,135]   5998</span>
+<span class="co">#&gt;  6 (135,165]   3173</span>
+<span class="co">#&gt;  7 (165,195]   1952</span>
+<span class="co">#&gt;  8 (195,225]   1459</span>
+<span class="co">#&gt;  9 (225,255]   1089</span>
+<span class="co">#&gt; 10 (255,285]    887</span>
+<span class="co">#&gt; 11 (285,315]    702</span>
+<span class="co">#&gt; 12 (315,345]    570</span>
+<span class="co">#&gt; 13 (345,375]    484</span>
+<span class="co">#&gt; 14 (375,405]    410</span>
+<span class="co">#&gt; 15 (405,435]    315</span>
+<span class="co">#&gt; 16 (435,465]    248</span>
+<span class="co">#&gt; 17 (465,495]    248</span>
+<span class="co">#&gt; 18 (495,525]     22</span></code></pre></div>
+<p>Although the most common trees are those which diameter (<code>dbh</code>) is between 15 mm and 45 mm, smaller trees are generally more common than bigger trees, which we already learned from previous plots.</p>
+</div>
+<div id="clustered-values" class="section level3">
+<h3>Clustered values</h3>
+<p>In this section we will focus on the largest trees; later we will explore all trees, including medium-size ones.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">largest_dbh &lt;-<span class="st"> </span>dplyr::<span class="kw">filter</span>(bci12full7, dbh &gt;<span class="st"> </span><span class="dv">2000</span>)</code></pre></div>
+<blockquote>
+<p>Clusters of similar values suggest that subgroups exist in your data. To understand the subgroups, ask:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>How are the observations within each cluster similar to each other?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>How are the observations in separate clusters different from each other?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>How can you explain or describe the clusters?</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Why might the appearance of clusters be misleading?</li>
+</ul>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering dissapears with bars twice as wide.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gg_largest_dbh &lt;-<span class="st"> </span><span class="kw">ggplot</span>(largest_dbh, <span class="kw">aes</span>(dbh))
+gg_largest_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth)
+gg_largest_dbh +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth *<span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAAq1BMVEUAAAAAADoAAGYAOpAAZrYzMzM6AAA6ADo6AGY6kNtNTU1NTW5NTY5NbqtNjshZWVlmAABmADpmtv9uTU1uTW5uTY5ubo5ubqtuq+SOTU2OTW6OTY6Obk2OyP+QOgCQkGaQ2/+rbk2rbm6rbo6ryKur5OSr5P+2ZgC2///Ijk3I///bkDrb///kq27k///r6+v/tmb/yI7/25D/5Kv//7b//8j//9v//+T///8NRpT5AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAGq0lEQVR4nO3dC3faRhCGYWK7aY2blJpe7LY41zq+JrYBo///y6oVK1aCFd8AKtHxvnPiIzwejeWHlVDgrNTLiLXR+94b0PUASARAIgASAZAIgERsAfTNx+JBPTZLd6lLLQ2QSAMk0gCJNEAiDZBIAyTSAIm0BWg87PdHxaPpef/NV4CWYvrXZTb+7TJ/NPswyu7fArQUj47k2g2h6d832fj3G4Dioyjf1/786h/9kEf46S+1WN+pGvteb5dYDzT7cOYWj29KIBcBvL7B9qcnup7hSW5e7zuNoOl54VMZQQBVYzwceaiGY1DiQAufYk+LvYolDnTfdzFyQ6fhPChxoKYI/QACCKCmNEAiDZBIAyTSAIk0QCINkEgDJNIAiTRAIg2QSAMk0gCJNEAiDZBIAyTSAIk0QCINkEjvABSivsHdXW+XYAQ1pAESaYBEGiCRBkikARJpgEQaIJEGSKQBEmmARBogkQZIpAESaYBEGiCRBkikARJpgEQaIJEGSKQBEmmARNoGVE4ScxN/fma+2Eo8lirXo0o29Esd6Prk83wEzT5eVtKhX+pAi11set73lxhg1nM9PJC7vEAYRQGcERRm8laOQ6EfQADZgNyFBWafeJmPA7mv/DzoZPFCFvoBFI3QDyCAAGpKAyTSAIk0QCINkEgDJNIAiTRAIg2QSAMk0gCJNEAiDZBIAyTSAIk0QCINkEgDJNIAifQOQCHqG9zd9XYJRlBDGiCRBkikARJpgEQaIJEGSKQBEukY0GRw6hYPB1cAAaTSq0C3vTKO1vokC7QYQSpCv9SAjBH6JQf09LrYxTgGfYsDPV+Io0/qQByDqt9ERxBA4ZsIkDwDSh1oMuhxkF58ExtBtgj9AAKIXawp3TyCJr++ZwSt3cUeDu/Kh+V8Me5xWANa7GLlrOemez0nCvSlHEGLWc/cZ3Ue/iD9KhyDykm9pns916OObq9sZz17qJ7mKZn6VsbNz+/yc7+usv5sWtfbfqg09dwIyHav5xSAirddj1eAbMegBIBu3evXZHC8DGS71/PLB1r9VKOc9Ww6D0oRKBrpAq3uYgCJgzRAbb7dARBAzxfHhs9+Egb6cpQZPh1LF4iXeYB2A+I8SAFlD5wHrQcyBUAAAQQQQAABBBBAAAHU5qznemxb2c562/4Nqz9nBDX0BAgggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAejlAYY6P6V7PyQFV5jqb7vWcHFCYZ2i713NyQGGmqu1ez/Wo97JXtrOePVTPNUBhrrPtXs9Nz0UCI6gIeSvj5IDqc50BWokw19l2r+fkgPx5kPlez+kBNQRAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAAB1BGgEOs2f9vKdtbb9m9Y/TkjqKEnQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQTQywEKs565x2Eswqxn272ekwMKMw65z2o0wpzVpns9pxCmWc9N93re9llr57lvvUstbQCKjSCAKqGPQS1sVJe6bAoUZj033eu5hY3qUpdNgSqznhvOg1rYqC512RioIVrdqC51AWiTNEAiDZBI7wAkYsMz7c3K998cIFENkKgGSFS3D/TCAiARAIkASARAIloBGg/9dSiLN438f/1r7wDEyv1Clfuyx/nVZK3N5580WJv7a9XGqtsAcm82umtR5n9E/lv8RyD1T0Ii5X6hyn1Zcam5t+bmmfujR7K8rL5ekK5UtwH06Lrlv+P65LN772j+9uPSVRhXy/1ClZfNs6xSJpvnxX/8M5Lb4qv9VUaj1W0dg/yb13lf/wb20nU8o+WVurXl/gf502puPvv4bz4QjM39tWqj1S0BuTdlszmQ/wik/klIvNwtDOXz6vHw5NLe/P7M7SnG5v5atdHqdoCm52fF0jiCfHmx0OVlc+N4K7vOTCNo0Tzf0/6/ETQe+uu8ji3HoLJ8vpDli+aWI1ZZ7l6W+v2zFpq3ARR+i+vrPwKpfxISKfcLVe7L/Li3Ns/mr0kbNJ99uolWtwE0f7rcrzKdB/nyci1RXpb5y8kam2e28yBDc86kRQAkAiARAIkASARAIgASAZCIjgM9HFw9/fi+eFgu9xwAiQBIRIeBJoPeq3cO6F2vd3iXFcve6b63ortAk8Fx/pUDvT68e744ytwyuz242vNmdBfowVncOqDTYv8ql3vejO4C3eYDJnv66Sr/54bTaWEDUAiARBS7WPkq5nYxgOoxGRzVD9IALUX1Zf4oA6ijAZAIgEQAJAIgEQCJAEjEf2IR0JmgzqcuAAAAAElFTkSuQmCC" /><img src="data:image/png;base64,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" /></p>
+</div>
+<div id="unusual-values" class="section level3">
+<h3>Unusual values</h3>
+<p>In this section we will work with the entire bci12full7 dataset.</p>
+<blockquote>
+<p>Outliers are observations that are unusual; data points that don’t seem to fit the pattern. Sometimes outliers are data entry errors; other times outliers suggest important new science. When you have a lot of data, outliers are sometimes difficult to see in a histogram.</p>
+</blockquote>
+<blockquote>
+<p>For example, take the distribution of the <em>dbh</em> variable of the <em>bci12full7</em> dataset. The only evidence of outliers is the unusually wide limits on the x-axis (stress mine).</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci_hist &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bci12full7, <span class="kw">aes</span>(<span class="dt">x =</span> dbh)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth)
+bci_hist
+<span class="co">#&gt; Warning: Removed 187399 rows containing non-finite values (stat_bin).</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<blockquote>
+<p>There are so many observations in the common bins that the rare bins are so short that you can’t see them . To make it easy to see the unusual values, we need to zoom to small values of the y-axis with <code>coord_cartesian()</code>:</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci_hist +<span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))
+<span class="co">#&gt; Warning: Removed 187399 rows containing non-finite values (stat_bin).</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<blockquote>
+<p>(<code>coord_cartesian()</code> also has an <code>xlim()</code> argument for when you need to zoom into the x-axis. ggplot2 also has <code>xlim()</code> and <code>ylim()</code> functions that work slightly differently: they throw away the data outside the limits.)</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+<p>This allows us to see that <code>dbh</code> values over 2000 are unusual. We pluck them out with <code>dplyr::filter()</code> and select a subset of informative variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">unusual_trees &lt;-<span class="st"> </span>bci12full7 %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(dbh &gt;<span class="st"> </span><span class="dv">2000</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(treeID, ExactDate, status, gx, gy, dbh) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(dbh)
+unusual_trees
+<span class="co">#&gt; # A tibble: 10 x 6</span>
+<span class="co">#&gt;    treeID  ExactDate status    gx    gy   dbh</span>
+<span class="co">#&gt;     &lt;int&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1    897 2011-03-28      A 883.6 197.7  2080</span>
+<span class="co">#&gt;  2   5169 2010-08-07      A 389.2 166.9  2085</span>
+<span class="co">#&gt;  3   3634 2010-08-23      A 577.4  22.1  2103</span>
+<span class="co">#&gt;  4   3608 2010-08-23      A 589.3  60.3  2172</span>
+<span class="co">#&gt;  5   2564 2010-08-30      A 716.4  27.2  2180</span>
+<span class="co">#&gt;  6   1160 2011-03-28      A 861.2  39.9  2200</span>
+<span class="co">#&gt;  7   5100 2010-08-30      A 387.9 404.1  2285</span>
+<span class="co">#&gt;  8   4142 2011-03-28      A 517.0 323.9  2300</span>
+<span class="co">#&gt;  9   1903 2010-09-10      A 780.4  45.4  2320</span>
+<span class="co">#&gt; 10   2935 2010-09-06      A 648.6  28.4  2477</span></code></pre></div>
+<p>We could ask where in the plot the unusual trees are located:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># For faster analysis and to avoid overplotting, choose only 100 trees at random</span>
+sample_100 &lt;-<span class="st"> </span>bci12full7 %&gt;%<span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">100</span>)
+
+unusual_tree_loc &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sample_100, <span class="kw">aes</span>(gx, gy)) +<span class="st"> </span>
+<span class="st">    </span><span class="co"># plot a few points for reference with only 1/10 opacity (less distracting)</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="dv">1</span>/<span class="dv">10</span>) +
+<span class="st">    </span><span class="co"># highlight location of unusual trees in the plot</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">data =</span> unusual_trees, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p>A number of the unusually large trees seem to be on the edge of the plot, where <code>gy</code> values are lower than 100. This information helps us to filter those edge trees selectively, and decide what to do with them.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edge_trees &lt;-<span class="st"> </span>unusual_trees %&gt;%<span class="st"> </span><span class="kw">filter</span>(gy &lt;<span class="st"> </span><span class="dv">100</span>)
+unusual_tree_loc +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(
+    <span class="dt">data =</span> edge_trees, 
+    <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">1</span>  <span class="co"># highlight edge trees with bigger and hollow points</span>
+  )</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<blockquote>
+<p>It’s good practice to repeat your analysis with and without the outliers. If they have minimal effect on the results, and you can’t figure out why they’re there, it’s reasonable to replace them with missing values, and move on. However, if they have a substantial effect on your results, you shouldn’t drop them without justification. You’ll need to figure out what caused them (e.g. a data entry error) and disclose that you removed them in your write-up.</p>
+</blockquote>
+<p>– <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.</p>
+</div>
+</div>
+</div>
+<div id="missing-values" class="section level1">
+<h1>Missing Values</h1>
+<p>(Except for the data, this section comes from <a href="http://r4ds.had.co.nz/">R for Data Science, Garrett Grolemund and Hadley Wickham</a>.)</p>
+<p>If you’ve encountered unusual values in your dataset, and simply want to move on to the rest of your analysis, you have two options.</p>
+<ol style="list-style-type: decimal">
+<li><p>Drop the entire row with the strange values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diamonds2 &lt;-<span class="st"> </span>diamonds %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">between</span>(y, <span class="dv">3</span>, <span class="dv">20</span>))</code></pre></div>
+<p>I don’t recommend this option because just because one measurement is invalid, doesn’t mean all the measurements are. Additionally, if you have low quality data, by time that you’ve applied this approach to every variable you might find that you don’t have any data left!</p></li>
+<li><p>Instead, I recommend replacing the unusual values with missing values. The easiest way to do this is to use <code>mutate()</code> to replace the variable with a modified copy. You can use the <code>ifelse()</code> function to replace unusual values with <code>NA</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diamonds2 &lt;-<span class="st"> </span>diamonds %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">y =</span> <span class="kw">ifelse</span>(y &lt;<span class="st"> </span><span class="dv">3</span> |<span class="st"> </span>y &gt;<span class="st"> </span><span class="dv">20</span>, <span class="ot">NA</span>, y))</code></pre></div></li>
+</ol>
+<p><code>ifelse()</code> has three arguments. The first argument <code>test</code> should be a logical vector. The result will contain the value of the second argument, <code>yes</code>, when <code>test</code> is <code>TRUE</code>, and the value of the third argument, <code>no</code>, when it is false.</p>
+<p>Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It’s not obvious where you should plot missing values, so ggplot2 doesn’t include them in the plot, but it does warn that they’ve been removed:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds2, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()
+<span class="co">#&gt; Warning: Removed 9 rows containing missing values (geom_point).</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>To suppress that warning, set <code>na.rm = TRUE</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds2, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Other times you want to understand what makes observations with missing values different to observations with recorded values. For example, in <code>nycflights13::flights</code>, missing values in the <code>dep_time</code> variable indicate that the flight was cancelled. So you might want to compare the scheduled departure times for cancelled and non-cancelled times. You can do this by making a new variable with <code>is.na()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nycflights13::flights %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">cancelled =</span> <span class="kw">is.na</span>(dep_time),
+    <span class="dt">sched_hour =</span> sched_dep_time %/%<span class="st"> </span><span class="dv">100</span>,
+    <span class="dt">sched_min =</span> sched_dep_time %%<span class="st"> </span><span class="dv">100</span>,
+    <span class="dt">sched_dep_time =</span> sched_hour +<span class="st"> </span>sched_min /<span class="st"> </span><span class="dv">60</span>
+  ) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(sched_dep_time)) +<span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_freqpoly</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">colour =</span> cancelled), <span class="dt">binwidth =</span> <span class="dv">1</span>/<span class="dv">4</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>However this plot isn’t great because there are many more non-cancelled flights than cancelled flights. In the next section we’ll explore some techniques for improving this comparison.</p>
+</div>
+<div id="covariation" class="section level1">
+<h1>Covariation</h1>
+<div id="a-categorical-and-continuous-variable" class="section level2">
+<h2>A Categorical and Continuous Variable</h2>
+</div>
+<div id="two-categorical-variables" class="section level2">
+<h2>Two Categorical Variables</h2>
+</div>
+<div id="two-continuous-variables" class="section level2">
+<h2>Two Continuous Variables</h2>
+</div>
+</div>
+<div id="patterns-and-models" class="section level1">
+<h1>Patterns and Models</h1>
+</div>
+<div id="to-consider" class="section level1">
+<h1>To consider</h1>
+<div id="working-with-dates" class="section level2">
+<h2>Working with Dates</h2>
+<p>The variable <code>date</code> is the number of days since 1960-01-01 (see data dictionary at <a href="https://goo.gl/Q6XYrb" class="uri">https://goo.gl/Q6XYrb</a>), but it will be easier to interpret if we convert it to a date-time object (see <code>?lubridate::as_datetime</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'lubridate'</span>
+<span class="co">#&gt; The following object is masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     date</span>
+
+<span class="co"># &quot;Duration&quot; is a useful intermediate; learn more with ?lubridate::duration</span>
+<span class="co"># %/%: integere diviison removes useless and annoying fraction of seconds.</span>
+bci12full7 &lt;-<span class="st"> </span><span class="kw">mutate</span>(bci12full7, <span class="dt">duration =</span> <span class="kw">dseconds</span>((date *<span class="st"> </span><span class="dv">24</span> *<span class="st"> </span><span class="dv">60</span> *<span class="st"> </span><span class="dv">60</span>) %/%<span class="st"> </span><span class="dv">1</span>))
+bci12full7 &lt;-<span class="st"> </span><span class="kw">mutate</span>(bci12full7, <span class="dt">datetime =</span> <span class="kw">as_datetime</span>(duration, <span class="dt">origin =</span> <span class="st">&quot;1960-01-01&quot;</span>))
+bci12full7 %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(date, datetime)
+<span class="co">#&gt; # A tibble: 394,658 x 2</span>
+<span class="co">#&gt;        date            datetime</span>
+<span class="co">#&gt;       &lt;dbl&gt;              &lt;dttm&gt;</span>
+<span class="co">#&gt;  1 18465.07 2010-07-22 01:34:25</span>
+<span class="co">#&gt;  2 18329.00 2010-03-08 00:00:00</span>
+<span class="co">#&gt;  3 18316.05 2010-02-23 01:05:13</span>
+<span class="co">#&gt;  4 18295.61 2010-02-02 14:42:34</span>
+<span class="co">#&gt;  5 18288.57 2010-01-26 13:45:13</span>
+<span class="co">#&gt;  6 18300.45 2010-02-07 10:48:56</span>
+<span class="co">#&gt;  7 18319.00 2010-02-26 00:00:00</span>
+<span class="co">#&gt;  8 18305.93 2010-02-12 22:16:49</span>
+<span class="co">#&gt;  9 18292.02 2010-01-30 00:28:47</span>
+<span class="co">#&gt; 10       NA                  NA</span>
+<span class="co">#&gt; # ... with 394,648 more rows</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bci12full7$date &lt;-<span class="st"> </span>lubridate::<span class="kw">as_date</span>(bci12full7$date, <span class="dt">origin =</span> <span class="st">&quot;1960-01-01&quot;</span>)
+bci12full7 %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(date) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">glimpse</span>()
+<span class="co">#&gt; Observations: 394,658</span>
+<span class="co">#&gt; Variables: 1</span>
+<span class="co">#&gt; $ date &lt;date&gt; 2010-07-22, 2010-03-08, 2010-02-23, 2010-02-02, 2010-01-...</span></code></pre></div>
+</div>
+<div id="tools-to-explore-data-quickly" class="section level2">
+<h2>Tools to explore data quickly</h2>
+<div id="inzight-light" class="section level3">
+<h3>inzight light</h3>
+<p><a href="http://lite.docker.stat.auckland.ac.nz/" class="uri">http://lite.docker.stat.auckland.ac.nz/</a></p>
+</div>
+<div id="skimr" class="section level3">
+<h3>skimr</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(skimr)  <span class="co"># xxx remove or declare in DESCRIPTION in Suggest:</span>
+<span class="kw">skim</span>(bci12full7) %&gt;%<span class="st"> </span><span class="kw">filter</span>(stat ==<span class="st"> &quot;hist&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">as.matrix</span>()
+<span class="co">#&gt; Warning: Skim does not know how to summarize of vector of class: Duration.</span>
+<span class="co">#&gt; Coercing to numeric</span>
+<span class="co">#&gt;       var         type      stat   level        value</span>
+<span class="co">#&gt;  [1,] &quot;treeID&quot;    &quot;integer&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2581&gt;&lt;U+2585&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [2,] &quot;stemID&quot;    &quot;integer&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [3,] &quot;gx&quot;        &quot;numeric&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [4,] &quot;gy&quot;        &quot;numeric&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [5,] &quot;MeasureID&quot; &quot;integer&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [6,] &quot;CensusID&quot;  &quot;integer&quot; &quot;hist&quot; &quot;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [7,] &quot;dbh&quot;       &quot;numeric&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [8,] &quot;hom&quot;       &quot;numeric&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt;  [9,] &quot;nostems&quot;   &quot;numeric&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt; [10,] &quot;agb&quot;       &quot;numeric&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&quot; &quot;0&quot;  </span>
+<span class="co">#&gt; [11,] &quot;duration&quot;  &quot;numeric&quot; &quot;hist&quot; &quot;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2583&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&quot; &quot;0&quot;</span></code></pre></div>
+<p>To do all of the above quickly, we can use package <strong>skimr</strong> (<a href="https://github.com/ropenscilabs/skimr" class="uri">https://github.com/ropenscilabs/skimr</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(skimr)
+smry &lt;-<span class="st"> </span><span class="kw">skim</span>(diamonds)
+smry %&gt;%<span class="st"> </span>
+<span class="st">  </span>dplyr::<span class="kw">filter</span>(stat ==<span class="st"> &quot;hist&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">as.matrix</span>()  <span class="co"># Only needed in Windows for histograms (https://goo.gl/S8MaZW)</span></code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

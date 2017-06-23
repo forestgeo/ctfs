@@ -65,14 +65,19 @@ avoid <- c(
   "mindbh",  # done
   "n",  # done
   "N",  # done
+  "newgraph",  # done
   "outfile",  # done
   "plot",  # done
   "plotdim",  # done
+  "plotside",  # done
   "pts",  # done some, others vary.
   "r",  # done
   "rounddown",  # done
   "s",  # done
+  "sd",  # done
+  "sd1",  # done
   "start",  # done
+  "steps",  # done
   "w",
   "z",  # done
   
@@ -92,12 +97,32 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("newgraph")
-args_count_param("newgraph")
+args_help("elev")
+args_count_param("elev")
 
 
 
 x %>% select(1) %>% unique()
+
+
+
+args_count_formals_man() %>% 
+  filter(is.na(man_n))
+# 2017-06-16
+# # A tibble: 925 x 4
+#    params             fun frml_n man_n
+#     <chr>           <chr>  <int> <int>
+#  1      x  abundmodel.fit    133    NA
+#  2      x     addBinParam    133    NA
+#  3      x      AssignDiag    133    NA
+#  4      x asymp.ht.fixmax    133    NA
+#  5      x        asymp.ht    133    NA
+#  6      x   asymptote.exp    133    NA
+#  7      x    bad.binparam    133    NA
+#  8      x    bad.binsdpar    133    NA
+#  9      x        BadParam    133    NA
+# 10      x           badSD    133    NA
+# # ... with 915 more rows
 
 
 

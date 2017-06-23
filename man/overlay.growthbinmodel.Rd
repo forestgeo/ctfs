@@ -15,6 +15,9 @@ overlay.growthbinmodel(fit, bins = 1:4, regclr = "green",
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
 
+\item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
+TRUE to create a new plot window or export to a file.}
+
 \item{outfile}{Filename for output.}
 
 \item{h, w}{A number giving the height and width.}

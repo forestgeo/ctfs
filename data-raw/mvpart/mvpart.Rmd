@@ -1,0 +1,294 @@
+---
+title: "Testing mvpart"
+output: 
+  rmarkdown::html_document:
+    toc: true
+    toc_depth: 6
+date: '`r Sys.Date()`'
+---
+
+```{r setup, echo = FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+```{r}
+library(tidyverse)
+library(mvpart)
+# source("C:/Users/dora/Downloads/mvpart_1.1-1/mvpart/R/mvpart.R")
+```
+
+# Installation
+
+The __mvpart__ package is no longer active on CRAN but can be installed from the archives.
+
+```R
+# install.packages("devtools")
+devtools::install_github("cran/mvpart")
+```
+
+Or download a realease from https://github.com/cran/mvpart/releases and install it with something like:
+
+```R
+install.packages(
+  "C:/Users/dora/Desktop/mvpart-1.6-2.tar.gz", 
+  repos = NULL, type = "source"
+)
+```
+
+Some people reported installation issues (https://goo.gl/oDjjz8).
+
+
+
+# Data
+
+- Tutorial https://goo.gl/zDLdMi
+- Data from Stuart Davies (https://goo.gl/NszXEi).
+
+```{r load-data, include=FALSE}
+devtools::load_all()
+KC3spp20 <- read_csv_alt("KC3spp20.csv", "./data-raw/mvpart/KC3spp20.csv")
+kc.hab <- read_csv_alt("kc.hab.csv", "./data-raw/mvpart/kc.hab.csv")
+```
+
+
+
+## Overview data
+
+2 files attached:
+
+- KC3spp20 – is the species matrix of abundance in each of 600 quadrats
+
+```{r}
+# See a few columns from the beginning, middle and end
+KC3spp20 %>% dplyr::select(1:2, 250:252, 583:585)
+
+# For a cleaner output for interpretation, normalized tree spp data to a mean of
+# 0 and standard deviation of 1 (https://goo.gl/zDLdMi).
+```
+
+- kc.hab – a bunch of habitat variables for the same 600 quadrats
+
+```{r}
+kc.hab %>% dplyr::glimpse()
+```
+
+# Results
+
+In this section, we first explore one result in detail; then we'll re-run the exact same model twice more and we'll compare the results.
+
+## Build and run the model
+
+```{r mvpart-run1, fig.height=14, fig.width=12}
+abundance <- data.matrix(KC3spp20)
+environmental_variables <- kc.hab
+
+formula <- abundance ~ RB_NO3 + RB_NH4 + RB_PO4 + Al + pH_water + Na + Mn + 
+  Mg + K + Fe + Ca + BS + ECEC + Bray_P + meanelev + convex + slope
+
+# Set a new seed for random numbers to ensure results are reproducible
+set.seed(1221)
+
+# See `?mvpart()` for argument details
+mvpart_run1 <- mvpart(
+  form = formula, 
+  data = environmental_variables,
+  all.leaves = TRUE,  # annotate all nodes
+  rsq = TRUE,  # give "rsq" plot
+  pca = TRUE,  # plot PCA of group means and add species and site information
+  wgt.ave.pca = TRUE  # plot weighted averages acorss sites for species
+)
+```
+
+## Model details
+
+### Structure
+
+```{r}
+str(mvpart_run1)
+```
+
+### Full summary
+
+```{r}
+summary(mvpart_run1)
+```
+
+### Groupings
+
+```{r}
+table( mvpart_run1$where)
+```
+
+### Map
+
+Map produced by Stuart Davies.
+
+![](Screen Shot 2017-06-21 at 4.49.28 PM.png)
+
+# Evaluation
+
+## Compare multiple runs of the same model
+
+__Two runs of the same model are different because the algorithm uses random numbers.__
+
+```{r compare-run, fig.height=14, fig.width=12}
+set.seed(1234)  # Set a new seed for random numbers
+mvpart_run2 <- mvpart(form = formula, data = environmental_variables)
+# Set a different seed and re-run the exact same model
+set.seed(4321)  
+mvpart_run3 <- mvpart(form = formula, data = environmental_variables)
+# compare all models run
+all.equal(mvpart_run1, mvpart_run2)
+all.equal(mvpart_run1, mvpart_run3)
+all.equal(mvpart_run2, mvpart_run3)
+```
+
+## `mvpart()` fails with scaled abundance data
+
+```
+The clustering actually is weird. It groups the top of the hill and the bottom
+of the hill (red and green on the map) together in the second split. The
+species are really different between these habitats, which suggests there is
+an error.
+
+The classification tree seems to be entirely driven by the soils, and the
+species don’t carry much weight.
+
+I wonder if the results would differ after scaling the species data (scale function in base package).
+```
+
+> These are data for each tree species __normalized to a mean of 0 and standard    deviation of 1__, which creates a cleaner output for interpretation
+
+--https://goo.gl/zDLdMi
+
+```{r}
+# Standarize
+
+abundance <- data.matrix(KC3spp20)
+abund_scaled <- scale(abundance)
+
+# Ad-hoc function to check that all columns have mean = 0 and sd = 1
+are_all_columns_near <- function(.data, .near, .f) {
+  # Arguments:
+  #   .data: Dataframe or matrix.
+  #   .near: Scalar.
+  #   .f: Summary function such as mean and sd to apply to all columns of data.
+  # Value:
+  #   Returns TRUE if all columns are near .near; FALSE otherwise.
+  .data %>% 
+    as_tibble() %>%
+    summarise_all(.f) %>% 
+    purrr::map(dplyr::near, .near) %>%
+    as.logical() %>% 
+    all()
+}
+abundance %>% are_all_columns_near(0, mean)
+abund_scaled %>% are_all_columns_near(0, mean)
+abundance %>% are_all_columns_near(1, sd)
+abund_scaled %>% are_all_columns_near(1, sd)
+```
+
+```{r, error=TRUE}
+# Re-run analysis that resulted in mvpart_run1
+
+formula_scaled <- abund_scaled ~ RB_NO3 + RB_NH4 + RB_PO4 + Al + pH_water +
+  Na + Mn + Mg + K + Fe + Ca + BS + ECEC + Bray_P + meanelev + convex + slope
+
+set.seed(1221) # same seed as for mvpart_run1
+
+# This one fails
+mvpart_run1_scaled <- mvpart(
+  form = formula_scaled, 
+  data = environmental_variables,
+  all.leaves = TRUE,  # annotate all nodes
+  rsq = TRUE,  # give "rsq" plot
+  pca = TRUE,  # plot PCA of group means and add species and site information
+  wgt.ave.pca = TRUE  # plot weighted averages acorss sites for species
+)
+```
+
+The scaled data fails. Repeating mvpart_run1 to check it runs again:
+
+```{r, fig.height=14, fig.width=12}
+<<mvpart-run1>>
+```
+
+
+
+# Miscelaneas
+
+## Example: Path from root to leaf node in mvpart
+
+> I was recently asked by a R user about how one could extract the “rule” in a
+  classification/regression tree. The requirement was to obtain the path traced
+  from the root node to the leaf nodes and obtain all the paths or “rules”
+
+> path.rpart() function in the mvpart package provides this convenience
+
+--https://goo.gl/DgTNFE
+
+```{r, error=TRUE}
+library(mvpart)
+
+# Create a classification tree
+ozone <- mvpart(Ozone ~ ., data = airquality)
+print(ozone) # Gives you the various splits in the tree
+
+# Issue the two commands below to see the graphical representation
+plot(ozone)
+text(ozone)
+
+# To obtain the summary of the created tree
+summary(ozone)
+
+# To obtain the path to the leaf nodes
+ozone$frame
+leafnodeRows <- grepl("leaf", ozone$frame$var)
+nodevals <- as.numeric(rownames(ozone$frame)[leafnodeRows])
+rules <- path.rpart(ozone, nodevals)
+
+rulesdf <- do.call(
+  "rbind", 
+  lapply(rules, function(x) paste(x, collapse = " -AND- "))
+)
+rulesdf <- data.frame(
+  nodeNumber = rownames(rulesdf), 
+  rule = rulesdf[, 1], 
+  stringsAsFactors = FALSE
+)
+rulesdf
+```
+
+
+
+
+## Package __rpart__ does not handle multi variate data
+
+The __rpart__ package seems like a good alternative because `?mvpart::mvpart()` says it's a wrapper of `rpart()`. However, `mvpart::rpart()` works with multivariate data, but `rpart::rpart()` does not. 
+
+```R
+mvpart::rpart(form = formula, data = environmental_variables)  # passes
+rpart::rpart(form = formula, data = environmental_variables)  # fails
+```
+
+__rpart__ is active but __mvpart__ is not. Maybe the authors can inform where else __mvpart__ functions can be found.
+
+Access __rpart__'s vignettes from R with:
+
+```R
+browseVignettes("rpart")
+
+# An Introduction to Recursive Partitioning Using the RPART Rutines (62 pages)
+vignette("longintro")
+```
+
+
+
+# Learning more
+
+- De'Ath, G. (2002). Multivariate regression trees: a new technique for modeling species–environment relationships. Ecology, 83(4), 1105-1117. 
+    - https://goo.gl/w91WM3

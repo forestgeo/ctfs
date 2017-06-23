@@ -47,7 +47,7 @@ otherwise, must be 1 + the number of breaks}
 base function contourLines for details}
 
 \item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
-TRUE to create a new plot window or export to a file}
+TRUE to create a new plot window or export to a file.}
 
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,

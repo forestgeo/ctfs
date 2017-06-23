@@ -145,11 +145,12 @@
 #'
 'autoregression'
 
-#' Regression using the Gibbs sampler, with just one x variable. regre...
+#' Regression using the Gibbs sampler, with just one x variable.
 #'
 #' @description
-#'
-#' Regression using the Gibbs sampler, with just one x variable. 
+#' Regression using the Gibbs sampler, with just one x variable.
+#' 
+#' @template steps 
 #'
 'regression.Bayes'
 
@@ -222,6 +223,7 @@
 #' in hierarchical model, this can't be used.
 #' 
 #' @param add xxxdocparam in model.xy() is different to add in add_plot.R.
+#' @template steps
 #'
 #' @examples
 #' \dontrun{
@@ -468,6 +470,7 @@
 #' otherwise the x-intercept.
 #' 
 #' @template graphit
+#' @template newgraph
 #'
 'regsum'
 
