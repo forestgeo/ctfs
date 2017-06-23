@@ -749,6 +749,32 @@ args_setdiff <- function(x, y) {setdiff(args_of(x), args_of(y))}
 #' print_all(x)  # prints all rows
 print_all <- function(x) {print(x, n = nrow(x))}
 
+#' Read a csv file from two alternative paths.
+#' 
+#' Read a csv file from two alternative paths, trying the first one first, and
+#' the alternative one second. This is useful in rmarkdown files as the working
+#' directory changes during knitting.
+#'
+#' @param file Either a path to a file, a connection, or literal data (either a
+#'   single string or a raw vector).
+#' @param alt Alternative file.
+#' @param ... Arguments passed to [readr::read_csv()].
+#' @seealso [readr::read_csv()].
+#' 
+#' @return A data frame.
+#' @keywords internal
+#' @export
+#'
+#' @examples
+#' \dontrun{read_csv_alt("myfile.csv", "./data-raw/myfile.csv")}
+read_csv_alt <- function(file, alt, ...) {
+  if (file.exists(file)) {
+    readr::read_csv(file, ...)
+  } else {
+    readr::read_csv(alt, ...)
+  }
+}
+
 #' Predicate to determine if some but not all elements of a vector are NA.
 #'
 #' @param x Vector
