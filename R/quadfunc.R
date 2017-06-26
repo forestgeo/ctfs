@@ -41,6 +41,7 @@
 #' 
 #' @template plotdim
 #' @template gridsize_side
+#' @template gx_gy
 #' @param start If `start = "zero"`, quadrats start with `0000`, otherwise, they
 #'   start with `0101`.
 #' 
@@ -117,7 +118,7 @@
 #' Takes an x, y plot location and identifies the hectare number.
 #' 
 #' @inheritParams findborderquads
-#' @param gx,gy Tree x and y coordinate.
+#' @template gx_gy
 #' 
 'gxgy.to.hectindex'
 
@@ -129,6 +130,7 @@
 #' 
 #' @template plotdim
 #' @template gridsize_side
+#' @template gx_gy
 #'
 'gxgy.to.lxly'
 
