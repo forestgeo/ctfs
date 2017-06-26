@@ -256,7 +256,7 @@ Although the most common trees are those which diameter (`dbh`) is between 15 mm
 In this section we will focus on the largest trees; later we will explore all trees, including medium-size ones.
 
 ```{r}
-largest_dbh <- dplyr::filter(bci12full7, dbh > 2000)
+largest_dbh <- filter(bci12full7, dbh > 2000)
 ```
 
 > Clusters of similar values suggest that subgroups exist in your data. To understand the subgroups, ask:
@@ -314,8 +314,8 @@ This allows us to see that `dbh` values over 2000 are unusual. We pluck them out
 ```{r}
 unusual_trees <- bci12full7 %>% 
   filter(dbh > 2000) %>% 
-  select(treeID, ExactDate, status, gx, gy, dbh) %>%
-  arrange(dbh)
+  dplyr::select(treeID, ExactDate, status, gx, gy, dbh) %>%
+  dplyr::arrange(dbh)
 unusual_trees
 ```
 
@@ -323,7 +323,7 @@ You could plot the unusual trees to see where they are located. A number of the 
 
 ```{r locate-unusual-trees, fig.align="default", fig.show="hold"}
 # For faster analysis and to avoid overplotting, choose only 100 trees at random
-sample_100 <- bci12full7 %>% sample_n(100)
+sample_100 <- bci12full7 %>% dplyr::sample_n(100)
 
 # Left plot
 unusual_tree_loc <- ggplot(sample_100, aes(gx, gy)) + 
@@ -350,17 +350,21 @@ Now you can decide what to do with the unusual and edge trees.
 
 # Missing Values
 
-(Except for the data, this section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).)
+(This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except the data.
 
 
 If you've encountered unusual values in your dataset, and simply want to move on to the rest of your analysis, you have two options.
 
 1.  Drop the entire row with the strange values:
 
-    ```{r, eval = FALSE}
-    diamonds2 <- diamonds %>% 
-      filter(between(y, 3, 20))
-    ```
+    ```{r}
+are_usual <- !bci12full7$treeID %in% unusual_trees$treeID
+usual_trees <- bci12full7 %>% filter(are_usual)
+
+# Confirm data set of usual trees has less rows than full data set.
+bci12full7 %>% nrow()
+usual_trees %>% nrow()
+```
     
     I don't recommend this option because just because one measurement
     is invalid, doesn't mean all the measurements are. Additionally, if you
@@ -373,11 +377,33 @@ If you've encountered unusual values in your dataset, and simply want to move on
     unusual values with `NA`:
 
     ```{r}
-    diamonds2 <- diamonds %>% 
-      mutate(y = ifelse(y < 3 | y > 20, NA, y))
-    ```
+are_unusual <- !are_usual
+with_unusual_made_NA <- bci12full7 %>% 
+  mutate(dbh = ifelse(are_unusual, NA_real_, dbh))
+```
 
 `ifelse()` has three arguments. The first argument `test` should be a logical vector. The result will contain the value of the second argument, `yes`, when `test` is `TRUE`, and the value of the third argument, `no`, when it is false.
+
+Note (mine): Alternatively to ifelse, use `dplyr::case_when()`.
+
+> `case_when` is particularly useful inside mutate when you want to
+  create a new variable that relies on a complex combination of existing
+  variables
+
+--`dplyr::case_when()`
+
+```{r}
+# Confirm no rows have been removed,
+bci12full7 %>% nrow()
+with_unusual_made_NA %>% nrow()
+# but dbh of unusual trees is NA
+with_unusual_made_NA %>% 
+  filter(are_unusual) %>% 
+  select(dbh, dplyr::everything())
+```
+
+
+
 
 Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It's not obvious where you should plot missing values, so ggplot2 doesn't include them in the plot, but it does warn that they've been removed:
 
