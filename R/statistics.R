@@ -88,10 +88,13 @@
 #' @template clr
 #' @template ltype
 #' @template lwidth
+#' @template ptsize_cex
 #' @param x,y Variables on which to perform regression and graph.
 #' @param xlog,ylog Logical. Set to `TRUE` to log-transform x and y variables.
 #' @param addone Use to handle zeros for log-transformation
 #' @param pts See argument `pch` in [graphics::par()].
+#' 
+#' @seealso [graphics::par()].
 #' 
 'regress.loglog'
 
@@ -104,6 +107,7 @@
 #' 
 #' @template graphit
 #' @template clr
+#' @template ptsize_cex
 #' @param add xxxdocparam in majoraxisreg() is different to add in add_plot.R.
 #'
 'majoraxisreg'

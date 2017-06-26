@@ -38,6 +38,7 @@ avoid <- c(
   # NEEDS FUTURE WORK
   "data",  # did some; but too variable
   "export",  # did some; but too variable
+  "elev",   # could do only half
   "path",  # skip, too variable
   "size",  # unclear it it's the same everywhere.
   "type",  # did some; but too variable and too little information to document
@@ -97,8 +98,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("elev")
-args_count_param("elev")
+args_help("ptsize")
+args_count_param("ptsize")
 
 
 
