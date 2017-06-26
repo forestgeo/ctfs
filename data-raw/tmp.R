@@ -82,6 +82,7 @@ avoid <- c(
   "sd1",  # done
   "start",  # done
   "steps",  # done
+  "showstep",  # done
   "w",
   "z",  # done
   
@@ -101,8 +102,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("showstep")
-args_count_param("showstep")
+args_help("classbreak")
+args_count_param("classbreak")
 
 
 
