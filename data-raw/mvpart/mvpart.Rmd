@@ -120,10 +120,24 @@ summary(mvpart_run1)
 ### Groupings
 
 ```{r}
-table( mvpart_run1$where)
+table(mvpart_run1$where)
 ```
 
 ### Map
+
+```{r}
+index <- 1:600
+index %>% 
+  index.to.gxgy(plotdim = c(600, 400)) %>%
+  as_tibble() %>% 
+  mutate(
+    index = index,
+    grps = as.factor(mvpart_run1$where)
+  ) %>% 
+  ggplot(aes(gx, gy)) +
+    geom_point(aes(color = grps), size = 10) +
+    geom_text(aes(label = index))
+```
 
 Map produced by Stuart Davies.
 
