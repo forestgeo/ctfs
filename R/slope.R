@@ -52,6 +52,8 @@
 #' 
 #' @template plotdim
 #' @template gridsize_side
+#' @param elev A list named `col` containing a data.frame with variables `x`,
+#'   `y` and `elev`. This object is very specific; See example.
 #' 
 #' @seealso [calcslope()], [quadslope()]
 #' @examples
