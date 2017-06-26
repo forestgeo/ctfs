@@ -155,6 +155,7 @@
 #' Regression using the Gibbs sampler, with just one x variable.
 #' 
 #' @template steps 
+#' @template showstep
 #'
 'regression.Bayes'
 
@@ -228,6 +229,7 @@
 #' 
 #' @param add xxxdocparam in model.xy() is different to add in add_plot.R.
 #' @template steps
+#' @template showstep
 #'
 #' @examples
 #' \dontrun{
