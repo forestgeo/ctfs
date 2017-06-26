@@ -273,7 +273,7 @@ largest_dbh <- dplyr::filter(bci12full7, dbh > 2000)
 
 In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering dissapears with bars twice as wide.
 
-```{r clustering, fig.show="hold"}
+```{r clustering, fig.show="hold", fig.align="default"}
 gg_largest_dbh <- ggplot(largest_dbh, aes(dbh))
 gg_largest_dbh + geom_histogram(binwidth = useful_barwidth)
 gg_largest_dbh + geom_histogram(binwidth = useful_barwidth * 2)
@@ -319,22 +319,21 @@ unusual_trees <- bci12full7 %>%
 unusual_trees
 ```
 
-We could ask where in the plot the unusual trees are located:
+You could plot the unusual trees to see where they are located. A number of the unusually large trees seem to be on the edge of the plot, where `gy` values are lower than 100 (left plot below). This information helps us to filter those edge trees selectively, and decide what to do with them (right plot below).
 
-```{r locate-unusual-trees}
+```{r locate-unusual-trees, fig.align="default", fig.show="hold"}
 # For faster analysis and to avoid overplotting, choose only 100 trees at random
 sample_100 <- bci12full7 %>% sample_n(100)
 
+# Left plot
 unusual_tree_loc <- ggplot(sample_100, aes(gx, gy)) + 
     # plot a few points for reference with only 1/10 opacity (less distracting)
     geom_point(alpha = 1/10) +
     # highlight location of unusual trees in the plot
     geom_point(data = unusual_trees, colour = "red")
-```
+unusual_tree_loc
 
-A number of the unusually large trees seem to be on the edge of the plot, where `gy` values are lower than 100. This information helps us to filter those edge trees selectively, and decide what to do with them.
-
-```{r}
+# Right plot
 edge_trees <- unusual_trees %>% filter(gy < 100)
 unusual_tree_loc + 
   geom_point(
@@ -342,7 +341,6 @@ unusual_tree_loc +
     size = 3, shape = 1  # highlight edge trees with bigger and hollow points
   )
 ```
-
 
 > It's good practice to repeat your analysis with and without the outliers. If they have minimal effect on the results, and you can't figure out why they're there, it's reasonable to replace them with missing values, and move on. However, if they have a substantial effect on your results, you shouldn't drop them without justification. You'll need to figure out what caused them (e.g. a data entry error) and disclose that you removed them in your write-up.
 
