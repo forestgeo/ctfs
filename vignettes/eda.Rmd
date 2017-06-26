@@ -350,7 +350,7 @@ Now you can decide what to do with the unusual and edge trees.
 
 # Missing Values
 
-(This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except the data.
+(This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except references to data, plots and minor edits to text.
 
 
 If you've encountered unusual values in your dataset, and simply want to move on to the rest of your analysis, you have two options.
@@ -386,7 +386,7 @@ with_unusual_made_NA <- bci12full7 %>%
 
 Note (mine): Alternatively to ifelse, use `dplyr::case_when()`.
 
-> `case_when` is particularly useful inside mutate when you want to
+> `case_when()` is particularly useful inside mutate when you want to
   create a new variable that relies on a complex combination of existing
   variables
 
@@ -396,46 +396,48 @@ Note (mine): Alternatively to ifelse, use `dplyr::case_when()`.
 # Confirm no rows have been removed,
 bci12full7 %>% nrow()
 with_unusual_made_NA %>% nrow()
+
 # but dbh of unusual trees is NA
-with_unusual_made_NA %>% 
+unusual_only <- with_unusual_made_NA %>% 
   filter(are_unusual) %>% 
-  select(dbh, dplyr::everything())
+  select(dbh, treeID)
+unusual_only
 ```
 
+Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It's not obvious where you should plot missing values, so ggplot2 doesn't include them in the plot, but it does warn that they've been removed (left plot below). To suppress that warning, set `na.rm = TRUE` (right plot below).
 
+```{r, fig.align="default", fig.show="hold"}
+# Left plot
+ggplot(unusual_only, aes(dbh)) + 
+  geom_histogram(binwidth = useful_barwidth) +
+  labs(title = "Expect empty plot but\n get a warning")
 
-
-Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It's not obvious where you should plot missing values, so ggplot2 doesn't include them in the plot, but it does warn that they've been removed:
-
-```{r, dev = "png"}
-ggplot(data = diamonds2, mapping = aes(x = x, y = y)) + 
-  geom_point()
+# Right plot
+ggplot(unusual_only, aes(dbh)) + 
+  geom_histogram(binwidth = useful_barwidth, na.rm = TRUE) +
+  labs(title = "Expect empty plot but\nno warning")
 ```
 
-To suppress that warning, set `na.rm = TRUE`:
+Other times you want to understand what makes observations with missing values different to observations with recorded values.
 
-```{r, eval = FALSE}
-ggplot(data = diamonds2, mapping = aes(x = x, y = y)) + 
-  geom_point(na.rm = TRUE)
-```
-
-Other times you want to understand what makes observations with missing values different to observations with recorded values. For example, in `nycflights13::flights`, missing values in the `dep_time` variable indicate that the flight was cancelled. So you might want to compare the scheduled departure times for cancelled and non-cancelled times. You can do this by making a new variable with `is.na()`.
+For example, in `bci::bci12full7`, some missing values in the `dbh` variable correspond to alive trees. So you might want to compare the `DFstatus` for trees with missing and non-misisng values of `dbh`. You can do this by making a new variable with `is.na()`.
 
 ```{r}
-nycflights13::flights %>% 
-  mutate(
-    cancelled = is.na(dep_time),
-    sched_hour = sched_dep_time %/% 100,
-    sched_min = sched_dep_time %% 100,
-    sched_dep_time = sched_hour + sched_min / 60
-  ) %>% 
-  ggplot(mapping = aes(sched_dep_time)) + 
-    geom_freqpoly(mapping = aes(colour = cancelled), binwidth = 1/4)
+missing_dbh_trees <- bci12full7 %>% mutate(missing_dbh = is.na(dbh))
+missing_dbh_trees %>% 
+  ggplot() + 
+    geom_bar(aes(DFstatus, fill = missing_dbh))
 ```
 
-However this plot isn't great because there are many more non-cancelled flights than cancelled flights. In the next section we'll explore some techniques for improving this comparison.
+To know why `dbh` is missing in alive trees, you may want to further explore all variables with a single unique value in this conditions (i.e. `dbh = NA` and `DFstatus = "alive"`):
 
-
+```{r}
+has_single_unique_value <- function(x) {dplyr::n_distinct(x) == 1}
+missing_dbh_trees %>% 
+  filter(missing_dbh == TRUE, DFstatus == "alive") %>% 
+  select_if(has_single_unique_value) %>% 
+  unique()
+```
 
 
 
@@ -445,6 +447,8 @@ However this plot isn't great because there are many more non-cancelled flights 
 
 
 # Covariation
+
+xxxcont.
 
 ## A Categorical and Continuous Variable
 
