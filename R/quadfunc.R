@@ -84,6 +84,8 @@
 #' @description
 #' Calculate the row and column given the quadrat index, as calculated in
 #' gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming.
+#' 
+#' @template index_quad_num
 #'
 #' @inheritParams gxgy.to.index
 #'
@@ -156,7 +158,7 @@
 #'
 #' @template gridsize_side
 #' @template plotdim
-#' @param index Quadrate number, between 0 and 1249 in the standard plot.
+#' @template index_quad_num
 #' @param dist Distance in m within which the neighboring quadrates are located.
 #'   Distance is measured from any side of the index quadrate.
 #'
@@ -223,6 +225,7 @@
 #' a single larger quadrat.
 #' 
 #' @template plotdim
+#' @template index_quad_num
 #' 
 'getsmallerquads'
 

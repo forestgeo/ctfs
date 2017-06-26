@@ -71,6 +71,7 @@ avoid <- c(
   "plot",  # done
   "plotdim",  # done
   "plotside",  # done
+  "ptsize",  # done
   "pts",  # done some, others vary.
   "r",  # done
   "rounddown",  # done
@@ -98,8 +99,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("ptsize")
-args_count_param("ptsize")
+args_help("index")
+args_count_param("index")
 
 
 
