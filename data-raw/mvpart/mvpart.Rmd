@@ -125,23 +125,27 @@ table(mvpart_run1$where)
 
 ### Map
 
-```{r}
-index <- 1:600
-index %>% 
-  index.to.gxgy(plotdim = c(600, 400)) %>%
-  as_tibble() %>% 
-  mutate(
-    index = index,
-    grps = as.factor(mvpart_run1$where)
-  ) %>% 
-  ggplot(aes(gx, gy)) +
-    geom_point(aes(color = grps), size = 10) +
-    geom_text(aes(label = index))
+```{r, fig.width=12}
+plot_where <- function(run) {
+  run <- get(run)
+  # Data
+  index <- 1:600
+  grouped_quadrats <- index %>% 
+    index.to.gxgy(plotdim = c(600, 400)) %>%
+    as_tibble() %>% 
+    mutate(
+      index = index,
+      group = as.factor(run$where)
+    )
+  
+  # Plot
+  ggplot(grouped_quadrats, aes(gx, gy)) +
+    geom_raster(aes(fill = group)) +
+    geom_text(aes(label = index)) +
+    theme_minimal()
+}
+plot_where("mvpart_run1")
 ```
-
-Map produced by Stuart Davies.
-
-![](Screen Shot 2017-06-21 at 4.49.28 PM.png)
 
 # Evaluation
 
@@ -159,6 +163,12 @@ mvpart_run3 <- mvpart(form = formula, data = environmental_variables)
 all.equal(mvpart_run1, mvpart_run2)
 all.equal(mvpart_run1, mvpart_run3)
 all.equal(mvpart_run2, mvpart_run3)
+```
+
+### Visualize grouping of three different runs
+
+```{r, fig.width=10}
+paste0("mvpart_run", 1:3) %>% purrr::map(plot_where)
 ```
 
 ## `mvpart()` fails with scaled abundance data
