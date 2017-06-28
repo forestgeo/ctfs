@@ -380,3 +380,61 @@ devtools::install()
 # To debug difference in documentation between pkgdown and man
 # showdiff_man_pkg
 
+
+# to add to eda.Rmd -------------------------------------------------------
+
+
+
+
+
+
+
+
+# To consider
+
+## Working with Dates
+
+The variable `date` is the number of days since 1960-01-01 (see data dictionary at https://goo.gl/Q6XYrb), but it will be easier to interpret if we convert it to a date-time object (see `?lubridate::as_datetime`).
+
+```{r}
+library(lubridate)
+
+# "Duration" is a useful intermediate; learn more with ?lubridate::duration
+# %/%: integere diviison removes useless and annoying fraction of seconds.
+bci12full7 <- mutate(bci12full7, duration = dseconds((date * 24 * 60 * 60) %/% 1))
+bci12full7 <- mutate(bci12full7, datetime = as_datetime(duration, origin = "1960-01-01"))
+bci12full7 %>% 
+  select(date, datetime)
+```
+
+```{r}
+bci12full7$date <- lubridate::as_date(bci12full7$date, origin = "1960-01-01")
+bci12full7 %>% 
+  select(date) %>% 
+  glimpse()
+```
+
+## Tools to explore data quickly
+
+### inzight light
+
+http://lite.docker.stat.auckland.ac.nz/
+
+### skimr
+
+```{r}
+library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
+skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
+```
+
+To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
+
+```{r, eval=FALSE}
+library(skimr)
+smry <- skim(diamonds)
+smry %>% 
+  dplyr::filter(stat == "hist") %>% 
+  as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
+```
+
+

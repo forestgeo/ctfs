@@ -584,7 +584,7 @@ Compare and contrast `geom_violin()` with a facetted `geom_histogram()`,
 or a coloured `geom_freqpoly()`. What are the pros and cons of each 
 method?
 
-```{r, out.width="50%"}
+```{r, out.width="50%", fig.align="default"}
 ggplot(data_few_sp, aes(sp, dbh)) + 
   geom_violin()
 
@@ -598,7 +598,7 @@ to see the relationship between a continuous and categorical variable.
 The ggbeeswarm package provides a number of methods similar to 
 `geom_jitter()`.
 
-```{r, out.width="33%"}
+```{r, out.width="33%", fig.align="default"}
 small_dataset <- data_few_sp %>% group_by(sp) %>% sample_n(50)
 
 p <- ggplot(small_dataset, aes(sp, dbh))
@@ -611,7 +611,7 @@ p + ggbeeswarm::geom_quasirandom()
 
 To visualise the covariation between categorical variables, you'll need to count the number of observations for each combination. One way to do that is to rely on the built-in `geom_count()`. The size of each circle in the plot displays how many observations occurred at each combination of values (left plot below). Covariation will appear as a strong correlation between specific x values and specific y values.
 
-```{r, out.width="50%"}
+```{r, out.width="50%", fig.align="default"}
 # Left: simple count
 ggplot(data = data_few_sp) +
   geom_count(mapping = aes(x = sp, y = DFstatus))
@@ -669,7 +669,7 @@ But using transparency can be challenging for very large datasets. Another solut
 
 `geom_bin2d()` and `geom_hex()` divide the coordinate plane into 2d bins and then use a fill color to display how many points fall into each bin. `geom_bin2d()` creates rectangular bins. `geom_hex()` creates hexagonal bins. You will need to install the hexbin package to use `geom_hex()`.
 
-```{r, fig.asp = 1, out.width = "50%", message = FALSE}
+```{r, fig.asp = 1, fig.align="default", out.width = "50%", message = FALSE}
 ggplot(data = large_dataset) +
   geom_bin2d(mapping = aes(x = dbh, y = agb))
 
@@ -696,9 +696,6 @@ ggplot(data = large_dataset, mapping = aes(x = dbh, y = agb)) +
 
 ## Patterns and models
 
-xxxcont.
-
-
 Patterns in your data provide clues about relationships. If a systematic relationship exists between two variables it will appear as a pattern in the data. If you spot a pattern, ask yourself:
 
 + Could this pattern be due to coincidence (i.e. random chance)?
@@ -711,129 +708,38 @@ Patterns in your data provide clues about relationships. If a systematic relatio
 
 + Does the relationship change if you look at individual subgroups of the data?
 
-A scatterplot of Old Faithful eruption lengths versus the wait time between eruptions shows a pattern: longer wait times are associated with longer eruptions. The scatterplot also displays the two clusters that we noticed above.
+A scatterplot of tree diameter (`dbh`) versus above ground biomass (`agb`) shows a pattern: larger tree diameters are associated with larger above ground biomass. The scatterplot also displays strangely high values of `agb`, which appear to correspond with `dbh` values ranging approximately 80-140.
 
-```{r fig.height = 2}
-ggplot(data = faithful) + 
-  geom_point(mapping = aes(x = eruptions, y = waiting))
-``` 
+```{r odd-agb, echo=FALSE}
+ggplot(mapping = aes(x = dbh, y = agb)) + 
+  geom_point(data = large_dataset) +
+  geom_point(data = large_dataset %>% filter(dbh > 80 & dbh < 140),
+    color = "red"
+  )
+```
 
 Patterns provide one of the most useful tools for data scientists because they reveal covariation. If you think of variation as a phenomenon that creates uncertainty, covariation is a phenomenon that reduces it. If two variables covary, you can use the values of one variable to make better predictions about the values of the second. If the covariation is due to a causal relationship (a special case), then you can use the value of one variable to control the value of the second.
 
-Models are a tool for extracting patterns out of data. For example, consider the diamonds data. It's hard to understand the relationship between cut and price, because cut and carat, and carat and price are tightly related. It's possible to use a model to remove the very strong relationship between price and carat so we can explore the subtleties that remain. The following code fits a model that predicts `price` from `carat` and then computes the residuals (the difference between the predicted value and the actual value). The residuals give us a view of the price of the diamond, once the effect of carat has been removed. 
+Models are a tool for extracting patterns out of data. For example, consider the `large_dataset` data; `dbh` and `agb` are tightly related. It's possible to use a model to remove the very strong relationship between `dbh` and `agb` so we can explore the subtleties that remain. The following code fits a model that predicts `agb` from `dbh` and then computes the residuals (the difference between the predicted value and the actual value). The residuals give us a view of the `agb` of a tree, once the effect of `dbh` has been removed. 
 
-```{r, dev = "png"}
+```{r model-agb, dev = "png"}
 library(modelr)
 
-mod <- lm(log(price) ~ log(carat), data = diamonds)
+mod <- lm(log(agb) ~ log(dbh), data = large_dataset)
 
-diamonds2 <- diamonds %>% 
+large_dataset2 <- large_dataset %>% 
   add_residuals(mod) %>% 
   mutate(resid = exp(resid))
 
-ggplot(data = diamonds2) + 
-  geom_point(mapping = aes(x = carat, y = resid))
+also_strange <- large_dataset2 %>% filter(dbh < 80, resid > 5)
+
+ggplot(mapping = aes(x = dbh, y = resid)) + 
+  geom_point(data = large_dataset2) +
+  geom_point(data = large_dataset2 %>% filter(dbh > 80 & dbh < 140),
+    color = "red"
+  ) +
+  geom_point(data = also_strange, size = 3, colour = "red", shape = 1)
 ```
 
-Once you've removed the strong relationship between carat and price, you can see what you expect in the relationship between cut and price: relative to their size, better quality diamonds are more expensive. 
+Once you've removed the strong relationship between `dbh` and `agb`, you can see some additional strange measurements.
 
-```{r}
-ggplot(data = diamonds2) + 
-  geom_boxplot(mapping = aes(x = cut, y = resid))
-```
-
-You'll learn how models, and the modelr package, work in the final part of the book, [model](#model-intro). We're saving modelling for later because understanding what models are and how they work is easiest once you have tools of data wrangling and programming in hand.
-
-## ggplot2 calls
-
-As we move on from these introductory chapters, we'll transition to a more concise expression of ggplot2 code. So far we've been very explicit, which is helpful when you are learning:
-
-```{r, eval = FALSE}
-ggplot(data = faithful, mapping = aes(x = eruptions)) + 
-  geom_freqpoly(binwidth = 0.25)
-```
-
-Typically, the first one or two arguments to a function are so important that you should know them by heart. The first two arguments to `ggplot()` are `data` and `mapping`, and the first two arguments to `aes()` are `x` and `y`. In the remainder of the book, we won't supply those names. That saves typing, and, by reducing the amount of boilerplate, makes it easier to see what's different between plots. That's a really important programming concern that we'll come back in [functions].
-
-Rewriting the previous plot more concisely yields:
-
-```{r, eval = FALSE}
-ggplot(faithful, aes(eruptions)) + 
-  geom_freqpoly(binwidth = 0.25)
-```
-
-Sometimes we'll turn the end of a pipeline of data transformation into a plot. Watch for the transition from `%>%` to `+`. I wish this transition wasn't necessary but unfortunately ggplot2 was created before the pipe was discovered.
-
-```{r, eval = FALSE}
-diamonds %>% 
-  count(cut, clarity) %>% 
-  ggplot(aes(clarity, cut, fill = n)) + 
-    geom_tile()
-```
-
-## Learning more
-
-If you want to learn more about the mechanics of ggplot2, I'd highly recommend grabbing a copy of the ggplot2 book: <https://amzn.com/331924275X>. It's been recently updated, so it includes dplyr and tidyr code, and has much more space to explore all the facets of visualisation. Unfortunately the book isn't generally available for free, but if you have a connection to a university you can probably get an electronic version for free through SpringerLink.
-
-Another useful resource is the [_R Graphics Cookbook_](https://amzn.com/1449316956) by Winston Chang. Much of the contents are available online at <http://www.cookbook-r.com/Graphs/>.
-
-I also recommend [_Graphical Data Analysis with R_](https://amzn.com/1498715230), by Antony Unwin. This is a book-length treatment similar to the material covered in this chapter, but has the space to go into much greater depth. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# To consider
-
-## Working with Dates
-
-The variable `date` is the number of days since 1960-01-01 (see data dictionary at https://goo.gl/Q6XYrb), but it will be easier to interpret if we convert it to a date-time object (see `?lubridate::as_datetime`).
-
-```{r}
-library(lubridate)
-
-# "Duration" is a useful intermediate; learn more with ?lubridate::duration
-# %/%: integere diviison removes useless and annoying fraction of seconds.
-bci12full7 <- mutate(bci12full7, duration = dseconds((date * 24 * 60 * 60) %/% 1))
-bci12full7 <- mutate(bci12full7, datetime = as_datetime(duration, origin = "1960-01-01"))
-bci12full7 %>% 
-  select(date, datetime)
-```
-
-```{r}
-bci12full7$date <- lubridate::as_date(bci12full7$date, origin = "1960-01-01")
-bci12full7 %>% 
-  select(date) %>% 
-  glimpse()
-```
-
-## Tools to explore data quickly
-
-### inzight light
-
-http://lite.docker.stat.auckland.ac.nz/
-
-### skimr
-
-```{r}
-library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
-skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
-```
-
-To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
-
-```{r, eval=FALSE}
-library(skimr)
-smry <- skim(diamonds)
-smry %>% 
-  dplyr::filter(stat == "hist") %>% 
-  as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
-```
