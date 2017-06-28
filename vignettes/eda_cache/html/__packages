@@ -9,3 +9,6 @@ readr
 purrr
 dplyr
 bindrcpp
+forcats
+hexbin
+modelr
