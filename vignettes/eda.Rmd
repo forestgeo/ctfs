@@ -13,11 +13,23 @@ vignette: >
 ---
 
 ```{r setup, echo = FALSE, message=FALSE, warning=FALSE}
+# hadley's settings
+set.seed(1014)
+options(digits = 3)
+
 knitr::opts_chunk$set(
-  collapse = TRUE,
+  echo = TRUE,  # {mine}
   comment = "#>",
-  echo = TRUE
+  collapse = TRUE,
+  cache = TRUE,
+  out.width = "70%",
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold"
 )
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
 ```
 
 
@@ -43,6 +55,7 @@ library(bci)  # to access data from BCI
 # Functions
 library(forestr)  # to analyse forest dynamics
 library(tidyverse)  # to visualize and transform data, and much more
+library(forcats)  # tools for dealing with categorical variables
 ```
 
 
@@ -350,7 +363,7 @@ Now you can decide what to do with the unusual and edge trees.
 
 # Missing Values
 
-(This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except references to data, plots and minor edits to text.
+This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except references to data, plots and minor edits to text.
 
 
 If you've encountered unusual values in your dataset, and simply want to move on to the rest of your analysis, you have two options.
@@ -410,12 +423,12 @@ Like R, ggplot2 subscribes to the philosophy that missing values should never si
 # Left plot
 ggplot(unusual_only, aes(dbh)) + 
   geom_histogram(binwidth = useful_barwidth) +
-  labs(title = "Expect empty plot but\n get a warning")
+  labs(title = "Expect empty plot but get a warning")
 
 # Right plot
 ggplot(unusual_only, aes(dbh)) + 
   geom_histogram(binwidth = useful_barwidth, na.rm = TRUE) +
-  labs(title = "Expect empty plot but\nno warning")
+  labs(title = "Expect empty plot but no warning")
 ```
 
 Other times you want to understand what makes observations with missing values different to observations with recorded values.
@@ -455,38 +468,51 @@ missing_dbh_trees %>%
 
 
 
+
 # Covariation
 
-xxxcont. replace hw by my examples
-
-## Covariation
+This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except references to data, plots and minor edits to text.
 
 If variation describes the behavior _within_ a variable, covariation describes the behavior _between_ variables. **Covariation** is the tendency for the values of two or more variables to vary together in a related way. The best way to spot covariation is to visualise the relationship between two or more variables. How you do that should again depend on the type of variables involved.
 
-### A categorical and continuous variable {#cat-cont}
+## A categorical and continuous variable
 
-It's common to want to explore the distribution of a continuous variable broken down by a categorical variable, as in the previous frequency polygon. The default appearance of `geom_freqpoly()` is not that useful for that sort of comparison because the height is given by the count. That means if one of the groups is much smaller than the others, it's hard to see the differences in shape. For example, let's explore how the price of a diamond varies with its quality:
+It's common to want to explore the distribution of a continuous variable broken down by a categorical variable. The default appearance of `geom_freqpoly()` is not that useful for that sort of comparison because the height is given by the count. That means if one of the groups is much smaller than the others, it's hard to see the differences in shape. 
+For example, let's explore how stem diameter (`dbh`) varies with species (`sp`):
 
 ```{r}
-ggplot(data = diamonds, mapping = aes(x = price)) + 
-  geom_freqpoly(mapping = aes(colour = cut), binwidth = 500)
+# Show the problem with `count` using a few species as example
+
+a_few_species <- bci12full7 %>% 
+  select(sp) %>% 
+  unique() %>% 
+  pull() %>% 
+  .[1:5]
+data_few_sp <- bci12full7 %>% filter(sp %in% a_few_species)
+
+data_few_sp %>% 
+  ggplot(aes(dbh)) +
+    geom_freqpoly(aes(color = sp))
 ```
 
 It's hard to see the difference in distribution because the overall counts differ so much:
 
-```{r, fig.width = "50%", fig.width = 4}
-ggplot(diamonds) + 
-  geom_bar(mapping = aes(x = cut))
+```{r}
+ggplot(data_few_sp) + 
+  geom_bar(mapping = aes(
+    # reorder `sp` from highest to lowest frequency
+    x = forcats::fct_infreq(sp)
+  )
+)
 ```
 
 To make the comparison easier we need to swap what is displayed on the y-axis. Instead of displaying count, we'll display __density__, which is the count standardised so that the area under each frequency polygon is one.
 
 ```{r}
-ggplot(data = diamonds, mapping = aes(x = price, y = ..density..)) + 
-  geom_freqpoly(mapping = aes(colour = cut), binwidth = 500)
+data_few_sp %>% 
+  ggplot(aes(x= dbh, y = ..density..)) +
+    geom_freqpoly(aes(color = sp))
 ```
-
-There's something rather surprising about this plot - it appears that fair diamonds (the lowest quality) have the highest average price!  But maybe that's because frequency polygons are a little hard to interpret - there's a lot going on in this plot.
 
 Another alternative to display the distribution of a continuous variable broken down by a categorical variable is the boxplot. A **boxplot** is a type of visual shorthand for a distribution of values that is popular among statisticians. Each boxplot consists of:
 
@@ -505,49 +531,258 @@ Another alternative to display the distribution of a continuous variable broken 
   farthest non-outlier point in the distribution.
 
 ```{r, echo = FALSE, out.width = "100%"}
-knitr::include_graphics("images/EDA-boxplot.png")
+knitr::include_graphics("https://raw.githubusercontent.com/hadley/r4ds/master/images/EDA-boxplot.png")
 ```
 
-Let's take a look at the distribution of price by cut using `geom_boxplot()`:
+Let's take a look at the distribution of tree diameter (`dbh`) by species (`sp`) using `geom_boxplot()`:
 
 ```{r fig.height = 3}
-ggplot(data = diamonds, mapping = aes(x = cut, y = price)) +
+ggplot(data = data_few_sp, mapping = aes(x = sp, y = dbh)) +
   geom_boxplot()
 ```
 
-We see much less information about the distribution, but the boxplots are much more compact so we can more easily compare them (and fit more on one plot). It supports the counterintuitive finding that better quality diamonds are cheaper on average! In the exercises, you'll be challenged to figure out why.
+We see much less information about the distribution, but the boxplots are much more compact so we can more easily compare them (and fit more on one plot).
 
-`cut` is an ordered factor: fair is worse than good, which is worse than very good and so on. Many categorical variables don't have such an intrinsic order, so you might want to reorder them to make a more informative display. One way to do that is with the `reorder()` function.
-
-For example, take the `class` variable in the `mpg` dataset. You might be interested to know how highway mileage varies across classes:
+Above we ordered the variable `sp` by its frequency. But now, to make the trend easier to see, we can reorder `sp` based on the median value of `dbh`. One way to do that is with the `reorder()` function.
 
 ```{r}
-ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+data_few_sp <- data_few_sp %>% 
+  mutate(sp = reorder(sp, dbh, FUN = median, na.rm = TRUE))
+
+data_few_sp %>% 
+  ggplot(mapping = aes(x = sp, y = dbh)) + 
   geom_boxplot()
 ```
 
-To make the trend easier to see, we can reorder `class` based on the median value of `hwy`:
-
-```{r fig.height = 3}
-ggplot(data = mpg) +
-  geom_boxplot(mapping = aes(x = reorder(class, hwy, FUN = median), y = hwy))
-```
-
-If you have long variable names, `geom_boxplot()` will work better if you flip it 90°. You can do that with `coord_flip()`.
+If you have long variable names, `geom_boxplot()` will work better if you flip it 90°. You can do that with `coord_flip()` (left plot below), or with `ggstance::geom_boxploth()` and swaping `x` and `y` mappings (right plot below):
 
 ```{r}
-ggplot(data = mpg) +
-  geom_boxplot(mapping = aes(x = reorder(class, hwy, FUN = median), y = hwy)) +
-  coord_flip()
+# Left plot
+ggplot2::last_plot() +  # reusing previous plot
+  ggplot2::coord_flip()
+
+# Right plot
+data_few_sp %>% 
+  ggplot() +
+  ggstance::geom_boxploth(aes(x = dbh, y = sp))  # swap x, y; compare to above
 ```
 
-## A Categorical and Continuous Variable
+### Alternatives
 
-## Two Categorical Variables
+One problem with boxplots is that they were developed in an era of 
+much smaller datasets and tend to display a prohibitively large
+number of "outlying values". One approach to remedy this problem is
+the letter value plot.
 
-## Two Continuous Variables
+```{r}
+# install.packages("lvplot")
+ggplot(data_few_sp, aes(sp, dbh)) + 
+  lvplot::geom_lv()
+```
 
-# Patterns and Models
+Compare and contrast `geom_violin()` with a facetted `geom_histogram()`,
+or a coloured `geom_freqpoly()`. What are the pros and cons of each 
+method?
+
+```{r, out.width="50%"}
+ggplot(data_few_sp, aes(sp, dbh)) + 
+  geom_violin()
+
+ggplot(data_few_sp, aes(dbh)) + 
+  geom_histogram() +
+  facet_wrap(~sp)
+```
+
+If you have a small dataset, it's sometimes useful to use `geom_jitter()`
+to see the relationship between a continuous and categorical variable.
+The ggbeeswarm package provides a number of methods similar to 
+`geom_jitter()`.
+
+```{r, out.width="33%"}
+small_dataset <- data_few_sp %>% group_by(sp) %>% sample_n(50)
+
+p <- ggplot(small_dataset, aes(sp, dbh))
+p + geom_point()
+p + geom_jitter()
+p + ggbeeswarm::geom_quasirandom()
+```
+
+## Two categorical variables
+
+To visualise the covariation between categorical variables, you'll need to count the number of observations for each combination. One way to do that is to rely on the built-in `geom_count()`. The size of each circle in the plot displays how many observations occurred at each combination of values (left plot below). Covariation will appear as a strong correlation between specific x values and specific y values.
+
+```{r, out.width="50%"}
+# Left: simple count
+ggplot(data = data_few_sp) +
+  geom_count(mapping = aes(x = sp, y = DFstatus))
+```
+
+To more clearly show the distribution of `DFstatus` within `sp` (or `sp` within `DFstatus`) you can map bubble size to a proportion calculated over `sp` (or over `DFstatus`):
+
+```{r}
+# Right: proportion; columns sum to 1.
+ggplot(data_few_sp, aes(x = sp, y = DFstatus)) +
+  geom_count(aes(size = ..prop.., group = sp)) +
+  scale_size_area(max_size = 10)
+```
+
+Another approach is to compute the count with dplyr:
+
+```{r}
+few_spp_n <- data_few_sp %>% count(sp, DFstatus)
+few_spp_n
+```
+
+Then visualise with `geom_tile()` and the fill aesthetic:
+
+```{r}
+few_spp_n %>% 
+  ggplot(aes(sp, DFstatus)) +
+    geom_tile(mapping = aes(fill = n))
+```
+
+## Two continuous variables
+
+You've already seen one great way to visualise the covariation between two continuous variables: draw a scatterplot with `geom_point()`. You can see covariation as a pattern in the points. For example, you can see an exponential relationship between the tree diameter (`dbh`) and the above ground biomass (`agb`).
+
+```{r, echo=FALSE}
+set.seed(1234)
+```
+
+```{r, dev = "png"}
+large_dataset <- bci12full7 %>% 
+  filter(dbh < 400) %>% 
+  sample_n(100000)
+ggplot(data = large_dataset) +
+  geom_point(mapping = aes(x = dbh, y = agb))
+```
+
+Scatterplots become less useful as the size of your dataset grows, because points begin to overplot, and pile up into areas of uniform black (as above).
+You've already seen one way to fix the problem: using the `alpha` aesthetic to add transparency.
+
+```{r, dev = "png"}
+ggplot(data = large_dataset) +
+  geom_point(mapping = aes(x = dbh, y = agb), alpha = 1 / 50)
+```
+
+But using transparency can be challenging for very large datasets. Another solution is to use bin. Previously you used `geom_histogram()` and `geom_freqpoly()` to bin in one dimension. Now you'll learn how to use `geom_bin2d()` and `geom_hex()` to bin in two dimensions.
+
+`geom_bin2d()` and `geom_hex()` divide the coordinate plane into 2d bins and then use a fill color to display how many points fall into each bin. `geom_bin2d()` creates rectangular bins. `geom_hex()` creates hexagonal bins. You will need to install the hexbin package to use `geom_hex()`.
+
+```{r, fig.asp = 1, out.width = "50%", message = FALSE}
+ggplot(data = large_dataset) +
+  geom_bin2d(mapping = aes(x = dbh, y = agb))
+
+# install.packages("hexbin")
+ggplot(data = large_dataset) +
+  geom_hex(mapping = aes(x = dbh, y = agb))
+```
+
+Another option is to bin one continuous variable so it acts like a categorical variable. Then you can use one of the techniques for visualising the combination of a categorical and a continuous variable that you learned about. For example, you could bin `dbh` and then for each group, display a boxplot:
+
+```{r}
+ggplot(data = large_dataset, mapping = aes(x = dbh, y = agb)) + 
+  geom_boxplot(mapping = aes(group = cut_width(dbh, useful_barwidth)))
+```
+
+`cut_width(x, width)`, as used above, divides `x` into bins of width `width`. By default, boxplots look roughly the same (apart from number of outliers) regardless of how many observations there are, so it's difficult to tell that each boxplot summarises a different number of points. One way to show that is to make the width of the boxplot proportional to the number of points with `varwidth = TRUE`.
+
+Another approach is to display approximately the same number of points in each bin. That's the job of `cut_number()`:
+
+```{r}
+ggplot(data = large_dataset, mapping = aes(x = dbh, y = agb)) + 
+  geom_boxplot(mapping = aes(group = cut_number(dbh, 20)))
+```
+
+## Patterns and models
+
+xxxcont.
+
+
+Patterns in your data provide clues about relationships. If a systematic relationship exists between two variables it will appear as a pattern in the data. If you spot a pattern, ask yourself:
+
++ Could this pattern be due to coincidence (i.e. random chance)?
+
++ How can you describe the relationship implied by the pattern?
+
++ How strong is the relationship implied by the pattern?
+
++ What other variables might affect the relationship?
+
++ Does the relationship change if you look at individual subgroups of the data?
+
+A scatterplot of Old Faithful eruption lengths versus the wait time between eruptions shows a pattern: longer wait times are associated with longer eruptions. The scatterplot also displays the two clusters that we noticed above.
+
+```{r fig.height = 2}
+ggplot(data = faithful) + 
+  geom_point(mapping = aes(x = eruptions, y = waiting))
+``` 
+
+Patterns provide one of the most useful tools for data scientists because they reveal covariation. If you think of variation as a phenomenon that creates uncertainty, covariation is a phenomenon that reduces it. If two variables covary, you can use the values of one variable to make better predictions about the values of the second. If the covariation is due to a causal relationship (a special case), then you can use the value of one variable to control the value of the second.
+
+Models are a tool for extracting patterns out of data. For example, consider the diamonds data. It's hard to understand the relationship between cut and price, because cut and carat, and carat and price are tightly related. It's possible to use a model to remove the very strong relationship between price and carat so we can explore the subtleties that remain. The following code fits a model that predicts `price` from `carat` and then computes the residuals (the difference between the predicted value and the actual value). The residuals give us a view of the price of the diamond, once the effect of carat has been removed. 
+
+```{r, dev = "png"}
+library(modelr)
+
+mod <- lm(log(price) ~ log(carat), data = diamonds)
+
+diamonds2 <- diamonds %>% 
+  add_residuals(mod) %>% 
+  mutate(resid = exp(resid))
+
+ggplot(data = diamonds2) + 
+  geom_point(mapping = aes(x = carat, y = resid))
+```
+
+Once you've removed the strong relationship between carat and price, you can see what you expect in the relationship between cut and price: relative to their size, better quality diamonds are more expensive. 
+
+```{r}
+ggplot(data = diamonds2) + 
+  geom_boxplot(mapping = aes(x = cut, y = resid))
+```
+
+You'll learn how models, and the modelr package, work in the final part of the book, [model](#model-intro). We're saving modelling for later because understanding what models are and how they work is easiest once you have tools of data wrangling and programming in hand.
+
+## ggplot2 calls
+
+As we move on from these introductory chapters, we'll transition to a more concise expression of ggplot2 code. So far we've been very explicit, which is helpful when you are learning:
+
+```{r, eval = FALSE}
+ggplot(data = faithful, mapping = aes(x = eruptions)) + 
+  geom_freqpoly(binwidth = 0.25)
+```
+
+Typically, the first one or two arguments to a function are so important that you should know them by heart. The first two arguments to `ggplot()` are `data` and `mapping`, and the first two arguments to `aes()` are `x` and `y`. In the remainder of the book, we won't supply those names. That saves typing, and, by reducing the amount of boilerplate, makes it easier to see what's different between plots. That's a really important programming concern that we'll come back in [functions].
+
+Rewriting the previous plot more concisely yields:
+
+```{r, eval = FALSE}
+ggplot(faithful, aes(eruptions)) + 
+  geom_freqpoly(binwidth = 0.25)
+```
+
+Sometimes we'll turn the end of a pipeline of data transformation into a plot. Watch for the transition from `%>%` to `+`. I wish this transition wasn't necessary but unfortunately ggplot2 was created before the pipe was discovered.
+
+```{r, eval = FALSE}
+diamonds %>% 
+  count(cut, clarity) %>% 
+  ggplot(aes(clarity, cut, fill = n)) + 
+    geom_tile()
+```
+
+## Learning more
+
+If you want to learn more about the mechanics of ggplot2, I'd highly recommend grabbing a copy of the ggplot2 book: <https://amzn.com/331924275X>. It's been recently updated, so it includes dplyr and tidyr code, and has much more space to explore all the facets of visualisation. Unfortunately the book isn't generally available for free, but if you have a connection to a university you can probably get an electronic version for free through SpringerLink.
+
+Another useful resource is the [_R Graphics Cookbook_](https://amzn.com/1449316956) by Winston Chang. Much of the contents are available online at <http://www.cookbook-r.com/Graphs/>.
+
+I also recommend [_Graphical Data Analysis with R_](https://amzn.com/1498715230), by Antony Unwin. This is a book-length treatment similar to the material covered in this chapter, but has the space to go into much greater depth. 
+
+
+
+
+
 
 
 
