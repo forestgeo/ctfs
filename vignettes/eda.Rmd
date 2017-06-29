@@ -44,9 +44,9 @@ This vignette will show you how to explore your data systematically, using moder
 
 The data we will use comes from Barro Colorado Island. It is available at DOI: https://doi.org/10.5479/data.bci.20130603 and via the __[bci](https://forestgeo.github.io/bci/)__ data package.
 
-Some functions we will use are available in the __[forestr](https://forestgeo.github.io/forestr/)__ package, and many are available in the __tidyverse__ package (which includes, for example, the packages __[dplyr](http://dplyr.tidyverse.org/)__ and __[ggplot2](http://ggplot2.tidyverse.org/)__). If you are new to the __tidyversre__, you may feel a little frustrated at the begining. But quickly your effort will pay-off. The tools in the __tidyverse__ are powerful, realatively easy to use and consistent; so once you learn some, you will learn most other tools intuitively.
+Some functions we will use are available in the __[forestr](https://forestgeo.github.io/forestr/)__ package, and many are available in the __tidyverse__ package (which includes, for example, the packages __[dplyr](http://dplyr.tidyverse.org/)__ and __[ggplot2](http://ggplot2.tidyverse.org/)__). If you are new to the __tidyversre__, you may feel a little frustrated at the beginning. But quickly your effort will pay-off. The tools in the __tidyverse__ are powerful, relatively easy to use and consistent; so once you learn some, you will learn most other tools intuitively.
 
-To more compleately learan how to do data science with the __tidyverse__ read [R for Data Science](http://r4ds.had.co.nz/), by Garrett Grolemund and Hadley Wickham.
+To more completely learn how to do data science with the __tidyverse__ read [R for Data Science](http://r4ds.had.co.nz/), by Garrett Grolemund and Hadley Wickham.
 
 ```{r packages}
 # To install packages see ?install.packages and ?devtools::install_github
@@ -64,7 +64,7 @@ library(forcats)  # tools for dealing with categorical variables
 
 ### Being explicit about what package a function comes from
 
-Frequently I refer to functions from a particular package as `package::fun()` (e.g. the first time I use a function). Althought the prefix `package::` is unnecesary if the package has previously been loaded with `library(package)`, I will often keep that prefix to be explicit about where the function comes from. This should help you to find the function if you ever want to use it again.
+Frequently I refer to functions from a particular package as `package::fun()` (e.g. the first time I use a function). Although the prefix `package::` is unnecessary if the package has previously been loaded with `library(package)`, I will often keep that prefix to be explicit about where the function comes from. This should help you to find the function if you ever want to use it again.
 
 
 
@@ -136,7 +136,7 @@ These are the first few rows of the data FullViewTable census 7 from Barro Color
 head(bci::bci12full7)
 ```
 
-If you want to handle the data faster and print it nicer, convert dataframes to tibbles:
+If you want to handle the data faster and print it nicer, convert data frames to tibbles:
 
 ```{r}
 bci12full7 <- tibble::as_tibble(bci12full7)  
@@ -181,7 +181,7 @@ ggplot2::ggplot(data = bci12full7) +
   ggplot2::geom_bar(mapping = aes(x = status))
 ```
 
-Although the [data dictionary](https://goo.gl/wGKEE3) does not explicitely refer to `A`, `D` and `M`, you likely know or guess that they mean alive, dead and misisng. To confirm this, let's first count the the number of unique values of the variables `status` and `DFstatus` (`DFstatus` is not decribed in the [data dictionary](https://goo.gl/wGKEE3)), then joining both counts by the shared variable `n`:
+Although the [data dictionary](https://goo.gl/wGKEE3) does not explicitly refer to `A`, `D` and `M`, you likely know or guess that they mean alive, dead and missing. To confirm this, let's first count the the number of unique values of the variables `status` and `DFstatus` (`DFstatus` is not described in the [data dictionary](https://goo.gl/wGKEE3)), then joining both counts by the shared variable `n`:
 
 ```{r introduce-count}
 count_status <- dplyr::count(bci12full7, status)
@@ -284,7 +284,7 @@ largest_dbh <- filter(bci12full7, dbh > 2000)
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
-In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering dissapears with bars twice as wide.
+In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering disappears with bars twice as wide.
 
 ```{r clustering, fig.show="hold", fig.align="default"}
 gg_largest_dbh <- ggplot(largest_dbh, aes(dbh))
@@ -296,11 +296,11 @@ gg_largest_dbh + geom_histogram(binwidth = useful_barwidth * 2)
 
 ### Unusual values
 
-In this section we will work with the entire bci12full7 dataset.
+In this section we will work with the entire bci12full7 data set.
 
 > Outliers are observations that are unusual; data points that don't seem to fit the pattern. Sometimes outliers are data entry errors; other times outliers suggest important new science. When you have a lot of data, outliers are sometimes difficult to see in a histogram. 
 
-> For example, take the distribution of the _dbh_ variable of the _bci12full7_ dataset. The only evidence of outliers is the unusually wide limits on the x-axis (stress mine).
+> For example, take the distribution of the _dbh_ variable of the _bci12full7_ data set. The only evidence of outliers is the unusually wide limits on the x-axis (stress mine).
 
 -- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
 
@@ -366,7 +366,7 @@ Now you can decide what to do with the unusual and edge trees.
 This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except references to data, plots and minor edits to text.
 
 
-If you've encountered unusual values in your dataset, and simply want to move on to the rest of your analysis, you have two options.
+If you've encountered unusual values in your data set, and simply want to move on to the rest of your analysis, you have two options.
 
 1.  Drop the entire row with the strange values:
 
@@ -431,9 +431,17 @@ ggplot(unusual_only, aes(dbh)) +
   labs(title = "Expect empty plot but no warning")
 ```
 
+<<<<<<< HEAD
 Other times you want to understand what makes observations with missing values different to observations with recorded values.
 
 For example, in `bci::bci12full7`, some missing values in the `dbh` variable correspond to alive trees. So you might want to compare the `DFstatus` for trees with missing and non-misisng values of `dbh`. You can do this by making a new variable with `is.na()`.
+||||||| merged common ancestors
+Other times you want to understand what makes observations with missing values different to observations with recorded values. For example, in `nycflights13::flights`, missing values in the `dep_time` variable indicate that the flight was cancelled. So you might want to compare the scheduled departure times for cancelled and non-cancelled times. You can do this by making a new variable with `is.na()`.
+=======
+Other times you want to understand what makes observations with missing values different to observations with recorded values.
+
+For example, in `bci::bci12full7`, some missing values in the `dbh` variable correspond to alive trees. So you might want to compare the `DFstatus` for trees with missing and non-missing values of `dbh`. You can do this by making a new variable with `is.na()`.
+>>>>>>> dev
 
 ```{r}
 missing_dbh_trees <- bci12full7 %>% mutate(missing_dbh = is.na(dbh))
@@ -471,6 +479,7 @@ missing_dbh_trees %>%
 
 # Covariation
 
+<<<<<<< HEAD
 This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except references to data, plots and minor edits to text.
 
 If variation describes the behavior _within_ a variable, covariation describes the behavior _between_ variables. **Covariation** is the tendency for the values of two or more variables to vary together in a related way. The best way to spot covariation is to visualise the relationship between two or more variables. How you do that should again depend on the type of variables involved.
@@ -548,13 +557,100 @@ Above we ordered the variable `sp` by its frequency. But now, to make the trend 
 ```{r}
 data_few_sp <- data_few_sp %>% 
   mutate(sp = reorder(sp, dbh, FUN = median, na.rm = TRUE))
+||||||| merged common ancestors
+## A Categorical and Continuous Variable
+=======
+This section comes from [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).), except references to data, plots and minor edits to text.
+
+If variation describes the behavior _within_ a variable, co-variation describes the behavior _between_ variables. **Covariation** is the tendency for the values of two or more variables to vary together in a related way. The best way to spot co variation is to visualize the relationship between two or more variables. How you do that should again depend on the type of variables involved.
+
+## A categorical and continuous variable
+
+It's common to want to explore the distribution of a continuous variable broken down by a categorical variable. The default appearance of `geom_freqpoly()` is not that useful for that sort of comparison because the height is given by the count. That means if one of the groups is much smaller than the others, it's hard to see the differences in shape. 
+For example, let's explore how stem diameter (`dbh`) varies with species (`sp`):
+
+```{r}
+# Show the problem with `count` using a few species as example
+
+a_few_species <- bci12full7 %>% 
+  select(sp) %>% 
+  unique() %>% 
+  pull() %>% 
+  .[1:5]
+data_few_sp <- bci12full7 %>% filter(sp %in% a_few_species)
+
+data_few_sp %>% 
+  ggplot(aes(dbh)) +
+    geom_freqpoly(aes(color = sp))
+```
+
+It's hard to see the difference in distribution because the overall counts differ so much:
+
+```{r}
+ggplot(data_few_sp) + 
+  geom_bar(mapping = aes(
+    # reorder `sp` from highest to lowest frequency
+    x = forcats::fct_infreq(sp)
+  )
+)
+```
+
+To make the comparison easier we need to swap what is displayed on the y-axis. Instead of displaying count, we'll display __density__, which is the count standardized so that the area under each frequency polygon is one.
+
+```{r}
+data_few_sp %>% 
+  ggplot(aes(x= dbh, y = ..density..)) +
+    geom_freqpoly(aes(color = sp))
+```
+
+Another alternative to display the distribution of a continuous variable broken down by a categorical variable is the boxplot. A **boxplot** is a type of visual shorthand for a distribution of values that is popular among statisticians. Each boxplot consists of:
+
+* A box that stretches from the 25th percentile of the distribution to the 
+  75th percentile, a distance known as the interquartile range (IQR). In the
+  middle of the box is a line that displays the median, i.e. 50th percentile,
+  of the distribution. These three lines give you a sense of the spread of the
+  distribution and whether or not the distribution is symmetric about the
+  median or skewed to one side. 
+
+* Visual points that display observations that fall more than 1.5 times the 
+  IQR from either edge of the box. These outlying points are unusual
+  so are plotted individually.
+
+* A line (or whisker) that extends from each end of the box and goes to the   
+  farthest non-outlier point in the distribution.
+
+```{r, echo = FALSE, out.width = "100%"}
+knitr::include_graphics("https://raw.githubusercontent.com/hadley/r4ds/master/images/EDA-boxplot.png")
+```
+
+Let's take a look at the distribution of tree diameter (`dbh`) by species (`sp`) using `geom_boxplot()`:
+
+```{r fig.height = 3}
+ggplot(data = data_few_sp, mapping = aes(x = sp, y = dbh)) +
+  geom_boxplot()
+```
+
+We see much less information about the distribution, but the boxplots are much more compact so we can more easily compare them (and fit more on one plot).
+
+Above we ordered the variable `sp` by its frequency. But now, to make the trend easier to see, we can reorder `sp` based on the median value of `dbh`. One way to do that is with the `reorder()` function.
+
+```{r}
+data_few_sp <- data_few_sp %>% 
+  mutate(sp = reorder(sp, dbh, FUN = median, na.rm = TRUE))
+>>>>>>> dev
 
 data_few_sp %>% 
   ggplot(mapping = aes(x = sp, y = dbh)) + 
   geom_boxplot()
 ```
 
+<<<<<<< HEAD
 If you have long variable names, `geom_boxplot()` will work better if you flip it 90°. You can do that with `coord_flip()` (left plot below), or with `ggstance::geom_boxploth()` and swaping `x` and `y` mappings (right plot below):
+||||||| merged common ancestors
+## Two Continuous Variables
+=======
+If you have long variable names, `geom_boxplot()` will work better if you flip it 90°. You can do that with `coord_flip()` (left plot below), or with `ggstance::geom_boxploth()` and swapping `x` and `y` mappings (right plot below):
+>>>>>>> dev
 
 ```{r}
 # Left plot
@@ -569,10 +665,18 @@ data_few_sp %>%
 
 ### Alternatives
 
+<<<<<<< HEAD
 One problem with boxplots is that they were developed in an era of 
 much smaller datasets and tend to display a prohibitively large
 number of "outlying values". One approach to remedy this problem is
 the letter value plot.
+||||||| merged common ancestors
+=======
+One problem with boxplots is that they were developed in an era of 
+much smaller data sets and tend to display a prohibitively large
+number of "outlying values". One approach to remedy this problem is
+the letter value plot.
+>>>>>>> dev
 
 ```{r}
 # install.packages("lvplot")
@@ -580,9 +684,16 @@ ggplot(data_few_sp, aes(sp, dbh)) +
   lvplot::geom_lv()
 ```
 
+<<<<<<< HEAD
 Compare and contrast `geom_violin()` with a facetted `geom_histogram()`,
 or a coloured `geom_freqpoly()`. What are the pros and cons of each 
 method?
+||||||| merged common ancestors
+=======
+Compare and contrast `geom_violin()` with a faceted `geom_histogram()`,
+or a colored `geom_freqpoly()`. What are the pros and cons of each 
+method?
+>>>>>>> dev
 
 ```{r, out.width="50%", fig.align="default"}
 ggplot(data_few_sp, aes(sp, dbh)) + 
@@ -593,14 +704,23 @@ ggplot(data_few_sp, aes(dbh)) +
   facet_wrap(~sp)
 ```
 
+<<<<<<< HEAD
 If you have a small dataset, it's sometimes useful to use `geom_jitter()`
 to see the relationship between a continuous and categorical variable.
 The ggbeeswarm package provides a number of methods similar to 
 `geom_jitter()`.
+||||||| merged common ancestors
+=======
+If you have a small data set, it's sometimes useful to use `geom_jitter()`
+to see the relationship between a continuous and categorical variable.
+The ggbeeswarm package provides a number of methods similar to 
+`geom_jitter()`.
+>>>>>>> dev
 
 ```{r, out.width="33%", fig.align="default"}
 small_dataset <- data_few_sp %>% group_by(sp) %>% sample_n(50)
 
+<<<<<<< HEAD
 p <- ggplot(small_dataset, aes(sp, dbh))
 p + geom_point()
 p + geom_jitter()
@@ -610,6 +730,19 @@ p + ggbeeswarm::geom_quasirandom()
 ## Two categorical variables
 
 To visualise the covariation between categorical variables, you'll need to count the number of observations for each combination. One way to do that is to rely on the built-in `geom_count()`. The size of each circle in the plot displays how many observations occurred at each combination of values (left plot below). Covariation will appear as a strong correlation between specific x values and specific y values.
+||||||| merged common ancestors
+## Working with Dates
+=======
+p <- ggplot(small_dataset, aes(sp, dbh))
+p + geom_point()
+p + geom_jitter()
+p + ggbeeswarm::geom_quasirandom()
+```
+
+## Two categorical variables
+
+To visualize the co-variation between categorical variables, you'll need to count the number of observations for each combination. One way to do that is to rely on the built-in `geom_count()`. The size of each circle in the plot displays how many observations occurred at each combination of values (left plot below). Co-variation will appear as a strong correlation between specific x values and specific y values.
+>>>>>>> dev
 
 ```{r, out.width="50%", fig.align="default"}
 # Left: simple count
@@ -633,9 +766,16 @@ few_spp_n <- data_few_sp %>% count(sp, DFstatus)
 few_spp_n
 ```
 
+<<<<<<< HEAD
 Then visualise with `geom_tile()` and the fill aesthetic:
 
+||||||| merged common ancestors
+=======
+Then visualize with `geom_tile()` and the fill aesthetic:
+
+>>>>>>> dev
 ```{r}
+<<<<<<< HEAD
 few_spp_n %>% 
   ggplot(aes(sp, DFstatus)) +
     geom_tile(mapping = aes(fill = n))
@@ -663,11 +803,53 @@ You've already seen one way to fix the problem: using the `alpha` aesthetic to a
 ```{r, dev = "png"}
 ggplot(data = large_dataset) +
   geom_point(mapping = aes(x = dbh, y = agb), alpha = 1 / 50)
+||||||| merged common ancestors
+bci12full7$date <- lubridate::as_date(bci12full7$date, origin = "1960-01-01")
+bci12full7 %>% 
+  select(date) %>% 
+  glimpse()
+=======
+few_spp_n %>% 
+  ggplot(aes(sp, DFstatus)) +
+    geom_tile(mapping = aes(fill = n))
 ```
 
+## Two continuous variables
+
+You've already seen one great way to visualize the co-variation between two continuous variables: draw a scatterplot with `geom_point()`. You can see co-variation as a pattern in the points. For example, you can see an exponential relationship between the tree diameter (`dbh`) and the above ground biomass (`agb`).
+
+```{r, echo=FALSE}
+set.seed(1234)
+```
+
+```{r, dev = "png"}
+large_dataset <- bci12full7 %>% 
+  filter(dbh < 400) %>% 
+  sample_n(100000)
+ggplot(data = large_dataset) +
+  geom_point(mapping = aes(x = dbh, y = agb))
+```
+
+Scatterplots become less useful as the size of your data set grows, because points begin to overplot, and pile up into areas of uniform black (as above).
+You've already seen one way to fix the problem: using the `alpha` aesthetic to add transparency.
+
+```{r, dev = "png"}
+ggplot(data = large_dataset) +
+  geom_point(mapping = aes(x = dbh, y = agb), alpha = 1 / 50)
+>>>>>>> dev
+```
+
+<<<<<<< HEAD
 But using transparency can be challenging for very large datasets. Another solution is to use bin. Previously you used `geom_histogram()` and `geom_freqpoly()` to bin in one dimension. Now you'll learn how to use `geom_bin2d()` and `geom_hex()` to bin in two dimensions.
 
 `geom_bin2d()` and `geom_hex()` divide the coordinate plane into 2d bins and then use a fill color to display how many points fall into each bin. `geom_bin2d()` creates rectangular bins. `geom_hex()` creates hexagonal bins. You will need to install the hexbin package to use `geom_hex()`.
+||||||| merged common ancestors
+## Tools to explore data quickly
+=======
+But using transparency can be challenging for very large data sets. Another solution is to use bin. Previously you used `geom_histogram()` and `geom_freqpoly()` to bin in one dimension. Now you'll learn how to use `geom_bin2d()` and `geom_hex()` to bin in two dimensions.
+
+`geom_bin2d()` and `geom_hex()` divide the coordinate plane into 2d bins and then use a fill color to display how many points fall into each bin. `geom_bin2d()` creates rectangular bins. `geom_hex()` creates hexagonal bins. You will need to install the hexbin package to use `geom_hex()`.
+>>>>>>> dev
 
 ```{r, fig.asp = 1, fig.align="default", out.width = "50%", message = FALSE}
 ggplot(data = large_dataset) +
@@ -678,9 +860,16 @@ ggplot(data = large_dataset) +
   geom_hex(mapping = aes(x = dbh, y = agb))
 ```
 
+<<<<<<< HEAD
 Another option is to bin one continuous variable so it acts like a categorical variable. Then you can use one of the techniques for visualising the combination of a categorical and a continuous variable that you learned about. For example, you could bin `dbh` and then for each group, display a boxplot:
+||||||| merged common ancestors
+### skimr
+=======
+Another option is to bin one continuous variable so it acts like a categorical variable. Then you can use one of the techniques for visualizing the combination of a categorical and a continuous variable that you learned about. For example, you could bin `dbh` and then for each group, display a boxplot:
+>>>>>>> dev
 
 ```{r}
+<<<<<<< HEAD
 ggplot(data = large_dataset, mapping = aes(x = dbh, y = agb)) + 
   geom_boxplot(mapping = aes(group = cut_width(dbh, useful_barwidth)))
 ```
@@ -716,11 +905,59 @@ ggplot(mapping = aes(x = dbh, y = agb)) +
   geom_point(data = large_dataset %>% filter(dbh > 80 & dbh < 140),
     color = "red"
   )
+||||||| merged common ancestors
+library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
+skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
+=======
+ggplot(data = large_dataset, mapping = aes(x = dbh, y = agb)) + 
+  geom_boxplot(mapping = aes(group = cut_width(dbh, useful_barwidth)))
 ```
 
+`cut_width(x, width)`, as used above, divides `x` into bins of width `width`. By default, boxplots look roughly the same (apart from number of outliers) regardless of how many observations there are, so it's difficult to tell that each boxplot summarizes a different number of points. One way to show that is to make the width of the boxplot proportional to the number of points with `varwidth = TRUE`.
+
+Another approach is to display approximately the same number of points in each bin. That's the job of `cut_number()`:
+
+```{r}
+ggplot(data = large_dataset, mapping = aes(x = dbh, y = agb)) + 
+  geom_boxplot(mapping = aes(group = cut_number(dbh, 20)))
+```
+
+## Patterns and models
+
+Patterns in your data provide clues about relationships. If a systematic relationship exists between two variables it will appear as a pattern in the data. If you spot a pattern, ask yourself:
+
++ Could this pattern be due to coincidence (i.e. random chance)?
+
++ How can you describe the relationship implied by the pattern?
+
++ How strong is the relationship implied by the pattern?
+
++ What other variables might affect the relationship?
+
++ Does the relationship change if you look at individual subgroups of the data?
+
+A scatterplot of tree diameter (`dbh`) versus above ground biomass (`agb`) shows a pattern: larger tree diameters are associated with larger above ground biomass. The scatterplot also displays strangely high values of `agb`, which appear to correspond with `dbh` values ranging approximately 80-140.
+
+```{r odd-agb, echo=FALSE}
+ggplot(mapping = aes(x = dbh, y = agb)) + 
+  geom_point(data = large_dataset) +
+  geom_point(data = large_dataset %>% filter(dbh > 80 & dbh < 140),
+    color = "red"
+  )
+>>>>>>> dev
+```
+
+<<<<<<< HEAD
 Patterns provide one of the most useful tools for data scientists because they reveal covariation. If you think of variation as a phenomenon that creates uncertainty, covariation is a phenomenon that reduces it. If two variables covary, you can use the values of one variable to make better predictions about the values of the second. If the covariation is due to a causal relationship (a special case), then you can use the value of one variable to control the value of the second.
 
 Models are a tool for extracting patterns out of data. For example, consider the `large_dataset` data; `dbh` and `agb` are tightly related. It's possible to use a model to remove the very strong relationship between `dbh` and `agb` so we can explore the subtleties that remain. The following code fits a model that predicts `agb` from `dbh` and then computes the residuals (the difference between the predicted value and the actual value). The residuals give us a view of the `agb` of a tree, once the effect of `dbh` has been removed. 
+||||||| merged common ancestors
+To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
+=======
+Patterns provide one of the most useful tools for data scientists because they reveal co-variation. If you think of variation as a phenomenon that creates uncertainty, co-variation is a phenomenon that reduces it. If two variables co-vary, you can use the values of one variable to make better predictions about the values of the second. If the co-variation is due to a causal relationship (a special case), then you can use the value of one variable to control the value of the second.
+
+Models are a tool for extracting patterns out of data. For example, consider the `large_dataset` data; `dbh` and `agb` are tightly related. It's possible to use a model to remove the very strong relationship between `dbh` and `agb` so we can explore the subtleties that remain. The following code fits a model that predicts `agb` from `dbh` and then computes the residuals (the difference between the predicted value and the actual value). The residuals give us a view of the `agb` of a tree, once the effect of `dbh` has been removed. 
+>>>>>>> dev
 
 ```{r model-agb, dev = "png"}
 library(modelr)

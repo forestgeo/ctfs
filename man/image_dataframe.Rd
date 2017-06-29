@@ -26,7 +26,7 @@ lines; if NULL, levels controls the breaks}
 \item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
 If `NULL`, all `x` (or `y`) are included.}
 
-\item{ptsize}{Size of points to be drawn.}
+\item{ptsize}{Passed to argument `cex` in `graphics::par()`.}
 
 \item{graphfile}{the file name if export is pdf, png, jpeg, win.metafile,
 etc.}
@@ -68,7 +68,6 @@ image_dataframe.
 }
 \examples{
 \dontrun{
-
 CTFSplot('bci',6,'full')
 
 image_dataframe(

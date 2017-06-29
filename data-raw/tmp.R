@@ -38,6 +38,7 @@ avoid <- c(
   # NEEDS FUTURE WORK
   "data",  # did some; but too variable
   "export",  # did some; but too variable
+  "elev",   # could do only half
   "path",  # skip, too variable
   "size",  # unclear it it's the same everywhere.
   "type",  # did some; but too variable and too little information to document
@@ -60,6 +61,8 @@ avoid <- c(
   "fit",  # done
   "graphit",  # done
   "gridsize",  # done
+  "gx",  # done
+  "gy",  # done
   "lambda",  # done
   "m",  # done
   "mindbh",  # done
@@ -70,6 +73,7 @@ avoid <- c(
   "plot",  # done
   "plotdim",  # done
   "plotside",  # done
+  "ptsize",  # done
   "pts",  # done some, others vary.
   "r",  # done
   "rounddown",  # done
@@ -78,6 +82,7 @@ avoid <- c(
   "sd1",  # done
   "start",  # done
   "steps",  # done
+  "showstep",  # done
   "w",
   "z",  # done
   
@@ -97,8 +102,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("elev")
-args_count_param("elev")
+args_help("classbreak")
+args_count_param("classbreak")
 
 
 

@@ -200,7 +200,6 @@
 #' Creates a color response map based on columnar data.
 #'
 #' @description
-#'
 #' Creates a color response map based on columnar data, not a matrix as used by
 #' R's image function. It is used in cases where a full matrix of responses,
 #' over a complete grid, is not available. Data are submitted as a table with x
@@ -213,11 +212,11 @@
 #'
 #' @inheritParams imageGraph
 #' @template xrange_yrange
+#' @template ptsize_cex
 #' @param data A data frame with at least 3 columns, 2 of which are coordinates
 #'   and one a numerical response at those coordinates
 #' @param xcol,ycol,zcol These allow the columns of data to carry non-standard
 #'   names
-#' @param ptsize Size of points to be drawn.
 #'
 #' @details
 #' Other arguments are the same as imageGraph().
@@ -227,7 +226,6 @@
 #'
 #' @examples
 #' \dontrun{
-#'
 #' CTFSplot('bci',6,'full')
 #' 
 #' image_dataframe(

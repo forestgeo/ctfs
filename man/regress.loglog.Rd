@@ -27,6 +27,8 @@ otherwise, a new graph is drawn.}
 
 \item{lwidth}{Line width; see `width` in ?[graphics::par()].}
 
+\item{ptsize}{Passed to argument `cex` in `graphics::par()`.}
+
 \item{clr}{A string indicating colour. See argument col in [graphics::par()].}
 
 \item{ltype}{Line type; see `ltype` in ?[graphics::par()].}
@@ -38,4 +40,7 @@ handle zeros for log-transformation), with or without manual point labelling,
 without or without the best-fit line added, and with many options for colors
 and points. add can be a vector of length 2, a constant to be added to every
 value of x, y to remove zeroes.
+}
+\seealso{
+\code{\link[graphics:par]{graphics::par()}}.
 }

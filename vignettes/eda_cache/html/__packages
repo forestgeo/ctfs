@@ -9,8 +9,15 @@ readr
 purrr
 dplyr
 bindrcpp
+<<<<<<< HEAD
 forcats
 lubridate
 skimr
 hexbin
 modelr
+||||||| merged common ancestors
+=======
+forcats
+hexbin
+modelr
+>>>>>>> dev

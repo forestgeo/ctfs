@@ -41,6 +41,7 @@
 #' 
 #' @template plotdim
 #' @template gridsize_side
+#' @template gx_gy
 #' @param start If `start = "zero"`, quadrats start with `0000`, otherwise, they
 #'   start with `0101`.
 #' 
@@ -84,6 +85,8 @@
 #' @description
 #' Calculate the row and column given the quadrat index, as calculated in
 #' gygy.to.index. Both row and column start at 1, not 0 as in quadrat naming.
+#' 
+#' @template index_quad_num
 #'
 #' @inheritParams gxgy.to.index
 #'
@@ -115,7 +118,7 @@
 #' Takes an x, y plot location and identifies the hectare number.
 #' 
 #' @inheritParams findborderquads
-#' @param gx,gy Tree x and y coordinate.
+#' @template gx_gy
 #' 
 'gxgy.to.hectindex'
 
@@ -127,6 +130,7 @@
 #' 
 #' @template plotdim
 #' @template gridsize_side
+#' @template gx_gy
 #'
 'gxgy.to.lxly'
 
@@ -156,7 +160,7 @@
 #'
 #' @template gridsize_side
 #' @template plotdim
-#' @param index Quadrate number, between 0 and 1249 in the standard plot.
+#' @template index_quad_num
 #' @param dist Distance in m within which the neighboring quadrates are located.
 #'   Distance is measured from any side of the index quadrate.
 #'
@@ -223,6 +227,7 @@
 #' a single larger quadrat.
 #' 
 #' @template plotdim
+#' @template index_quad_num
 #' 
 'getsmallerquads'
 

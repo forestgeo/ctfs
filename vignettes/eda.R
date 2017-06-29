@@ -61,7 +61,7 @@ small_cut_width %>% dplyr::count(dbh_cut, sort = TRUE)
 ## ------------------------------------------------------------------------
 largest_dbh <- dplyr::filter(bci12full7, dbh > 2000)
 
-## ----clustering, fig.show="hold"-----------------------------------------
+## ----clustering, fig.show="hold", fig.align="default"--------------------
 gg_largest_dbh <- ggplot(largest_dbh, aes(dbh))
 gg_largest_dbh + geom_histogram(binwidth = useful_barwidth)
 gg_largest_dbh + geom_histogram(binwidth = useful_barwidth * 2)
@@ -81,75 +81,23 @@ unusual_trees <- bci12full7 %>%
   arrange(dbh)
 unusual_trees
 
-## ----locate-unusual-trees------------------------------------------------
+## ----locate-unusual-trees, fig.align="default", fig.show="hold"----------
 # For faster analysis and to avoid overplotting, choose only 100 trees at random
 sample_100 <- bci12full7 %>% sample_n(100)
 
+# Left plot
 unusual_tree_loc <- ggplot(sample_100, aes(gx, gy)) + 
     # plot a few points for reference with only 1/10 opacity (less distracting)
     geom_point(alpha = 1/10) +
     # highlight location of unusual trees in the plot
     geom_point(data = unusual_trees, colour = "red")
+unusual_tree_loc
 
-## ------------------------------------------------------------------------
+# Right plot
 edge_trees <- unusual_trees %>% filter(gy < 100)
 unusual_tree_loc + 
   geom_point(
     data = edge_trees, 
     size = 3, shape = 1  # highlight edge trees with bigger and hollow points
   )
-
-## ---- eval = FALSE-------------------------------------------------------
-#  diamonds2 <- diamonds %>%
-#    filter(between(y, 3, 20))
-
-## ------------------------------------------------------------------------
-diamonds2 <- diamonds %>% 
-  mutate(y = ifelse(y < 3 | y > 20, NA, y))
-
-## ---- dev = "png"--------------------------------------------------------
-ggplot(data = diamonds2, mapping = aes(x = x, y = y)) + 
-  geom_point()
-
-## ---- eval = FALSE-------------------------------------------------------
-#  ggplot(data = diamonds2, mapping = aes(x = x, y = y)) +
-#    geom_point(na.rm = TRUE)
-
-## ------------------------------------------------------------------------
-nycflights13::flights %>% 
-  mutate(
-    cancelled = is.na(dep_time),
-    sched_hour = sched_dep_time %/% 100,
-    sched_min = sched_dep_time %% 100,
-    sched_dep_time = sched_hour + sched_min / 60
-  ) %>% 
-  ggplot(mapping = aes(sched_dep_time)) + 
-    geom_freqpoly(mapping = aes(colour = cancelled), binwidth = 1/4)
-
-## ------------------------------------------------------------------------
-library(lubridate)
-
-# "Duration" is a useful intermediate; learn more with ?lubridate::duration
-# %/%: integere diviison removes useless and annoying fraction of seconds.
-bci12full7 <- mutate(bci12full7, duration = dseconds((date * 24 * 60 * 60) %/% 1))
-bci12full7 <- mutate(bci12full7, datetime = as_datetime(duration, origin = "1960-01-01"))
-bci12full7 %>% 
-  select(date, datetime)
-
-## ------------------------------------------------------------------------
-bci12full7$date <- lubridate::as_date(bci12full7$date, origin = "1960-01-01")
-bci12full7 %>% 
-  select(date) %>% 
-  glimpse()
-
-## ------------------------------------------------------------------------
-library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
-skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
-
-## ---- eval=FALSE---------------------------------------------------------
-#  library(skimr)
-#  smry <- skim(diamonds)
-#  smry %>%
-#    dplyr::filter(stat == "hist") %>%
-#    as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
 

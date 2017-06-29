@@ -7,6 +7,8 @@
 gxgy.to.lxly(gx, gy, gridsize = 20, plotdim = c(1000, 500))
 }
 \arguments{
+\item{gx, gy}{Tree x and y coordinate.}
+
 \item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}

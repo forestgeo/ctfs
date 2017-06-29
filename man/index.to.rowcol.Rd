@@ -7,6 +7,8 @@
 index.to.rowcol(index, gridsize = 20, plotdim = c(1000, 500))
 }
 \arguments{
+\item{index}{Quadrate number, between 0 and 1249 in the standard plot.}
+
 \item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
