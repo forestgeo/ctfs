@@ -645,6 +645,7 @@ Another approach is to compute the count with dplyr:
 ```{r}
 few_spp_n <- data_few_sp %>% 
   count(sp, DFstatus)
+
 few_spp_n
 ```
 
