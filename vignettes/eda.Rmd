@@ -213,12 +213,13 @@ Alternatively, you can reduce the boilerplate code even further and without temp
 
 ```{r, out.width="30%", fig.align="default"}
 # Use the DRY principle (Don't Repeat Yourself)
-hist_vary_binwidth <- function(binwidth) {
+ggplot_histogram_by_binwidth <- function(binwidth) {
   ggplot(data = small_dbh, mapping  = aes(x = dbh)) +
     geom_histogram(binwidth = binwidth)
 }
+
 binwidths_to_try <- c(10, 30, 60)
-purrr::map(.x = binwidths_to_try, .f = hist_vary_binwidth)
+purrr::map(.x = binwidths_to_try, .f = ggplot_histogram_by_binwidth)
 ```
 
 To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars.
@@ -227,15 +228,14 @@ To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce c
 # Make n groups with ~ numbers of observations with `ggplot2::cut_number()`
 small_cut_number <- mutate(small_dbh, equal_n = cut_number(dbh, n = 5))
 
-# Now, compare the next two plots:
 p <- ggplot(data = small_cut_number, aes(x = dbh, color = equal_n)) +
   # place legend inside plot area (defults is outside)
   theme(
     legend.position = c(.95, .95),
     legend.justification = c("right", "top")
   )
-p + geom_histogram()
-p + geom_freqpoly()
+p + geom_histogram()  # left
+p + geom_freqpoly()  # right
 ```
 
 ### Typical and rare Values
@@ -285,11 +285,13 @@ largest_dbh <- bci12full7 %>%
 
 -- [R for Data Science](http://r4ds.had.co.nz/).
 
-In the next plot, however, the clustering may be an artifact of the chosen bar-width; the clustering disappears with bars twice as wide.
+The clustering, however, may be an artifact of the chosen bar-width:
 
-```{r clustering, fig.show="hold", fig.align="default"}
+```{r is-clustering, fig.align="default", out.width="50%"}
 p <- ggplot(largest_dbh, aes(dbh))
+# Left: apparent clustering
 p + geom_histogram(binwidth = useful_barwidth)
+# Right: clusters are less apparent with bars twice as wide
 p + geom_histogram(binwidth = useful_barwidth * 2)
 ```
 
@@ -304,19 +306,18 @@ Outliers are observations that are unusual; data points that don't seem to fit t
 For example, take the distribution of the _dbh_ variable of the _bci12full7_ data set. The only evidence of outliers is the unusually wide limits on the x-axis (stress mine).
 
 ```{r}
-bci_hist <- bci12full7 %>% 
-  ggplot(aes(x = dbh)) +
-    geom_histogram(binwidth = useful_barwidth)
-bci_hist
+p <- ggplot(bci12full7, aes(x = dbh)) +
+  geom_histogram(binwidth = useful_barwidth)
+p
 ```   
 
 There are so many observations in the common bins that the rare bins are so short that you can't see them . To make it easy to see the unusual values, we need to zoom to small values of the y-axis with `coord_cartesian()`:
 
 ```{r}
-bci_hist + coord_cartesian(ylim = c(0, 50))
+p + coord_cartesian(ylim = c(0, 50))
 ```   
 
-(`coord_cartesian()` also has an `xlim()` argument for when you need to zoom into the x-axis. ggplot2 also has `xlim()` and `ylim()` functions that work slightly differently: they throw away the data outside the limits.)
+`coord_cartesian()` also has an `xlim()` argument for when you need to zoom into the x-axis. ggplot2 also has `xlim()` and `ylim()` functions that work slightly differently: they throw away the data outside the limits.
 
 This allows us to see that `dbh` values over 2000 are unusual. We pluck them out with `dplyr::filter()` and select a subset of informative variables:
 
@@ -325,29 +326,28 @@ unusual_trees <- bci12full7 %>%
   filter(dbh > 2000) %>% 
   dplyr::select(treeID, ExactDate, status, gx, gy, dbh) %>%
   dplyr::arrange(dbh)
+
 unusual_trees
 ```
 
 You could plot the unusual trees to see where they are located. A number of the unusually large trees seem to be on the edge of the plot, where `gy` values are lower than 100 (left plot below). This information helps us to filter those edge trees selectively (right plot below).
 
-```{r locate-unusual-trees, fig.align="default", out.width="45%"}
-# For faster analysis and to avoid overplotting, choose only 100 trees at random
-sample_100 <- bci12full7 %>% 
-  dplyr::sample_n(100)
-
+```{r locate-unusual-trees, fig.align="default", out.width="49%"}
 # Left plot
-unusual_tree_loc <- sample_100 %>% 
-  ggplot(aes(gx, gy)) + 
+sample_100 <- bci12full7 %>% 
+  dplyr::sample_n(100)  # for faster analysis and to avoid overplotting
+
+ggplot(sample_100, aes(gx, gy)) + 
     # plot a few points for reference with only 1/10 opacity (less distracting)
     geom_point(alpha = 1/10) +
     # highlight location of unusual trees in the plot
     geom_point(data = unusual_trees, colour = "red")
-unusual_tree_loc
 
 # Right plot
 edge_trees <- unusual_trees %>% 
   filter(gy < 100)
-unusual_tree_loc + 
+
+ggplot2::last_plot() + 
   geom_point(data = edge_trees, size = 3, shape = 1)  # highlight edge trees
 ```
 
@@ -414,16 +414,14 @@ Like R, ggplot2 subscribes to the philosophy that missing values should never si
 
 ```{r, fig.align="default", out.width="45%"}
 # Left plot; don't remove NAs and get a warning on the console
-unusual_only %>% 
-  ggplot(aes(dbh)) + 
-    geom_histogram(binwidth = useful_barwidth) +
-    labs(title = "Expect empty plot but get a warning on the console")
+ggplot(unusual_only, aes(dbh)) + 
+  geom_histogram(binwidth = useful_barwidth) +
+  labs(title = "Expect empty plot but get a warning on the console")
 
 # Right plot; NAs explicitely removed in geom_histogram(), so no warning
-unusual_only %>% 
-  ggplot(aes(dbh)) + 
-    geom_histogram(binwidth = useful_barwidth, na.rm = TRUE) +
-    labs(title = "Expect empty plot but no warning")
+ggplot(unusual_only, aes(dbh)) + 
+  geom_histogram(binwidth = useful_barwidth, na.rm = TRUE) +
+  labs(title = "Expect empty plot but no warning")
 ```
 
 Other times you want to understand what makes observations with missing values different to observations with recorded values.
@@ -434,15 +432,15 @@ For example, in `bci::bci12full7`, some missing values in the `dbh` variable cor
 missing_dbh_trees <- bci12full7 %>% 
   mutate(missing_dbh = is.na(dbh))
 
-missing_dbh_trees %>% 
-  ggplot() + 
-    geom_bar(aes(DFstatus, fill = missing_dbh))
+ggplot(missing_dbh_trees) + 
+  geom_bar(aes(DFstatus, fill = missing_dbh))
 ```
 
 To know why `dbh` is missing in alive trees, you may want to further explore all variables with a single unique value when `dbh = NA` and `DFstatus = "alive"`:
 
 ```{r}
 has_single_unique_value <- function(x) {dplyr::n_distinct(x) == 1}
+
 missing_dbh_trees %>% 
   filter(missing_dbh == TRUE, DFstatus == "alive") %>% 
   select_if(has_single_unique_value) %>% 
@@ -477,9 +475,8 @@ a_few_species <- bci12full7 %>%
 data_few_sp <- bci12full7 %>% 
   filter(sp %in% a_few_species)
 
-data_few_sp %>% 
-  ggplot(aes(dbh)) +
-    geom_freqpoly(aes(color = sp))
+ggplot(data_few_sp, aes(dbh)) +
+  geom_freqpoly(aes(color = sp))
 ```
 
 It's hard to see the difference in distribution because the overall counts differ so much:
@@ -487,18 +484,16 @@ It's hard to see the difference in distribution because the overall counts diffe
 ```{r}
 library(forcats)  # tools for dealing with categorical variables
 
-data_few_sp %>% 
-  ggplot() + 
-    # order `sp` from high to low frequency
-    geom_bar(mapping = aes(x = forcats::fct_infreq(sp)))
+ggplot(data_few_sp) + 
+  # order `sp` from high to low frequency
+  geom_bar(mapping = aes(x = forcats::fct_infreq(sp)))
 ```
 
 To make the comparison easier we need to swap what is displayed on the y-axis. Instead of displaying count, we'll display __density__, which is the count standardized so that the area under each frequency polygon is one.
 
 ```{r}
-data_few_sp %>% 
-  ggplot(aes(x= dbh, y = ..density..)) +
-    geom_freqpoly(aes(color = sp))
+ggplot(data_few_sp, aes(x= dbh, y = ..density..)) +
+  geom_freqpoly(aes(color = sp))
 ```
 
 Another alternative to display the distribution of a continuous variable broken down by a categorical variable is the boxplot. A **boxplot** is a type of visual shorthand for a distribution of values that is popular among statisticians. Each boxplot consists of:
@@ -526,8 +521,7 @@ knitr::include_graphics(
 Let's take a look at the distribution of tree diameter (`dbh`) by species (`sp`) using `geom_boxplot()`:
 
 ```{r}
-data_few_sp %>% 
-  ggplot(aes(sp, dbh)) +
+ggplot(data_few_sp, aes(sp, dbh)) +
   geom_boxplot()
 ```
 
@@ -539,8 +533,7 @@ Above we ordered the variable `sp` by its frequency. But now, to make the trend 
 data_few_sp <- data_few_sp %>% 
   mutate(sp = reorder(sp, dbh, FUN = median, na.rm = TRUE))
 
-data_few_sp %>% 
-  ggplot(aes(sp, dbh)) + 
+ggplot(data_few_sp, aes(sp, dbh)) + 
   geom_boxplot()
 ```
 
@@ -551,12 +544,11 @@ If you have long variable names, `geom_boxplot()` will work better if you flip i
 library(ggstance)
 
 # Left plot
-ggplot2::last_plot() +  # reusing previous plot
+ggplot2::last_plot() +
   coord_flip()
 
 # Right plot
-data_few_sp %>% 
-  ggplot() +
+ggplot(data_few_sp) +
   ggstance::geom_boxploth(aes(x = dbh, y = sp))  # swap x, y; compare to above
 ```
 
@@ -570,9 +562,9 @@ the letter value plot.
 ```{r}
 # install.packages("lvplot")
 library(lvplot)
-data_few_sp %>% 
-  ggplot(aes(sp, dbh)) + 
-    lvplot::geom_lv()
+
+ggplot(data_few_sp, aes(sp, dbh)) + 
+  lvplot::geom_lv()
 ```
 
 Compare and contrast `geom_violin()` with a faceted `geom_histogram()`,
@@ -581,15 +573,13 @@ method?
 
 ```{r, out.width="45%", fig.align="default"}
 # Left
-data_few_sp %>% 
-  ggplot(aes(sp, dbh)) + 
-    geom_violin()
+ggplot(data_few_sp, aes(sp, dbh)) + 
+  geom_violin()
 
 # Right
-data_few_sp %>% 
-  ggplot(aes(dbh)) + 
-    geom_histogram() +
-    facet_wrap(~sp)
+ggplot(data_few_sp, aes(dbh)) + 
+  geom_histogram() +
+  facet_wrap(~sp)
 ```
 
 If you have a small data set, it's sometimes useful to use `geom_jitter()`
@@ -605,7 +595,7 @@ small_dataset <- data_few_sp %>%
   group_by(sp) %>% 
   sample_n(50)
 
-p <- small_dataset %>% ggplot(aes(sp, dbh))
+p <- ggplot(small_dataset, aes(sp, dbh))
 p + geom_point()
 p + geom_jitter()
 p + ggbeeswarm::geom_quasirandom()
@@ -617,19 +607,17 @@ To visualize the co-variation between categorical variables, you'll need to coun
 
 ```{r}
 # Simple count
-data_few_sp %>% 
-  ggplot() +
-    geom_count(aes(x = sp, y = DFstatus))
+ggplot(data_few_sp) +
+  geom_count(aes(x = sp, y = DFstatus))
 ```
 
 To more clearly show the distribution of `DFstatus` within `sp` (or `sp` within `DFstatus`) you can map bubble size to a proportion calculated over `sp` (or over `DFstatus`):
 
 ```{r}
 # Proportion; columns sum to 1.
-data_few_sp %>% 
-  ggplot(aes(x = sp, y = DFstatus)) +
-    geom_count(aes(size = ..prop.., group = sp)) +
-    scale_size_area(max_size = 10)
+ggplot(data_few_sp, aes(x = sp, y = DFstatus)) +
+  geom_count(aes(size = ..prop.., group = sp)) +
+  scale_size_area(max_size = 10)
 ```
 
 Another approach is to compute the count with dplyr:
@@ -643,9 +631,8 @@ few_spp_n
 Then visualize with `geom_tile()` and the fill aesthetic:
 
 ```{r}
-few_spp_n %>% 
-  ggplot(aes(sp, DFstatus)) +
-    geom_tile(aes(fill = n))
+ggplot(few_spp_n, aes(sp, DFstatus)) +
+  geom_tile(aes(fill = n))
 ```
 
 ## Two continuous variables
@@ -660,7 +647,8 @@ set.seed(1234)
 large_dataset <- bci12full7 %>% 
   filter(dbh < 400) %>% 
   sample_n(100000)
-p <- large_dataset %>% ggplot(aes(dbh, agb))
+
+p <- ggplot(large_dataset, aes(dbh, agb))
 p
 ```
 
