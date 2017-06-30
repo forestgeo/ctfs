@@ -604,8 +604,11 @@ small_dataset <- data_few_sp %>%
   sample_n(50)
 
 p <- ggplot(small_dataset, aes(sp, dbh))
+# Left
 p + geom_point()
+# Center
 p + geom_jitter()
+# Right
 p + ggbeeswarm::geom_quasirandom()
 ```
 
@@ -657,7 +660,7 @@ large_dataset <- bci12full7 %>%
   sample_n(100000)
 
 p <- ggplot(large_dataset, aes(dbh, agb))
-p
+p + geom_point()
 ```
 
 Scatterplots become less useful as the size of your data set grows, because points begin to overplot, and pile up into areas of uniform black (as above).
