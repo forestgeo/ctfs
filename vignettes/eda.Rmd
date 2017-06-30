@@ -299,7 +299,7 @@ largest_dbh <- bci12full7 %>%
 
 The clustering, however, may be an artifact of the chosen bar-width:
 
-```{r is-clustering, fig.align="default", out.width="45%, fig.width= 6 * 0.45 / 0.7"}
+```{r is-clustering, fig.align="default", out.width="45%", fig.width= 6 * 0.45 / 0.7}
 p <- ggplot(largest_dbh, aes(dbh))
 
 # Left: apparent clustering
@@ -734,7 +734,7 @@ Patterns provide one of the most useful tools for data scientists because they r
 
 Models are a tool for extracting patterns out of data. For example, consider the `large_dataset` data; `dbh` and `agb` are tightly related. It's possible to use a model to remove the very strong relationship between `dbh` and `agb` so we can explore the subtleties that remain. The following code fits a model that predicts `agb` from `dbh` and then computes the residuals (the difference between the predicted value and the actual value). The residuals give us a view of the `agb` of a tree, once the effect of `dbh` has been removed. 
 
-```{r model-agb, out.width="49%", fig.width= 6 * 0.49 / 0.7, fig.align="default"}
+```{r model-agb, out.width="45%", fig.width= 6 * 0.45 / 0.7, fig.align="default"}
 library(modelr)
 
 mod <- lm(log(agb) ~ log(dbh), data = large_dataset)
