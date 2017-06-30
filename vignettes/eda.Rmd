@@ -166,7 +166,6 @@ The categories `A`, `D` and `M`, of the variable `status` mean _alive_, _dead_ a
 # ?magrittr::`%>%` (Ctrl | Command + shift + M)
 status_n <- dplyr::count(bci12full7, status)
 DFstatus_n <- bci12full7 %>% dplyr::count(DFstatus)
-
 dplyr::full_join(status_n, DFstatus_n)
 ```
 
@@ -256,6 +255,7 @@ The later two plots give a good estimate of what tree diameters are most common.
 ```{r}
 small_cut_width <- small_dbh %>% 
   dplyr::mutate(dbh_cut = ggplot2::cut_width(dbh, width = useful_barwidth))
+
 small_cut_width %>% 
   dplyr::count(dbh_cut, sort = TRUE)
 ```
@@ -357,7 +357,7 @@ It's good practice to repeat your analysis with and without the outliers. If the
 
 # Missing Values
 
-(From [R for Data Science](http://r4ds.had.co.nz/).), except examples and some text.)
+(From [R for Data Science](http://r4ds.had.co.nz/), except examples and some text.)
 
 If you've encountered unusual values in your data set, and simply want to move on to the rest of your analysis, you have two options.
 
@@ -390,7 +390,7 @@ with_unusual_made_NA <- bci12full7 %>%
 
 `ifelse()` has three arguments. The first argument `test` should be a logical vector. The result will contain the value of the second argument, `yes`, when `test` is `TRUE`, and the value of the third argument, `no`, when it is false.
 
-Note (mine): Alternatively to ifelse, use `dplyr::case_when()`.
+Alternatively to ifelse, use `dplyr::case_when()`.
 
 > `case_when()` is particularly useful inside mutate when you want to
   create a new variable that relies on a complex combination of existing
@@ -413,13 +413,13 @@ unusual_only
 Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It's not obvious where you should plot missing values, so ggplot2 doesn't include them in the plot, but it does warn that they've been removed (left plot below). To suppress that warning, set `na.rm = TRUE` (right plot below).
 
 ```{r, fig.align="default", out.width="45%"}
-# Left plot
+# Left plot; don't remove NAs and get a warning on the console
 unusual_only %>% 
   ggplot(aes(dbh)) + 
     geom_histogram(binwidth = useful_barwidth) +
-    labs(title = "Expect empty plot but get a warning")
+    labs(title = "Expect empty plot but get a warning on the console")
 
-# Right plot
+# Right plot; NAs explicitely removed in geom_histogram(), so no warning
 unusual_only %>% 
   ggplot(aes(dbh)) + 
     geom_histogram(binwidth = useful_barwidth, na.rm = TRUE) +
@@ -433,12 +433,13 @@ For example, in `bci::bci12full7`, some missing values in the `dbh` variable cor
 ```{r}
 missing_dbh_trees <- bci12full7 %>% 
   mutate(missing_dbh = is.na(dbh))
+
 missing_dbh_trees %>% 
   ggplot() + 
     geom_bar(aes(DFstatus, fill = missing_dbh))
 ```
 
-To know why `dbh` is missing in alive trees, you may want to further explore all variables with a single unique value in this conditions (i.e. `dbh = NA` and `DFstatus = "alive"`):
+To know why `dbh` is missing in alive trees, you may want to further explore all variables with a single unique value when `dbh = NA` and `DFstatus = "alive"`:
 
 ```{r}
 has_single_unique_value <- function(x) {dplyr::n_distinct(x) == 1}
@@ -457,9 +458,9 @@ missing_dbh_trees %>%
 
 # Covariation
 
-(From [R for Data Science](http://r4ds.had.co.nz/).), except examples and some text.)
+(From [R for Data Science](http://r4ds.had.co.nz/), except examples and some text.)
 
-If variation describes the behavior _within_ a variable, co-variation describes the behavior _between_ variables. **Covariation** is the tendency for the values of two or more variables to vary together in a related way. The best way to spot co variation is to visualize the relationship between two or more variables. How you do that should again depend on the type of variables involved.
+If variation describes the behavior _within_ a variable, co-variation describes the behavior _between_ variables. **Covariation** is the tendency for the values of two or more variables to vary together in a related way. The best way to spot co-variation is to visualize the relationship between two or more variables. How you do that should again depend on the type of variables involved.
 
 ## A categorical and continuous variable
 
@@ -467,8 +468,7 @@ It's common to want to explore the distribution of a continuous variable broken 
 For example, let's explore how stem diameter (`dbh`) varies with species (`sp`):
 
 ```{r}
-# Show the problem with `count` using a few species as example
-
+# The data set has too many species; choosing just a few to make this point
 a_few_species <- bci12full7 %>% 
   select(sp) %>% 
   unique() %>% 
@@ -489,10 +489,8 @@ library(forcats)  # tools for dealing with categorical variables
 
 data_few_sp %>% 
   ggplot() + 
-    geom_bar(mapping = aes(
-      x = forcats::fct_infreq(sp)  # order `sp` from high to low frequency
-      )
-    )
+    # order `sp` from high to low frequency
+    geom_bar(mapping = aes(x = forcats::fct_infreq(sp)))
 ```
 
 To make the comparison easier we need to swap what is displayed on the y-axis. Instead of displaying count, we'll display __density__, which is the count standardized so that the area under each frequency polygon is one.
@@ -718,6 +716,7 @@ A scatterplot of tree diameter (`dbh`) versus above ground biomass (`agb`) shows
 
 ```{r odd-agb}
 large_strange <- large_dataset %>% filter(dbh > 80 & dbh < 140)
+
 ggplot(data = large_dataset, aes(x = dbh, y = agb)) + 
   geom_point() +
   geom_point(data = large_strange, color = "red")
