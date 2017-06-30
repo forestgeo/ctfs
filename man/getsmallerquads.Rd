@@ -7,6 +7,8 @@
 getsmallerquads(index, gridlarge, gridsmall, plotdim)
 }
 \arguments{
+\item{index}{Quadrate number, between 0 and 1249 in the standard plot.}
+
 \item{plotdim}{The x and y dimensions of the plot.}
 }
 \description{

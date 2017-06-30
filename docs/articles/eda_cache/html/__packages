@@ -9,3 +9,9 @@ readr
 purrr
 dplyr
 bindrcpp
+forcats
+ggstance
+lvplot
+ggbeeswarm
+hexbin
+modelr

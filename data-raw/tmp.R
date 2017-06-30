@@ -38,6 +38,7 @@ avoid <- c(
   # NEEDS FUTURE WORK
   "data",  # did some; but too variable
   "export",  # did some; but too variable
+  "elev",   # could do only half
   "path",  # skip, too variable
   "size",  # unclear it it's the same everywhere.
   "type",  # did some; but too variable and too little information to document
@@ -60,6 +61,8 @@ avoid <- c(
   "fit",  # done
   "graphit",  # done
   "gridsize",  # done
+  "gx",  # done
+  "gy",  # done
   "lambda",  # done
   "m",  # done
   "mindbh",  # done
@@ -70,6 +73,7 @@ avoid <- c(
   "plot",  # done
   "plotdim",  # done
   "plotside",  # done
+  "ptsize",  # done
   "pts",  # done some, others vary.
   "r",  # done
   "rounddown",  # done
@@ -78,6 +82,7 @@ avoid <- c(
   "sd1",  # done
   "start",  # done
   "steps",  # done
+  "showstep",  # done
   "w",
   "z",  # done
   
@@ -97,8 +102,8 @@ x <- args_count_formals_man() %>%
 print(x, n = x$frml_n[[1]])
 
 # xxxnext -----------------------------------------------------------------
-args_help("elev")
-args_count_param("elev")
+args_help("classbreak")
+args_count_param("classbreak")
 
 
 
@@ -379,4 +384,62 @@ devtools::install()
 
 # To debug difference in documentation between pkgdown and man
 # showdiff_man_pkg
+
+
+# to add to eda.Rmd -------------------------------------------------------
+
+
+
+
+
+
+
+
+# To consider
+
+## Working with Dates
+
+The variable `date` is the number of days since 1960-01-01 (see data dictionary at https://goo.gl/Q6XYrb), but it will be easier to interpret if we convert it to a date-time object (see `?lubridate::as_datetime`).
+
+```{r}
+library(lubridate)
+
+# "Duration" is a useful intermediate; learn more with ?lubridate::duration
+# %/%: integere diviison removes useless and annoying fraction of seconds.
+bci12full7 <- mutate(bci12full7, duration = dseconds((date * 24 * 60 * 60) %/% 1))
+bci12full7 <- mutate(bci12full7, datetime = as_datetime(duration, origin = "1960-01-01"))
+bci12full7 %>% 
+  select(date, datetime)
+```
+
+```{r}
+bci12full7$date <- lubridate::as_date(bci12full7$date, origin = "1960-01-01")
+bci12full7 %>% 
+  select(date) %>% 
+  glimpse()
+```
+
+## Tools to explore data quickly
+
+### inzight light
+
+http://lite.docker.stat.auckland.ac.nz/
+
+### skimr
+
+```{r}
+library(skimr)  # xxx remove or declare in DESCRIPTION in Suggest:
+skim(bci12full7) %>% filter(stat == "hist") %>% as.matrix()
+```
+
+To do all of the above quickly, we can use package __skimr__ (https://github.com/ropenscilabs/skimr).
+
+```{r, eval=FALSE}
+library(skimr)
+smry <- skim(diamonds)
+smry %>% 
+  dplyr::filter(stat == "hist") %>% 
+  as.matrix()  # Only needed in Windows for histograms (https://goo.gl/S8MaZW)
+```
+
 

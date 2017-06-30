@@ -9,6 +9,8 @@ regression.Bayes(x, y, start.param = NULL, steps = 1100,
 }
 \arguments{
 \item{steps}{The number of steps to run the Gibbs sampler.}
+
+\item{showstep}{Information is printed to the screen every showstep steps.}
 }
 \description{
 Regression using the Gibbs sampler, with just one x variable.

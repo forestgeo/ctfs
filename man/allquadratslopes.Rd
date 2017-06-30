@@ -2,12 +2,15 @@
 % Please edit documentation in R/slope.R
 \name{allquadratslopes}
 \alias{allquadratslopes}
-\title{Calculates the slope of all quadrats in a plot.  @details `allquadr...}
+\title{Calculates the slope of all quadrats in a plot.}
 \usage{
 allquadratslopes(elev, gridsize = 20, plotdim = c(1000, 500),
   edgecorrect = TRUE)
 }
 \arguments{
+\item{elev}{A list named \code{col} containing a data.frame with variables \code{x},
+\code{y} and \code{elev}. This object is very specific; See example.}
+
 \item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}

@@ -8,6 +8,8 @@ gxgy.to.quad(gx, gy, gridsize = 20, plotdim = c(1000, 500), digits = 2,
   start = "zero")
 }
 \arguments{
+\item{gx, gy}{Tree x and y coordinate.}
+
 \item{gridsize}{Side of the square quadrate.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
