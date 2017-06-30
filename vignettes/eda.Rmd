@@ -1,6 +1,6 @@
 ---
 title: "Exploratory Data Analysis"
-subtitle: "Adapted for [ForestGEO](https://twitter.com/ForestGEO?lang=en) from [R for Data Science](http://r4ds.had.co.nz/), by [Garrett Grolemund](https://twitter.com/StatGarrett) and [Hadley Wickham](https://twitter.com/hadleywickham)"
+subtitle: "Adapted for [ForestGEO](https://twitter.com/ForestGEO?lang=en) from [R for Data Science](http://r4ds.had.co.nz/), by [Hadley Wickham](https://twitter.com/hadleywickham) and [Garrett Grolemund](https://twitter.com/StatGarrett)"
 author: "Mauro Lepore"
 date: "`r Sys.Date()`"
 output: 
@@ -35,7 +35,7 @@ options(dplyr.print_min = 6, dplyr.print_max = 6)
 
 # Introduction
 
-This vignette literaly reproduces the section _Exploratory Data Analysis_ in [R for Data Science](http://r4ds.had.co.nz/), by [Garrett Grolemund](https://twitter.com/StatGarrett) and [Hadley Wickham](https://twitter.com/hadleywickham), except that the examples and some text were changed to more strongly engage ecologysts from ForestGEO.
+This vignette literaly reproduces the section _Exploratory Data Analysis_ in [R for Data Science](http://r4ds.had.co.nz/), by [Hadley Wickham](https://twitter.com/hadleywickham) and [Garrett Grolemund](https://twitter.com/StatGarrett), except that the examples and some text were changed to more strongly engage ecologysts from [ForestGEO](https://twitter.com/ForestGEO?lang=en).
 
 You will learn how to explore your data systematically, using modern and powerful tools for visualization and transformation. An exploratory data analysis is an iterative process that aims to use data and some research questions to learn something that can help you refine those questions and move forward the learning spiral.
 
@@ -77,6 +77,8 @@ Often I combine multiple operations with the pipe `%>%` because it makes the cod
 --[R for Data Science](http://r4ds.had.co.nz/transform.html)
 
 # Questions and Definitions
+
+## Questions
 
 (From [R for Data Science](http://r4ds.had.co.nz/))
 
@@ -123,10 +125,16 @@ bci12full7 <- tibble::as_tibble(bci12full7)
 bci12full7
 ```
 
-By default tibbles print few rows; to print more rows use:
+By default, tibbles print a few rows only; to print more rows use:
 
 ```R
 print(<YOUR_TIBBLE>, n = <NUMBER_OF_ROWS_TO_PRINT>)
+
+# or print all rows in a tibble with
+print_all <- function(x) {
+  print(x, n = nrow(x))
+}
+print_all(<YOUR_TIBBLE>)
 ```
 
 For alternative views try:
@@ -177,7 +185,7 @@ dplyr::full_join(status_n, DFstatus_n)
 
 > You should always explore a variety of binwidths when working with histograms, as different binwidths can reveal different patterns.
 
--- [R for Data Science, Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/).
+-- [R for Data Science](http://r4ds.had.co.nz/).
 
 Let's use a histogram to explore the variable `dbh`, which represents the stem diameter, usually at breast height (see description of `ViewFullTable` variables at the [data dictionary](https://goo.gl/wGKEE3)). Now we will focus on small trees; big trees will be explored later. And we will try bars of different widths and choose one for further analyses.
 
@@ -211,7 +219,7 @@ Alternatively, you can reduce the boilerplate code even further and without temp
 1. writing a custom function with an argument to vary binwidth;
 1. using `purrr::map()` (in the tidyverse) or `lapply()` to iteratively pass different binwidths to our custom function:
 
-```{r, out.width="30%", fig.align="default"}
+```{r, out.width="30%", fig.width = 6 * 0.3 / 0.7, fig.align="default"}
 # Use the DRY principle (Don't Repeat Yourself)
 ggplot_histogram_by_binwidth <- function(binwidth) {
   ggplot(data = small_dbh, mapping  = aes(x = dbh)) +
@@ -224,12 +232,12 @@ purrr::map(.x = binwidths_to_try, .f = ggplot_histogram_by_binwidth)
 
 To overlay multiple histograms in the same plot, `geom_freqpoly()` may produce clearer plots than `geom_histogram()` because it is easier to understand overlying lines than bars.
 
-```{r hist-vs-freqpoly-compare, fig.cap="For multiple histograms, lines are easier to understand than bars.", out.width="45%", fig.align="default"}
+```{r hist-vs-freqpoly-compare, fig.cap="For multiple histograms, lines are easier to understand than bars.", out.width="45%", fig.width= 6 * 0.45 / 0.7, fig.align="default"}
 # Make n groups with ~ numbers of observations with `ggplot2::cut_number()`
 small_cut_number <- mutate(small_dbh, equal_n = cut_number(dbh, n = 5))
 
 p <- ggplot(data = small_cut_number, aes(x = dbh, color = equal_n)) +
-  # place legend inside plot area (defults is outside)
+  # use available space on plot area (defult plots legend outside)
   theme(
     legend.position = c(.95, .95),
     legend.justification = c("right", "top")
@@ -287,7 +295,7 @@ largest_dbh <- bci12full7 %>%
 
 The clustering, however, may be an artifact of the chosen bar-width:
 
-```{r is-clustering, fig.align="default", out.width="50%"}
+```{r is-clustering, fig.align="default", out.width="45%, fig.width= 6 * 0.45 / 0.7"}
 p <- ggplot(largest_dbh, aes(dbh))
 # Left: apparent clustering
 p + geom_histogram(binwidth = useful_barwidth)
@@ -332,7 +340,7 @@ unusual_trees
 
 You could plot the unusual trees to see where they are located. A number of the unusually large trees seem to be on the edge of the plot, where `gy` values are lower than 100 (left plot below). This information helps us to filter those edge trees selectively (right plot below).
 
-```{r locate-unusual-trees, fig.align="default", out.width="49%"}
+```{r locate-unusual-trees, fig.align="default", out.width="45%", fig.width= 6 * 0.45 / 0.7}
 # Left plot
 sample_100 <- bci12full7 %>% 
   dplyr::sample_n(100)  # for faster analysis and to avoid overplotting
@@ -412,11 +420,11 @@ unusual_only
 
 Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It's not obvious where you should plot missing values, so ggplot2 doesn't include them in the plot, but it does warn that they've been removed (left plot below). To suppress that warning, set `na.rm = TRUE` (right plot below).
 
-```{r, fig.align="default", out.width="45%"}
+```{r, fig.align="default", out.width="45%", fig.width= 6 * 0.45 / 0.7}
 # Left plot; don't remove NAs and get a warning on the console
 ggplot(unusual_only, aes(dbh)) + 
   geom_histogram(binwidth = useful_barwidth) +
-  labs(title = "Expect empty plot but get a warning on the console")
+  labs(title = "Expect empty plot but get a warning")
 
 # Right plot; NAs explicitely removed in geom_histogram(), so no warning
 ggplot(unusual_only, aes(dbh)) + 
@@ -539,7 +547,7 @@ ggplot(data_few_sp, aes(sp, dbh)) +
 
 If you have long variable names, `geom_boxplot()` will work better if you flip it 90°. You can do that with `coord_flip()` (left plot below), or with `ggstance::geom_boxploth()` and swapping `x` and `y` mappings (right plot below):
 
-```{r, out.width="45%", fig.align="default"}
+```{r, out.width="45%", fig.width= 6 * 0.45 / 0.7, fig.align="default"}
 # install.packages("ggstance")
 library(ggstance)
 
@@ -571,7 +579,7 @@ Compare and contrast `geom_violin()` with a faceted `geom_histogram()`,
 or a colored `geom_freqpoly()`. What are the pros and cons of each 
 method?
 
-```{r, out.width="45%", fig.align="default"}
+```{r, out.width="45%", fig.width= 6 * 0.45 / 0.7, fig.align="default"}
 # Left
 ggplot(data_few_sp, aes(sp, dbh)) + 
   geom_violin()
@@ -587,7 +595,7 @@ to see the relationship between a continuous and categorical variable.
 The ggbeeswarm package provides a number of methods similar to 
 `geom_jitter()`.
 
-```{r, out.width="30%", fig.align="default"}
+```{r, out.width="30%", fig.align="default", fig.width= 6 * 0.3 / 0.7}
 # install.packages("ggbeeswarm")
 library(ggbeeswarm)
 
@@ -663,7 +671,7 @@ But using transparency can be challenging for very large data sets. Another solu
 
 `geom_bin2d()` and `geom_hex()` divide the coordinate plane into 2d bins and then use a fill color to display how many points fall into each bin. `geom_bin2d()` creates rectangular bins. `geom_hex()` creates hexagonal bins. You will need to install the hexbin package to use `geom_hex()`.
 
-```{r, fig.asp = 1, fig.align="default", out.width = "45%", message = FALSE}
+```{r, fig.asp = 1, fig.align="default", out.width = "45%", fig.width= 6 * 0.45 / 0.7, message = FALSE}
 # Left
 p + geom_bin2d()
 
@@ -714,7 +722,7 @@ Patterns provide one of the most useful tools for data scientists because they r
 
 Models are a tool for extracting patterns out of data. For example, consider the `large_dataset` data; `dbh` and `agb` are tightly related. It's possible to use a model to remove the very strong relationship between `dbh` and `agb` so we can explore the subtleties that remain. The following code fits a model that predicts `agb` from `dbh` and then computes the residuals (the difference between the predicted value and the actual value). The residuals give us a view of the `agb` of a tree, once the effect of `dbh` has been removed. 
 
-```{r model-agb, dev = "png", out.width="45%", fig.align="default"}
+```{r model-agb, dev = "png", out.width="45%", fig.width= 6 * 0.45 / 0.7, fig.align="default"}
 library(modelr)
 
 mod <- lm(log(agb) ~ log(dbh), data = large_dataset)
