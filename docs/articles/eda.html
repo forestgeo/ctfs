@@ -284,9 +284,13 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">
     <span class="dt">legend.position =</span> <span class="kw">c</span>(.<span class="dv">95</span>, .<span class="dv">95</span>),
     <span class="dt">legend.justification =</span> <span class="kw">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>)
   )
-p +<span class="st"> </span><span class="kw">geom_histogram</span>()  <span class="co"># left</span>
+
+<span class="co"># Left</span>
+p +<span class="st"> </span><span class="kw">geom_histogram</span>()
 <span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span>
-p +<span class="st"> </span><span class="kw">geom_freqpoly</span>()  <span class="co"># right</span>
+
+<span class="co"># Right</span>
+p +<span class="st"> </span><span class="kw">geom_freqpoly</span>()
 <span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></code></pre></div>
 <div class="figure">
 <img src="eda_files/figure-html/hist-vs-freqpoly-compare-1.png" alt="For multiple histograms, lines are easier to understand than bars." width="45%"><img src="eda_files/figure-html/hist-vs-freqpoly-compare-2.png" alt="For multiple histograms, lines are easier to understand than bars." width="45%"><p class="caption">
@@ -364,8 +368,10 @@ small_cut_width %&gt;%<span class="st"> </span>
 <p>– <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
 <p>The clustering, however, may be an artifact of the chosen bar-width:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(largest_dbh, <span class="kw">aes</span>(dbh))
+
 <span class="co"># Left: apparent clustering</span>
 p +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth)
+
 <span class="co"># Right: clusters are less apparent with bars twice as wide</span>
 p +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth *<span class="st"> </span><span class="dv">2</span>)</code></pre></div>
 <p><img src="eda_files/figure-html/is-clustering-1.png" width="45%, fig.width= 6 * 0.45 / 0.7"><img src="eda_files/figure-html/is-clustering-2.png" width="45%, fig.width= 6 * 0.45 / 0.7"></p>
@@ -405,7 +411,7 @@ unusual_trees
 <span class="co">#&gt; 6   1160 2011-03-28      A   861  39.9  2200</span>
 <span class="co">#&gt; # ... with 4 more rows</span></code></pre></div>
 <p>You could plot the unusual trees to see where they are located. A number of the unusually large trees seem to be on the edge of the plot, where <code>gy</code> values are lower than 100 (left plot below). This information helps us to filter those edge trees selectively (right plot below).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Left plot</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Left</span>
 sample_100 &lt;-<span class="st"> </span>bci12full7 %&gt;%<span class="st"> </span>
 <span class="st">  </span>dplyr::<span class="kw">sample_n</span>(<span class="dv">100</span>)  <span class="co"># for faster analysis and to avoid overplotting</span>
 
@@ -415,7 +421,7 @@ sample_100 &lt;-<span class="st"> </span>bci12full7 %&gt;%<span class="st"> </sp
 <span class="st">    </span><span class="co"># highlight location of unusual trees in the plot</span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">data =</span> unusual_trees, <span class="dt">colour =</span> <span class="st">"red"</span>)
 
-<span class="co"># Right plot</span>
+<span class="co"># Right</span>
 edge_trees &lt;-<span class="st"> </span>unusual_trees %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(gy &lt;<span class="st"> </span><span class="dv">100</span>)
 
@@ -480,13 +486,13 @@ unusual_only
 <span class="co">#&gt; 6    NA   3608</span>
 <span class="co">#&gt; # ... with 4 more rows</span></code></pre></div>
 <p>Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It’s not obvious where you should plot missing values, so ggplot2 doesn’t include them in the plot, but it does warn that they’ve been removed (left plot below). To suppress that warning, set <code>na.rm = TRUE</code> (right plot below).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Left plot; don't remove NAs and get a warning on the console</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Left: don't remove NAs and get a warning on the console</span>
 <span class="kw">ggplot</span>(unusual_only, <span class="kw">aes</span>(dbh)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth) +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Expect empty plot but get a warning"</span>)
 <span class="co">#&gt; Warning: Removed 10 rows containing non-finite values (stat_bin).</span>
 
-<span class="co"># Right plot; NAs explicitely removed in geom_histogram(), so no warning</span>
+<span class="co"># Right: NAs explicitely removed in geom_histogram(), so no warning</span>
 <span class="kw">ggplot</span>(unusual_only, <span class="kw">aes</span>(dbh)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Expect empty plot but no warning"</span>)</code></pre></div>
@@ -580,18 +586,12 @@ farthest non-outlier point in the distribution.</p></li>
 <p>If you have long variable names, <code>geom_boxplot()</code> will work better if you flip it 90°. You can do that with <code>coord_flip()</code> (left plot below), or with <code>ggstance::geom_boxploth()</code> and swapping <code>x</code> and <code>y</code> mappings (right plot below):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("ggstance")</span>
 <span class="kw">library</span>(ggstance)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'ggstance'</span>
-<span class="co">#&gt; The following objects are masked from 'package:ggplot2':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     geom_errorbarh, GeomErrorbarh</span>
 
-<span class="co"># Left plot</span>
+<span class="co"># Left</span>
 ggplot2::<span class="kw">last_plot</span>() +
 <span class="st">  </span><span class="kw">coord_flip</span>()
-<span class="co">#&gt; Warning: Removed 47617 rows containing non-finite values (stat_boxplot).</span>
 
-<span class="co"># Right plot</span>
+<span class="co"># Right</span>
 <span class="kw">ggplot</span>(data_few_sp) +
 <span class="st">  </span>ggstance::<span class="kw">geom_boxploth</span>(<span class="kw">aes</span>(<span class="dt">x =</span> dbh, <span class="dt">y =</span> sp))  <span class="co"># swap x, y; compare to above</span>
 <span class="co">#&gt; Warning: Removed 47617 rows containing non-finite values (stat_boxploth).</span></code></pre></div>
@@ -628,10 +628,16 @@ small_dataset &lt;-<span class="st"> </span>data_few_sp %&gt;%<span class="st"> 
 <span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">50</span>)
 
 p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(small_dataset, <span class="kw">aes</span>(sp, dbh))
+
+<span class="co"># Left</span>
 p +<span class="st"> </span><span class="kw">geom_point</span>()
 <span class="co">#&gt; Warning: Removed 99 rows containing missing values (geom_point).</span>
+
+<span class="co"># Center</span>
 p +<span class="st"> </span><span class="kw">geom_jitter</span>()
 <span class="co">#&gt; Warning: Removed 99 rows containing missing values (geom_point).</span>
+
+<span class="co"># Right</span>
 p +<span class="st"> </span>ggbeeswarm::<span class="kw">geom_quasirandom</span>()
 <span class="co">#&gt; Warning: Removed 99 rows containing missing values (position_quasirandom).</span></code></pre></div>
 <p><img src="eda_files/figure-html/unnamed-chunk-25-1.png" width="30%"><img src="eda_files/figure-html/unnamed-chunk-25-2.png" width="30%"><img src="eda_files/figure-html/unnamed-chunk-25-3.png" width="30%"></p>
@@ -679,7 +685,7 @@ few_spp_n
 <span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">100000</span>)
 
 p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(large_dataset, <span class="kw">aes</span>(dbh, agb))
-p</code></pre></div>
+p +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p><img src="eda_files/figure-html/unnamed-chunk-31-1.png" width="70%" style="display: block; margin: auto;"></p>
 <p>Scatterplots become less useful as the size of your data set grows, because points begin to overplot, and pile up into areas of uniform black (as above). You’ve already seen one way to fix the problem: using the <code>alpha</code> aesthetic to add transparency.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="dv">1</span> /<span class="st"> </span><span class="dv">50</span>)</code></pre></div>
@@ -728,14 +734,14 @@ resid_added &lt;-<span class="st"> </span>large_dataset %&gt;%<span class="st"> 
 <span class="st">  </span><span class="kw">add_residuals</span>(mod) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">resid =</span> <span class="kw">exp</span>(resid))
 
-<span class="co"># Left plot</span>
+<span class="co"># Left</span>
 resid_strange &lt;-<span class="st"> </span>resid_added %&gt;%<span class="st"> </span><span class="kw">filter</span>(dbh &gt;<span class="st"> </span><span class="dv">80</span> &amp;<span class="st"> </span>dbh &lt;<span class="st"> </span><span class="dv">140</span>)
 p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> resid_added, <span class="kw">aes</span>(<span class="dt">x =</span> dbh, <span class="dt">y =</span> resid)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> resid_strange, <span class="dt">color =</span> <span class="st">"red"</span>)
 p
 
-<span class="co"># Right plot</span>
+<span class="co"># Right</span>
 resid_strange_too &lt;-<span class="st"> </span>resid_added %&gt;%<span class="st"> </span><span class="kw">filter</span>(dbh &lt;<span class="st"> </span><span class="dv">80</span>, resid &gt;<span class="st"> </span><span class="dv">5</span>)
 p +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data =</span> resid_strange_too, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">colour =</span> <span class="st">"red"</span>, <span class="dt">shape =</span> <span class="dv">1</span>)</code></pre></div>
 <p><img src="eda_files/figure-html/model-agb-1.png" width="45%"><img src="eda_files/figure-html/model-agb-2.png" width="45%"></p>
