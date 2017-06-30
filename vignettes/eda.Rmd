@@ -242,8 +242,12 @@ p <- ggplot(data = small_cut_number, aes(x = dbh, color = equal_n)) +
     legend.position = c(.95, .95),
     legend.justification = c("right", "top")
   )
-p + geom_histogram()  # left
-p + geom_freqpoly()  # right
+
+# Left
+p + geom_histogram()
+
+# Right
+p + geom_freqpoly()
 ```
 
 ### Typical and rare Values
@@ -297,8 +301,10 @@ The clustering, however, may be an artifact of the chosen bar-width:
 
 ```{r is-clustering, fig.align="default", out.width="45%, fig.width= 6 * 0.45 / 0.7"}
 p <- ggplot(largest_dbh, aes(dbh))
+
 # Left: apparent clustering
 p + geom_histogram(binwidth = useful_barwidth)
+
 # Right: clusters are less apparent with bars twice as wide
 p + geom_histogram(binwidth = useful_barwidth * 2)
 ```
@@ -341,7 +347,7 @@ unusual_trees
 You could plot the unusual trees to see where they are located. A number of the unusually large trees seem to be on the edge of the plot, where `gy` values are lower than 100 (left plot below). This information helps us to filter those edge trees selectively (right plot below).
 
 ```{r locate-unusual-trees, fig.align="default", out.width="45%", fig.width= 6 * 0.45 / 0.7}
-# Left plot
+# Left
 sample_100 <- bci12full7 %>% 
   dplyr::sample_n(100)  # for faster analysis and to avoid overplotting
 
@@ -351,7 +357,7 @@ ggplot(sample_100, aes(gx, gy)) +
     # highlight location of unusual trees in the plot
     geom_point(data = unusual_trees, colour = "red")
 
-# Right plot
+# Right
 edge_trees <- unusual_trees %>% 
   filter(gy < 100)
 
@@ -421,12 +427,12 @@ unusual_only
 Like R, ggplot2 subscribes to the philosophy that missing values should never silently go missing. It's not obvious where you should plot missing values, so ggplot2 doesn't include them in the plot, but it does warn that they've been removed (left plot below). To suppress that warning, set `na.rm = TRUE` (right plot below).
 
 ```{r, fig.align="default", out.width="45%", fig.width= 6 * 0.45 / 0.7}
-# Left plot; don't remove NAs and get a warning on the console
+# Left: don't remove NAs and get a warning on the console
 ggplot(unusual_only, aes(dbh)) + 
   geom_histogram(binwidth = useful_barwidth) +
   labs(title = "Expect empty plot but get a warning")
 
-# Right plot; NAs explicitely removed in geom_histogram(), so no warning
+# Right: NAs explicitely removed in geom_histogram(), so no warning
 ggplot(unusual_only, aes(dbh)) + 
   geom_histogram(binwidth = useful_barwidth, na.rm = TRUE) +
   labs(title = "Expect empty plot but no warning")
@@ -551,11 +557,11 @@ If you have long variable names, `geom_boxplot()` will work better if you flip i
 # install.packages("ggstance")
 library(ggstance)
 
-# Left plot
+# Left
 ggplot2::last_plot() +
   coord_flip()
 
-# Right plot
+# Right
 ggplot(data_few_sp) +
   ggstance::geom_boxploth(aes(x = dbh, y = sp))  # swap x, y; compare to above
 ```
@@ -604,10 +610,13 @@ small_dataset <- data_few_sp %>%
   sample_n(50)
 
 p <- ggplot(small_dataset, aes(sp, dbh))
+
 # Left
 p + geom_point()
+
 # Center
 p + geom_jitter()
+
 # Right
 p + ggbeeswarm::geom_quasirandom()
 ```
@@ -733,14 +742,14 @@ resid_added <- large_dataset %>%
   add_residuals(mod) %>% 
   mutate(resid = exp(resid))
 
-# Left plot
+# Left
 resid_strange <- resid_added %>% filter(dbh > 80 & dbh < 140)
 p <- ggplot(data = resid_added, aes(x = dbh, y = resid)) + 
   geom_point() +
   geom_point(data = resid_strange, color = "red")
 p
 
-# Right plot
+# Right
 resid_strange_too <- resid_added %>% filter(dbh < 80, resid > 5)
 p + geom_point(data = resid_strange_too, size = 3, colour = "red", shape = 1)
 ```
