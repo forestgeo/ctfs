@@ -79,7 +79,16 @@
 <p>The data we will use was made public in 2012; it is from census 7 of the forest plot in Barro Colorado Island (hereafter referred to as BCI), in Panama. Those data are available in the data set <em>bci12full7</em> in the <strong><a href="https://forestgeo.github.io/bci/">bci</a></strong> data package. Alternatively, you can use the data set <em>bci.full7</em>, in the file bci.full.Rdata31Aug2012.zip at DOI: <a href="https://doi.org/10.5479/data.bci.20130603" class="uri">https://doi.org/10.5479/data.bci.20130603</a>. If you use the later data set, replace <em>bci12full7</em> by <em>bci.full7</em> everywhere in this vignette.</p>
 <p>Most functions we will use are available in the <strong><a href="http://tidyverse.org/">tidyverse</a></strong> package. If you are new to the <strong>tidyverse</strong>, you may feel a little frustrated at the beginning, but quickly your effort will pay-off. The tools in the <strong>tidyverse</strong> are powerful, relatively easy to use and consistent; so once you learn some, you will learn most other tools intuitively. To more completely learn how to do data science with the <strong>tidyverse</strong> read <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(bci)  <span class="co"># data from BCI (alternative: https://goo.gl/VKbcMz)</span>
-<span class="kw">library</span>(tidyverse)  <span class="co"># visualize and transform data (and more)</span></code></pre></div>
+<span class="kw">library</span>(tidyverse)  <span class="co"># visualize and transform data (and more)</span>
+<span class="co">#&gt; Loading tidyverse: ggplot2</span>
+<span class="co">#&gt; Loading tidyverse: tibble</span>
+<span class="co">#&gt; Loading tidyverse: tidyr</span>
+<span class="co">#&gt; Loading tidyverse: readr</span>
+<span class="co">#&gt; Loading tidyverse: purrr</span>
+<span class="co">#&gt; Loading tidyverse: dplyr</span>
+<span class="co">#&gt; Conflicts with tidy packages ----------------------------------------------</span>
+<span class="co">#&gt; filter(): dplyr, stats</span>
+<span class="co">#&gt; lag():    dplyr, stats</span></code></pre></div>
 </div>
 <div id="style" class="section level2">
 <h2 class="hasAnchor">
@@ -374,7 +383,7 @@ p +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="
 
 <span class="co"># Right: clusters are less apparent with bars twice as wide</span>
 p +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> useful_barwidth *<span class="st"> </span><span class="dv">2</span>)</code></pre></div>
-<p><img src="eda_files/figure-html/is-clustering-1.png" width="45%, fig.width= 6 * 0.45 / 0.7"><img src="eda_files/figure-html/is-clustering-2.png" width="45%, fig.width= 6 * 0.45 / 0.7"></p>
+<p><img src="eda_files/figure-html/is-clustering-1.png" width="45%"><img src="eda_files/figure-html/is-clustering-2.png" width="45%"></p>
 </div>
 <div id="unusual-values" class="section level3">
 <h3 class="hasAnchor">
@@ -586,10 +595,16 @@ farthest non-outlier point in the distribution.</p></li>
 <p>If you have long variable names, <code>geom_boxplot()</code> will work better if you flip it 90°. You can do that with <code>coord_flip()</code> (left plot below), or with <code>ggstance::geom_boxploth()</code> and swapping <code>x</code> and <code>y</code> mappings (right plot below):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("ggstance")</span>
 <span class="kw">library</span>(ggstance)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'ggstance'</span>
+<span class="co">#&gt; The following objects are masked from 'package:ggplot2':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     geom_errorbarh, GeomErrorbarh</span>
 
 <span class="co"># Left</span>
 ggplot2::<span class="kw">last_plot</span>() +
 <span class="st">  </span><span class="kw">coord_flip</span>()
+<span class="co">#&gt; Warning: Removed 47617 rows containing non-finite values (stat_boxplot).</span>
 
 <span class="co"># Right</span>
 <span class="kw">ggplot</span>(data_few_sp) +
@@ -660,6 +675,7 @@ p +<span class="st"> </span>ggbeeswarm::<span class="kw">geom_quasirandom</span>
 <p>Another approach is to compute the count with dplyr:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">few_spp_n &lt;-<span class="st"> </span>data_few_sp %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">count</span>(sp, DFstatus)
+
 few_spp_n
 <span class="co">#&gt; # A tibble: 13 x 3</span>
 <span class="co">#&gt;       sp  DFstatus     n</span>
