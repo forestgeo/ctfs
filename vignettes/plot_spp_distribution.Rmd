@@ -1,8 +1,8 @@
 ---
 name: Favorite Vignette
-title: "Title"
-subtitle: "Subtitle"
-author: "Vignette Author"
+title: "Plot Species Distribution on .pdf"
+subtitle: "An Example with data from Barro Colorado Island"
+author: "Mauro Lepore"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
@@ -36,75 +36,89 @@ options(dplyr.print_min = 6, dplyr.print_max = 6)
 
 (Follows private issue https://github.com/forestgeo/forestr/issues/13)
 
-# Load packages.
+# Load packages
 
-```{r load-pkgs}
+```{r load-pkgs, message=FALSE, warning=FALSE}
+# Ensure you installed all these packages; or install and load the tidyverse.
 library(ggplot2)
 library(dplyr)
+library(purrr)
 
-
+# Don't run
 # forestr is still unavailable. Instead you should load the CTFS R package.
 library(forestr)
 ```
 
-# Load data.
+# Load data
 
 ```{r load-data}
-# For example
+# Don't run. 
+# I'm using bci for example. You should load your own data.
 library(bci)
-
-# You should load your own data.
 ```
-
 
 ```{r}
 cns_data <- bci::bci12full7
-head(cns_data)
+str(cns_data)
 ```
 
-__Don't do this step. Here filtering only 3 species for a minimal example.__
+### Don't run
+
+Filtering only 3 species for a minimal example.
 
 ```{r}
 (species_selected <- unique(cns_data$sp)[1:3])
 cns_data <- filter(cns_data, sp %in% species_selected)
 ```
 
-Continue here. To change color and fill arguments see more options at https://goo.gl/uevguZ.
+### Functions
 
 ```{r}
-# plot gx gy
+# Plot gx gy.
 plot_xy <- function(cns_data,
                     xlim,
                     ylim,
-                    color = "black",
-                    fill = "#1db767",
-                    size = 1,
-                    shape = 1,
-                    theme = theme_classic(),
                     width = 7,
-                    height = 7) {
+                    height = 7,
+                    ...) {
   this_spp <- unique(cns_data$sp)
   ggplot(data = cns_data, aes(x = gx, y = gy)) +
-    geom_point(color = color, fill = fill, size = size, shape = shape) +
+    geom_point(...) +
     facet_grid(. ~ sp) +
-    coord_cartesian(xlim = xlim, ylim = ylim)
-    theme
+    coord_cartesian(xlim = xlim, ylim = ylim) +
+    theme_classic()
   ggsave(file = paste0(this_spp, ".pdf"), width = width, height = height)
+}
+
+# Wrap plotting and saving.
+# Arguments:
+#   cns_data: Census data.
+#   ...: Arguments passed to `?geom_point()`.
+sp_distribution_pdf <- function(cns_data, ...) {
+  split_data_list <- split(cns_data, cns_data$sp)
+  purrr::walk(
+    split_data_list, 
+    plot_xy, 
+    xlim = c(0, max(cns_data$gx, na.rm = TRUE)),
+    ylim = c(0, max(cns_data$gy, na.rm = TRUE)), 
+    ...
+  )
 }
 ```
 
-Plot and save output as .pdf in working directory (nothing prints to sceen).
+# Run
+
+Plot and save output as .pdf in working directory (nothing prints to scene).
 
 ```{r plot-and-save-as-pdf}
-cns_data %>%
-  split(.$sp) %>% 
-  purrr::walk(plot_xy, 
-    xlim = c(0, max(cns_data$gx, na.rm = TRUE)),
-    ylim = c(0, max(cns_data$gy, na.rm = TRUE))
-  )
+# Change point shape, color, fill, size, transparency: see `?geom_point()`.
+sp_distribution_pdf(cns_data)
+
 ```
 
-See one of the saved plots.
+
+
+
 
 
 
