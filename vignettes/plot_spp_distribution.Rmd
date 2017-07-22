@@ -36,7 +36,80 @@ options(dplyr.print_min = 6, dplyr.print_max = 6)
 
 (Follows private issue https://github.com/forestgeo/forestr/issues/13)
 
-```{r}
+# Load packages.
+
+```{r load-pkgs}
+library(ggplot2)
+library(dplyr)
+
+
+# forestr is still unavailable. Instead you should load the CTFS R package.
 library(forestr)
 ```
+
+# Load data.
+
+```{r load-data}
+# For example
+library(bci)
+
+# You should load your own data.
+```
+
+
+```{r}
+cns_data <- bci::bci12full7
+head(cns_data)
+```
+
+__Don't do this step. Here filtering only 3 species for a minimal example.__
+
+```{r}
+(species_selected <- unique(cns_data$sp)[1:3])
+cns_data <- filter(cns_data, sp %in% species_selected)
+```
+
+Continue here. To change color and fill arguments see more options at https://goo.gl/uevguZ.
+
+```{r}
+# plot gx gy
+plot_xy <- function(cns_data,
+                    xlim,
+                    ylim,
+                    color = "black",
+                    fill = "#1db767",
+                    size = 1,
+                    shape = 1,
+                    theme = theme_classic(),
+                    width = 7,
+                    height = 7) {
+  this_spp <- unique(cns_data$sp)
+  ggplot(data = cns_data, aes(x = gx, y = gy)) +
+    geom_point(color = color, fill = fill, size = size, shape = shape) +
+    facet_grid(. ~ sp) +
+    coord_cartesian(xlim = xlim, ylim = ylim)
+    theme
+  ggsave(file = paste0(this_spp, ".pdf"), width = width, height = height)
+}
+```
+
+Plot and save output as .pdf in working directory (nothing prints to sceen).
+
+```{r plot-and-save-as-pdf}
+cns_data %>%
+  split(.$sp) %>% 
+  purrr::walk(plot_xy, 
+    xlim = c(0, max(cns_data$gx, na.rm = TRUE)),
+    ylim = c(0, max(cns_data$gy, na.rm = TRUE))
+  )
+```
+
+See one of the saved plots.
+
+
+
+
+
+
+
 
