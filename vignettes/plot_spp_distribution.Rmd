@@ -75,19 +75,12 @@ cns_data <- filter(cns_data, sp %in% species_selected)
 
 ```{r}
 # Plot gx gy.
-plot_xy <- function(cns_data,
-                    xlim,
-                    ylim,
-                    width = 7,
-                    height = 7,
-                    ...) {
-  this_spp <- unique(cns_data$sp)
+plot_xy <- function(cns_data, ...) {
   ggplot(data = cns_data, aes(x = gx, y = gy)) +
     geom_point(...) +
     facet_grid(. ~ sp) +
-    coord_cartesian(xlim = xlim, ylim = ylim) +
-    theme_classic()
-  ggsave(file = paste0(this_spp, ".pdf"), width = width, height = height)
+    coord_fixed() +
+    theme_bw()
 }
 
 # Wrap plotting and saving.
@@ -96,6 +89,7 @@ plot_xy <- function(cns_data,
 #   ...: Arguments passed to `?geom_point()`.
 sp_distribution_pdf <- function(cns_data, ...) {
   split_data_list <- split(cns_data, cns_data$sp)
+  pdf
   purrr::walk(
     split_data_list, 
     plot_xy, 
@@ -112,7 +106,15 @@ Plot and save output as .pdf in working directory (nothing prints to scene).
 
 ```{r plot-and-save-as-pdf}
 # Change point shape, color, fill, size, transparency: see `?geom_point()`.
-sp_distribution_pdf(cns_data)
+
+cns_data_sub <- sample_n(cns_data, 1000)
+
+
+plot_xy(cns_data_sub)
+
+
+sp_unique <- unique(cns_data_sub$sp)
+lapply(sp_unique, plot_xy)
 
 ```
 
