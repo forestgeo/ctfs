@@ -665,7 +665,9 @@ define.graphwindow=function(export="no",w,h,file)
 get.filename=function(file,path,exp,species,type="Map.")
 {
  if(is.null(file))
-  {
+  {plot_xy(cns_data_sub)
+plot_xy(cns_data_sub)
+
    if(length(species)==1) filename=pst(path,species,type,exp)
    else filename=pst(path,"multispp",type,exp)
   }
