@@ -28,9 +28,9 @@ Imports: assertive,
     mvtnorm,
     splancs,
     stats,
-    utils
-Suggests: bci, 
-    devtools,
+    utils,
+    bci
+Suggests: devtools,
     dplyr,
     ggplot2,
     knitr,
