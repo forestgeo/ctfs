@@ -1,3 +1,3 @@
-eda_cache/
+eda_cache
 .*_cache$/
-^eda\.html$
+*.html
