@@ -27,14 +27,14 @@ library(tibble)
 
 # Complexity
 
-One way of measuring the quality of a package is its complexity. To measure the complexity of the forestr package, and to compare it to other packages, we will use the sig package. Best practice is to keep a package simple (_Testing R code_ by Richard Cotton).
+One way of measuring the quality of a package is its complexity. To measure the complexity of the ctfs package, and to compare it to other packages, we will use the sig package. Best practice is to keep a package simple (_Testing R code_ by Richard Cotton).
 
-## _forestr_
+## _ctfs_
 
-This reports the complexity of forestr:
+This reports the complexity of ctfs:
 
 ```{r}
-sig::sig_report(pkg2env(forestr))
+sig::sig_report(pkg2env(ctfs))
 ```
 
 ## _Hmisc_
@@ -61,7 +61,7 @@ sig_report(pkg2env(testthat))
 
 # Documentation
 
-This section reports the quality of the documentation. It focuses not on how compleate or correct the documentation is, but on how accurately the documentation information has been programatically extracted from its original source (https://goo.gl/uAvQ1k) into the forestr package documentation (roxygenized documentation in R their .Rd version in `man/`). That transformation is necessary for the roxygen2 package to create the forestr documentation (i.e. help pages available via `?<FUNCTION_NAME>` in R and at https://forestgeo.github.io/forestr/reference).
+This section reports the quality of the documentation. It focuses not on how compleate or correct the documentation is, but on how accurately the documentation information has been programatically extracted from its original source (https://goo.gl/uAvQ1k) into the ctfs package documentation (roxygenized documentation in R their .Rd version in `man/`). That transformation is necessary for the roxygen2 package to create the ctfs documentation (i.e. help pages available via `?<FUNCTION_NAME>` in R and at https://forestgeo.github.io/ctfs/reference).
 
 Choose some functions at random and visually check if documentation matches.
 
