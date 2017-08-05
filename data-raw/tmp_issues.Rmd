@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 SOURCE OF PARAMS
 
-- `abundance`, I mostly used forestr, but I re-wrote for clarity. Common params:
+- `abundance`, I mostly used ctfs, but I re-wrote for clarity. Common params:
     - censdata
     - type
     - alivecode

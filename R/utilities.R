@@ -265,7 +265,7 @@
 #' @section Alternative:
 #' A more powerful and general alternative is [stringr::str_trim()]:
 #' ``` r
-#' library(forestr)
+#' library(ctfs)
 #' library(stringr)
 #' 
 #' string <-  " hello   "
@@ -335,7 +335,7 @@
 #' A more powerful and general alternative is [stringr::str_sub()]:
 #' ``` r
 #' library(stringr)
-#' library(forestr)
+#' library(ctfs)
 #' string <- c("abcdefg", "abcdefg", "abcdefg")
 #' # You can do the same
 #' stringr::str_sub(string, end = 2)

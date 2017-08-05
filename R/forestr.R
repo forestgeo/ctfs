@@ -29,7 +29,7 @@
 #'   Wechsler, S.J. Wright, and S. Loo de Lao. 1999. Light gap disturbances, 
 #'   recruitment limitation, and tree diversity in a neotropical forest. Science
 #'   283: 554-557.
-#' @name forestr
+#' @name ctfs
 #' @docType package
 #' @importFrom utils head data read.delim read.table write.table
 #' @import grDevices

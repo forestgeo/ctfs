@@ -283,7 +283,7 @@ lower_strip_rd <- function(string) {
 
 
 
-# Compare params in forestr versus CTFS'CRAN ------------------------------
+# Compare params in ctfs versus CTFS'CRAN ------------------------------
 
 fr <- lower_strip_rd(dir("man"))
 cran <- lower_strip_rd(dir("../CTFS-CRAN/man/"))
@@ -339,7 +339,7 @@ excluded_useless <- "TextToRdata"
 
 # Similar names 
 
-# Find functions in forestr that are similar to functions in CTFS-CRAN
+# Find functions in ctfs that are similar to functions in CTFS-CRAN
 similar <- tibble::tribble(
   ~fr, ~cran,
   "pop.change", "abundance.change",

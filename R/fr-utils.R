@@ -246,7 +246,7 @@ showdiff_man_pkg <- function(current_dir = "./") {
 
   exported_not_indexed <- list_internal_funs(raw_strings(path2r))
   exported_not_indexed <- exported_not_indexed$fun_internal
-  pkg_doc <- "forestr"
+  pkg_doc <- "ctfs"
   not_applicable <- c(pkg_doc, exported_not_indexed)
   
   man <- dir(path2man) %>% 
@@ -312,13 +312,13 @@ test_man_vs_pkg <- function() {
   # Avoid documenting testing internal functions, because they are in man but
   # not indexed
   here <- stringr::str_extract(getwd(), "/[^/]*$")
-  prefix <- ifelse(here == "/forestr" , "./", "../../")
+  prefix <- ifelse(here == "/ctfs" , "./", "../../")
   here_path <- function(here) {paste0(prefix, here)}
   exported_not_indexed <- list_internal_funs(
     raw_strings(path2r = here_path("R/"))
   )
   exported_not_indexed <- exported_not_indexed$fun_internal
-  pkg_doc <- "forestr"
+  pkg_doc <- "ctfs"
   not_applicable <- c(pkg_doc, exported_not_indexed)
   
   man <- dir(here_path("man")) %>% 
@@ -646,7 +646,7 @@ args_formals <- function() {
   message("On failure check if not_a_function is updated in args_formals().")
   # Fails if item is not a function
   not_a_function <- c(
-    "forestr", 
+    "ctfs", 
     "MONTHNAMES",
     "args_compare"
   )

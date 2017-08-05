@@ -7,7 +7,7 @@
 
 
 # Here is a case where the problem arises (this code lives inside
-# `forestr::split_data()`):
+# `ctfs::split_data()`):
 
 censdata = bci::bci12full1
 splitcol = "sp"
