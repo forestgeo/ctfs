@@ -1,0 +1,700 @@
+AGB.dbtable             This function looks up the database named AGB
+                        in the MySQL server t...
+AGB.ind                 Above ground biomass (agb) based on one of the
+                        Chave (Oecologia, 2005).
+AGB.tree                AGB of each tree, grouping all stems of one
+                        tree and adding there agbs.
+Annuli                  Total area in a series of annuli, summed over
+                        all individuals in a dataset.
+AssignDiag              A way to assign the diagonals of a matrix that
+                        can handle input hav...
+BadParam                This is a default for model.xy, never returning
+                        TRUE. To use model....
+CI                      Confidence limits (quantiles) from a vector at
+                        specified probabilit...
+CTFSplot                Deprecated. Use <DATA> from Barro Colorado
+                        Island with bci::<DATA> ...
+CalcRingArea            Given a dataframe that includes gx, gy
+                        coordinates, and a single va...
+Chave.AGB               The Chave 2005 Oecologia model for calculating
+                        biomass from dbh in cm.
+CountByGroup            Groups a dataframe by one or more columns
+                        (named by groupcol). This...
+DBHtransition           Calculates a transition matrix of individuals
+                        by diameter categorie...
+Gibbs.normalmean        The standard Gibbs sampler for a normal
+                        distribution with unknown m...
+Gibbs.normalvar         Gibbs draw for the variance of a normal
+                        distribution (http://www.bi...
+Gibbs.regsigma          Updates the regression standard deviation (used
+                        in regression.Bayes...
+Gibbs.regslope          Updates the regression slope (used in
+                        regression.Bayes).Gibbs.regsl...
+IfElse                  A Version of 'base::ifelse()'.
+MONTHNAMES              Object assumed to be crucial. In 'utilities.R,
+                        the original documen...
+NDcount                 Count of neighbors within radius r with edge
+                        effect correction.
+NeighborDensities       Total number or basal area of conspecific and
+                        heterospecific neighbors.
+RipUvK                  Ripleys K using splancs.
+SectionCorrection       Correct coordinates, making them from 0 to 20.
+StringToVect            Converts a character string into a vector of
+                        individual characters.
+TextToRdata             Reads a tab-delimited text file and save as
+                        rdata.
+abund.manycensus        Collect abundances of all species across
+                        several censuses.
+abundance               Abundance or basal area dividing data with 1 or
+                        2 categorical variables
+abundance.spp           Abundance of trees by species and DBH classes.
+abundanceperquad        Abundance, basal area, or agb of every species
+                        by quadrat.
+abundmodel.fit          Simply return the modeled histogram for any set
+                        of parameters.
+addBinParam             Given parameters for a model with N linear
+                        bins, creates parameters...
+agb.dbhmodel            Calculates biomass from density and diameter,
+                        without height.
+agb.model               Calculates biomass from density, height, and
+                        dbh.
+allquadratslopes        Calculates the slope of all quadrats in a plot.
+angleBisector           Given 3 sets of coordinates defining two line
+                        segments (middle poin...
+are.ptsinside           Check if points belong to quadrat.
+arrangeParam.Gibbs      Used in the loop of a Gibbs sampler, setting
+                        parameters not yet tes...
+arrangeParam.Gibbs.2D   Used in the loop of a Gibbs sampler, setting
+                        parameters not yet tes...
+arrangeParam.llike      Used in likelihood function of a Gibbs sampler.
+                        Allows any of a set...
+arrangeParam.llike.2D   Used in likelihood function of a Gibbs sampler
+                        for lmerBayes, but f...
+assemble.demography     Reformat the output from demographic functions
+                        from list to dataframe.
+assembleBinOutput       Use the list output from piecewise regression
+                        (growthfit.bin) and c...
+asymp.ht                Asymptote for y as a function of x.
+asymp.ht.fixmax         Same formulation, but the asymptote is fixed,
+                        so only two parameter...
+asymptote.exp           A 3-parameter function which asymptotes as
+                        x->infinity.
+attach_if_needed        Deprecated. See section _Good practice_ in
+                        '?attach'. To use <DATA>...
+autoregression          Autocorrelation with a given lag of a vector y.
+ba                      Basal area of trees.
+bad.asymexp.param       For either the Gaussian, or asymexp, the SD
+                        parameters must be > 0....
+bad.asympower.param     The 3 parameters submitted to hyper.abundGibbs
+                        have to be checked, ...
+bad.binparam            This prevents the bin parameters from moving
+                        outside the x range, a...
+bad.binsdpar            bad.binsdpar
+bad.paretopar           Test whether parameters for the Pareto
+                        distribution are acceptable....
+badSD                   badSD arrangeParam.llike.2D Used in likelihood
+                        function of a Gibbs...
+basum                   Returns the basal area summed over all
+                        submitted dbhs.
+beta.normalized         Normalzing beta.total. No longer used.
+                        beta.normalized beta.total ...
+beta.total              A beta distribution on the interval xmin to
+                        xmax, instead of 0 to 1...
+betaproduct             This is equivalent to the normal product
+                        above.betaproduct beta.nor...
+binGraphManySpecies     Graph AGB growth and model fit of many species
+                        overlaid.
+binGraphManySpecies.Panel
+                        Make a graph, 4 panels, of AGB growth and model
+                        fit of many species...
+binGraphSampleSpecies   Make a single graph, 4 panels, of AGB growth
+                        and model fit.
+biomass.CTFSdb          Biomass for trees and stems using dbh
+                        allometry.
+biomass.change          Finds biomass in two censuses and change
+                        between them.
+biomass.growth          Calculate change in biomass (agb).
+bootconf                A simple calculation of confidence limits based
+                        on the SD of a vect...
+bootstrap.corr          Running bootstrap on a correlation. Any columsn
+                        can be chosen from ...
+border.distance         Distance from a point to the nearest boundary
+                        of a rectangle (plot).
+calc.directionslope     This runs equations 1-3 of Seibert &
+                        McGlynncalc.directionslope Sou...
+calc.gradient           Calculate flow using Seibert & McGlynn
+                        algorithm.
+calcMortIndivTable      Calculate mortality rate per species per census
+                        interval using the ...
+calcS.alpha             Number of species in a sample of N individuals,
+                        given Fisher's alpha.
+calcalpha               Calculates alpha from a stem and species count
+                        submitted using Newt...
+calcslope               Given the z-coordinate of 3 points in 3D space
+                        whose x-y coordinate...
+calculateBinModel.AIC   Calculate AIC of the model, using various
+                        log(likelihood) estimators.
+calculateBinModel.BIC   Calculate Bayes Information Criteria using
+                        Wikipedia formula.
+calculateBinModel.bestpred
+                        Calculate mean predicted value at every x using
+                        every one of the Gi...
+cartesian.to.polar      Convert Cartesian coordinates to polar. Returns
+                        a dataframe of two ...
+center.predictors       Transform all data by subtracting a constant,
+                        either the mean, medi...
+charlocate              Finds position of a substring needle inside a
+                        longer string haystac...
+circle                  Calculates points on a circle.
+circlearea              Area of a circle of radius r.
+clean.demography        Keep or clean rows outputed by mortality,
+                        growth, or recruitment?
+colMedians              For convenient medians, like
+                        colMeans.colMedians midPoint Midpoint...
+coldata.to.imagemat     Map response variables using 'contour()',
+                        'image()', and 'filled.contour()'.
+compare.growthbinmodel
+                        Calculates various metrics of fit: DIC, BIC,
+                        AIC.
+complete.plotmap        Map every individual.
+constant                A function to return a constant at all
+                        predictors x.
+constant.bin            A model like piecewise regression
+                        (linearmodel.bin), but y is a con...
+constant.linear         A model which is constant for x<lim, and linear
+                        for x>lim. The firs...
+convert.factor          Converts from factors to character.
+convert.rowcol          Convert an integer to a character, with a
+                        single leading zero if th...
+countEmpty              Counts vector elements that are NA or a string
+                        of no length.countEm...
+countNA                 Counts vector elements that are NA.countNA
+                        countEmpty Counts vecto...
+countUnique             Count the number of unique elements in a
+                        vectorcountUnique graphFil...
+countone                Counts vector elements exactly one.countone
+                        countNA Counts vector ...
+countpresent            Counts vector elements > 0. See countspp as
+                        well.countpresent find....
+countspp                Returns the number of elements in a numeric
+                        vector > 0. countspp as...
+countzero               Counts vector elements exactly zero.countzero
+                        countone Counts vect...
+covTocorr               Convert covariance matrix to correlation
+                        matrix. Each element is di...
+coverage.diag           Draws a diagonal across a plot.
+create.fulldate         Converts a vector of date character strings in
+                        any format to a data...
+create.fulldate.split   Converts the MySQL date format by splitting on
+                        the hyphen (or other...
+create.neighbordata     Calculates the mean density in neighboring
+                        quadrats for every quadr...
+ctfs                    Tools for the Analysis of Forest Dynamics
+cumul.above             Seek x at which the curve passes through a
+                        given y.
+d.calcS.alpha           The derivative for use in Newtons methodd.
+dasymexp                Probability distributions for a folded but
+                        asymmetrical exponential...
+dasymnorm               Probability distributions for an asymmetrical
+                        Gaussian.
+dasympower              A bilateral power distribution, centered at
+                        center, decaying with e...
+dbeta.reparam           Reparameterize beta distribution as a function
+                        of its mean and sd.
+dbinomrev               A version of dbinom in which parameters are
+                        submitted in a differen...
+default.badpar          None given.default.badpar bad.paretopar Test
+                        whether parameters fo...
+define.graphwindow      Define an export device for a graph, based on
+                        the argument export.
+defineBinBreaks         This finds divisions of over the vector size
+                        which produce equal nu...
+defineSDpar             For default SD parameters, if nothing else
+                        works. Choose the midpoi...
+density_ind             Create a vector of wood density for each
+                        individual tree based on t...
+detachfiles             detachs from the searchpath files matching a
+                        submitted vector of na...
+dexp.sin                Four-parameter exponential sin, as a
+                        probability distributiondexp.s...
+dgamma.mean             A version of dgamma where the parameters are
+                        ordered so that the me...
+dgamma.meansd           Probability distribution of gamma,
+                        parameterized with mean and sd.
+dgamma.scale            Like above, but with scale as the first
+                        parameter.dgamma.scale dpow...
+dgammaMinusdexp         The PDF of a gamma distribution minus a
+                        negative exponential distribution.
+dgammaPlusdexp          The PDF of the sum of gamma and negative
+                        exponential distribution.
+dgammadexp              PDF by adding a gamma distribution to a
+                        symmetrical exponential distribution.
+discrete.model          A model for a numeric response to a single
+                        discrete predictor. The ...
+discrete.mortmodel      A model for mortality as a function of a single
+                        discrete predictor,...
+distance                Distance from one quadrat to a second quadrat.
+distance.to.side        Called from imageJ.to.lxly where for each
+                        point, distance to each s...
+ditch                   Detaches all files at one or more search
+                        positions; v can be a vect...
+dmixnorm                Mixed normal distribution.
+dnormprod0              Probability density of product of two normal
+                        variates, both with me...
+dnormrev                Reverse the order of parameters to dnorm.
+doublenormal            Simulate draws from a double
+                        normaldoublenormal.
+dpois.max               A probability distribution which is simply a
+                        curtailed poisson.
+dpois.maxtrunc          A zero-truncated Poisson distribution with a
+                        ceiling (combining dpo...
+dpois.rearrange         This rearranges dpois so that it works on a
+                        single vector, with the...
+dpois.trunc             A zero-truncated Poisson distribution.
+                        dpois.trunc dpois.maxtrunc ...
+dpower                  A probability distribution defined by a power
+                        function. There is a ...
+draw.axes               Add axes to a graph, with ticks spaced by the
+                        vector div.
+drawrectangle           Draw a rectangle given a matrix or dataframe of
+                        4 x-y coordinates.
+drp                     A version of drop which includes as.matrix.
+                        Without it, drop does n...
+dsymexp                 Probability distribution for a folded,
+                        symmetrical exponential. Whe...
+dweibull.3param         PDF of three-parameter Weibulldweibull.3param
+                        weibull.median.3param...
+elev.to.list            Convert a dataframe of coordinates and
+                        elevation into a list.
+ellipse                 Equation for (half) a canonical ellipse
+                        fullellipse Creates a data...
+enoughSamplePerBin      Test whether the number of elements in a vector
+                        x between successiv...
+exclude.unidentified    A more specialized version of unidentified
+                        species. It excludes spe...
+exp_2par                An exponential distribution with an asymptote.
+                        @details Name exp.2...
+explode                 Split a single (atomic) character variable into
+                        sections, separated...
+expon.model             Exponential model, y = a exp(b1_x1 + b2_x2) for
+                        any number of predi...
+exponential.sin         Five-parameter exponential sinexponential.sin
+                        pexp.sin CDF of four...
+extract.growthdata      Extract growth rates from plot databases and 2
+                        censuses.
+fill.1dimension         Filling a 1D array resulting from tapply. Same
+                        as fill.dimension, b...
+fill.dimension          This function fills out an array of 2
+                        dimensions, adding zeroes (or...
+find.climits            Calculate confidence limits around a number of
+                        deaths.
+find.nonNA              Returns the first value of a vector x which is
+                        not NAfind.nonNA whi...
+find.xaxis.hist         Given an abundance fit and x axis range and
+                        divisions, return a seq...
+findborderquads         Given a quadrat index, calculate indices of
+                        neighboring quadrats.
+findneighborabund       For every quadrat, finds neighboring quadrats
+                        and returns their abundance.
+fit.beta.normal         Finding a normal distribution which most
+                        closely fits a given beta ...
+fit.logistic            A function to fit a set of data y, observed at
+                        the vector x, to a g...
+fit.pdf                 Fit a random variable x to any submitted
+                        probability distribution.
+fitSeveralAbundModel    Run model.littleR.Gibbs for a series of census
+                        databases.
+fitnorm                 Fitting a normal distribution to data
+                        Parameters are a mean and sd ...
+fromjulian              Convert calendar dates from julian dates.
+full.abundmodel.llike   With the table of abundances, hyper-parameter
+                        estimates, and estima...
+full.likelihood.lmerBayes
+                        Likelihood for any complete set of parameters.
+full.xygrid             Create a complete of points x-y, given the
+                        sequence of unique x and...
+fullcircle              Create a dataframe for a full circle.
+fullellipse             Creates a dataframe for a full ellipse.
+fullplot.imageJ         Convert pixels to coordinates within a quadrat.
+get.filename            This sets a name for outputting a map (or any
+                        graph) to a file.
+getTopoLinks            This is solely for use by solve_topo. It finds
+                        all points linked vi...
+getquadratname          Convert x, y coordinates and plot dimensions
+                        into 4-character quadrat names.
+getsmallerquads         Convert indices from larger to smaller
+                        quadrats.
+graph.abundmodel        Output histograms of little.r across species,
+                        observed and fitted.
+graph.growthmodel       Graph growth rates and model fit.
+graph.growthmodel.spp   Use output of growth.flexbin to graph observed
+                        growth and predictions.
+graph.modeldiag         Graph diagnostics of model.xy.
+graph.mvnorm            Plot contours for an mvnorm, with parameters
+                        submitted as a vecto...
+graph.outliers          Plot outliers overlaid on the model and full
+                        data for all species.
+graph.outliers.spp      Pass the output of extract.growth with every
+                        individual's growth (f...
+graph.quadrats          Plot a series of quadrats with corners xlo,
+                        ylo, xhi, yhi.
+graphFilledBand         Fill the area between two curves on a graph.
+growth                  Annual Growth Rates by Categories.
+growth.biomass.indiv    Like growth.indiv but based on agb growth, not
+                        dbh growth.
+growth.dbh              Calculates forest-wide growth in given dbh
+                        categories.
+growth.eachspp          Calculate growth for each species in given dbh
+                        categories.
+growth.flexbin          Fit a regression line through log growth
+                        against log dbh, binning on dbh.
+growth.indiv            Table growth rate of every individual both
+                        relative and dbh-increment.
+gsp                     Returns one of the objects at a given search
+                        position. This provide...
+gxgy.to.hectindex       Converts GX GY Coordinates to a Hectare Number.
+gxgy.to.index           Assign any location(s) a single index
+                        identifying the quadrat.
+gxgy.to.lxly            Calculate local x and y coordinates from global
+                        coordinates.
+gxgy.to.quad            Calculate a quadrat name from gy-gy.
+gxgy.to.rowcol          Returns row and column for any set of
+                        coordinates.
+harmonic.mean           Harmonic mean of a vector x.
+hist_compare            Compares two histograms with a Kolmogorov
+                        approach. @details Name ...
+hyper.abundGibbs        Likelihood function for hyperparameters of
+                        abundance model, given t...
+hyper.mortGibbs         Likelihood function for logMu and logSD, given
+                        the species means (l...
+imageGraph              Maps a response variable with Rs contour or
+                        image functions, or both.
+imageJ.to.lxly          Convert map pixels from digitzing program to
+                        plot coordinates. Uses...
+image_dataframe         Creates a color response map based on columnar
+                        data.
+index.to.gxgy           Calculate the x and y coordinates given the
+                        quadrat index.
+index.to.rowcol         Calculate the row and column given the quadrat
+                        index.
+individual_grow.table   Create a table of individual trees and their
+                        growth over two census...
+individual_mort.table   Table individual trees and their survival
+                        status over two censuses.
+inside.rect             Determines whether any of the 4 corners of one
+                        rectangle are within...
+insideRectangle         Checks a vector of coordinates x, y to return
+                        which are inside a rectangle.
+intersection.line.curve
+                        Finds the points where a straight line, given
+                        lines as intercept b ...
+intersection.of.lines   Finds the point where 2 lines intersect, given
+                        lines as 2 parameter...
+invlogit                Inverse logit transformation, turns a logit
+                        back into a probability...
+is.between              Check whether a point x,y falls between two
+                        other points. The typic...
+is.leap                 Deprecated. Is a year a leap year?
+is.odd                  A trivial function to test whether numbers
+                        (scalar or vector) are o...
+ispt.inside             Check a single pt (x and y) against a large
+                        number of quadrats whos...
+kurtosis                Sample kurtosis. The biased portion is the
+                        population kurtosis; cor...
+left                    Leftmost n characters of a string.
+leftbut                 Returns the leftmost characters of a string,
+                        excluding the last n.
+line.intersection.pts   Finds the point where 2 lines intersect, given
+                        each line as 2 pairs...
+linear.model            A simple linear model, where the first
+                        parameter is intercept, rema...
+linear.model.ctr        A simple linear model, where the first
+                        parameter is intercept, seco...
+linear.mortmodel        A model for mortality as a function of one or
+                        more predictors, with...
+linearmodel.bin         Multiple bin model predicting y as a function
+                        of x in several bins....
+linearmodel.bin.set     This does the work of calculating predicted
+                        values at each independ...
+llike.GaussModel        This is for model.xy. Generate a likelihood for
+                        'model.xy()'.
+llike.GaussModelSD      This is for model.xy. Take the function for the
+                        SD, its parameters,...
+llike.linearbin.optim   This is for optim, a single function taking all
+                        parameters at once,...
+llike.model.lmer        A llikelihood function for one set of
+                        parameters, for a single random effect.
+lmerBayes               A Metropolis MCMC version of lmer.
+lmerBayes.hyperllike.mean
+                        This is the hyper-likelihood for updating the
+                        hypermeans, based on ...
+lmerBayes.hyperllike.sigma
+                        This is the hyper-likelihood for updating the
+                        covariances. It is al...
+lmerMortFixedTime       A model for mortality as a function of a single
+                        predictor variable.
+lmerMortLinear          A linear model of an annual mortality
+                        parameter, which is '-log(an...
+load.species            A function for extracting a single
+                        speciesdataframe from the large ...
+log_model               Logarithmic model, y = a + b1 log(x1) + b2
+                        log(x2) for any number o...
+logical.grep            A form of grep returning logical instead of
+                        indices (numbers).logic...
+logistic.ctr            Logistic function with intercept
+                        parameterization centering on x.
+logistic.inter          Logistic function with intercept
+                        parameterization (i.e., first para...
+logistic.multiplicative
+                        Logistic with a pair of parameters for each x;
+                        y=product of all the...
+logistic.power          This is the Gaussian logistic function, where
+                        logit is a second-ord...
+logistic.power.mode     This is the Gaussian logistic function, where
+                        logit is a second-ord...
+logistic.power_simple   This is a mixture of logistic and
+                        logistic-standard models. The pre...
+logistic.standard       This is standard logistic function, but with
+                        asymptote and basement...
+logistic.sum.squares    Sets a prediction based on a generalized
+                        logistic, then returns the...
+logisticmodel.bin       Multiple bin model predicting y as a function
+                        of x, where each segm...
+logit                   Logit transformation for a probability >0 and <
+                        1logit invlogit In...
+lxly.to.p5              Calculate p5x5 from local or within-quadrat
+                        coordinates for a 20-m quadrat.
+majoraxisreg            A major axis regression with parameters fitted
+                        by optim.
+majoraxisreg.no.int     Major axis regression with no intercept. Only a
+                        slope is returned. ...
+make.CredIntervalVect   Take a vector y having mean then lower and
+                        upper credible limits an...
+map                     Draw map of one or more species from one plot.
+map1species             Map a single species.
+map2species             Map 2 species to a 2-panel pdf.
+maptopo                 Draws contours on a plot map.
+match.dataframe         Matches two dataframes using two or more
+                        columns. Rs function match...
+mergeParam              Merges a list of parameter matrices into one
+                        large matrix. Used for...
+merge_data              Combine many dataframes as elements of a list
+                        into a single large d...
+metrop1step             Takes a single metropolis step on a single
+                        parameter for any given ...
+metrop1step.discrete    A version for metrop1step where the alternative
+                        values are characte...
+midPoint                Midpoint of any vector.midPoint Source code and
+                        original documentat...
+minum.beta.normal       Function to be minimized for fitting normal to
+                        beta.minum.beta.norm...
+minum.mixnorm           Fit a mixture of 2 normals.
+minum.normal            The likelihood function for use by
+                        fitnorm.minum.normal fitnorm Fi...
+minum.perpdist          The sum of squares used by
+                        majoraxisreg.minum.perpdist majoraxisreg...
+model.littleR.Gibbs     The main function for fitting the probability
+                        distribution of popul...
+model.xy                Bayesian routine for fitting a model to y given
+                        x.
+modelBayes              A Metropolis MCMC version for any modeling y~x,
+                        without random effe...
+mortality               Mortality, forest-wide or based on one or two
+                        categories.
+mortality.calculation   Calculate mortality rate and confidence limits.
+mortality.dbh           Calculate forest-wide mortality in given dbh
+                        categories.
+mortality.eachspp       Calculate mortality for each species in given
+                        dbh categories.
+mvrnormRC               From a variance-covariance matrix, output
+                        normal variates with means 0.
+neighbors               Find proportion of neighboring quadrats in
+                        which a species is present.
+nhd                     A version of head with only 6 columns shown.nhd
+                        TextToRdata Reads ...
+normalproduct           Product of 2 normal distributions, the first at
+                        x and the second at lag-x.
+order.by.rowcol         Reorder rows and columns of a matrix so they
+                        are sorted as if colum...
+order.bynumber          Returns ordering of a character vector with any
+                        numbers coming firs...
+overlay.growthbinmodel
+                        Show model fits for 1, 2, 3, and 4 bins on each
+                        species.
+parallel.line           Slope and intercept of a line parallel to
+                        another known line.
+partialcirclearea       Area of a circle of radius r that is inside a
+                        rectangular plot.
+pdf.allplot             Export a pdf with one or more species maps.
+perpendicular.distance
+                        Distance from a point to a line (so its the
+                        perpendicular distance).
+perpendicular.line      Slope and intercept of the line perpendicular
+                        to another known line.
+pexp.sin                CDF of four-parameter exponential sinpexp.sin
+                        mvrnormRC Function t...
+plot_wavelet            Function to plot the wavelet variance from the
+                        output of the wavele...
+png.allplot             Export species maps as png.
+polar.to.cartesian      Convert polar coordinates to Cartesian.
+pop.change              Change in abundance, basal area, or agb in two
+                        censuses.
+pop.change.dbh          Change between two censuses in abundance or
+                        basal area.
+pospower                Raise to any power, but with negative numbers
+                        converted to positive...
+predht.asym             An allometric model predicting an asymptote at
+                        large size.
+print_all               Print all rows of a tibble or tbl_df.
+prob.N1                 Probability of observing N2 given N1 (little.r
+                        distributed community-wide).
+pst                     A version of paste with sep.
+psymexp                 The CDF for the symmetric exponential.psymexp
+                        rsymexp Drawing a ra...
+pts.to.interceptslope   Returns intercept and slope of a line given two
+                        pairs of coordinate...
+pweibull.3param         CDF of three-parameter
+                        Weibull(http://www.itl.nist.gov/div898/handb...
+qasymexp                Quantiles of dasymexp y is the vector of
+                        desired quantiles; c is t...
+qasympower              Quantiles from the bilateral power
+                        distribution, dasympower. By R. ...
+quad.to.gxgy            Convert quadrat names into x-y coordinates.
+quadslope               Given the elevation at four corners of a square
+                        of side=gridsize, t...
+randomElement           Return a random element from a vector
+                        randomElement countUnique Co...
+randomRow               Return a random row from a dataframe.
+rarefy.diversity        Species number in a random subsample of 's'
+                        individuals.
+rasterize               Calculate count, basal area or agb per quadrat.
+rasympower              Random draws from the bilateral power
+                        distribution, dasympower.
+readelevdata            Read a table of elevation data into a matrix
+                        appropriate for mapping.
+rearrangeSurveyData     Takes a table of survey sightings with columns
+                        of x and y locations...
+recalculate.lmerBayesllike
+                        Walk through entire chain of parameters to
+                        calculate full likelihoo...
+recruitment             Calculate recruitment rates.
+recruitment.eachspp     A wrapper to calculate recruitment for each
+                        species.
+regress.loglog          Performs regression and graphs in a convenient
+                        way.
+regress.plot            Regression coefficients, probabilities and
+                        graph.
+regression.Bayes        Regression using the Gibbs sampler, with just
+                        one x variable.
+regslope                Returns slope of regression as single scalar
+                        (for use with apply).r...
+regslope.noint          Returns slope of regression with no intercept
+                        as single scalar (for...
+regsum                  For a polynomial regression, find x or y at y's
+                        peak or x-intercept.
+resetParam              This starts a new 3D parameter array whose
+                        first element is the las...
+residual.llike.lmerBayes
+                        Calculate likelihood of residual standard
+                        deviation, given observat...
+residual.llike.modelBayes
+                        Calculate likelihood of residual standard
+                        deviation.
+restoreParamFile        Reverses the steps of saveParamFile, back to a
+                        3D array. This requi...
+rgamma.meansd           Random draws of gamma, parameterized with mean
+                        and sd.
+right                   Returns the rightmost n characters of a
+                        stringright rightbut Retur...
+rightbut                Returns the rightmost characters of a string,
+                        excluding the initial n.
+rmixnorm                Random draw on the mixed normal
+                        distribution.rmixnorm minum.mixnorm...
+rndown5                 Rounds a numeric value to the next lowest
+                        multiple of 5.rndown5 cou...
+rowcol.to.index         Takes row and column numbers and identifies the
+                        quadrate number (index).
+rpois.max               Random draws on dpois.maxrpois.max rpois.trunc
+                        Random draws on dpo...
+rpois.trunc             Random draws on dpois.trunc.
+rpower                  Random draws based on the integral.rpower
+                        dasympower A bilateral p...
+rsymexp                 Drawing a random variate on the symmetric
+                        exponential.
+run.growthbin.manyspp   Run the model to fit growth rate in bins for
+                        many species, 1-4 bins.
+run.growthfit.bin       Find best fits for linearmodel.bin, with one
+                        set of data and a seri...
+save.searchpath         Save functions in position n to a file already
+                        attached.
+saveParamFile           This saves a run of the full parameters into a
+                        text file, reducing ...
+se.kurtosis             Standard error of kurtosis. Depends only on
+                        sample size. se.kurtosi...
+se.skewness             Standard error of skewness. se.skewness
+                        kurtosis Sample kurtosis....
+segmentPt               Draw a line segment between two points.
+selectrandomquad        Draws rectangular quadrats in a plot at random.
+setsize                 An internal function, called by 'map()' to
+                        choose size of plotting points.
+simple                  An even more trivial model to return x
+                        unchanged. The argument para...
+simple.model            A trivial model to return a different value at
+                        every x. If param is...
+skewness                Sample skewness. The biased portion is the
+                        population skewness; cor...
+solve_topo              This is based on the problem and solution
+                        outlined in my book on pl...
+split_data              Split a dataframe into a list by any vector.
+spmean.mort.abundGibbs
+                        Likelihood function for a species mean (a
+                        scalar, one species at a ...
+spparea.sq              Number of species in replicated,
+                        randomly-placed quadrats of various areas.
+standardreg.no.int      Standard regression with no
+                        intercept.standardreg.no.int autoregres...
+startCTFS               Function to source all components of CTFS R
+                        package. Load all CTFS ...
+summaryMCMC             Summarize calculations based on the full Gibbs
+                        sampler.
+sumsq                   A trivial function used in minimizing sums of
+                        squares.sumsq is.odd ...
+testmcmcfunc            Deprecated. Test mcmc1step.
+tojulian                Convert calendar dates to Julian dates.
+torus.shift             Creates a torus-shifted quadrat topographic
+                        dataset.
+trim                    Trims leading and trailing blanks from a vector
+                        of character variab...
+trim.growth             Exclude growth rates
+unidentified.species    Takes a string of species names or codes and
+                        returns a logical vect...
+vectToCommas            Given a vector of character variables, collapse
+                        into a single strin...
+wavelet.allsp           Wavelet variance curves for all species in one
+                        plot.
+wavelet.bivariate       Bivariate wavelet variance using furier
+                        transforms.
+wavelet.univariate      Univariate wavelet variance using furier
+                        transforms.
+weibull.mean.3param     Mean of three-parameter
+                        Weibullweibull.mean.3param weibull.sd.3para...
+weibull.median.3param   Median of three-parameter
+                        Weibullweibull.median.3param weibull.mean...
+weibull.sd.3param       SD of three-parameter Weibullweibull.sd.3param
+                        dexp.sin Four-param...
+which.allnonNA          Finds all values of a vector which are not NA.
+                        Fills out a vector t...
+which.maxNAs            An unfortunate bug in which.max: if all
+                        elements are NA, it doesnt ...
+which.nonNA             Returns the first index at which a vector x is
+                        not NAwhich.nonNA wh...
+which.vmatch            Finds which subsequent element of a vector
+                        matches the first elemen...
+wideEnoughBins          Test whether all the bin widths exceed a
+                        minimum.  MINBIN=0.1 MINBI...
+wsgdata_dummy           Create a dummy wsgdata data set
+xydist                  Distance between two pairs of x-y coordinates.
+                        Input can be atomic ...
+xydistmat               Distance between two x-y coordinates.
+xydistvect              Distance between two x-y coordinates, but
+                        accepts each set of coord...

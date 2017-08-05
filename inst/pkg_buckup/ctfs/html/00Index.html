@@ -1,0 +1,920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Tools for the Analysis of Forest Dynamics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Tools for the Analysis of Forest Dynamics
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;ctfs&rsquo; version 0.0.0.9000</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<p style="text-align: center;">
+<a href="# "> </a>
+<a href="#A">A</a>
+<a href="#B">B</a>
+<a href="#C">C</a>
+<a href="#D">D</a>
+<a href="#E">E</a>
+<a href="#F">F</a>
+<a href="#G">G</a>
+<a href="#H">H</a>
+<a href="#I">I</a>
+<a href="#K">K</a>
+<a href="#L">L</a>
+<a href="#M">M</a>
+<a href="#N">N</a>
+<a href="#O">O</a>
+<a href="#P">P</a>
+<a href="#Q">Q</a>
+<a href="#R">R</a>
+<a href="#S">S</a>
+<a href="#T">T</a>
+<a href="#U">U</a>
+<a href="#V">V</a>
+<a href="#W">W</a>
+<a href="#X">X</a>
+</p>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="ctfs.html">ctfs-package</a></td>
+<td>Tools for the Analysis of Forest Dynamics</td></tr>
+</table>
+
+<h2><a name="A">-- A --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="abund.manycensus.html">abund.manycensus</a></td>
+<td>Collect abundances of all species across several censuses.</td></tr>
+<tr><td style="width: 25%;"><a href="abundance.html">abundance</a></td>
+<td>Abundance or basal area dividing data with 1 or 2 categorical variables</td></tr>
+<tr><td style="width: 25%;"><a href="abundance.spp.html">abundance.spp</a></td>
+<td>Abundance of trees by species and DBH classes.</td></tr>
+<tr><td style="width: 25%;"><a href="abundanceperquad.html">abundanceperquad</a></td>
+<td>Abundance, basal area, or agb of every species by quadrat.</td></tr>
+<tr><td style="width: 25%;"><a href="abundmodel.fit.html">abundmodel.fit</a></td>
+<td>Simply return the modeled histogram for any set of parameters.</td></tr>
+<tr><td style="width: 25%;"><a href="addBinParam.html">addBinParam</a></td>
+<td>Given parameters for a model with N linear bins, creates parameters...</td></tr>
+<tr><td style="width: 25%;"><a href="agb.dbhmodel.html">agb.dbhmodel</a></td>
+<td>Calculates biomass from density and diameter, without height.</td></tr>
+<tr><td style="width: 25%;"><a href="AGB.dbtable.html">AGB.dbtable</a></td>
+<td>This function looks up the database named AGB in the MySQL server t...</td></tr>
+<tr><td style="width: 25%;"><a href="AGB.ind.html">AGB.ind</a></td>
+<td>Above ground biomass (agb) based on one of the Chave (Oecologia, 2005).</td></tr>
+<tr><td style="width: 25%;"><a href="agb.model.html">agb.model</a></td>
+<td>Calculates biomass from density, height, and dbh.</td></tr>
+<tr><td style="width: 25%;"><a href="AGB.tree.html">AGB.tree</a></td>
+<td>AGB of each tree, grouping all stems of one tree and adding there agbs.</td></tr>
+<tr><td style="width: 25%;"><a href="allquadratslopes.html">allquadratslopes</a></td>
+<td>Calculates the slope of all quadrats in a plot.</td></tr>
+<tr><td style="width: 25%;"><a href="angleBisector.html">angleBisector</a></td>
+<td>Given 3 sets of coordinates defining two line segments (middle poin...</td></tr>
+<tr><td style="width: 25%;"><a href="Annuli.html">Annuli</a></td>
+<td>Total area in a series of annuli, summed over all individuals in a dataset.</td></tr>
+<tr><td style="width: 25%;"><a href="are.ptsinside.html">are.ptsinside</a></td>
+<td>Check if points belong to quadrat.</td></tr>
+<tr><td style="width: 25%;"><a href="arrangeParam.Gibbs.html">arrangeParam.Gibbs</a></td>
+<td>Used in the loop of a Gibbs sampler, setting parameters not yet tes...</td></tr>
+<tr><td style="width: 25%;"><a href="arrangeParam.Gibbs.2D.html">arrangeParam.Gibbs.2D</a></td>
+<td>Used in the loop of a Gibbs sampler, setting parameters not yet tes...</td></tr>
+<tr><td style="width: 25%;"><a href="arrangeParam.llike.html">arrangeParam.llike</a></td>
+<td>Used in likelihood function of a Gibbs sampler. Allows any of a set...</td></tr>
+<tr><td style="width: 25%;"><a href="arrangeParam.llike.2D.html">arrangeParam.llike.2D</a></td>
+<td>Used in likelihood function of a Gibbs sampler for lmerBayes, but f...</td></tr>
+<tr><td style="width: 25%;"><a href="assemble.demography.html">assemble.demography</a></td>
+<td>Reformat the output from demographic functions from list to dataframe.</td></tr>
+<tr><td style="width: 25%;"><a href="assembleBinOutput.html">assembleBinOutput</a></td>
+<td>Use the list output from piecewise regression (growthfit.bin) and c...</td></tr>
+<tr><td style="width: 25%;"><a href="AssignDiag.html">AssignDiag</a></td>
+<td>A way to assign the diagonals of a matrix that can handle input hav...</td></tr>
+<tr><td style="width: 25%;"><a href="asymp.ht.html">asymp.ht</a></td>
+<td>Asymptote for y as a function of x.</td></tr>
+<tr><td style="width: 25%;"><a href="asymp.ht.fixmax.html">asymp.ht.fixmax</a></td>
+<td>Same formulation, but the asymptote is fixed, so only two parameter...</td></tr>
+<tr><td style="width: 25%;"><a href="asymptote.exp.html">asymptote.exp</a></td>
+<td>A 3-parameter function which asymptotes as x-&gt;infinity.</td></tr>
+<tr><td style="width: 25%;"><a href="attach_if_needed.html">attach_if_needed</a></td>
+<td>Deprecated. See section _Good practice_ in '?attach'. To use &lt;DATA&gt;...</td></tr>
+<tr><td style="width: 25%;"><a href="autoregression.html">autoregression</a></td>
+<td>Autocorrelation with a given lag of a vector y.</td></tr>
+</table>
+
+<h2><a name="B">-- B --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="ba.html">ba</a></td>
+<td>Basal area of trees.</td></tr>
+<tr><td style="width: 25%;"><a href="bad.asymexp.param.html">bad.asymexp.param</a></td>
+<td>For either the Gaussian, or asymexp, the SD parameters must be &gt; 0....</td></tr>
+<tr><td style="width: 25%;"><a href="bad.asympower.param.html">bad.asympower.param</a></td>
+<td>The 3 parameters submitted to hyper.abundGibbs have to be checked, ...</td></tr>
+<tr><td style="width: 25%;"><a href="bad.binparam.html">bad.binparam</a></td>
+<td>This prevents the bin parameters from moving outside the x range, a...</td></tr>
+<tr><td style="width: 25%;"><a href="bad.binsdpar.html">bad.binsdpar</a></td>
+<td>bad.binsdpar</td></tr>
+<tr><td style="width: 25%;"><a href="bad.paretopar.html">bad.paretopar</a></td>
+<td>Test whether parameters for the Pareto distribution are acceptable....</td></tr>
+<tr><td style="width: 25%;"><a href="BadParam.html">BadParam</a></td>
+<td>This is a default for model.xy, never returning TRUE. To use model....</td></tr>
+<tr><td style="width: 25%;"><a href="badSD.html">badSD</a></td>
+<td>badSD arrangeParam.llike.2D Used in likelihood function of a Gibbs...</td></tr>
+<tr><td style="width: 25%;"><a href="basum.html">basum</a></td>
+<td>Returns the basal area summed over all submitted dbhs.</td></tr>
+<tr><td style="width: 25%;"><a href="beta.normalized.html">beta.normalized</a></td>
+<td>Normalzing beta.total. No longer used. beta.normalized beta.total ...</td></tr>
+<tr><td style="width: 25%;"><a href="beta.total.html">beta.total</a></td>
+<td>A beta distribution on the interval xmin to xmax, instead of 0 to 1...</td></tr>
+<tr><td style="width: 25%;"><a href="betaproduct.html">betaproduct</a></td>
+<td>This is equivalent to the normal product above.betaproduct beta.nor...</td></tr>
+<tr><td style="width: 25%;"><a href="binGraphManySpecies.html">binGraphManySpecies</a></td>
+<td>Graph AGB growth and model fit of many species overlaid.</td></tr>
+<tr><td style="width: 25%;"><a href="binGraphManySpecies.Panel.html">binGraphManySpecies.Panel</a></td>
+<td>Make a graph, 4 panels, of AGB growth and model fit of many species...</td></tr>
+<tr><td style="width: 25%;"><a href="binGraphSampleSpecies.html">binGraphSampleSpecies</a></td>
+<td>Make a single graph, 4 panels, of AGB growth and model fit.</td></tr>
+<tr><td style="width: 25%;"><a href="biomass.change.html">biomass.change</a></td>
+<td>Finds biomass in two censuses and change between them.</td></tr>
+<tr><td style="width: 25%;"><a href="biomass.CTFSdb.html">biomass.CTFSdb</a></td>
+<td>Biomass for trees and stems using dbh allometry.</td></tr>
+<tr><td style="width: 25%;"><a href="biomass.growth.html">biomass.growth</a></td>
+<td>Calculate change in biomass (agb).</td></tr>
+<tr><td style="width: 25%;"><a href="bootconf.html">bootconf</a></td>
+<td>A simple calculation of confidence limits based on the SD of a vect...</td></tr>
+<tr><td style="width: 25%;"><a href="bootstrap.corr.html">bootstrap.corr</a></td>
+<td>Running bootstrap on a correlation. Any columsn can be chosen from ...</td></tr>
+<tr><td style="width: 25%;"><a href="border.distance.html">border.distance</a></td>
+<td>Distance from a point to the nearest boundary of a rectangle (plot).</td></tr>
+</table>
+
+<h2><a name="C">-- C --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="calc.directionslope.html">calc.directionslope</a></td>
+<td>This runs equations 1-3 of Seibert &amp; McGlynncalc.directionslope Sou...</td></tr>
+<tr><td style="width: 25%;"><a href="calc.gradient.html">calc.gradient</a></td>
+<td>Calculate flow using Seibert &amp; McGlynn algorithm.</td></tr>
+<tr><td style="width: 25%;"><a href="calcalpha.html">calcalpha</a></td>
+<td>Calculates alpha from a stem and species count submitted using Newt...</td></tr>
+<tr><td style="width: 25%;"><a href="calcMortIndivTable.html">calcMortIndivTable</a></td>
+<td>Calculate mortality rate per species per census interval using the ...</td></tr>
+<tr><td style="width: 25%;"><a href="CalcRingArea.html">CalcRingArea</a></td>
+<td>Given a dataframe that includes gx, gy coordinates, and a single va...</td></tr>
+<tr><td style="width: 25%;"><a href="calcS.alpha.html">calcS.alpha</a></td>
+<td>Number of species in a sample of N individuals, given Fisher's alpha.</td></tr>
+<tr><td style="width: 25%;"><a href="calcslope.html">calcslope</a></td>
+<td>Given the z-coordinate of 3 points in 3D space whose x-y coordinate...</td></tr>
+<tr><td style="width: 25%;"><a href="calculateBinModel.AIC.html">calculateBinModel.AIC</a></td>
+<td>Calculate AIC of the model, using various log(likelihood) estimators.</td></tr>
+<tr><td style="width: 25%;"><a href="calculateBinModel.bestpred.html">calculateBinModel.bestpred</a></td>
+<td>Calculate mean predicted value at every x using every one of the Gi...</td></tr>
+<tr><td style="width: 25%;"><a href="calculateBinModel.BIC.html">calculateBinModel.BIC</a></td>
+<td>Calculate Bayes Information Criteria using Wikipedia formula.</td></tr>
+<tr><td style="width: 25%;"><a href="cartesian.to.polar.html">cartesian.to.polar</a></td>
+<td>Convert Cartesian coordinates to polar. Returns a dataframe of two ...</td></tr>
+<tr><td style="width: 25%;"><a href="center.predictors.html">center.predictors</a></td>
+<td>Transform all data by subtracting a constant, either the mean, medi...</td></tr>
+<tr><td style="width: 25%;"><a href="charlocate.html">charlocate</a></td>
+<td>Finds position of a substring needle inside a longer string haystac...</td></tr>
+<tr><td style="width: 25%;"><a href="Chave.AGB.html">Chave.AGB</a></td>
+<td>The Chave 2005 Oecologia model for calculating biomass from dbh in cm.</td></tr>
+<tr><td style="width: 25%;"><a href="CI.html">CI</a></td>
+<td>Confidence limits (quantiles) from a vector at specified probabilit...</td></tr>
+<tr><td style="width: 25%;"><a href="circle.html">circle</a></td>
+<td>Calculates points on a circle.</td></tr>
+<tr><td style="width: 25%;"><a href="circlearea.html">circlearea</a></td>
+<td>Area of a circle of radius r.</td></tr>
+<tr><td style="width: 25%;"><a href="clean.demography.html">clean.demography</a></td>
+<td>Keep or clean rows outputed by mortality, growth, or recruitment?</td></tr>
+<tr><td style="width: 25%;"><a href="coldata.to.imagemat.html">coldata.to.imagemat</a></td>
+<td>Map response variables using 'contour()', 'image()', and 'filled.contour()'.</td></tr>
+<tr><td style="width: 25%;"><a href="colMedians.html">colMedians</a></td>
+<td>For convenient medians, like colMeans.colMedians midPoint Midpoint...</td></tr>
+<tr><td style="width: 25%;"><a href="compare.growthbinmodel.html">compare.growthbinmodel</a></td>
+<td>Calculates various metrics of fit: DIC, BIC, AIC.</td></tr>
+<tr><td style="width: 25%;"><a href="complete.plotmap.html">complete.plotmap</a></td>
+<td>Map every individual.</td></tr>
+<tr><td style="width: 25%;"><a href="constant.html">constant</a></td>
+<td>A function to return a constant at all predictors x.</td></tr>
+<tr><td style="width: 25%;"><a href="constant.bin.html">constant.bin</a></td>
+<td>A model like piecewise regression (linearmodel.bin), but y is a con...</td></tr>
+<tr><td style="width: 25%;"><a href="constant.linear.html">constant.linear</a></td>
+<td>A model which is constant for x&lt;lim, and linear for x&gt;lim. The firs...</td></tr>
+<tr><td style="width: 25%;"><a href="convert.factor.html">convert.factor</a></td>
+<td>Converts from factors to character.</td></tr>
+<tr><td style="width: 25%;"><a href="convert.rowcol.html">convert.rowcol</a></td>
+<td>Convert an integer to a character, with a single leading zero if th...</td></tr>
+<tr><td style="width: 25%;"><a href="CountByGroup.html">CountByGroup</a></td>
+<td>Groups a dataframe by one or more columns (named by groupcol). This...</td></tr>
+<tr><td style="width: 25%;"><a href="countEmpty.html">countEmpty</a></td>
+<td>Counts vector elements that are NA or a string of no length.countEm...</td></tr>
+<tr><td style="width: 25%;"><a href="countNA.html">countNA</a></td>
+<td>Counts vector elements that are NA.countNA countEmpty Counts vecto...</td></tr>
+<tr><td style="width: 25%;"><a href="countone.html">countone</a></td>
+<td>Counts vector elements exactly one.countone countNA Counts vector ...</td></tr>
+<tr><td style="width: 25%;"><a href="countpresent.html">countpresent</a></td>
+<td>Counts vector elements &gt; 0. See countspp as well.countpresent find....</td></tr>
+<tr><td style="width: 25%;"><a href="countspp.html">countspp</a></td>
+<td>Returns the number of elements in a numeric vector &gt; 0. countspp as...</td></tr>
+<tr><td style="width: 25%;"><a href="countUnique.html">countUnique</a></td>
+<td>Count the number of unique elements in a vectorcountUnique graphFil...</td></tr>
+<tr><td style="width: 25%;"><a href="countzero.html">countzero</a></td>
+<td>Counts vector elements exactly zero.countzero countone Counts vect...</td></tr>
+<tr><td style="width: 25%;"><a href="coverage.diag.html">coverage.diag</a></td>
+<td>Draws a diagonal across a plot.</td></tr>
+<tr><td style="width: 25%;"><a href="covTocorr.html">covTocorr</a></td>
+<td>Convert covariance matrix to correlation matrix. Each element is di...</td></tr>
+<tr><td style="width: 25%;"><a href="create.fulldate.html">create.fulldate</a></td>
+<td>Converts a vector of date character strings in any format to a data...</td></tr>
+<tr><td style="width: 25%;"><a href="create.fulldate.split.html">create.fulldate.split</a></td>
+<td>Converts the MySQL date format by splitting on the hyphen (or other...</td></tr>
+<tr><td style="width: 25%;"><a href="create.neighbordata.html">create.neighbordata</a></td>
+<td>Calculates the mean density in neighboring quadrats for every quadr...</td></tr>
+<tr><td style="width: 25%;"><a href="ctfs.html">ctfs</a></td>
+<td>Tools for the Analysis of Forest Dynamics</td></tr>
+<tr><td style="width: 25%;"><a href="CTFSplot.html">CTFSplot</a></td>
+<td>Deprecated. Use &lt;DATA&gt; from Barro Colorado Island with bci::&lt;DATA&gt; ...</td></tr>
+<tr><td style="width: 25%;"><a href="cumul.above.html">cumul.above</a></td>
+<td>Seek x at which the curve passes through a given y.</td></tr>
+</table>
+
+<h2><a name="D">-- D --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="d.calcS.alpha.html">d.calcS.alpha</a></td>
+<td>The derivative for use in Newtons methodd.</td></tr>
+<tr><td style="width: 25%;"><a href="dasymexp.html">dasymexp</a></td>
+<td>Probability distributions for a folded but asymmetrical exponential...</td></tr>
+<tr><td style="width: 25%;"><a href="dasymnorm.html">dasymnorm</a></td>
+<td>Probability distributions for an asymmetrical Gaussian.</td></tr>
+<tr><td style="width: 25%;"><a href="dasympower.html">dasympower</a></td>
+<td>A bilateral power distribution, centered at center, decaying with e...</td></tr>
+<tr><td style="width: 25%;"><a href="dbeta.reparam.html">dbeta.reparam</a></td>
+<td>Reparameterize beta distribution as a function of its mean and sd.</td></tr>
+<tr><td style="width: 25%;"><a href="DBHtransition.html">DBHtransition</a></td>
+<td>Calculates a transition matrix of individuals by diameter categorie...</td></tr>
+<tr><td style="width: 25%;"><a href="dbinomrev.html">dbinomrev</a></td>
+<td>A version of dbinom in which parameters are submitted in a differen...</td></tr>
+<tr><td style="width: 25%;"><a href="default.badpar.html">default.badpar</a></td>
+<td>None given.default.badpar bad.paretopar Test whether parameters fo...</td></tr>
+<tr><td style="width: 25%;"><a href="define.graphwindow.html">define.graphwindow</a></td>
+<td>Define an export device for a graph, based on the argument export.</td></tr>
+<tr><td style="width: 25%;"><a href="defineBinBreaks.html">defineBinBreaks</a></td>
+<td>This finds divisions of over the vector size which produce equal nu...</td></tr>
+<tr><td style="width: 25%;"><a href="defineSDpar.html">defineSDpar</a></td>
+<td>For default SD parameters, if nothing else works. Choose the midpoi...</td></tr>
+<tr><td style="width: 25%;"><a href="density_ind.html">density_ind</a></td>
+<td>Create a vector of wood density for each individual tree based on t...</td></tr>
+<tr><td style="width: 25%;"><a href="detachfiles.html">detachfiles</a></td>
+<td>detachs from the searchpath files matching a submitted vector of na...</td></tr>
+<tr><td style="width: 25%;"><a href="dexp.sin.html">dexp.sin</a></td>
+<td>Four-parameter exponential sin, as a probability distributiondexp.s...</td></tr>
+<tr><td style="width: 25%;"><a href="dgamma.mean.html">dgamma.mean</a></td>
+<td>A version of dgamma where the parameters are ordered so that the me...</td></tr>
+<tr><td style="width: 25%;"><a href="dgamma.meansd.html">dgamma.meansd</a></td>
+<td>Probability distribution of gamma, parameterized with mean and sd.</td></tr>
+<tr><td style="width: 25%;"><a href="dgamma.scale.html">dgamma.scale</a></td>
+<td>Like above, but with scale as the first parameter.dgamma.scale dpow...</td></tr>
+<tr><td style="width: 25%;"><a href="dgammadexp.html">dgammadexp</a></td>
+<td>PDF by adding a gamma distribution to a symmetrical exponential distribution.</td></tr>
+<tr><td style="width: 25%;"><a href="dgammaMinusdexp.html">dgammaMinusdexp</a></td>
+<td>The PDF of a gamma distribution minus a negative exponential distribution.</td></tr>
+<tr><td style="width: 25%;"><a href="dgammaPlusdexp.html">dgammaPlusdexp</a></td>
+<td>The PDF of the sum of gamma and negative exponential distribution.</td></tr>
+<tr><td style="width: 25%;"><a href="discrete.model.html">discrete.model</a></td>
+<td>A model for a numeric response to a single discrete predictor. The ...</td></tr>
+<tr><td style="width: 25%;"><a href="discrete.mortmodel.html">discrete.mortmodel</a></td>
+<td>A model for mortality as a function of a single discrete predictor,...</td></tr>
+<tr><td style="width: 25%;"><a href="distance.html">distance</a></td>
+<td>Distance from one quadrat to a second quadrat.</td></tr>
+<tr><td style="width: 25%;"><a href="distance.to.side.html">distance.to.side</a></td>
+<td>Called from imageJ.to.lxly where for each point, distance to each s...</td></tr>
+<tr><td style="width: 25%;"><a href="ditch.html">ditch</a></td>
+<td>Detaches all files at one or more search positions; v can be a vect...</td></tr>
+<tr><td style="width: 25%;"><a href="dmixnorm.html">dmixnorm</a></td>
+<td>Mixed normal distribution.</td></tr>
+<tr><td style="width: 25%;"><a href="dnormprod0.html">dnormprod0</a></td>
+<td>Probability density of product of two normal variates, both with me...</td></tr>
+<tr><td style="width: 25%;"><a href="dnormrev.html">dnormrev</a></td>
+<td>Reverse the order of parameters to dnorm.</td></tr>
+<tr><td style="width: 25%;"><a href="doublenormal.html">doublenormal</a></td>
+<td>Simulate draws from a double normaldoublenormal.</td></tr>
+<tr><td style="width: 25%;"><a href="dpois.max.html">dpois.max</a></td>
+<td>A probability distribution which is simply a curtailed poisson.</td></tr>
+<tr><td style="width: 25%;"><a href="dpois.maxtrunc.html">dpois.maxtrunc</a></td>
+<td>A zero-truncated Poisson distribution with a ceiling (combining dpo...</td></tr>
+<tr><td style="width: 25%;"><a href="dpois.rearrange.html">dpois.rearrange</a></td>
+<td>This rearranges dpois so that it works on a single vector, with the...</td></tr>
+<tr><td style="width: 25%;"><a href="dpois.trunc.html">dpois.trunc</a></td>
+<td>A zero-truncated Poisson distribution. dpois.trunc dpois.maxtrunc ...</td></tr>
+<tr><td style="width: 25%;"><a href="dpower.html">dpower</a></td>
+<td>A probability distribution defined by a power function. There is a ...</td></tr>
+<tr><td style="width: 25%;"><a href="draw.axes.html">draw.axes</a></td>
+<td>Add axes to a graph, with ticks spaced by the vector div.</td></tr>
+<tr><td style="width: 25%;"><a href="drawrectangle.html">drawrectangle</a></td>
+<td>Draw a rectangle given a matrix or dataframe of 4 x-y coordinates.</td></tr>
+<tr><td style="width: 25%;"><a href="drp.html">drp</a></td>
+<td>A version of drop which includes as.matrix. Without it, drop does n...</td></tr>
+<tr><td style="width: 25%;"><a href="dsymexp.html">dsymexp</a></td>
+<td>Probability distribution for a folded, symmetrical exponential. Whe...</td></tr>
+<tr><td style="width: 25%;"><a href="dweibull.3param.html">dweibull.3param</a></td>
+<td>PDF of three-parameter Weibulldweibull.3param weibull.median.3param...</td></tr>
+</table>
+
+<h2><a name="E">-- E --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="elev.to.list.html">elev.to.list</a></td>
+<td>Convert a dataframe of coordinates and elevation into a list.</td></tr>
+<tr><td style="width: 25%;"><a href="ellipse.html">ellipse</a></td>
+<td>Equation for (half) a canonical ellipse fullellipse Creates a data...</td></tr>
+<tr><td style="width: 25%;"><a href="enoughSamplePerBin.html">enoughSamplePerBin</a></td>
+<td>Test whether the number of elements in a vector x between successiv...</td></tr>
+<tr><td style="width: 25%;"><a href="exclude.unidentified.html">exclude.unidentified</a></td>
+<td>A more specialized version of unidentified species. It excludes spe...</td></tr>
+<tr><td style="width: 25%;"><a href="explode.html">explode</a></td>
+<td>Split a single (atomic) character variable into sections, separated...</td></tr>
+<tr><td style="width: 25%;"><a href="expon.model.html">expon.model</a></td>
+<td>Exponential model, y = a exp(b1_x1 + b2_x2) for any number of predi...</td></tr>
+<tr><td style="width: 25%;"><a href="exponential.sin.html">exponential.sin</a></td>
+<td>Five-parameter exponential sinexponential.sin pexp.sin CDF of four...</td></tr>
+<tr><td style="width: 25%;"><a href="exp_2par.html">exp_2par</a></td>
+<td>An exponential distribution with an asymptote.  @details Name exp.2...</td></tr>
+<tr><td style="width: 25%;"><a href="extract.growthdata.html">extract.growthdata</a></td>
+<td>Extract growth rates from plot databases and 2 censuses.</td></tr>
+</table>
+
+<h2><a name="F">-- F --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="fill.1dimension.html">fill.1dimension</a></td>
+<td>Filling a 1D array resulting from tapply. Same as fill.dimension, b...</td></tr>
+<tr><td style="width: 25%;"><a href="fill.dimension.html">fill.dimension</a></td>
+<td>This function fills out an array of 2 dimensions, adding zeroes (or...</td></tr>
+<tr><td style="width: 25%;"><a href="find.climits.html">find.climits</a></td>
+<td>Calculate confidence limits around a number of deaths.</td></tr>
+<tr><td style="width: 25%;"><a href="find.nonNA.html">find.nonNA</a></td>
+<td>Returns the first value of a vector x which is not NAfind.nonNA whi...</td></tr>
+<tr><td style="width: 25%;"><a href="find.xaxis.hist.html">find.xaxis.hist</a></td>
+<td>Given an abundance fit and x axis range and divisions, return a seq...</td></tr>
+<tr><td style="width: 25%;"><a href="findborderquads.html">findborderquads</a></td>
+<td>Given a quadrat index, calculate indices of neighboring quadrats.</td></tr>
+<tr><td style="width: 25%;"><a href="findneighborabund.html">findneighborabund</a></td>
+<td>For every quadrat, finds neighboring quadrats and returns their abundance.</td></tr>
+<tr><td style="width: 25%;"><a href="fit.beta.normal.html">fit.beta.normal</a></td>
+<td>Finding a normal distribution which most closely fits a given beta ...</td></tr>
+<tr><td style="width: 25%;"><a href="fit.logistic.html">fit.logistic</a></td>
+<td>A function to fit a set of data y, observed at the vector x, to a g...</td></tr>
+<tr><td style="width: 25%;"><a href="fit.pdf.html">fit.pdf</a></td>
+<td>Fit a random variable x to any submitted probability distribution.</td></tr>
+<tr><td style="width: 25%;"><a href="fitnorm.html">fitnorm</a></td>
+<td>Fitting a normal distribution to data Parameters are a mean and sd ...</td></tr>
+<tr><td style="width: 25%;"><a href="fitSeveralAbundModel.html">fitSeveralAbundModel</a></td>
+<td>Run model.littleR.Gibbs for a series of census databases.</td></tr>
+<tr><td style="width: 25%;"><a href="fromjulian.html">fromjulian</a></td>
+<td>Convert calendar dates from julian dates.</td></tr>
+<tr><td style="width: 25%;"><a href="full.abundmodel.llike.html">full.abundmodel.llike</a></td>
+<td>With the table of abundances, hyper-parameter estimates, and estima...</td></tr>
+<tr><td style="width: 25%;"><a href="full.likelihood.lmerBayes.html">full.likelihood.lmerBayes</a></td>
+<td>Likelihood for any complete set of parameters.</td></tr>
+<tr><td style="width: 25%;"><a href="full.xygrid.html">full.xygrid</a></td>
+<td>Create a complete of points x-y, given the sequence of unique x and...</td></tr>
+<tr><td style="width: 25%;"><a href="fullcircle.html">fullcircle</a></td>
+<td>Create a dataframe for a full circle.</td></tr>
+<tr><td style="width: 25%;"><a href="fullellipse.html">fullellipse</a></td>
+<td>Creates a dataframe for a full ellipse.</td></tr>
+<tr><td style="width: 25%;"><a href="fullplot.imageJ.html">fullplot.imageJ</a></td>
+<td>Convert pixels to coordinates within a quadrat.</td></tr>
+</table>
+
+<h2><a name="G">-- G --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="get.filename.html">get.filename</a></td>
+<td>This sets a name for outputting a map (or any graph) to a file.</td></tr>
+<tr><td style="width: 25%;"><a href="getquadratname.html">getquadratname</a></td>
+<td>Convert x, y coordinates and plot dimensions into 4-character quadrat names.</td></tr>
+<tr><td style="width: 25%;"><a href="getsmallerquads.html">getsmallerquads</a></td>
+<td>Convert indices from larger to smaller quadrats.</td></tr>
+<tr><td style="width: 25%;"><a href="getTopoLinks.html">getTopoLinks</a></td>
+<td>This is solely for use by solve_topo. It finds all points linked vi...</td></tr>
+<tr><td style="width: 25%;"><a href="Gibbs.normalmean.html">Gibbs.normalmean</a></td>
+<td>The standard Gibbs sampler for a normal distribution with unknown m...</td></tr>
+<tr><td style="width: 25%;"><a href="Gibbs.normalvar.html">Gibbs.normalvar</a></td>
+<td>Gibbs draw for the variance of a normal distribution (http://www.bi...</td></tr>
+<tr><td style="width: 25%;"><a href="Gibbs.regsigma.html">Gibbs.regsigma</a></td>
+<td>Updates the regression standard deviation (used in regression.Bayes...</td></tr>
+<tr><td style="width: 25%;"><a href="Gibbs.regslope.html">Gibbs.regslope</a></td>
+<td>Updates the regression slope (used in regression.Bayes).Gibbs.regsl...</td></tr>
+<tr><td style="width: 25%;"><a href="graph.abundmodel.html">graph.abundmodel</a></td>
+<td>Output histograms of little.r across species, observed and fitted.</td></tr>
+<tr><td style="width: 25%;"><a href="graph.growthmodel.html">graph.growthmodel</a></td>
+<td>Graph growth rates and model fit.</td></tr>
+<tr><td style="width: 25%;"><a href="graph.growthmodel.spp.html">graph.growthmodel.spp</a></td>
+<td>Use output of growth.flexbin to graph observed growth and predictions.</td></tr>
+<tr><td style="width: 25%;"><a href="graph.modeldiag.html">graph.modeldiag</a></td>
+<td>Graph diagnostics of model.xy.</td></tr>
+<tr><td style="width: 25%;"><a href="graph.mvnorm.html">graph.mvnorm</a></td>
+<td>Plot contours for an mvnorm, with parameters submitted as a vecto...</td></tr>
+<tr><td style="width: 25%;"><a href="graph.outliers.html">graph.outliers</a></td>
+<td>Plot outliers overlaid on the model and full data for all species.</td></tr>
+<tr><td style="width: 25%;"><a href="graph.outliers.spp.html">graph.outliers.spp</a></td>
+<td>Pass the output of extract.growth with every individual's growth (f...</td></tr>
+<tr><td style="width: 25%;"><a href="graph.quadrats.html">graph.quadrats</a></td>
+<td>Plot a series of quadrats with corners xlo, ylo, xhi, yhi.</td></tr>
+<tr><td style="width: 25%;"><a href="graphFilledBand.html">graphFilledBand</a></td>
+<td>Fill the area between two curves on a graph.</td></tr>
+<tr><td style="width: 25%;"><a href="growth.html">growth</a></td>
+<td>Annual Growth Rates by Categories.</td></tr>
+<tr><td style="width: 25%;"><a href="growth.biomass.indiv.html">growth.biomass.indiv</a></td>
+<td>Like growth.indiv but based on agb growth, not dbh growth.</td></tr>
+<tr><td style="width: 25%;"><a href="growth.dbh.html">growth.dbh</a></td>
+<td>Calculates forest-wide growth in given dbh categories.</td></tr>
+<tr><td style="width: 25%;"><a href="growth.eachspp.html">growth.eachspp</a></td>
+<td>Calculate growth for each species in given dbh categories.</td></tr>
+<tr><td style="width: 25%;"><a href="growth.flexbin.html">growth.flexbin</a></td>
+<td>Fit a regression line through log growth against log dbh, binning on dbh.</td></tr>
+<tr><td style="width: 25%;"><a href="growth.indiv.html">growth.indiv</a></td>
+<td>Table growth rate of every individual both relative and dbh-increment.</td></tr>
+<tr><td style="width: 25%;"><a href="gsp.html">gsp</a></td>
+<td>Returns one of the objects at a given search position. This provide...</td></tr>
+<tr><td style="width: 25%;"><a href="gxgy.to.hectindex.html">gxgy.to.hectindex</a></td>
+<td>Converts GX GY Coordinates to a Hectare Number.</td></tr>
+<tr><td style="width: 25%;"><a href="gxgy.to.index.html">gxgy.to.index</a></td>
+<td>Assign any location(s) a single index identifying the quadrat.</td></tr>
+<tr><td style="width: 25%;"><a href="gxgy.to.lxly.html">gxgy.to.lxly</a></td>
+<td>Calculate local x and y coordinates from global coordinates.</td></tr>
+<tr><td style="width: 25%;"><a href="gxgy.to.quad.html">gxgy.to.quad</a></td>
+<td>Calculate a quadrat name from gy-gy.</td></tr>
+<tr><td style="width: 25%;"><a href="gxgy.to.rowcol.html">gxgy.to.rowcol</a></td>
+<td>Returns row and column for any set of coordinates.</td></tr>
+</table>
+
+<h2><a name="H">-- H --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="harmonic.mean.html">harmonic.mean</a></td>
+<td>Harmonic mean of a vector x.</td></tr>
+<tr><td style="width: 25%;"><a href="hist_compare.html">hist_compare</a></td>
+<td>Compares two histograms with a Kolmogorov approach. @details Name ...</td></tr>
+<tr><td style="width: 25%;"><a href="hyper.abundGibbs.html">hyper.abundGibbs</a></td>
+<td>Likelihood function for hyperparameters of abundance model, given t...</td></tr>
+<tr><td style="width: 25%;"><a href="hyper.mortGibbs.html">hyper.mortGibbs</a></td>
+<td>Likelihood function for logMu and logSD, given the species means (l...</td></tr>
+</table>
+
+<h2><a name="I">-- I --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="IfElse.html">IfElse</a></td>
+<td>A Version of 'base::ifelse()'.</td></tr>
+<tr><td style="width: 25%;"><a href="imageGraph.html">imageGraph</a></td>
+<td>Maps a response variable with Rs contour or image functions, or both.</td></tr>
+<tr><td style="width: 25%;"><a href="imageJ.to.lxly.html">imageJ.to.lxly</a></td>
+<td>Convert map pixels from digitzing program to plot coordinates. Uses...</td></tr>
+<tr><td style="width: 25%;"><a href="image_dataframe.html">image_dataframe</a></td>
+<td>Creates a color response map based on columnar data.</td></tr>
+<tr><td style="width: 25%;"><a href="index.to.gxgy.html">index.to.gxgy</a></td>
+<td>Calculate the x and y coordinates given the quadrat index.</td></tr>
+<tr><td style="width: 25%;"><a href="index.to.rowcol.html">index.to.rowcol</a></td>
+<td>Calculate the row and column given the quadrat index.</td></tr>
+<tr><td style="width: 25%;"><a href="individual_grow.table.html">individual_grow.table</a></td>
+<td>Create a table of individual trees and their growth over two census...</td></tr>
+<tr><td style="width: 25%;"><a href="individual_mort.table.html">individual_mort.table</a></td>
+<td>Table individual trees and their survival status over two censuses.</td></tr>
+<tr><td style="width: 25%;"><a href="inside.rect.html">inside.rect</a></td>
+<td>Determines whether any of the 4 corners of one rectangle are within...</td></tr>
+<tr><td style="width: 25%;"><a href="insideRectangle.html">insideRectangle</a></td>
+<td>Checks a vector of coordinates x, y to return which are inside a rectangle.</td></tr>
+<tr><td style="width: 25%;"><a href="intersection.line.curve.html">intersection.line.curve</a></td>
+<td>Finds the points where a straight line, given lines as intercept b ...</td></tr>
+<tr><td style="width: 25%;"><a href="intersection.of.lines.html">intersection.of.lines</a></td>
+<td>Finds the point where 2 lines intersect, given lines as 2 parameter...</td></tr>
+<tr><td style="width: 25%;"><a href="invlogit.html">invlogit</a></td>
+<td>Inverse logit transformation, turns a logit back into a probability...</td></tr>
+<tr><td style="width: 25%;"><a href="is.between.html">is.between</a></td>
+<td>Check whether a point x,y falls between two other points. The typic...</td></tr>
+<tr><td style="width: 25%;"><a href="is.leap.html">is.leap</a></td>
+<td>Deprecated. Is a year a leap year?</td></tr>
+<tr><td style="width: 25%;"><a href="is.odd.html">is.odd</a></td>
+<td>A trivial function to test whether numbers (scalar or vector) are o...</td></tr>
+<tr><td style="width: 25%;"><a href="ispt.inside.html">ispt.inside</a></td>
+<td>Check a single pt (x and y) against a large number of quadrats whos...</td></tr>
+</table>
+
+<h2><a name="K">-- K --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="kurtosis.html">kurtosis</a></td>
+<td>Sample kurtosis. The biased portion is the population kurtosis; cor...</td></tr>
+</table>
+
+<h2><a name="L">-- L --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="left.html">left</a></td>
+<td>Leftmost n characters of a string.</td></tr>
+<tr><td style="width: 25%;"><a href="leftbut.html">leftbut</a></td>
+<td>Returns the leftmost characters of a string, excluding the last n.</td></tr>
+<tr><td style="width: 25%;"><a href="line.intersection.pts.html">line.intersection.pts</a></td>
+<td>Finds the point where 2 lines intersect, given each line as 2 pairs...</td></tr>
+<tr><td style="width: 25%;"><a href="linear.model.html">linear.model</a></td>
+<td>A simple linear model, where the first parameter is intercept, rema...</td></tr>
+<tr><td style="width: 25%;"><a href="linear.model.ctr.html">linear.model.ctr</a></td>
+<td>A simple linear model, where the first parameter is intercept, seco...</td></tr>
+<tr><td style="width: 25%;"><a href="linear.mortmodel.html">linear.mortmodel</a></td>
+<td>A model for mortality as a function of one or more predictors, with...</td></tr>
+<tr><td style="width: 25%;"><a href="linearmodel.bin.html">linearmodel.bin</a></td>
+<td>Multiple bin model predicting y as a function of x in several bins....</td></tr>
+<tr><td style="width: 25%;"><a href="linearmodel.bin.set.html">linearmodel.bin.set</a></td>
+<td>This does the work of calculating predicted values at each independ...</td></tr>
+<tr><td style="width: 25%;"><a href="llike.GaussModel.html">llike.GaussModel</a></td>
+<td>This is for model.xy. Generate a likelihood for 'model.xy()'.</td></tr>
+<tr><td style="width: 25%;"><a href="llike.GaussModelSD.html">llike.GaussModelSD</a></td>
+<td>This is for model.xy. Take the function for the SD, its parameters,...</td></tr>
+<tr><td style="width: 25%;"><a href="llike.linearbin.optim.html">llike.linearbin.optim</a></td>
+<td>This is for optim, a single function taking all parameters at once,...</td></tr>
+<tr><td style="width: 25%;"><a href="llike.model.lmer.html">llike.model.lmer</a></td>
+<td>A llikelihood function for one set of parameters, for a single random effect.</td></tr>
+<tr><td style="width: 25%;"><a href="lmerBayes.html">lmerBayes</a></td>
+<td>A Metropolis MCMC version of lmer.</td></tr>
+<tr><td style="width: 25%;"><a href="lmerBayes.hyperllike.mean.html">lmerBayes.hyperllike.mean</a></td>
+<td>This is the hyper-likelihood for updating the hypermeans, based on ...</td></tr>
+<tr><td style="width: 25%;"><a href="lmerBayes.hyperllike.sigma.html">lmerBayes.hyperllike.sigma</a></td>
+<td>This is the hyper-likelihood for updating the covariances. It is al...</td></tr>
+<tr><td style="width: 25%;"><a href="lmerMortFixedTime.html">lmerMortFixedTime</a></td>
+<td>A model for mortality as a function of a single predictor variable.</td></tr>
+<tr><td style="width: 25%;"><a href="lmerMortLinear.html">lmerMortLinear</a></td>
+<td>A linear model of an annual mortality parameter, which is '-log(an...</td></tr>
+<tr><td style="width: 25%;"><a href="load.species.html">load.species</a></td>
+<td>A function for extracting a single speciesdataframe from the large ...</td></tr>
+<tr><td style="width: 25%;"><a href="logical.grep.html">logical.grep</a></td>
+<td>A form of grep returning logical instead of indices (numbers).logic...</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.ctr.html">logistic.ctr</a></td>
+<td>Logistic function with intercept parameterization centering on x.</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.inter.html">logistic.inter</a></td>
+<td>Logistic function with intercept parameterization (i.e., first para...</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.multiplicative.html">logistic.multiplicative</a></td>
+<td>Logistic with a pair of parameters for each x; y=product of all the...</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.power.html">logistic.power</a></td>
+<td>This is the Gaussian logistic function, where logit is a second-ord...</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.power.mode.html">logistic.power.mode</a></td>
+<td>This is the Gaussian logistic function, where logit is a second-ord...</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.power_simple.html">logistic.power_simple</a></td>
+<td>This is a mixture of logistic and logistic-standard models. The pre...</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.standard.html">logistic.standard</a></td>
+<td>This is standard logistic function, but with asymptote and basement...</td></tr>
+<tr><td style="width: 25%;"><a href="logistic.sum.squares.html">logistic.sum.squares</a></td>
+<td>Sets a prediction based on a generalized logistic, then returns the...</td></tr>
+<tr><td style="width: 25%;"><a href="logisticmodel.bin.html">logisticmodel.bin</a></td>
+<td>Multiple bin model predicting y as a function of x, where each segm...</td></tr>
+<tr><td style="width: 25%;"><a href="logit.html">logit</a></td>
+<td>Logit transformation for a probability &gt;0 and &lt; 1logit invlogit In...</td></tr>
+<tr><td style="width: 25%;"><a href="log_model.html">log_model</a></td>
+<td>Logarithmic model, y = a + b1 log(x1) + b2 log(x2) for any number o...</td></tr>
+<tr><td style="width: 25%;"><a href="lxly.to.p5.html">lxly.to.p5</a></td>
+<td>Calculate p5x5 from local or within-quadrat coordinates for a 20-m quadrat.</td></tr>
+</table>
+
+<h2><a name="M">-- M --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="majoraxisreg.html">majoraxisreg</a></td>
+<td>A major axis regression with parameters fitted by optim.</td></tr>
+<tr><td style="width: 25%;"><a href="majoraxisreg.no.int.html">majoraxisreg.no.int</a></td>
+<td>Major axis regression with no intercept. Only a slope is returned. ...</td></tr>
+<tr><td style="width: 25%;"><a href="make.CredIntervalVect.html">make.CredIntervalVect</a></td>
+<td>Take a vector y having mean then lower and upper credible limits an...</td></tr>
+<tr><td style="width: 25%;"><a href="map.html">map</a></td>
+<td>Draw map of one or more species from one plot.</td></tr>
+<tr><td style="width: 25%;"><a href="map1species.html">map1species</a></td>
+<td>Map a single species.</td></tr>
+<tr><td style="width: 25%;"><a href="map2species.html">map2species</a></td>
+<td>Map 2 species to a 2-panel pdf.</td></tr>
+<tr><td style="width: 25%;"><a href="maptopo.html">maptopo</a></td>
+<td>Draws contours on a plot map.</td></tr>
+<tr><td style="width: 25%;"><a href="match.dataframe.html">match.dataframe</a></td>
+<td>Matches two dataframes using two or more columns. Rs function match...</td></tr>
+<tr><td style="width: 25%;"><a href="mergeParam.html">mergeParam</a></td>
+<td>Merges a list of parameter matrices into one large matrix. Used for...</td></tr>
+<tr><td style="width: 25%;"><a href="merge_data.html">merge_data</a></td>
+<td>Combine many dataframes as elements of a list into a single large d...</td></tr>
+<tr><td style="width: 25%;"><a href="metrop1step.html">metrop1step</a></td>
+<td>Takes a single metropolis step on a single parameter for any given ...</td></tr>
+<tr><td style="width: 25%;"><a href="metrop1step.discrete.html">metrop1step.discrete</a></td>
+<td>A version for metrop1step where the alternative values are characte...</td></tr>
+<tr><td style="width: 25%;"><a href="midPoint.html">midPoint</a></td>
+<td>Midpoint of any vector.midPoint Source code and original documentat...</td></tr>
+<tr><td style="width: 25%;"><a href="minum.beta.normal.html">minum.beta.normal</a></td>
+<td>Function to be minimized for fitting normal to beta.minum.beta.norm...</td></tr>
+<tr><td style="width: 25%;"><a href="minum.mixnorm.html">minum.mixnorm</a></td>
+<td>Fit a mixture of 2 normals.</td></tr>
+<tr><td style="width: 25%;"><a href="minum.normal.html">minum.normal</a></td>
+<td>The likelihood function for use by fitnorm.minum.normal fitnorm Fi...</td></tr>
+<tr><td style="width: 25%;"><a href="minum.perpdist.html">minum.perpdist</a></td>
+<td>The sum of squares used by majoraxisreg.minum.perpdist majoraxisreg...</td></tr>
+<tr><td style="width: 25%;"><a href="model.littleR.Gibbs.html">model.littleR.Gibbs</a></td>
+<td>The main function for fitting the probability distribution of popul...</td></tr>
+<tr><td style="width: 25%;"><a href="model.xy.html">model.xy</a></td>
+<td>Bayesian routine for fitting a model to y given x.</td></tr>
+<tr><td style="width: 25%;"><a href="modelBayes.html">modelBayes</a></td>
+<td>A Metropolis MCMC version for any modeling y~x, without random effe...</td></tr>
+<tr><td style="width: 25%;"><a href="MONTHNAMES.html">MONTHNAMES</a></td>
+<td>Object assumed to be crucial. In 'utilities.R, the original documen...</td></tr>
+<tr><td style="width: 25%;"><a href="mortality.html">mortality</a></td>
+<td>Mortality, forest-wide or based on one or two categories.</td></tr>
+<tr><td style="width: 25%;"><a href="mortality.calculation.html">mortality.calculation</a></td>
+<td>Calculate mortality rate and confidence limits.</td></tr>
+<tr><td style="width: 25%;"><a href="mortality.dbh.html">mortality.dbh</a></td>
+<td>Calculate forest-wide mortality in given dbh categories.</td></tr>
+<tr><td style="width: 25%;"><a href="mortality.eachspp.html">mortality.eachspp</a></td>
+<td>Calculate mortality for each species in given dbh categories.</td></tr>
+<tr><td style="width: 25%;"><a href="mvrnormRC.html">mvrnormRC</a></td>
+<td>From a variance-covariance matrix, output normal variates with means 0.</td></tr>
+</table>
+
+<h2><a name="N">-- N --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="NDcount.html">NDcount</a></td>
+<td>Count of neighbors within radius r with edge effect correction.</td></tr>
+<tr><td style="width: 25%;"><a href="NeighborDensities.html">NeighborDensities</a></td>
+<td>Total number or basal area of conspecific and heterospecific neighbors.</td></tr>
+<tr><td style="width: 25%;"><a href="neighbors.html">neighbors</a></td>
+<td>Find proportion of neighboring quadrats in which a species is present.</td></tr>
+<tr><td style="width: 25%;"><a href="nhd.html">nhd</a></td>
+<td>A version of head with only 6 columns shown.nhd TextToRdata Reads ...</td></tr>
+<tr><td style="width: 25%;"><a href="normalproduct.html">normalproduct</a></td>
+<td>Product of 2 normal distributions, the first at x and the second at lag-x.</td></tr>
+</table>
+
+<h2><a name="O">-- O --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="order.by.rowcol.html">order.by.rowcol</a></td>
+<td>Reorder rows and columns of a matrix so they are sorted as if colum...</td></tr>
+<tr><td style="width: 25%;"><a href="order.bynumber.html">order.bynumber</a></td>
+<td>Returns ordering of a character vector with any numbers coming firs...</td></tr>
+<tr><td style="width: 25%;"><a href="overlay.growthbinmodel.html">overlay.growthbinmodel</a></td>
+<td>Show model fits for 1, 2, 3, and 4 bins on each species.</td></tr>
+</table>
+
+<h2><a name="P">-- P --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="parallel.line.html">parallel.line</a></td>
+<td>Slope and intercept of a line parallel to another known line.</td></tr>
+<tr><td style="width: 25%;"><a href="partialcirclearea.html">partialcirclearea</a></td>
+<td>Area of a circle of radius r that is inside a rectangular plot.</td></tr>
+<tr><td style="width: 25%;"><a href="pdf.allplot.html">pdf.allplot</a></td>
+<td>Export a pdf with one or more species maps.</td></tr>
+<tr><td style="width: 25%;"><a href="perpendicular.distance.html">perpendicular.distance</a></td>
+<td>Distance from a point to a line (so its the perpendicular distance).</td></tr>
+<tr><td style="width: 25%;"><a href="perpendicular.line.html">perpendicular.line</a></td>
+<td>Slope and intercept of the line perpendicular to another known line.</td></tr>
+<tr><td style="width: 25%;"><a href="pexp.sin.html">pexp.sin</a></td>
+<td>CDF of four-parameter exponential sinpexp.sin mvrnormRC Function t...</td></tr>
+<tr><td style="width: 25%;"><a href="plot_wavelet.html">plot_wavelet</a></td>
+<td>Function to plot the wavelet variance from the output of the wavele...</td></tr>
+<tr><td style="width: 25%;"><a href="png.allplot.html">png.allplot</a></td>
+<td>Export species maps as png.</td></tr>
+<tr><td style="width: 25%;"><a href="polar.to.cartesian.html">polar.to.cartesian</a></td>
+<td>Convert polar coordinates to Cartesian.</td></tr>
+<tr><td style="width: 25%;"><a href="pop.change.html">pop.change</a></td>
+<td>Change in abundance, basal area, or agb in two censuses.</td></tr>
+<tr><td style="width: 25%;"><a href="pop.change.dbh.html">pop.change.dbh</a></td>
+<td>Change between two censuses in abundance or basal area.</td></tr>
+<tr><td style="width: 25%;"><a href="pospower.html">pospower</a></td>
+<td>Raise to any power, but with negative numbers converted to positive...</td></tr>
+<tr><td style="width: 25%;"><a href="predht.asym.html">predht.asym</a></td>
+<td>An allometric model predicting an asymptote at large size.</td></tr>
+<tr><td style="width: 25%;"><a href="print_all.html">print_all</a></td>
+<td>Print all rows of a tibble or tbl_df.</td></tr>
+<tr><td style="width: 25%;"><a href="prob.N1.html">prob.N1</a></td>
+<td>Probability of observing N2 given N1 (little.r distributed community-wide).</td></tr>
+<tr><td style="width: 25%;"><a href="pst.html">pst</a></td>
+<td>A version of paste with sep.</td></tr>
+<tr><td style="width: 25%;"><a href="psymexp.html">psymexp</a></td>
+<td>The CDF for the symmetric exponential.psymexp rsymexp Drawing a ra...</td></tr>
+<tr><td style="width: 25%;"><a href="pts.to.interceptslope.html">pts.to.interceptslope</a></td>
+<td>Returns intercept and slope of a line given two pairs of coordinate...</td></tr>
+<tr><td style="width: 25%;"><a href="pweibull.3param.html">pweibull.3param</a></td>
+<td>CDF of three-parameter Weibull(http://www.itl.nist.gov/div898/handb...</td></tr>
+</table>
+
+<h2><a name="Q">-- Q --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="qasymexp.html">qasymexp</a></td>
+<td>Quantiles of dasymexp y is the vector of desired quantiles; c is t...</td></tr>
+<tr><td style="width: 25%;"><a href="qasympower.html">qasympower</a></td>
+<td>Quantiles from the bilateral power distribution, dasympower. By R. ...</td></tr>
+<tr><td style="width: 25%;"><a href="quad.to.gxgy.html">quad.to.gxgy</a></td>
+<td>Convert quadrat names into x-y coordinates.</td></tr>
+<tr><td style="width: 25%;"><a href="quadslope.html">quadslope</a></td>
+<td>Given the elevation at four corners of a square of side=gridsize, t...</td></tr>
+</table>
+
+<h2><a name="R">-- R --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="randomElement.html">randomElement</a></td>
+<td>Return a random element from a vector randomElement countUnique Co...</td></tr>
+<tr><td style="width: 25%;"><a href="randomRow.html">randomRow</a></td>
+<td>Return a random row from a dataframe.</td></tr>
+<tr><td style="width: 25%;"><a href="rarefy.diversity.html">rarefy.diversity</a></td>
+<td>Species number in a random subsample of 's' individuals.</td></tr>
+<tr><td style="width: 25%;"><a href="rasterize.html">rasterize</a></td>
+<td>Calculate count, basal area or agb per quadrat.</td></tr>
+<tr><td style="width: 25%;"><a href="rasympower.html">rasympower</a></td>
+<td>Random draws from the bilateral power distribution, dasympower.</td></tr>
+<tr><td style="width: 25%;"><a href="readelevdata.html">readelevdata</a></td>
+<td>Read a table of elevation data into a matrix appropriate for mapping.</td></tr>
+<tr><td style="width: 25%;"><a href="rearrangeSurveyData.html">rearrangeSurveyData</a></td>
+<td>Takes a table of survey sightings with columns of x and y locations...</td></tr>
+<tr><td style="width: 25%;"><a href="recalculate.lmerBayesllike.html">recalculate.lmerBayesllike</a></td>
+<td>Walk through entire chain of parameters to calculate full likelihoo...</td></tr>
+<tr><td style="width: 25%;"><a href="recruitment.html">recruitment</a></td>
+<td>Calculate recruitment rates.</td></tr>
+<tr><td style="width: 25%;"><a href="recruitment.eachspp.html">recruitment.eachspp</a></td>
+<td>A wrapper to calculate recruitment for each species.</td></tr>
+<tr><td style="width: 25%;"><a href="regress.loglog.html">regress.loglog</a></td>
+<td>Performs regression and graphs in a convenient way.</td></tr>
+<tr><td style="width: 25%;"><a href="regress.plot.html">regress.plot</a></td>
+<td>Regression coefficients, probabilities and graph.</td></tr>
+<tr><td style="width: 25%;"><a href="regression.Bayes.html">regression.Bayes</a></td>
+<td>Regression using the Gibbs sampler, with just one x variable.</td></tr>
+<tr><td style="width: 25%;"><a href="regslope.html">regslope</a></td>
+<td>Returns slope of regression as single scalar (for use with apply).r...</td></tr>
+<tr><td style="width: 25%;"><a href="regslope.noint.html">regslope.noint</a></td>
+<td>Returns slope of regression with no intercept as single scalar (for...</td></tr>
+<tr><td style="width: 25%;"><a href="regsum.html">regsum</a></td>
+<td>For a polynomial regression, find x or y at y's peak or x-intercept.</td></tr>
+<tr><td style="width: 25%;"><a href="resetParam.html">resetParam</a></td>
+<td>This starts a new 3D parameter array whose first element is the las...</td></tr>
+<tr><td style="width: 25%;"><a href="residual.llike.lmerBayes.html">residual.llike.lmerBayes</a></td>
+<td>Calculate likelihood of residual standard deviation, given observat...</td></tr>
+<tr><td style="width: 25%;"><a href="residual.llike.modelBayes.html">residual.llike.modelBayes</a></td>
+<td>Calculate likelihood of residual standard deviation.</td></tr>
+<tr><td style="width: 25%;"><a href="restoreParamFile.html">restoreParamFile</a></td>
+<td>Reverses the steps of saveParamFile, back to a 3D array. This requi...</td></tr>
+<tr><td style="width: 25%;"><a href="rgamma.meansd.html">rgamma.meansd</a></td>
+<td>Random draws of gamma, parameterized with mean and sd.</td></tr>
+<tr><td style="width: 25%;"><a href="right.html">right</a></td>
+<td>Returns the rightmost n characters of a stringright rightbut Retur...</td></tr>
+<tr><td style="width: 25%;"><a href="rightbut.html">rightbut</a></td>
+<td>Returns the rightmost characters of a string, excluding the initial n.</td></tr>
+<tr><td style="width: 25%;"><a href="RipUvK.html">RipUvK</a></td>
+<td>Ripleys K using splancs.</td></tr>
+<tr><td style="width: 25%;"><a href="rmixnorm.html">rmixnorm</a></td>
+<td>Random draw on the mixed normal distribution.rmixnorm minum.mixnorm...</td></tr>
+<tr><td style="width: 25%;"><a href="rndown5.html">rndown5</a></td>
+<td>Rounds a numeric value to the next lowest multiple of 5.rndown5 cou...</td></tr>
+<tr><td style="width: 25%;"><a href="rowcol.to.index.html">rowcol.to.index</a></td>
+<td>Takes row and column numbers and identifies the quadrate number (index).</td></tr>
+<tr><td style="width: 25%;"><a href="rpois.max.html">rpois.max</a></td>
+<td>Random draws on dpois.maxrpois.max rpois.trunc Random draws on dpo...</td></tr>
+<tr><td style="width: 25%;"><a href="rpois.trunc.html">rpois.trunc</a></td>
+<td>Random draws on dpois.trunc.</td></tr>
+<tr><td style="width: 25%;"><a href="rpower.html">rpower</a></td>
+<td>Random draws based on the integral.rpower dasympower A bilateral p...</td></tr>
+<tr><td style="width: 25%;"><a href="rsymexp.html">rsymexp</a></td>
+<td>Drawing a random variate on the symmetric exponential.</td></tr>
+<tr><td style="width: 25%;"><a href="run.growthbin.manyspp.html">run.growthbin.manyspp</a></td>
+<td>Run the model to fit growth rate in bins for many species, 1-4 bins.</td></tr>
+<tr><td style="width: 25%;"><a href="run.growthfit.bin.html">run.growthfit.bin</a></td>
+<td>Find best fits for linearmodel.bin, with one set of data and a seri...</td></tr>
+</table>
+
+<h2><a name="S">-- S --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="save.searchpath.html">save.searchpath</a></td>
+<td>Save functions in position n to a file already attached.</td></tr>
+<tr><td style="width: 25%;"><a href="saveParamFile.html">saveParamFile</a></td>
+<td>This saves a run of the full parameters into a text file, reducing ...</td></tr>
+<tr><td style="width: 25%;"><a href="se.kurtosis.html">se.kurtosis</a></td>
+<td>Standard error of kurtosis. Depends only on sample size. se.kurtosi...</td></tr>
+<tr><td style="width: 25%;"><a href="se.skewness.html">se.skewness</a></td>
+<td>Standard error of skewness. se.skewness kurtosis Sample kurtosis....</td></tr>
+<tr><td style="width: 25%;"><a href="SectionCorrection.html">SectionCorrection</a></td>
+<td>Correct coordinates, making them from 0 to 20.</td></tr>
+<tr><td style="width: 25%;"><a href="segmentPt.html">segmentPt</a></td>
+<td>Draw a line segment between two points.</td></tr>
+<tr><td style="width: 25%;"><a href="selectrandomquad.html">selectrandomquad</a></td>
+<td>Draws rectangular quadrats in a plot at random.</td></tr>
+<tr><td style="width: 25%;"><a href="selectrandomquad.html">selectrandomquad2</a></td>
+<td>Draws rectangular quadrats in a plot at random.</td></tr>
+<tr><td style="width: 25%;"><a href="selectrandomquad.html">selectrandomquad3</a></td>
+<td>Draws rectangular quadrats in a plot at random.</td></tr>
+<tr><td style="width: 25%;"><a href="setsize.html">setsize</a></td>
+<td>An internal function, called by 'map()' to choose size of plotting points.</td></tr>
+<tr><td style="width: 25%;"><a href="simple.html">simple</a></td>
+<td>An even more trivial model to return x unchanged. The argument para...</td></tr>
+<tr><td style="width: 25%;"><a href="simple.model.html">simple.model</a></td>
+<td>A trivial model to return a different value at every x. If param is...</td></tr>
+<tr><td style="width: 25%;"><a href="skewness.html">skewness</a></td>
+<td>Sample skewness. The biased portion is the population skewness; cor...</td></tr>
+<tr><td style="width: 25%;"><a href="solve_topo.html">solve_topo</a></td>
+<td>This is based on the problem and solution outlined in my book on pl...</td></tr>
+<tr><td style="width: 25%;"><a href="split_data.html">split_data</a></td>
+<td>Split a dataframe into a list by any vector.</td></tr>
+<tr><td style="width: 25%;"><a href="spmean.mort.abundGibbs.html">spmean.mort.abundGibbs</a></td>
+<td>Likelihood function for a species mean (a scalar, one species at a ...</td></tr>
+<tr><td style="width: 25%;"><a href="spparea.sq.html">spparea.sq</a></td>
+<td>Number of species in replicated, randomly-placed quadrats of various areas.</td></tr>
+<tr><td style="width: 25%;"><a href="standardreg.no.int.html">standardreg.no.int</a></td>
+<td>Standard regression with no intercept.standardreg.no.int autoregres...</td></tr>
+<tr><td style="width: 25%;"><a href="startCTFS.html">startCTFS</a></td>
+<td>Function to source all components of CTFS R package. Load all CTFS ...</td></tr>
+<tr><td style="width: 25%;"><a href="StringToVect.html">StringToVect</a></td>
+<td>Converts a character string into a vector of individual characters.</td></tr>
+<tr><td style="width: 25%;"><a href="summaryMCMC.html">summaryMCMC</a></td>
+<td>Summarize calculations based on the full Gibbs sampler.</td></tr>
+<tr><td style="width: 25%;"><a href="summaryMCMC.html">summaryModelMCMC</a></td>
+<td>Summarize calculations based on the full Gibbs sampler.</td></tr>
+<tr><td style="width: 25%;"><a href="sumsq.html">sumsq</a></td>
+<td>A trivial function used in minimizing sums of squares.sumsq is.odd ...</td></tr>
+</table>
+
+<h2><a name="T">-- T --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="testmcmcfunc.html">testmcmcfunc</a></td>
+<td>Deprecated. Test mcmc1step.</td></tr>
+<tr><td style="width: 25%;"><a href="TextToRdata.html">TextToRdata</a></td>
+<td>Reads a tab-delimited text file and save as rdata.</td></tr>
+<tr><td style="width: 25%;"><a href="tojulian.html">tojulian</a></td>
+<td>Convert calendar dates to Julian dates.</td></tr>
+<tr><td style="width: 25%;"><a href="torus.shift.html">torus.shift</a></td>
+<td>Creates a torus-shifted quadrat topographic dataset.</td></tr>
+<tr><td style="width: 25%;"><a href="trim.html">trim</a></td>
+<td>Trims leading and trailing blanks from a vector of character variab...</td></tr>
+<tr><td style="width: 25%;"><a href="trim.growth.html">trim.growth</a></td>
+<td>Exclude growth rates</td></tr>
+</table>
+
+<h2><a name="U">-- U --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="unidentified.species.html">unidentified.species</a></td>
+<td>Takes a string of species names or codes and returns a logical vect...</td></tr>
+</table>
+
+<h2><a name="V">-- V --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="vectToCommas.html">vectToCommas</a></td>
+<td>Given a vector of character variables, collapse into a single strin...</td></tr>
+</table>
+
+<h2><a name="W">-- W --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="wavelet.allsp.html">wavelet.allsp</a></td>
+<td>Wavelet variance curves for all species in one plot.</td></tr>
+<tr><td style="width: 25%;"><a href="wavelet.bivariate.html">wavelet.bivariate</a></td>
+<td>Bivariate wavelet variance using furier transforms.</td></tr>
+<tr><td style="width: 25%;"><a href="wavelet.univariate.html">wavelet.univariate</a></td>
+<td>Univariate wavelet variance using furier transforms.</td></tr>
+<tr><td style="width: 25%;"><a href="weibull.mean.3param.html">weibull.mean.3param</a></td>
+<td>Mean of three-parameter Weibullweibull.mean.3param weibull.sd.3para...</td></tr>
+<tr><td style="width: 25%;"><a href="weibull.median.3param.html">weibull.median.3param</a></td>
+<td>Median of three-parameter Weibullweibull.median.3param weibull.mean...</td></tr>
+<tr><td style="width: 25%;"><a href="weibull.sd.3param.html">weibull.sd.3param</a></td>
+<td>SD of three-parameter Weibullweibull.sd.3param dexp.sin Four-param...</td></tr>
+<tr><td style="width: 25%;"><a href="which.allnonNA.html">which.allnonNA</a></td>
+<td>Finds all values of a vector which are not NA. Fills out a vector t...</td></tr>
+<tr><td style="width: 25%;"><a href="which.maxNAs.html">which.maxNAs</a></td>
+<td>An unfortunate bug in which.max: if all elements are NA, it doesnt ...</td></tr>
+<tr><td style="width: 25%;"><a href="which.nonNA.html">which.nonNA</a></td>
+<td>Returns the first index at which a vector x is not NAwhich.nonNA wh...</td></tr>
+<tr><td style="width: 25%;"><a href="which.vmatch.html">which.vmatch</a></td>
+<td>Finds which subsequent element of a vector matches the first elemen...</td></tr>
+<tr><td style="width: 25%;"><a href="wideEnoughBins.html">wideEnoughBins</a></td>
+<td>Test whether all the bin widths exceed a minimum.  MINBIN=0.1 MINBI...</td></tr>
+<tr><td style="width: 25%;"><a href="wsgdata_dummy.html">wsgdata_dummy</a></td>
+<td>Create a dummy wsgdata data set</td></tr>
+</table>
+
+<h2><a name="X">-- X --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="xydist.html">xydist</a></td>
+<td>Distance between two pairs of x-y coordinates. Input can be atomic ...</td></tr>
+<tr><td style="width: 25%;"><a href="xydistmat.html">xydistmat</a></td>
+<td>Distance between two x-y coordinates.</td></tr>
+<tr><td style="width: 25%;"><a href="xydistvect.html">xydistvect</a></td>
+<td>Distance between two x-y coordinates, but accepts each set of coord...</td></tr>
+</table>
+</body></html>

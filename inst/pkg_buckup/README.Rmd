@@ -1,0 +1,9 @@
+---
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+To install ctfs, place ctfs/ in "C:/Users/dora/Documents/R/win-library/3.4".
