@@ -7,6 +7,6 @@
 ^docs$
 ^_pkgdown\.yml$
 ^man-roxygen$
-
-^packrat/
+^packrat$
 ^\.Rprofile$
+
