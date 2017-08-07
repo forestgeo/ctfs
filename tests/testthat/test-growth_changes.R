@@ -1,9 +1,10 @@
 context("functions work in tutorial growth changes")
 
+
 test_that(
   "individual_grow.table works with census bci12full1 and bci12full15", {
     actual <- individual_grow.table(
-      list(
+      cnsdata = list(
         bci::bci12full1, 
         bci::bci12full5
       )

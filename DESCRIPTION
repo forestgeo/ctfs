@@ -28,8 +28,7 @@ Imports: assertive,
     mvtnorm,
     splancs,
     stats,
-    utils,
-    bci
+    utils
 Suggests: devtools,
     dplyr,
     ggplot2,
@@ -41,5 +40,6 @@ Suggests: devtools,
     stringr,
     testthat,
     tibble,
-    tidyr
+    tidyr,
+    bci
 VignetteBuilder: knitr
