@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Report Package Quality • forestr</title>
+<title>Report Package Quality • ctfs</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">forestr</a>
+      <a class="navbar-brand" href="../index.html">ctfs</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -34,18 +34,8 @@
 <li>
   <a href="../articles/index.html">Articles</a>
 </li>
-<li>
-  <a href="../news/index.html">News</a>
-</li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/forestgeo/forestr">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -60,7 +50,7 @@
       <h1>Report Package Quality</h1>
                         <h4 class="author">Mauro Lepore</h4>
             
-            <h4 class="date">2017-07-26</h4>
+            <h4 class="date">2017-08-17</h4>
           </div>
 
     
@@ -69,14 +59,14 @@
 <div id="complexity" class="section level1">
 <h1 class="hasAnchor">
 <a href="#complexity" class="anchor"></a>Complexity</h1>
-<p>One way of measuring the quality of a package is its complexity. To measure the complexity of the forestr package, and to compare it to other packages, we will use the sig package. Best practice is to keep a package simple (<em>Testing R code</em> by Richard Cotton).</p>
-<div id="forestr" class="section level2">
+<p>One way of measuring the quality of a package is its complexity. To measure the complexity of the ctfs package, and to compare it to other packages, we will use the sig package. Best practice is to keep a package simple (<em>Testing R code</em> by Richard Cotton).</p>
+<div id="ctfs" class="section level2">
 <h2 class="hasAnchor">
-<a href="#forestr" class="anchor"></a><em>forestr</em>
+<a href="#ctfs" class="anchor"></a><em>ctfs</em>
 </h2>
-<p>This reports the complexity of forestr:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sig::<span class="kw">sig_report</span>(<span class="kw">pkg2env</span>(forestr))
-<span class="co">#&gt; Loading package 'forestr'.</span>
+<p>This reports the complexity of ctfs:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sig::<span class="kw">sig_report</span>(<span class="kw">pkg2env</span>(ctfs))
+<span class="co">#&gt; Loading package 'ctfs'.</span>
 <span class="co">#&gt; The environment contains 383 variables of which 382 are functions. </span>
 <span class="co">#&gt; Distribution of the number of input arguments to the functions:</span>
 <span class="co">#&gt;  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 22 23 24 33 </span>
@@ -302,8 +292,8 @@
 <span class="co">#&gt;     matches</span>
 <span class="co">#&gt; The environment contains 111 variables of which 96 are functions. </span>
 <span class="co">#&gt; Distribution of the number of input arguments to the functions:</span>
-<span class="co">#&gt;  0  1  2  3  4  5  6  7 </span>
-<span class="co">#&gt; 10 21 21 18 11  4  8  3 </span>
+<span class="co">#&gt;  0  1  2  3  4  5  6  7  8 </span>
+<span class="co">#&gt; 10 21 21 18 11  4  7  3  1 </span>
 <span class="co">#&gt; There are no functions with more than 10 input args.</span>
 <span class="co">#&gt; Distribution of the number of lines of the functions:</span>
 <span class="co">#&gt;       1       2   [3,4]   [5,8]  [9,16] [17,32] [33,64] </span>
@@ -314,7 +304,7 @@
 <div id="documentation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#documentation" class="anchor"></a>Documentation</h1>
-<p>This section reports the quality of the documentation. It focuses not on how compleate or correct the documentation is, but on how accurately the documentation information has been programatically extracted from its original source (<a href="https://goo.gl/uAvQ1k" class="uri">https://goo.gl/uAvQ1k</a>) into the forestr package documentation (roxygenized documentation in R their .Rd version in <code>man/</code>). That transformation is necessary for the roxygen2 package to create the forestr documentation (i.e. help pages available via <code>?&lt;FUNCTION_NAME&gt;</code> in R and at <a href="https://forestgeo.github.io/forestr/reference" class="uri">https://forestgeo.github.io/forestr/reference</a>).</p>
+<p>This section reports the quality of the documentation. It focuses not on how compleate or correct the documentation is, but on how accurately the documentation information has been programatically extracted from its original source (<a href="https://goo.gl/uAvQ1k" class="uri">https://goo.gl/uAvQ1k</a>) into the ctfs package documentation (roxygenized documentation in R their .Rd version in <code>man/</code>). That transformation is necessary for the roxygen2 package to create the ctfs documentation (i.e. help pages available via <code>?&lt;FUNCTION_NAME&gt;</code> in R and at <a href="https://forestgeo.github.io/ctfs/reference" class="uri">https://forestgeo.github.io/ctfs/reference</a>).</p>
 <p>Choose some functions at random and visually check if documentation matches.</p>
 <pre><code>#&gt; # A tibble: 16 x 3
 #&gt;                           fun match_source match_webpage
@@ -394,7 +384,7 @@
       <ul class="nav nav-pills nav-stacked">
 <li>
 <a href="#complexity">Complexity</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#forestr"><em>forestr</em></a></li>
+<li><a href="#ctfs"><em>ctfs</em></a></li>
       <li><a href="#hmisc"><em>Hmisc</em></a></li>
       <li><a href="#assertive"><em>assertive</em></a></li>
       <li><a href="#testthat"><em>testthat</em></a></li>

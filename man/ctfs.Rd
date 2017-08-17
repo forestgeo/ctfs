@@ -6,9 +6,13 @@
 \alias{ctfs-package}
 \title{Tools for the Analysis of Forest Dynamics}
 \description{
-This package provides tools for the analysis of forest dynamics. It evolves
-from the source code of the CTFS R Package by Richard Condit, available at
+This package provides tools for the analysis of forest dynamics. It is a
+slightly modifyed version of the original CTFS R Package by Richard Condit,
+available at
 \url{http://ctfs.si.edu/Public/CTFSRPackage/}.
+The minor changaes only aimed to transform the origial CTFSR Package into an
+R package \emph{sensu stricto}; Although the name and documentation of a few
+functions slightly changed, the source code remains the same.
 }
 \section{Acknowledgement}{
 
