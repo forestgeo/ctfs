@@ -1,9 +1,13 @@
 #' Tools for the Analysis of Forest Dynamics
 #' 
 #' @description
-#' This package provides tools for the analysis of forest dynamics. It evolves
-#' from the source code of the CTFS R Package by Richard Condit, available at
-#' [http://ctfs.si.edu/Public/CTFSRPackage/](http://ctfs.si.edu/Public/CTFSRPackage/).
+#' This package provides tools for the analysis of forest dynamics. It is a 
+#' slightly modifyed version of the original CTFS R Package by Richard Condit, 
+#' available at
+#' [http://ctfs.si.edu/Public/CTFSRPackage/](http://ctfs.si.edu/Public/CTFSRPackage/). 
+#' The minor changaes only aimed to transform the origial CTFSR Package into an
+#' R package _sensu stricto_; Although the name and documentation of a few
+#' functions slightly changed, the source code remains the same.
 #' 
 #' @section Acknowledgement:
 #' The BCI forest dynamics research project was founded by S.P. Hubbell and R.B.
