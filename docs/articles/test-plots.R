@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   echo = FALSE 
 )
 
-library(forestr)
+library(ctfs)
 library(knitr)
 
 ## ---- include=FALSE, error=TRUE------------------------------------------
