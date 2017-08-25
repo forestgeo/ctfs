@@ -12,4 +12,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Alternative Documentation of the CTFS R Package ([CTFS-ForestGEO](http://ctfs.si.edu/Public/CTFSRPackage/))
+# ctfs
+
+The CTFS R Package includes a wide variety of R functions aimed at analysis of data from CTFS forest census plots. Most of the functions use the CTFS R Analytical tables, which are tables of plot data organizing tree and stem measurements in a precise format. The Package also includes many supporting functions that carry out basic, oft-used calculations, such as date conversion, geometry, model-fitting, probability distributions, and rearrangment of R data objects.
+
+
+
+### Installation
+
+```
+# install.packages("devtools")
+devtools::install_github("forestgeo/ctfs")
+```
+
+
+
+### Acknowledgments
+
+The CTFS R Package was developed with the support of NSF grant #1046113 to Stuart J. Davies through the NSF-IRCN program on the Dimensions of Biodiversity.
