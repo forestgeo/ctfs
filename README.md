@@ -3,9 +3,9 @@
 ctfs
 ====
 
-**ctfs** is almost identical to the CTFS R Package (<http://ctfs.si.edu/Public/CTFSRPackage/>; see section **Differences between ctfs and the CTFS R package**).
+Tools for the analysis of forest dynamics. **ctfs** is almost identical to the CTFS R Package (<http://ctfs.si.edu/Public/CTFSRPackage/>). In **ctfs** "\_" replaces "." in the name of a few functions, and some documentation was slightly edited or added (see *Differences between **ctfs** and the CTFS R package*).
 
-The CTFS R Package includes a wide variety of R functions aimed at analysis of data from CTFS forest census plots. Most of the functions use the CTFS R Analytical tables, which are tables of plot data organizing tree and stem measurements in a precise format. The Package also includes many supporting functions that carry out basic, oft-used calculations, such as date conversion, geometry, model-fitting, probability distributions, and rearrangement of R data objects.
+**ctfs** includes a wide variety of R functions aimed at analysis of data from CTFS forest census plots. Most of the functions use the CTFS R Analytical tables, which are tables of plot data organizing tree and stem measurements in a precise format. The Package also includes many supporting functions that carry out basic, oft-used calculations, such as date conversion, geometry, model-fitting, probability distributions, and rearrangement of R data objects.
 
 ### Installation
 
@@ -24,7 +24,7 @@ The CTFS R Package includes a wide variety of R functions aimed at analysis of d
 
 -   **ctfs** is an R package **sensu stricto**, but not the CTFS R Package.
 
-    -   To install **ctfs** see the section **Installation** and to learn how to use it see help files as you would normally do for any R package, i.e. with `help(FUNCTION)` or `?FUNCTION`. Alternatively, go to <https://forestgeo.github.io/ctfs/>.
+    -   To install **ctfs** see the section *Installation* and to learn how to use it see help files as you would normally do for any R package, i.e. with `help(FUNCTION)` or `?FUNCTION`. Alternatively, go to <https://forestgeo.github.io/ctfs/>.
 
     -   To install the CTFS R Package and to learn how to use it, go to <http://ctfs.si.edu/Public/CTFSRPackage/>.
 
