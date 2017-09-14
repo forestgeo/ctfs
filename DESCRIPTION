@@ -2,15 +2,25 @@ Package: ctfs
 Title: Tools for the Analysis of Forest Dynamics
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut")),
+    person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut", "cre")),
     person("Pamela", "Hall", , "phall@alum.mit.edu", role = c("aut")),
     person("Suzanne", "Lao", , "laoz@si.edu", role = c("aut")),
     person("CTFS-ForestGEO", , , "ForestGEO@si.edu", role = c("cph"))
     )
-Description: Tools for the analysis of forest dynamics.
+Description: Tools for the analysis of forest dynamics. __ctfs__ is almost 
+    identical to the CTFS R Package (http://ctfs.si.edu/Public/CTFSRPackage/).
+    In __ctfs__ "_" replaces "." in the name of a few functions, and some
+    documentation was slightly edited or added. __ctfs__ includes a
+    wide variety of R functions aimed at analysis of data from CTFS forest 
+    census plots. Most of the functions use the CTFS R Analytical tables, which
+    are tables of plot data organizing tree and stem measurements in a precise
+    format. The Package also includes many supporting functions that carry out
+    basic, oft-used calculations, such as date conversion, geometry, 
+    model-fitting, probability distributions, and rearrangement of R data 
+    objects.
 Depends:
     R (>= 3.1.2)
-License: COPYRIGHT HOLDER: CTFS-ForestGEO
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
