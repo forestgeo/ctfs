@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -23,7 +23,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -51,10 +52,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Functions Index</a>
 </li>
       </ul>
       
@@ -103,59 +101,60 @@ the 4 bin options.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='co'># Sample species vector from BCI: </span>
-  <span class='no'>spp20</span> <span class='kw'>=</span> <span class='fu'>c</span>(
-    <span class='st'>'tri2tu'</span>,
-    <span class='st'>'alsebl'</span>,
-    <span class='st'>'tet2pa'</span>,
-    <span class='st'>'tachve'</span>,
-    <span class='st'>'beilpe'</span>,
-    <span class='st'>'pri2co'</span>,
-    <span class='st'>'quaras'</span>,
-    <span class='st'>'ocotwh'</span>,
-    <span class='st'>'hirttr'</span>,
-    <span class='st'>'gar2in'</span>,
-    <span class='st'>'protpa'</span>,
-    <span class='st'>'protte'</span>,
-    <span class='st'>'eugeoe'</span>,
-    <span class='st'>'virose'</span>,
-    <span class='st'>'guargu'</span>,
-    <span class='st'>'maquco'</span>,
-    <span class='st'>'jac1co'</span>,
-    <span class='st'>'cecrin'</span>,
-    <span class='st'>'cordbi'</span>,
-    <span class='st'>'micoar'</span>
-  )
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># Sample species vector from BCI: </span>
+<span class='no'>spp20</span> <span class='kw'>=</span> <span class='fu'>c</span>(
+  <span class='st'>'tri2tu'</span>,
+  <span class='st'>'alsebl'</span>,
+  <span class='st'>'tet2pa'</span>,
+  <span class='st'>'tachve'</span>,
+  <span class='st'>'beilpe'</span>,
+  <span class='st'>'pri2co'</span>,
+  <span class='st'>'quaras'</span>,
+  <span class='st'>'ocotwh'</span>,
+  <span class='st'>'hirttr'</span>,
+  <span class='st'>'gar2in'</span>,
+  <span class='st'>'protpa'</span>,
+  <span class='st'>'protte'</span>,
+  <span class='st'>'eugeoe'</span>,
+  <span class='st'>'virose'</span>,
+  <span class='st'>'guargu'</span>,
+  <span class='st'>'maquco'</span>,
+  <span class='st'>'jac1co'</span>,
+  <span class='st'>'cecrin'</span>,
+  <span class='st'>'cordbi'</span>,
+  <span class='st'>'micoar'</span>
+)
 
-  <span class='co'># Creating the complete table of biomass growth for all individuals in a </span>
-  <span class='co'># plot:</span>
-  <span class='no'>agb.growth</span> <span class='kw'>=</span> <span class='fu'><a href='extract.growthdata.html'>extract.growthdata</a></span>(
-    <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full5</span>,
-    <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>,
-    <span class='kw'>growthfunc</span> <span class='kw'>=</span> <span class='no'>growth.biomass.indiv</span>,
-    <span class='kw'>logit</span> <span class='kw'>=</span> <span class='st'>'x'</span>,
-    <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-    <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-    <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>'mm'</span>,
-    <span class='kw'>err.limit</span> <span class='kw'>=</span> <span class='fl'>4</span>,
-    <span class='kw'>maxgrow</span> <span class='kw'>=</span> <span class='fl'>75</span>
-  )
+<span class='co'># Creating the complete table of biomass growth for all individuals in a </span>
+<span class='co'># plot:</span>
+<span class='no'>agb.growth</span> <span class='kw'>=</span> <span class='fu'><a href='extract.growthdata.html'>extract.growthdata</a></span>(
+  <span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full5</span>,
+  <span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full6</span>,
+  <span class='kw'>growthfunc</span> <span class='kw'>=</span> <span class='no'>growth.biomass.indiv</span>,
+  <span class='kw'>logit</span> <span class='kw'>=</span> <span class='st'>'x'</span>,
+  <span class='kw'>rounddown</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='kw'>dbhunit</span> <span class='kw'>=</span> <span class='st'>'mm'</span>,
+  <span class='kw'>err.limit</span> <span class='kw'>=</span> <span class='fl'>4</span>,
+  <span class='kw'>maxgrow</span> <span class='kw'>=</span> <span class='fl'>75</span>
+)
 
-  <span class='co'># Creating a vector of all species names in the agb.growth table.</span>
-  <span class='no'>allspecies</span> <span class='kw'>=</span> <span class='fu'>sort</span>(<span class='fu'>unique</span>(<span class='no'>agb.growth</span>$<span class='no'>sp</span>))
+<span class='co'># Creating a vector of all species names in the agb.growth table.</span>
+<span class='no'>allspecies</span> <span class='kw'>=</span> <span class='fu'>sort</span>(<span class='fu'>unique</span>(<span class='no'>agb.growth</span>$<span class='no'>sp</span>))
 
-  <span class='co'># Fitting the model for all species, 1 - 4 bins:</span>
-  <span class='no'>fit</span> <span class='kw'>=</span> <span class='fu'>run.growthbin.manyspp</span>(
-    <span class='kw'>growthdata</span> <span class='kw'>=</span> <span class='no'>agb.growth</span>,
-    <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>'agb'</span>,
-    <span class='kw'>spp</span> <span class='kw'>=</span> <span class='no'>allspecies</span>,
-    <span class='kw'>minabund300</span> <span class='kw'>=</span> <span class='fl'>15</span>,
-    <span class='kw'>minTotal</span> <span class='kw'>=</span> <span class='fl'>40</span>,
-    <span class='kw'>startpar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>.03</span>, <span class='fl'>.005</span>),
-    <span class='kw'>startsdpar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>.04</span>, <span class='fl'>0</span>)
-  )
-})</div></pre>
+<span class='co'># Fitting the model for all species, 1 - 4 bins:</span>
+<span class='no'>fit</span> <span class='kw'>=</span> <span class='fu'>run.growthbin.manyspp</span>(
+  <span class='kw'>growthdata</span> <span class='kw'>=</span> <span class='no'>agb.growth</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>'agb'</span>,
+  <span class='kw'>spp</span> <span class='kw'>=</span> <span class='no'>allspecies</span>,
+  <span class='kw'>minabund300</span> <span class='kw'>=</span> <span class='fl'>15</span>,
+  <span class='kw'>minTotal</span> <span class='kw'>=</span> <span class='fl'>40</span>,
+  <span class='kw'>startpar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>.03</span>, <span class='fl'>.005</span>),
+  <span class='kw'>startsdpar</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>.04</span>, <span class='fl'>0</span>)
+)
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -170,7 +169,7 @@ the 4 bin options.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao, Kyle Harms, Mauro Lepore, CTFS-ForestGEO.</p>
+  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao.</p>
 </div>
 
 <div class="pkgdown">

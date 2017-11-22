@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -23,7 +23,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -51,10 +52,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Functions Index</a>
 </li>
       </ul>
       
@@ -161,25 +159,26 @@ Updated Aug 2014 to handle files with no trees (just 4 corner labels).</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>mapfolder</span> <span class='kw'>=</span> <span class='st'>'/maps/rabi/'</span>
-  <span class='no'>coords</span> <span class='kw'>=</span>
-    <span class='fu'>fullplot.imageJ</span>(
-      <span class='kw'>path</span> <span class='kw'>=</span> <span class='no'>mapfolder</span>,
-      <span class='kw'>include.subdir</span> <span class='kw'>=</span> <span class='no'>T</span>,
-      <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>10</span>),
-      <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='st'>'location.txt'</span>,
-      <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>'p2'</span>, <span class='st'>'p1'</span>, <span class='st'>'p4'</span>, <span class='st'>'p3'</span>),
-      <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>'Map_'</span>,
-      <span class='kw'>colrange</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>49</span>),
-      <span class='kw'>rowrange</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>24</span>),
-      <span class='kw'>subquadsuffix</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>'_1'</span>, <span class='st'>'_2'</span>, <span class='st'>'_3'</span>, <span class='st'>'_4'</span>)
-    )
-  <span class='fu'>head</span>(<span class='no'>coords</span>)
-  <span class='fu'>dim</span>(<span class='no'>coords</span>)
-  <span class='fu'>range</span>(<span class='no'>coords</span>$<span class='no'>lx</span>)
-  <span class='fu'>range</span>(<span class='no'>coords</span>$<span class='no'>ly</span>)
-})</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>mapfolder</span> <span class='kw'>=</span> <span class='st'>'/maps/rabi/'</span>
+<span class='no'>coords</span> <span class='kw'>=</span>
+  <span class='fu'>fullplot.imageJ</span>(
+    <span class='kw'>path</span> <span class='kw'>=</span> <span class='no'>mapfolder</span>,
+    <span class='kw'>include.subdir</span> <span class='kw'>=</span> <span class='no'>T</span>,
+    <span class='kw'>gridsize</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>10</span>),
+    <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='st'>'location.txt'</span>,
+    <span class='kw'>corners</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>'p2'</span>, <span class='st'>'p1'</span>, <span class='st'>'p4'</span>, <span class='st'>'p3'</span>),
+    <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>'Map_'</span>,
+    <span class='kw'>colrange</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>49</span>),
+    <span class='kw'>rowrange</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>24</span>),
+    <span class='kw'>subquadsuffix</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>'_1'</span>, <span class='st'>'_2'</span>, <span class='st'>'_3'</span>, <span class='st'>'_4'</span>)
+  )
+<span class='fu'>head</span>(<span class='no'>coords</span>)
+<span class='fu'>dim</span>(<span class='no'>coords</span>)
+<span class='fu'>range</span>(<span class='no'>coords</span>$<span class='no'>lx</span>)
+<span class='fu'>range</span>(<span class='no'>coords</span>$<span class='no'>ly</span>)
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -198,7 +197,7 @@ Updated Aug 2014 to handle files with no trees (just 4 corner labels).</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao, Kyle Harms, Mauro Lepore, CTFS-ForestGEO.</p>
+  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao.</p>
 </div>
 
 <div class="pkgdown">

@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -23,7 +23,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -51,10 +52,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Functions Index</a>
 </li>
       </ul>
       
@@ -136,22 +134,19 @@ species and stems per quadrat, etc.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>not_run({
-  Nperquad = abundanceperquad(
-    bci::bci12full6,
-    plotdim = c(1000, 500),
-    gridsize = 100,
-    type = 'abund'
-  )
-  colSums(Nperquad$abund)
-  apply(Nperquad$abund, 2, countspp)
-  plot(colSums(Nperquad$abund), apply / (Nperquad$abund, 2, countspp))
-})
-
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:10:56: unexpected ','</span>
-#&gt; <span class='error'>9:   apply(Nperquad$abund, 2, countspp)</span>
-#&gt; <span class='error'>10:   plot(colSums(Nperquad$abund), apply / (Nperquad$abund,</span>
-#&gt; <span class='error'>                                                           ^</span></div></pre>
+    <pre class="examples"># NOT RUN {
+Nperquad = abundanceperquad(
+  bci::bci12full6,
+  plotdim = c(1000, 500),
+  gridsize = 100,
+  type = 'abund'
+)
+colSums(Nperquad$abund)
+apply(Nperquad$abund, 2, countspp)
+plot(colSums(Nperquad$abund), apply / (Nperquad$abund, 2, countspp))
+# }
+<div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -172,7 +167,7 @@ species and stems per quadrat, etc.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao, Kyle Harms, Mauro Lepore, CTFS-ForestGEO.</p>
+  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao.</p>
 </div>
 
 <div class="pkgdown">

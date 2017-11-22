@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -23,7 +23,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -51,10 +52,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Functions Index</a>
 </li>
       </ul>
       
@@ -290,7 +288,7 @@ erased from memory.</p>
 <p>This is to reduce memory needs. The function summaryMCMC restores the
 parameters from the text file into an giant R array.</p>
 <p>Further details are given in the description of all the arguments and the
-sample here, plus a tutorial on <a href = 'https://goo.gl/KGJYQe'>Mortality changes</a>
+sample here, plus a tutorial on <a href='https://goo.gl/KGJYQe'>Mortality changes</a>
 offers a worked example.</p>
     
     <h2 class="hasAnchor" id="arguments-description"><a class="anchor" href="#arguments-description"></a>Arguments description</h2>
@@ -303,49 +301,50 @@ random effect.</p></li>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='co'># Assume two plot datasets from BCI are available, bci::bci12full6 and</span>
-  <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full7.</span>
-  <span class='co'># Subset to trees above 10 cm dbh and just 10 species for illustration (the</span>
-  <span class='co'># model will run much faster). The fixed effect, species - level variation</span>
-  <span class='co'># (or error), and the model parameters for each species are shown below. </span>
-  <span class='co'># Check the names of the result to see what else lmerBayes returns.</span>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># Assume two plot datasets from BCI are available, bci::bci12full6 and</span>
+<span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full7.</span>
+<span class='co'># Subset to trees above 10 cm dbh and just 10 species for illustration (the</span>
+<span class='co'># model will run much faster). The fixed effect, species - level variation</span>
+<span class='co'># (or error), and the model parameters for each species are shown below. </span>
+<span class='co'># Check the names of the result to see what else lmerBayes returns.</span>
 
-  <span class='no'>gtable</span> <span class='kw'>=</span> <span class='fu'><a href='growth.indiv.html'>growth.indiv</a></span>(<span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full6</span>, <span class='kw'>bci</span><span class='kw'>::</span><span class='no'>bci12full7</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>100</span>)
-  <span class='no'>a_few_species</span> <span class='kw'>=</span> <span class='fu'>c</span>(
-    <span class='st'>'termam'</span>,
-    <span class='st'>'tachve'</span>,
-    <span class='st'>'pri2co'</span>,
-    <span class='st'>'gustsu'</span>,
-    <span class='st'>'cecrin'</span>,
-    <span class='st'>'tet2pa'</span>,
-    <span class='st'>'guatdu'</span>,
-    <span class='st'>'vochfe'</span>,
-    <span class='st'>'virose'</span>,
-    <span class='st'>'maquco'</span>
-  )
-  <span class='no'>gtable</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='no'>gtable</span>, !<span class='fu'>is.na</span>(<span class='no'>incgr</span>) <span class='kw'>&amp;</span> <span class='no'>sp</span> <span class='kw'>%in%</span> <span class='no'>a_few_species</span>)
-  <span class='no'>mod</span> <span class='kw'>=</span> <span class='fu'>lmerBayes</span>(
-    <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>gtable</span>,
-    <span class='kw'>ycol</span> <span class='kw'>=</span> <span class='st'>'incgr'</span>,
-    <span class='kw'>xcol</span> <span class='kw'>=</span> <span class='st'>'dbh1'</span>,
-    <span class='kw'>randcol</span> <span class='kw'>=</span> <span class='st'>'sp'</span>,
-    <span class='kw'>start</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>0</span>),
-    <span class='kw'>startSD</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-    <span class='kw'>startCov</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-    <span class='kw'>model</span> <span class='kw'>=</span> <span class='no'>linear.model</span>,
-    <span class='kw'>error</span> <span class='kw'>=</span> <span class='st'>'Gauss'</span>,
-    <span class='kw'>includeCovar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-    <span class='kw'>badSDparam</span> <span class='kw'>=</span> <span class='no'>badSD</span>,
-    <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>1100</span>,
-    <span class='kw'>showstep</span> <span class='kw'>=</span> <span class='fl'>50</span>,
-    <span class='kw'>burnin</span> <span class='kw'>=</span> <span class='fl'>100</span>
-  )
-  <span class='no'>mod</span>$<span class='no'>bestmu</span>
-  <span class='fu'>diag</span>(<span class='fu'>sqrt</span>(<span class='no'>mod</span>$<span class='no'>bestsigma</span>))
-  <span class='no'>mod</span>$<span class='no'>best</span>
-  <span class='fu'>names</span>(<span class='no'>mod</span>)
-})</div></pre>
+<span class='no'>gtable</span> <span class='kw'>=</span> <span class='fu'><a href='growth.indiv.html'>growth.indiv</a></span>(<span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full6</span>, <span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full7</span>, <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+<span class='no'>a_few_species</span> <span class='kw'>=</span> <span class='fu'>c</span>(
+  <span class='st'>'termam'</span>,
+  <span class='st'>'tachve'</span>,
+  <span class='st'>'pri2co'</span>,
+  <span class='st'>'gustsu'</span>,
+  <span class='st'>'cecrin'</span>,
+  <span class='st'>'tet2pa'</span>,
+  <span class='st'>'guatdu'</span>,
+  <span class='st'>'vochfe'</span>,
+  <span class='st'>'virose'</span>,
+  <span class='st'>'maquco'</span>
+)
+<span class='no'>gtable</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='no'>gtable</span>, !<span class='fu'>is.na</span>(<span class='no'>incgr</span>) <span class='kw'>&amp;</span> <span class='no'>sp</span> <span class='kw'>%in%</span> <span class='no'>a_few_species</span>)
+<span class='no'>mod</span> <span class='kw'>=</span> <span class='fu'>lmerBayes</span>(
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>gtable</span>,
+  <span class='kw'>ycol</span> <span class='kw'>=</span> <span class='st'>'incgr'</span>,
+  <span class='kw'>xcol</span> <span class='kw'>=</span> <span class='st'>'dbh1'</span>,
+  <span class='kw'>randcol</span> <span class='kw'>=</span> <span class='st'>'sp'</span>,
+  <span class='kw'>start</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>0</span>),
+  <span class='kw'>startSD</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>startCov</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>model</span> <span class='kw'>=</span> <span class='no'>linear.model</span>,
+  <span class='kw'>error</span> <span class='kw'>=</span> <span class='st'>'Gauss'</span>,
+  <span class='kw'>includeCovar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>badSDparam</span> <span class='kw'>=</span> <span class='no'>badSD</span>,
+  <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>1100</span>,
+  <span class='kw'>showstep</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>burnin</span> <span class='kw'>=</span> <span class='fl'>100</span>
+)
+<span class='no'>mod</span>$<span class='no'>bestmu</span>
+<span class='fu'>diag</span>(<span class='fu'>sqrt</span>(<span class='no'>mod</span>$<span class='no'>bestsigma</span>))
+<span class='no'>mod</span>$<span class='no'>best</span>
+<span class='fu'>names</span>(<span class='no'>mod</span>)
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -366,7 +365,7 @@ random effect.</p></li>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao, Kyle Harms, Mauro Lepore, CTFS-ForestGEO.</p>
+  <p>Developed by Rick Condit, Pamela Hall, Suzanne Lao.</p>
 </div>
 
 <div class="pkgdown">
