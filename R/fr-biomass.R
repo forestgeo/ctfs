@@ -21,9 +21,9 @@
 #' @examples
 #' wsgdata_dummy(bciex::bci12s7mini)
 wsgdata_dummy <- function(censdata, plot = "bci") {
-  assertive::assert_any_are_matching_regex(names(censdata), "^sp$")
-  assertive::assert_is_of_length(plot, 1)
-  assertive::assert_is_character(plot)
+  stopifnot(any(grepl("^sp$", names(censdata))))
+  stopifnot(length(plot) == 1)
+  stopifnot(is.character(plot))
   data.frame(
     sp = unique(censdata$sp), 
     plot = plot, 
