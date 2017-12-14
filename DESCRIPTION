@@ -42,7 +42,6 @@ Suggests:
     purrr,
     readr,
     rmarkdown,
-    sig,
     stringr,
     testthat,
     tibble,
