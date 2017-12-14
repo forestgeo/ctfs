@@ -19,7 +19,7 @@
 #' @export
 #'
 #' @examples
-#' wsgdata_dummy(bci::bci12stem1)
+#' wsgdata_dummy(bciex::bci12s7mini)
 wsgdata_dummy <- function(censdata, plot = "bci") {
   assertive::assert_any_are_matching_regex(names(censdata), "^sp$")
   assertive::assert_is_of_length(plot, 1)
