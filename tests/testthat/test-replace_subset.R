@@ -23,36 +23,39 @@ test_that("extract.growthdata outputs the same before and after fix", {
   expect_equal_to_reference(actual, "ref_extract_growthdata_old.rds")
 })
 
-test_that("lmerBayes outputs the same before and after fix", {
-  library(MCMCpack)
-  library(mvtnorm)
-
-  gtable <- growth.indiv(bciex::bci12t1mini, bciex::bci12t7mini, mindbh = 100)
-  a_few_species <- c('termam', 'tachve', 'pri2co', 'gustsu', 'cecrin', 'tet2pa',
-    'guatdu', 'vochfe', 'virose', 'maquco')
-  gtable <- subset(gtable, !is.na(incgr) & sp %in% a_few_species)
-  
-  actual <- lmerBayes(
-    data = gtable,
-    ycol = 'incgr',
-    xcol = 'dbh1',
-    randcol = 'sp',
-    start = c(1, 0),
-    startSD = 1,
-    startCov = 1,
-    model = linear.model,
-    error = 'Gauss',
-    includeCovar = FALSE,
-    badSDparam = badSD,
-    steps = 500,     # low to save time
-    showstep = 500,  # low to save time
-    burnin = 100
-  )
-  expect_type(actual, "list")
-  # Check only names are equal to reference. Bayesian approach means model
-  # output will change each time, so can't check against the full object
-  expect_equal_to_reference(names(actual), "ref_lmerBayes_nms.rds")
-})
+# # Dissabling test becaue package bci is (intentionally) no longer available.
+# # bci is too large, and its lighter verison -- bciex -- is has data that is 
+# # (1) too small, and (2) not the one with which the reference was built.
+# test_that("lmerBayes outputs the same before and after fix", {
+#   library(MCMCpack)
+#   library(mvtnorm)
+# 
+#   gtable <- growth.indiv(bci::bci12full1, bci::bci12full7, mindbh = 100)
+#   a_few_species <- c('termam', 'tachve', 'pri2co', 'gustsu', 'cecrin', 'tet2pa',
+#     'guatdu', 'vochfe', 'virose', 'maquco')
+#   gtable <- subset(gtable, !is.na(incgr) & sp %in% a_few_species)
+#   
+#   actual <- lmerBayes(
+#     data = gtable,
+#     ycol = 'incgr',
+#     xcol = 'dbh1',
+#     randcol = 'sp',
+#     start = c(1, 0),
+#     startSD = 1,
+#     startCov = 1,
+#     model = linear.model,
+#     error = 'Gauss',
+#     includeCovar = FALSE,
+#     badSDparam = badSD,
+#     steps = 500,     # low to save time
+#     showstep = 500,  # low to save time
+#     burnin = 100
+#   )
+#   expect_type(actual, "list")
+#   # Check only names are equal to reference. Bayesian approach means model
+#   # output will change each time, so can't check against the full object
+#   expect_equal_to_reference(names(actual), "ref_lmerBayes_nms.rds")
+# })
 
 test_that("allquadratslopes outputs the same before and after fix", {
   # The input to elev is very specific, so it needs tweaking
