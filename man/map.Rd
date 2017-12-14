@@ -23,7 +23,7 @@ map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
 \item{spplist}{A table with species codes and Latin names can be submitted as
 well, so that the full genus-species is added to plot. This must have
 species codes as row names. It should be the CTFS R format species table
-(eg, bci::bci12spptable). It can be set to NULL if not available, then only the
+(eg, bciex::bci_species). It can be set to NULL if not available, then only the
 species code (as submitted) appears on the map.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
@@ -134,14 +134,14 @@ CTFSplot(plot = 'bci',
 
 CTFSplot(plot = 'bci', census = 6)
 
-bci::bci12split6 = split_data(censdata = bci::bci12full6, splitcol = 'sp')
+split6 = split_data(censdata = bciex::bci12t6mini, splitcol = 'sp')
 
 nospp = length(species)
 
-map(splitdatafile = bci::bci12split6, species = 'poular')
+map(splitdatafile = split6, species = 'poular')
 
 map(
-  splitdatafile = bci::bci12split6,
+  splitdatafile = split6,
   species = 'poular',
   export = 'pdf',
   filepath = '~/data/maps/',
@@ -151,7 +151,7 @@ map(
   wd = 11
 )
 
-map(splitdatafile = bci::bci12split6,
+map(splitdatafile = split6,
   species = c('guatdu', 'poular'))
 }
 

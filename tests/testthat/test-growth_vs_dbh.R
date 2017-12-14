@@ -1,8 +1,8 @@
 context("functions work in tutorial growth vs dbh")
 
 test_that("extract.growthdata works with minimum arguments", {
-  cns1 <- bci::bci12full1
-  cns2 <- bci::bci12full2
+  cns1 <- bciex::bci12t1mini
+  cns2 <- bciex::bci12t2mini
   actual <- extract.growthdata(cns1, cns2)
   expect_true(is.data.frame(actual))
   expect_equal_to_reference(actual, "ref_extract_growthdata.rds")

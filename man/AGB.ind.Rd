@@ -36,7 +36,7 @@ tropical forest types.
 }
 \examples{
 \dontrun{
-biomass <- AGB.ind(df = bci::bci12full1)
+biomass <- AGB.ind(df = bciex::bci12t1mini)
 hist(log(biomass), breaks = 100)
 sum(biomass, na.rm = TRUE) / 50
 }

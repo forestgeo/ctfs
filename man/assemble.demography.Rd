@@ -31,14 +31,14 @@ categories are included.
 \dontrun{
 
 data = pop.change(
-  bci::bci12full5, bci::bci12full6, 
-  split1 = bci::bci12full5$sp
+  bciex::bci12t5mini, bciex::bci12t6mini, 
+  split1 = bciex::bci12t5mini$sp
 )
 result = assemble.demography(data, type = 'a', whichdbhcat = 1)
-data = growth(bci::bci12full5, bci::bci12full6, split1 = bci::bci12full5$sp)
+data = growth(bciex::bci12t5mini, bciex::bci12t6mini, split1 = bciex::bci12t5mini$sp)
 result = assemble.demography(data, type = 'g', whichdbhcat = 1)
 data = mortality.eachspp(
-  bci::bci12full5, bci::bci12full6, 
+  bciex::bci12t5mini, bciex::bci12t6mini, 
   classbreak = c(10, 100)
 )
 result1 = assemble.demography(data, type = 'm', whichdbhcat = 1)

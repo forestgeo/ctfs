@@ -53,12 +53,12 @@ the stem or full table to count stems or trees, respectively.
 CTFSplot('bci',5:6,'full')
 
 CTFSplot('bci',5:6,'stem')
-total=abundance(bci::bci12full5,mindbh=10)
+total=abundance(bciex::bci12t5mini,mindbh=10)
 total$abund
 total$meandate
-totalstem=abundance(bci::bci12stem5,mindbh=10)
+totalstem=abundance(bciex::bci12s5mini,mindbh=10)
 
-BAperSpecies=abundance(bci::bci12stem5,type='ba',mindbh=10,split1=bci::bci12stem5$sp)
+BAperSpecies=abundance(bciex::bci12s5mini,type='ba',mindbh=10,split1=bciex::bci12s5mini$sp)
 head(BAperSpecies$ba)
 head(BAperSpecies$meandate)}
 

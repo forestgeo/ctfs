@@ -45,7 +45,7 @@ species and stems per quadrat, etc.
 \examples{
 \dontrun{
 Nperquad = abundanceperquad(
-  bci::bci12full6,
+  bciex::bci12t6mini,
   plotdim = c(1000, 500),
   gridsize = 100,
   type = 'abund'

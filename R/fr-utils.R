@@ -27,9 +27,9 @@
 #' is_na_row(df)
 
 is_na_row <- function(.data) {
-  assertive::assert_is_non_empty(.data)
-  assertive::assert_any_are_true(
-    c(is.matrix(.data), is.data.frame(.data))
+  stopifnot(length(.data) > 0)
+  stopifnot(
+    any(is.matrix(.data) || is.data.frame(.data))
   )
   is_na_vector <- function(x) all(is.na(x))
   apply(.data, 1, is_na_vector)
@@ -53,9 +53,10 @@ is_na_row <- function(.data) {
 #' )
 #' rm_na_row(df)
 rm_na_row <- function(.data) {
-  assertive::assert_is_non_empty(.data)
-  assertive::assert_any_are_true(
-    c(is.matrix(.data), is.data.frame(.data))
+  
+  stopifnot(length(.data) > 0)
+  stopifnot(
+    any(is.matrix(.data) || is.data.frame(.data))
   )
   .data[!is_na_row(.data), ]
 }

@@ -43,7 +43,7 @@ using quadrat indexation from CTFS package.
 \examples{
 \dontrun{
 wavelet.variances = wavelet.allsp(
-  censdata = bci::bci12full1, 
+  censdata = bciex::bci12t1mini, 
   plotdim = c(1000, 500)
 )
 }

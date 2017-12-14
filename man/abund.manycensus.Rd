@@ -33,7 +33,7 @@ Collect abundances of all species across several censuses.
 \dontrun{
 N = abund.manycensus(
   allcns = list(
-    bci::bci12full1, bci::bci12full2, bci::bci12full3, bci::bci12full4
+    bciex::bci12t1mini, bciex::bci12t2mini, bciex::bci12t3mini, bciex::bci12t4mini
   ),
   mindbh = 10,
   type = 'abund',
@@ -45,7 +45,7 @@ colSums(N)
 apply(N,2,countspp)
 
 N = abund.manycensus(
-  allcns = list(bci::bci12full5, bci::bci12full6),
+  allcns = list(bciex::bci12t5mini, bciex::bci12t6mini),
   mindbh = 10,
   type = 'abund',
   excludespp = c('uniden', 'tremxx'),

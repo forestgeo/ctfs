@@ -9,7 +9,7 @@
 # Here is a case where the problem arises (this code lives inside
 # `ctfs::split_data()`):
 
-censdata = bci::bci12full1
+censdata = bciex::bci12t1mini
 splitcol = "sp"
 keepsplitcol = FALSE
 allsplit = NULL

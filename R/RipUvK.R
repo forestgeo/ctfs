@@ -59,10 +59,10 @@
 #' # Otherwise start with a standard R Analytical Table (could be stem also):
 #'
 #' CTFSplot("bci",6,type="full")
-#' bci::bci12split6=split_data(bci::bci12full6)
+#' split6=split_data(bciex::bci12t6mini)
 #' # A quick test, run on only the first 10 species:
 #' rip = RipUvK(
-#'   splitdata = bci::bci12split6[1:10],
+#'   splitdata = split6[1:10],
 #'   plotdim = c(1000, 500),
 #'   rseq = c(10, 20, 30, 40, 50, 60),
 #'   mindbh = 10,
@@ -71,7 +71,7 @@
 #' )
 #' # All the species (takes several minutes):
 #' rip = RipUvK(
-#'   splitdata = bci::bci12split6,
+#'   splitdata = split6,
 #'   plotdim = c(1000, 500),
 #'   rseq = c(10, 20, 30, 40, 50, 60),
 #'   mindbh = 10,

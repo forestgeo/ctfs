@@ -31,7 +31,7 @@
 #' @examples
 #' \dontrun{
 #' wavelet.variances = wavelet.allsp(
-#'   censdata = bci::bci12full1, 
+#'   censdata = bciex::bci12t1mini, 
 #'   plotdim = c(1000, 500)
 #' )
 #' }
@@ -78,7 +78,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' onesp = subset(bci::bci12full1, sp == "rinosy")  
+#' onesp = subset(bciex::bci12t1mini, sp == "rinosy")  
 #'
 #' # plots the density of the sp in the plot  
 #' rast1 = rasterize(
@@ -143,7 +143,7 @@
 #'   plotdim = c(100, 500),
 #'   graph = TRUE)
 #' wv = wavelet.univariate(
-#'   coords = bci::bci12full1[, c("gx", "gy")],
+#'   coords = bciex::bci12t1mini[, c("gx", "gy")],
 #'   k0 = 8,
 #'   dj = 0.15,
 #'   graph = TRUE
@@ -212,8 +212,8 @@
 #'
 #' @examples
 #' \dontrun{
-#' sp.one = subset(bci::bci12full7, sp == "quaras")[, c("gx", "gy")]
-#' sp.two = subsetbci::bci12full7, sp == "cordal")[, c("gx", "gy")]
+#' sp.one = subset(bciex::bci12t7mini, sp == "quaras")[, c("gx", "gy")]
+#' sp.two = subset(bciex::bci12t7mini, sp == "cordal")[, c("gx", "gy")]
 #' wv = wavelet.bivariate(
 #'   coords = sp.one,
 #'   coords2 = sp.two,

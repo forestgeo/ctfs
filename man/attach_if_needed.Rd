@@ -8,8 +8,8 @@ attach_if_needed(datafiles)
 }
 \description{
 Deprecated. See section \emph{Good practice} in \code{?attach}. To use <DATA> from BCI
-with bci::<DATA>, see
-\url{https://github.com/forestgeo/bci}.
+with bciex::<DATA>, see
+\url{https://github.com/forestgeo/bciex}.
 }
 \details{
 Attach one or more datafiles, checking first whether the file is already

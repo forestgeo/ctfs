@@ -562,8 +562,8 @@
 #' Deprecated. See section _Good practice_ in `?attach`. To use <DATA>...
 #'
 #' Deprecated. See section _Good practice_ in `?attach`. To use <DATA> from BCI
-#' with bci::<DATA>, see 
-#' [https://github.com/forestgeo/bci](https://github.com/forestgeo/bci).
+#' with bciex::<DATA>, see 
+#' [https://github.com/forestgeo/bciex](https://github.com/forestgeo/bciex).
 #' 
 #' Attach one or more datafiles, checking first whether the file is already
 #' attached. If it is attached, it is not reattached, and the search position

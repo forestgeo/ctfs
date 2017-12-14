@@ -56,8 +56,8 @@
 #' CTFSplot("bci","stem",census=1) 
 #' attach("biomass/wsg.ctfs.Rdata") 
 #' newtable = biomass.CTFSdb(
-#'   RStemTable = bci::bci12stem1, 
-#'   RTreeTable = bci::bci12full1
+#'   RStemTable = bciex::bci12s1mini, 
+#'   RTreeTable = bciex::bci12t1mini
 #' )
 #' }
 #'
@@ -99,7 +99,7 @@
 #' 
 #' @examples
 #' \dontrun{
-#' wooddens = density_ind(df = bci::bci12full1,
+#' wooddens = density_ind(df = bciex::bci12t1mini,
 #'   plot = "bci",
 #'   wsg = wsg.ctfs2
 #' )
@@ -133,7 +133,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' biomass <- AGB.ind(df = bci::bci12full1)
+#' biomass <- AGB.ind(df = bciex::bci12t1mini)
 #' hist(log(biomass), breaks = 100)
 #' sum(biomass, na.rm = TRUE) / 50
 #' }
@@ -161,8 +161,8 @@
 #' biomass for CTFS R tables.
 #' @examples 
 #' \dontrun{
-#' biomasstbl = AGB.tree(df = bci::bci12stem1)
-#' dim(bci::bci12stem1)
+#' biomasstbl = AGB.tree(df = bciex::bci12s1mini)
+#' dim(bciex::bci12s1mini)
 #' dim(biomasstbl)
 #' head(biomasstbl)
 #' }
@@ -328,10 +328,10 @@
 #'
 #' CTFSplot("bci", "full", census = c(3, 7))
 #'
-#' deltaAGB = biomass.change(bci::bci12full3, bci::bci12full7)
+#' deltaAGB = biomass.change(bciex::bci12t3mini, bciex::bci12t7mini)
 #'
 #' deltaAGB.spp = biomass.change(
-#'   bci::bci12full3, bci::bci12full7, split1 = bci::bci12full3$sp
+#'   bciex::bci12t3mini, bciex::bci12t7mini, split1 = bciex::bci12t3mini$sp
 #' )
 #'
 #' deltaAGB.table = assemble.demography(deltaAGB.spp, type = "a") 

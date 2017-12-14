@@ -45,7 +45,7 @@ density_ind.
 }
 \examples{
 \dontrun{
-wooddens = density_ind(df = bci::bci12full1,
+wooddens = density_ind(df = bciex::bci12t1mini,
   plot = "bci",
   wsg = wsg.ctfs2
 )

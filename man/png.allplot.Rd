@@ -14,7 +14,7 @@ png.allplot(splitdata = bci.split6, spplist = plotspp$bci,
 \item{spplist}{A table with species codes and Latin names can be submitted as
 well, so that the full genus-species is added to plot. This must have
 species codes as row names. It should be the CTFS R format species table
-(eg, bci::bci12spptable). It can be set to NULL if not available, then only the
+(eg, bciex::bci_species). It can be set to NULL if not available, then only the
 species code (as submitted) appears on the map.}
 
 \item{plotdim}{The x and y dimensions of the plot.}

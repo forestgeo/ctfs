@@ -39,12 +39,12 @@
 #' CTFSplot('bci',5:6,'full')
 #'
 #' CTFSplot('bci',5:6,'stem')
-#' total=abundance(bci::bci12full5,mindbh=10)
+#' total=abundance(bciex::bci12t5mini,mindbh=10)
 #' total$abund
 #' total$meandate
-#' totalstem=abundance(bci::bci12stem5,mindbh=10)
+#' totalstem=abundance(bciex::bci12s5mini,mindbh=10)
 #'
-#' BAperSpecies=abundance(bci::bci12stem5,type='ba',mindbh=10,split1=bci::bci12stem5$sp)
+#' BAperSpecies=abundance(bciex::bci12s5mini,type='ba',mindbh=10,split1=bciex::bci12s5mini$sp)
 #' head(BAperSpecies$ba)
 #' head(BAperSpecies$meandate)}
 #'
@@ -79,7 +79,7 @@
 #' @examples
 #' \dontrun{
 #' Nperquad = abundanceperquad(
-#'   bci::bci12full6,
+#'   bciex::bci12t6mini,
 #'   plotdim = c(1000, 500),
 #'   gridsize = 100,
 #'   type = 'abund'
@@ -149,10 +149,10 @@
 #' @examples
 #' \dontrun{
 #' bcichange = pop.change(
-#'   bci::bci12full5,
-#'   bci::bci12full6,
+#'   bciex::bci12t5mini,
+#'   bciex::bci12t6mini,
 #'   type = 'abund',
-#'   split1 = bci::bci12full5$sp,
+#'   split1 = bciex::bci12t5mini$sp,
 #'   mindbh = 10
 #' )
 #' str(bcichange)
@@ -192,14 +192,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' Nchange = pop.change.dbh(bci::bci12full5, bci::bci12full6, classbreak = c(10, 100, 300))
+#' Nchange = pop.change.dbh(bciex::bci12t5mini, bciex::bci12t6mini, classbreak = c(10, 100, 300))
 #' Nchange$abund
 #'
 #' BAchangePerSpp <- pop.change.dbh(
-#'   bci::bci12full5,
-#'   bci::bci12full6,
+#'   bciex::bci12t5mini,
+#'   bciex::bci12t6mini,
 #'   classbreak = c(10, 100),
-#'   split = bci::bci12full5$sp
+#'   split = bciex::bci12t5mini$sp
 #' )
 #' head(BAchangePerSpp$ba)}
 #'
@@ -246,7 +246,7 @@
 #' \dontrun{
 #' N = abund.manycensus(
 #'   allcns = list(
-#'     bci::bci12full1, bci::bci12full2, bci::bci12full3, bci::bci12full4
+#'     bciex::bci12t1mini, bciex::bci12t2mini, bciex::bci12t3mini, bciex::bci12t4mini
 #'   ),
 #'   mindbh = 10,
 #'   type = 'abund',
@@ -258,7 +258,7 @@
 #' apply(N,2,countspp)
 #'
 #' N = abund.manycensus(
-#'   allcns = list(bci::bci12full5, bci::bci12full6),
+#'   allcns = list(bciex::bci12t5mini, bciex::bci12t6mini),
 #'   mindbh = 10,
 #'   type = 'abund',
 #'   excludespp = c('uniden', 'tremxx'),

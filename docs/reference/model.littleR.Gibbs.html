@@ -57,7 +57,24 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="../news/index.html">News</a>
+</li>
+<li>
+  <a href="https://github.com/maurolepore">
+    <span class="fa fa-gavel"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/forestgeo/ctfs">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://forestgeo.github.io/fgeo/">fgeo</a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -182,8 +199,8 @@ modeltype asympower, must be bad.asympower.param</p></td>
 
 <span class='co'># Alternate distributions for little r:</span>
 <span class='no'>power67</span> <span class='kw'>=</span> <span class='fu'>model.littleR.Gibbs</span>(
-  <span class='kw'>cns1</span> <span class='kw'>=</span> <span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full6</span>,
-  <span class='kw'>cns2</span> <span class='kw'>=</span> <span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full7</span>,
+  <span class='kw'>cns1</span> <span class='kw'>=</span> <span class='kw pkg'>bciex</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/bciex/topics/bciYYtNmini'>bci12t6mini</a></span>,
+  <span class='kw'>cns2</span> <span class='kw'>=</span> <span class='kw pkg'>bciex</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/bciex/topics/bciYYtNmini'>bci12t7mini</a></span>,
   <span class='kw'>modeltype</span> <span class='kw'>=</span> <span class='st'>'asympower'</span>,
   <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>,
   <span class='kw'>start.param</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>3</span>, <span class='fl'>.8</span>, <span class='fl'>.01</span>, -<span class='fl'>.5</span>),
@@ -191,8 +208,8 @@ modeltype asympower, must be bad.asympower.param</p></td>
   <span class='kw'>showstep</span> <span class='kw'>=</span> <span class='fl'>25</span>
 )
 <span class='no'>gauss67</span> <span class='kw'>=</span> <span class='fu'>model.littleR.Gibbs</span>(
-  <span class='kw'>cns1</span> <span class='kw'>=</span> <span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full6</span>,
-  <span class='kw'>cns2</span> <span class='kw'>=</span> <span class='kw pkg'>bci</span><span class='kw ns'>::</span><span class='no'>bci12full7</span>,
+  <span class='kw'>cns1</span> <span class='kw'>=</span> <span class='kw pkg'>bciex</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/bciex/topics/bciYYtNmini'>bci12t6mini</a></span>,
+  <span class='kw'>cns2</span> <span class='kw'>=</span> <span class='kw pkg'>bciex</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/bciex/topics/bciYYtNmini'>bci12t7mini</a></span>,
   <span class='kw'>modeltype</span> <span class='kw'>=</span> <span class='st'>'asymnorm'</span>,
   <span class='kw'>mindbh</span> <span class='kw'>=</span> <span class='fl'>10</span>,
   <span class='kw'>start.param</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>3</span>, <span class='fl'>.8</span>, <span class='fl'>.01</span>, <span class='fl'>100</span>),

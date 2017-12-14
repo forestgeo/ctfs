@@ -36,7 +36,7 @@ quadrats of variable sizes.
 }
 \examples{
 \dontrun{
-onesp = subset(bci::bci12full1, sp == "rinosy")  
+onesp = subset(bciex::bci12t1mini, sp == "rinosy")  
 
 # plots the density of the sp in the plot  
 rast1 = rasterize(

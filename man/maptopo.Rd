@@ -11,7 +11,7 @@ maptopo(elevmat, plotdim, add = FALSE, new = FALSE, export = "no",
   bgcolor = "transparent")
 }
 \arguments{
-\item{elevmat}{Matrix of elevation data (see ?\link[bci:bci_elevation]{bci::bci_elevation}).}
+\item{elevmat}{Matrix of elevation data (see ?\link[bciex:bci_elevation]{bciex::bci_elevation}).}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
@@ -74,5 +74,5 @@ dimensions are not needed, instead it calculates them from elevmat and the
 gridsize.
 }
 \seealso{
-\code{\link[=map]{map()}}, \link[bci:bci_elevation]{bci::bci_elevation}.
+\code{\link[=map]{map()}}, \link[bciex:bci_elevation]{bciex::bci_elevation}.
 }

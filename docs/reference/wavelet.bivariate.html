@@ -57,7 +57,24 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="../news/index.html">News</a>
+</li>
+<li>
+  <a href="https://github.com/maurolepore">
+    <span class="fa fa-gavel"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/forestgeo/ctfs">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://forestgeo.github.io/fgeo/">fgeo</a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -165,20 +182,19 @@ is with a comment.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"># NOT RUN {
-sp.one = subset(bci::bci12full7, sp == "quaras")[, c("gx", "gy")]
-sp.two = subsetbci::bci12full7, sp == "cordal")[, c("gx", "gy")]
-wv = wavelet.bivariate(
-  coords = sp.one,
-  coords2 = sp.two,
-  #' type = 'point',  # dissabled because it errs, see section Warning
-  k0 = 8,
-  dj = 0.15,
-  graph = TRUE
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>sp.one</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='kw pkg'>bciex</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/bciex/topics/bciYYtNmini'>bci12t7mini</a></span>, <span class='no'>sp</span> <span class='kw'>==</span> <span class='st'>"quaras"</span>)[, <span class='fu'>c</span>(<span class='st'>"gx"</span>, <span class='st'>"gy"</span>)]
+<span class='no'>sp.two</span> <span class='kw'>=</span> <span class='fu'>subset</span>(<span class='kw pkg'>bciex</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/bciex/topics/bciYYtNmini'>bci12t7mini</a></span>, <span class='no'>sp</span> <span class='kw'>==</span> <span class='st'>"cordal"</span>)[, <span class='fu'>c</span>(<span class='st'>"gx"</span>, <span class='st'>"gy"</span>)]
+<span class='no'>wv</span> <span class='kw'>=</span> <span class='fu'>wavelet.bivariate</span>(
+  <span class='kw'>coords</span> <span class='kw'>=</span> <span class='no'>sp.one</span>,
+  <span class='kw'>coords2</span> <span class='kw'>=</span> <span class='no'>sp.two</span>,
+  <span class='co'>#' type = 'point',  # dissabled because it errs, see section Warning</span>
+  <span class='kw'>k0</span> <span class='kw'>=</span> <span class='fl'>8</span>,
+  <span class='kw'>dj</span> <span class='kw'>=</span> <span class='fl'>0.15</span>,
+  <span class='kw'>graph</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )
-# plots the scale of aggregation
-# }
-<div class='input'>
+<span class='co'># plots the scale of aggregation</span>
+<span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

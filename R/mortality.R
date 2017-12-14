@@ -42,11 +42,11 @@
 #' \dontrun{
 #'
 #' CTFSplot("bci", 56)
-#' mort.data = mortality(bci::bci12full5, bci::bci12full6)
+#' mort.data = mortality(bciex::bci12t5mini, bciex::bci12t6mini)
 #' mort.data$rate
 #' mort.data = growth(
-#'   bci::bci12full5, bci::bci12full6, 
-#'   split1 = bci::bci12full5$sp
+#'   bciex::bci12t5mini, bciex::bci12t6mini, 
+#'   split1 = bciex::bci12t5mini$sp
 #' )
 #' mort.data$rate
 #' assemble.demography(mort.data, type = 'm')
@@ -70,7 +70,7 @@
 #' @examples
 #' \dontrun{
 #' CTFSplot("bci", 5:6)
-#' mort.data = mortality.eachspp(bci::bci12full5, bci::bci12full6)
+#' mort.data = mortality.eachspp(bciex::bci12t5mini, bciex::bci12t6mini)
 #' mort.table1 = assemble.demography(mort.data, type = "m", whichdbhcat = 1)
 #' mort.table2 = assemble.demography(mort.data, type = "m", whichdbhcat = 2)
 #' mort.table3 = assemble.demography(mort.data, type = "m", whichdbhcat = 3)

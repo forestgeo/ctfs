@@ -64,8 +64,8 @@
 #'
 #' # Alternate distributions for little r:
 #' power67 = model.littleR.Gibbs(
-#'   cns1 = bci::bci12full6,
-#'   cns2 = bci::bci12full7,
+#'   cns1 = bciex::bci12t6mini,
+#'   cns2 = bciex::bci12t7mini,
 #'   modeltype = 'asympower',
 #'   mindbh = 10,
 #'   start.param = c(-3, .8, .01, -.5),
@@ -73,8 +73,8 @@
 #'   showstep = 25
 #' )
 #' gauss67 = model.littleR.Gibbs(
-#'   cns1 = bci::bci12full6,
-#'   cns2 = bci::bci12full7,
+#'   cns1 = bciex::bci12t6mini,
+#'   cns2 = bciex::bci12t7mini,
 #'   modeltype = 'asymnorm',
 #'   mindbh = 10,
 #'   start.param = c(-3, .8, .01, 100),

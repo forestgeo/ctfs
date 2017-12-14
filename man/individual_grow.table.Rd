@@ -10,7 +10,7 @@ individual_grow.table(cnsdata, powertransformation = 0.45, rnd = c(FALSE,
 }
 \arguments{
 \item{cnsdata}{A list of census data sets, for example:
-\code{list(bci::bci12full1, bci::bci12full2, bci::bci12full3)}.}
+\code{list(bciex::bci12t1mini, bciex::bci12t2mini, bciex::bci12t3mini)}.}
 
 \item{rnd}{used to rounddown dbhs for certain intervals. This argument
 indicates that dbhs < 50 mm are rounded down to 5-mm, necessary because

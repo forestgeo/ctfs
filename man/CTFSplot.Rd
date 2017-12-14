@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilitiesCTFS.R
 \name{CTFSplot}
 \alias{CTFSplot}
-\title{Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> ...}
+\title{Deprecated. Use <DATA> from Barro Colorado Island with bciex::<DATA> ...}
 \usage{
 CTFSplot(plot, census = 1, type = "full", path = "CTFSRPackage",
   remove = FALSE, includespp = TRUE)
@@ -24,8 +24,8 @@ to CTFSRPackage}
 \item{includespp}{can be set to FALSE if the species table is not available}
 }
 \description{
-Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> (see
-\url{https://github.com/forestgeo/bci}).
+Deprecated. Use <DATA> from Barro Colorado Island with bciex::<DATA> (see
+\url{https://github.com/forestgeo/bciex}).
 }
 \details{
 A convenience for attaching the R Analytical Tables, including the species

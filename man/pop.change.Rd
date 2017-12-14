@@ -68,10 +68,10 @@ date equal to the date on which their quadrat was censused
 \examples{
 \dontrun{
 bcichange = pop.change(
-  bci::bci12full5,
-  bci::bci12full6,
+  bciex::bci12t5mini,
+  bciex::bci12t6mini,
   type = 'abund',
-  split1 = bci::bci12full5$sp,
+  split1 = bciex::bci12t5mini$sp,
   mindbh = 10
 )
 str(bcichange)

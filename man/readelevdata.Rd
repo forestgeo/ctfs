@@ -15,7 +15,7 @@ bcielev.info.}
 \item{text}{Logical. Defaults to read from a datatrame. Set to TRUE to read a
 text table.
 
-@seealso \link[bci:bci_elevation]{bci::bci_elevation}.}
+@seealso \link[bciex:bci_elevation]{bciex::bci_elevation}.}
 }
 \value{
 A matrix, as needed for R's contour function.

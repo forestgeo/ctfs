@@ -73,17 +73,17 @@ replicates is the number of random draws per dimension.
 \examples{
 \dontrun{
 speciesPerArea = spparea.sq(
-  bci::bci12full6,
+  bciex::bci12t6mini,
   size = c(10, 20, 50),
   mindbh = 10,
   plotdim = c(1000, 500),
   replicates = 5,
   unidennames = c('unid')
 )
-rowmatch = match(bci::bci12full6$sp, bci::bci12spptable$sp)
-bci::bci12full6$Genus = bci::bci12spptable$Genus[rowmatch]
+rowmatch = match(bciex::bci12t6mini$sp, bciex::bci_species$sp)
+bciex::bci12t6mini$Genus = bciex::bci_species$Genus[rowmatch]
 genusPerArea = spparea.sq(
-  bci::bci12full6,
+  bciex::bci12t6mini,
   spcolumn = 'Genus',
   size = c(10, 20, 50),
   mindbh = 10,

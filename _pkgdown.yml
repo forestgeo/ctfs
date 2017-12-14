@@ -1,8 +1,14 @@
+url: https://forestgeo.github.io/ctfs/
+
+authors:
+  Mauro Lepore:
+    href: https://github.com/maurolepore
+  CTFS-ForestGEO:
+    href: http://www.forestgeo.si.edu/
+
 template:
   params:
     bootswatch: united
-
-
 
 home:
   links:
@@ -12,10 +18,25 @@ home:
 
 
 navbar:
+  
   type: default
+
   left:
     - text: Functions Index
       href: reference/index.html
+  
+  right:
+    - text: News
+      href: news/index.html
+  
+    - icon: fa-gavel
+      href: https://github.com/maurolepore
+  
+    - icon: fa-github
+      href: https://github.com/forestgeo/ctfs
+  
+    - text: fgeo
+      href: https://forestgeo.github.io/fgeo/
 
 
 

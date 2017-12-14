@@ -31,7 +31,7 @@ then uses mortality to do the calculation.
 \examples{
 \dontrun{
 CTFSplot("bci", 5:6)
-mort.data = mortality.eachspp(bci::bci12full5, bci::bci12full6)
+mort.data = mortality.eachspp(bciex::bci12t5mini, bciex::bci12t6mini)
 mort.table1 = assemble.demography(mort.data, type = "m", whichdbhcat = 1)
 mort.table2 = assemble.demography(mort.data, type = "m", whichdbhcat = 2)
 mort.table3 = assemble.demography(mort.data, type = "m", whichdbhcat = 3)

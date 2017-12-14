@@ -7,7 +7,7 @@
 wsgdata_dummy(censdata, plot = "bci")
 }
 \arguments{
-\item{censdata}{Census data, e.g. \code{bci::bci12full1}.}
+\item{censdata}{Census data, e.g. \code{bciex::bci12t1mini}.}
 
 \item{plot}{Character string giving the name of the plot where the data comes
 from (as it appears in the names of the R Analytical Tables).}
@@ -30,5 +30,5 @@ called wsg (though the name of that column can be changed using the argument
 denscol)"}.
 }
 \examples{
-wsgdata_dummy(bci::bci12stem1)
+wsgdata_dummy(bciex::bci12s7mini)
 }

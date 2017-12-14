@@ -75,8 +75,8 @@ is with a comment.
 
 \examples{
 \dontrun{
-sp.one = subset(bci::bci12full7, sp == "quaras")[, c("gx", "gy")]
-sp.two = subsetbci::bci12full7, sp == "cordal")[, c("gx", "gy")]
+sp.one = subset(bciex::bci12t7mini, sp == "quaras")[, c("gx", "gy")]
+sp.two = subset(bciex::bci12t7mini, sp == "cordal")[, c("gx", "gy")]
 wv = wavelet.bivariate(
   coords = sp.one,
   coords2 = sp.two,
