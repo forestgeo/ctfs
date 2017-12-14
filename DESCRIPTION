@@ -22,7 +22,6 @@ License: GPL-3
 Depends: 
     R (>= 3.1.2)
 Imports: 
-    assertive,
     date,
     graphics,
     grDevices,
@@ -34,7 +33,6 @@ Imports:
     utils,
     bciex
 Suggests: 
-    bci,
     devtools,
     dplyr,
     ggplot2,
