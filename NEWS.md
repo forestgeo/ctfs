@@ -1,5 +1,7 @@
 # ctfs 0.0.0.9001
 
+* Removed __assertive__ and __ggplot2__ because they were not used
+* Move some packages from suggest to imports, because functions need them
 * Replace data in __bci__ with data in __bciex__.
 
 # forestr 0.0.0.9000
