@@ -1,20 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-ctfs
-====
+ctfs (deprecated): Legacy code form the CTFS R Psackage <img src="https://i.imgur.com/39pvr4n.png" align="right" height=44 />
+=============================================================================================================================
 
-Tools for the analysis of forest dynamics. **ctfs** is almost identical to the CTFS R Package (<http://ctfs.si.edu/Public/CTFSRPackage/>). In **ctfs** "\_" replaces "." in the name of a few functions, and some documentation was slightly edited or added (see *Differences between **ctfs** and the CTFS R package*).
-
-**ctfs** includes a wide variety of R functions aimed at analysis of data from CTFS forest census plots. Most of the functions use the CTFS R Analytical tables, which are tables of plot data organizing tree and stem measurements in a precise format. The Package also includes many supporting functions that carry out basic, oft-used calculations, such as date conversion, geometry, model-fitting, probability distributions, and rearrangement of R data objects.
+**ctfs** is not maintained.
 
 ### Installation
 
     # install.packages("devtools")
     devtools::install_github("forestgeo/ctfs")
-
-### Maintenance
-
-**ctfs** will not be maintained. Therefore, **ctfs** is released and at the same time deprecated.
 
 ### Differences between ctfs and the CTFS R package
 
@@ -27,7 +21,3 @@ Tools for the analysis of forest dynamics. **ctfs** is almost identical to the C
     -   To install **ctfs** see the section *Installation* and to learn how to use it see help files as you would normally do for any R package, i.e. with `help(FUNCTION)` or `?FUNCTION`. Alternatively, go to <https://forestgeo.github.io/ctfs/>.
 
     -   To install the CTFS R Package and to learn how to use it, go to <http://ctfs.si.edu/Public/CTFSRPackage/>.
-
-### Acknowledgments
-
-The CTFS R Package was developed with the support of NSF grant \#1046113 to Stuart J. Davies through the NSF-IRCN program on the Dimensions of Biodiversity.

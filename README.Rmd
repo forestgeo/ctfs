@@ -12,20 +12,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ctfs
+# ctfs (deprecated): Legacy code form the CTFS R Psackage <img src="https://i.imgur.com/39pvr4n.png" align="right" height=44 />
 
-Tools for the analysis of forest dynamics. __ctfs__ is almost 
-identical to the CTFS R Package (http://ctfs.si.edu/Public/CTFSRPackage/). In __ctfs__ "_" replaces "." in the name of a few functions, and some documentation was slightly edited or added (see _Differences between __ctfs__ and the CTFS R package_).
-
-__ctfs__ includes a wide variety of R functions aimed at analysis of
-data from CTFS forest census plots. Most of the functions use the CTFS R
-Analytical tables, which are tables of plot data organizing tree and stem
-measurements in a precise format. The Package also includes many supporting
-functions that carry out basic, oft-used calculations, such as date
-conversion, geometry, model-fitting, probability distributions, and
-rearrangement of R data objects.
-
-
+__ctfs__ is not maintained.
 
 ### Installation
 
@@ -33,14 +22,6 @@ rearrangement of R data objects.
 # install.packages("devtools")
 devtools::install_github("forestgeo/ctfs")
 ```
-
-
-
-### Maintenance
-
-__ctfs__ will not be maintained. Therefore, __ctfs__ is released and at the same time deprecated.
-
-
 
 ### Differences between ctfs and the CTFS R package
 
@@ -53,9 +34,3 @@ __ctfs__ will not be maintained. Therefore, __ctfs__ is released and at the same
     * To install __ctfs__ see the section _Installation_ and to learn how to use it see help files as you would normally do for any R package, i.e. with `help(FUNCTION)` or `?FUNCTION`. Alternatively, go to https://forestgeo.github.io/ctfs/.
     
     * To install the CTFS R Package and to learn how to use it, go to http://ctfs.si.edu/Public/CTFSRPackage/.
-
-
-
-### Acknowledgments
-
-The CTFS R Package was developed with the support of NSF grant #1046113 to Stuart J. Davies through the NSF-IRCN program on the Dimensions of Biodiversity.
