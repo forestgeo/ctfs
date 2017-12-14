@@ -1,6 +1,6 @@
 Package: ctfs
 Title: Tools for the Analysis of Forest Dynamics
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: c(
     person("Rick", "Condit", , "condit@ctfs.si.edu", role = c("aut", "cre")),
     person("Pamela", "Hall", , "phall@alum.mit.edu", role = c("aut")),
@@ -18,14 +18,11 @@ Description: Tools for the analysis of forest dynamics. __ctfs__ is almost
     basic, oft-used calculations, such as date conversion, geometry, 
     model-fitting, probability distributions, and rearrangement of R data 
     objects.
-Depends:
+License: GPL-3
+Depends: 
     R (>= 3.1.2)
-License: GPL-3 + file LICENSE
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 6.0.1
-Roxygen: list(markdown = TRUE)
-Imports: assertive,
+Imports: 
+    assertive,
     date,
     graphics,
     grDevices,
@@ -35,7 +32,9 @@ Imports: assertive,
     splancs,
     stats,
     utils
-Suggests: devtools,
+Suggests: 
+    bci,
+    devtools,
     dplyr,
     ggplot2,
     knitr,
@@ -46,6 +45,9 @@ Suggests: devtools,
     stringr,
     testthat,
     tibble,
-    tidyr,
-    bci
+    tidyr
 VignetteBuilder: knitr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1

@@ -10,3 +10,4 @@
 ^packrat$
 ^\.Rprofile$
 
+^LICENSE\.md$
