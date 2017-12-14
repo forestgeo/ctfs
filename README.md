@@ -3,6 +3,8 @@
 ctfs (deprecated): Legacy code form the CTFS R Psackage <img src="https://i.imgur.com/39pvr4n.png" align="right" height=44 />
 =============================================================================================================================
 
+[![Travis build status](https://travis-ci.org/forestgeo/ctfs.svg?branch=master)](https://travis-ci.org/forestgeo/ctfs)
+
 **ctfs** is not maintained.
 
 ### Installation
