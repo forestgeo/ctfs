@@ -5,11 +5,11 @@
 #'
 
 #'
-#' Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> ...
+#' Deprecated. Use <DATA> from Barro Colorado Island with bciex::<DATA> ...
 #'
 #' @description
-#' Deprecated. Use <DATA> from Barro Colorado Island with bci::<DATA> (see 
-#' [https://github.com/forestgeo/bci](https://github.com/forestgeo/bci)).
+#' Deprecated. Use <DATA> from Barro Colorado Island with bciex::<DATA> (see 
+#' [https://github.com/forestgeo/bciex](https://github.com/forestgeo/bciex)).
 #'
 #' @details
 #' A convenience for attaching the R Analytical Tables, including the species
@@ -101,14 +101,14 @@
 #' \dontrun{
 #'
 #' data = pop.change(
-#'   bci::bci12full5, bci::bci12full6, 
-#'   split1 = bci::bci12full5$sp
+#'   bciex::bci12t5mini, bciex::bci12t6mini, 
+#'   split1 = bciex::bci12t5mini$sp
 #' )
 #' result = assemble.demography(data, type = 'a', whichdbhcat = 1)
-#' data = growth(bci::bci12full5, bci::bci12full6, split1 = bci::bci12full5$sp)
+#' data = growth(bciex::bci12t5mini, bciex::bci12t6mini, split1 = bciex::bci12t5mini$sp)
 #' result = assemble.demography(data, type = 'g', whichdbhcat = 1)
 #' data = mortality.eachspp(
-#'   bci::bci12full5, bci::bci12full6, 
+#'   bciex::bci12t5mini, bciex::bci12t6mini, 
 #'   classbreak = c(10, 100)
 #' )
 #' result1 = assemble.demography(data, type = 'm', whichdbhcat = 1)

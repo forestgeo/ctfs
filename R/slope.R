@@ -17,7 +17,7 @@
 #' @param text Logical. Defaults to read from a datatrame. Set to TRUE to read a
 #'   text table.
 #'  
-#'  @seealso [bci::bci_elevation].
+#'  @seealso [bciex::bci_elevation].
 #'
 'readelevdata'
 
@@ -59,7 +59,7 @@
 #' @examples
 #' \dontrun{
 #' # The input to elev is very specific; you may need to tweak it.
-#' elev_asis <- bci::bci_elevation
+#' elev_asis <- bciex::bci_elevation
 #' head(elev_asis)
 #' elev_tweaked <- list(col = elev_asis)
 #' head(elev_tweaked)

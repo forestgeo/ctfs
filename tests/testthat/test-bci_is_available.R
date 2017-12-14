@@ -1,5 +1,5 @@
-context("bci_is_available")
+context("bciex_is_available")
 
-test_that("Package bci is available", {
-  expect_silent(bci::bci12full1[1, 5])
+test_that("Package bciex is available", {
+  expect_silent(bciex::bci12t1mini[1, 5])
 })

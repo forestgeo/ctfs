@@ -13,7 +13,7 @@
 #' denscol)"_.
 #'
 #' @template plot
-#' @param censdata Census data, e.g. `bci::bci12full1`.
+#' @param censdata Census data, e.g. `bciex::bci12t1mini`.
 #'
 #' @return A data frame with one row per species in `censdata` and 3 variables.
 #' @export

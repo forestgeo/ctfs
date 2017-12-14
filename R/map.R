@@ -37,7 +37,7 @@
 #' @param spplist A table with species codes and Latin names can be submitted as
 #'   well, so that the full genus-species is added to plot. This must have 
 #'   species codes as row names. It should be the CTFS R format species table 
-#'   (eg, bci::bci12spptable). It can be set to NULL if not available, then only the 
+#'   (eg, bciex::bci_species). It can be set to NULL if not available, then only the 
 #'   species code (as submitted) appears on the map.
 #' @param elevdata Elevation data can be submitted, then a topo map is overlaid.
 #'   Elevation data must be submitted as a matrix (as described in readelevdata 
@@ -85,14 +85,14 @@
 #' 
 #' CTFSplot(plot = 'bci', census = 6)
 #' 
-#' bci::bci12split6 = split_data(censdata = bci::bci12full6, splitcol = 'sp')
+#' split6 = split_data(censdata = bciex::bci12t6mini, splitcol = 'sp')
 #' 
 #' nospp = length(species)
 #' 
-#' map(splitdatafile = bci::bci12split6, species = 'poular')
+#' map(splitdatafile = split6, species = 'poular')
 #' 
 #' map(
-#'   splitdatafile = bci::bci12split6,
+#'   splitdatafile = split6,
 #'   species = 'poular',
 #'   export = 'pdf',
 #'   filepath = '~/data/maps/',
@@ -102,7 +102,7 @@
 #'   wd = 11
 #' )
 #' 
-#' map(splitdatafile = bci::bci12split6,
+#' map(splitdatafile = split6,
 #'   species = c('guatdu', 'poular'))
 #' }
 #'
@@ -202,14 +202,14 @@
 #' @inheritParams graphFilledBand
 #' @template add_plot
 #' @template clr
-#' @param elevmat Matrix of elevation data (see ?[bci::bci_elevation]).
+#' @param elevmat Matrix of elevation data (see ?[bciex::bci_elevation]).
 #' @param new If `TRUE`, a new screen window is created.. See [graphics::par()].
 #' @param interval Contour line intervals.
 #' @param xaxis xxxdocparam
 #' @param yaxis xxxdocparam
 #' @param labelsize xxxdocparam
 #' 
-#' @seealso [map()], [bci::bci_elevation].
+#' @seealso [map()], [bciex::bci_elevation].
 #' 
 'maptopo'
 

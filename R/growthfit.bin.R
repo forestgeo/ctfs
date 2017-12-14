@@ -62,8 +62,8 @@
 #' # Creating the complete table of biomass growth for all individuals in a 
 #' # plot:
 #' agb.growth = extract.growthdata(
-#'   bci::bci12full5,
-#'   bci::bci12full6,
+#'   bciex::bci12t5mini,
+#'   bciex::bci12t6mini,
 #'   growthfunc = growth.biomass.indiv,
 #'   logit = 'x',
 #'   rounddown = FALSE,

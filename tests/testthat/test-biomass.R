@@ -3,29 +3,29 @@ context("functions work in tutorial biomass")
 test_that("Wrong inputs to wsgdata_dummy throw error with informative mesages", {
   expect_error(
     wsgdata_dummy(
-      bci::bci12stem1, 
+      bciex::bci12s1mini, 
       plot = 1  # wrong
     )
   )
   expect_error(
     wsgdata_dummy(
-      bci::bci12stem1,
+      bciex::bci12s1mini,
       plot = c("bci", "other")  # wrong
     )
   )
-  df <- bci::bci12stem1
-  df$spp <- bci::bci12stem1$sp
+  df <- bciex::bci12s1mini
+  df$spp <- bciex::bci12s1mini$sp
   df$sp <- NULL
   expect_error(wsgdata_dummy(df))
 })
 
 test_that("biomass.CTFSdb works with minimun inputs", {
-  wsgdata <- wsgdata_dummy(bci::bci12full1)
+  wsgdata <- wsgdata_dummy(bciex::bci12t1mini)
   # load("../CTFSRPackage/tables/full/bci.full1.rdata")
   # wsgdata <- wsgdata_dummy(bci.full1)
   actual <- biomass.CTFSdb(
-    bci::bci12stem1, 
-    bci::bci12full1, 
+    bciex::bci12s1mini, 
+    bciex::bci12t1mini, 
     wsgdata = wsgdata
   )
   expect_equal_to_reference(actual, "ref_biomass_ctfsdb.rds")

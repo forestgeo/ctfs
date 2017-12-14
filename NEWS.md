@@ -1,3 +1,7 @@
+# ctfs 0.0.0.9001
+
+* Replace data in __bci__ with data in __bciex__.
+
 # forestr 0.0.0.9000
 
 ## 2017-06-05 (week starting on)

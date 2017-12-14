@@ -5,8 +5,8 @@ test_that(
   "individual_grow.table works with census bci12full1 and bci12full15", {
     actual <- individual_grow.table(
       cnsdata = list(
-        bci::bci12full1, 
-        bci::bci12full5
+        bciex::bci12t1mini, 
+        bciex::bci12t5mini
       )
     )
     expect_equal_to_reference(actual, "ref_individual_grow_table.rds")

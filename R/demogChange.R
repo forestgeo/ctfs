@@ -22,7 +22,7 @@
 #' @template mindbh
 #' @template debug
 #' @param cnsdata A list of census data sets, for example: 
-#'   `list(bci::bci12full1, bci::bci12full2, bci::bci12full3)`.
+#'   `list(bciex::bci12t1mini, bciex::bci12t2mini, bciex::bci12t3mini)`.
 #' @param rnd used to rounddown dbhs for certain intervals. This argument
 #'   indicates that dbhs < 50 mm are rounded down to 5-mm, necessary because
 #'   saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
