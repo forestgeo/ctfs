@@ -23,3 +23,5 @@ ctfs (deprecated): Legacy code form the CTFS R Psackage <img src="https://i.imgu
     -   To install **ctfs** see the section *Installation* and to learn how to use it see help files as you would normally do for any R package, i.e. with `help(FUNCTION)` or `?FUNCTION`. Alternatively, go to <https://forestgeo.github.io/ctfs/>.
 
     -   To install the CTFS R Package and to learn how to use it, go to <http://ctfs.si.edu/Public/CTFSRPackage/>.
+
+-   Added some functions, to facilitate development. E.g. to identidy undocumented arguments, or to build a website automatically. These funcitons are in `R/ft-*.R`, where `*` is anything. These functions depend on some packages additional to those on which the original CTFS R Package depend (such packages are now declared in `DESCRIPTIONS`, under `Imports:` or `Suggests:`).
