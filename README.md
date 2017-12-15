@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-ctfs (deprecated): Legacy code form the CTFS R Psackage <img src="https://i.imgur.com/39pvr4n.png" align="right" height=44 />
-=============================================================================================================================
+ctfs (deprecated): Code form the CTFS R Package <img src="https://i.imgur.com/39pvr4n.png" align="right" height=44 />
+=====================================================================================================================
 
-[![Travis build status](https://travis-ci.org/forestgeo/ctfs.svg?branch=master)](https://travis-ci.org/forestgeo/ctfs)
+[![Travis build status](https://travis-ci.org/forestgeo/ctfs.svg?branch=master)](https://travis-ci.org/forestgeo/ctfs) [![Coverage status](https://coveralls.io/repos/github/forestgeo/ctfs/badge.svg)](https://coveralls.io/r/forestgeo/ctfs?branch=master) [![CRAN status](http://www.r-pkg.org/badges/version/ctfs)](https://cran.r-project.org/package=ctfs)
 
 **ctfs** is not maintained.
 

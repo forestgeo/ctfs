@@ -43,7 +43,8 @@ Suggests:
     stringr,
     testthat,
     tibble,
-    tidyr
+    tidyr,
+    covr
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
