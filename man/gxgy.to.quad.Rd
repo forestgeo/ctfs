@@ -4,8 +4,8 @@
 \alias{gxgy.to.quad}
 \title{Calculate a quadrat name from gy-gy.}
 \usage{
-gxgy.to.quad(gx, gy, gridsize = 20, plotdim = c(1000, 500), digits = 2,
-  start = "zero")
+gxgy.to.quad(gx, gy, gridsize = 20, plotdim = c(1000, 500),
+  digits = 2, start = "zero")
 }
 \arguments{
 \item{gx, gy}{Tree x and y coordinate.}

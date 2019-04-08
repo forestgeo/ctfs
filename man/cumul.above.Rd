@@ -4,10 +4,11 @@
 \alias{cumul.above}
 \title{Seek x at which the curve passes through a given y.}
 \usage{
-cumul.above(x, y, cutoff, logaxs = "", graphit = TRUE, returnfull = FALSE)
+cumul.above(x, y, cutoff, logaxs = "", graphit = TRUE,
+  returnfull = FALSE)
 }
 \arguments{
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 }
 \description{
 Given y values as a function of x, this seeks the x at which the curve passes

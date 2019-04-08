@@ -4,9 +4,9 @@
 \alias{growth}
 \title{Annual Growth Rates by Categories.}
 \usage{
-growth(census1, census2, rounddown = FALSE, method = "I", stdev = FALSE,
-  dbhunit = "mm", mindbh = 10, growthcol = "dbh", err.limit = 4,
-  maxgrow = 75, split1 = NULL, split2 = NULL)
+growth(census1, census2, rounddown = FALSE, method = "I",
+  stdev = FALSE, dbhunit = "mm", mindbh = 10, growthcol = "dbh",
+  err.limit = 4, maxgrow = 75, split1 = NULL, split2 = NULL)
 }
 \arguments{
 \item{census1}{The R Analytical Table for a single census, either tree or
@@ -26,7 +26,7 @@ returns the SD in growth rate per group.}
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{growthcol}{defines how growth is measured, either 'dbh'or

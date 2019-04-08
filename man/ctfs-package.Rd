@@ -6,17 +6,17 @@
 \alias{ctfs-package}
 \title{ctfs: Tools for the Analysis of Forest Dynamics}
 \description{
-Tools for the analysis of forest dynamics. __ctfs__ is almost
-identical to the CTFS R Package (http://ctfs.si.edu/Public/CTFSRPackage/).
-In __ctfs__ "_" replaces "." in the name of a few functions, and some
-documentation was slightly edited or added. __ctfs__ includes a
-wide variety of R functions aimed at analysis of data from CTFS forest
-census plots. Most of the functions use the CTFS R Analytical tables, which
-are tables of plot data organizing tree and stem measurements in a precise
-format. The Package also includes many supporting functions that carry out
-basic, oft-used calculations, such as date conversion, geometry,
-model-fitting, probability distributions, and rearrangement of R data
-objects.
+Tools for the analysis of forest dynamics. __ctfs__ is almost 
+    identical to the CTFS R Package (http://ctfs.si.edu/Public/CTFSRPackage/).
+    In __ctfs__ "_" replaces "." in the name of a few functions, and some
+    documentation was slightly edited or added. __ctfs__ includes a
+    wide variety of R functions aimed at analysis of data from CTFS forest 
+    census plots. Most of the functions use the CTFS R Analytical tables, which
+    are tables of plot data organizing tree and stem measurements in a precise
+    format. The Package also includes many supporting functions that carry out
+    basic, oft-used calculations, such as date conversion, geometry, 
+    model-fitting, probability distributions, and rearrangement of R data 
+    objects.
 }
 \author{
 \strong{Maintainer}: Rick Condit \email{condit@ctfs.si.edu}

@@ -5,8 +5,9 @@
 \title{Find best fits for linearmodel.bin, with one set of data and a seri...}
 \usage{
 run.growthfit.bin(growthdata, size = "dbh", startpar = c(0.03, 0.005),
-  startsdpar = c(0.04, 0), sdmodel = linear.model.ctr, badsdfunc = NULL,
-  binoption = 1:4, noreps = 5000, noburn = 2500, noshow = 500, ...)
+  startsdpar = c(0.04, 0), sdmodel = linear.model.ctr,
+  badsdfunc = NULL, binoption = 1:4, noreps = 5000, noburn = 2500,
+  noshow = 500, ...)
 }
 \arguments{
 \item{...}{Arguments passed to \code{\link[=growth.flexbin]{growth.flexbin()}}.}

@@ -5,16 +5,17 @@
 \title{Run model.littleR.Gibbs for a series of census databases.}
 \usage{
 fitSeveralAbundModel(allcns = list(bci.full1, bci.full2, bci.full3),
-  sptable = bci.spptable, mindbh, excludespp = NULL, useIDlevel = TRUE,
-  abundrange = c(1, 1e+06), start = c(-3, 0.8, 0.01, -0.5),
-  modeltype = "asympower", bad.modelparam = bad.asympower.param,
-  steps = 10000, burn = 1000, show = 250, debug = FALSE)
+  sptable = bci.spptable, mindbh, excludespp = NULL,
+  useIDlevel = TRUE, abundrange = c(1, 1e+06), start = c(-3, 0.8,
+  0.01, -0.5), modeltype = "asympower",
+  bad.modelparam = bad.asympower.param, steps = 10000, burn = 1000,
+  show = 250, debug = FALSE)
 }
 \arguments{
 \item{allcns}{Full R census, submitted as a list (as many as desired).}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{abundrange}{the default includes every species, but this can be set to
@@ -25,15 +26,17 @@ outside the range are excluded}
 must be as long as the number of parameters required by the model.}
 
 \item{modeltype}{Functional forms to fit to the distribution; it can be:
-* Gaussian `modeltype = "norm"`, with the quotes
-* Asymmetric Gaussian (a different standard deviation on left and right of
-the mode) `modeltype = "asymnorm"`, with the quotes
-* Laplace (exponential distribution, with mirror image for negative values)
-`modeltype = "symexp"`, with the quotes
-* Asymmetric Laplace (different rate constant for left and right of the
-center) `modeltype = "asymexp"`, with the quotes
-* Asymmetric power distribution (different rate constant for left and right
-of the center) `modeltype = "asympower", with the quotes.}
+\itemize{
+\item Gaussian \code{modeltype = "norm"}, with the quotes
+\item Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) \code{modeltype = "asymnorm"}, with the quotes
+\item Laplace (exponential distribution, with mirror image for negative values)
+\code{modeltype = "symexp"}, with the quotes
+\item Asymmetric Laplace (different rate constant for left and right of the
+center) \code{modeltype = "asymexp"}, with the quotes
+\item Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.
+}}
 
 \item{bad.modelparam}{name of a function which checks the model parameters
 for bad values; for modeltype asymexp, must be bad.asymexp.param, for

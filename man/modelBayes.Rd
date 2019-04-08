@@ -14,10 +14,10 @@ modelBayes(data, ycol, xcol, start, startSD, model = logistic.standard,
 modeled (dependent variable, y), one or more predictors (independent
 variables, x), and one random effect, using any column names.}
 
-\item{ycol}{Chareacter string giving the name of a column in `data` that
+\item{ycol}{Chareacter string giving the name of a column in \code{data} that
 holds the x and y (numeric) variable.}
 
-\item{xcol}{Chareacter string giving the name of a column in `data` that
+\item{xcol}{Chareacter string giving the name of a column in \code{data} that
 holds the x and y (numeric) variable.}
 
 \item{start}{A vector giving the starting set of parameters for the model. It

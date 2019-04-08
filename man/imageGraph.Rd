@@ -4,12 +4,13 @@
 \alias{imageGraph}
 \title{Maps a response variable with Rs contour or image functions, or both.}
 \usage{
-imageGraph(matrixdata, levels = NULL, breaks = c(-33000, 0, 150, 250, 500,
-  1000, 2000), xname = "x", yname = "y", xrange = NULL, yrange = NULL,
-  axisdiv = c(100, 100), img = TRUE, cntrs = FALSE, filled = TRUE,
-  drawgrid = FALSE, addaxes = 1:4, clrs = NULL, cntcolor = "black",
-  lwidth = 1, returnline = FALSE, newgraph = FALSE, add = FALSE,
-  plotsize = 6, h = 11, w = 11, export = X11, graphfile = NULL)
+imageGraph(matrixdata, levels = NULL, breaks = c(-33000, 0, 150, 250,
+  500, 1000, 2000), xname = "x", yname = "y", xrange = NULL,
+  yrange = NULL, axisdiv = c(100, 100), img = TRUE, cntrs = FALSE,
+  filled = TRUE, drawgrid = FALSE, addaxes = 1:4, clrs = NULL,
+  cntcolor = "black", lwidth = 1, returnline = FALSE,
+  newgraph = FALSE, add = FALSE, plotsize = 6, h = 11, w = 11,
+  export = X11, graphfile = NULL)
 }
 \arguments{
 \item{matrixdata}{a list having components x, y, and mat, exactly the output
@@ -25,7 +26,7 @@ lines; if NULL, levels controls the breaks}
 \item{xname, yname}{axis names}
 
 \item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
-If `NULL`, all `x` (or `y`) are included.}
+If \code{NULL}, all \code{x} (or \code{y}) are included.}
 
 \item{axisdiv}{the division between tick marks; must be a vector of 2, first
 for x ticks then for y ticks}
@@ -41,7 +42,7 @@ neither image or standard contours are included}
 \item{clrs}{colors for the image; if NULL, they are chosen by default,
 otherwise, must be 1 + the number of breaks}
 
-\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
+\item{lwidth}{Line width; see \code{width} in ?\code{\link[graphics:par]{graphics::par()}}.}
 
 \item{returnline}{TRUE or FALSE, whether to return the contour lines; see R's
 base function contourLines for details}

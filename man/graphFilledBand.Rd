@@ -21,9 +21,9 @@ otherwise, a new graph is drawn.}
 
 \item{linecol}{Line colour.}
 
-\item{ltype}{Line type; see `ltype` in ?[graphics::par()].}
+\item{ltype}{Line type; see \code{ltype} in ?\code{\link[graphics:par]{graphics::par()}}.}
 
-\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
+\item{lwidth}{Line width; see \code{width} in ?\code{\link[graphics:par]{graphics::par()}}.}
 }
 \description{
 Fill the area between two curves on a graph. Useful for confidence limits,

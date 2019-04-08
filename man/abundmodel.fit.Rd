@@ -10,15 +10,17 @@ abundmodel.fit(x, fit, modeltype, conf = NULL)
 \item{fit}{A fitted model.}
 
 \item{modeltype}{Functional forms to fit to the distribution; it can be:
-* Gaussian `modeltype = "norm"`, with the quotes
-* Asymmetric Gaussian (a different standard deviation on left and right of
-the mode) `modeltype = "asymnorm"`, with the quotes
-* Laplace (exponential distribution, with mirror image for negative values)
-`modeltype = "symexp"`, with the quotes
-* Asymmetric Laplace (different rate constant for left and right of the
-center) `modeltype = "asymexp"`, with the quotes
-* Asymmetric power distribution (different rate constant for left and right
-of the center) `modeltype = "asympower", with the quotes.}
+\itemize{
+\item Gaussian \code{modeltype = "norm"}, with the quotes
+\item Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) \code{modeltype = "asymnorm"}, with the quotes
+\item Laplace (exponential distribution, with mirror image for negative values)
+\code{modeltype = "symexp"}, with the quotes
+\item Asymmetric Laplace (different rate constant for left and right of the
+center) \code{modeltype = "asymexp"}, with the quotes
+\item Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.
+}}
 
 \item{conf}{number of alternate fits to graph, as indication of confidence;
 if conf = NULL, no confidence lines are added}

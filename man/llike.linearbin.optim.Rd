@@ -4,8 +4,8 @@
 \alias{llike.linearbin.optim}
 \title{This is for optim, a single function taking all parameters at once,...}
 \usage{
-llike.linearbin.optim(param, x, y, predfunc, nomainpar, badpredpar, llikefunc,
-  sdfunc, badsdpar, ...)
+llike.linearbin.optim(param, x, y, predfunc, nomainpar, badpredpar,
+  llikefunc, sdfunc, badsdpar, ...)
 }
 \description{
 This is for optim, a single function taking all parameters at once, including sd, to get single likelihood.

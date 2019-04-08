@@ -4,8 +4,9 @@
 \alias{NeighborDensities}
 \title{Total number or basal area of conspecific and heterospecific neighbors.}
 \usage{
-NeighborDensities(censdata, censdata2 = NULL, r = 20, plotdim = c(1000,
-  500), mindbh = 10, type = "count", include = c("A"))
+NeighborDensities(censdata, censdata2 = NULL, r = 20,
+  plotdim = c(1000, 500), mindbh = 10, type = "count",
+  include = c("A"))
 }
 \arguments{
 \item{censdata}{A table of plot census data.}
@@ -21,7 +22,7 @@ focal coordinates.}
 \item{plotdim}{The x and y dimensions of the plot.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{type}{(count) calculates count of stems ('count') or sum of basal areas

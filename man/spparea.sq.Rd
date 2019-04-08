@@ -4,9 +4,9 @@
 \alias{spparea.sq}
 \title{Number of species in replicated, randomly-placed quadrats of various areas.}
 \usage{
-spparea.sq(censdata, spcolumn = "sp", size, rectdim = 1, mindbh = NULL,
-  plotdim = c(1000, 500), replicates = 10, unidennames = c("**", "UNID",
-  "uniden", "UNIDEN"))
+spparea.sq(censdata, spcolumn = "sp", size, rectdim = 1,
+  mindbh = NULL, plotdim = c(1000, 500), replicates = 10,
+  unidennames = c("**", "UNID", "uniden", "UNIDEN"))
 }
 \arguments{
 \item{censdata}{A table of plot census data.}
@@ -21,7 +21,7 @@ rectangular quadrat.}
 (the default) for squares}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{plotdim}{The x and y dimensions of the plot.}

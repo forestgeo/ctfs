@@ -5,11 +5,11 @@
 \title{For a polynomial regression, find x or y at y's peak or x-intercept.}
 \usage{
 regsum(x, y, poly = 1, graphit = F, yrange = c(-1, -1),
-  yaxslab = "multiplier", newgraph = F, add = F, pts = T, ptype = 16,
-  ltype = "solid")
+  yaxslab = "multiplier", newgraph = F, add = F, pts = T,
+  ptype = 16, ltype = "solid")
 }
 \arguments{
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 
 \item{newgraph}{if FALSE, just graph to the screen and export is ignored; use
 TRUE to create a new plot window or export to a file.}

@@ -4,8 +4,9 @@
 \alias{RipUvK}
 \title{Ripleys K using splancs.}
 \usage{
-RipUvK(splitdata, plotdim = c(1000, 500), rseq = c(5, 10, 20, 30, 40, 50),
-  mindbh = 10, xcol = "gx", ycol = "gy", debug = FALSE, show = FALSE)
+RipUvK(splitdata, plotdim = c(1000, 500), rseq = c(5, 10, 20, 30, 40,
+  50), mindbh = 10, xcol = "gx", ycol = "gy", debug = FALSE,
+  show = FALSE)
 }
 \arguments{
 \item{splitdata}{A complete CTFS plot dataset comprised of a list, each
@@ -19,7 +20,7 @@ y coordinates; the names of those two columns are passed as arguments
 calculated.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{xcol, ycol}{The names of the columns holding x and y coordinates.}

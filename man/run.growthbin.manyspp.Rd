@@ -8,8 +8,8 @@ run.growthbin.manyspp(growthdata, size = "dbh", spp = spp20,
   minabund300 = 15, minTotal = 40, dbhunit = "mm",
   sdmodel = linear.model.ctr, startpar = c(0.03, 0.005),
   startsdpar = c(0.04, 0), badsdfunc = NULL, binoption = 1:4,
-  noreps = 5000, noburn = 2500, noshow = 500, outputname = "linear.fit",
-  path = "", ...)
+  noreps = 5000, noburn = 2500, noshow = 500,
+  outputname = "linear.fit", path = "", ...)
 }
 \arguments{
 \item{dbhunit}{'cm' or 'mm', only used for basal area}

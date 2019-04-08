@@ -4,9 +4,9 @@
 \alias{imageJ.to.lxly}
 \title{Convert map pixels from digitzing program to plot coordinates. Uses...}
 \usage{
-imageJ.to.lxly(textfile = samplemapfile, delim = ",", lowerleft = "P2",
-  upperleft = "P1", upperright = "P4", lowerright = "P3",
-  gridsize = c(20, 20))
+imageJ.to.lxly(textfile = samplemapfile, delim = ",",
+  lowerleft = "P2", upperleft = "P1", upperright = "P4",
+  lowerright = "P3", gridsize = c(20, 20))
 }
 \arguments{
 \item{textfile}{the complete name of the textfile to convert, including the path}

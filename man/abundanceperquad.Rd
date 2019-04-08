@@ -11,7 +11,7 @@ abundanceperquad(censdata, mindbh = 10, plotdim = c(1000, 500),
 \item{censdata}{A table of plot census data.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{plotdim}{The x and y dimensions of the plot.}

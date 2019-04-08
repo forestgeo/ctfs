@@ -28,10 +28,8 @@ test_that("biomass.CTFSdb works with minimun inputs", {
     bciex::bci12t1mini, 
     wsgdata = wsgdata
   )
-  expect_equal_to_reference(actual, "ref_biomass_ctfsdb.rds")
+  expect_known_output(actual, "ref_biomass_ctfsdb", update = FALSE)
 })
-
-
 
 test_that("Chave.AGB works with inputs in example", {
   testdbh <- c(1, 2, 5, 10, 20, 30, 50, 100, 200)

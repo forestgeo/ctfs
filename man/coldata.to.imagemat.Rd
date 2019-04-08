@@ -4,8 +4,8 @@
 \alias{coldata.to.imagemat}
 \title{Map response variables using \code{\link[=contour]{contour()}}, \code{\link[=image]{image()}}, and \code{\link[=filled.contour]{filled.contour()}}.}
 \usage{
-coldata.to.imagemat(z, x = NULL, y = NULL, gridsize = 20, plotmin = c(0,
-  0), plotmax = c(1000, 500))
+coldata.to.imagemat(z, x = NULL, y = NULL, gridsize = 20,
+  plotmin = c(0, 0), plotmax = c(1000, 500))
 }
 \arguments{
 \item{z}{A numeric vector of responses, which means an attribute which has

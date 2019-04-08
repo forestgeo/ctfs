@@ -5,10 +5,10 @@
 \title{Export a pdf with one or more species maps.}
 \usage{
 pdf.allplot(splitdata = bci.split6, spplist = bci.spptable,
-  elev = ctfs.elev$bci$mat, plotdim = c(1000, 500), cutoff = c(10, 100,
-  300, 3000), topoint = 2, bw = FALSE, topoclr = "gray80", bty = "o",
-  plotside = 9, h = 8, w = 10, size = c(0.3, 0.45, 0.65),
-  deadtree = FALSE, symbols = NULL, legsize = 0.75,
+  elev = ctfs.elev$bci$mat, plotdim = c(1000, 500), cutoff = c(10,
+  100, 300, 3000), topoint = 2, bw = FALSE, topoclr = "gray80",
+  bty = "o", plotside = 9, h = 8, w = 10, size = c(0.3, 0.45,
+  0.65), deadtree = FALSE, symbols = NULL, legsize = 0.75,
   legpos = c(plotdim[1]/2, 1.16 * plotdim[2]), export = TRUE,
   singlefile = TRUE, path = "/home/condit/data/maps/bci/")
 }
@@ -56,13 +56,12 @@ just set addlegend=FALSE to remove.}
 where to place, and font size. Try the defaults first before fiddling, or
 just set addlegend=FALSE to remove.}
 
-\item{export}{`export = "no"`, does nothing, so the next graph uses the
+\item{export}{\code{export = "no"}, does nothing, so the next graph uses the
 default R device. With this option, the size of the graph cannot have been
-set larger than the default size, which is usually 7 inches. `export =
-"unix"`, a new graphics window in unix, size `h` and width `w`, will be
-opened allowing you to alter the size of the output. `export = "windows"`,
-or `export = "mac"` are similar to `export = "unix"` but for windows and
-mac. `export = format` exports the graph to a specific file format: "pdf",
+set larger than the default size, which is usually 7 inches. \code{export = "unix"}, a new graphics window in unix, size \code{h} and width \code{w}, will be
+opened allowing you to alter the size of the output. \code{export = "windows"},
+or \code{export = "mac"} are similar to \code{export = "unix"} but for windows and
+mac. \code{export = format} exports the graph to a specific file format: "pdf",
 "png", "jpg", "bmp", "emf".}
 }
 \description{

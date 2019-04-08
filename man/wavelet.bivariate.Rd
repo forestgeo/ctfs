@@ -5,8 +5,8 @@
 \title{Bivariate wavelet variance using furier transforms.}
 \usage{
 wavelet.bivariate(raster1 = NULL, raster2 = NULL, coords1, coords2,
-  gridsize = 1, plotdim = c(1000, 500), FUN = NULL, k0 = 8, dj = 0.15,
-  graph = TRUE)
+  gridsize = 1, plotdim = c(1000, 500), FUN = NULL, k0 = 8,
+  dj = 0.15, graph = TRUE)
 }
 \arguments{
 \item{coords1}{A matrix with raster data OR a table with two or three columns

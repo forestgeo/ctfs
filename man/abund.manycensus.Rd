@@ -12,7 +12,7 @@ abund.manycensus(allcns = list(bci.full1, bci.full2, bci.full3), mindbh,
 \item{allcns}{Full R census, submitted as a list (as many as desired).}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}

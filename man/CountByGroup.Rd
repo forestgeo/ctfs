@@ -4,8 +4,8 @@
 \alias{CountByGroup}
 \title{Groups a dataframe by one or more columns (named by groupcol). This...}
 \usage{
-CountByGroup(data, groupcol, count_to_data = FALSE, countname = "count",
-  groupname = "groupID")
+CountByGroup(data, groupcol, count_to_data = FALSE,
+  countname = "count", groupname = "groupID")
 }
 \arguments{
 \item{data}{A dataframe.}

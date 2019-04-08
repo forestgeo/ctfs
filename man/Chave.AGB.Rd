@@ -8,7 +8,7 @@ Chave.AGB(dbh, density = 0.62, htparam = c(41.7, 0.057, 0.748),
   heightmodel = predht.asym, forest = "moist")
 }
 \arguments{
-\item{dbh}{Stem diameter, usually at breast height (see data dictionary at 
+\item{dbh}{Stem diameter, usually at breast height (see data dictionary at
 http://ctfs.si.edu/Public/DataDict/data_dict.php).}
 }
 \description{

@@ -4,12 +4,13 @@
 \alias{graph.quadrats}
 \title{Plot a series of quadrats with corners xlo, ylo, xhi, yhi.}
 \usage{
-graph.quadrats(coord, plotdim = c(1000, 500), clr = "black", add = FALSE)
+graph.quadrats(coord, plotdim = c(1000, 500), clr = "black",
+  add = FALSE)
 }
 \arguments{
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+\item{clr}{A string indicating colour. See argument col in \code{\link[graphics:par]{graphics::par()}}.}
 
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,

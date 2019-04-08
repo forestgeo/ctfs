@@ -4,8 +4,8 @@
 \alias{residual.llike.modelBayes}
 \title{Calculate likelihood of residual standard deviation.}
 \usage{
-residual.llike.modelBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
-  sdmodel, badparam, errormodel = "Gauss", debug = FALSE, ...)
+residual.llike.modelBayes(test, whichtest, data, trueN, model, sdpar,
+  fullpar, sdmodel, badparam, errormodel = "Gauss", debug = FALSE, ...)
 }
 \arguments{
 \item{badparam}{The name of a function (unquoted) that tests a set of model

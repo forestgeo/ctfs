@@ -20,7 +20,7 @@ multiple of 5.}
 returns the SD in growth rate per group.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{split1}{a vector of categories, one per individual}

@@ -5,10 +5,10 @@
 \title{Convert pixels to coordinates within a quadrat.}
 \usage{
 fullplot.imageJ(path = "", outfile = "plotLxLy.txt", delim = ",",
-  include.subdir = T, corners = c("p1", "p2", "p3", "p4"), colrange = c(0,
-  49), rowrange = c(0, 24), prefix = "Map_", suffix = ".txt",
-  subquadsuffix = c("_1", "_2", "_3", "_4"), gridsize = c(10, 10),
-  debug = NULL)
+  include.subdir = T, corners = c("p1", "p2", "p3", "p4"),
+  colrange = c(0, 49), rowrange = c(0, 24), prefix = "Map_",
+  suffix = ".txt", subquadsuffix = c("_1", "_2", "_3", "_4"),
+  gridsize = c(10, 10), debug = NULL)
 }
 \arguments{
 \item{path}{The complete path name where the map files to be converted are

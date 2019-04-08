@@ -4,9 +4,10 @@
 \alias{individual_grow.table}
 \title{Create a table of individual trees and their growth over two census...}
 \usage{
-individual_grow.table(cnsdata, powertransformation = 0.45, rnd = c(FALSE,
-  TRUE, rep(FALSE, 4)), mingrow = 0.1, mindbh = 10, maxdbh = 10000,
-  maxerrorSD = 4, maxerrorGrow = 75, center = 1992, debug = FALSE)
+individual_grow.table(cnsdata, powertransformation = 0.45,
+  rnd = c(FALSE, TRUE, rep(FALSE, 4)), mingrow = 0.1, mindbh = 10,
+  maxdbh = 10000, maxerrorSD = 4, maxerrorGrow = 75, center = 1992,
+  debug = FALSE)
 }
 \arguments{
 \item{cnsdata}{A list of census data sets, for example:
@@ -18,7 +19,7 @@ saplings at BCI in 1982 and 1985 were measuring in 5-mm increments. The
 growth functions in the CTFS R Package handle this.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{debug}{Logical. If TRUE, call browser to debug.}

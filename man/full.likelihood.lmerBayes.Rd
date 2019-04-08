@@ -5,8 +5,8 @@
 \title{Likelihood for any complete set of parameters.}
 \usage{
 full.likelihood.lmerBayes(one.covar, one.param, one.hyper, fixpar = NULL,
-  errormodel, data, obs, model, sdmodel = "constant", sdpar, bad = NULL,
-  duphyper = FALSE, ...)
+  errormodel, data, obs, model, sdmodel = "constant", sdpar,
+  bad = NULL, duphyper = FALSE, ...)
 }
 \arguments{
 \item{...}{Arguments passed to \code{\link[=llike.model.lmer]{llike.model.lmer()}}.}

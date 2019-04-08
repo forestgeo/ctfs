@@ -5,11 +5,11 @@
 \title{Map every individual.}
 \usage{
 complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
-  export = "no", nospp = 3, plotdim = c(1000, 500), clrlist = c("blue",
-  "green", "red", "yellow", "gray"), ptsize = c(0.45, 0.3), xrange = c(0,
-  100), yrange = c(0, 100), wd = 1100, ht = 850, side = 6,
-  labsize = 1.75, axisdiv = 10, filepath = "/home/condit/data/maps/",
-  outfile = "fullplotmap")
+  export = "no", nospp = 3, plotdim = c(1000, 500),
+  clrlist = c("blue", "green", "red", "yellow", "gray"),
+  ptsize = c(0.45, 0.3), xrange = c(0, 100), yrange = c(0, 100),
+  wd = 1100, ht = 850, side = 6, labsize = 1.75, axisdiv = 10,
+  filepath = "/home/condit/data/maps/", outfile = "fullplotmap")
 }
 \arguments{
 \item{cns}{a full census dataset (all species)}
@@ -17,16 +17,15 @@ complete.plotmap(cns = bci.full6, spnames = NULL, mindbh = 10,
 \item{spnames}{names of species to map, using the mnemonic in the R tables}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
-\item{export}{`export = "no"`, does nothing, so the next graph uses the
+\item{export}{\code{export = "no"}, does nothing, so the next graph uses the
 default R device. With this option, the size of the graph cannot have been
-set larger than the default size, which is usually 7 inches. `export =
-"unix"`, a new graphics window in unix, size `h` and width `w`, will be
-opened allowing you to alter the size of the output. `export = "windows"`,
-or `export = "mac"` are similar to `export = "unix"` but for windows and
-mac. `export = format` exports the graph to a specific file format: "pdf",
+set larger than the default size, which is usually 7 inches. \code{export = "unix"}, a new graphics window in unix, size \code{h} and width \code{w}, will be
+opened allowing you to alter the size of the output. \code{export = "windows"},
+or \code{export = "mac"} are similar to \code{export = "unix"} but for windows and
+mac. \code{export = format} exports the graph to a specific file format: "pdf",
 "png", "jpg", "bmp", "emf".}
 
 \item{nospp}{number of species to overlay; can be NULL or 0 for none}
@@ -40,10 +39,10 @@ background of all species (first one) and for the individual species
 (second one).}
 
 \item{xrange}{Minimum and maximum x and y coordinates of area graphed.
-If `NULL`, all `x` (or `y`) are included.}
+If \code{NULL}, all \code{x} (or \code{y}) are included.}
 
 \item{yrange}{Minimum and maximum x and y coordinates of area graphed.
-If `NULL`, all `x` (or `y`) are included.}
+If \code{NULL}, all \code{x} (or \code{y}) are included.}
 
 \item{wd}{Height and width of the overall graph.
 The default work for pdf export or mapping to the screen, and ht and wd are

@@ -7,7 +7,7 @@
 predht.asym(dbh, param)
 }
 \arguments{
-\item{dbh}{Stem diameter, usually at breast height (see data dictionary at 
+\item{dbh}{Stem diameter, usually at breast height (see data dictionary at
 http://ctfs.si.edu/Public/DataDict/data_dict.php).}
 }
 \description{

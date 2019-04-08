@@ -7,7 +7,7 @@
 autoregression(y, lag, xlog = FALSE, ylog = FALSE, graphit = TRUE)
 }
 \arguments{
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 }
 \description{
 Autocorrelation with a given lag of a vector y.

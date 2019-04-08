@@ -4,7 +4,8 @@
 \alias{findborderquads}
 \title{Given a quadrat index, calculate indices of neighboring quadrats.}
 \usage{
-findborderquads(index, dist = 20, gridsize = 20, plotdim = c(1000, 500))
+findborderquads(index, dist = 20, gridsize = 20, plotdim = c(1000,
+  500))
 }
 \arguments{
 \item{index}{Quadrate number, between 0 and 1249 in the standard plot.}

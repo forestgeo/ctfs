@@ -4,7 +4,8 @@
 \alias{lmerBayes.hyperllike.mean}
 \title{This is the hyper-likelihood for updating the hypermeans, based on ...}
 \usage{
-lmerBayes.hyperllike.mean(testmn, full.hypermean, whichtest, modelpar, covar)
+lmerBayes.hyperllike.mean(testmn, full.hypermean, whichtest, modelpar,
+  covar)
 }
 \description{
 This is the hyper-likelihood for updating the hypermeans, based on mvtnorm::dmvnorm. The vector full.hypermean is the entire set; one of them, defined by the index whichtest,

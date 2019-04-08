@@ -6,7 +6,8 @@
 \usage{
 overlay.growthbinmodel(fit, bins = 1:4, regclr = "green",
   modelclr = "blue", graphdiv = 15, add = FALSE, newgraph = TRUE,
-  export = pdf, outfile = "growth/linearbin.overlay.pdf", h = 8, w = 10)
+  export = pdf, outfile = "growth/linearbin.overlay.pdf", h = 8,
+  w = 10)
 }
 \arguments{
 \item{fit}{A fitted model.}
