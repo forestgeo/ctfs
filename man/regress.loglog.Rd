@@ -5,10 +5,10 @@
 \title{Performs regression and graphs in a convenient way.}
 \usage{
 regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
-  graphit = TRUE, xrange = NULL, yrange = NULL, add = FALSE, pts = 16,
-  lwidth = 1, drawline = "solid", title = "", xtitle = NULL,
-  ytitle = NULL, ptnames = NULL, ptsize = 1, clr = "blue",
-  lineclr = "red", includeaxis = TRUE)
+  graphit = TRUE, xrange = NULL, yrange = NULL, add = FALSE,
+  pts = 16, lwidth = 1, drawline = "solid", title = "",
+  xtitle = NULL, ytitle = NULL, ptnames = NULL, ptsize = 1,
+  clr = "blue", lineclr = "red", includeaxis = TRUE)
 }
 \arguments{
 \item{x, y}{Variables on which to perform regression and graph.}
@@ -17,7 +17,7 @@ regress.loglog(x, y, xlog = TRUE, ylog = TRUE, addone = NULL,
 
 \item{addone}{Use to handle zeros for log-transformation}
 
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,
@@ -25,13 +25,13 @@ otherwise, a new graph is drawn.}
 
 \item{pts}{See argument \code{pch} in \code{\link[graphics:par]{graphics::par()}}.}
 
-\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
+\item{lwidth}{Line width; see \code{width} in ?\code{\link[graphics:par]{graphics::par()}}.}
 
-\item{ptsize}{Passed to argument `cex` in `graphics::par()`.}
+\item{ptsize}{Passed to argument \code{cex} in \code{graphics::par()}.}
 
-\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+\item{clr}{A string indicating colour. See argument col in \code{\link[graphics:par]{graphics::par()}}.}
 
-\item{ltype}{Line type; see `ltype` in ?[graphics::par()].}
+\item{ltype}{Line type; see \code{ltype} in ?\code{\link[graphics:par]{graphics::par()}}.}
 }
 \description{
 Performs regression and graphs in a convenient way: with or without

@@ -4,15 +4,15 @@
 \alias{graph.mvnorm}
 \title{Plot contours for an mvnorm, with parameters submitted as a vecto...}
 \usage{
-graph.mvnorm(param, x, y, div = 10, add = FALSE, clr = "gray", lw = 0.5,
-  pw = 2, exclude = NULL, returnit = FALSE)
+graph.mvnorm(param, x, y, div = 10, add = FALSE, clr = "gray",
+  lw = 0.5, pw = 2, exclude = NULL, returnit = FALSE)
 }
 \arguments{
 \item{add}{Logical. Whether to add elements such as points or line to an
 existing graph. if TRUE, there must be an appropriate existing graph,
 otherwise, a new graph is drawn.}
 
-\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+\item{clr}{A string indicating colour. See argument col in \code{\link[graphics:par]{graphics::par()}}.}
 
 \item{exclude}{Allows parts to be set to zero.}
 }

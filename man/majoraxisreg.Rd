@@ -5,16 +5,17 @@
 \title{A major axis regression with parameters fitted by optim.}
 \usage{
 majoraxisreg(x, y, title = "", graphit = F, add = F, pts = T,
-  clr = "blue", xtitle = "x", ytitle = "y", ptsize = 1, labsize = 1)
+  clr = "blue", xtitle = "x", ytitle = "y", ptsize = 1,
+  labsize = 1)
 }
 \arguments{
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 
 \item{add}{xxxdocparam in majoraxisreg() is different to add in add_plot.R.}
 
-\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+\item{clr}{A string indicating colour. See argument col in \code{\link[graphics:par]{graphics::par()}}.}
 
-\item{ptsize}{Passed to argument `cex` in `graphics::par()`.}
+\item{ptsize}{Passed to argument \code{cex} in \code{graphics::par()}.}
 }
 \description{
 A major axis regression with parameters fitted by optim. The regression is

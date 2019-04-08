@@ -5,11 +5,12 @@
 \title{Output histograms of little.r across species, observed and fitted.}
 \usage{
 graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
-  modeltype = "asympower", xrange = NULL, yrange = NULL, minabund = 50,
-  conf = 25, returnextreme = TRUE, xname = "Rate of population change",
-  yname = "Frequency", ltype = "solid", lwidth = 2, modelclr = "green",
-  bartype = FALSE, addpts = TRUE, makeleg = TRUE, add = FALSE,
-  newgraph = FALSE, ax = TRUE, mortcorr = FALSE, debug = FALSE)
+  modeltype = "asympower", xrange = NULL, yrange = NULL,
+  minabund = 50, conf = 25, returnextreme = TRUE,
+  xname = "Rate of population change", yname = "Frequency",
+  ltype = "solid", lwidth = 2, modelclr = "green", bartype = FALSE,
+  addpts = TRUE, makeleg = TRUE, add = FALSE, newgraph = FALSE,
+  ax = TRUE, mortcorr = FALSE, debug = FALSE)
 }
 \arguments{
 \item{fit}{result of model.littleR.Gibbs}
@@ -21,15 +22,17 @@ graph.abundmodel(fit, datafile = NULL, div = 0.01, tinydiv = 0.001,
 \item{tinydiv}{width of bins used to draw the fitted distribution}
 
 \item{modeltype}{Functional forms to fit to the distribution; it can be:
-* Gaussian `modeltype = "norm"`, with the quotes
-* Asymmetric Gaussian (a different standard deviation on left and right of
-the mode) `modeltype = "asymnorm"`, with the quotes
-* Laplace (exponential distribution, with mirror image for negative values)
-`modeltype = "symexp"`, with the quotes
-* Asymmetric Laplace (different rate constant for left and right of the
-center) `modeltype = "asymexp"`, with the quotes
-* Asymmetric power distribution (different rate constant for left and right
-of the center) `modeltype = "asympower", with the quotes.}
+\itemize{
+\item Gaussian \code{modeltype = "norm"}, with the quotes
+\item Asymmetric Gaussian (a different standard deviation on left and right of
+the mode) \code{modeltype = "asymnorm"}, with the quotes
+\item Laplace (exponential distribution, with mirror image for negative values)
+\code{modeltype = "symexp"}, with the quotes
+\item Asymmetric Laplace (different rate constant for left and right of the
+center) \code{modeltype = "asymexp"}, with the quotes
+\item Asymmetric power distribution (different rate constant for left and right
+of the center) `modeltype = "asympower", with the quotes.
+}}
 
 \item{xrange, yrange}{Range of graph's x-axis (or y-axis).}
 
@@ -44,9 +47,9 @@ decreases in abundance to the screen}
 
 \item{xname, yname}{axis names}
 
-\item{ltype}{Line type; see `ltype` in ?[graphics::par()].}
+\item{ltype}{Line type; see \code{ltype} in ?\code{\link[graphics:par]{graphics::par()}}.}
 
-\item{lwidth}{Line width; see `width` in ?[graphics::par()].}
+\item{lwidth}{Line width; see \code{width} in ?\code{\link[graphics:par]{graphics::par()}}.}
 
 \item{modelclr}{Line color; see ?\code{\link[graphics:par]{graphics::par()}}.}
 

@@ -15,7 +15,7 @@ stem.}
 \item{census2}{The matching R Analytical Table for a later census.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}

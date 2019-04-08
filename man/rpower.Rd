@@ -7,11 +7,11 @@
 rpower(n, beta)
 }
 \arguments{
-\item{n}{Passed to argument `n` in [stats::runif()].}
+\item{n}{Passed to argument \code{n} in \code{\link[stats:runif]{stats::runif()}}.}
 }
 \description{
 Random draws based on the integral.
 }
 \seealso{
-[stats::runif()]
+\code{\link[stats:runif]{stats::runif()}}
 }

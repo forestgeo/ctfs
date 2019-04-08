@@ -7,13 +7,13 @@
 rasympower(n, rate1, rate2, c)
 }
 \arguments{
-\item{n}{Passed to argument `n` in [stats::runif()].}
+\item{n}{Passed to argument \code{n} in \code{\link[stats:runif]{stats::runif()}}.}
 }
 \description{
 Random draws from the bilateral power distribution, \code{\link[=dasympower]{dasympower()}}.
 }
 \seealso{
-[stats::runif()]
+\code{\link[stats:runif]{stats::runif()}}
 }
 \author{
 R. Chisholm.

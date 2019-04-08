@@ -4,8 +4,8 @@
 \alias{residual.llike.lmerBayes}
 \title{Calculate likelihood of residual standard deviation, given observat...}
 \usage{
-residual.llike.lmerBayes(test, whichtest, data, trueN, model, sdpar, fullpar,
-  sdmodel, badparam, errormodel = "Gauss", ...)
+residual.llike.lmerBayes(test, whichtest, data, trueN, model, sdpar,
+  fullpar, sdmodel, badparam, errormodel = "Gauss", ...)
 }
 \arguments{
 \item{badparam}{The name of a function (unquoted) that tests a set of model

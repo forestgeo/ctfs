@@ -5,15 +5,15 @@
 \title{Draw map of one or more species from one plot.}
 \usage{
 map(splitdatafile, species, spplist = NULL, plotdim = c(1000, 500),
-  xrange = c(0, plotdim[1]), yrange = c(0, plotdim[2]), elevdata = NULL,
-  cutoff = c(10, 100, 300, 3000), size = NULL, deadtree = FALSE,
-  maintitle = "", titlepos = c(plotdim[1]/2, 1.32 * plotdim[2]),
-  clrs = NULL, bw = FALSE, bgcolor = "white", symbols = NULL,
-  xaxis = TRUE, yaxis = TRUE, addlegend = TRUE, legpos = c(plotdim[1]/2,
-  1.16 * plotdim[2]), legsize = 0.75, labsize = 1.15, axisdiv = 100,
-  bty = "n", ht = 6, wd = 9, plotside = 6, axspos = 0.5,
-  topoclr = "gray80", topoint = 0, export = "no", filepath = "",
-  outfile = NULL)
+  xrange = c(0, plotdim[1]), yrange = c(0, plotdim[2]),
+  elevdata = NULL, cutoff = c(10, 100, 300, 3000), size = NULL,
+  deadtree = FALSE, maintitle = "", titlepos = c(plotdim[1]/2, 1.32 *
+  plotdim[2]), clrs = NULL, bw = FALSE, bgcolor = "white",
+  symbols = NULL, xaxis = TRUE, yaxis = TRUE, addlegend = TRUE,
+  legpos = c(plotdim[1]/2, 1.16 * plotdim[2]), legsize = 0.75,
+  labsize = 1.15, axisdiv = 100, bty = "n", ht = 6, wd = 9,
+  plotside = 6, axspos = 0.5, topoclr = "gray80", topoint = 0,
+  export = "no", filepath = "", outfile = NULL)
 }
 \arguments{
 \item{splitdatafile}{A full plot dataset in list format (see \code{?split_data}).}
@@ -29,7 +29,7 @@ species code (as submitted) appears on the map.}
 \item{plotdim}{The x and y dimensions of the plot.}
 
 \item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
-If `NULL`, all `x` (or `y`) are included.}
+If \code{NULL}, all \code{x} (or \code{y}) are included.}
 
 \item{elevdata}{Elevation data can be submitted, then a topo map is overlaid.
 Elevation data must be submitted as a matrix (as described in readelevdata
@@ -89,13 +89,12 @@ need to be 500-1000.}
 
 \item{topoint}{Interval for topolines, if elevdata are submitted.}
 
-\item{export}{`export = "no"`, does nothing, so the next graph uses the
+\item{export}{\code{export = "no"}, does nothing, so the next graph uses the
 default R device. With this option, the size of the graph cannot have been
-set larger than the default size, which is usually 7 inches. `export =
-"unix"`, a new graphics window in unix, size `h` and width `w`, will be
-opened allowing you to alter the size of the output. `export = "windows"`,
-or `export = "mac"` are similar to `export = "unix"` but for windows and
-mac. `export = format` exports the graph to a specific file format: "pdf",
+set larger than the default size, which is usually 7 inches. \code{export = "unix"}, a new graphics window in unix, size \code{h} and width \code{w}, will be
+opened allowing you to alter the size of the output. \code{export = "windows"},
+or \code{export = "mac"} are similar to \code{export = "unix"} but for windows and
+mac. \code{export = format} exports the graph to a specific file format: "pdf",
 "png", "jpg", "bmp", "emf".}
 
 \item{filepath}{The folder to which map will be exported.}

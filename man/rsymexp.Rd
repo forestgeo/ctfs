@@ -7,7 +7,7 @@
 rsymexp(n, center, rate)
 }
 \arguments{
-\item{n}{Passed to argument `n` in [stats::runif()].}
+\item{n}{Passed to argument \code{n} in \code{\link[stats:runif]{stats::runif()}}.}
 
 \item{center}{center Center of the distribution.}
 }
@@ -17,5 +17,5 @@ cumulative probability, as given in psymexp. A random uniform number on (0, 1)
 is plugged in the inverse of the cumulative distribution.
 }
 \seealso{
-[stats::runif()]
+\code{\link[stats:runif]{stats::runif()}}
 }

@@ -4,8 +4,8 @@
 \alias{mortality}
 \title{Mortality, forest-wide or based on one or two categories.}
 \usage{
-mortality(census1, census2, alivecode = c("A", "AB", "AS"), split1 = NULL,
-  split2 = NULL)
+mortality(census1, census2, alivecode = c("A", "AB", "AS"),
+  split1 = NULL, split2 = NULL)
 }
 \arguments{
 \item{census1}{The R Analytical Table for a single census, either tree or
@@ -13,8 +13,8 @@ stem.}
 
 \item{census2}{The matching R Analytical Table for a later census.}
 
-\item{alivecode}{character, codes of the variable `status` that indicate the 
-tree is alive. The default 'A' is the standard CTFS designation for living 
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
 trees or stems}
 
 \item{split1}{a vector of categories, one per individual}

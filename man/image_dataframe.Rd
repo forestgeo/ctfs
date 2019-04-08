@@ -4,10 +4,11 @@
 \alias{image_dataframe}
 \title{Creates a color response map based on columnar data.}
 \usage{
-image_dataframe(data, xcol = "x", ycol = "y", zcol = "z", breaks = NULL,
-  div = NULL, colors = NULL, xname = "x", yname = "y", xrange = NULL,
-  yrange = NULL, ptsize = 1, graphfile = NULL, export = X11,
-  newgraph = FALSE, h = 11, w = 11, plotsize = 6)
+image_dataframe(data, xcol = "x", ycol = "y", zcol = "z",
+  breaks = NULL, div = NULL, colors = NULL, xname = "x",
+  yname = "y", xrange = NULL, yrange = NULL, ptsize = 1,
+  graphfile = NULL, export = X11, newgraph = FALSE, h = 11,
+  w = 11, plotsize = 6)
 }
 \arguments{
 \item{data}{A data frame with at least 3 columns, 2 of which are coordinates
@@ -24,9 +25,9 @@ lines; if NULL, levels controls the breaks}
 \item{yname}{axis names}
 
 \item{xrange, yrange}{Minimum and maximum x and y coordinates of area graphed.
-If `NULL`, all `x` (or `y`) are included.}
+If \code{NULL}, all \code{x} (or \code{y}) are included.}
 
-\item{ptsize}{Passed to argument `cex` in `graphics::par()`.}
+\item{ptsize}{Passed to argument \code{cex} in \code{graphics::par()}.}
 
 \item{graphfile}{the file name if export is pdf, png, jpeg, win.metafile,
 etc.}

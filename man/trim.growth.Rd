@@ -28,7 +28,7 @@ measures.}
 as 10.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{dbhunit}{'cm' or 'mm', only used for basal area}
@@ -52,6 +52,6 @@ if the POM changes by more than 5%.
 }
 \details{
 This function is usually only used inside the other growth functions. Note
-that trees are exclude if \code{cens1$dbh < mindbh}, but not if \code{cens2$dbh < mindbh}. All parameters for excluding growth measures based on error can be
+that trees are exclude if \code{cens1$dbh < mindbh}, but not if \code{cens2$dbh <  mindbh}. All parameters for excluding growth measures based on error can be
 adjusted.
 }

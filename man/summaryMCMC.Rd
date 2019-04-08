@@ -3,7 +3,6 @@
 \name{summaryMCMC}
 \alias{summaryMCMC}
 \alias{summaryModelMCMC}
-\alias{summaryModelMCMC}
 \title{Summarize calculations based on the full Gibbs sampler.}
 \usage{
 summaryMCMC(fit, model, error, sdmodel, badparam, paramfile = NULL,

@@ -4,8 +4,8 @@
 \alias{llike.GaussModelSD}
 \title{This is for model.xy. Take the function for the SD, its parameters,...}
 \usage{
-llike.GaussModelSD(testparam, allparam, whichtest, x, pred, obs, model, badsd,
-  ...)
+llike.GaussModelSD(testparam, allparam, whichtest, x, pred, obs, model,
+  badsd, ...)
 }
 \description{
 This is for model.xy. Take the function for the SD, its parameters, and both predicted and observed values of the

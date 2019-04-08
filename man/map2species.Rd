@@ -5,9 +5,10 @@
 \title{Map 2 species to a 2-panel pdf.}
 \usage{
 map2species(spp, data = list(bci3.spp, korup.spp),
-  spplist = list(plotspp$bci, plotspp$korup), elev = list(ctfs.elev$bci,
-  ctfs.elev$korup), path = "spp", export = pdf, file = pst(spp[1], spp[2],
-  "map.pdf"), ptsize = c(0.6, 0.6), topo = c(2, 4), ht = 11, wd = 8.5,
+  spplist = list(plotspp$bci, plotspp$korup),
+  elev = list(ctfs.elev$bci, ctfs.elev$korup), path = "spp",
+  export = pdf, file = pst(spp[1], spp[2], "map.pdf"),
+  ptsize = c(0.6, 0.6), topo = c(2, 4), ht = 11, wd = 8.5,
   plotside = 4)
 }
 \arguments{

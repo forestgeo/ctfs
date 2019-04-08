@@ -4,11 +4,11 @@
 \alias{lmerBayes}
 \title{A Metropolis MCMC version of lmer.}
 \usage{
-lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD, startCov,
-  model = logistic.standard, error = "Binom", includeCovar = TRUE,
-  update = "conjugate", badparam = NULL, sdfunc = constant, badSDparam,
-  paramfile = NULL, savestep = 500, steps = 1000, showstep = 100,
-  burnin = 100, debug = FALSE, ...)
+lmerBayes(data, ycol, randcol, xcol, start, fixef = NULL, startSD,
+  startCov, model = logistic.standard, error = "Binom",
+  includeCovar = TRUE, update = "conjugate", badparam = NULL,
+  sdfunc = constant, badSDparam, paramfile = NULL, savestep = 500,
+  steps = 1000, showstep = 100, burnin = 100, debug = FALSE, ...)
 }
 \arguments{
 \item{data}{The table of data, in lmer-style, including one column to be
@@ -18,7 +18,7 @@ variables, x), and one random effect, using any column names.}
 \item{randcol}{The name of one column holding the random variable; must be a
 character variable.}
 
-\item{xcol, ycol}{Chareacter string giving the name of a column in `data` that
+\item{xcol, ycol}{Chareacter string giving the name of a column in \code{data} that
 holds the x and y (numeric) variable.}
 
 \item{start}{A vector giving the starting set of parameters for the model. It

@@ -13,12 +13,12 @@ stem.}
 
 \item{census2}{The matching R Analytical Table for a later census.}
 
-\item{alivecode}{character, codes of the variable `status` that indicate the 
-tree is alive. The default 'A' is the standard CTFS designation for living 
+\item{alivecode}{character, codes of the variable \code{status} that indicate the
+tree is alive. The default 'A' is the standard CTFS designation for living
 trees or stems}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 
 \item{split1}{a vector of categories, one per individual}

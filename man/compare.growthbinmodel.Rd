@@ -4,9 +4,9 @@
 \alias{compare.growthbinmodel}
 \title{Calculates various metrics of fit: DIC, BIC, AIC.}
 \usage{
-compare.growthbinmodel(fit, bins = 1:4, makegraph = TRUE, conflines = 0,
-  newgraph = TRUE, export = pdf, outfile = "growth/linearbin.bestfit.pdf",
-  h = 8, w = 10)
+compare.growthbinmodel(fit, bins = 1:4, makegraph = TRUE,
+  conflines = 0, newgraph = TRUE, export = pdf,
+  outfile = "growth/linearbin.bestfit.pdf", h = 8, w = 10)
 }
 \arguments{
 \item{fit}{A fitted model.}

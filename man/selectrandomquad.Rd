@@ -4,15 +4,15 @@
 \alias{selectrandomquad}
 \alias{selectrandomquad2}
 \alias{selectrandomquad3}
-\alias{selectrandomquad2}
-\alias{selectrandomquad3}
 \title{Draws rectangular quadrats in a plot at random.}
 \usage{
-selectrandomquad(size, shape, rep, plotdim = c(1000, 500), graphit = FALSE)
+selectrandomquad(size, shape, rep, plotdim = c(1000, 500),
+  graphit = FALSE)
 
 selectrandomquad2(size, rep, plotdim = c(1000, 500), graphit = FALSE)
 
-selectrandomquad3(size, shape, rep, plotdim = c(1000, 500), graphit = FALSE)
+selectrandomquad3(size, shape, rep, plotdim = c(1000, 500),
+  graphit = FALSE)
 }
 \arguments{
 \item{size}{A vector of quadrat sizes, referring to the x-dimension of a
@@ -26,7 +26,7 @@ to create.}
 
 \item{plotdim}{The x and y dimensions of the plot.}
 
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 }
 \description{
 Draw rectangular quadrats in a plot at random. Returns a dataframe of

@@ -5,7 +5,8 @@
 \title{Pass the output of extract.growth with every individual's growth (f...}
 \usage{
 graph.outliers.spp(full, trimmed, spname = "gustsu", fit = NULL,
-  size = "agb", export = NULL, xtitle = "log(agb)", ytitle = "growth")
+  size = "agb", export = NULL, xtitle = "log(agb)",
+  ytitle = "growth")
 }
 \arguments{
 \item{fit}{A fitted model.}

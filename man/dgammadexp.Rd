@@ -4,8 +4,8 @@
 \alias{dgammadexp}
 \title{PDF by adding a gamma distribution to a symmetrical exponential distribution.}
 \usage{
-dgammadexp(z, mean, sd, lambda, draws = 10000, div = 0.1, xrange = c(-10,
-  30), graphit = F)
+dgammadexp(z, mean, sd, lambda, draws = 10000, div = 0.1,
+  xrange = c(-10, 30), graphit = F)
 }
 \arguments{
 \item{z}{A numeric vector.}
@@ -14,7 +14,7 @@ dgammadexp(z, mean, sd, lambda, draws = 10000, div = 0.1, xrange = c(-10,
 
 \item{lambda}{Rate of the exponential.}
 
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 }
 \description{
 PDF of a function formed by adding a gamma distribution to a symmetrical

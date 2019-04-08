@@ -4,8 +4,8 @@
 \alias{binGraphManySpecies.Panel}
 \title{Make a graph, 4 panels, of AGB growth and model fit of many species...}
 \usage{
-binGraphManySpecies.Panel(fulldataname, sitename, darken = 8, xrange = c(-3,
-  3), yrange = c(0, 0.1), export = pdf,
+binGraphManySpecies.Panel(fulldataname, sitename, darken = 8,
+  xrange = c(-3, 3), yrange = c(0, 0.1), export = pdf,
   outfile = "growth/linearbin.multi.pdf", h = 8, w = 10)
 }
 \arguments{

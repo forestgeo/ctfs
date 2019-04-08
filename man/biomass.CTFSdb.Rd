@@ -4,10 +4,11 @@
 \alias{biomass.CTFSdb}
 \title{Biomass for trees and stems using dbh allometry.}
 \usage{
-biomass.CTFSdb(RStemTable, RTreeTable, whichtable = "tree", dbhunit = "mm",
-  plot = "bci", wsgdata = wsg.ctfs2, forest = "moist", ht.param = NULL,
-  htmodel = predht.asym, useChave = TRUE, cnsno = NULL, dbname = NULL,
-  fullname = NULL, plotcode = NULL)
+biomass.CTFSdb(RStemTable, RTreeTable, whichtable = "tree",
+  dbhunit = "mm", plot = "bci", wsgdata = wsg.ctfs2,
+  forest = "moist", ht.param = NULL, htmodel = predht.asym,
+  useChave = TRUE, cnsno = NULL, dbname = NULL, fullname = NULL,
+  plotcode = NULL)
 }
 \arguments{
 \item{dbhunit}{'cm' or 'mm', only used for basal area}

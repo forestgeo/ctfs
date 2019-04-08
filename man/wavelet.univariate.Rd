@@ -4,8 +4,9 @@
 \alias{wavelet.univariate}
 \title{Univariate wavelet variance using furier transforms.}
 \usage{
-wavelet.univariate(raster = NULL, coords, gridsize = 2, plotdim = c(1000,
-  500), FUN = NULL, k0 = 8, dj = 0.15, graph = FALSE)
+wavelet.univariate(raster = NULL, coords, gridsize = 2,
+  plotdim = c(1000, 500), FUN = NULL, k0 = 8, dj = 0.15,
+  graph = FALSE)
 }
 \arguments{
 \item{raster}{Used if data is entered already as a raster matrix.}

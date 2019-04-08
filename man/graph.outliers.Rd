@@ -4,8 +4,8 @@
 \alias{graph.outliers}
 \title{Plot outliers overlaid on the model and full data for all species.}
 \usage{
-graph.outliers(full, trimmed, fit = NULL, allspp = NULL, size = "agb",
-  export = NULL, wind = X11)
+graph.outliers(full, trimmed, fit = NULL, allspp = NULL,
+  size = "agb", export = NULL, wind = X11)
 }
 \arguments{
 \item{fit}{A fitted model.}

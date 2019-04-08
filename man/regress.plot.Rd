@@ -9,9 +9,9 @@ regress.plot(x, y, title = "", graphit = T, add = F, pts = T,
   xtitle = NULL, ytitle = NULL)
 }
 \arguments{
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 
-\item{clr}{A string indicating colour. See argument col in [graphics::par()].}
+\item{clr}{A string indicating colour. See argument col in \code{\link[graphics:par]{graphics::par()}}.}
 }
 \description{
 Performs regression in convenient way and returns coefficients and

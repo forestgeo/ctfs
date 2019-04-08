@@ -14,7 +14,7 @@ dgammaMinusdexp(z, mean, sd, lambda, draws = 10000, div = 0.01,
 
 \item{lambda}{Rate of the exponential.}
 
-\item{graphit}{Logical; if `TRUE` adds plot output.}
+\item{graphit}{Logical; if \code{TRUE} adds plot output.}
 }
 \description{
 The PDF of the difference between a gamma and a negative exponential

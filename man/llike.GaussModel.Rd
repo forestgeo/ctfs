@@ -5,8 +5,8 @@
 \title{This is for model.xy.
 Generate a likelihood for \code{model.xy()}.}
 \usage{
-llike.GaussModel(testparam, allparam, whichtest, x, obs, model, badpred, SD,
-  ...)
+llike.GaussModel(testparam, allparam, whichtest, x, obs, model, badpred,
+  SD, ...)
 }
 \description{
 This is for model.xy. It takes the model function, its parameters, x values,

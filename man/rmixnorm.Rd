@@ -7,7 +7,7 @@
 rmixnorm(n, mean1, mean2, sd1, sd2, f)
 }
 \arguments{
-\item{n}{Passed to argument `n` in [stats::runif()].}
+\item{n}{Passed to argument \code{n} in \code{\link[stats:runif]{stats::runif()}}.}
 
 \item{mean1, sd1, }{The mean and sd of the first distribution.}
 
@@ -17,5 +17,5 @@ rmixnorm(n, mean1, mean2, sd1, sd2, f)
 Random draw on the mixed normal distribution.
 }
 \seealso{
-[stats::runif()]
+\code{\link[stats:runif]{stats::runif()}}
 }

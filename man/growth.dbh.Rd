@@ -4,9 +4,9 @@
 \alias{growth.dbh}
 \title{Calculates forest-wide growth in given dbh categories.}
 \usage{
-growth.dbh(census1, census2, classbreak = c(10, 100, 300), dbhunit = "mm",
-  growthcol = "dbh", err.limit = 4, maxgrow = 75, rounddown = FALSE,
-  method = "I", stdev = FALSE, mindbh = 10)
+growth.dbh(census1, census2, classbreak = c(10, 100, 300),
+  dbhunit = "mm", growthcol = "dbh", err.limit = 4, maxgrow = 75,
+  rounddown = FALSE, method = "I", stdev = FALSE, mindbh = 10)
 }
 \arguments{
 \item{census1}{The R Analytical Table for a single census, either tree or
@@ -35,7 +35,7 @@ or 'E' to calculate the relative growth rate (log(dbh2) - log(dbh1))/time.}
 returns the SD in growth rate per group.}
 
 \item{mindbh}{The minimum diameter above which the counts are done. Trees
-smaller than `mindbh` are excluded. If `NULL`, all living trees are
+smaller than \code{mindbh} are excluded. If \code{NULL}, all living trees are
 included.}
 }
 \value{

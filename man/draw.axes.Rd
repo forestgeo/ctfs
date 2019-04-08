@@ -8,10 +8,10 @@ draw.axes(whichaxs = 1:4, xrange, yrange, div, whichbox = 1:4)
 }
 \arguments{
 \item{xrange}{Minimum and maximum x and y coordinates of area graphed.
-If `NULL`, all `x` (or `y`) are included.}
+If \code{NULL}, all \code{x} (or \code{y}) are included.}
 
 \item{yrange}{Minimum and maximum x and y coordinates of area graphed.
-If `NULL`, all `x` (or `y`) are included.}
+If \code{NULL}, all \code{x} (or \code{y}) are included.}
 
 \item{div}{Vector used to space ticks.}
 }
